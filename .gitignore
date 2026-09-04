@@ -1,0 +1,13 @@
+# WorkBuddy 内部数据（含个人记忆/配置，禁止上传）
+.workbuddy/
+
+# 原始素材/样张（非站点运行所需，体积大，按需取消注释以纳入）
+素材/
+
+# 操作系统 / 编辑器垃圾
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~

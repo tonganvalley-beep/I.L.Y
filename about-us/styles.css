@@ -1,0 +1,350 @@
+@charset "utf-8";
+
+:root {
+    --accent: #00B4D8;
+    --accent2: #2A9D8F;
+    --accent-text: #ffffff;
+    --sidebar-bg: #333333;
+    --sidebar-text: #ffffff;
+    --main-bg: #dedede;
+    --card-bg: #ffffff;
+    --text: #222222;
+    --muted: #555555;
+}
+
+@font-face {
+    font-family: 'Source Han Serif';
+    src: local('Source Han Serif CN'),
+         url('fonts/SourceHanSerifSC-VF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Source Han Serif', serif;
+    margin: 0;
+}
+
+body {
+    color: var(--text);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 左侧边栏 */
+.sidebar {
+    width: clamp(220px, 15vw, 280px);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 20px;
+}
+
+.sidebar .logo {
+    font-size: 220%;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+.sidebar #ul1 {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.sidebar #ul1 li {
+    padding: 0;
+}
+
+.sidebar #ul1 li a {
+    display: block;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.2s;
+}
+
+.sidebar #ul1 li a:hover {
+    background-color: #575757;
+}
+
+.sidebar #ul2 {
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    list-style-type: square;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.sidebar #ul2 li a {
+    color: rgb(201, 201, 201);
+    text-decoration: none;
+    font-size: 85%;
+    transition: color 0.2s;
+}
+
+.sidebar #ul2 li a:hover {
+    color: var(--accent);
+}
+
+/* 主体 */
+.main-content {
+    margin-left: clamp(220px, 15vw, 280px);
+    flex: 1;
+    background-color: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 顶部导航栏 */
+.navbar {
+    background-image: url('assets/lastframe.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 140px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    position: relative;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.55);
+}
+
+.navbar button {
+    position: relative;
+    z-index: 1;
+    height: 30px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#back {
+    max-width: 30px;
+}
+
+/* 内容区 */
+.content {
+    padding: 40px 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content > h1 {
+    font-size: 220%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.team-intro {
+    max-width: 800px;
+    text-align: center;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+/* 成员卡片网格 */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px 0;
+}
+
+.card {
+    perspective: 1000px;
+    aspect-ratio: 500 / 340;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner,
+.card:focus .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.card-front {
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-front img {
+    width: 55%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-front .info {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-front .name {
+    font-size: 180%;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-front .role {
+    font-size: 105%;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    text-align: center;
+}
+
+.card-back .motto {
+    font-size: 130%;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.card-back button {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: var(--accent-text);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 联系区 */
+.contact-band {
+    width: 100%;
+    max-width: 1200px;
+    height: 280px;
+    border-radius: 20px;
+    background: url('assets/lastframe.jpg') center / cover;
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+.contact-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.65);
+}
+
+.contact-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-content h2 {
+    font-size: 200%;
+    margin-bottom: 10px;
+}
+
+.contact-content p {
+    font-size: 110%;
+    opacity: 0.9;
+}
+
+/* 页脚 */
+.footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 85%;
+    color: var(--muted);
+}
+
+/* 响应式 */
+@media (max-width: 1100px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
