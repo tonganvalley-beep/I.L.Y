@@ -16,6 +16,15 @@ PINYIN = {
     '李皓辰': 'lihaochen',
 }
 
+MOTTOS = {
+    'guorucheng': '早日走自己的路吧',
+    'xingjiaxuan': 'Life is like a box of chocolate.',
+    'zhaotongan': 'Step by Step',
+    'liuxu': '灵魂的欲望，是命运的先知',
+    'wangtianhao': '想都是问题，做才是答案。',
+    'lihaochen': '我是🤖',
+}
+
 
 def parse_name_txt(path):
     team_name = ''
@@ -115,14 +124,8 @@ def generate_index(team_name, project_name, members):
                 <div class="cards-grid">
                     {cards}
                 </div>
-                <div class="contact-band">
-                    <div class="contact-content">
-                        <h2>联系我们</h2>
-                        <p>联系方式待补充</p>
-                    </div>
-                </div>
                 <div class="footer">
-                    <p>&copy; 2024 {team_name} 保留所有权利。</p>
+                    <p>&copy; 2026 {team_name} 保留所有权利。</p>
                 </div>
             </div>
         </div>
@@ -151,7 +154,7 @@ def card_html(m, idx):
                                 </div>
                             </div>
                             <div class="card-back">
-                                <p class="motto">座右铭待补充</p>
+                                <p class="motto">{MOTTOS[pinyin]}</p>
                                 <div class="row">
                                     <button onclick="window.location='members/{pinyin}/index.html'">More About…</button>
                                 </div>
@@ -192,7 +195,7 @@ def generate_member(team_name, project_name, members, current):
                     <p>联系方式待补充。</p>
                 </div>
                 <div class="footer">
-                    <p>&copy; 2024 {team_name} 保留所有权利。</p>
+                    <p>&copy; 2026 {team_name} 保留所有权利。</p>
                 </div>
             </div>
         </div>
