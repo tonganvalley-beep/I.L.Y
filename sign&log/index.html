@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     index.html —— 游戏开始界面（登录成功后的第一个页面）
+
+     内容：
+       · 全屏显示 游戏开始界面.png（暗色 + 中央翻盖手机）
+       · 打开时从全白淡入（接住登录页 intro.mp4 结尾的全白）
+       · 底部灰色小字"轻点屏幕以继续"（中英双语，缓慢闪烁）
+       · 右上角中英文切换按钮（和登录页同一套方案、同一份记忆）
+       · 点击屏幕任意处 → 全屏播放 intro-flip3.mp4
+        （手机上半部分上翻开盖，打开后"上屏幕+下键盘"，
+          屏幕亮起 → 镜头推近渐变到游戏主界面）→ 播完跳转到 game.html
+
+     双语约定：本项目所有游戏网页都必须中英文双语（用户硬性要求）。
+     方案和 login.js 相同：语言表内嵌 + data-i18n 标记 + localStorage
+     记选择，所有页面读同一个 key（mygame-lang），切一次全站生效。
+     ============================================================ -->
+<html lang="zh-CN" data-page-node-id="Q61DdkeYAgchOWHf7pTkIc">
+
+<head data-page-node-id="wsnufgJU3tMyJCUFpNlAJR">
+  <meta charset="UTF-8" data-page-node-id="jcFvFuYF8I8RIpFXQEr8WD">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="f93QEqUIaXwMW1IFkhD3o8">
+  <title data-i18n="page.title">开始界面</title>
+  <style>
+    /* ---------- 像素字体：和登录页同一个字体文件 ---------- */
+    /* @font-face 的作用：把 fonts/zpix.ttf 注册成名叫 "Zpix" 的字体，
+       之后 font-family: "Zpix" 就能用它。fonts/ 和本文件同目录 */
+    @font-face {
+      font-family: 'Zpix';
+      src: url('./fonts/zpix.ttf') format('truetype');
+      font-display: swap;      /* 字体加载期间先用后备字体显示，避免文字空白 */
+    }
+
+    /* ---------- 页面主体：全屏背景图 ---------- */
+    body {
+      margin: 0;
+      height: 100vh;                 /* 高度撑满整个窗口 */
+      overflow: hidden;              /* 不出现滚动条 */
+      font-family: 'Zpix', 'Consolas', monospace;  /* 全页像素字体 */
+      /* 游戏开始界面.png 在 login/photo&video/ 素材文件夹里 */
+      background-image: url('./photo&video/游戏开始界面.png');
+      background-size: cover;        /* 等比缩放到刚好盖满窗口 */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #000;        /* 图是暗色的，边角露出处也用黑色 */
+      cursor: pointer;               /* 鼠标变成小手，暗示"整个屏幕都能点" */
+      user-select: none;             /* 点击时不会意外选中文字 */
+    }
+
+    /* ---------- 白屏淡入层 ---------- */
+    /* 页面一打开时这层是纯白不透明，1 秒内慢慢变透明——
+       和登录页视频结尾的全白无缝衔接 */
+    .white-flash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff;
+      pointer-events: none;          /* 不挡点击 */
+      /* forwards：动画播完停在最后一帧（保持透明），不会闪回白色 */
+      animation: fadeOut 1s ease-out forwards;
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; visibility: hidden; }
+    }
+
+    /* ---------- 底部灰色小字：轻点屏幕以继续 ---------- */
+    .continue-hint {
+      position: fixed;
+      left: 0; right: 0;             /* 左右都贴边 + 文字居中 = 水平居中 */
+      bottom: 6%;                    /* 离屏幕底部 6% */
+      text-align: center;
+      color: rgba(180, 180, 180, 0.75);  /* 灰色、微微半透明，不抢画面 */
+      font-size: 15px;
+      letter-spacing: 2px;           /* 字距拉开一点，更像游戏提示 */
+      /* 缓慢闪烁：经典"PRESS START"式呼吸效果，吸引注意又不刺眼 */
+      animation: breathe 1.6s ease-in-out infinite;
+      pointer-events: none;          /* 文字本身不拦截点击，点它和点屏幕一样 */
+    }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.35; }    /* 最暗 */
+      50%      { opacity: 0.9; }     /* 最亮 */
+    }
+
+    /* ---------- 右上角：中英文切换按钮（样式照搬登录页） ---------- */
+    .lang-btn {
+      position: fixed;
+      top: 18px; right: 20px;
+      z-index: 10;                   /* 浮在背景图之上 */
+      padding: 8px 16px;
+      font-family: inherit;          /* 按钮默认不继承 body 字体，必须显式写 */
+      font-size: 14px;
+      color: #cfe3ff;
+      background: rgba(10, 25, 55, 0.55);
+      border: 1px solid rgba(120, 180, 255, 0.5);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lang-btn:hover {
+      background: rgba(30, 70, 140, 0.7);
+    }
+
+    /* ---------- 全屏视频层（点击"继续"后播放 intro-flip3.mp4） ---------- */
+    .video-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;              /* 黑底，视频加载瞬间不露背景 */
+      z-index: 999;                  /* 压在所有内容之上 */
+    }
+    .video-overlay video {
+      width: 100%; height: 100%;
+      object-fit: cover;             /* 等比裁满全屏，不变形 */
+    }
+
+    /* ---------- 工具类：加了这个类的元素直接隐藏 ---------- */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body data-page-node-id="c8kfRVYfc3CHh4QVReqezh">
+  <!-- 白屏淡入层：只负责转场，没有任何交互 -->
+  <div class="white-flash" data-page-node-id="9a8UULYNxX6DHDzTvJwnzk"></div>
+
+  <!-- 右上角：中英文切换按钮。
+       当前中文时显示 "EN"（点它切英文），当前英文时显示 "中文" -->
+  <button id="langBtn" class="lang-btn" title="切换语言 / Switch Language" data-page-node-id="untB51FpVkSjbluBkYEdCw">EN</button>
+
+  <!-- 底部灰色小字：data-i18n="hint.continue" 表示这行字跟着语言切换 -->
+  <div class="continue-hint" data-i18n="hint.continue" data-page-node-id="iNsdXkKfOnEfiCQgIEeJ4H">轻点屏幕以继续</div>
+
+  <!-- 全屏视频层：默认 hidden 隐藏。
+       点击屏幕后 JS 去掉 hidden，播放 intro-flip3.mp4
+       （上半部分上翻开盖 → 上屏幕+下键盘 → 屏幕亮起 → 渐变到主界面） -->
+  <div id="videoOverlay" class="video-overlay hidden" data-page-node-id="HO5FHeRZR6NENh7UlctdT3">
+    <video id="introVideo" src="./photo&video/intro-flip3.mp4" preload="auto" playsinline data-page-node-id="za9AtmkhknUZmAB4A48hkv"></video>
+  </div>
+
+  <script>
+    /* ============================================================
+     * 第 1 块：多语言（和 login.js 完全相同的方案）
+     *
+     * 原理：页面文字不直接写死，而是给一个 key（如 "hint.continue"），
+     * 在语言表里查"当前语言下这个 key 对应什么文字"。
+     * 切换语言 = 换一张表重新查一遍。
+     *
+     * 各页面共用 localStorage 的 'mygame-lang'：
+     * 在登录页切过语言，打开本页时自动用同一种语言，反之亦然。
+     * ============================================================ */
+
+    /* 语言表：chinese 存中文，english 存英文。两份表的 key 必须一模一样 */
+    const LANG = {
+      chinese: {
+        "page.title":    "开始界面",
+        "hint.continue": "轻点屏幕以继续"
+      },
+      english: {
+        "page.title":    "Start Screen",
+        "hint.continue": "Tap anywhere to continue"
+      }
+    };
+
+    /* 当前语言：先读 localStorage 里记住的选择，没存过就默认中文 */
+    let currentLang = localStorage.getItem('mygame-lang') || 'chinese';
+
+    /* t(key)：查当前语言下 key 对应的文字；找不到就原样返回 key（方便排查漏翻） */
+    function t(key) {
+      return LANG[currentLang][key] || key;
+    }
+
+    /* applyDomLang()：扫描整页，把所有带 data-i18n 标记的元素文字换成当前语言 */
+    function applyDomLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.getAttribute('data-i18n'));
+      });
+      /* 顺便更新 <html lang> 属性（对搜索引擎和屏幕阅读器更友好） */
+      document.documentElement.lang = (currentLang === 'chinese') ? 'zh-CN' : 'en';
+    }
+
+    /* setLang(name)：切换语言 + 记住选择（所有页面读同一个 key，全站生效） */
+    function setLang(name) {
+      currentLang = name;
+      localStorage.setItem('mygame-lang', name);
+      applyDomLang();
+      /* 按钮本身显示"对方语言"：当前中文显示 EN，当前英文显示 中文 */
+      document.getElementById('langBtn').textContent =
+        (name === 'chinese') ? 'EN' : '中文';
+    }
+
+    /* 页面加载完：应用上次记住的语言，并给切换按钮绑定点击事件 */
+    window.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+      document.getElementById('langBtn').addEventListener('click', (e) => {
+        e.stopPropagation();   /* 阻止冒泡到 body——否则点语言按钮也算"轻点屏幕" */
+        setLang(currentLang === 'chinese' ? 'english' : 'chinese');
+      });
+    });
+
+
+    /* ============================================================
+     * 第 2 块：轻点屏幕 → 播放转场视频 → 跳转游戏主界面
+     *
+     * 流程：
+     *   点击屏幕任意处（语言按钮除外）
+     *     → 显示全屏视频层，播放 intro-flip3.mp4
+     *       （翻盖手机上半部分上翻开盖，上屏幕+下九宫格键盘，
+     *         屏幕亮起 → 镜头推近渐变到游戏主界面）
+     *     → 视频播完自动跳转 game.html
+     *   视频播放中再点一次屏幕 = 跳过视频，直接跳转。
+     * 视频最后一帧就是 游戏主界面.png，game.html 背景也是它 → 无缝衔接。
+     * ============================================================ */
+
+    /* 跳转目标页：视频播完要去哪个页面，改这一行就行 */
+    const NEXT_PAGE = './game.html';
+
+    /* 状态标记：
+       introPlaying —— 视频是否正在播（区分"第一次点击"和"播放中点击跳过"）
+       introJumped  —— 是否已经在跳转（防止播完和跳过重复触发跳两次） */
+    let introPlaying = false;
+    let introJumped  = false;
+
+    /* 点击 body 任意处都会触发（语言按钮已用 stopPropagation 排除） */
+    document.body.addEventListener('click', () => {
+      if (introJumped) return;          /* 已经在跳转了，忽略 */
+      if (introPlaying) {               /* 视频正在播 → 这次点击算"跳过" */
+        goNextPage();
+      } else {                          /* 第一次点击 → 开始播视频 */
+        playIntroThenGo();
+      }
+    });
+
+    /* playIntroThenGo()：显示视频层并播放 */
+    function playIntroThenGo() {
+      introPlaying = true;
+      const overlay = document.getElementById('videoOverlay');
+      const video   = document.getElementById('introVideo');
+
+      overlay.classList.remove('hidden');  /* 视频层盖住整个页面 */
+      video.currentTime = 0;               /* 从头播 */
+      /* 视频自然播完时自动跳转（once:true 表示只触发一次） */
+      video.addEventListener('ended', goNextPage, { once: true });
+      /* 播放失败（视频文件丢失等）→ 直接跳转，不让用户卡黑屏 */
+      video.play().catch(goNextPage);
+    }
+
+    /* goNextPage()：跳转到游戏主界面 */
+    function goNextPage() {
+      if (introJumped) return;
+      introJumped = true;
+      document.getElementById('introVideo').pause();  /* 跳过时视频可能还在播，先停掉 */
+      /* 视频最后一帧 = 游戏主界面.png = 下一页背景，画面一致，直接跳就是无缝的 */
+      window.location.href = NEXT_PAGE;
+    }
+  </script>
+</body>
+
+</html>

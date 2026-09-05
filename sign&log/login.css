@@ -1,0 +1,340 @@
+/* ============================================================
+ * login.css —— 登录 / 注册页样式（像素风版）
+ *
+ * 设计思路：
+ *   1. 整页用「登录页面-人物居左.png」做全屏背景（人物在左，表单在右）
+ *   2. 全站文字使用「Zpix 最像素」像素字体 → 复古游戏感
+ *   3. 控件去掉大圆角，改用硬阴影、方块造型 → 像素 UI 风格统一
+ * ============================================================ */
+
+
+/* ---------- 引入像素字体 ----------
+ * @font-face 的作用：告诉浏览器"我有一个自定义字体文件"，
+ * 之后就可以像用系统字体一样写 font-family: "Zpix"。
+ *
+ * Zpix（最像素）：开源像素字体，覆盖 简体中文/繁体/英文/日文，
+ * 个人和教育用途免费。字体文件就放在本站 fonts/ 目录里，
+ * 所以断网、双击 html 直接打开也能正常显示。
+ */
+@font-face {
+  font-family: "Zpix";                    /* 给字体起的名字，下面引用它 */
+  src: url("fonts/zpix.ttf") format("truetype");  /* 字体文件位置（相对本 css 文件） */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;                     /* 字体加载完成前先用备用字体顶上，避免文字空白 */
+}
+
+
+/* ---------- 基础重置：清掉浏览器自带的默认间距 ---------- */
+* {
+  margin: 0;                /* 去掉所有元素的默认外边距 */
+  padding: 0;               /* 去掉所有元素的默认内边距 */
+  box-sizing: border-box;   /* width/height 把 padding 和 border 算进去，布局更好算 */
+}
+
+
+/* ---------- 页面主体：全屏背景图 + 像素字体 ---------- */
+body {
+  /* 背景图片就在本 css 同目录（login/ 文件夹）里，直接写文件名 */
+  /* 背景图在 login/photo&video/ 素材文件夹里 */
+  background-image: url('photo&video/登录页面-人物居左.png');
+  background-size: cover;          /* 等比缩放到刚好盖满整个窗口（超出的部分裁掉） */
+  background-position: 35% center; /* 横向定位 35%：让人物落在屏幕左侧、右侧面板区背景干净 */
+  background-repeat: no-repeat;    /* 不要平铺重复 */
+  background-attachment: fixed;    /* 页面滚动时背景固定不动 */
+  min-height: 100vh;               /* 最小高度 = 一整个浏览器窗口高度（vh = 视口高度） */
+
+  /* 字体链：优先用我们引入的像素字体 Zpix；
+     万一字体文件加载失败，依次退回 monospace（等宽字体）和系统默认，
+     保证任何情况下文字都能显示 */
+  font-family: "Zpix", "Consolas", monospace, sans-serif;
+  font-size: 15px;                 /* 全站基准字号（像素字体偏小，比常规网页略大一点） */
+
+  color: #ffffff;                  /* 默认文字白色（因为背景是深色的） */
+  overflow-x: hidden;              /* 禁止出现横向滚动条 */
+}
+
+
+/* ---------- 右上角：中英文切换按钮（像素方块风格） ---------- */
+.lang-btn {
+  position: fixed;                 /* 固定在窗口上，页面滚动它也不动 */
+  top: 20px;                       /* 距窗口顶部 20 像素 */
+  right: 20px;                     /* 距窗口右边 20 像素 */
+  z-index: 100;                    /* 图层调到最高，保证不被其他元素盖住 */
+  padding: 10px 20px;              /* 按钮内边距 */
+  background: rgba(10, 20, 45, 0.75);      /* 深蓝半透明底，和面板同色系 */
+  border: 2px solid rgba(120, 180, 255, 0.6);  /* 加粗的亮蓝描边 → 像素框感 */
+  border-radius: 4px;              /* 只要一点点圆角，整体偏方正 */
+  color: #7fd4ff;                  /* 亮青色文字 */
+  font-family: inherit;            /* 继承 body 的像素字体（按钮默认不继承，要显式写） */
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;                 /* 鼠标移上去显示"手型"，提示可点击 */
+  backdrop-filter: blur(6px);      /* 毛玻璃：把按钮后面的背景模糊掉 */
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.45);       /* 底部硬阴影 → 像游戏按钮一样"凸出来" */
+  transition: all 0.15s;
+}
+.lang-btn:hover {
+  background: rgba(40, 80, 160, 0.8);      /* 悬停时变亮 */
+  color: #ffffff;
+}
+.lang-btn:active {
+  transform: translateY(3px);              /* 按下时向下移 3px */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45); /* 同时阴影变矮 → "按下去"的手感 */
+}
+
+
+/* ---------- 主体容器：左留白 + 右面板，横向排列 ---------- */
+.container {
+  display: flex;                   /* 弹性布局：让子元素横排 */
+  min-height: 100vh;               /* 至少撑满一屏 */
+  align-items: center;             /* 子元素在竖直方向居中 */
+}
+
+
+/* ---------- 右侧：半透明面板（人物在背景图左侧，所以表单放右边） ---------- */
+.panel {
+  order: 2;                      /* flex 排序：排到留白区后面 → 靠右 */
+  width: 42%;                    /* 宽度占窗口的 42% */
+  min-width: 380px;              /* 但最窄不能小于 380px，否则输入框会挤 */
+  margin-right: 6%;              /* 离窗口右边缘 6% */
+  padding: 40px 36px;            /* 面板内部留白：上下 40px，左右 36px */
+  background: rgba(10, 20, 45, 0.78);            /* 深蓝半透明，和背景图同色系 */
+  border: 2px solid rgba(120, 180, 255, 0.4);    /* 加粗的蓝色描边 → 像素边框感 */
+  border-radius: 6px;                              /* 小圆角，整体偏方正 */
+  backdrop-filter: blur(10px);                     /* 毛玻璃：模糊面板背后的背景图 */
+  /* 两层阴影：外层深色投影让面板"浮"起来，内层顶部一道亮边模拟像素高光 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              inset 0 2px 0 rgba(160, 210, 255, 0.15);
+}
+
+
+/* ---------- 左侧：留白区，露出背景图左边的人物 ---------- */
+.side-space {
+  order: 1;                      /* flex 排序：排在面板前面 → 靠左 */
+  flex: 1;                       /* 自动占满面板以外的剩余空间 */
+}
+
+
+/* ---------- 表单标题（"登录" / "注册"两个大字） ---------- */
+.form h2 {
+  font-size: 34px;               /* 像素字体做标题要够大才有气势 */
+  font-weight: normal;           /* Zpix 没有粗体字重，保持 normal 防止浏览器伪造加粗糊掉 */
+  margin-bottom: 24px;
+  letter-spacing: 8px;           /* 字间距拉大，更像老游戏标题 */
+  color: #aee2ff;                /* 淡冰蓝色 */
+  /* 复古游戏文字阴影：右下 3px 处一块纯深色硬阴影（不模糊），
+     再叠一层淡淡的青色外发光 */
+  text-shadow: 3px 3px 0 rgba(0, 20, 60, 0.9),
+               0 0 18px rgba(90, 190, 255, 0.45);
+}
+
+
+/* ---------- 输入框（像素方框风格） ---------- */
+.form input {
+  display: block;                  /* 每个输入框独占一行 */
+  width: 100%;                     /* 宽度撑满面板 */
+  margin-bottom: 14px;             /* 输入框之间的间距 */
+  padding: 12px 14px;              /* 输入框内部留白 */
+  background: rgba(0, 10, 30, 0.45);       /* 深色底 → 像素游戏输入框的感觉 */
+  border: 2px solid rgba(120, 180, 255, 0.35);
+  border-radius: 4px;              /* 小圆角，偏方正 */
+  color: #ffffff;                  /* 输入的文字是白色 */
+  font-family: inherit;            /* 输入框默认不继承字体，必须显式写，否则不是像素字 */
+  font-size: 15px;
+  letter-spacing: 1px;
+  outline: none;                   /* 去掉浏览器默认的蓝色聚焦外框（我们自己画） */
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.form input::placeholder {
+  color: rgba(160, 200, 255, 0.45);        /* 占位文字（"用户名"等）淡蓝色 */
+}
+.form input:focus {
+  border-color: #4fc3f7;                       /* 聚焦时边框变成亮蓝色 */
+  background: rgba(0, 20, 50, 0.6);
+  box-shadow: 0 0 12px rgba(79, 195, 247, 0.35);   /* 聚焦时一圈外发光，像选中装备栏 */
+}
+
+
+/* ---------- 按钮行：装两个按钮的容器 ----------
+ * 用 flex 弹性布局，而不是让按钮自己用 inline-block 排队。
+ * 原因：inline-block 元素之间的换行/空格会被浏览器渲染成一条"空气缝隙"，
+ * 两个 48% 宽的按钮 + 缝隙 > 100%，第二个按钮就会被挤到下一行（不对齐）。
+ * flex 布局不吃空白字符，两个按钮永远严格同一行、边缘对齐。
+ */
+.btn-row {
+  display: flex;
+  gap: 4%;                       /* 两个按钮之间的缝隙，flex 的 gap 不受空白字符影响 */
+  margin-top: 6px;
+}
+
+/* ---------- 按钮（登录 / 注册共用，像素游戏按钮风格） ---------- */
+.btn {
+  flex: 1;                         /* 两个按钮平分 .btn-row 的宽度（自动各 48%，中间留 4% 缝） */
+  padding: 12px 0;
+  background: rgba(20, 45, 90, 0.6);
+  border: 2px solid rgba(120, 180, 255, 0.5);
+  border-radius: 4px;
+  color: #cfe8ff;
+  font-family: inherit;            /* 按钮默认不继承字体，必须显式写 */
+  font-size: 16px;
+  letter-spacing: 3px;             /* 两个字的按钮拉开字距更像游戏菜单 */
+  cursor: pointer;
+  /* 底部 4px 硬阴影：像素游戏按钮的标志性"厚度" */
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.15s;
+}
+.btn:hover {
+  background: rgba(50, 100, 190, 0.7);     /* 悬停时变亮 */
+  color: #ffffff;
+}
+.btn:active {
+  transform: translateY(3px);              /* 按下时按钮下移 3px */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);  /* 阴影同时变矮 → 真的"按下去"的感觉 */
+}
+
+/* 主按钮（当前表单的主操作）：实心亮蓝，更醒目 */
+.btn.primary {
+  background: linear-gradient(180deg, #4fc3f7, #1976d2);  /* 从上到下的蓝渐变（复古卡带配色） */
+  border-color: #9fdcff;
+  color: #ffffff;
+  /* 文字也加一点硬阴影，白字在亮蓝底上更清晰 */
+  text-shadow: 2px 2px 0 rgba(0, 40, 90, 0.6);
+}
+.btn.primary:hover {
+  background: linear-gradient(180deg, #6fd0ff, #1e88e5);  /* 悬停时渐变变亮 */
+}
+
+
+/* ---------- 密码强度区 ---------- */
+.strength-wrap {
+  margin: 6px 0 14px;
+}
+.strength-text {
+  font-size: 13px;
+  margin-bottom: 6px;
+  min-height: 18px;                /* 没文字时也占住高度，避免输入时页面上下跳 */
+  color: rgba(200, 225, 255, 0.8);
+  letter-spacing: 1px;
+}
+
+/* 装 4 个格子的容器：横向排列 */
+.strength-bars {
+  display: flex;
+  gap: 6px;                        /* 格子之间的缝隙 6px */
+}
+
+/* 单个小格子：默认是暗色（未点亮）。像素风 → 完全方正的方块 */
+.cell {
+  flex: 1;                         /* 4 个格子平分整行宽度 */
+  height: 10px;                    /* 稍微加高一点点，方块更有存在感 */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(120, 180, 255, 0.25);   /* 未点亮也有个像素描边 */
+  border-radius: 0;                /* 直角 = 像素 */
+  transition: background 0.25s;    /* 颜色变化时平滑过渡，不会"闪" */
+}
+
+/* 点亮的格子按强度等级变色（这些类由 login.js 动态添加）：
+   同一时刻所有点亮的格子用同一个颜色，强度越高颜色越"安全" */
+.cell.lv1 { background: #f44336; }   /* 总分 1 格 → 红色（弱） */
+.cell.lv2 { background: #ff9800; }   /* 总分 2 格 → 橙色（中） */
+.cell.lv3 { background: #cddc39; }   /* 总分 3 格 → 黄绿色（强） */
+.cell.lv4 { background: #4caf50; }   /* 总分 4 格 → 绿色（很强） */
+
+
+/* ---------- 自定义提示框（默认红色=错误） ---------- */
+.custom-alert {
+  margin: 8px 0;
+  padding: 10px 14px;
+  background: rgba(244, 67, 54, 0.15);     /* 淡红底 */
+  border-left: 4px solid #f44336;          /* 左边一条红色竖线（加粗一点更像素） */
+  border-radius: 2px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+/* 成功提示（注册成功 / 登录成功）换成绿色 */
+.custom-alert.success {
+  background: rgba(76, 175, 80, 0.15);
+  border-left-color: #4caf50;
+}
+
+
+/* ---------- 密码规则提示块（表单下面那个引用块） ---------- */
+.tips {
+  margin-top: 24px;
+  padding: 14px 18px;
+  background: rgba(0, 10, 30, 0.4);
+  border-left: 4px solid rgba(120, 180, 255, 0.6);   /* 左边一条淡蓝色竖线 */
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 1.9;                /* 行高 1.9 倍，像素字体多行文字更易读 */
+  letter-spacing: 1px;
+  color: rgba(200, 225, 255, 0.85);
+}
+.tips ul {
+  margin-left: 20px;               /* 列表整体向右缩进，显示小圆点 */
+}
+
+
+/* ---------- 工具类：加了这个类的元素直接隐藏 ---------- */
+.hidden {
+  display: none !important;        /* !important 保证优先级最高，一定能隐藏 */
+}
+
+
+/* ---------- 小屏适配：窗口宽度小于 720px（手机/窄窗口）时 ---------- */
+@media (max-width: 720px) {
+  .panel {
+    width: 92%;                    /* 面板几乎占满整屏 */
+    margin: 0 auto;                /* 水平居中 */
+    min-width: unset;              /* 取消 380px 最小宽度限制 */
+  }
+  .side-space {
+    display: none;                 /* 小屏不要右侧留白，空间全给表单 */
+  }
+}
+
+
+/* ---------- 登录成功后的全屏视频层 ---------- */
+.video-overlay {
+  position: fixed;                 /* 固定在窗口上，不随页面滚动 */
+  top: 0; left: 0;
+  width: 100%; height: 100%;       /* 铺满整个屏幕，把表单完全盖住 */
+  background: #000;                /* 黑底：视频加载瞬间不会露出下面的表单 */
+  z-index: 999;                    /* 压在所有内容之上（语言按钮 z-index 也没它高） */
+}
+.video-overlay video {
+  width: 100%; height: 100%;
+  object-fit: cover;               /* 等比放大裁满全屏，不变形（和 background-size:cover 同理） */
+}
+
+/* 跳过按钮：钉在视频层右下角 */
+.skip-btn {
+  position: absolute;
+  right: 28px; bottom: 28px;
+  width: auto;                     /* 宽度随文字，不要 flex:1 那套 */
+  flex: none;
+  padding: 10px 24px;
+  margin-top: 0;
+  opacity: 0.85;                   /* 微微半透明，不抢视频画面 */
+}
+.skip-btn:hover {
+  opacity: 1;
+}
+
+/* ---------- 白屏过渡层 ---------- */
+/* 视频结尾是全白 → 跳转前这层白色 0.6 秒内淡入盖住一切 →
+   下一页（index.html）打开时也从全白淡入画面，三段的白色拼成一条无缝过渡 */
+.white-fade {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff;
+  opacity: 0;                      /* 平时完全透明（等于不存在） */
+  pointer-events: none;            /* 透明时不能挡鼠标点击 */
+  transition: opacity 0.6s linear; /* JS 加 .show 类后，0.6 秒渐变到不透明白 */
+  z-index: 1000;                   /* 比视频层还高，是"最后盖上来的一层" */
+}
+.white-fade.show {
+  opacity: 1;
+}

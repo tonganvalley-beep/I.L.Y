@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- 声明这是一份 HTML5 文档，让浏览器用最新标准渲染 -->
+<html lang="zh-CN" data-page-node-id="VWFl5CHYoI1sN542wowVSP">
+<!-- lang="zh-CN" 告诉浏览器本页默认是简体中文（切到英文时 JS 会自动改成 en） -->
+
+<head data-page-node-id="zWgilMxYEEAOCOMhjPA3BB">
+  <!-- 字符编码必须是 UTF-8，否则中文会乱码 -->
+  <meta charset="UTF-8" data-page-node-id="RrFK2BIBMNv18AQmgI0FAf">
+  <!-- 让手机访问时按比例显示，不会缩成一团 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="4JfCA26AC1dYFXHAYiubbf">
+  <!-- 浏览器标签页标题。data-i18n="page.title" 表示这行字会跟着语言切换 -->
+  <title data-i18n="page.title">登录 / 注册</title>
+  <!-- 引入本页面的样式表（和本 html 同目录） -->
+  <link rel="stylesheet" href="./login.css" data-page-node-id="wsxuTpSHULPJcCuA8krKXs">
+</head>
+
+<body data-page-node-id="3G2HlLrklfX6fc5QkthLF3">
+
+  <!-- ============ 右上角：中英文切换按钮 ============ -->
+  <!-- 当前是中文时按钮显示 "EN"（点它切到英文）；当前是英文时显示 "中文" -->
+  <button id="langBtn" class="lang-btn" title="切换语言 / Switch Language" data-page-node-id="a8bXqkWpgvavfnYEiVLNeF">EN</button>
+
+  <!-- ============ 页面主体：左边留白（露出人物）+ 右边半透明面板 ============ -->
+  <div class="container" data-page-node-id="Cxl3x1DCUjGiToaDjN4oHr">
+
+    <!-- 右侧：半透明深色面板，所有表单和提示都放这里（背景图人物在左，表单在右，互不遮挡） -->
+    <div class="panel" data-page-node-id="ccBihOlW3CSJ0AN1x7dciV">
+
+      <!-- ====== 表单 1：登录（默认显示） ====== -->
+      <div id="loginForm" class="form" data-page-node-id="yJ2EQiQC4h8QctH07Curxy">
+        <h2 data-i18n="login.title" data-page-node-id="eQovC5wvXroSpadBgAWdGd">登录</h2>
+
+        <!-- data-i18n-attr="placeholder:field.username" 意思是：
+             切换语言时，把这个输入框的 placeholder 属性换成 field.username 对应的文字 -->
+        <input id="login-username" type="text"
+               data-i18n-attr="placeholder:field.username"
+               placeholder="用户名" autocomplete="username" required data-page-node-id="hgLHuCzhKjB9v5x0JMsOZ4">
+        <input id="login-password" type="password"
+               data-i18n-attr="placeholder:field.password"
+               placeholder="密码" autocomplete="current-password" required data-page-node-id="FsAgqLPenaOy1X0h3wKEXF">
+
+        <!-- 自定义提示框：替代浏览器原生 alert()，不阻塞页面，hidden 类控制显隐 -->
+        <div class="custom-alert hidden" data-page-node-id="OXbtnLqbUDCHN71VOsTI8h"><div class="message" data-page-node-id="DBRoGu17Mv2w7tIv6KMAXd"></div></div>
+
+        <!-- 按钮行：用一个 div 把两个按钮包起来，CSS 里用 flex 保证它们始终同一行、严格对齐 -->
+        <div class="btn-row">
+          <!-- 主按钮（实心蓝）：onclick 表示点击时调用 login.js 里的 login() 函数 -->
+          <button class="btn primary" onclick="login()" data-i18n="login.button" data-page-node-id="QD2VQNM2QCdQsZrRows4dC">登录</button>
+          <!-- 次按钮：切到注册表单 -->
+          <button class="btn" onclick="showSignup()" data-i18n="login.toSignup" data-page-node-id="YfQRMwPdbmd3MsXKipJjuS">注册</button>
+        </div>
+      </div>
+
+      <!-- ====== 表单 2：注册（默认 hidden 隐藏，点"注册"按钮才显示） ====== -->
+      <div id="signupForm" class="form hidden" data-page-node-id="KL8QA5tr2KwlL0P0bcl1Pq">
+        <h2 data-i18n="signup.title" data-page-node-id="iAVFCo2IbAgE9vOuiBGx6g">注册</h2>
+
+        <input id="signup-username" type="text"
+               data-i18n-attr="placeholder:field.username"
+               placeholder="用户名" autocomplete="username" required data-page-node-id="HdjCDdQcvvPYniJmMFJ735">
+        <!-- oninput：用户每敲一个字符，就调用一次 checkPasswordStrength(当前输入)，实时刷新强度条 -->
+        <input id="signup-password" type="password"
+               data-i18n-attr="placeholder:field.password"
+               placeholder="密码" autocomplete="new-password"
+               oninput="checkPasswordStrength(this.value)" required data-page-node-id="HD9hTtlf2TkW9bu1D2WBDg">
+        <input id="signup-password-check" type="password"
+               data-i18n-attr="placeholder:field.passwordCheck"
+               placeholder="确认密码" autocomplete="new-password" required data-page-node-id="7JSgqMMttvCZwKtHtpjaVz">
+
+        <!-- ====== 密码强度显示区：上面一行文字 + 下面 4 个小格子 ====== -->
+        <div class="strength-wrap" data-page-node-id="Nim6yF0HrbyE6vsLkA8ueF">
+          <!-- 强度文字（弱/中/强/很强），由 JS 写入 -->
+          <div id="strength-text" class="strength-text" data-page-node-id="shcJJc1DNE1mO0le0PEtP4"></div>
+          <!-- 4 个格子：满足的条件越多，点亮的格子越多，颜色从红渐变到绿 -->
+          <div class="strength-bars" data-page-node-id="Ghx1SryoSMgSHgCa2FITev">
+            <div class="cell" id="cell0" data-page-node-id="JR68F5QMQ4DoCO5xZFAq66"></div>
+            <div class="cell" id="cell1" data-page-node-id="caCw80ceO99QUevbJ8TcC3"></div>
+            <div class="cell" id="cell2" data-page-node-id="MJvUgHsREMOFGcx6b2tedh"></div>
+            <div class="cell" id="cell3" data-page-node-id="PF6DNhhY2UuAWs6MOOhsMN"></div>
+          </div>
+        </div>
+
+        <div class="custom-alert hidden" data-page-node-id="YuPxrCOFOCFydrdwmmx7tm"><div class="message" data-page-node-id="isrGVtSj65RZxgJEMLn8km"></div></div>
+
+        <!-- 按钮行：flex 布局保证两个按钮同一行、严格对齐 -->
+        <div class="btn-row">
+          <button class="btn primary" onclick="signup()" data-i18n="signup.button" data-page-node-id="pKANCJtJUExk8lqBQ08Kou">注册</button>
+          <button class="btn" onclick="showLogin()" data-i18n="signup.toLogin" data-page-node-id="L5sdHTWFtODL7MEEAzZKck">登录</button>
+        </div>
+      </div>
+
+      <!-- ====== 密码规则提示块：引用样式，放在表单下方 ====== -->
+      <blockquote class="tips" data-page-node-id="ZBSWAKhoLnhMkDkYxT6Zdm">
+        <p data-page-node-id="axCZXupXFZhQSAfxAMg39g">
+          <span data-i18n="tip.title" data-page-node-id="ye0XW89booZMHPDxTOGBxH">Tip</span>:
+          <span data-i18n="tip.base" data-page-node-id="h8hVNLfXv5KS0QhbRSX3VL">必须包含数字和字母且密码长度大于6</span>
+        </p>
+        <p data-i18n="tip.atLeastOne" data-page-node-id="Fvn7GvJblox0h8zJxbPllF">以下规则至少满足一条</p>
+        <ul data-page-node-id="iyR3T7PViMeCqT2VOvdEPe">
+          <li data-i18n="tip.rule1" data-page-node-id="DhJkYmcjGjvg3oHHD3RRq4">同时包含大小写字母</li>
+          <li data-i18n="tip.rule2" data-page-node-id="d92p2MYQFYwOPU62XqMBRV">包含特殊符号</li>
+          <li data-i18n="tip.rule3" data-page-node-id="hgyegEFqxvNF3LG0GQj48Z">密码长度大于10</li>
+        </ul>
+      </blockquote>
+
+    </div>
+
+    <!-- 左侧：故意留空的 div，把背景图左边的发光人物完整露出来（CSS 里 order:1 让它排到面板左边） -->
+    <div class="side-space" data-page-node-id="nmIDSvAGNGBJccsmwC0f9h"></div>
+  </div>
+
+  <!-- ============ 登录成功后的全屏视频层（默认 hidden 隐藏） ============ -->
+  <!-- 登录验证通过后，JS 会去掉 hidden：视频铺满整个屏幕盖住表单开始播放，
+       播完（或点"跳过"）自动跳转到 index.html（下一个界面） -->
+  <div id="videoOverlay" class="video-overlay hidden">
+    <!-- intro.mp4 在 login/photo&video/ 素材文件夹里（人物发光扩散到全白那段）
+         preload="auto"：页面一打开就提前加载视频，登录成功时能立刻播放不卡顿
+         playsinline：手机上不全屏强制接管播放器 -->
+    <video id="introVideo" src="./photo&video/intro.mp4" preload="auto" playsinline></video>
+    <!-- 跳过按钮：视频太长 / 加载失败时，用户随时可以手动跳到下一页 -->
+    <button id="skipBtn" class="btn skip-btn" onclick="goNextPage()" data-i18n="video.skip">跳过 ▶</button>
+  </div>
+
+  <!-- ============ 白屏过渡层 ============ -->
+  <!-- 视频结尾是全白画面；跳转前先把这层白色慢慢盖上来（0.6秒），
+       这样"视频白 → 网页白 → 下一页从白色淡入"整条链路没有跳变感 -->
+  <div id="whiteFade" class="white-fade"></div>
+
+  <!-- 脚本放 body 最后：让浏览器先把页面渲染出来，再执行 JS，打开更快 -->
+  <script src="./login.js"></script>
+</body>
+
+</html>

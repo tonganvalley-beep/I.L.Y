@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     game.html —— 游戏主界面（开始界面点击"继续"后的落地页）
+
+     内容：
+       · 全屏显示 游戏主界面.png（蓝色像素风：蓝发角色 + 标题 + 右侧手机）
+       · 手机屏幕里显示主菜单：开始新游戏 / 读取存档 / 选项 / 关于我们 / 退出
+         （像素字体，悬停反色高亮，位置随背景图缩放实时计算）
+       · 手机状态栏显示本机实时时间
+       · 右上角中英文切换按钮（和其他页面共用同一份语言选择）
+       · 鉴权守卫：没登录直接访问本页会被弹回 login.html
+
+     视频衔接：开始界面播的 intro-flip3.mp4 最后一帧就是这张背景图，
+     画面完全一致，所以跳转过来时玩家感觉不到"换页"。
+
+     双语约定：本项目所有游戏网页都必须中英文双语（用户硬性要求），
+     方案与 login.js / index.html 相同。
+     ============================================================ -->
+<html lang="zh-CN" data-page-node-id="RHfcsL4tITeljsJQrv7q6l">
+
+<head data-page-node-id="vauA3JSQb9yHN6N4vTp164">
+  <meta charset="UTF-8" data-page-node-id="JrN63t3z6vNjeNIZPcWnSN">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="bMddRdwOsAColZYhEhOnYJ">
+  <title data-i18n="page.title">游戏主界面</title>
+  <style>
+    /* ---------- 像素字体：和登录页同一个字体文件 ---------- */
+    @font-face {
+      font-family: 'Zpix';
+      src: url('./fonts/zpix.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    /* ---------- 页面主体：全屏背景图 ---------- */
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Zpix', 'Consolas', monospace;
+      /* 游戏主界面.png 在 login/photo&video/ 素材文件夹里 */
+      background-image: url('./photo&video/游戏主界面.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #000;        /* 边角露出处用黑色 */
+      user-select: none;
+    }
+
+    /* ---------- 右上角：中英文切换按钮（样式和其他页面一致） ---------- */
+    .lang-btn {
+      position: fixed;
+      top: 18px; right: 20px;
+      z-index: 10;
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #cfe3ff;
+      background: rgba(10, 25, 55, 0.55);
+      border: 1px solid rgba(120, 180, 255, 0.5);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lang-btn:hover {
+      background: rgba(30, 70, 140, 0.7);
+    }
+
+    /* ---------- 手机屏幕状态栏里的时间 ---------- */
+    #phoneTime {
+      position: fixed;               /* 用 JS 按背景图实际显示位置计算 left/top */
+      z-index: 5;
+      color: #1a1a2e;                /* 深色字：状态栏是白底，和电池/信号图标同色 */
+      pointer-events: none;          /* 鼠标穿透：时间只是装饰，不挡点击 */
+      white-space: nowrap;           /* 时间不允许换行 */
+      /* transform 让"时间的右下角"对准计算出的坐标点：
+         X 方向 -100% = 右对齐（贴着状态栏右端），Y 方向 -50% = 垂直居中 */
+      transform: translate(-100%, -50%);
+    }
+
+    /* ---------- 手机屏幕里的主菜单 ---------- */
+    /* 和时间一样：位置、宽高、字号全部由 JS 按 cover 算法实时计算，
+       这里只管"长什么样"，不管"摆在哪里" */
+    #phoneMenu {
+      position: fixed;
+      z-index: 5;                    /* 在画布(1)之上，和时间(5)同层 */
+      display: flex;
+      flex-direction: column;
+      color: #1a1a2e;                /* 深色像素字：屏幕是白底，深色最清晰 */
+    }
+    /* 菜单标题栏：深色底白字，复古翻盖机 MENU 条的感觉 */
+    #phoneMenu .menu-title {
+      background: #1a1a2e;
+      color: #ffffff;
+      text-align: center;
+      letter-spacing: 0.35em;        /* 字距拉开，像老手机菜单标题 */
+      padding: 0.22em 0 0.22em 0.35em;  /* 右补 0.35em 抵消字距造成的视觉偏移 */
+    }
+    /* 菜单列表：5 个选项均匀分布，占满屏幕剩余高度 */
+    #phoneMenu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    #phoneMenu li {
+      padding: 0.08em 0.55em;
+      cursor: pointer;
+      white-space: nowrap;           /* 选项文字不允许换行 */
+      /* 参考日系翻盖机菜单：每个选项下面一条细横线 */
+      border-bottom: 2px solid #1a1a2e;
+    }
+    /* 选中标记：悬停时选项前面出现一个小方块
+       （参考图里选中项前面的蓝色小方块），文字同时加深变色 */
+    #phoneMenu li::before {
+      content: "";                   /* 默认没有方块，只占位 */
+      display: inline-block;
+      width: 0.55em;
+      height: 0.55em;
+      margin-right: 0.35em;
+      vertical-align: 0.02em;
+    }
+    #phoneMenu li:hover::before {
+      background: #1a3a8f;           /* 深蓝色小方块 = 当前选中项 */
+    }
+    #phoneMenu li:hover {
+      color: #1a3a8f;                /* 悬停文字变深蓝，和方块呼应 */
+    }
+
+    /* ---------- 全屏画布：头发飘动动画的绘制层 ---------- */
+    #scene {
+      position: fixed;
+      inset: 0;                    /* 铺满整个窗口 */
+      /* ★ 高分屏关键：必须显式锁死"显示尺寸"= 窗口大小！
+         JS 里会把画布的内部分辨率设为 窗口×devicePixelRatio（为了清晰），
+         而 canvas 是"可替换元素"——如果只写 inset:0 不写宽高，
+         浏览器会按内部分辨率来显示它，导致在系统缩放 125%/150% 的
+         电脑上整个画面被放大 1.25~1.5 倍。 */
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;                  /* 在 body 静态背景之上、时间(5)和语言按钮(10)之下 */
+    }
+  </style>
+</head>
+
+<body data-page-node-id="vwvFNgmV6SVBZ85465jZsN">
+  <!-- 全屏画布：每帧重画背景图 + 摆动的头发（不透明，盖住 body 的静态背景） -->
+  <canvas id="scene"></canvas>
+
+  <!-- 右上角：中英文切换按钮 -->
+  <button id="langBtn" class="lang-btn" title="切换语言 / Switch Language" data-page-node-id="M6cd6YjE6j2YwkGrMyJ8Vt">EN</button>
+
+  <!-- 手机屏幕状态栏里的时间（位置由 JS 根据背景图缩放实时计算） -->
+  <div id="phoneTime">--:--</div>
+
+  <!-- 手机屏幕白色内容区里的主菜单（位置/大小同样由 JS 实时计算）。
+       每个选项都带 data-i18n 标记，跟着语言按钮一起切换中英文 -->
+  <div id="phoneMenu">
+    <div class="menu-title" data-i18n="menu.title">MENU</div>
+    <ul>
+      <li data-action="new"     data-i18n="menu.new">Sub1 开始新游戏</li>
+      <li data-action="load"    data-i18n="menu.load">Sub2 读取存档</li>
+      <li data-action="options" data-i18n="menu.options">Sub3 选项</li>
+      <li data-action="about"   data-i18n="menu.about">Sub4 关于我们</li>
+      <li data-action="exit"    data-i18n="menu.exit">Sub5 退出</li>
+    </ul>
+  </div>
+
+  <script>
+    /* ============================================================
+     * 第 0 块：鉴权守卫（最先执行！）
+     *
+     * 登录成功时 login.js 会写 localStorage['mygame-token'] = 用户名。
+     * 如果本页打开时没有这个 token，说明用户没登录（比如直接双击
+     * game.html），立刻弹回登录页。
+     * ============================================================ */
+    if (!localStorage.getItem('mygame-token')) {
+      window.location.href = './login.html';
+    }
+
+
+    /* ============================================================
+     * 第 1 块：多语言（和 login.js / index.html 完全相同的方案，
+     * 三个页面读同一个 localStorage key，切一次全站生效）
+     * ============================================================ */
+    const LANG = {
+      chinese: {
+        "page.title":   "游戏主界面",
+        "menu.title":   "MENU",
+        "menu.new":     "Sub1 开始新游戏",
+        "menu.load":    "Sub2 读取存档",
+        "menu.options": "Sub3 选项",
+        "menu.about":   "Sub4 关于我们",
+        "menu.exit":    "Sub5 退出"
+      },
+      english: {
+        "page.title":   "Game Main Screen",
+        "menu.title":   "MENU",
+        "menu.new":     "Sub1 New Game",
+        "menu.load":    "Sub2 Load Save",
+        "menu.options": "Sub3 Options",
+        "menu.about":   "Sub4 About Us",
+        "menu.exit":    "Sub5 Exit"
+      }
+    };
+
+    let currentLang = localStorage.getItem('mygame-lang') || 'chinese';
+
+    function t(key) {
+      return LANG[currentLang][key] || key;
+    }
+
+    function applyDomLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.getAttribute('data-i18n'));
+      });
+      document.documentElement.lang = (currentLang === 'chinese') ? 'zh-CN' : 'en';
+    }
+
+    function setLang(name) {
+      currentLang = name;
+      localStorage.setItem('mygame-lang', name);
+      applyDomLang();
+      document.getElementById('langBtn').textContent =
+        (name === 'chinese') ? 'EN' : '中文';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+      document.getElementById('langBtn').addEventListener('click', () => {
+        setLang(currentLang === 'chinese' ? 'english' : 'chinese');
+      });
+
+      layoutPhoneTime();                     /* 首次定位时间 */
+      layoutPhoneMenu();                     /* 首次定位主菜单 */
+      tickClock();                           /* 立刻显示一次，不等第 1 秒 */
+      setInterval(tickClock, 1000);          /* 之后每秒刷新 */
+      window.addEventListener('resize', () => {
+        layoutPhoneTime();                   /* 窗口变化时重新定位时间 */
+        layoutPhoneMenu();                   /* 同步重新定位主菜单 */
+        layoutScene();                       /* 同步调整画布尺寸 */
+      });
+    });
+
+
+    /* ============================================================
+     * 第 2 块：手机状态栏时间（显示本机实际时间）
+     *
+     * 难点：背景图用 background-size: cover 显示，窗口比例不同，
+     * 图片的缩放和裁剪位置都会变，所以不能用固定 px 定位时间。
+     * 解法：用 JS 复算一遍 cover 的算法 ——
+     *   1. 算出图片实际被放大到多大、往哪个方向偏移了多少
+     *   2. 把"状态栏右端在原图里的位置"换算成屏幕上的 px 坐标
+     * 这样无论窗口怎么拉，时间都牢牢贴在手机状态栏里。
+     * ============================================================ */
+
+    /* 原图尺寸（游戏主界面.png 是 2732×1496） */
+    const IMG_W = 2732;
+    const IMG_H = 1496;
+
+    /* 时间要贴的位置：状态栏白色横条（y 378~431）的右端。
+       用脚本量出目标点在原图里的坐标，再换算成比例保存：
+         X = 2530/2732 ≈ 状态栏右端（留一点边距，别贴死）
+         Y = 404/1496  ≈ 状态栏垂直中心 */
+    const TIME_FX = 2530 / IMG_W;
+    const TIME_FY = 404 / IMG_H;
+
+    /* cover 布局计算（时间和画布动画共用）：
+       cover 的规则是宽和高各算一个缩放比、取大的那个，保证图片两个方向
+       都不小于窗口；图片居中，所以偏移 = (窗口尺寸 - 图片显示尺寸) / 2
+       （可能是负数，表示图片超出窗口被裁掉） */
+    function computeCover() {
+      const vw = window.innerWidth;    /* 窗口宽 */
+      const vh = window.innerHeight;   /* 窗口高 */
+      const scale = Math.max(vw / IMG_W, vh / IMG_H);
+      return {
+        scale: scale,
+        offX: (vw - IMG_W * scale) / 2,
+        offY: (vh - IMG_H * scale) / 2
+      };
+    }
+
+    /* 复算 cover 布局，把时间元素摆到正确位置 */
+    function layoutPhoneTime() {
+      const cover = computeCover();
+
+      const el = document.getElementById('phoneTime');
+      el.style.left = (cover.offX + TIME_FX * IMG_W * cover.scale) + 'px';
+      el.style.top  = (cover.offY + TIME_FY * IMG_H * cover.scale) + 'px';
+      /* 字号跟着图片一起缩放：原图里 30px 高的字 × 当前缩放比 */
+      el.style.fontSize = Math.max(10, 30 * cover.scale) + 'px';
+    }
+
+    /* 每秒刷新一次时间，格式 HH:MM（24 小时制，补零对齐） */
+    function tickClock() {
+      const now = new Date();          /* 本机当前时间 */
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('phoneTime').textContent = hh + ':' + mm;
+    }
+
+
+    /* ============================================================
+     * 第 2.5 块：手机屏幕里的主菜单
+     *
+     * 和时间同一个思路：先用脚本量出"白色内容区"在原图里的范围
+     * （x 1916~2558，y 533~1130，即状态栏和底部软键之间的区域），
+     * 换算成比例存下来；每次布局时按 cover 算法折算成屏幕 px，
+     * 这样窗口怎么拉，菜单都严丝合缝地待在手机屏幕里。
+     * ============================================================ */
+
+    /* 白色内容区在原图里的位置和尺寸（比例形式） */
+    const MENU_FX = 1916 / IMG_W;                 /* 左边缘 */
+    const MENU_FY = 533 / IMG_H;                  /* 上边缘 */
+    const MENU_FW = (2558 - 1916) / IMG_W;        /* 宽度 */
+    const MENU_FH = (1130 - 533) / IMG_H;         /* 高度 */
+
+    /* 复算 cover 布局，把菜单元素摆到手机屏幕里 */
+    function layoutPhoneMenu() {
+      const cover = computeCover();
+
+      const el = document.getElementById('phoneMenu');
+      el.style.left   = (cover.offX + MENU_FX * IMG_W * cover.scale) + 'px';
+      el.style.top    = (cover.offY + MENU_FY * IMG_H * cover.scale) + 'px';
+      el.style.width  = (MENU_FW * IMG_W * cover.scale) + 'px';
+      el.style.height = (MENU_FH * IMG_H * cover.scale) + 'px';
+      /* 字号跟着屏幕一起缩放：原图里约 42px 高的字 × 当前缩放比。
+         菜单内部尺寸全用 em 写，所以改这一个 font-size 就整体缩放 */
+      el.style.fontSize = Math.max(11, 42 * cover.scale) + 'px';
+    }
+
+    /* 菜单点击：data-action 标记了每个选项的身份，以后要做对应功能时
+       在下面的 switch 里补就行（现在开始新游戏/读取存档等还没做） */
+    document.querySelectorAll('#phoneMenu li').forEach(li => {
+      li.addEventListener('click', () => {
+        switch (li.dataset.action) {
+          case 'new':     /* TODO：开始新游戏 */ break;
+          case 'load':    /* TODO：读取存档   */ break;
+          case 'options': /* TODO：选项设置   */ break;
+          case 'about':   /* TODO：关于我们   */ break;
+          case 'exit':
+            /* 退出 = 退出登录并回到登录界面：
+               先清掉登录态 token（否则直接访问 game.html/index.html 仍能绕过登录），
+               再跳回 login.html 重新登录 */
+            localStorage.removeItem('mygame-token');
+            window.location.href = './login.html';
+            break;
+        }
+      });
+    });
+
+
+    /* ============================================================
+     * 第 3 块：头发飘动动画（像素游戏经典的"风"效果）
+     *
+     * 原理（2D 老游戏常用手法）：
+     *   把头发区域切成一横条一横条的"薄片"，每帧让每根薄片
+     *   按正弦波左右错开一点点 —— 越靠下的薄片（发梢）错得越多，
+     *   发根基本不动，看起来就像头发被微风轻轻吹动。
+     *
+     * 实现要点：
+     *   · 画布不透明，每帧先画整张背景图、再盖摆动的薄片，没有残影；
+     *   · setTransform 把画布坐标系设成和 cover 背景一致的缩放/偏移，
+     *     之后画图全部直接用"原图坐标"，不用自己算缩放；
+     *   · imageSmoothingEnabled = false：关闭平滑，像素风放大不糊。
+     * ============================================================ */
+
+    /* 头发的三个活动区域（原图坐标，用脚本 + 目视测量出来的）：
+       amp   = 发梢最大摆动幅度（原图 px）
+       speed = 摆动快慢（越大越快）
+       phase = 相位差：让三撮头发错开节奏，看着更自然 */
+    const HAIR_ZONES = [
+      { x0: 0,   y0: 235, x1: 850, y1: 365, amp: 7,  speed: 2.1, phase: 0 },   /* 刘海 */
+      { x0: 0,   y0: 365, x1: 160, y1: 845, amp: 12, speed: 1.6, phase: 1.3 }, /* 左侧发 */
+      { x0: 710, y0: 365, x1: 850, y1: 845, amp: 12, speed: 1.6, phase: 2.6 }, /* 右侧发 */
+    ];
+    const STRIP = 4;                 /* 每根薄片的高度（原图 px），越小越细腻 */
+
+    const scene = document.getElementById('scene');
+    const ctx = scene.getContext('2d');
+
+    /* 背景图加载完成才开始动画（万一加载失败，body 静态背景还在，页面照样能看） */
+    const bgImg = new Image();
+    bgImg.src = './photo&video/游戏主界面.png';
+    bgImg.onload = () => {
+      layoutScene();
+      requestAnimationFrame(drawFrame);   /* 启动动画循环 */
+    };
+
+    /* 根据窗口大小调整画布分辨率（乘 devicePixelRatio，高分屏不糊） */
+    function layoutScene() {
+      const dpr = window.devicePixelRatio || 1;
+      scene.width  = window.innerWidth  * dpr;
+      scene.height = window.innerHeight * dpr;
+    }
+
+    /* 每一帧：整张图打底 → 把头发薄片按正弦波错开重画 */
+    function drawFrame(timestamp) {
+      const cover = computeCover();        /* 和手机时间共用同一个 cover 计算 */
+      const dpr = window.devicePixelRatio || 1;
+
+      /* 坐标系映射：之后 drawImage 直接写原图坐标，画布自动摆到正确位置 */
+      ctx.setTransform(cover.scale * dpr, 0, 0, cover.scale * dpr,
+                       cover.offX * dpr, cover.offY * dpr);
+      ctx.imageSmoothingEnabled = false;   /* 关平滑，保住像素颗粒感 */
+
+      ctx.drawImage(bgImg, 0, 0);          /* 整张背景图打底 */
+
+      const time = timestamp / 1000;       /* 当前时刻（秒） */
+      for (const z of HAIR_ZONES) {
+        for (let y = z.y0; y < z.y1; y += STRIP) {
+          /* env：0→1，越靠近区域底部（发梢）摆得越大，发根不动 */
+          const env = (y - z.y0) / (z.y1 - z.y0);
+          const dx = z.amp * env * Math.sin(time * z.speed + y * 0.03 + z.phase);
+          const h = Math.min(STRIP, z.y1 - y);
+          /* 把原图的这一薄片，画到左右错开 dx 的位置 */
+          ctx.drawImage(bgImg, z.x0, y, z.x1 - z.x0, h,
+                               z.x0 + dx, y, z.x1 - z.x0, h);
+        }
+      }
+      requestAnimationFrame(drawFrame);    /* 请求下一帧，形成循环 */
+    }
+  </script>
+</body>
+
+</html>
