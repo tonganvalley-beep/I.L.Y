@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I.L.Y · 故事继续</title>
+  <link rel="stylesheet" href="styles/game.css">
+</head>
+<body>
+  <header><a href="../sign&log/index.html">I.L.Y</a><span id="chapter">序章 · 雨后的教室</span><div class="toolbar"><button id="save">保存进度</button><button id="load">读取进度</button><button id="sound">开启音乐</button></div></header>
+  <main>
+    <section id="stage" aria-label="游戏场景"></section>
+    <aside><p class="eyebrow">INVESTIGATION</p><h2>线索手记</h2><p>留意散落的物件，把它们串成一个答案。</p><ul id="clues"></ul><p id="status" role="status"></p></aside>
+  </main>
+  <footer>示例章节 · 剧情与美术均可替换 <span>存档保存在当前浏览器</span></footer>
+  <!-- 普通脚本按顺序加载：命名空间 → 数据 → 工具 → 玩法 → 入口。 -->
+  <script src="src/bootstrap.js"></script>
+  <script src="data/assets.js"></script>
+  <script src="data/story/prologue.js"></script>
+  <script src="data/maps/classroom.js"></script>
+  <script src="data/battles/first-trial.js"></script>
+  <script src="src/core/state.js"></script>
+  <script src="src/core/assets.js"></script>
+  <script src="src/core/dom.js"></script>
+  <script src="src/modes/dialogue.js"></script>
+  <script src="src/modes/exploration.js"></script>
+  <script src="src/modes/battle.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>

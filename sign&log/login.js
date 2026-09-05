@@ -397,6 +397,10 @@ function goNextPage() {
 
   /* 等白屏完全盖上来之后再跳页，视觉上是"白色 → 白色"，没有跳变 */
   setTimeout(() => {
-    window.location.href = NEXT_PAGE;
+    const next = new URL(NEXT_PAGE, window.location.href);
+    // 本地文件的不同页面不一定共享存储，显式传递演示账号名称。
+    // 这里只传用户名，不传密码；它不是服务端登录凭证。
+    next.searchParams.set('player', document.getElementById('login-username').value.trim());
+    window.location.href = next.href;
   }, 600);
 }

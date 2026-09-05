@@ -20,7 +20,7 @@
       margin: 0;
       height: 100vh;                 /* 高度撑满整个窗口 */
       /* ../ 表示上一级目录：本文件在 login/ 里，图片在工作区根目录 */
-      background-image: url('../登录页面.png');
+      background-image: url('./登录页面-人物居左.png');
       background-size: cover;        /* 等比缩放到刚好盖满窗口 */
       background-position: center;   /* 人物保持在画面正中 */
       background-repeat: no-repeat;
@@ -41,6 +41,9 @@
       from { opacity: 1; }           /* 开始：纯白 */
       to   { opacity: 0; visibility: hidden; }  /* 结束：完全透明且不挡点击 */
     }
+    .start-menu { position: absolute; right: 10%; top: 35%; padding: 32px; color: #fff; background: #142138db; border: 1px solid #9caebc; border-radius: 12px; font-family: system-ui, sans-serif; }
+    .start-menu a { display: block; margin-top: 20px; padding: 12px 24px; color: #172539; background: #ecd5aa; border-radius: 6px; text-decoration: none; text-align: center; }
+    .white-flash { pointer-events: none; }
   </style>
 </head>
 
@@ -48,7 +51,20 @@
   <!-- 白屏淡入层：只负责转场，没有任何交互 -->
   <div class="white-flash" data-page-node-id="lLmrvI3CcGep124ztWueZl"></div>
 
-  <!-- TODO：以后在这里加开始菜单的按钮（开始新游戏 / 加载存档 / 退出 等） -->
+  <main class="start-menu">
+    <h1>I.L.Y</h1>
+    <p>故事，从那封信开始。</p>
+    <a id="enterGame" href="../game/index.html">进入游戏</a>
+    <a href="./login.html">返回登录</a>
+  </main>
+  <script>
+    const player = new URLSearchParams(location.search).get('player');
+    if (player) {
+      const game = new URL('../game/index.html', location.href);
+      game.searchParams.set('player', player);
+      document.getElementById('enterGame').href = game.href;
+    }
+  </script>
 </body>
 
 </html>
