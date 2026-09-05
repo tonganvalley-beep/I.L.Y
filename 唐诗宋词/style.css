@@ -1,0 +1,430 @@
+@charset "utf-8";
+/* 唐诗宋词网 - 共用样式表（纯本地、无外链） */
+
+/* 全局基础 */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4ecd8;
+    background-image:
+        radial-gradient(rgba(120, 80, 40, 0.08) 1px, transparent 1px),
+        radial-gradient(rgba(120, 80, 40, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px, 12px 12px;
+    background-position: 0 0, 6px 6px;
+    color: #2b1d10;
+    font-family: "FangSong","STFangsong","KaiTi","STKaiti","STSong","SimSun","Microsoft YaHei","Source Han Serif SC","Noto Serif CJK SC","PingFang SC","Heiti SC", serif;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+a {
+    color: #8b1a1a;
+    text-decoration: none;
+    transition: color .15s;
+}
+a:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+/* 顶部主导航 */
+.site-header {
+    background: linear-gradient(180deg, #6b2a1f 0%, #8b3a2a 60%, #a0523a 100%);
+    color: #fff7e6;
+    border-bottom: 4px double #f4ecd8;
+    padding: 18px 10px;
+    text-align: center;
+}
+.site-header h1 {
+    margin: 0;
+    font-family: "STKaiti","KaiTi","STFangsong","FangSong","STSong","Noto Serif CJK SC","PingFang SC", serif;
+    font-size: 30px;
+    letter-spacing: 6px;
+    font-weight: normal;
+}
+.site-header h1 .sep {
+    color: #f4ecd8;
+    opacity: .6;
+    margin: 0 14px;
+    font-size: 22px;
+}
+.site-header h1 a {
+    color: #fff7e6;
+}
+.site-header h1 a:hover {
+    color: #ffe6b0;
+    text-decoration: none;
+}
+.site-header .subtitle {
+    margin-top: 6px;
+    color: #f7e3c0;
+    letter-spacing: 4px;
+    font-size: 14px;
+}
+
+/* 主导航条 */
+.main-nav {
+    background: #3a1d10;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f4ecd8;
+}
+.main-nav a {
+    color: #f7e3c0;
+    margin: 0 16px;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+.main-nav a:hover { color: #ffd27a; text-decoration: none; }
+.main-nav .active { color: #fff; border-bottom: 2px solid #ffd27a; padding-bottom: 2px; }
+
+/* 面包屑 */
+.bread {
+    max-width: 900px;
+    margin: 14px auto 0;
+    padding: 0 16px;
+    color: #6a4a2a;
+    font-size: 14px;
+}
+.bread a { color: #6a4a2a; }
+.bread .sep { margin: 0 6px; color: #a0825a; }
+
+/* 内容容器 */
+.wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+/* 二级导航 */
+.subnav {
+    text-align: center;
+    margin: 18px 0;
+    padding: 14px 10px;
+    background: rgba(255,255,255,.4);
+    border: 1px solid #c8a978;
+    border-radius: 4px;
+}
+.subnav a, .subnav strong {
+    margin: 0 10px;
+    color: #6b2a1f;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.subnav .active { color: #2b1d10; }
+
+/* 标题 */
+h1.title {
+    text-align: center;
+    font-family: "STKaiti","KaiTi","STFangsong","FangSong","Noto Serif CJK SC","PingFang SC","Heiti SC",serif;
+    font-weight: normal;
+    letter-spacing: 10px;
+    font-size: 32px;
+    margin: 6px 0 4px;
+    color: #5a1a1a;
+}
+h1.title .sub {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #8a6a4a;
+    margin-top: 6px;
+}
+h2.poem-title {
+    text-align: center;
+    font-family: "STKaiti","KaiTi","STFangsong","FangSong","Noto Serif CJK SC","PingFang SC",serif;
+    font-weight: normal;
+    color: #5a1a1a;
+    border-top: 1px solid #c8a978;
+    border-bottom: 1px solid #c8a978;
+    padding: 8px 0;
+    margin: 26px 0 14px;
+    letter-spacing: 4px;
+}
+
+/* 页内锚点目录 */
+.toc {
+    text-align: center;
+    background: rgba(255,255,255,.45);
+    border: 1px dashed #c8a978;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin: 0 0 18px;
+    font-size: 15px;
+    color: #6b2a1f;
+    letter-spacing: 2px;
+}
+.toc a { margin: 0 8px; }
+
+/* 诗人卡片 */
+.poet-portrait {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin: 18px 0 6px;
+    flex-wrap: wrap;
+}
+.poet-portrait img {
+    max-width: 480px;
+    width: 100%;
+    border: 6px solid #fff;
+    box-shadow: 0 4px 12px rgba(80,40,20,.25);
+}
+.poet-seal {
+    display: inline-block;
+    background: #b83232;
+    color: #fff7e6;
+    font-family: "STKaiti","KaiTi","STFangsong","FangSong","Noto Serif CJK SC","PingFang SC",serif;
+    padding: 10px 14px;
+    letter-spacing: 4px;
+    font-size: 22px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(80,40,20,.2);
+}
+
+/* 诗词主体 */
+.poem {
+    background: #fbf6e8;
+    border: 1px solid #d8c4a0;
+    border-left: 6px solid #b83232;
+    padding: 16px 24px;
+    margin: 12px 0 22px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(80,40,20,.08);
+}
+.poem .author-line {
+    color: #6a4a2a;
+    font-size: 14px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.poem p {
+    margin: 4px 0;
+    text-indent: 2em;
+    letter-spacing: 1px;
+}
+
+/* 赏析 */
+.shangxi {
+    background: #fff7e6;
+    border: 1px dashed #c8a978;
+    padding: 10px 16px;
+    margin: 8px 0 14px;
+    border-radius: 2px;
+    color: #5a4a30;
+    font-size: 15px;
+}
+.shangxi::before {
+    content: "【赏析】 ";
+    color: #8b1a1a;
+    font-weight: bold;
+}
+
+/* 简介 */
+.intro {
+    background: #fbf6e8;
+    border: 1px solid #d8c4a0;
+    padding: 14px 22px;
+    margin: 14px 0;
+    border-radius: 2px;
+    text-indent: 2em;
+}
+
+/* 主题图 */
+.theme-img {
+    display: block;
+    margin: 16px auto;
+    max-width: 100%;
+    border: 6px solid #fff;
+    box-shadow: 0 4px 14px rgba(80,40,20,.2);
+}
+
+/* 首页两块卡片 */
+.card-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 26px 0;
+}
+.card {
+    flex: 1 1 320px;
+    max-width: 420px;
+    background: #fbf6e8;
+    border: 1px solid #c8a978;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(80,40,20,.2);
+}
+.card .img-wrap {
+    width: 100%;
+    height: 180px;
+    background: #efe1c4 center/cover no-repeat;
+}
+.card .body {
+    padding: 16px 20px;
+    text-align: center;
+}
+.card h2 {
+    font-family: "STKaiti","KaiTi","STFangsong","FangSong","Noto Serif CJK SC","PingFang SC",serif;
+    font-weight: normal;
+    letter-spacing: 6px;
+    color: #5a1a1a;
+    margin: 4px 0 8px;
+}
+.card p {
+    color: #6a4a2a;
+    font-size: 14px;
+    text-indent: 2em;
+    text-align: left;
+}
+.card .more {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 18px;
+    background: #8b3a2a;
+    color: #fff7e6;
+    border-radius: 2px;
+    letter-spacing: 3px;
+}
+.card .more:hover {
+    background: #b83232;
+    text-decoration: none;
+}
+
+/* 页脚 */
+.site-footer {
+    background: #3a1d10;
+    color: #d8c4a0;
+    text-align: center;
+    padding: 18px 10px;
+    border-top: 4px double #f4ecd8;
+    margin-top: 30px;
+    font-size: 14px;
+}
+.site-footer a { color: #ffd27a; }
+.site-footer .links { margin-bottom: 6px; letter-spacing: 4px; }
+.site-footer .links a { margin: 0 10px; }
+
+/* 词牌名标签 */
+.cipai {
+    display: inline-block;
+    background: #8b3a2a;
+    color: #fff7e6;
+    padding: 2px 10px;
+    margin-right: 8px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+/* 返回顶部 */
+.back-top {
+    text-align: right;
+    font-size: 13px;
+    color: #8a6a4a;
+    margin-top: -8px;
+}
+.back-top a { color: #8a6a4a; }
+
+/* ===== 主页：可整块点击的诗词卡片 ===== */
+.poem-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    margin: 12px 0 22px;
+}
+.poem-link:hover { text-decoration: none; }
+.poem-link .poem {
+    transition: transform .15s, box-shadow .15s, border-left-color .15s;
+}
+.poem-link:hover .poem {
+    border-left-color: #c0392b;
+    box-shadow: 0 6px 18px rgba(80,40,20,.20);
+    transform: translateY(-2px);
+}
+.poem-hint {
+    text-align: right;
+    font-size: 13px;
+    color: #b5713a;
+    margin: 0 4px 8px;
+    letter-spacing: 2px;
+}
+.poem-link:hover .poem-hint { color: #c0392b; }
+
+/* ===== 赏析页 ===== */
+.analysis .poem-meta {
+    text-align: center;
+    margin: 4px 0 18px;
+    color: #5a1a1a;
+}
+.analysis .poem-meta .meta-title {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.analysis .poem-meta .meta-author {
+    font-size: 15px;
+    color: #6a4a2a;
+    margin-top: 4px;
+}
+.analysis .poem-meta .meta-cipai {
+    font-size: 14px;
+    color: #8b3a2a;
+    margin-top: 2px;
+}
+.analysis .section {
+    background: #fbf6e8;
+    border: 1px solid #d8c4a0;
+    border-radius: 2px;
+    padding: 12px 22px;
+    margin: 14px 0;
+}
+.analysis .section-title {
+    font-family: "STKaiti","KaiTi","STFangsong","FangSong","Noto Serif CJK SC","PingFang SC", serif;
+    font-weight: normal;
+    color: #8b1a1a;
+    border-left: 4px solid #b83232;
+    padding-left: 10px;
+    margin: 0 0 10px;
+    letter-spacing: 3px;
+    font-size: 19px;
+}
+.analysis .section p {
+    text-indent: 2em;
+    line-height: 1.95;
+    margin: 6px 0;
+}
+.analysis .anno {
+    text-indent: 0;
+    font-size: 14px;
+    color: #6a4a2a;
+    line-height: 1.85;
+}
+.analysis .poem-full {
+    background: #fff7e6;
+    border: 1px dashed #c8a978;
+    border-radius: 2px;
+    padding: 14px 20px;
+    margin: 6px 0 2px;
+}
+.analysis .poem-full p {
+    text-indent: 2em;
+    letter-spacing: 1px;
+    margin: 4px 0;
+}
+.poem-nav {
+    text-align: center;
+    margin: 24px 0 4px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+.poem-nav a { margin: 0 12px; }
+.poem-nav .disabled {
+    color: #b9a47e;
+    margin: 0 12px;
+}
