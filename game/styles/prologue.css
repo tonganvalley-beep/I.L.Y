@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* 《I.L.Y.》序章专属样式：翻盖手机 / 隧道步行 / 终幕 */
+/* 沿用 game.css 的暗色主题与 Zpix 像素字体。 */
+
+/* ===== 翻盖手机 ===== */
+.phone{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 40%,rgba(8,20,16,.55),rgba(4,8,12,.85));padding:24px}
+.phone-screen{width:min(420px,92%);max-height:88%;display:flex;flex-direction:column;
+  background:#0b1f17;border:3px solid #1f5a3f;border-radius:14px;
+  box-shadow:0 0 24px rgba(60,200,140,.35),inset 0 0 40px rgba(40,120,90,.25);overflow:hidden}
+.phone-tabs{display:flex;border-bottom:2px solid #1f5a3f;background:#08160f}
+.phone-tabs button{flex:1;background:transparent;border:0;border-right:1px solid #163f2c;color:#7fae97;
+  font:inherit;padding:8px 0;cursor:pointer}
+.phone-tabs button:last-child{border-right:0}
+.phone-tabs button.active{background:#103524;color:#bdf3d6;text-shadow:0 0 8px rgba(120,240,180,.6)}
+.phone-body{flex:1;overflow:auto;padding:10px;color:#cdeede;min-height:220px}
+.phone-list{display:flex;flex-direction:column;gap:6px}
+.phone-row{padding:8px 10px;border:1px solid #1c4634;border-radius:6px;background:#0c2419;cursor:pointer}
+.phone-row.sel{border-color:#5fe0a0;background:#103a28;box-shadow:0 0 10px rgba(80,220,160,.4)}
+.phone-row.gone{opacity:.4;text-decoration:line-through}
+.r-from{font-size:14px;color:#bdf3d6}
+.r-time{font-size:11px;color:#6f9d88}
+.r-sub{font-size:12px;color:#8fc4ab;margin-top:2px}
+.edge{text-align:center;color:#5fe0a0;font-size:12px;padding:2px}
+.phone-detail{display:flex;flex-direction:column;gap:10px}
+.d-head{font-size:13px;color:#bdf3d6;border-bottom:1px dashed #1f5a3f;padding-bottom:6px}
+.d-body{white-space:pre-wrap;line-height:1.8;font-size:14px;color:#dff3e8}
+.d-link{color:#9fe8ff;background:#06283d;padding:8px;border-radius:6px;font-size:13px;
+  text-shadow:0 0 8px rgba(120,200,255,.7);letter-spacing:1px}
+.d-cap{font-size:12px;color:#7fb6d8}
+.confirm .sel-y{outline:2px solid #5fe0a0}
+.confirm .sel-n{outline:2px solid #c98}
+.phone-detail button{font:inherit;padding:8px 10px;border-radius:6px;border:1px solid #2c6b4c;
+  background:#0f3324;color:#cdeede;cursor:pointer;text-align:left}
+.phone-detail button:hover{background:#15432f}
+.phone-exit{margin-top:12px;text-align:center!important;background:#103524!important;border-color:#5fe0a0!important}
+.phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phone-cell{border:1px solid #1c4634;border-radius:6px;padding:6px;background:#0c2419;cursor:pointer;text-align:center}
+.phone-cell.sel{border-color:#5fe0a0;box-shadow:0 0 10px rgba(80,220,160,.4)}
+.cell-ph{height:90px;display:flex;align-items:center;justify-content:center;color:#6f9d88;font-size:12px;background:#08160f;border-radius:4px}
+.phone-cell img,.photo-full{width:100%;border-radius:4px;display:block}
+.cell-cap{font-size:12px;color:#8fc4ab;margin-top:4px}
+.photo-full{max-height:240px;object-fit:contain;margin:0 auto}
+.phone-hint{margin-top:10px;font-size:12px;color:#6f9d88;letter-spacing:1px}
+
+/* ===== 隧道步行 ===== */
+.walk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.walk-canvas{width:100%;height:100%;display:block;background:transparent}
+.walk-hud{position:absolute;top:12px;left:12px;color:#cdeede;font-size:13px;
+  background:rgba(6,16,12,.6);padding:4px 10px;border-radius:6px}
+.walk-prompt{position:absolute;bottom:64px;left:0;right:0;text-align:center;color:#bdf3d6;font-size:14px;text-shadow:0 0 8px rgba(0,0,0,.8)}
+.walk-ctrl{position:absolute;bottom:14px;display:flex;gap:10px}
+.walk-ctrl button{font:inherit;padding:8px 16px;border-radius:6px;border:1px solid #2c6b4c;background:#0f3324;color:#cdeede;cursor:pointer}
+.walk-ctrl button:hover{background:#15432f}
+
+/* ===== 终幕 ===== */
+.mode-panel h1{color:#bfe9ff;text-shadow:0 0 16px rgba(120,200,255,.6);letter-spacing:4px}

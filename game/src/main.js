@@ -4,6 +4,8 @@ const { createState, validateSave } = ILY;
 const { Assets } = ILY;
 const { el, button } = ILY;
 const { mountDialogue } = ILY;
+const { mountPhone } = ILY;
+const { mountWalk } = ILY;
 const { mountExploration } = ILY;
 const { mountBattle } = ILY;
 
@@ -39,8 +41,20 @@ try {
     stage.replaceChildren(); stage.style.backgroundImage = ''; notify(''); refreshClues();
     const context = {stage, node, state, assets, go, notify, refreshClues};
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);
+    else if (node.type === 'phone') cleanup = mountPhone(context);
+    else if (node.type === 'walk') cleanup = mountWalk(context);
     else if (node.type === 'exploration') cleanup = mountExploration({...context, map:maps[node.map]});
     else if (node.type === 'battle') cleanup = mountBattle({...context, level:levels[node.level]});
+    else if (node.type === 'finale' || node.type === 'branch' || node.type === 'end') {
+      if (node.enter) node.enter({ state, notify, assets });
+      const end = el('section', 'mode-panel');
+      end.append(el('h1', '', node.title || '未完待续'));
+      if (node.text) end.append(el('p', '', node.text));
+      if (node.subtitle) end.append(el('p', 'hint', node.subtitle));
+      end.append(button('重新开始', () => { state = createState(story.start); go(story.start); }));
+      stage.append(end);
+      try { localStorage.setItem(saveKey, JSON.stringify(state)); } catch {}
+    }
     else {
       const end = el('section', 'mode-panel'); end.append(el('h1', '', '未完待续'),el('p', '', node.text),button('重新开始',()=>{state=createState(story.start);go(story.start);}));stage.append(end);
     }

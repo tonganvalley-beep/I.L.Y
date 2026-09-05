@@ -6,7 +6,7 @@ function mountDialogue({stage, node, assets, go}) {
   const background = assets.image(node.background);
   stage.style.backgroundImage = background ? `url("${background}")` : '';
   if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
-  stage.append(el('div', 'scene-label', 'PROLOGUE / 雨后的教室'));
+  stage.append(el('div', 'scene-label', 'PROLOGUE / 蓝色来电'));
   const portrait = assets.image(node.portrait);
   if (portrait) {
     const img = el('img', 'portrait'); img.src = portrait; img.alt = node.speaker || ''; stage.append(img);
