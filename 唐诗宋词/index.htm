@@ -2,51 +2,44 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>唐诗宋词网 · 首页</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="welcome.css">
 </head>
-<body>
+<body class="welcome">
 
 <header class="site-header">
-    <h1><a href="tangshi/index.htm">唐诗</a><span class="sep">·</span><a href="songci/index.htm">宋词</a></h1>
-    <div class="subtitle">— 中华古典诗词鉴赏 —</div>
+    <h1>唐诗<span class="sep">·</span>宋词</h1>
+    <div class="subtitle">入诗词之境，读千年风雅</div>
 </header>
 
-<nav class="main-nav">
-    <a href="index.htm" class="active">首页</a>
-    <a href="tangshi/index.htm">唐诗</a>
-    <a href="songci/index.htm">宋词</a>
-</nav>
-
-<div class="bread">
-    <a href="index.htm">首页</a> <span class="sep">&gt;</span> <strong>欢迎</strong>
-</div>
-
-<div class="wrap">
-    <img class="theme-img" src="images/theme.jpg" width="640" alt="唐诗宋词主题图">
-
-    <div class="card-row">
-        <div class="card">
-            <div class="img-wrap" style="background-image:url('images/tangshi.jpg');"></div>
-            <div class="body">
+<main class="welcome-main">
+    <nav class="open-book" aria-label="选择唐诗或宋词">
+        <a class="book-page tang-page" href="tangshi/index.htm" aria-label="入唐诗境">
+            <img class="landscape" src="images/tangshi.jpg" alt="" fetchpriority="high">
+            <div class="page-copy">
+                <span class="era">卷一 · 唐风</span>
                 <h2>唐诗</h2>
-                <p>唐代（618&ndash;907）是中国古典诗歌的全盛时期，李白、杜甫、白居易、李商隐等大家辈出，五万首《全唐诗》至今传颂不绝。</p>
-                <a class="more" href="tangshi/index.htm">入唐诗境</a>
+                <p class="verse">长风破浪会有时，<br>直挂云帆济沧海。</p>
+                <p class="verse-author">李白 ·《行路难·其一》</p>
+                <span class="enter">入唐诗境 <span aria-hidden="true">→</span></span>
             </div>
-        </div>
-
-        <div class="card">
-            <div class="img-wrap" style="background-image:url('images/songci.jpg');"></div>
-            <div class="body">
+        </a>
+        <a class="book-page song-page" href="songci/index.htm" aria-label="入宋词境">
+            <img class="landscape" src="images/songci.jpg" alt="">
+            <div class="page-copy">
+                <span class="era">卷二 · 宋韵</span>
                 <h2>宋词</h2>
-                <p>两宋词坛，群星璀璨：苏轼之豪放、辛弃疾之沉郁、柳永之婉约、李清照之清丽，皆为词史丰碑，与唐诗并峙中华文坛。</p>
-                <a class="more" href="songci/index.htm">入宋词境</a>
+                <p class="verse">但愿人长久，<br>千里共婵娟。</p>
+                <p class="verse-author">苏轼 ·《水调歌头》</p>
+                <span class="enter">入宋词境 <span aria-hidden="true">→</span></span>
             </div>
-        </div>
-    </div>
+        </a>
+    </nav>
 
     <div class="subnav">
-        <strong>快速通道：</strong>
+        <strong>循名寻诗</strong>
         <a href="tangshi/libai.htm">李白</a> ·
         <a href="tangshi/dufu.htm">杜甫</a> ·
         <a href="tangshi/baijuyi.htm">白居易</a> ·
@@ -57,8 +50,7 @@
         <a href="songci/liuyong.htm">柳永</a>
     </div>
 
-    <p class="back-top"><a href="#">↑ 回到顶部</a></p>
-</div>
+</main>
 
 <footer class="site-footer">
     <div class="links">
