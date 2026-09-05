@@ -43,6 +43,8 @@
       background-repeat: no-repeat;
       background-color: #000;        /* 边角露出处用黑色 */
       user-select: none;
+      /* 男主正面像素立绘作为自定义光标，热点放在两脚中间（底部中心） */
+      cursor: url('./photo&video/cursor-hero-front.png') 24 24, auto;
     }
 
     /* ---------- 右上角：中英文切换按钮（样式和其他页面一致） ---------- */
@@ -57,7 +59,7 @@
       background: rgba(10, 25, 55, 0.55);
       border: 1px solid rgba(120, 180, 255, 0.5);
       border-radius: 4px;
-      cursor: pointer;
+      cursor: url('./photo&video/cursor-hero-front.png') 24 24, auto;
     }
     .lang-btn:hover {
       background: rgba(30, 70, 140, 0.7);
@@ -105,7 +107,7 @@
     }
     #phoneMenu li {
       padding: 0.08em 0.55em;
-      cursor: pointer;
+      cursor: url('./photo&video/cursor-hero-front.png') 24 24, auto;
       white-space: nowrap;           /* 选项文字不允许换行 */
       /* 参考日系翻盖机菜单：每个选项下面一条细横线 */
       border-bottom: 2px solid #1a1a2e;
@@ -421,6 +423,10 @@
       requestAnimationFrame(drawFrame);    /* 请求下一帧，形成循环 */
     }
   </script>
+
+  <!-- 男主光标：和登录页/开始界面共用同一份 cursor.js，
+       一进网站就是主角光标，页面跳转全程保持 -->
+  <script src="./cursor.js"></script>
 </body>
 
 </html>
