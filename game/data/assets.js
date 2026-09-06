@@ -18,7 +18,7 @@ ILY.data.assets = {
     "bg-room-white":       "assets/images/backgrounds/10 白底.png",     // 场景06/11 白底演出页
 
     // —— 人物立绘 / 精灵（images/characters） ——
-    "portrait-kio":        "assets/placeholders/character.svg",         // 28岁基生 室内/外出（半身）
+    "portrait-kio":        "assets/images/characters/portrait-kio.png",         // 28岁基生 室内/外出（半身）
     "portrait-kio-young":  "assets/placeholders/character.svg",   // 高中基生（回忆）
     "portrait-airi":       "assets/placeholders/character.svg",        // 爱理 校服立绘（酒红双眸）
     "portrait-airi-flash": "assets/placeholders/character.svg",  // 爱理闪回
