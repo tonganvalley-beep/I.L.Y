@@ -7,15 +7,15 @@
 ILY.data.assets = {
   "images": {
     // —— 场景背景（images/backgrounds） ——
-    "bg-apartment-dusk":   "assets/placeholders/background.svg",   // 场景01/02 出租屋 黄昏
-    "bg-apartment-night":  "assets/placeholders/night.svg",  // 场景04/05/06 出租屋 深夜
-    "bg-university":       "assets/placeholders/background.svg",       // 场景03 大学走廊与学生群像
-    "bg-empty-apartment":  "assets/placeholders/background.svg",  // 场景04 空壳公寓（含招租牌）
-    "bg-hallway":          "assets/placeholders/background.svg",          // 场景07 公寓走廊声控灯
-    "bg-tunnel":           "assets/placeholders/tunnel.svg",           // 场景07 隧道横版背景
-    "bg-coast-night":      "assets/placeholders/coast.svg",      // 场景08/09 月夜海岸
-    "bg-coast-blue":       "assets/placeholders/coast.svg",       // 场景10/11 蓝光海岸
-    "bg-room-white":       "assets/placeholders/white.svg",       // 场景06/11 白底演出页
+    "bg-apartment-dusk":   "assets/images/backgrounds/2.白天家.png",    // 场景01/02 出租屋 黄昏
+    "bg-apartment-night":  "assets/images/backgrounds/1.夜晚家.png",    // 场景04/05/06 出租屋 深夜
+    "bg-university":       "assets/images/backgrounds/3 回忆蒙太奇.png",// 场景03 大学走廊与学生群像
+    "bg-empty-apartment":  "assets/images/backgrounds/4 空壳公寓.png",  // 场景04 空壳公寓（含招租牌）
+    "bg-hallway":          "assets/images/backgrounds/5.走廊·开灯.png",// 场景07 公寓走廊声控灯
+    "bg-tunnel":           "assets/images/backgrounds/6_隧道_无海报.png",// 场景07 隧道横版背景
+    "bg-coast-night":      "assets/images/backgrounds/7_海岸.png",      // 场景08/09 月夜海岸
+    "bg-coast-blue":       "assets/images/backgrounds/9_海岸_纯蓝.png", // 场景10/11 蓝光海岸
+    "bg-room-white":       "assets/images/backgrounds/10 白底.png",     // 场景06/11 白底演出页
 
     // —— 人物立绘 / 精灵（images/characters） ——
     "portrait-kio":        "assets/placeholders/character.svg",         // 28岁基生 室内/外出（半身）
