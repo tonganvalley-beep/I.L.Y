@@ -129,6 +129,62 @@
       color: #1a3a8f;                /* 悬停文字变深蓝，和方块呼应 */
     }
 
+    /* ---------- 可操作菜单与开场动画 ---------- */
+    .menu-dialog {
+      width: min(460px, calc(100vw - 48px));
+      box-sizing: border-box;
+      color: #dbeaff;
+      background: rgba(8, 22, 50, 0.96);
+      border: 2px solid #78b4ff;
+      padding: 22px;
+      font: inherit;
+      box-shadow: 0 0 28px rgba(77, 151, 255, 0.45);
+    }
+    .menu-dialog::backdrop { background: rgba(0, 0, 0, 0.72); }
+    .menu-dialog h2 { margin: 0 0 18px; }
+    .menu-dialog p { line-height: 1.7; }
+    .dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .dialog-actions button {
+      padding: 9px 14px;
+      color: #dbeaff;
+      background: #173d79;
+      border: 1px solid #78b4ff;
+      font: inherit;
+      cursor: pointer;
+    }
+    #menuStatus {
+      position: fixed;
+      z-index: 30;
+      left: 50%; bottom: 7%;
+      transform: translateX(-50%);
+      padding: 10px 16px;
+      color: #fff;
+      background: rgba(8, 22, 50, 0.92);
+      border: 1px solid #78b4ff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+    }
+    #menuStatus.show { opacity: 1; }
+    #openingOverlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: #000;
+    }
+    #openingOverlay[hidden] { display: none; }
+    #openingVideo { width: 100%; height: 100%; object-fit: contain; }
+    .skip-opening {
+      position: absolute;
+      right: 24px; bottom: 22px;
+      padding: 9px 14px;
+      color: #fff;
+      background: rgba(0, 0, 0, .62);
+      border: 1px solid rgba(255, 255, 255, .72);
+      font: inherit;
+      cursor: pointer;
+    }
+
     /* ---------- 全屏画布：头发飘动动画的绘制层 ---------- */
     #scene {
       position: fixed;
@@ -168,6 +224,32 @@
     </ul>
   </div>
 
+  <p id="menuStatus" role="status" aria-live="polite"></p>
+
+  <dialog id="optionsDialog" class="menu-dialog">
+    <h2 data-i18n="options.title">选项</h2>
+    <p data-i18n="options.text">可在这里切换语言或进入全屏。</p>
+    <div class="dialog-actions">
+      <button id="optionLanguage" data-i18n="options.language">切换语言</button>
+      <button id="optionFullscreen" data-i18n="options.fullscreen">进入全屏</button>
+      <button data-close="optionsDialog" data-i18n="common.close">关闭</button>
+    </div>
+  </dialog>
+
+  <dialog id="aboutDialog" class="menu-dialog">
+    <h2 data-i18n="about.title">关于 I.L.Y.</h2>
+    <p data-i18n="about.text">查看制作成员与项目介绍。</p>
+    <div class="dialog-actions">
+      <button id="openAbout" data-i18n="about.open">打开关于我们</button>
+      <button data-close="aboutDialog" data-i18n="common.close">关闭</button>
+    </div>
+  </dialog>
+
+  <div id="openingOverlay" hidden>
+    <video id="openingVideo" preload="auto" playsinline src="../game/I.L.Y.-OP.mp4"></video>
+    <button id="skipOpening" class="skip-opening" data-i18n="opening.skip">按 Esc 跳过</button>
+  </div>
+
   <script>
     /* ============================================================
      * 第 0 块：鉴权守卫（最先执行！）
@@ -193,7 +275,19 @@
         "menu.load":    "Sub2 读取存档",
         "menu.options": "Sub3 选项",
         "menu.about":   "Sub4 关于我们",
-        "menu.exit":    "Sub5 退出"
+        "menu.exit":    "Sub5 退出",
+        "options.title": "选项",
+        "options.text": "可在这里切换语言或进入全屏。",
+        "options.language": "切换语言",
+        "options.fullscreen": "进入全屏",
+        "options.windowed": "退出全屏",
+        "about.title": "关于 I.L.Y.",
+        "about.text": "查看制作成员与项目介绍。",
+        "about.open": "打开关于我们",
+        "common.close": "关闭",
+        "opening.skip": "按 Esc 跳过",
+        "status.noSave": "当前账号还没有存档。",
+        "status.opFailed": "开场动画无法播放，正在直接进入游戏……"
       },
       english: {
         "page.title":   "Game Main Screen",
@@ -202,7 +296,19 @@
         "menu.load":    "Sub2 Load Save",
         "menu.options": "Sub3 Options",
         "menu.about":   "Sub4 About Us",
-        "menu.exit":    "Sub5 Exit"
+        "menu.exit":    "Sub5 Exit",
+        "options.title": "Options",
+        "options.text": "Switch language or toggle fullscreen here.",
+        "options.language": "Switch Language",
+        "options.fullscreen": "Enter Fullscreen",
+        "options.windowed": "Exit Fullscreen",
+        "about.title": "About I.L.Y.",
+        "about.text": "Meet the team and read about the project.",
+        "about.open": "Open About Us",
+        "common.close": "Close",
+        "opening.skip": "Press Esc to skip",
+        "status.noSave": "There is no save for this account yet.",
+        "status.opFailed": "The opening movie could not play. Starting the game…"
       }
     };
 
@@ -225,6 +331,7 @@
       applyDomLang();
       document.getElementById('langBtn').textContent =
         (name === 'chinese') ? 'EN' : '中文';
+      updateFullscreenLabel();
     }
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -331,15 +438,107 @@
       el.style.fontSize = Math.max(11, 42 * cover.scale) + 'px';
     }
 
-    /* 菜单点击：data-action 标记了每个选项的身份，以后要做对应功能时
-       在下面的 switch 里补就行（现在开始新游戏/读取存档等还没做） */
+    const player = localStorage.getItem('mygame-token') || 'guest';
+    const saveKey = `ily-save-v1:${player}`;
+    let statusTimer = 0;
+    let openingStarted = false;
+    let openingFinished = false;
+
+    function showStatus(message) {
+      const status = document.getElementById('menuStatus');
+      status.textContent = message;
+      status.classList.add('show');
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(() => status.classList.remove('show'), 2600);
+    }
+
+    function gameUrl(mode) {
+      const url = new URL('../game/index.html', window.location.href);
+      url.searchParams.set('player', player);
+      url.searchParams.set('mode', mode);
+      return url.href;
+    }
+
+    function enterGame(mode) {
+      window.location.href = gameUrl(mode);
+    }
+
+    function finishOpening() {
+      if (openingFinished) return;
+      openingFinished = true;
+      document.getElementById('openingVideo').pause();
+      enterGame('new');
+    }
+
+    function playOpening() {
+      if (openingStarted) return;
+      openingStarted = true;
+      const overlay = document.getElementById('openingOverlay');
+      const video = document.getElementById('openingVideo');
+      overlay.hidden = false;
+      video.currentTime = 0;
+      video.addEventListener('ended', finishOpening, { once: true });
+      video.addEventListener('error', () => {
+        showStatus(t('status.opFailed'));
+        setTimeout(finishOpening, 400);
+      }, { once: true });
+      video.play().catch(() => {
+        showStatus(t('status.opFailed'));
+        setTimeout(finishOpening, 400);
+      });
+    }
+
+    function skipOpening() {
+      if (!openingStarted) return;
+      finishOpening();
+    }
+
+    function updateFullscreenLabel() {
+      const button = document.getElementById('optionFullscreen');
+      if (button) button.textContent = t(document.fullscreenElement ? 'options.windowed' : 'options.fullscreen');
+    }
+
+    document.getElementById('skipOpening').addEventListener('click', skipOpening);
+    window.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && openingStarted) {
+        event.preventDefault();
+        skipOpening();
+      }
+    });
+    document.querySelectorAll('[data-close]').forEach(button => {
+      button.addEventListener('click', () => document.getElementById(button.dataset.close).close());
+    });
+    document.getElementById('optionLanguage').addEventListener('click', () => {
+      setLang(currentLang === 'chinese' ? 'english' : 'chinese');
+    });
+    document.getElementById('optionFullscreen').addEventListener('click', async () => {
+      try {
+        if (document.fullscreenElement) await document.exitFullscreen();
+        else await document.documentElement.requestFullscreen();
+      } catch { showStatus(t('options.text')); }
+    });
+    document.addEventListener('fullscreenchange', updateFullscreenLabel);
+    document.getElementById('openAbout').addEventListener('click', () => {
+      window.location.href = '../about-us/index.html';
+    });
+
+    /* 主菜单接入 game：新游戏播放 OP，读取存档让 game 自动恢复。 */
     document.querySelectorAll('#phoneMenu li').forEach(li => {
       li.addEventListener('click', () => {
         switch (li.dataset.action) {
-          case 'new':     /* TODO：开始新游戏 */ break;
-          case 'load':    /* TODO：读取存档   */ break;
-          case 'options': /* TODO：选项设置   */ break;
-          case 'about':   /* TODO：关于我们   */ break;
+          case 'new':
+            playOpening();
+            break;
+          case 'load':
+            if (localStorage.getItem(saveKey)) enterGame('load');
+            else showStatus(t('status.noSave'));
+            break;
+          case 'options':
+            document.getElementById('optionsDialog').showModal();
+            break;
+          case 'about':
+            document.getElementById('aboutDialog').showModal();
+            break;
           case 'exit':
             /* 退出 = 退出登录并回到登录界面：
                先清掉登录态 token（否则直接访问 game.html/index.html 仍能绕过登录），

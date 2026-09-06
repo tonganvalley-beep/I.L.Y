@@ -1,0 +1,33 @@
+/* 全视口舞台。玩法面板仍复用 game.css，galgame 布局以本文件为准。 */
+:root{font-family:Zpix,system-ui,sans-serif;background:#0a1019}
+body,button,a,input,textarea,select,dialog{font-family:inherit}
+body{height:100vh;height:100dvh;min-height:0;overflow:hidden;background:#0a1019}
+[hidden]{display:none!important}
+main{display:block;margin:0;height:100%}
+#stage{width:100%;height:100%;min-height:0;border:0;border-radius:0;background:#142231;isolation:isolate}
+.game-header{position:fixed;inset:0 0 auto;z-index:20;padding:18px 3vw;background:linear-gradient(#050b146b,transparent);pointer-events:none}
+.game-header #chapter{font-size:12px;letter-spacing:3px;text-shadow:0 2px 6px #000;color:#e9e7e2}
+.game-header button{pointer-events:auto;background:#0c162878;border-color:#ffffff30;border-radius:24px;font-size:13px;padding:7px 19px}
+.scene{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.scene-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#142231}
+.portrait{position:absolute;height:94%;width:55%;max-width:none;object-fit:contain;object-position:center bottom;bottom:-6%;left:50%;right:auto;transform:translateX(-50%) scale(var(--character-scale,1));transform-origin:50% 100%;filter:drop-shadow(0 8px 24px #0005)}
+.portrait[data-position=left]{left:28%}.portrait[data-position=right]{left:72%}.portrait.inactive{filter:brightness(.7)}
+.scene-prop{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:40%;height:46%;object-fit:contain;filter:drop-shadow(0 12px 32px #0008)}
+.dialogue{left:0;right:0;bottom:0;border:0;border-radius:0;background:linear-gradient(transparent,#07111ce6 30%,#060d18f5);padding:38px max(7vw,24px) max(16px,env(safe-area-inset-bottom));color:#f5f2e9;text-shadow:0 2px 5px #0008}
+.speaker{font-size:clamp(18px,1.65vw,26px);letter-spacing:3px;color:#d9e9f1;border-left:3px solid #b9d6e0;padding-left:15px}
+.dialogue .dialogue-text{font-size:clamp(16px,1.45vw,23px);line-height:1.85;letter-spacing:.06em;min-height:3.7em;max-height:28vh;overflow:auto;margin:15px 0 10px}
+.dialogue .actions{justify-content:flex-end;align-items:center;gap:12px}
+.dialogue button{background:transparent;border:1px solid #c3d8e32e;padding:5px 15px;border-radius:3px;font-size:13px;color:#d1e0e8}
+.dialogue button:hover{background:#b9d6e01c}.advance-hint{font-size:10px;letter-spacing:2px;color:#9aabb8;margin-right:auto}
+#stage[data-mode=choice] .actions{flex-direction:column;align-items:stretch;max-width:650px;margin:0 auto}
+#stage[data-mode=choice] .actions button{padding:10px;background:#172736c9;font-size:16px}
+.reveal-dialogue{position:absolute;bottom:24px;right:4vw;background:#0c162899}
+#game-menu{width:min(440px,92vw);max-height:85dvh;overflow:auto;margin:auto;padding:28px;color:#e5edf2;background:#101b2af5;border:1px solid #9ab9c64d;border-radius:8px;box-shadow:0 20px 100px #0009}
+#game-menu::backdrop{background:#040a1466;backdrop-filter:blur(5px)}
+.menu-heading{display:flex;align-items:center;justify-content:space-between}.menu-heading h2{margin:0}.menu-heading button{background:transparent;border:0;font-size:25px}
+#game-menu .toolbar{display:grid;grid-template-columns:1fr 1fr}#game-menu h3{font-weight:normal;font-size:15px;margin-top:28px}#clues{font-size:13px;color:#aebfcc}
+#status{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:50;background:#091523eb;color:#efdab0;max-width:90vw;border-radius:5px;padding:10px 18px;font-size:13px;pointer-events:none}#status:empty{display:none}
+.mode-panel{height:100%;overflow:auto;padding:86px 5vw 24px}.mode-panel canvas{max-height:62vh;width:auto;max-width:100%;margin:auto}.walk-hud{top:76px}
+.phone{padding-top:76px}.phone-screen{min-height:0}.phone-body{min-height:0}.phone-hint{margin:5px}
+@media(max-width:600px){.game-header{padding:12px 16px}.game-header #chapter{font-size:10px;letter-spacing:1px}.portrait{width:100%;height:83%;bottom:0}.portrait[data-position=left]{left:25%}.portrait[data-position=right]{left:75%}.dialogue{padding:30px 22px 16px}.dialogue .dialogue-text{max-height:31vh}.advance-hint{display:none}.scene-prop{width:75%}.phone{padding:66px 12px 10px}}
+@media(max-height:500px){.game-header{padding:8px 18px}.dialogue{padding:22px 5vw 8px}.dialogue .dialogue-text{font-size:15px;min-height:0;max-height:23vh;margin:6px 0}.speaker{font-size:17px}.portrait{height:100%}.phone{padding:45px 12px 4px}.phone-screen{max-height:94%}.phone-hint{display:none}.phone-body{min-height:0}.walk-hud{top:48px}}

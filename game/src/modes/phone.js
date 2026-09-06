@@ -23,6 +23,8 @@ function unlock(state, id, label, notify) {
 
 function mountPhone({ stage, node, state, assets, go, notify }) {
   const cfg = node.phone || {};
+  const pending = new Set();
+  const later = (callback, delay) => { const timer = setTimeout(() => { pending.delete(timer); callback(); }, delay); pending.add(timer); };
   const F = PHONE();
   const flags = getFlags(state);
   const lockClose = !!cfg.lockClose;
@@ -221,7 +223,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
       view = 'send';
       flags.MAIL_READ_COUNT++; if (flags.MAIL_READ_COUNT >= 3) unlock(state, 'daily', '每日一封', notify);
       wrap.replaceChildren(el('div', 'd-head', '发送中…'));
-      setTimeout(() => {
+      later(() => {
         const sys = el('div', 'phone-detail');
         sys.append(el('div', 'd-head', F.mails.SYS01.from + ' · ' + F.mails.SYS01.subject));
         sys.append(el('div', 'd-body', F.mails.SYS01.body));
@@ -272,6 +274,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
 
   // ---------- 键盘 ----------
   function onKey(e) {
+    if (document.querySelector('dialog[open]') || e.target.closest('button, a, input, textarea, select')) return;
     const k = e.key;
     if (k === 'm' || k === 'M') {
       if (!lockClose && view === 'list') { render(); }
@@ -287,7 +290,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
             mailScroll.cap.style.display = '';
             state.flags.FLAG_HIDDEN_LINK = 'found';
             notify('你发现了一个隐藏链接。');
-            if (mailScroll.onReveal) { setTimeout(() => go(mailScroll.onReveal), 600); }
+            if (mailScroll.onReveal) { later(() => go(mailScroll.onReveal), 600); }
           }
         }
         e.preventDefault(); return;
@@ -351,7 +354,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   function maybeAutoExit() {
     if (cfg.exitNext && cfg.lockClose && !cfg.scrollReveal && !cfg.onReveal) {
       const need = (cfg.mails || []).concat(cfg.reveal ? [cfg.reveal.id] : []);
-      if (need.every(id => flags.phone.read.includes(id))) setTimeout(() => go(cfg.exitNext), 400);
+      if (need.length && !cfg.manualExit && !cfg.allowSend && need.every(id => flags.phone.read.includes(id))) later(() => go(cfg.exitNext), 400);
     }
   }
   const _origRender = render;
@@ -359,7 +362,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
 
   render();
   window.addEventListener('keydown', onKey);
-  return () => { window.removeEventListener('keydown', onKey); if (mailTimer) clearInterval(mailTimer); };
+  return () => { for (const timer of pending) clearTimeout(timer); window.removeEventListener('keydown', onKey); if (mailTimer) clearInterval(mailTimer); };
 }
 
 Object.assign(ILY, { mountPhone });

@@ -49,7 +49,7 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   resize();
   window.addEventListener('resize', resize);
 
-  const playerImg = assets.image(cfg.player || 'kio-walk');
+  const playerImg = new Image(); playerImg.src = assets.image(cfg.player || 'kio-walk');
 
   function nearest() {
     let best = null, bd = 70;
@@ -73,19 +73,21 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   }
 
   function onKey(e) {
+    if (document.querySelector('dialog[open]') || e.target.closest('button, a, input')) return;
     if (e.key === 'ArrowRight') { moving = 1; e.preventDefault(); }
     else if (e.key === 'ArrowLeft') { moving = -1; e.preventDefault(); }
     else if (e.key === ' ' || e.key === 'Enter') { if (nearest()) investigate(); e.preventDefault(); }
   }
   function onKeyUp(e) { if (e.key === 'ArrowRight' && moving === 1) moving = 0; if (e.key === 'ArrowLeft' && moving === -1) moving = 0; }
 
-  let raf;
+  let raf, exitTimer;
   let last = performance.now();
   function loop(now) {
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (document.querySelector('dialog[open]') || document.hidden) moving = 0;
     if (!exiting) {
       x = Math.max(0, Math.min(length, x + moving * speed * dt));
-      if (x >= exitX) { exiting = true; notify('你走出了隧道，眼前是月光下的海岸。'); setTimeout(() => go(cfg.exitNext), 900); }
+      if (x >= exitX) { exiting = true; notify('你走出了隧道，眼前是月光下的海岸。'); exitTimer = setTimeout(() => go(cfg.exitNext), 900); }
     }
     draw();
     raf = requestAnimationFrame(loop);
@@ -108,22 +110,19 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
       ctx.globalAlpha = h.done ? 0.35 : 0.9;
       ctx.fillStyle = h.done ? '#5b7' : '#e7c479';
       ctx.beginPath(); ctx.arc(sx, ground - 60, 9, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#cdd'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#cdd'; ctx.font = '13px Zpix, sans-serif'; ctx.textAlign = 'center';
       ctx.fillText(h.done ? '✓' : '?', sx, ground - 56);
       ctx.restore();
     }
     // 玩家
     const px = x - camX;
     ctx.save();
-    if (playerImg) {
-      const im = new Image(); im.src = playerImg;
-      if (im.complete) ctx.drawImage(im, px - 18, ground - 70, 36, 70);
-      else drawStick(px, ground);
-    } else drawStick(px, ground);
+    if (playerImg.complete && playerImg.naturalWidth) ctx.drawImage(playerImg, px - 18, ground - 70, 36, 70);
+    else drawStick(px, ground);
     ctx.restore();
     // 出口提示
     const ex = exitX - camX;
-    if (ex > 0 && ex < W) { ctx.fillStyle = 'rgba(180,210,255,0.8)'; ctx.font = '12px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('出口 →', ex, ground - 80); }
+    if (ex > 0 && ex < W) { ctx.fillStyle = 'rgba(180,210,255,0.8)'; ctx.font = '12px Zpix, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('出口 →', ex, ground - 80); }
     // HUD
     hud.textContent = `隧道 ${Math.round((x / length) * 100)}%  ·  调查 ${F.TUNNEL_CHECK_COUNT}/${hotspots.length}`;
     const near = nearest();
@@ -140,7 +139,7 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   raf = requestAnimationFrame(loop);
 
   return () => {
-    cancelAnimationFrame(raf);
+    cancelAnimationFrame(raf); clearTimeout(exitTimer);
     window.removeEventListener('keydown', onKey);
     window.removeEventListener('keyup', onKeyUp);
     window.removeEventListener('resize', resize);

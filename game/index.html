@@ -6,14 +6,15 @@
   <title>I.L.Y · 故事继续</title>
   <link rel="stylesheet" href="styles/game.css">
   <link rel="stylesheet" href="styles/prologue.css">
+  <link rel="stylesheet" href="styles/stage.css">
 </head>
 <body>
-  <header><a href="../sign&log/index.html">I.L.Y</a><span id="chapter">序章 · 蓝色来电</span><div class="toolbar"><button id="save">保存进度</button><button id="load">读取进度</button><button id="sound">开启音乐</button></div></header>
+  <header class="game-header"><span id="chapter">序章 · 蓝色来电</span><button id="menu-toggle" aria-controls="game-menu" aria-expanded="false">菜单 ☰</button></header>
   <main>
     <section id="stage" aria-label="游戏场景"></section>
-    <aside><p class="eyebrow">PROLOGUE</p><h2>序章 · 蓝色来电</h2><p>2020年7月22日至23日。一个关于十年未达之信的故事。</p><ul id="clues"></ul><p id="status" role="status"></p></aside>
   </main>
-  <footer>I.L.Y. 序章框架 · 美术与音频为占位资源 <span>存档保存在当前浏览器</span></footer>
+  <dialog id="game-menu"><div class="menu-heading"><h2>蓝色来电</h2><button id="menu-close" aria-label="关闭菜单">×</button></div><p class="hint">2020 / 07 / 22 — 23</p><div class="toolbar"><button id="save">保存进度</button><button id="load">读取进度</button><button id="sound">开启音乐</button><button id="fullscreen">进入全屏</button></div><h3>调查线索</h3><ul id="clues"></ul><p class="hint">存档保存在当前浏览器。点击画面或按空格 / Enter 继续；H 隐藏对白。</p><a id="return-menu" href="../sign&log/index.html">返回开始菜单 →</a></dialog>
+  <p id="status" role="status"></p>
   <!-- 普通脚本按顺序加载：命名空间 → 数据 → 工具 → 玩法 → 入口。 -->
   <script src="src/bootstrap.js"></script>
   <script src="data/assets.js"></script>
@@ -24,6 +25,7 @@
   <script src="src/core/state.js"></script>
   <script src="src/core/assets.js"></script>
   <script src="src/core/dom.js"></script>
+  <script src="src/core/scene.js"></script>
   <script src="src/modes/dialogue.js"></script>
   <script src="src/modes/phone.js"></script>
   <script src="src/modes/walk.js"></script>

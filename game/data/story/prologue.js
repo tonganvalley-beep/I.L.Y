@@ -14,12 +14,12 @@ ILY.data.stories.prologue = {
       text:"（麻木，呼吸很浅）……又到傍晚了啊。", next:"s01_intro3" },
     s01_intro3: { type:"dialogue", speaker:"系统", background:"bg-apartment-dusk",
       text:"（电子音，按键提示）滴——已保存的邮件。发件人：百合沢 爱理。时间：2009年，夏。", next:"s01_phone" },
-    s01_phone:  { type:"phone", phone:{
+    s01_phone:  { type:"phone", background:"bg-apartment-dusk", phone:{
         tab:"mail", lockClose:true,
         mails:["A01","A02","A03"],
         reveal:{ after:["A01","A02","A03"], id:"A04" },
         exitNext:"s01_photo" } },
-    s01_photo:  { type:"dialogue", speaker:"成田基生", portrait:"photo-seaside", background:"bg-apartment-dusk",
+    s01_photo:  { type:"dialogue", speaker:"成田基生", overlay:"photo-seaside", background:"bg-apartment-dusk",
       text:"（盯着最后一封，声音很低）爱理……", next:"s02a" },
 
     // ===== 场景02 主管来电 =====
@@ -43,7 +43,7 @@ ILY.data.stories.prologue = {
       text:"十年前、高中毕业之后，我去了附近的大学。我没什么想做的事情，也无法融入他人之中。大二开始，我就没再去学校，然后直接退学了。", next:"s03a2" },
     s03a2:{ type:"dialogue", speaker:"成田基生（独白）", background:"bg-university",
       text:"那之后我就一直四处打工，让自己起码不会饿死。如果呆不下去了，就辞职。一直重复着这样的生活。", next:"s03_phone" },
-    s03_phone:{ type:"phone", phone:{
+    s03_phone:{ type:"phone", background:"bg-university", phone:{
         tab:"contacts", lockClose:true, manualExit:true,
         contacts:["work"], tutorialDelete:true,
         mails:["F01"],                 // 自由探索：父亲邮件
@@ -52,7 +52,7 @@ ILY.data.stories.prologue = {
     // ===== 场景04 深夜 通讯录与发送失败的邮件 =====
     s04a: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night",
       text:"（疲惫）……都删掉吧。", next:"s04_phone" },
-    s04_phone:{ type:"phone", phone:{
+    s04_phone:{ type:"phone", background:"bg-apartment-night", phone:{
         tab:"contacts", lockClose:true,
         contacts:["ando","mother","father","airi"],
         forcedDelete:["ando","mother","father"],
@@ -69,7 +69,7 @@ ILY.data.stories.prologue = {
       text:"……203，马场先生？这是楼下的快递吧。……是送错了啊。", next:"s05d" },
     s05d: { type:"dialogue", speaker:"快递员", background:"bg-apartment-night",
       text:"（门外，带歉意）不好意思——！是楼下203室的，地址弄错了！我这边还有下一单，拜托您了！", next:"s05e" },
-    s05e: { type:"dialogue", speaker:"旁白", portrait:"parcel-label", background:"bg-apartment-night",
+    s05e: { type:"dialogue", speaker:"旁白", overlay:"parcel-label", background:"bg-apartment-night",
       text:"快递单：203室 马场先生 · 生鲜 · 要冷藏。基生盯着这张不属于自己的快递单。", next:"s05f" },
     s05f: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night",
       text:"（关门，小声嘟囔）搞什么啊，这个快递员……", next:"s05g" },
@@ -77,7 +77,7 @@ ILY.data.stories.prologue = {
       text:"海浪的铃声，蓝色的光……那是只属于爱理的来电设置。", next:"s06a" },
 
     // ===== 场景06 爱理的回信 =====
-    s06a: { type:"phone", phone:{
+    s06a: { type:"phone", background:"bg-apartment-night", phone:{
         tab:"mail", lockClose:true, scrollReveal:false,
         mails:["R01"], exitNext:"br01" } },
     br01: { type:"choice", speaker:"成田基生", background:"bg-apartment-night",
@@ -106,7 +106,7 @@ ILY.data.stories.prologue = {
       text:"基生站在沙滩上，从口袋摸出手机，打开回信；镜头由远景缓慢推进至手机屏幕。", next:"s09" },
 
     // ===== 场景09 邮件的下面 =====
-    s09: { type:"phone", phone:{
+    s09: { type:"phone", background:"bg-coast-night", phone:{
         tab:"mail", lockClose:true, scrollReveal:true,
         mails:["R01"], onReveal:"br02" } },
     br02: { type:"choice", speaker:"成田基生", background:"bg-coast-night",
@@ -137,13 +137,13 @@ ILY.data.stories.prologue = {
       text:"——在那里我遇到的，是十年前的那个她。", next:"finale" },
 
     // ===== 终幕 / 分支结局 =====
-    finale: { type:"finale", title:"I.L.Y.", subtitle:"——在那里我遇到的，是十年前的那个她。",
+    finale: { type:"finale", background:"bg-coast-blue", title:"I.L.Y.", subtitle:"——在那里我遇到的，是十年前的那个她。",
       text:"序章主线结束。蓝光涨满全屏，标题 I.L.Y. 浮现，三个字母像被海水冲刷过的沙字。",
       enter:(state, notify) => {
         state.flags.FLAG_BLUE_CALL = "unlocked";
         if (!state.flags.achievements.includes("last-beach")) { state.flags.achievements.push("last-beach"); notify("成就解锁：最后一次海边"); }
       } },
-    ne_ending: { type:"branch", title:"门内的回信", subtitle:"路线偏向怀疑与调查。",
+    ne_ending: { type:"branch", background:"bg-apartment-night", title:"门内的回信", subtitle:"路线偏向怀疑与调查。",
       text:"有些故事，还没有开始就结束了。……真的，结束了吗？回房后那封邮件再未出现，海浪铃声也未再响。",
       enter:(state, notify) => {
         // FLAG BLUE CALL 保持未解锁

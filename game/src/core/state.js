@@ -1,7 +1,7 @@
 (() => {
 'use strict';
 function createState(node = 'arrival') {
-  return { version: 1, chapter: 'prologue', node, clues: [], flags: {}, maps: {} };
+  return { version: 1, chapter: 'prologue', node, clues: [], flags: { achievements: [] }, maps: {} };
 }
 
 function addClue(state, clue) {
@@ -31,6 +31,7 @@ function validateSave(value, story, maps) {
       throw new Error('存档中的地图位置无效。');
     }
   }
+  if (!Array.isArray(value.flags.achievements)) value.flags.achievements = [];
   return value;
 }
 

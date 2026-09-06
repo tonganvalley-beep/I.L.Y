@@ -1,38 +1,38 @@
 // 《I.L.Y.》序章 · 资源清单（占位）
 // 路径沿用项目既有约定：images/backgrounds|characters|ui，audio/bgm|sfx|voices。
-// 文件尚未提供时游戏仍可运行（缺图=无背景/无立绘），把美术按下列 id 放进对应目录即可自动生效。
+// 当前 images 指向实际存在的示意图。放入正式素材后，将对应 ID 的路径替换成真实相对路径。
 //
 //  ⚠ 注意：sfx / voices 目前只登记路径，代码中尚未接线播放。
 //     仅在需要时在场景节点上加 bgm 字段即可切 BGM（Assets.setMusic 已支持）。
 ILY.data.assets = {
   "images": {
     // —— 场景背景（images/backgrounds） ——
-    "bg-apartment-dusk":   "assets/images/backgrounds/bg-apartment-dusk.png",   // 场景01/02 出租屋 黄昏
-    "bg-apartment-night":  "assets/images/backgrounds/bg-apartment-night.png",  // 场景04/05/06 出租屋 深夜
-    "bg-university":       "assets/images/backgrounds/bg-university.png",       // 场景03 大学走廊与学生群像
-    "bg-empty-apartment":  "assets/images/backgrounds/bg-empty-apartment.png",  // 场景04 空壳公寓（含招租牌）
-    "bg-hallway":          "assets/images/backgrounds/bg-hallway.png",          // 场景07 公寓走廊声控灯
-    "bg-tunnel":           "assets/images/backgrounds/bg-tunnel.png",           // 场景07 隧道横版背景
-    "bg-coast-night":      "assets/images/backgrounds/bg-coast-night.png",      // 场景08/09 月夜海岸
-    "bg-coast-blue":       "assets/images/backgrounds/bg-coast-blue.png",       // 场景10/11 蓝光海岸
-    "bg-room-white":       "assets/images/backgrounds/bg-room-white.png",       // 场景06/11 白底演出页
+    "bg-apartment-dusk":   "assets/placeholders/background.svg",   // 场景01/02 出租屋 黄昏
+    "bg-apartment-night":  "assets/placeholders/night.svg",  // 场景04/05/06 出租屋 深夜
+    "bg-university":       "assets/placeholders/background.svg",       // 场景03 大学走廊与学生群像
+    "bg-empty-apartment":  "assets/placeholders/background.svg",  // 场景04 空壳公寓（含招租牌）
+    "bg-hallway":          "assets/placeholders/background.svg",          // 场景07 公寓走廊声控灯
+    "bg-tunnel":           "assets/placeholders/tunnel.svg",           // 场景07 隧道横版背景
+    "bg-coast-night":      "assets/placeholders/coast.svg",      // 场景08/09 月夜海岸
+    "bg-coast-blue":       "assets/placeholders/coast.svg",       // 场景10/11 蓝光海岸
+    "bg-room-white":       "assets/placeholders/white.svg",       // 场景06/11 白底演出页
 
     // —— 人物立绘 / 精灵（images/characters） ——
-    "portrait-kio":        "assets/images/characters/portrait-kio.png",         // 28岁基生 室内/外出（半身）
-    "portrait-kio-young":  "assets/images/characters/portrait-kio-young.png",   // 高中基生（回忆）
-    "portrait-airi":       "assets/images/characters/portrait-airi.png",        // 爱理 校服立绘（酒红双眸）
-    "portrait-airi-flash": "assets/images/characters/portrait-airi-flash.png",  // 爱理闪回
-    "kio-walk":            "assets/images/characters/kio-walk.png",             // 隧道横版步行精灵
+    "portrait-kio":        "assets/placeholders/character.svg",         // 28岁基生 室内/外出（半身）
+    "portrait-kio-young":  "assets/placeholders/character.svg",   // 高中基生（回忆）
+    "portrait-airi":       "assets/placeholders/character.svg",        // 爱理 校服立绘（酒红双眸）
+    "portrait-airi-flash": "assets/placeholders/character.svg",  // 爱理闪回
+    "kio-walk":            "assets/placeholders/character.svg",             // 隧道横版步行精灵
 
     // —— 道具 / 照片 / UI（images/ui） ——
-    "photo-seaside":       "assets/images/ui/photo-seaside.png",               // 2009 海边低像素合影
-    "bankbook":            "assets/images/ui/bankbook.png",                    // 银行存折
-    "parcel-label":        "assets/images/ui/parcel-label.png",                // 快递单（203室 马场先生）
-    "rent-sign":           "assets/images/ui/rent-sign.png",                   // 空壳公寓招租牌 0A-93MC-10N4
-    "trash-bag":           "assets/images/ui/trash-bag.png",                   // 垃圾袋（BR01 A）
-    "vending":             "assets/images/ui/vending.png",                     // 隧道故障自动贩卖机
-    "coast-poster":        "assets/images/ui/coast-poster.png",                // 隧道褪色海岸海报
-    "title-ily":           "assets/images/ui/title-ily.png"                    // 终幕 I.L.Y. 标题
+    "photo-seaside":       "assets/placeholders/prop.svg",               // 2009 海边低像素合影
+    "bankbook":            "assets/placeholders/prop.svg",                    // 银行存折
+    "parcel-label":        "assets/placeholders/prop.svg",                // 快递单（203室 马场先生）
+    "rent-sign":           "assets/placeholders/prop.svg",                   // 空壳公寓招租牌 0A-93MC-10N4
+    "trash-bag":           "assets/placeholders/prop.svg",                   // 垃圾袋（BR01 A）
+    "vending":             "assets/placeholders/prop.svg",                     // 隧道故障自动贩卖机
+    "coast-poster":        "assets/placeholders/prop.svg",                // 隧道褪色海岸海报
+    "title-ily":           "assets/placeholders/prop.svg"                    // 终幕 I.L.Y. 标题
   },
   "bgm": {
     "bgm-dusk":      "assets/audio/bgm/bgm-dusk.mp3",      // 出租屋 黄昏/深夜
@@ -66,4 +66,11 @@ ILY.data.assets = {
     // 新片做好后覆盖 sign&log/intro.mp4 即可；此处路径仅作登记，游戏本体不播放它。
     "intro": "../sign&log/intro.mp4"
   }
+};
+
+// 找好素材后只改 images 中对应 ID 的路径；缺图时使用以下本地示意图。
+ILY.data.assets.fallbacks = {
+  background: 'assets/placeholders/background.svg',
+  character: 'assets/placeholders/character.svg',
+  prop: 'assets/placeholders/prop.svg'
 };
