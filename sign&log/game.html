@@ -173,6 +173,7 @@
       background: #000;
     }
     #openingOverlay[hidden] { display: none; }
+    .hidden { display: none !important; }
     #openingVideo { width: 100%; height: 100%; object-fit: contain; }
     .skip-opening {
       position: absolute;
@@ -214,27 +215,24 @@
   <!-- 手机屏幕白色内容区里的主菜单（位置/大小同样由 JS 实时计算）。
        每个选项都带 data-i18n 标记，跟着语言按钮一起切换中英文 -->
   <div id="phoneMenu">
-    <div class="menu-title" data-i18n="menu.title">MENU</div>
-    <ul>
+    <div class="menu-title" id="phoneMenuTitle" data-i18n="menu.title">MENU</div>
+    <ul id="phoneMainList">
       <li data-action="new"     data-i18n="menu.new">Sub1 开始新游戏</li>
       <li data-action="load"    data-i18n="menu.load">Sub2 读取存档</li>
       <li data-action="options" data-i18n="menu.options">Sub3 选项</li>
       <li data-action="about"   data-i18n="menu.about">Sub4 关于我们</li>
       <li data-action="exit"    data-i18n="menu.exit">Sub5 退出</li>
     </ul>
+    <!-- 选项子菜单：点击"选项"后替换主菜单显示，仍在手机屏幕内。
+         同时清空标题（MENU → 选项），视觉上手机被"清空"再填三行 -->
+    <ul id="phoneOptions" class="hidden">
+      <li data-action="option-lang"       data-i18n="options.language">切换语言</li>
+      <li data-action="option-fullscreen" id="optionFullscreen" data-i18n="options.fullscreen">进入全屏</li>
+      <li data-action="option-back"        data-i18n="options.back">返回</li>
+    </ul>
   </div>
 
   <p id="menuStatus" role="status" aria-live="polite"></p>
-
-  <dialog id="optionsDialog" class="menu-dialog">
-    <h2 data-i18n="options.title">选项</h2>
-    <p data-i18n="options.text">可在这里切换语言或进入全屏。</p>
-    <div class="dialog-actions">
-      <button id="optionLanguage" data-i18n="options.language">切换语言</button>
-      <button id="optionFullscreen" data-i18n="options.fullscreen">进入全屏</button>
-      <button data-close="optionsDialog" data-i18n="common.close">关闭</button>
-    </div>
-  </dialog>
 
   <dialog id="aboutDialog" class="menu-dialog">
     <h2 data-i18n="about.title">关于 I.L.Y.</h2>
@@ -281,6 +279,7 @@
         "options.language": "切换语言",
         "options.fullscreen": "进入全屏",
         "options.windowed": "退出全屏",
+        "options.back": "返回",
         "about.title": "关于 I.L.Y.",
         "about.text": "查看制作成员与项目介绍。",
         "about.open": "打开关于我们",
@@ -302,6 +301,7 @@
         "options.language": "Switch Language",
         "options.fullscreen": "Enter Fullscreen",
         "options.windowed": "Exit Fullscreen",
+        "options.back": "Back",
         "about.title": "About I.L.Y.",
         "about.text": "Meet the team and read about the project.",
         "about.open": "Open About Us",
@@ -320,7 +320,13 @@
 
     function applyDomLang() {
       document.querySelectorAll('[data-i18n]').forEach(el => {
-        el.textContent = t(el.getAttribute('data-i18n'));
+        /* 菜单标题由模式控制（主菜单=menu.title / 选项=options.title），
+           切语言时也要跟随当前模式 */
+        if (el === phoneMenuTitle) {
+          el.textContent = t(inOptionsMode ? 'options.title' : 'menu.title');
+        } else {
+          el.textContent = t(el.getAttribute('data-i18n'));
+        }
       });
       document.documentElement.lang = (currentLang === 'chinese') ? 'zh-CN' : 'en';
     }
@@ -505,17 +511,38 @@
         skipOpening();
       }
     });
+    const phoneMainList = document.getElementById('phoneMainList');
+    const phoneOptions  = document.getElementById('phoneOptions');
+    const phoneMenuTitle = document.getElementById('phoneMenuTitle');
+    /* 当前手机菜单模式：false=主菜单，true=选项子菜单 */
+    let inOptionsMode = false;
+
+    function showPhoneOptions(show) {
+      inOptionsMode = show;
+      phoneMainList.classList.toggle('hidden', show);
+      phoneOptions.classList.toggle('hidden', !show);
+      /* 标题跟着切换：进入选项 → "选项"，返回 → "MENU" */
+      phoneMenuTitle.textContent = t(show ? 'options.title' : 'menu.title');
+    }
+
     document.querySelectorAll('[data-close]').forEach(button => {
       button.addEventListener('click', () => document.getElementById(button.dataset.close).close());
     });
-    document.getElementById('optionLanguage').addEventListener('click', () => {
-      setLang(currentLang === 'chinese' ? 'english' : 'chinese');
-    });
-    document.getElementById('optionFullscreen').addEventListener('click', async () => {
-      try {
-        if (document.fullscreenElement) await document.exitFullscreen();
-        else await document.documentElement.requestFullscreen();
-      } catch { showStatus(t('options.text')); }
+    document.getElementById('phoneOptions').addEventListener('click', event => {
+      const li = event.target.closest('li');
+      if (!li) return;
+      switch (li.dataset.action) {
+        case 'option-lang':
+          setLang(currentLang === 'chinese' ? 'english' : 'chinese');
+          break;
+        case 'option-fullscreen':
+          if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+          else document.documentElement.requestFullscreen().catch(() => showStatus(t('options.text')));
+          break;
+        case 'option-back':
+          showPhoneOptions(false);
+          break;
+      }
     });
     document.addEventListener('fullscreenchange', updateFullscreenLabel);
     document.getElementById('openAbout').addEventListener('click', () => {
@@ -534,7 +561,7 @@
             else showStatus(t('status.noSave'));
             break;
           case 'options':
-            document.getElementById('optionsDialog').showModal();
+            showPhoneOptions(true);
             break;
           case 'about':
             document.getElementById('aboutDialog').showModal();

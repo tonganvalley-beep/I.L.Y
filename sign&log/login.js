@@ -166,6 +166,32 @@ function showSignup() {
 
 
 /* ============================================================
+ * 第 2.5 块：密码显示 / 隐藏切换（眼睛按钮）
+ * 点击眼睛图标 → 输入框 type 在 password 和 text 之间切换，
+ * 同时交换"睁开的眼"和"带斜线的眼"两个 SVG 图标。
+ * ============================================================ */
+
+function togglePassword(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input || !btn) return;
+
+  const eyeOpen  = btn.querySelector('.eye-open');
+  const eyeClose = btn.querySelector('.eye-close');
+
+  if (input.type === 'password') {
+    input.type = 'text';
+    if (eyeOpen)  eyeOpen.classList.add('hidden');
+    if (eyeClose) eyeClose.classList.remove('hidden');
+    btn.title = '隐藏密码';
+  } else {
+    input.type = 'password';
+    if (eyeOpen)  eyeOpen.classList.remove('hidden');
+    if (eyeClose) eyeClose.classList.add('hidden');
+    btn.title = '显示密码';
+  }
+}
+
+/* ============================================================
  * 第 3 块：自定义提示框
  * 浏览器原生 alert() 会冻结整个页面，样式也丑。
  * 这里用一个 div 代替：红色=错误，绿色=成功，3 秒后自动消失。

@@ -156,6 +156,41 @@ body {
 }
 
 
+/* ---------- 密码输入框 + 眼睛按钮 ---------- */
+.pwd-wrap {
+  position: relative;
+  display: block;
+}
+.pwd-wrap input {
+  padding-right: 44px;        /* 给右侧眼睛留空间，文字不会顶到按钮 */
+}
+.pwd-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: rgba(160, 200, 255, 0.55);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+.pwd-eye:hover {
+  color: #aee2ff;
+}
+.pwd-eye:active {
+  transform: translateY(-50%) scale(0.92);
+}
+.pwd-eye svg {
+  display: block;
+}
+
 /* ---------- 按钮行：装两个按钮的容器 ----------
  * 用 flex 弹性布局，而不是让按钮自己用 inline-block 排队。
  * 原因：inline-block 元素之间的换行/空格会被浏览器渲染成一条"空气缝隙"，
