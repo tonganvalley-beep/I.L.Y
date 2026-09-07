@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
+  <title id="title">盗梦空间概念海报</title><desc id="desc">折叠城市与暗红天际线组成的抽象电影海报</desc>
+  <defs><linearGradient id="sky" y2="1"><stop stop-color="#121720"/><stop offset=".58" stop-color="#222733"/><stop offset="1" stop-color="#5b2028"/></linearGradient></defs>
+  <rect width="720" height="1080" fill="url(#sky)"/><g fill="#080a0e"><path d="M0 550h95V310h70v240h78V220h64v330h90V360h72v190h100V260h73v290h78v180H0z"/><path d="M0 170h80v190h82V90h70v270h95V205h64v155h85V130h76v230h86V70h82v410H0z" transform="rotate(180 360 275)" opacity=".78"/></g>
+  <path d="M75 575h570" stroke="#d4ad68" stroke-width="2" opacity=".55"/><text x="70" y="800" fill="#f1ede5" font-family="serif" font-size="76" letter-spacing="10">盗梦空间</text><text x="74" y="855" fill="#d4ad68" font-family="sans-serif" font-size="23" letter-spacing="11">INCEPTION</text><text x="74" y="972" fill="#a8abb2" font-family="sans-serif" font-size="18" letter-spacing="5">A DREAM WITHIN A DREAM</text>
+</svg>

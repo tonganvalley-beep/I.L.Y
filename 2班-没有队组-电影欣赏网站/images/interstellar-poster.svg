@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
+  <title id="title">星际穿越概念海报</title><desc id="desc">黑色宇宙、金色轨道与遥远行星组成的抽象电影海报</desc>
+  <defs><radialGradient id="space"><stop stop-color="#52505b"/><stop offset=".38" stop-color="#171922"/><stop offset="1" stop-color="#07080b"/></radialGradient><linearGradient id="glow" x2="1" y2="1"><stop stop-color="#f2d398"/><stop offset="1" stop-color="#8f5e31"/></linearGradient></defs>
+  <rect width="720" height="1080" fill="url(#space)"/><g fill="#fff" opacity=".6"><circle cx="120" cy="160" r="2"/><circle cx="550" cy="190" r="3"/><circle cx="640" cy="380" r="2"/><circle cx="205" cy="320" r="1.5"/><circle cx="470" cy="530" r="2"/></g>
+  <ellipse cx="365" cy="470" rx="260" ry="86" fill="none" stroke="url(#glow)" stroke-width="9" transform="rotate(-17 365 470)"/><circle cx="368" cy="470" r="128" fill="#050609"/><path d="M90 695h540" stroke="#d4ad68" opacity=".28"/>
+  <text x="72" y="805" fill="#f3eee4" font-family="serif" font-size="72" letter-spacing="10">星际穿越</text><text x="76" y="858" fill="#d4ad68" font-family="sans-serif" font-size="22" letter-spacing="8">INTERSTELLAR</text><text x="76" y="970" fill="#a5a8af" font-family="sans-serif" font-size="18" letter-spacing="5">TIME · LOVE · HOME</text>
+</svg>
