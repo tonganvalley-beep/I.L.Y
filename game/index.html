@@ -13,7 +13,15 @@
   <main>
     <section id="stage" aria-label="游戏场景"></section>
   </main>
-  <dialog id="game-menu"><div class="menu-heading"><h2>蓝色来电</h2><button id="menu-close" aria-label="关闭菜单">×</button></div><p class="hint">2020 / 07 / 22 — 23</p><div class="toolbar"><button id="save">保存进度</button><button id="load">读取进度</button><button id="sound">开启音乐</button><button id="fullscreen">进入全屏</button></div><h3>调查线索</h3><ul id="clues"></ul><p class="hint">存档保存在当前浏览器。点击画面或按空格 / Enter 继续；H 隐藏对白。</p><a id="return-menu" href="../sign&log/index.html">返回开始菜单 →</a></dialog>
+  <dialog id="game-menu"><div class="menu-heading"><h2>蓝色来电</h2><button id="menu-close" aria-label="关闭菜单">×</button></div><p class="hint">2020 / 07 / 22 — 23</p><div class="toolbar"><button id="save">保存进度</button><button id="load">读取进度</button><button id="quick-save">快速保存</button><button id="sound">开启音乐</button><button id="fullscreen">进入全屏</button></div><h3>调查线索</h3><ul id="clues"></ul><p class="hint">每个账号拥有 12 个手动槽、3 个循环自动档和 1 个快速档。点击画面或按空格 / Enter 继续；H 隐藏对白。</p><a id="return-menu" href="../sign&log/index.html">返回开始菜单 →</a></dialog>
+  <dialog id="save-menu" class="save-menu" aria-labelledby="save-menu-title">
+    <div class="menu-heading"><div><h2 id="save-menu-title">保存游戏</h2><p id="save-menu-subtitle" class="hint">选择一个槽位保存当前进度</p></div><button id="save-menu-close" aria-label="关闭存档菜单">×</button></div>
+    <nav id="save-pages" class="save-pages" aria-label="存档分页">
+      <button data-page="1">手动 1</button><button data-page="2">手动 2</button><button data-page="auto">自动</button><button data-page="quick">快速</button>
+    </nav>
+    <div id="save-slots" class="save-slots"></div>
+    <p id="save-status" class="hint" role="status" aria-live="polite"></p>
+  </dialog>
   <p id="status" role="status"></p>
   <!-- 普通脚本按顺序加载：命名空间 → 数据 → 工具 → 玩法 → 入口。 -->
   <script src="src/bootstrap.js"></script>
@@ -23,6 +31,7 @@
   <script src="data/maps/classroom.js"></script>
   <script src="data/battles/first-trial.js"></script>
   <script src="src/core/state.js"></script>
+  <script src="src/core/saves.js"></script>
   <script src="src/core/assets.js"></script>
   <script src="src/core/dom.js"></script>
   <script src="src/core/scene.js"></script>

@@ -49,7 +49,9 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   resize();
   window.addEventListener('resize', resize);
 
-  const playerImg = new Image(); playerImg.src = assets.image(cfg.player || 'kio-walk');
+  const playerImg = new Image();
+  const playerSource = assets.image(cfg.player || 'kio-walk');
+  if (playerSource) playerImg.src = playerSource;
 
   function nearest() {
     let best = null, bd = 70;
@@ -118,7 +120,6 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     const px = x - camX;
     ctx.save();
     if (playerImg.complete && playerImg.naturalWidth) ctx.drawImage(playerImg, px - 18, ground - 70, 36, 70);
-    else drawStick(px, ground);
     ctx.restore();
     // 出口提示
     const ex = exitX - camX;
@@ -128,12 +129,6 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     const near = nearest();
     prompt.textContent = near ? `〔${near.label}〕按空格调查` : (exiting ? '' : '按住 → 向海岸走去');
   }
-  function drawStick(px, ground) {
-    ctx.fillStyle = '#dfe7ee';
-    ctx.fillRect(px - 10, ground - 64, 20, 64);
-    ctx.beginPath(); ctx.arc(px, ground - 72, 10, 0, Math.PI * 2); ctx.fill();
-  }
-
   window.addEventListener('keydown', onKey);
   window.addEventListener('keyup', onKeyUp);
   raf = requestAnimationFrame(loop);

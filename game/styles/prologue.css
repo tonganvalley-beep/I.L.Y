@@ -28,11 +28,16 @@
 .d-link{color:#9fe8ff;background:#06283d;padding:8px;border-radius:6px;font-size:13px;
   text-shadow:0 0 8px rgba(120,200,255,.7);letter-spacing:1px}
 .d-cap{font-size:12px;color:#7fb6d8}
+.d-reveal-trail{display:flex;flex-direction:column;gap:5px;min-height:1px}
+.d-reveal-step{min-height:1.8em;color:#83a89a;white-space:pre}
 .confirm .sel-y{outline:2px solid #5fe0a0}
 .confirm .sel-n{outline:2px solid #c98}
 .phone-detail button{font:inherit;padding:8px 10px;border-radius:6px;border:1px solid #2c6b4c;
   background:#0f3324;color:#cdeede;cursor:pointer;text-align:left}
 .phone-detail button:hover{background:#15432f}
+.phone-detail .d-link{color:#f4fbff;background:#075a91;border-color:#64c9ff;padding:9px 10px;
+  text-shadow:0 0 8px rgba(190,235,255,.9);letter-spacing:1px}
+.phone-detail .d-link:hover,.phone-detail .d-link:focus-visible{background:#0875bb;outline:2px solid #c6efff}
 .phone-exit{margin-top:12px;text-align:center!important;background:#103524!important;border-color:#5fe0a0!important}
 .phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .phone-cell{border:1px solid #1c4634;border-radius:6px;padding:6px;background:#0c2419;cursor:pointer;text-align:center}

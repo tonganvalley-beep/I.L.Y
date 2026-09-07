@@ -1,7 +1,7 @@
 (() => {
 'use strict';
 const { el, button, mountScene } = ILY;
-function mountDialogue({stage, node, assets, go}) {
+function mountDialogue({stage, node, state, assets, go}) {
   mountScene(stage, node, assets);
   if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
   const box = el('section', 'dialogue');
@@ -25,7 +25,10 @@ function mountDialogue({stage, node, assets, go}) {
   const hide = () => { hidden = true; box.hidden = true; reveal.hidden = false; reveal.focus(); };
   if (node.type === 'choice') {
     complete();
-    for (const choice of node.choices) actions.append(button(choice.text, () => go(choice.next)));
+    for (const choice of node.choices) actions.append(button(choice.text, () => {
+      if (choice.flag?.key) state.flags[choice.flag.key] = choice.flag.value;
+      go(choice.next);
+    }));
   } else {
     actions.append(el('span', 'advance-hint', '点击画面 / SPACE'));
     actions.append(button('隐藏对白', hide), button('继续 ▸', next));

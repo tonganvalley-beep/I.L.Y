@@ -1,13 +1,16 @@
 (() => {
 'use strict';
 const { el } = ILY;
-// All paths resolve relative to game/index.html. Fallbacks are real local SVG files.
+// All paths resolve relative to game/index.html. Missing artwork uses a typed placeholder.
 function sceneImage(assets, id, className, kind, alt = '') {
   const img = el('img', className);
   img.alt = alt;
   img.draggable = false;
   const fallback = assets.manifest.fallbacks[kind];
-  img.onerror = () => { img.onerror = () => { img.hidden = true; }; img.src = fallback; };
+  img.onerror = () => {
+    if (img.src.endsWith(fallback)) { img.hidden = true; return; }
+    img.src = fallback;
+  };
   img.src = assets.image(id) || fallback;
   return img;
 }

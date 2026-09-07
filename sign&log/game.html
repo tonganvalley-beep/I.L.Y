@@ -445,7 +445,8 @@
     }
 
     const player = localStorage.getItem('mygame-token') || 'guest';
-    const saveKey = `ily-save-v1:${player}`;
+    const legacySaveKey = `ily-save-v1:${player}`;
+    const savePrefix = `ily-save-v2:${encodeURIComponent(player)}:`;
     let statusTimer = 0;
     let openingStarted = false;
     let openingFinished = false;
@@ -463,6 +464,15 @@
       url.searchParams.set('player', player);
       url.searchParams.set('mode', mode);
       return url.href;
+    }
+
+    function hasPlayerSave() {
+      if (localStorage.getItem(legacySaveKey)) return true;
+      for (let index = 0; index < localStorage.length; index++) {
+        const key = localStorage.key(index) || '';
+        if (key.startsWith(savePrefix) && /^(?:[12]-[1-6]|auto-[1-3]|quick-1)$/.test(key.slice(savePrefix.length))) return true;
+      }
+      return false;
     }
 
     function enterGame(mode) {
@@ -557,7 +567,7 @@
             playOpening();
             break;
           case 'load':
-            if (localStorage.getItem(saveKey)) enterGame('load');
+            if (hasPlayerSave()) enterGame('load');
             else showStatus(t('status.noSave'));
             break;
           case 'options':
