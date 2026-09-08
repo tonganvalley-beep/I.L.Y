@@ -66,6 +66,21 @@
 .phone-hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:#9fd8bc;letter-spacing:1px;
   text-shadow:0 0 6px rgba(0,0,0,.9)}
 
+/* 删除教学演示 · 醒目提示弹窗（悬浮在手机上方，脉冲发光） */
+.phone-demo-tip{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:30;max-width:86%;
+  display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:10px;
+  background:rgba(6,26,18,.93);border:2px solid #5fe0a0;
+  box-shadow:0 0 18px rgba(95,224,160,.55),0 4px 14px rgba(0,0,0,.5);
+  color:#eafff3;font-size:15px;letter-spacing:1px;line-height:1.5;
+  animation:demo-tip-pulse 1.1s ease-in-out infinite}
+.phone-demo-tip .demo-tag{flex:none;padding:3px 9px;border-radius:6px;background:#1f9d63;color:#fff;
+  font-size:13px;font-weight:bold;letter-spacing:2px}
+.phone-demo-tip .demo-text{max-width:64vw}
+@keyframes demo-tip-pulse{
+  0%,100%{box-shadow:0 0 12px rgba(95,224,160,.35),0 4px 14px rgba(0,0,0,.5);border-color:#5fe0a0}
+  50%{box-shadow:0 0 26px rgba(95,224,160,.85),0 4px 14px rgba(0,0,0,.5);border-color:#a5f5cd}}
+@media (prefers-reduced-motion: reduce){.phone-demo-tip{animation:none}}
+
 /* ===== 隧道步行 ===== */
 .walk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .walk-canvas{width:100%;height:100%;display:block;background:transparent}
@@ -75,6 +90,45 @@
 .walk-ctrl{position:absolute;bottom:14px;display:flex;gap:10px}
 .walk-ctrl button{font:inherit;padding:8px 16px;border-radius:6px;border:1px solid #2c6b4c;background:#0f3324;color:#cdeede;cursor:pointer}
 .walk-ctrl button:hover{background:#15432f}
+
+/* 调查交互弹窗：大面板居中 */
+.walk-dialog{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:20;
+  width:min(620px,86vw);background:linear-gradient(160deg,#10281f,#081511f2);
+  border:1px solid #3a8a62;border-radius:10px;box-shadow:0 0 34px rgba(60,180,120,.22),0 18px 50px rgba(0,0,0,.55);
+  padding:26px 30px 22px;text-align:left}
+.walk-dialog[hidden]{display:none}
+.walk-dialog-title{margin:0 0 12px;font-size:21px;color:#d8ffe9;letter-spacing:1px;
+  border-bottom:1px solid #3a8a6255;padding-bottom:10px}
+.walk-dialog-text{margin:0 0 20px;font-size:17px;line-height:1.85;color:#cdeede;white-space:pre-wrap}
+.walk-dialog button{font:inherit;font-size:14px;padding:9px 26px;border-radius:6px;
+  border:1px solid #3a8a62;background:#0f3324;color:#d8ffe9;cursor:pointer}
+.walk-dialog button:hover{background:#15432f}
+
+/* ===== 走廊声控灯（场景07）===== */
+.corridor{position:absolute;inset:0;overflow:hidden}
+.corridor-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+/* 上层为关灯图：透明度过渡模拟声控灯明灭 */
+.corridor-bg-off{opacity:0;transition:opacity .3s ease}
+/* 前进步伐：整屏抖动 */
+@keyframes corridor-shake{
+  0%,100%{transform:translate(0,0)}
+  12%{transform:translate(-16px,7px)}
+  28%{transform:translate(13px,-9px)}
+  44%{transform:translate(-11px,-5px)}
+  60%{transform:translate(9px,7px)}
+  78%{transform:translate(-5px,3px)}
+}
+.corridor-shake{animation:corridor-shake .5s linear}
+@media (prefers-reduced-motion: reduce){.corridor-shake{animation:none}}
+.corridor-panel{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:22px 18px 26px;text-align:center;
+  background:linear-gradient(180deg,transparent,rgba(4,10,18,.82))}
+.corridor-text{margin:0;max-width:min(760px,92vw);font-size:17px;line-height:1.8;
+  color:#dbe6f4;text-shadow:0 0 8px rgba(0,0,0,.85)}
+.corridor-hint{margin:0;font-size:14px;color:#9fc0e8;letter-spacing:1px;
+  text-shadow:0 0 8px rgba(0,0,0,.9)}
+.corridor-count{margin:0;font-size:13px;color:#7d99bd;text-shadow:0 0 8px rgba(0,0,0,.9)}
 
 /* ===== 终幕 ===== */
 .mode-panel h1{color:#bfe9ff;text-shadow:0 0 16px rgba(120,200,255,.6);letter-spacing:4px}
