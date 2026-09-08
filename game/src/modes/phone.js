@@ -45,7 +45,6 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   let mailChars = [];           // 打字机字符
   let mailShown = 0;
   let mailTimer = null;
-  let scrollStep = 0;           // 场景09 下滚揭示进度
   let contactId = null;
   let confirmSel = 0;           // 删除确认：0=删除 1=取消
   let photoId = null;
@@ -56,9 +55,14 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   const tabs = el('div', 'phone-tabs');
   const body = el('div', 'phone-body');
   const hint = el('div', 'phone-hint', ILY.t('phone.hint'));
+  const thought = el('section', 'dialogue phone-thought-dialogue');
+  const thoughtSpeaker = el('div', 'speaker', '成田基生（独白）');
+  const thoughtText = el('p', 'dialogue-text');
+  thought.append(thoughtSpeaker, thoughtText);
+  thought.hidden = true;
   root.append(screen, hint);
   screen.append(tabs, body);
-  stage.append(root);
+  stage.append(root, thought);
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -75,6 +79,8 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   ];
   const tabLabel = () => { const app = APPS.find(a => a.key === tab); return app ? ILY.t(app.labelKey) : ''; };
 
+  function clearThought() { thought.hidden = true; thoughtText.textContent = ''; }
+  function showThought(text) { thoughtText.textContent = text || ''; thought.hidden = !text; }
   function goHome() { view = 'home'; render(); }
   function enterApp(key) { tab = key; view = 'list'; sel = 0; render(); }
 
@@ -94,6 +100,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   }
 
   function render() {
+    clearThought();
     body.replaceChildren();
     const atHome = view === 'home';
     screen.classList.toggle('is-home', atHome);
@@ -111,7 +118,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   // ---------- 邮件列表 ----------
   function renderMailList() {
     view = 'list';
-    mailScroll = null;
+    mailAction = null;
     const list = el('div', 'phone-list');
     mailIds.forEach((id, i) => {
       const m = F.mails[id];
@@ -127,7 +134,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   }
 
   function openMail(id) {
-    mailId = id; view = 'mail'; mailScroll = null;
+    mailId = id; view = 'mail'; mailAction = null;
     if (!flags.phone.read.includes(id)) {
       flags.phone.read.push(id); flags.MAIL_READ_COUNT++;
       // 场景01：读完 A01-A03 后解锁 A04
@@ -138,23 +145,20 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     wrap.append(el('div', 'd-head', `${m.from} · ${m.time}` + (m.subject ? ` · ${m.subject}` : '')));
     const text = el('div', 'd-body');
     wrap.append(text);
-    const useScroll = m.scrollReveal && cfg.scrollReveal;
-    if (useScroll) {
-      const trail = el('div', 'd-reveal-trail');
-      const linkLine = button(m.scrollReveal.link, () => finishReveal());
+    if (m.link && cfg.showLink) {
+      wrap.classList.add('is-link-mail');
+      const linkLine = button(m.link, () => finishMailLink());
       linkLine.className = 'd-link';
-      linkLine.style.display = 'none';
-      const cap = el('div', 'd-cap', m.scrollReveal.linkLabel);
-      cap.style.display = 'none';
-      wrap.append(trail, linkLine, cap);
-      mailScroll = { trail, linkLine, cap, reveal: m.scrollReveal, onReveal: cfg.onReveal, revealed:false, completed:false };
+      wrap.append(linkLine);
+      mailAction = { onLink: cfg.onLink, completed:false };
+      state.flags.FLAG_HIDDEN_LINK = 'found';
     }
-    const back = button(ILY.t('phone.back'), () => { scrollStep = 0; render(); });
+    const back = button(ILY.t('phone.back'), () => render());
     wrap.append(back);
     body.replaceChildren(wrap);
 
     mailChars = Array.from(m.body);
-    mailShown = 0; scrollStep = 0;
+    mailShown = 0;
     const type = () => {
       text.textContent = mailChars.slice(0, mailShown).join('');
       if (mailShown >= mailChars.length) { clearInterval(mailTimer); mailTimer = null; }
@@ -162,33 +166,12 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     if (reduced) { mailShown = mailChars.length; type(); }
     else { mailTimer = setInterval(() => { mailShown = Math.min(mailChars.length, mailShown + 2); type(); }, 16); }
   }
-  let mailScroll = null;
+  let mailAction = null;
 
-  function revealScrollStep() {
-    if (!mailScroll || mailScroll.completed) return;
-    if (!mailScroll.revealed) {
-      scrollStep++;
-      const steps = mailScroll.reveal.ellipsis || [];
-      const value = steps[scrollStep - 1] || '';
-      const line = el('div', 'd-reveal-step', value || '\u00a0');
-      mailScroll.trail.append(line);
-      line.scrollIntoView({ block:'end', behavior:'auto' });
-      if (scrollStep >= mailScroll.reveal.afterDowns) {
-        mailScroll.revealed = true;
-        mailScroll.linkLine.style.display = '';
-        mailScroll.cap.style.display = '';
-        state.flags.FLAG_HIDDEN_LINK = 'found';
-        mailScroll.linkLine.scrollIntoView({ block:'nearest', behavior:'auto' });
-      }
-    } else {
-      body.scrollTop += 28;
-    }
-  }
-
-  function finishReveal() {
-    if (!mailScroll?.revealed || mailScroll.completed || !mailScroll.onReveal) return;
-    mailScroll.completed = true;
-    go(mailScroll.onReveal);
+  function finishMailLink() {
+    if (!mailAction || mailAction.completed || !mailAction.onLink) return;
+    mailAction.completed = true;
+    go(mailAction.onLink);
   }
 
   // ---------- 通讯录 ----------
@@ -247,7 +230,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     const c = F.contacts[id];
     const wrap = el('div', 'phone-detail');
     wrap.append(el('div', 'd-head', c.name));
-    wrap.append(el('div', 'd-body', c.note));
+    showThought(c.note);
     const isDeleted = flags.phone.deleted.includes(id);
     const forcedLeft = (cfg.forcedDelete || []).filter(item => !flags.phone.deleted.includes(item));
     if (id === 'airi' && cfg.allowSend && !forcedLeft.length) {
@@ -409,14 +392,11 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
       return;
     }
     if (view === 'mail') {
-      if (k === 'ArrowDown') {
-        revealScrollStep();
-        e.preventDefault(); return;
-      }
+      if (k === 'ArrowDown') { body.scrollTop += 28; e.preventDefault(); return; }
       if (k === 'ArrowUp') { body.scrollTop = Math.max(0, body.scrollTop - 28); e.preventDefault(); return; }
       if (k === ' ' || k === 'Enter') {
-        if (mailScroll?.revealed) finishReveal();
-        else { scrollStep = 0; render(); }
+        if (mailAction) finishMailLink();
+        else render();
         e.preventDefault(); return;
       }
       return;
@@ -486,7 +466,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   }
   // 场景01：读完全部邮件后自动退出（场景09 用滚动揭示，不走这里）
   function maybeAutoExit() {
-    if (cfg.exitNext && cfg.lockClose && !cfg.scrollReveal && !cfg.onReveal) {
+    if (cfg.exitNext && cfg.lockClose && !cfg.showLink && !cfg.onLink) {
       const need = (cfg.mails || []).concat(cfg.reveal ? [cfg.reveal.id] : []);
       if (need.length && !cfg.manualExit && !cfg.allowSend && need.every(id => flags.phone.read.includes(id))) later(() => go(cfg.exitNext), 400);
     }
@@ -495,22 +475,6 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   render = function () { _origRender(); maybeShowExit(); maybeAutoExit(); };
 
   render();
-  const onWheel = event => {
-    if (view === 'mail' && mailScroll && event.deltaY > 0) {
-      event.preventDefault();
-      revealScrollStep();
-    }
-  };
-  let touchStartY = null;
-  const onTouchStart = event => { touchStartY = event.touches?.[0]?.clientY ?? null; };
-  const onTouchEnd = event => {
-    const endY = event.changedTouches?.[0]?.clientY;
-    if (view === 'mail' && mailScroll && touchStartY !== null && typeof endY === 'number' && touchStartY - endY > 24) revealScrollStep();
-    touchStartY = null;
-  };
-  body.addEventListener('wheel', onWheel, { passive:false });
-  body.addEventListener('touchstart', onTouchStart, { passive:true });
-  body.addEventListener('touchend', onTouchEnd, { passive:true });
   window.addEventListener('keydown', onKey);
   /* 游戏菜单里切换语言后：重绘列表级视图（详情视图返回时会自动用新语言重建） */
   const onLang = () => {
@@ -524,9 +488,6 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     for (const timer of pending) clearTimeout(timer);
     window.removeEventListener('keydown', onKey);
     window.removeEventListener('ily:langchange', onLang);
-    body.removeEventListener('wheel', onWheel);
-    body.removeEventListener('touchstart', onTouchStart);
-    body.removeEventListener('touchend', onTouchEnd);
     if (mailTimer) clearInterval(mailTimer);
   };
 }

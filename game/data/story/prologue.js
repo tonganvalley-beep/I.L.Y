@@ -56,44 +56,44 @@ ILY.data.stories.prologue = {
     s03_family2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk",
       text:"（冷静得近乎异常）只剩下每个月若无其事汇入我账户的6万日元。", next:"s04a" },
 
-    // ===== 场景04 深夜 通讯录与发送失败的邮件 =====
-    s04a: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（疲惫）……都删掉吧。", next:"s04_phone" },
-    s04_phone: { type:"phone", background:"bg-apartment-night", phone:{
+    // ===== 场景04 傍晚 通讯录与发送失败的邮件 =====
+    s04a: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk", text:"（疲惫）……都删掉吧。", next:"s04_phone" },
+    s04_phone: { type:"phone", background:"bg-apartment-dusk", phone:{
       tab:"contacts", lockClose:true, contacts:["ando","mother","father","airi"],
       forcedDelete:["ando","mother","father"], lockDeleteCancel:["ando"], requireDeleteCount:3,
       allowSend:true, exitNext:"s04_sent"
     } },
-    s04_sent: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night",
+    s04_sent: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk",
       text:"（早已习惯，平静得可怕）……嗯。今天也是，发送失败。", next:"s04_cycle1" },
-    s04_cycle1: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-night",
+    s04_cycle1: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-dusk",
       text:"高中毕业以后，我就再也没能和她联系上。不知道从什么时候开始，我每天都会给爱理发这些无法发送成功的邮件。甚至每天，我都会等系统提示我发送失败。就这样，一遍，又一遍。", next:"s04_cycle2" },
-    s04_cycle2: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-night",
+    s04_cycle2: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-dusk",
       text:"一开始我还想，没准只是爱理没看到——她总是少根筋嘛。没准是手机掉了，或者，只是没存我的联系方式……", next:"s04_empty" },
     s04_empty: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-empty-apartment",
       text:"但是，等我彻底和她失去联络之后，我马上就找去了她家里。那里只剩下这样一个空壳。门上挂着一块崭新的塑料牌——“入居者招募 0A-93MC-10N4”。", next:"s04_doubt1" },
     s04_doubt1: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-empty-apartment",
       text:"爱理真的曾经存在过吗？……还是说，她这个人，其实是我的妄想？还是说，我和爱理曾交往过这件事本身，才是我的妄想呢？", next:"s04_doubt2" },
-    s04_doubt2: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-night",
+    s04_doubt2: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-dusk",
       text:"但是……我和爱理的回忆，确实存在于这部手机里。那些疑惑仿佛是那么愚蠢，但我又别无办法。", next:"s04_prayer" },
-    s04_prayer: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night",
+    s04_prayer: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk",
       text:"（闭上眼，几乎是祈求）……倒不如，全都是我的妄想，可能还好一点。墙上的表针转过一圈又一圈，迎接他的仍是不变的日常。", next:"s05a" },
 
     // ===== 场景05 翌日 错送的快递 =====
-    s05a: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night",
+    s05a: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk",
       text:"第二日夜晚，手机显示2020年7月23日星期四19:30。（熟练，麻木）爱理，你还好吗？我是基生。虽然不知道爱理现在在哪里……", next:"s05b" },
-    s05b: { type:"dialogue", speaker:"旁白", background:"bg-apartment-night",
+    s05b: { type:"dialogue", speaker:"旁白", background:"bg-apartment-dusk",
       text:"手机还显示着“发送中……”——咚、咚、咚。敲门声在安静的房间里格外响，基生的手指僵在按键上。", next:"s05c" },
-    s05c: { type:"dialogue", speaker:"快递员", background:"bg-apartment-night", text:"（门外，礼貌而急促）您好——您有一个快递！", next:"s05c2" },
-    s05c2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（迟疑，望着房门）……啊好的，马上就来。", next:"s05d" },
-    s05d: { type:"dialogue", speaker:"旁白", background:"bg-apartment-night", text:"基生打开门。年轻快递员拎着保温袋，没等他说话便把袋子递到手里。", next:"s05e" },
-    s05e: { type:"dialogue", speaker:"旁白", overlay:"parcel-label", background:"bg-apartment-night",
+    s05c: { type:"dialogue", speaker:"快递员", background:"bg-apartment-dusk", text:"（门外，礼貌而急促）您好——您有一个快递！", next:"s05c2" },
+    s05c2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk", text:"（迟疑，望着房门）……啊好的，马上就来。", next:"s05d" },
+    s05d: { type:"dialogue", speaker:"旁白", background:"bg-apartment-dusk", text:"基生打开门。年轻快递员拎着保温袋，没等他说话便把袋子递到手里。", next:"s05e" },
+    s05e: { type:"dialogue", speaker:"旁白", overlay:"parcel-label", background:"bg-apartment-dusk",
       text:"查看快递单：203室　马场先生　生鲜·要冷藏。不是这间房的门牌号。", next:"s05f" },
-    s05f: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（疑惑，盯着快递单）……203，马场先生？这是楼下的快递吧。", next:"s05f2" },
-    s05f2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（无语）……是送错了啊。", next:"s05g" },
-    s05g: { type:"dialogue", speaker:"快递员", background:"bg-apartment-night",
+    s05f: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk", text:"（疑惑，盯着快递单）……203，马场先生？这是楼下的快递吧。", next:"s05f2" },
+    s05f2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk", text:"（无语）……是送错了啊。", next:"s05g" },
+    s05g: { type:"dialogue", speaker:"快递员", background:"bg-apartment-dusk",
       text:"（门外，带歉意）不好意思——！是楼下203室的，地址弄错了！我这边还有下一单，拜托您了！", next:"s05h" },
-    s05h: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（关门，小声嘟囔）搞什么啊，这个快递员……", next:"s05i" },
-    s05i: { type:"dialogue", speaker:"旁白", background:"bg-apartment-night",
+    s05h: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk", text:"（关门，小声嘟囔）搞什么啊，这个快递员……", next:"s05i" },
+    s05i: { type:"dialogue", speaker:"旁白", background:"bg-apartment-dusk",
       text:"门锁咔哒扣上。就在基生转过身的一瞬间——手机响了。不是单调的和弦，是海浪的声音。哗——哗——由远及近，像涨潮一样漫进整个房间。", next:"s05j" },
     s05j: { type:"dialogue", speaker:"旁白", background:"bg-apartment-night",
       text:"翻盖手机的屏幕从幽绿变成清澈的蓝光。整个房间的色调在一秒内从灰橙变为深蓝，连基生脸上的阴影都变成了海的颜色。", next:"s05k" },
@@ -103,7 +103,7 @@ ILY.data.stories.prologue = {
 
     // ===== 场景06 爱理的回信 =====
     s06a: { type:"phone", background:"bg-apartment-night", phone:{
-      tab:"mail", lockClose:true, scrollReveal:false, mails:["R01"], exitNext:"s06_react1"
+      tab:"mail", lockClose:true, mails:["R01"], exitNext:"s06_react1"
     } },
     s06_react1: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（死死盯着屏幕）为什么……不可能……怎么会……", next:"s06_react2" },
     s06_react2: { type:"dialogue", speaker:"成田基生（内心独白）", background:"bg-apartment-night",
@@ -154,7 +154,7 @@ ILY.data.stories.prologue = {
 
     // ===== 场景09 邮件的下面 =====
     s09: { type:"phone", background:"bg-coast-night", phone:{
-      tab:"mail", lockClose:true, scrollReveal:true, mails:["R01"], onReveal:"s09_found"
+      tab:"mail", lockClose:true, showLink:true, mails:["R01"], onLink:"s09_found"
     } },
     s09_found: { type:"dialogue", speaker:"成田基生", background:"bg-coast-night", text:"（盯着屏幕，声音发干）这是什么……？", next:"br02" },
     br02: { type:"choice", speaker:"成田基生", background:"bg-coast-night",

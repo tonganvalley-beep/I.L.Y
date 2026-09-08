@@ -45,9 +45,10 @@
 .d-head{font-size:15px;color:#123326;border-bottom:1px dashed #9fb3aa;padding-bottom:6px}
 .d-body{white-space:pre-wrap;line-height:1.75;font-size:16px;color:#1c2b26}
 .d-link{color:#e8f6ff;background:#0b5a8f;padding:9px;border-radius:6px;font-size:15px;letter-spacing:1px}
-.d-cap{font-size:13px;color:#4f6f82}
-.d-reveal-trail{display:flex;flex-direction:column;gap:5px;min-height:1px}
-.d-reveal-step{min-height:1.8em;color:#5c6f66;white-space:pre}
+.phone-detail.is-link-mail{gap:10px}
+.phone-detail.is-link-mail .d-head{font-size:15px}
+.phone-detail.is-link-mail .d-body{font-size:17px;line-height:1.65}
+.phone-detail.is-link-mail .d-link{padding:9px 10px;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
 .confirm .sel-y{outline:2px solid #1f9d63}
 .confirm .sel-n{outline:2px solid #c98}
 .phone-detail button{font:inherit;font-size:15px;padding:8px 10px;border-radius:6px;border:1px solid #2c6b4c;
@@ -65,6 +66,8 @@
 .photo-full{max-height:230px;object-fit:contain;margin:0 auto}
 .phone-hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:#9fd8bc;letter-spacing:1px;
   text-shadow:0 0 6px rgba(0,0,0,.9)}
+.phone-thought-dialogue{z-index:12;pointer-events:none}
+.phone-thought-dialogue .dialogue-text{min-height:0}
 
 /* 删除教学演示 · 醒目提示弹窗（悬浮在手机上方，脉冲发光） */
 .phone-demo-tip{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:30;max-width:86%;

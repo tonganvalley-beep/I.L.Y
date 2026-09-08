@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I.L.Y. · RPG 地图方案对照 Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">I.L.Y. / RPG PROTOTYPE</p>
+      <h1>两种地图方案，对照试玩</h1>
+    </div>
+    <a href="../index.html">← 返回序章</a>
+  </header>
+
+  <main>
+    <section class="demo-shell" aria-label="RPG 地图试玩">
+      <nav class="tabs" aria-label="选择地图方案">
+        <button class="active" data-mode="photo" aria-pressed="true">
+          <span>方案一</span>背景贴图 + 空气墙
+        </button>
+        <button data-mode="json" aria-pressed="false">
+          <span>方案二</span>JSON + 图块地图
+        </button>
+      </nav>
+
+      <div class="stage-wrap">
+        <canvas id="game-canvas" width="1280" height="720" tabindex="0" aria-label="RPG 试玩画面"></canvas>
+        <div class="stage-top">
+          <span id="mode-badge">背景贴图模式</span>
+          <span id="position">X 0 · Y 0</span>
+        </div>
+        <div id="prompt" class="prompt" role="status" aria-live="polite"></div>
+        <div id="dialogue" class="dialogue" hidden>
+          <strong id="dialogue-title"></strong>
+          <p id="dialogue-text"></p>
+          <button id="dialogue-close">继续</button>
+        </div>
+      </div>
+
+      <div class="touch-controls" aria-label="触屏控制">
+        <div class="dpad">
+          <button data-move="up" aria-label="向上">▲</button>
+          <button data-move="left" aria-label="向左">◀</button>
+          <button data-move="down" aria-label="向下">▼</button>
+          <button data-move="right" aria-label="向右">▶</button>
+        </div>
+        <button id="interact" class="interact">E<br><small>调查</small></button>
+      </div>
+    </section>
+
+    <aside class="guide-card">
+      <div class="guide-heading">
+        <span id="scheme-number">01</span>
+        <div><p>当前方案</p><h2 id="scheme-title">背景贴图 + 空气墙</h2></div>
+      </div>
+      <p id="scheme-summary">一张完整场景图负责视觉，透明矩形负责碰撞，坐标点负责调查。</p>
+      <dl id="scheme-facts"></dl>
+      <div class="actions">
+        <button id="toggle-debug" aria-pressed="false">显示碰撞区</button>
+        <button id="reset">重置位置</button>
+      </div>
+      <p class="keys"><kbd>WASD</kbd> / 方向键移动　<kbd>E</kbd> / 空格调查</p>
+      <a class="readme" href="README.md">查看图片插入和地图元素制作说明 →</a>
+    </aside>
+  </main>
+
+  <footer>建议从仓库根目录运行 <code>npm start</code>，再访问 <code>/game/rpg-demo/index.html</code>。JSON 方案需要本地服务器读取数据文件。</footer>
+  <script src="rpg-demo.js"></script>
+</body>
+</html>

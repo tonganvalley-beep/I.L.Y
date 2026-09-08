@@ -8,7 +8,7 @@ ILY.data.assets = {
   "images": {
     // —— 场景背景（images/backgrounds） ——
     "bg-apartment-dusk":   "assets/images/backgrounds/2.白天家.png",    // 场景01/02 出租屋 黄昏
-    "bg-apartment-night":  "assets/images/backgrounds/1.夜晚家.png",    // 场景04/05/06 出租屋 深夜
+    "bg-apartment-night":  "assets/images/backgrounds/1.夜晚家.png",    // 场景05 蓝光变化后 / 场景06 出租屋夜晚
     "bg-university":       "assets/images/backgrounds/3 回忆蒙太奇.png",// 场景03 大学走廊与学生群像
     "bg-empty-apartment":  "assets/images/backgrounds/4 空壳公寓.png",  // 场景04 空壳公寓（含招租牌）
     "bg-hallway":          "assets/images/backgrounds/5.走廊·开灯.png",// 场景07 公寓走廊声控灯
@@ -25,9 +25,9 @@ ILY.data.assets = {
     "kio-walk":            "assets/placeholders/character.svg", // 隧道横版步行精灵
 
     // —— 道具 / 照片 / UI（images/ui） ——
-    "photo-seaside":       "assets/placeholders/prop.svg", // 2009 海边低像素合影
-    "bankbook":            "assets/placeholders/prop.svg", // 银行存折
-    "parcel-label":        "assets/placeholders/prop.svg", // 快递单（203室 马场先生）
+    "photo-seaside":       "assets/images/ui/photo-seaside.png", // 2009 海边低像素合影（手机相册 / 序章单图）
+    "bankbook":            "assets/images/ui/bankbook.png",      // 手机相册中的银行汇款记录
+    "parcel-label":        "assets/images/ui/parcel-label.png",  // 快递单（203室 马场先生）
     "rent-sign":           "assets/placeholders/prop.svg", // 空壳公寓招租牌 0A-93MC-10N4
     "trash-bag":           "assets/placeholders/prop.svg", // 垃圾袋（BR01 A）
     "vending":             "assets/placeholders/prop.svg", // 隧道故障自动贩卖机

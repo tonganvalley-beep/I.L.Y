@@ -1,0 +1,79 @@
+{
+  "id": "old-classroom-json-demo",
+  "name": "旧教室 · JSON 地图",
+  "width": 32,
+  "height": 18,
+  "tileSize": 40,
+  "tileset": {
+    "image": "assets/demo-tileset.svg",
+    "tileWidth": 40,
+    "tileHeight": 40,
+    "columns": 8
+  },
+  "legend": {
+    ".": { "tile": 0, "solid": false },
+    "#": { "tile": 1, "solid": true }
+  },
+  "imageLayers": [
+    {
+      "name": "氛围底图",
+      "image": "../assets/images/backgrounds/5.走廊·开灯.png",
+      "opacity": 0.18,
+      "fit": "cover"
+    }
+  ],
+  "tileLayers": [
+    {
+      "name": "地板",
+      "fill": ".",
+      "opacity": 0.88
+    },
+    {
+      "name": "墙体",
+      "data": [
+        "################################",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "#                              #",
+        "################################"
+      ]
+    }
+  ],
+  "objects": [
+    { "id": "north-windows", "name": "窗户", "tile": 3, "x": 4, "y": 0, "width": 6, "height": 1, "solid": true },
+    { "id": "bookshelf", "name": "旧书架", "tile": 5, "x": 2, "y": 3, "width": 1, "height": 5, "solid": true },
+    { "id": "desk-a", "name": "课桌 A", "tile": 4, "x": 8, "y": 5, "width": 5, "height": 1, "solid": true },
+    { "id": "desk-b", "name": "课桌 B", "tile": 4, "x": 17, "y": 5, "width": 5, "height": 1, "solid": true },
+    { "id": "desk-c", "name": "课桌 C", "tile": 4, "x": 8, "y": 10, "width": 5, "height": 1, "solid": true },
+    { "id": "desk-d", "name": "课桌 D", "tile": 4, "x": 17, "y": 10, "width": 5, "height": 1, "solid": true },
+    { "id": "plant", "name": "盆栽", "tile": 7, "x": 28, "y": 2, "width": 1, "height": 1, "solid": true },
+    { "id": "door", "name": "教室门", "tile": 6, "x": 27, "y": 17, "width": 2, "height": 1, "solid": true, "interaction": "门外的走廊没有开灯。现在还不能离开。" },
+    { "id": "letter", "name": "窗边的信", "image": "assets/letter.svg", "x": 10, "y": 4, "width": 1, "height": 1, "solid": false, "interaction": "信纸上写着：钟声响起时，在那里见。" },
+    { "id": "record", "name": "值日记录", "image": "assets/letter.svg", "x": 19, "y": 9, "width": 1, "height": 1, "solid": false, "interaction": "记录最后一行写着：四点十分，他独自往北面的钟楼走去。" }
+  ],
+  "player": {
+    "spawn": { "x": 15, "y": 14 },
+    "speed": 220,
+    "width": 48,
+    "height": 48,
+    "images": {
+      "front": "../../sign&log/photo&video/cursor-hero-front.png",
+      "back": "../../sign&log/photo&video/cursor-hero-back.png",
+      "left": ["../../sign&log/photo&video/cursor-walk-left-1.png", "../../sign&log/photo&video/cursor-walk-left-2.png"],
+      "right": ["../../sign&log/photo&video/cursor-walk-right-1.png", "../../sign&log/photo&video/cursor-walk-right-2.png"]
+    }
+  }
+}

@@ -38,14 +38,9 @@ ILY.data.phone = {
     },
     R01: {
       from: "百合沢 愛理", time: "20/07/23 19:40", subject: "Re:",
-      // 回信正文；下方空白/省略号/隐藏链接由 scrollReveal 控制
+      // 回信正文；链接只在海岸再次打开邮件时由场景配置显示
       body: "我也一直、在想著基生哦。",
-      scrollReveal: {
-        afterDowns: 6,                 // 连续下滚多少次后出现链接（框架占位值，可调）
-        ellipsis: ["", "……", "……", "……"], // 滚动过程中先后出现的留白/省略号
-        link: "http://ily/kcta/ll/c...",
-        linkLabel: "（一个蓝底白字的链接，字符在小屏幕上微微发亮）"
-      }
+      link: "http://ily/kcta/ll/c..."
     }
   },
 

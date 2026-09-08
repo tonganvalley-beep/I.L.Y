@@ -12,6 +12,8 @@
 
 点击画面或按空格 / Enter：先补全文本，再进入下一句。选项必须明确选择。隐藏对白按钮或 H 隐藏文本，再点「显示对白」恢复。右上角菜单提供存读档、音乐开关、原生全屏、调查线索与返回入口。
 
+RPG 地图的两种实现方案已有独立对照 Demo：`game/rpg-demo/index.html`。方案一是背景贴图 + 空气墙 + 交互点；方案二由真正的 JSON 文件构建图块、物件、碰撞与人物。图片接入和地图元素制作方法见 [rpg-demo/README.md](rpg-demo/README.md)。JSON 方案请在仓库根目录执行 `npm run demo`，不要直接双击。
+
 ## 换图只需两步
 
 1. 图片放入 `game/assets/images/backgrounds/`、`characters/`、`cg/` 或 `ui/`。

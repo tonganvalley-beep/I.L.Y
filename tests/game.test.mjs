@@ -24,7 +24,7 @@ test('剧情所有分支都有目标，地图和弹幕配置均存在', async ()
     if(node.map) assert.ok(context.ILY.data.maps[node.map]);
     if(node.level) {const level=context.ILY.data.levels[node.level];assert.ok(level.duration>0 && level.hp>0);}
     if(node.next) await visit(node.next);
-    for (const target of [node.phone?.exitNext, node.phone?.onReveal, node.walk?.exitNext]) if (target) await visit(target);
+    for (const target of [node.phone?.exitNext, node.phone?.onLink, node.walk?.exitNext]) if (target) await visit(target);
     for(const choice of node.choices || []) await visit(choice.next);
   }
   await visit(story.start); assert.equal(visited.size,Object.keys(story.nodes).length);
@@ -42,7 +42,7 @@ test('序章保留可执行剧本的完整主线段落与92个节点', () => {
     '和我一样大啊',
     '最喜欢你了，基生'
   ]) assert.match(text, new RegExp(excerpt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-  assert.equal(story.nodes.s09.phone.onReveal, 's09_found');
+  assert.equal(story.nodes.s09.phone.onLink, 's09_found');
   assert.equal(story.nodes.br02.choices[0].next, 's10a');
   assert.equal(story.nodes.br02.choices[1].next, 's09_close');
 });
@@ -217,7 +217,7 @@ test('手机教学删除可按确认键继续，爱理拒绝删除且提示一�
   airiCleanup();
 });
 
-test('海岸回信下滚六次后显示蓝色链接，并等待玩家确认', async () => {
+test('海岸回信打开后立即完整显示正文和链接，并等待玩家确认', async () => {
   let keyHandler = null;
   const element = (tag='', className='', textContent='') => ({tag, className, textContent, children: [], dataset: {}, style: {}, hidden:false,
     classList: {toggle() {}, add() {}},
@@ -229,7 +229,7 @@ test('海岸回信下滚六次后显示蓝色链接，并等待玩家确认', as
   fresh.document = {querySelector: () => null};
   fresh.addEventListener = (type, handler) => { if (type === 'keydown') keyHandler = handler; };
   fresh.removeEventListener = () => {};
-  fresh.ILY = {data:{}, el:element, button:(label, onClick) => Object.assign(element('button', '', label), {onClick})};
+  fresh.ILY = {data:{}, t:key=>key, el:element, button:(label, onClick) => Object.assign(element('button', '', label), {onClick})};
   for (const path of ['../game/data/story/phone.js','../game/src/modes/phone.js']) {
     vm.runInContext(await readFile(new URL(path, import.meta.url), 'utf8'), fresh);
   }
@@ -238,13 +238,14 @@ test('海岸回信下滚六次后显示蓝色链接，并等待玩家确认', as
   const stage = element();
   const cleanup = fresh.ILY.mountPhone({stage,node:story.nodes.s09,state,assets:{image:()=>''},go:id=>{nextNode=id;},notify:()=>{}});
   const press = key => keyHandler({key,target:{closest:()=>null},preventDefault(){}});
-  press('Enter');
-  for (let i = 0; i < 6; i++) press('ArrowDown');
+  press('Enter'); // 进入邮件列表
+  press('Enter'); // 打开回信
   const body = stage.children[0].children[0].children[1];
   const detail = body.children[0];
   const link = detail.children.find(child => child.className === 'd-link');
   assert.ok(link);
-  assert.equal(link.style.display, '');
+  assert.equal(link.textContent, 'http://ily/kcta/ll/c...');
+  assert.equal(detail.children.some(child => child.className === 'd-cap'), false);
   assert.equal(state.flags.FLAG_HIDDEN_LINK, 'found');
   assert.equal(nextNode, null, '链接出现后不应立刻跳走');
   press('Enter');
@@ -283,4 +284,52 @@ test('开始菜单接入游戏、OP 跳过与读取存档启动参数', async ()
   assert.ok(inlineScripts.length);
   for (const source of inlineScripts) new vm.Script(source);
   assert.ok((await readFile(new URL('../game/I.L.Y.-OP.mp4', import.meta.url))).length > 0);
+});
+
+test('RPG 两种地图 Demo 完整，JSON 图层尺寸和引用素材有效', async () => {
+  const demoRoot = new URL('../game/rpg-demo/', import.meta.url);
+  const [html, source, map] = await Promise.all([
+    readFile(new URL('index.html', demoRoot), 'utf8'),
+    readFile(new URL('rpg-demo.js', demoRoot), 'utf8'),
+    readFile(new URL('map-demo.json', demoRoot), 'utf8').then(JSON.parse)
+  ]);
+  assert.match(html, /data-mode="photo"/);
+  assert.match(html, /data-mode="json"/);
+  assert.match(source, /photoScene/);
+  assert.match(source, /fetch\('map-demo\.json'/);
+  new vm.Script(source, {filename: 'rpg-demo.js'});
+
+  assert.equal(map.tileLayers.find(layer => layer.name === '墙体').data.length, map.height);
+  for (const layer of map.tileLayers.filter(layer => layer.data)) {
+    for (const row of layer.data) assert.equal(row.length, map.width, `${layer.name} 行宽错误`);
+  }
+  const ids = map.objects.map(object => object.id);
+  assert.equal(new Set(ids).size, ids.length, '地图物件 ID 不应重复');
+  assert.ok(map.objects.some(object => object.solid), 'JSON 地图应包含碰撞物件');
+  assert.ok(map.objects.some(object => object.interaction), 'JSON 地图应包含交互物件');
+  assert.ok(map.player?.spawn && map.player?.images, 'JSON 地图应配置人物出生点和图片');
+
+  const paths = [
+    map.tileset.image,
+    ...map.imageLayers.map(layer => layer.image),
+    ...map.objects.filter(object => object.image).map(object => object.image),
+    ...Object.values(map.player.images).flat()
+  ];
+  for (const path of new Set(paths)) assert.ok((await readFile(new URL(path, demoRoot))).length, path);
+});
+
+test('开发服务器会自动打开入口、处理目录地址并在端口占用时重试', async () => {
+  const [packageJson, server] = await Promise.all([
+    readFile(new URL('../package.json', import.meta.url), 'utf8').then(JSON.parse),
+    readFile(new URL('../tools/serve.mjs', import.meta.url), 'utf8')
+  ]);
+  assert.match(packageJson.scripts.start, /--open \/game\/rpg-demo\/index\.html$/);
+  assert.match(packageJson.scripts.demo, /--open \/game\/rpg-demo\/index\.html$/);
+  assert.match(packageJson.scripts.game, /--open \/sign&log\/login\.html$/);
+  assert.match(server, /'Location':'\/game\/rpg-demo\/index\.html'/, '根地址应跳转到免登录 Demo');
+  assert.match(server, /pathname\.endsWith\('\/'\)/, '目录 URL 应自动查找 index.html');
+  assert.match(server, /error\.code === 'EADDRINUSE'/, '端口占用时应识别 EADDRINUSE');
+  assert.match(server, /listen\(port \+ 1/, '端口占用时应尝试下一个端口');
+  assert.match(server, /rundll32\.exe/, 'Windows 应通过系统默认浏览器打开地址');
+  assert.match(server, /args\.includes\('--no-open'\)/, '应支持只启动而不打开浏览器');
 });
