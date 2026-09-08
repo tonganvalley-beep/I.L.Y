@@ -6,6 +6,7 @@ const { el, button } = ILY;
 const { mountDialogue } = ILY;
 const { mountPhone } = ILY;
 const { mountWalk } = ILY;
+const { mountCorridor } = ILY;
 const { mountExploration } = ILY;
 const { mountBattle } = ILY;
 const t = (key, vars) => ILY.t(key, vars);
@@ -164,27 +165,45 @@ try {
 
       const actions = el('div', 'save-actions');
       const canWrite = saveMode === 'save' && manualPage;
-      const primaryLabel = canWrite ? (occupied ? t('save.overwrite') : t('save.save')) : t('save.load');
-      const primary = button(primaryLabel, () => {
-        if (canWrite) {
-          if (occupied && !window.confirm(t('save.confirmOverwrite', { label }))) return;
-          try {
-            saves.save(savePage, inspected.slot, state);
-            renderSaveSlots();
-            saveStatus.textContent = t('save.saved', { label });
-          } catch (error) { saveStatus.textContent = t('save.saveFailed', { msg: error.message }); }
-          return;
+      if (saveMode === 'save' && !manualPage) {
+        /* 存档模式下自动/快速页原本只有一个灰掉的“读取”按钮，容易误解为“点了没反应”：
+           自动页改为提示文字说明不可手存；快速页提供真正的一键快速存档。 */
+        if (savePage === 'quick') {
+          const quickBtn = button(t('save.quickSaveHere'), () => {
+            if (occupied && !window.confirm(t('save.confirmOverwrite', { label }))) return;
+            try {
+              saves.quicksave(state);
+              renderSaveSlots();
+              saveStatus.textContent = t('save.quickSavedHere');
+            } catch (error) { saveStatus.textContent = t('save.saveFailed', { msg: error.message }); }
+          });
+          actions.append(quickBtn);
+        } else {
+          actions.append(el('span', 'save-readonly-hint', t('save.autoReadonlyHint')));
         }
-        if (!occupied || !window.confirm(t('save.confirmLoad', { label }))) return;
-        try {
-          state = saves.load(savePage, inspected.slot);
-          saveMenu.close();
-          go(state.node, { autosave: false });
-          notify(t('save.loaded', { label }));
-        } catch (error) { saveStatus.textContent = t('save.loadFailed', { msg: error.message }); }
-      });
-      primary.disabled = !canWrite && !occupied;
-      actions.append(primary);
+      } else {
+        const primaryLabel = canWrite ? (occupied ? t('save.overwrite') : t('save.save')) : t('save.load');
+        const primary = button(primaryLabel, () => {
+          if (canWrite) {
+            if (occupied && !window.confirm(t('save.confirmOverwrite', { label }))) return;
+            try {
+              saves.save(savePage, inspected.slot, state);
+              renderSaveSlots();
+              saveStatus.textContent = t('save.saved', { label });
+            } catch (error) { saveStatus.textContent = t('save.saveFailed', { msg: error.message }); }
+            return;
+          }
+          if (!occupied || !window.confirm(t('save.confirmLoad', { label }))) return;
+          try {
+            state = saves.load(savePage, inspected.slot);
+            saveMenu.close();
+            go(state.node, { autosave: false });
+            notify(t('save.loaded', { label }));
+          } catch (error) { saveStatus.textContent = t('save.loadFailed', { msg: error.message }); }
+        });
+        primary.disabled = !canWrite && !occupied;
+        actions.append(primary);
+      }
 
       if (occupied || inspected.status === 'corrupt') {
         const remove = button(t('save.delete'), () => {
@@ -229,7 +248,7 @@ try {
   function maybeAutosave(node, enabled) {
     if (!enabled) return;
     interactionsSinceAutosave++;
-    const checkpoint = node.type === 'choice' || ['phone', 'walk', 'finale', 'branch', 'end'].includes(node.type);
+    const checkpoint = node.type === 'choice' || ['phone', 'walk', 'corridor', 'finale', 'branch', 'end'].includes(node.type);
     if (!checkpoint && interactionsSinceAutosave < 8) return;
     try { saves.autosave(state); } catch {}
     interactionsSinceAutosave = 0;
@@ -246,6 +265,7 @@ try {
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);
     else if (node.type === 'phone') cleanup = mountPhone(context);
     else if (node.type === 'walk') cleanup = mountWalk(context);
+    else if (node.type === 'corridor') cleanup = mountCorridor(context);
     else if (node.type === 'exploration') cleanup = mountExploration({...context, map:maps[node.map]});
     else if (node.type === 'battle') cleanup = mountBattle({...context, level:levels[node.level]});
     else if (node.type === 'finale' || node.type === 'branch' || node.type === 'end') {

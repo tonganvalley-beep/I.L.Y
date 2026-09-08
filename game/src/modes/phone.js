@@ -37,6 +37,8 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
 
   let tab = cfg.tab || 'mail';
   let view = 'home';            // home | list | mail | contacts | contact | album | photo | confirm | editor | send
+  // startView:"mail" —— 进入手机时跳过图标主页，直接打开邮件列表（用于手机首次登场的场景）
+  if (cfg.startView === 'mail') { view = 'list'; }
   let sel = 0;                  // 列表选中项
   let homeSel = 0;              // 主界面图标选中项
   let mailId = null;            // 正在查看的邮件
@@ -47,6 +49,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   let contactId = null;
   let confirmSel = 0;           // 删除确认：0=删除 1=取消
   let photoId = null;
+  let demoBusy = false;         // 删除教学演示进行中（屏蔽键盘输入）
 
   const root = el('div', 'phone');
   const screen = el('div', 'phone-screen');
@@ -189,21 +192,54 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   }
 
   // ---------- 通讯录 ----------
+  // 已删除的联系人不再显示：列表/键盘导航统一使用可见列表
+  function visibleContacts() {
+    return (cfg.contacts || []).filter(id => !flags.phone.deleted.includes(id));
+  }
   function renderContacts() {
     view = 'contacts';
-    const ids = cfg.contacts || [];
+    const ids = visibleContacts();
+    if (sel >= ids.length) sel = Math.max(0, ids.length - 1);
     const list = el('div', 'phone-list');
     ids.forEach((id, i) => {
       const c = F.contacts[id];
-      const deleted = flags.phone.deleted.includes(id);
-      const row = el('div', 'phone-row' + (i === sel ? ' sel' : '') + (deleted ? ' gone' : ''));
-      row.append(el('div', 'r-from', c.name), el('div', 'r-sub', deleted ? ILY.t('phone.deleted') : ''));
-      row.addEventListener('click', () => { sel = i; if (!deleted) openContact(id); });
+      const row = el('div', 'phone-row' + (i === sel ? ' sel' : ''));
+      row.append(el('div', 'r-from', c.name), el('div', 'r-sub', ''));
+      row.addEventListener('click', () => { sel = i; openContact(id); });
       list.append(row);
     });
     body.append(list);
     addEdgeHint(list, ids.length);
     list.children[sel]?.scrollIntoView({ block: 'nearest' });
+    // autoDeleteDemo：进入通讯录后自动演示删除流程（教学场景用）
+    if (cfg.autoDeleteDemo && !demoBusy) {
+      const target = (cfg.contacts || []).find(id => F.contacts[id].tutorial && !flags.phone.deleted.includes(id));
+      if (target) later(() => runDeleteDemo(target), 1000);
+    }
+  }
+
+  // 自动删除演示：打开联系人 → 弹出确认（高亮“删除”）→ 自动确认，玩家只需观看
+  // 教学提示弹窗：演示期间悬浮在手机上方
+  function showDemoTip(show) {
+    const tip = root.querySelector('.phone-demo-tip');
+    if (show && !tip) {
+      const t = el('div', 'phone-demo-tip');
+      t.append(el('span', 'demo-tag', ILY.t('phone.demo.tag')), el('span', 'demo-text', ILY.t('phone.demo.desc')));
+      root.append(t);
+    } else if (!show && tip) tip.remove();
+  }
+  function runDeleteDemo(id) {
+    if (demoBusy || flags.phone.deleted.includes(id)) return;
+    demoBusy = true;
+    showDemoTip(true);
+    sel = visibleContacts().indexOf(id);
+    later(() => { if (view === 'contacts') openContact(id); }, 1100);
+    later(() => { if (view === 'contact' && contactId === id) askDelete(id, true); }, 3300);
+    later(() => {
+      demoBusy = false;
+      showDemoTip(false);
+      if (view === 'confirm' && contactId === id) doDelete(id);
+    }, 5500);
   }
 
   function openContact(id) {
@@ -224,7 +260,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     body.replaceChildren(wrap);
   }
 
-  function askDelete(id) {
+  function askDelete(id, demo) {
     view = 'confirm'; confirmSel = 0;
     const c = F.contacts[id];
     const wrap = el('div', 'phone-detail confirm');
@@ -232,6 +268,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     const up = button(ILY.t('phone.del'), () => doDelete(id));
     const down = button(ILY.t('phone.cancel'), () => { afterConfirm(id, false); });
     if ((cfg.lockDeleteCancel || []).includes(id)) down.disabled = true;
+    if (demo) { up.disabled = true; down.disabled = true; }   // 演示期间禁止手动干预
     wrap.append(up, down);
     body.replaceChildren(wrap);
     up.classList.add('sel-y'); down.classList.add('sel-n');
@@ -278,7 +315,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     const forced = (cfg.forcedDelete || []).filter(x => !flags.phone.deleted.includes(x));
     if (!forced.length) {
       if (cfg.allowSend) {
-        const airiIndex = (cfg.contacts || []).indexOf('airi');
+        const airiIndex = visibleContacts().indexOf('airi');
         if (airiIndex >= 0) sel = airiIndex;
         render();
         return;
@@ -350,6 +387,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   // ---------- 键盘 ----------
   function onKey(e) {
     if (document.querySelector('dialog[open]') || e.target.closest('button, a, input, textarea, select')) return;
+    if (demoBusy) { e.preventDefault(); return; }   // 演示播放中不响应按键
     const k = e.key;
     if (k === 'm' || k === 'M' || k === 'Escape') {
       if (view === 'home') {
@@ -411,7 +449,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
       return;
     }
     // 列表态
-    const list = tab === 'album' ? Object.keys(F.photos) : (tab === 'contacts' ? (cfg.contacts || []) : mailIds);
+    const list = tab === 'album' ? Object.keys(F.photos) : (tab === 'contacts' ? visibleContacts() : mailIds);
     if (k === 'ArrowDown') { sel = Math.min(list.length - 1, sel + 1); render(); e.preventDefault(); return; }
     if (k === 'ArrowUp') { sel = Math.max(0, sel - 1); render(); e.preventDefault(); return; }
     if (tab === 'album' && (k === 'ArrowLeft' || k === 'ArrowRight')) {
@@ -421,7 +459,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
       // 教学删除只有一个必做操作，完成后空格/Enter 与“继续”按钮等价。
       if (cfg.manualExit && sceneComplete()) go(cfg.exitNext);
       else if (tab === 'mail') openMail(mailIds[sel]);
-      else if (tab === 'contacts') { const id = (cfg.contacts || [])[sel]; if (id && !flags.phone.deleted.includes(id)) openContact(id); }
+      else if (tab === 'contacts') { const id = visibleContacts()[sel]; if (id) openContact(id); }
       else openPhoto(Object.keys(F.photos)[sel]);
       e.preventDefault(); return;
     }
@@ -477,6 +515,8 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   /* 游戏菜单里切换语言后：重绘列表级视图（详情视图返回时会自动用新语言重建） */
   const onLang = () => {
     hint.textContent = ILY.t('phone.hint');
+    const tip = root.querySelector('.phone-demo-tip');
+    if (tip) tip.querySelector('.demo-text').textContent = ILY.t('phone.demo.desc');
     if (view === 'home' || view === 'list' || view === 'contacts' || view === 'album') render();
   };
   window.addEventListener('ily:langchange', onLang);
