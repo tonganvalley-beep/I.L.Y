@@ -2,51 +2,69 @@
 /* 《I.L.Y.》序章专属样式：翻盖手机 / 隧道步行 / 终幕 */
 /* 沿用 game.css 的暗色主题与 Zpix 像素字体。 */
 
-/* ===== 翻盖手机 ===== */
-.phone{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:radial-gradient(ellipse at 50% 40%,rgba(8,20,16,.55),rgba(4,8,12,.85));padding:24px}
-.phone-screen{width:min(420px,92%);max-height:88%;display:flex;flex-direction:column;
-  background:#0b1f17;border:3px solid #1f5a3f;border-radius:14px;
-  box-shadow:0 0 24px rgba(60,200,140,.35),inset 0 0 40px rgba(40,120,90,.25);overflow:hidden}
-.phone-tabs{display:flex;border-bottom:2px solid #1f5a3f;background:#08160f}
-.phone-tabs button{flex:1;background:transparent;border:0;border-right:1px solid #163f2c;color:#7fae97;
-  font:inherit;padding:8px 0;cursor:pointer}
+/* ===== 翻盖手机（外观：outputs/手机.png 抠图，内容区域叠加在屏幕白色区域上）===== */
+/* 抠图后 435×1496，屏幕白色区域 x 55-382 / y 274-591，换算为百分比定位 */
+.phone{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  background:radial-gradient(ellipse at 50% 40%,rgba(8,20,16,.55),rgba(4,8,12,.85));padding:8px 16px 16px;overflow:hidden}
+.phone-screen{position:relative;flex:none;height:min(172vh,1650px);aspect-ratio:435/1496;
+  background:url('../assets/images/ui/phone-frame.png') center/contain no-repeat;
+  filter:drop-shadow(0 0 22px rgba(60,200,140,.3))}
+.phone-tabs{position:absolute;left:12.6%;right:12.2%;top:18.3%;height:2.7%;display:flex}
+.phone-tabs button{flex:1;background:transparent;border:0;border-right:1px solid #9aa4a8;color:#3a4a4a;
+  font:inherit;font-size:15px;padding:0;cursor:pointer}
 .phone-tabs button:last-child{border-right:0}
-.phone-tabs button.active{background:#103524;color:#bdf3d6;text-shadow:0 0 8px rgba(120,240,180,.6)}
-.phone-body{flex:1;overflow:auto;padding:10px;color:#cdeede;min-height:220px}
+.phone-tabs button.active{background:rgba(95,224,160,.45);color:#0d3b26;font-weight:bold}
+.phone-tabs .tab-home{flex:1;text-align:left;padding-left:8px;color:#1f6b45}
+.phone-tabs .tab-home:hover{background:rgba(95,224,160,.35);color:#0d3b26}
+.phone-tabs .tab-title{flex:1.6;align-self:center;text-align:center;font-size:15px;color:#123326;letter-spacing:2px}
+.phone-body{position:absolute;left:12.6%;right:12.2%;top:21.4%;bottom:60.5%;overflow:auto;
+  padding:6px;color:#1c2b26;background:rgba(255,255,255,.4)}
+/* 主界面（图标页）：隐藏顶栏，内容区占满整个屏幕 */
+.phone-screen.is-home .phone-tabs{display:none}
+.phone-screen.is-home .phone-body{top:18.3%;background:rgba(255,255,255,.25)}
+.phone-home{display:flex;flex-direction:column;justify-content:center;gap:14px;height:100%;padding:4px}
+.home-app{display:flex;align-items:center;gap:14px;padding:10px 14px;
+  border:1px solid #b8c4be;border-radius:8px;background:rgba(255,255,255,.88);cursor:pointer}
+.home-app.sel{border-color:#1f9d63;background:#e4f7ec;box-shadow:0 0 10px rgba(31,157,99,.4)}
+.home-icon{position:relative;width:52px;height:52px;flex:none}
+.home-icon svg{width:100%;height:100%;display:block}
+.home-badge{position:absolute;top:-7px;right:-9px;min-width:20px;height:20px;padding:0 5px;
+  border-radius:10px;background:#d43a3a;color:#fff;font-size:13px;line-height:20px;text-align:center;
+  box-shadow:0 0 5px rgba(212,58,58,.65)}
+.home-label{font-size:19px;color:#123326;letter-spacing:3px}
 .phone-list{display:flex;flex-direction:column;gap:6px}
-.phone-row{padding:8px 10px;border:1px solid #1c4634;border-radius:6px;background:#0c2419;cursor:pointer}
-.phone-row.sel{border-color:#5fe0a0;background:#103a28;box-shadow:0 0 10px rgba(80,220,160,.4)}
+.phone-row{padding:8px 10px;border:1px solid #b8c4be;border-radius:6px;background:rgba(255,255,255,.85);cursor:pointer}
+.phone-row.sel{border-color:#1f9d63;background:#e4f7ec;box-shadow:0 0 8px rgba(31,157,99,.35)}
 .phone-row.gone{opacity:.4;text-decoration:line-through}
-.r-from{font-size:14px;color:#bdf3d6}
-.r-time{font-size:11px;color:#6f9d88}
-.r-sub{font-size:12px;color:#8fc4ab;margin-top:2px}
-.edge{text-align:center;color:#5fe0a0;font-size:12px;padding:2px}
+.r-from{font-size:17px;color:#123326}
+.r-unread{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e23b3b;margin-right:7px;vertical-align:2px}
+.r-time{font-size:13px;color:#7a8a82}
+.r-sub{font-size:14px;color:#4c5f56;margin-top:2px}
+.edge{text-align:center;color:#1f9d63;font-size:14px;padding:2px}
 .phone-detail{display:flex;flex-direction:column;gap:10px}
-.d-head{font-size:13px;color:#bdf3d6;border-bottom:1px dashed #1f5a3f;padding-bottom:6px}
-.d-body{white-space:pre-wrap;line-height:1.8;font-size:14px;color:#dff3e8}
-.d-link{color:#9fe8ff;background:#06283d;padding:8px;border-radius:6px;font-size:13px;
-  text-shadow:0 0 8px rgba(120,200,255,.7);letter-spacing:1px}
-.d-cap{font-size:12px;color:#7fb6d8}
+.d-head{font-size:15px;color:#123326;border-bottom:1px dashed #9fb3aa;padding-bottom:6px}
+.d-body{white-space:pre-wrap;line-height:1.75;font-size:16px;color:#1c2b26}
+.d-link{color:#e8f6ff;background:#0b5a8f;padding:9px;border-radius:6px;font-size:15px;letter-spacing:1px}
+.d-cap{font-size:13px;color:#4f6f82}
 .d-reveal-trail{display:flex;flex-direction:column;gap:5px;min-height:1px}
-.d-reveal-step{min-height:1.8em;color:#83a89a;white-space:pre}
-.confirm .sel-y{outline:2px solid #5fe0a0}
+.d-reveal-step{min-height:1.8em;color:#5c6f66;white-space:pre}
+.confirm .sel-y{outline:2px solid #1f9d63}
 .confirm .sel-n{outline:2px solid #c98}
-.phone-detail button{font:inherit;padding:8px 10px;border-radius:6px;border:1px solid #2c6b4c;
+.phone-detail button{font:inherit;font-size:15px;padding:8px 10px;border-radius:6px;border:1px solid #2c6b4c;
   background:#0f3324;color:#cdeede;cursor:pointer;text-align:left}
 .phone-detail button:hover{background:#15432f}
-.phone-detail .d-link{color:#f4fbff;background:#075a91;border-color:#64c9ff;padding:9px 10px;
-  text-shadow:0 0 8px rgba(190,235,255,.9);letter-spacing:1px}
+.phone-detail .d-link{color:#f4fbff;background:#075a91;border-color:#64c9ff;padding:9px 10px;letter-spacing:1px}
 .phone-detail .d-link:hover,.phone-detail .d-link:focus-visible{background:#0875bb;outline:2px solid #c6efff}
 .phone-exit{margin-top:12px;text-align:center!important;background:#103524!important;border-color:#5fe0a0!important}
-.phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.phone-cell{border:1px solid #1c4634;border-radius:6px;padding:6px;background:#0c2419;cursor:pointer;text-align:center}
-.phone-cell.sel{border-color:#5fe0a0;box-shadow:0 0 10px rgba(80,220,160,.4)}
-.cell-ph{height:90px;display:flex;align-items:center;justify-content:center;color:#6f9d88;font-size:12px;background:#08160f;border-radius:4px}
+.phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.phone-cell{border:1px solid #b8c4be;border-radius:6px;padding:5px;background:rgba(255,255,255,.85);cursor:pointer;text-align:center}
+.phone-cell.sel{border-color:#1f9d63;box-shadow:0 0 8px rgba(31,157,99,.35)}
+.cell-ph{height:80px;display:flex;align-items:center;justify-content:center;color:#7a8a82;font-size:13px;background:#eef2ef;border-radius:4px}
 .phone-cell img,.photo-full{width:100%;border-radius:4px;display:block}
-.cell-cap{font-size:12px;color:#8fc4ab;margin-top:4px}
-.photo-full{max-height:240px;object-fit:contain;margin:0 auto}
-.phone-hint{margin-top:10px;font-size:12px;color:#6f9d88;letter-spacing:1px}
+.cell-cap{font-size:13px;color:#4c5f56;margin-top:3px}
+.photo-full{max-height:230px;object-fit:contain;margin:0 auto}
+.phone-hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:#9fd8bc;letter-spacing:1px;
+  text-shadow:0 0 6px rgba(0,0,0,.9)}
 
 /* ===== 隧道步行 ===== */
 .walk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
