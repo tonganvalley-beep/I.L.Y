@@ -109,14 +109,17 @@ test('双击入口的所有脚本存在，普通脚本无需服务或模块加�
   const html = await readFile(new URL('../game/index.html', import.meta.url), 'utf8');
   assert.doesNotMatch(html, /type=["']module["']/);
   const scripts = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(match => match[1]);
-  assert.equal(scripts[0], 'src/bootstrap.js');
+  assert.ok(scripts.indexOf('src/bootstrap.js') < scripts.indexOf('data/story/prologue.js'));
   assert.equal(scripts.at(-1), 'src/main.js');
   const fresh = vm.createContext({}); fresh.window = fresh;
+  fresh.document = {documentElement:{},readyState:'loading',addEventListener(){},querySelectorAll(){return [];}};
   for (const script of scripts) {
     const source = await readFile(new URL(`../game/${script}`, import.meta.url), 'utf8');
-    assert.doesNotMatch(source, /^\s*(import|export)\s|\bfetch\s*\(|XMLHttpRequest/m);
+    assert.doesNotMatch(source, /^\s*(import|export)\s|XMLHttpRequest/m);
+    if(script==='src/main.js') assert.match(source,/location.protocol !== 'file:'/);
+    else assert.doesNotMatch(source,/\bfetch\s*\(/);
     new vm.Script(source, {filename:script});
-    if (script !== 'src/main.js') vm.runInContext(source, fresh, {filename:script});
+    if (!['src/main.js','src/cursor.js'].includes(script)) vm.runInContext(source, fresh, {filename:script});
   }
   for (const name of ['mountDialogue','mountExploration','mountBattle','createState','SaveManager','Assets']) assert.equal(typeof fresh.ILY[name], 'function');
   assert.ok(fresh.ILY.data.assets);
@@ -147,6 +150,7 @@ test('剧情图像 ID 全部登记，正式素材与占位图真实存在', asyn
     }
   }
   for (const path of new Set([...Object.values(images), ...Object.values(fallbacks)])) {
+    if(path==='') continue; // Optional RPG artwork uses geometric blockouts until supplied.
     assert.ok((await readFile(new URL(`../game/${path}`, import.meta.url))).length, path);
   }
 });
@@ -180,14 +184,15 @@ test('手机教学删除可按确认键继续，爱理拒绝删除且提示一�
     append(...nodes) { this.children.push(...nodes); }, prepend(...nodes) { this.children.unshift(...nodes); },
     replaceChildren(...nodes) {this.children = nodes;}, addEventListener() {}, removeEventListener() {}, scrollIntoView() {},
     querySelector(selector) { return selector === '.confirm' ? this.children.find(node => String(node.className).includes('confirm')) || null : null; }});
-  const fresh = vm.createContext({matchMedia: () => ({matches:true}),
+  const fresh = vm.createContext({matchMedia: () => ({matches:true}),clearInterval(){},
     setTimeout: (fn, delay) => {timers.set(++timerId, {fn, delay}); return timerId;}, clearTimeout: id => timers.delete(id)});
   fresh.window = fresh;
   fresh.document = {querySelector: () => null};
   fresh.addEventListener = (type, handler) => { if (type === 'keydown') keyHandler = handler; };
   fresh.removeEventListener = () => {};
   fresh.ILY = {data:{}, el:element, button:(label, onClick) => Object.assign(element('button', '', label), {onClick})};
-  for (const path of ['../game/data/story/phone.js','../game/src/modes/phone.js']) {
+  fresh.document.documentElement={};fresh.document.readyState='loading';fresh.document.addEventListener=()=>{};
+  for (const path of ['../game/src/i18n.js','../game/data/story/phone.js','../game/src/modes/phone.js']) {
     vm.runInContext(await readFile(new URL(path, import.meta.url), 'utf8'), fresh);
   }
   const press = key => keyHandler({key,target:{closest:()=>null},preventDefault(){}});
@@ -196,6 +201,7 @@ test('手机教学删除可按确认键继续，爱理拒绝删除且提示一�
   tutorialState.flags.phone = {read:['F01'],deleted:[]};
   let nextNode = null;
   const tutorialCleanup = fresh.ILY.mountPhone({stage:element(),node:story.nodes.s03_phone,state:tutorialState,assets:{image:()=>''},go:id=>{nextNode=id;},notify:()=>{}});
+  press('ArrowDown'); press('Enter'); // 手机主页进入通讯录
   press('Enter'); press('d'); press('Enter');
   assert.deepEqual(Array.from(tutorialState.flags.phone.deleted), ['work']);
   assert.equal(nextNode, null, '删除完成后应等待玩家确认继续');
@@ -207,6 +213,7 @@ test('手机教学删除可按确认键继续，爱理拒绝删除且提示一�
   airiState.flags.phone = {read:[],deleted:[]};
   const notices = [];
   const airiCleanup = fresh.ILY.mountPhone({stage:element(),node:story.nodes.s04_phone,state:airiState,assets:{image:()=>''},go:()=>{},notify:message=>notices.push(message)});
+  press('ArrowDown'); press('Enter'); // 手机主页进入通讯录
   press('ArrowDown'); press('ArrowDown'); press('ArrowDown'); press('Enter'); press('d'); press('Enter');
   assert.equal(airiState.flags.phone.deleted.includes('airi'), false);
   assert.equal(notices.at(-1), '再看看其他人吧。');

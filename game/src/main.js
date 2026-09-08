@@ -1,4 +1,4 @@
-(() => {
+(async () => {
 'use strict';
 const { createState, validateSave, SaveManager } = ILY;
 const { Assets } = ILY;
@@ -23,7 +23,14 @@ const notify = (message, duration = 0) => {
 };
 
 try {
-  const story = ILY.data.stories.prologue;
+  const story = ILY.prepareChapter1();
+  let chapterMaps = ILY.data.chapter1Maps;
+  if (location.protocol !== 'file:') {
+    const response = await fetch('data/maps/chapter1.json');
+    if (!response.ok) throw new Error('第一章地图读取失败，请刷新重试。');
+    chapterMaps = await response.json();
+  }
+  Object.assign(ILY.data.maps, chapterMaps);
   const manifest = ILY.data.assets;
   const { maps, levels } = ILY.data;
   const assets = new Assets(manifest);
@@ -83,7 +90,7 @@ try {
     ILY.setLang(ILY.getLang() === 'chinese' ? 'english' : 'chinese');
   };
   window.addEventListener('ily:langchange', () => {
-    document.querySelector('#chapter').textContent = t('chapter.title');
+    document.querySelector('#chapter').textContent = story.nodes[state.node]?.chapterTitle || t('chapter.title');
     updateFullscreenLabel();
     soundBtn.textContent = t(assets.enabled ? 'menu.sound.off' : 'menu.sound.on');
     refreshClues();
@@ -101,7 +108,8 @@ try {
     const spots = Object.values(maps).flatMap(map => map.hotspots);
     for (const id of state.clues) {
       const spot = spots.find(item => item.clue === id);
-      list.append(el('li', '', spot ? `${spot.label}：${spot.description}` : id));
+      const chapterClues = {P1:'没有回家的记忆：海边到出租屋之间的空白。',P2:'十年前的口味：她还记得每天吃的巧克力螺。',P3:'暑假：她的时间仿佛停在高中。',P4:'她眼中的我：为什么如此自然地接受二十八岁的基生？'};
+      list.append(el('li', '', spot ? `${spot.label}：${spot.description}` : chapterClues[id] || id));
     }
     if (!state.clues.length) list.append(el('li', '', t('clues.empty')));
   }
@@ -248,7 +256,7 @@ try {
   function maybeAutosave(node, enabled) {
     if (!enabled) return;
     interactionsSinceAutosave++;
-    const checkpoint = node.type === 'choice' || ['phone', 'walk', 'corridor', 'finale', 'branch', 'end'].includes(node.type);
+    const checkpoint = node.checkpoint || node.type === 'choice' || ['rpg', 'phone', 'walk', 'corridor', 'finale', 'branch', 'end'].includes(node.type);
     if (!checkpoint && interactionsSinceAutosave < 8) return;
     try { saves.autosave(state); } catch {}
     interactionsSinceAutosave = 0;
@@ -258,7 +266,10 @@ try {
     const next = id || state.node;
     const node = story.nodes[next];
     if (!node) { notify(t('notify.nodeMissing', { id: next })); return; }
+    if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
     cleanup(); cleanup = () => {}; state.node = next;
+    ILY.enterChapterNode(state,node);
+    document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
     stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type; notify(''); refreshClues();
     const context = {stage, node, state, assets, go, notify, refreshClues};
     if (['phone', 'finale', 'branch', 'end'].includes(node.type)) ILY.mountScene(stage, node, assets);
@@ -266,6 +277,7 @@ try {
     else if (node.type === 'phone') cleanup = mountPhone(context);
     else if (node.type === 'walk') cleanup = mountWalk(context);
     else if (node.type === 'corridor') cleanup = mountCorridor(context);
+    else if (node.type === 'rpg') cleanup = ILY.mountRpg(context);
     else if (node.type === 'exploration') cleanup = mountExploration({...context, map:maps[node.map]});
     else if (node.type === 'battle') cleanup = mountBattle({...context, level:levels[node.level]});
     else if (node.type === 'finale' || node.type === 'branch' || node.type === 'end') {
@@ -274,6 +286,7 @@ try {
       end.append(el('h1', '', node.title || t('end.tbc')));
       if (node.text) end.append(el('p', '', node.text));
       if (node.subtitle) end.append(el('p', 'hint', node.subtitle));
+      if (node.next) end.append(button('进入第一章', () => go(node.next)));
       end.append(button(t('end.restart'), () => { state = createState(story.start); go(story.start); }));
       stage.append(end);
     } else {
@@ -289,6 +302,7 @@ try {
     if (!Object.keys(manifest.bgm).length) notify(t('notify.noBgm'));
   };
 
+  if (launchParams.get('chapter') === '1' && !launchParams.get('slot') && launchParams.get('mode') !== 'load') state.node = ILY.data.stories.chapter1.start;
   go(state.node, { autosave: false });
   const loadSlot = launchParams.get('slot');
   if (loadSlot && /^([12]|auto|quick)-[1-6]$/.test(loadSlot)) {

@@ -51,7 +51,7 @@ class SaveManager {
       slot: this.slotName(page, slot),
       savedAt: this.now().toISOString(),
       meta: {
-        chapter: this.story.title,
+        chapter: node.chapterTitle || this.story.title,
         sceneName,
         summary: text.slice(0, 42),
         preview,

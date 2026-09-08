@@ -67,7 +67,9 @@
   });
 
   function updateCursor(timestamp) {
-    if (isMouseDown) {
+    if (document.body.classList.contains('rpg-active')) {
+      applyCursor('default');
+    } else if (isMouseDown) {
       applyCursor(CURSOR_BACK);
     } else if (timestamp - lastMoveTime < STOP_DELAY) {
       if (timestamp - lastFrameSwitch > WALK_INTERVAL) {

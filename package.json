@@ -6,6 +6,8 @@
     "start": "node tools/serve.mjs --open /game/rpg-demo/index.html",
     "demo": "node tools/serve.mjs --open /game/rpg-demo/index.html",
     "game": "node tools/serve.mjs --open /sign&log/login.html",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "chapter1": "node tools/serve.mjs --open /game/index.html?chapter=1",
+    "build:maps": "node tools/build-chapter1-maps.mjs"
   }
 }

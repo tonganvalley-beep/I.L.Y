@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>弹幕小测试 · danmutest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="wrap">
+    <canvas id="cv" width="640" height="480"></canvas>
+
+    <!-- HUD / 文字一律走 DOM+CSS，不画进 Canvas（知识 11 §5-9） -->
+    <div id="hud">
+      <div class="row">
+        <span class="label">HP</span>
+        <div class="hp-bar"><div id="hpFill" class="hp-fill"></div></div>
+        <span id="hpText" class="hp-text">20 / 20</span>
+      </div>
+      <div class="row small">
+        <span>波次 <b id="wave">1</b></span>
+        <span>弹幕 <b id="count">0</b></span>
+        <span>FPS <b id="fps">60</b></span>
+        <span>锁 <b id="lock">60</b></span>
+      </div>
+    </div>
+
+    <p id="tip">
+      方向键移动 · 按住 <kbd>Shift</kbd> 半速精调 · <kbd>P</kbd> 暂停 · <kbd>R</kbd> 重开 · <kbd>F</kbd> 锁 60/30 帧
+    </p>
+
+    <div id="overlay" class="show">
+      <h1>弹幕小测试</h1>
+      <p>
+        红心是本体，中间<b>白色小点才是判定点</b>（半径 5px，远小于 16px 的贴图）。<br>
+        用判定点去穿缝 —— 这是弹幕游戏「险过」快感的来源。<br>
+        <b class="green">绿色弹幕是回血的</b>，可以主动去吃。<br>
+        <b class="red">第 4 波是激光</b>：红色虚线只是预警（不掉血），变粗才有伤害。
+      </p>
+      <button id="start" type="button">开始</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

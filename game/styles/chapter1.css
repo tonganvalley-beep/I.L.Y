@@ -1,0 +1,14 @@
+.rpg-panel{position:absolute;inset:0;overflow:hidden;background:#192936;color:#efeada}
+.rpg-canvas{display:block;width:100%!important;height:100%!important;max-width:none;max-height:none;border:0;border-radius:0;image-rendering:pixelated;touch-action:none;outline:none}
+body.rpg-active .game-header{display:none}
+.rpg-message{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);max-width:min(680px,90%);width:max-content;box-sizing:border-box;text-align:center;font-size:14px;line-height:1.7;padding:10px 18px;border-radius:4px;background:#07121cce;pointer-events:none}
+.rpg-interact{position:absolute;bottom:3%;left:50%;transform:translateX(-50%);background:#10232dd9;border:1px solid #eac98370;padding:8px 18px;color:#fff0cd;font-size:14px}
+.rpg-menu-toggle{position:absolute;top:14px;right:18px;opacity:0;transition:opacity .2s;background:#101e2bd0;padding:7px 12px;border:1px solid #ffffff30}
+.rpg-menu-toggle:hover,.rpg-menu-toggle:focus-visible{opacity:1}
+.rpg-menu-info p{font-size:13px;line-height:1.8;color:#c3d0d4}
+@media(pointer:coarse){.rpg-menu-toggle{opacity:.45}}
+@media(max-width:600px){.rpg-message{font-size:12px;bottom:11%}.rpg-interact{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.rpg-menu-toggle{transition:none}}
+.danmu-panel{text-align:center;background:#08080f}.danmu-arena{position:relative;width:min(800px,100%);margin:0 auto 12px}.danmu-arena canvas{display:block;background:#05050a;width:100%;height:auto;max-height:none;border:0}.danmu-hud{position:absolute;top:3%;left:3%;display:flex;gap:14px;font-size:13px;color:#ffe14d}.danmu-overlay{position:absolute;inset:0;background:#06060ce8;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}.danmu-overlay.show{display:flex}.danmu-overlay p{font-size:14px;line-height:1.9;max-width:520px}.danmu-panel>button{margin:4px 8px}.danmu-overlay h2{font-size:22px}
+@media(max-height:600px){.danmu-arena{width:min(560px,72vh)}.danmu-panel{padding-top:48px}.danmu-panel>h1{font-size:16px;margin:4px}.danmu-overlay p{font-size:11px;margin:4px}.danmu-overlay h2{font-size:16px}.danmu-hud{font-size:10px;gap:7px}}
+.danmu-panel{padding:70px 3vw 12px}.danmu-panel>h1{font-size:20px;margin:0 0 12px}.danmu-arena{width:min(800px,100%,calc((100dvh - 170px)*1.3333))}.danmu-arena canvas{touch-action:none}

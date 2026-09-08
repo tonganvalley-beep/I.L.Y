@@ -74,3 +74,30 @@ ILY.data.assets.fallbacks = {
   character: 'assets/placeholders/character.svg',
   prop: 'assets/placeholders/prop.svg'
 };
+
+// 第一章：资源路径相对 game/index.html。RPG 空路径使用可玩的几何占位。
+Object.assign(ILY.data.assets.images, {
+  'ch1-store':'assets/placeholders/background.svg',
+  'ch1-street':'assets/placeholders/background.svg',
+  'ch1-aquarium-outside':'assets/placeholders/background.svg',
+  'ch1-aquarium':'assets/placeholders/background.svg',
+  'ch1-panorama':'assets/placeholders/background.svg',
+  'ch1-empty-tank':'assets/placeholders/background.svg',
+  'ch1-cg-blue':'assets/placeholders/background.svg',
+  'ch1-cg-mirror':'assets/placeholders/background.svg',
+  'ch1-cg-bathroom':'assets/placeholders/background.svg',
+  'ch1-cg-collapse':'assets/placeholders/background.svg',
+  'ch1-cg-reflection':'assets/placeholders/background.svg',
+  'ch1-airi-casual':'assets/placeholders/character.svg',
+  'ch1-toya':'assets/placeholders/character.svg',
+  'ch1-rui':'assets/placeholders/character.svg',
+  'ch1-tile-floor':'', 'ch1-tile-wall':'',
+  'ch1-sprite-kio':'assets/images/ui/cursor/cursor-hero-front.png', 'ch1-sprite-airi':'',
+  'ch1-kio-back':'assets/images/ui/cursor/cursor-hero-back.png',
+  'ch1-kio-left-1':'assets/images/ui/cursor/cursor-walk-left-1.png',
+  'ch1-kio-left-2':'assets/images/ui/cursor/cursor-walk-left-2.png',
+  'ch1-kio-right-1':'assets/images/ui/cursor/cursor-walk-right-1.png',
+  'ch1-kio-right-2':'assets/images/ui/cursor/cursor-walk-right-2.png',
+  'ch1-object-desk':'', 'ch1-object-shelf':'',
+  'ch1-object-bed':'', 'ch1-object-tank':''
+});

@@ -11,3 +11,6 @@ Desktop.ini
 .DS_Store
 *.swp
 *~
+
+# Local chapter-one browser QA captures
+tools/chapter1/*.png

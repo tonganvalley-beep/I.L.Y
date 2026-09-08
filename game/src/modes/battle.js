@@ -3,6 +3,7 @@
 const { el, button } = ILY;
 
 function mountBattle({stage, level, go, node}) {
+  if(level.engine==='danmutest')return ILY.mountDanmu({stage,level,go,node});
   const panel = el('section', 'mode-panel');
   const hintText = el('p', 'hint', ILY.t('battle.hint', { s: level.duration }));
   panel.append(el('h1', '', level.name), hintText);
@@ -14,7 +15,9 @@ function mountBattle({stage, level, go, node}) {
   const result = el('div');
   let paused = true, done = false, disposed = false, elapsed = 0, last = 0, spawn = 0, invincible = 0, hp = level.hp, frame;
   let started = false;
-  let bullets = [], target = null;
+  let bullets = [], target = null, score = 0, combo = 0, autoElapsed = 0;
+  const training = !!level.training;
+  const scoreHud = el('span'); if(training) hud.append(scoreHud);
   const player = {x:360, y:390}; const keys = new Set();
   const toggleLabel = () => { toggle.textContent = ILY.t(!started ? 'battle.start' : paused ? 'battle.resume' : 'battle.pause'); };
   const toggle = button(ILY.t('battle.start'), () => { if (!done) { started = true; paused = !paused; toggleLabel(); canvas.focus(); } });
@@ -23,6 +26,7 @@ function mountBattle({stage, level, go, node}) {
     done = true; toggle.disabled = true; result.className = 'result';
     result.append(el('p','', ILY.t(won ? 'battle.won' : 'battle.lost')));
     result.append(button(ILY.t(won ? 'battle.continue' : 'battle.retry'), () => go(won ? node.next : null)));
+    if(training && !won) result.append(button('结束练习，继续剧情',()=>go(node.next)));
   }
   /* 切换语言后更新界面文字 */
   const onLang = () => {
@@ -34,8 +38,13 @@ function mountBattle({stage, level, go, node}) {
   function tick(now) {
     if (disposed) return;
     const dt = last ? Math.min((now-last)/1000,.04) : 0; last = now;
+    if(training && !document.hidden && !document.querySelector('dialog[open]')) {
+      autoElapsed+=dt;
+      if(autoElapsed>=60 && !started){go(node.next);return;}
+    }
     if (!paused && !done) {
       elapsed += dt; spawn += dt; invincible = Math.max(0, invincible-dt);
+      if(training) scoreHud.textContent = elapsed<5 ? '① 方向键 / 拖动：躲避' : elapsed<10 ? '② 空格 / 点击反击：清除弹幕' : `③ 连续反击 · 连击 ${combo} · 得分 ${score}`;
       let dx = Number(keys.has('arrowright') || keys.has('d')) - Number(keys.has('arrowleft') || keys.has('a'));
       let dy = Number(keys.has('arrowdown') || keys.has('s')) - Number(keys.has('arrowup') || keys.has('w'));
       if (target) { dx = target.x-player.x; dy = target.y-player.y; }
@@ -53,7 +62,7 @@ function mountBattle({stage, level, go, node}) {
       }
       for (const b of bullets) {
         b.x += b.vx*dt; b.y += b.vy*dt;
-        if (!invincible && Math.hypot(b.x-player.x,b.y-player.y) < level.playerRadius+level.bulletRadius) { hp--; invincible = level.invulnerability; if (hp<=0) { finish(false); break; } }
+        if (!invincible && Math.hypot(b.x-player.x,b.y-player.y) < level.playerRadius+level.bulletRadius) { hp--; combo=0; invincible = level.invulnerability; if (hp<=0) { finish(false); break; } }
       }
       bullets = bullets.filter(b => b.y<470 && b.x>-20 && b.x<740);
       if (!done && elapsed>=level.duration) finish(true);
@@ -68,12 +77,16 @@ function mountBattle({stage, level, go, node}) {
   }
   const controls = ['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d','shift'];
   function keydown(e) {
+    if(document.querySelector('dialog[open]')) return;
     if (e.target.closest('button, a, input')) return;
     const key=e.key.toLowerCase();
+    if(training && key===' ' && !e.repeat){e.preventDefault();counter();}
     if (controls.includes(key)) {e.preventDefault();keys.add(key);}
     if (key==='p' && !e.repeat && !done) toggle.click();
   }
   const keyup=e=>keys.delete(e.key.toLowerCase());
+  function counter(){if(!training || paused || done || elapsed<5 || document.querySelector('dialog[open]'))return; const hits=bullets.length;bullets=[];if(hits){combo++;score+=hits*10*combo;}}
+  if(training) panel.append(button('反击',counter),button('自动演出 · 结束练习',()=>go(node.next)));
   const pause=()=>{keys.clear();target=null;paused=true;if(!done)toggleLabel();};
   const visibility=()=>{if(document.hidden)pause();};
   function pointer(e) {const r=canvas.getBoundingClientRect();target={x:(e.clientX-r.left)*720/r.width,y:(e.clientY-r.top)*450/r.height};}
