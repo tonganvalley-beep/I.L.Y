@@ -7,7 +7,7 @@ function mountDialogue({stage, node, state, assets, go}) {
   const box = el('section', 'dialogue');
   const text = el('p', 'dialogue-text');
   const actions = el('div', 'actions');
-  const speaker = el('div', 'speaker', node.speaker || '旁白');
+  const speaker = el('div', 'speaker', node.speaker || ILY.t('dlg.narrator'));
   box.append(speaker, text, actions);
   stage.append(box);
   const chars = Array.from(node.text || '');
@@ -19,10 +19,11 @@ function mountDialogue({stage, node, state, assets, go}) {
     if (count < chars.length) complete();
     else if (node.type !== 'choice' && node.next) go(node.next);
   };
-  const reveal = button('显示对白', restore);
+  const reveal = button(ILY.t('dlg.show'), restore);
   reveal.className = 'reveal-dialogue'; reveal.hidden = true;
   stage.append(reveal);
   const hide = () => { hidden = true; box.hidden = true; reveal.hidden = false; reveal.focus(); };
+  let hideBtn = null, nextBtn = null, advanceHint = null;
   if (node.type === 'choice') {
     complete();
     for (const choice of node.choices) actions.append(button(choice.text, () => {
@@ -30,14 +31,23 @@ function mountDialogue({stage, node, state, assets, go}) {
       go(choice.next);
     }));
   } else {
-    actions.append(el('span', 'advance-hint', '点击画面 / SPACE'));
-    actions.append(button('隐藏对白', hide), button('继续 ▸', next));
+    advanceHint = el('span', 'advance-hint', ILY.t('dlg.advance'));
+    hideBtn = button(ILY.t('dlg.hide'), hide);
+    nextBtn = button(ILY.t('dlg.next'), next);
+    actions.append(advanceHint, hideBtn, nextBtn);
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) complete();
     else timer = setInterval(() => {
       text.textContent = chars.slice(0, ++count).join('');
       if (count >= chars.length) clearInterval(timer);
     }, 32);
   }
+  /* 切换语言后更新界面按钮文案 */
+  const onLang = () => {
+    if (!node.speaker) speaker.textContent = ILY.t('dlg.narrator');
+    reveal.textContent = ILY.t('dlg.show');
+    if (hideBtn) { advanceHint.textContent = ILY.t('dlg.advance'); hideBtn.textContent = ILY.t('dlg.hide'); nextBtn.textContent = ILY.t('dlg.next'); }
+  };
+  window.addEventListener('ily:langchange', onLang);
   const click = event => { if (!event.target.closest('button, a')) next(); };
   const key = event => {
     if (document.querySelector('dialog[open]') || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target.closest('button, a, input, textarea, select')) return;
@@ -48,7 +58,7 @@ function mountDialogue({stage, node, state, assets, go}) {
   stage.focus({ preventScroll: true });
   stage.addEventListener('click', click);
   window.addEventListener('keydown', key);
-  return () => { clearInterval(timer); stage.removeEventListener('click', click); window.removeEventListener('keydown', key); };
+  return () => { clearInterval(timer); stage.removeEventListener('click', click); window.removeEventListener('keydown', key); window.removeEventListener('ily:langchange', onLang); };
 }
 Object.assign(ILY, { mountDialogue });
 })();

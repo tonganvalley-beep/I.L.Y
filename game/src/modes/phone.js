@@ -18,7 +18,7 @@ function getFlags(state) {
 
 function unlock(state, id, label, notify) {
   const f = getFlags(state);
-  if (!f.achievements.includes(id)) { f.achievements.push(id); notify(`成就解锁：${label}`); }
+  if (!f.achievements.includes(id)) { f.achievements.push(id); notify(ILY.t('achieve.unlocked', { label })); }
 }
 
 function mountPhone({ stage, node, state, assets, go, notify }) {
@@ -36,8 +36,9 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   }
 
   let tab = cfg.tab || 'mail';
-  let view = 'list';            // list | mail | contacts | contact | album | photo | confirm | editor | send
+  let view = 'home';            // home | list | mail | contacts | contact | album | photo | confirm | editor | send
   let sel = 0;                  // 列表选中项
+  let homeSel = 0;              // 主界面图标选中项
   let mailId = null;            // 正在查看的邮件
   let mailChars = [];           // 打字机字符
   let mailShown = 0;
@@ -51,23 +52,54 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   const screen = el('div', 'phone-screen');
   const tabs = el('div', 'phone-tabs');
   const body = el('div', 'phone-body');
-  const hint = el('div', 'phone-hint', 'M 开关 · ↑↓ 选择 · 空格 确认 · D 删除');
+  const hint = el('div', 'phone-hint', ILY.t('phone.hint'));
   root.append(screen, hint);
   screen.append(tabs, body);
   stage.append(root);
 
-  const tabBtn = (key, label) => {
-    const b = button(label, () => { tab = key; view = 'list'; sel = 0; render(); });
-    b.dataset.tab = key;
-    return b;
-  };
-  tabs.append(tabBtn('mail', '邮件'), tabBtn('contacts', '通讯录'), tabBtn('album', '相册'));
-
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---------- 主界面（图标页） ----------
+  const APP_ICONS = {
+    mail: '<svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="#123326" stroke-width="2"/><path d="M2.5 7.5 L12 14 L21.5 7.5" fill="none" stroke="#123326" stroke-width="2"/></svg>',
+    contacts: '<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="#123326" stroke-width="2"/><circle cx="12" cy="9.5" r="2.8" fill="#123326"/><path d="M7 17c.6-2.8 2.7-4 5-4s4.4 1.2 5 4" fill="none" stroke="#123326" stroke-width="2"/></svg>',
+    album: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#123326" stroke-width="2"/><circle cx="9" cy="10" r="1.8" fill="#123326"/><path d="M4 17l4.5-4 3.5 3 3.5-3.5L20 17" fill="none" stroke="#123326" stroke-width="2"/></svg>'
+  };
+  const APPS = [
+    { key: 'mail', labelKey: 'phone.mail', badge: () => mailIds.filter(id => !flags.phone.read.includes(id)).length },
+    { key: 'contacts', labelKey: 'phone.contacts', badge: null },
+    { key: 'album', labelKey: 'phone.album', badge: null }
+  ];
+  const tabLabel = () => { const app = APPS.find(a => a.key === tab); return app ? ILY.t(app.labelKey) : ''; };
+
+  function goHome() { view = 'home'; render(); }
+  function enterApp(key) { tab = key; view = 'list'; sel = 0; render(); }
+
+  function renderHome() {
+    const wrap = el('div', 'phone-home');
+    APPS.forEach((app, i) => {
+      const row = el('div', 'home-app' + (i === homeSel ? ' sel' : ''));
+      const icon = el('div', 'home-icon');
+      icon.innerHTML = APP_ICONS[app.key];
+      const unread = app.badge ? app.badge() : 0;
+      if (unread > 0) icon.append(el('span', 'home-badge', String(unread)));
+      row.append(icon, el('div', 'home-label', ILY.t(app.labelKey)));
+      row.addEventListener('click', () => { homeSel = i; enterApp(app.key); });
+      wrap.append(row);
+    });
+    body.append(wrap);
+  }
+
   function render() {
-    [...tabs.children].forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
     body.replaceChildren();
+    const atHome = view === 'home';
+    screen.classList.toggle('is-home', atHome);
+    if (atHome) { tabs.replaceChildren(); renderHome(); return; }
+    // 子界面：顶栏改为「◂ 主页 + 栏目名」
+    tabs.replaceChildren();
+    const homeBtn = button(ILY.t('phone.home'), () => goHome());
+    homeBtn.classList.add('tab-home');
+    tabs.append(homeBtn, el('span', 'tab-title', tabLabel()));
     if (tab === 'mail') renderMailList();
     else if (tab === 'contacts') renderContacts();
     else renderAlbum();
@@ -81,12 +113,13 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     mailIds.forEach((id, i) => {
       const m = F.mails[id];
       const row = el('div', 'phone-row' + (i === sel ? ' sel' : ''));
-      row.append(el('div', 'r-from', m.from), el('div', 'r-time', m.time), el('div', 'r-sub', m.subject || '（无主题）'));
+      const from = el('div', 'r-from', m.from);
+      if (!flags.phone.read.includes(id)) from.prepend(el('span', 'r-unread'));
+      row.append(from, el('div', 'r-time', m.time), el('div', 'r-sub', m.subject || ILY.t('phone.noSubject')));
       row.addEventListener('click', () => { sel = i; openMail(id); });
       list.append(row);
     });
     body.append(list);
-    addEdgeHint(list, mailIds.length);
     if (mailIds.length) list.children[sel]?.scrollIntoView({ block: 'nearest' });
   }
 
@@ -113,7 +146,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
       wrap.append(trail, linkLine, cap);
       mailScroll = { trail, linkLine, cap, reveal: m.scrollReveal, onReveal: cfg.onReveal, revealed:false, completed:false };
     }
-    const back = button('返回 ▸', () => { scrollStep = 0; render(); });
+    const back = button(ILY.t('phone.back'), () => { scrollStep = 0; render(); });
     wrap.append(back);
     body.replaceChildren(wrap);
 
@@ -164,7 +197,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
       const c = F.contacts[id];
       const deleted = flags.phone.deleted.includes(id);
       const row = el('div', 'phone-row' + (i === sel ? ' sel' : '') + (deleted ? ' gone' : ''));
-      row.append(el('div', 'r-from', c.name), el('div', 'r-sub', deleted ? '已删除' : ''));
+      row.append(el('div', 'r-from', c.name), el('div', 'r-sub', deleted ? ILY.t('phone.deleted') : ''));
       row.addEventListener('click', () => { sel = i; if (!deleted) openContact(id); });
       list.append(row);
     });
@@ -182,12 +215,12 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     const isDeleted = flags.phone.deleted.includes(id);
     const forcedLeft = (cfg.forcedDelete || []).filter(item => !flags.phone.deleted.includes(item));
     if (id === 'airi' && cfg.allowSend && !forcedLeft.length) {
-      wrap.append(button('写邮件 ▸', () => openEditor()), button('返回 ▸', () => render()));
+      wrap.append(button(ILY.t('phone.writeMail'), () => openEditor()), button(ILY.t('phone.back'), () => render()));
     } else if (!isDeleted) {
-      const del = button('删除 (D)', () => askDelete(id));
-      const back = button('返回 ▸', () => render());
+      const del = button(ILY.t('phone.delete'), () => askDelete(id));
+      const back = button(ILY.t('phone.back'), () => render());
       wrap.append(del, back);
-    } else wrap.append(button('返回 ▸', () => render()));
+    } else wrap.append(button(ILY.t('phone.back'), () => render()));
     body.replaceChildren(wrap);
   }
 
@@ -195,9 +228,9 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     view = 'confirm'; confirmSel = 0;
     const c = F.contacts[id];
     const wrap = el('div', 'phone-detail confirm');
-    wrap.append(el('div', 'd-head', `删除 ${c.name}？`));
-    const up = button('删除', () => doDelete(id));
-    const down = button('取消', () => { afterConfirm(id, false); });
+    wrap.append(el('div', 'd-head', ILY.t('phone.deleteQ', { name: c.name })));
+    const up = button(ILY.t('phone.del'), () => doDelete(id));
+    const down = button(ILY.t('phone.cancel'), () => { afterConfirm(id, false); });
     if ((cfg.lockDeleteCancel || []).includes(id)) down.disabled = true;
     wrap.append(up, down);
     body.replaceChildren(wrap);
@@ -217,7 +250,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
         flags.CONTACT_DELETED++;
         if (flags.CONTACT_DELETED >= (cfg.requireDeleteCount || 3)) {
           const remain = (cfg.contacts || []).filter(c => c === 'airi' || !flags.phone.deleted.includes(c));
-          if (remain.length <= 1) unlock(state, 'delete-key', '删除键', notify);
+          if (remain.length <= 1) unlock(state, 'delete-key', ILY.t('achieve.deleteKey'), notify);
         }
       }
     }
@@ -228,7 +261,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     const c = F.contacts[id];
     // 妈妈/爸爸：取消后由剧情强制删除
     if (!didDelete && (id === 'mother' || id === 'father')) {
-      notify(c.note.startsWith('自从') ? '留着又有什么意义呢' : '留着又有什么意义呢');
+      notify(ILY.t('phone.keepPointless'));
       doDelete(id);
       return;
     }
@@ -236,7 +269,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     if (id === 'airi') {
       render();
       if (didDelete) {
-        notify('再看看其他人吧。');
+        notify(ILY.t('phone.lookOthers'));
         later(() => notify(''), 1000);
       }
       return;
@@ -259,21 +292,21 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   function openEditor() {
     view = 'editor';
     const wrap = el('div', 'phone-detail');
-    wrap.append(el('div', 'd-head', '新邮件 · 致 百合沢 爱理'));
+    wrap.append(el('div', 'd-head', ILY.t('phone.editorHead')));
     wrap.append(el('div', 'd-body', F.mails.K01.body));
-    const send = button('发送 ▸', () => {
+    const send = button(ILY.t('phone.send'), () => {
       view = 'send';
-      flags.MAIL_READ_COUNT++; if (flags.MAIL_READ_COUNT >= 3) unlock(state, 'daily', '每日一封', notify);
-      wrap.replaceChildren(el('div', 'd-head', '发送中…'));
+      flags.MAIL_READ_COUNT++; if (flags.MAIL_READ_COUNT >= 3) unlock(state, 'daily', ILY.t('achieve.daily'), notify);
+      wrap.replaceChildren(el('div', 'd-head', ILY.t('phone.sending')));
       later(() => {
         const sys = el('div', 'phone-detail');
         sys.append(el('div', 'd-head', F.mails.SYS01.from + ' · ' + F.mails.SYS01.subject));
         sys.append(el('div', 'd-body', F.mails.SYS01.body));
-        sys.append(button('返回 ▸', () => { if (cfg.exitNext) go(cfg.exitNext); }));
+        sys.append(button(ILY.t('phone.back'), () => { if (cfg.exitNext) go(cfg.exitNext); }));
         body.replaceChildren(sys);
       }, 700);
     });
-    const back = button('返回 ▸', () => render());
+    const back = button(ILY.t('phone.back'), () => render());
     wrap.append(send, back);
     body.replaceChildren(wrap);
   }
@@ -305,7 +338,7 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     if (img) { const im = el('img', 'photo-full'); im.src = img; im.alt = p.title; wrap.append(im); }
     wrap.append(el('div', 'd-head', p.title));
     wrap.append(el('div', 'd-body', p.caption));
-    wrap.append(button('返回 ▸', () => render()));
+    wrap.append(button(ILY.t('phone.back'), () => render()));
     body.replaceChildren(wrap);
   }
 
@@ -318,10 +351,24 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   function onKey(e) {
     if (document.querySelector('dialog[open]') || e.target.closest('button, a, input, textarea, select')) return;
     const k = e.key;
-    if (k === 'm' || k === 'M') {
-      if (!lockClose && view === 'list') { render(); }
-      else if (cfg.manualExit && sceneComplete() && view === 'list') { go(cfg.exitNext); }
+    if (k === 'm' || k === 'M' || k === 'Escape') {
+      if (view === 'home') {
+        if (cfg.manualExit && sceneComplete()) go(cfg.exitNext);
+      } else if (view === 'list' || view === 'contacts' || view === 'album') {
+        goHome();
+      }
       e.preventDefault(); return;
+    }
+    if (view === 'home') {
+      const n = APPS.length;
+      if (k === 'ArrowDown' || k === 'ArrowRight') { homeSel = Math.min(n - 1, homeSel + 1); render(); e.preventDefault(); return; }
+      if (k === 'ArrowUp' || k === 'ArrowLeft') { homeSel = Math.max(0, homeSel - 1); render(); e.preventDefault(); return; }
+      if (k === ' ' || k === 'Enter') {
+        if (cfg.manualExit && sceneComplete()) go(cfg.exitNext);
+        else enterApp(APPS[homeSel].key);
+        e.preventDefault(); return;
+      }
+      return;
     }
     if (view === 'mail') {
       if (k === 'ArrowDown') {
@@ -392,9 +439,9 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     return false;
   }
   function maybeShowExit() {
-    if (cfg.manualExit && sceneComplete() && (view === 'list' || view === 'contacts')) {
-      hint.textContent = '操作完成 · 空格 / Enter 继续';
-      const b = button('继续 ▸', () => go(cfg.exitNext));
+    if (cfg.manualExit && sceneComplete() && (view === 'home' || view === 'list' || view === 'contacts')) {
+      hint.textContent = ILY.t('phone.hint.done');
+      const b = button(ILY.t('phone.continue'), () => go(cfg.exitNext));
       b.classList.add('phone-exit');
       body.append(b);
     }
@@ -427,9 +474,16 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   body.addEventListener('touchstart', onTouchStart, { passive:true });
   body.addEventListener('touchend', onTouchEnd, { passive:true });
   window.addEventListener('keydown', onKey);
+  /* 游戏菜单里切换语言后：重绘列表级视图（详情视图返回时会自动用新语言重建） */
+  const onLang = () => {
+    hint.textContent = ILY.t('phone.hint');
+    if (view === 'home' || view === 'list' || view === 'contacts' || view === 'album') render();
+  };
+  window.addEventListener('ily:langchange', onLang);
   return () => {
     for (const timer of pending) clearTimeout(timer);
     window.removeEventListener('keydown', onKey);
+    window.removeEventListener('ily:langchange', onLang);
     body.removeEventListener('wheel', onWheel);
     body.removeEventListener('touchstart', onTouchStart);
     body.removeEventListener('touchend', onTouchEnd);

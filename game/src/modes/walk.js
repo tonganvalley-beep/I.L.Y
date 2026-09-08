@@ -34,12 +34,19 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   const hud = el('div', 'walk-hud');
   const prompt = el('div', 'walk-prompt', '');
   const ctrl = el('div', 'walk-ctrl');
-  const left = button('◀ 左', () => { moving = -1; });
-  const right = button('右 ▶', () => { moving = 1; });
-  const inv = button('调查 (空格)', () => investigate());
+  const left = button(ILY.t('walk.left'), () => { moving = -1; });
+  const right = button(ILY.t('walk.right'), () => { moving = 1; });
+  const inv = button(ILY.t('walk.investigate'), () => investigate());
   ctrl.append(left, right, inv);
   wrap.append(canvas, hud, prompt, ctrl);
   stage.append(wrap);
+  /* 切换语言后更新按钮文案（HUD/提示语在 draw 循环里逐帧重建，自动跟随） */
+  const onLang = () => {
+    left.textContent = ILY.t('walk.left');
+    right.textContent = ILY.t('walk.right');
+    inv.textContent = ILY.t('walk.investigate');
+  };
+  window.addEventListener('ily:langchange', onLang);
 
   const ctx = canvas.getContext('2d');
   function resize() {
@@ -52,6 +59,20 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   const playerImg = new Image();
   const playerSource = assets.image(cfg.player || 'kio-walk');
   if (playerSource) playerImg.src = playerSource;
+
+  // 隧道小人改用光标 UI 精灵（sign&log/photo&video）：站立正面 + 左右各两帧走路动画
+  const SPRITE_DIR = '../sign&log/photo&video/';
+  const sprites = {
+    idle: [SPRITE_DIR + 'cursor-hero-front.png'],
+    left: [SPRITE_DIR + 'cursor-walk-left-1.png', SPRITE_DIR + 'cursor-walk-left-2.png'],
+    right: [SPRITE_DIR + 'cursor-walk-right-1.png', SPRITE_DIR + 'cursor-walk-right-2.png']
+  };
+  const spriteImgs = { idle: [], left: [], right: [] };
+  for (const key of Object.keys(sprites)) {
+    spriteImgs[key] = sprites[key].map(src => { const img = new Image(); img.src = src; return img; });
+  }
+  const SPRITE_SIZE = 104;       // 画布上的绘制尺寸（原图 48×48，放大显示）
+  let walkAnimTime = 0;
 
   function nearest() {
     let best = null, bd = 70;
@@ -70,7 +91,7 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     if (!F.tunnel.includes(h.id)) { F.tunnel.push(h.id); F.TUNNEL_CHECK_COUNT++; }
     notify(h.text || h.label);
     if (F.TUNNEL_CHECK_COUNT >= 3) {
-      if (!F.achievements.includes('tunnel-end')) { F.achievements.push('tunnel-end'); notify('成就解锁：隧道尽头'); }
+      if (!F.achievements.includes('tunnel-end')) { F.achievements.push('tunnel-end'); notify(ILY.t('achieve.unlocked', { label: ILY.t('achieve.tunnelEnd') })); }
     }
   }
 
@@ -89,7 +110,8 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     if (document.querySelector('dialog[open]') || document.hidden) moving = 0;
     if (!exiting) {
       x = Math.max(0, Math.min(length, x + moving * speed * dt));
-      if (x >= exitX) { exiting = true; notify('你走出了隧道，眼前是月光下的海岸。'); exitTimer = setTimeout(() => go(cfg.exitNext), 900); }
+      if (moving !== 0) walkAnimTime += dt; else walkAnimTime = 0;
+      if (x >= exitX) { exiting = true; notify(ILY.t('walk.exitNotify')); exitTimer = setTimeout(() => go(cfg.exitNext), 900); }
     }
     draw();
     raf = requestAnimationFrame(loop);
@@ -116,18 +138,26 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
       ctx.fillText(h.done ? '✓' : '?', sx, ground - 56);
       ctx.restore();
     }
-    // 玩家
+    // 玩家：光标 UI 精灵，移动时播放两帧走路动画，静止显示正面
     const px = x - camX;
     ctx.save();
-    if (playerImg.complete && playerImg.naturalWidth) ctx.drawImage(playerImg, px - 18, ground - 70, 36, 70);
+    ctx.imageSmoothingEnabled = false;      // 像素风放大保持锐利
+    const dir = moving < 0 ? 'left' : moving > 0 ? 'right' : 'idle';
+    const frames = spriteImgs[dir];
+    const frame = frames[moving !== 0 ? Math.floor(walkAnimTime / 0.22) % frames.length : 0];
+    if (frame && frame.complete && frame.naturalWidth) {
+      ctx.drawImage(frame, px - SPRITE_SIZE / 2, ground - SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+    } else if (playerImg.complete && playerImg.naturalWidth) {
+      ctx.drawImage(playerImg, px - 18, ground - 70, 36, 70);
+    }
     ctx.restore();
     // 出口提示
     const ex = exitX - camX;
-    if (ex > 0 && ex < W) { ctx.fillStyle = 'rgba(180,210,255,0.8)'; ctx.font = '12px Zpix, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('出口 →', ex, ground - 80); }
+    if (ex > 0 && ex < W) { ctx.fillStyle = 'rgba(180,210,255,0.8)'; ctx.font = '12px Zpix, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(ILY.t('walk.exitLabel'), ex, ground - 80); }
     // HUD
-    hud.textContent = `隧道 ${Math.round((x / length) * 100)}%  ·  调查 ${F.TUNNEL_CHECK_COUNT}/${hotspots.length}`;
+    hud.textContent = ILY.t('walk.hud', { pct: Math.round((x / length) * 100), done: F.TUNNEL_CHECK_COUNT, total: hotspots.length });
     const near = nearest();
-    prompt.textContent = near ? `〔${near.label}〕按空格调查` : (exiting ? '' : '按住 → 向海岸走去');
+    prompt.textContent = near ? ILY.t('walk.promptSpot', { label: near.label }) : (exiting ? '' : ILY.t('walk.promptGo'));
   }
   window.addEventListener('keydown', onKey);
   window.addEventListener('keyup', onKeyUp);
@@ -138,6 +168,7 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     window.removeEventListener('keydown', onKey);
     window.removeEventListener('keyup', onKeyUp);
     window.removeEventListener('resize', resize);
+    window.removeEventListener('ily:langchange', onLang);
     stage.style.backgroundImage = '';
   };
 }

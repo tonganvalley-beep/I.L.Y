@@ -1,0 +1,293 @@
+/* ============================================================
+ * i18n.js —— 游戏内中英文切换（与开始界面共用 localStorage['mygame-lang']）
+ *
+ * 用法：
+ *   ILY.t('menu.save')                取当前语言文案
+ *   ILY.t('save.saved', { label })    带 {占位符} 插值
+ *   ILY.getLang() / ILY.setLang('chinese'|'english')
+ *
+ * setLang 会：写回 localStorage（与 sign&log/game.html 同一个 key）、
+ * 更新 <html lang>、刷新所有带 [data-i18n] 的静态元素、
+ * 派发 window 事件 'ily:langchange'（各玩法模式监听后自行重绘）。
+ *
+ * 范围：菜单/存档/提示/状态栏/手机 UI/隧道/探索/弹幕等界面文字。
+ * 剧情数据（对白、邮件正文、联系人、图注等叙事内容）为中文数据，不在此列。
+ * ============================================================ */
+(() => {
+'use strict';
+
+const LANG = {
+  chinese: {
+    'chapter.title': '序章 · 蓝色来电',
+    'menu.toggle': '菜单 ☰',
+    'menu.title': '蓝色来电',
+    'menu.save': '保存进度',
+    'menu.load': '读取进度',
+    'menu.quickSave': '快速保存',
+    'menu.lang': '切换语言',
+    'menu.sound.on': '开启音乐',
+    'menu.sound.off': '关闭音乐',
+    'menu.fullscreen.enter': '进入全屏',
+    'menu.fullscreen.exit': '退出全屏',
+    'menu.clues': '调查线索',
+    'menu.hint': '每个账号拥有 12 个手动槽、3 个循环自动档和 1 个快速档。点击画面或按空格 / Enter 继续；H 隐藏对白。',
+    'menu.return': '返回开始菜单 →',
+    'menu.close': '关闭菜单',
+    'clues.empty': '还没有发现线索。',
+    'save.title.save': '保存游戏',
+    'save.title.load': '读取游戏',
+    'save.subtitle.save': '选择槽位保存；已有存档会先询问是否覆盖。',
+    'save.subtitle.load': '选择已有存档读取；读取前会进行确认。',
+    'save.page.manual1': '手动 1',
+    'save.page.manual2': '手动 2',
+    'save.page.auto': '自动',
+    'save.page.quick': '快速',
+    'save.pages.aria': '存档分页',
+    'save.close': '关闭存档菜单',
+    'slot.auto': '自动存档 {n}',
+    'slot.quick': '快速存档',
+    'slot.manual': '手动存档 {p}-{n}',
+    'slot.corrupt': '存档损坏',
+    'slot.unavailable': '存储不可用',
+    'slot.empty': '空槽位',
+    'save.progress': '剧情进度',
+    'save.noSummary': '无对白摘要',
+    'save.previewAlt': '{name}场景预览',
+    'save.overwrite': '覆盖',
+    'save.save': '保存',
+    'save.load': '读取',
+    'save.delete': '删除',
+    'save.confirmOverwrite': '确定覆盖{label}吗？',
+    'save.confirmLoad': '读取{label}后，尚未保存的当前进度会丢失。继续吗？',
+    'save.confirmDelete': '确定删除{label}吗？此操作无法撤销。',
+    'save.saved': '已保存到{label}。',
+    'save.saveFailed': '保存失败：{msg}',
+    'save.loaded': '已读取{label}。',
+    'save.loadFailed': '读取失败：{msg}',
+    'save.deleted': '已删除{label}。',
+    'save.deleteFailed': '删除失败：{msg}',
+    'time.unknown': '时间未知',
+    'notify.quickSaved': '已快速保存。',
+    'notify.quickSaveFailed': '快速保存失败：{msg}',
+    'notify.loaded': '已读取存档。',
+    'notify.noStorage': '浏览器存储不可用，仍可试玩。',
+    'notify.noFullscreen': '此浏览器未允许全屏；游戏仍铺满当前窗口。',
+    'notify.noBgm': '当前示例未添加音乐，可在素材清单中配置。',
+    'notify.migrated': '旧版单槽存档已复制到手动存档 1-1。',
+    'notify.nodeMissing': '找不到剧情节点：{id}',
+    'end.restart': '重新开始',
+    'end.tbc': '未完待续',
+    'error.load': '游戏数据加载失败。请检查 data 文件和 HTML 中的脚本加载顺序。',
+    'dlg.narrator': '旁白',
+    'dlg.show': '显示对白',
+    'dlg.hide': '隐藏对白',
+    'dlg.next': '继续 ▸',
+    'dlg.advance': '点击画面 / SPACE',
+    'walk.left': '◀ 左',
+    'walk.right': '右 ▶',
+    'walk.investigate': '调查 (空格)',
+    'walk.exitNotify': '你走出了隧道，眼前是月光下的海岸。',
+    'walk.exitLabel': '出口 →',
+    'walk.hud': '隧道 {pct}%  ·  调查 {done}/{total}',
+    'walk.promptSpot': '〔{label}〕按空格调查',
+    'walk.promptGo': '按住 → 向海岸走去',
+    'achieve.unlocked': '成就解锁：{label}',
+    'achieve.tunnelEnd': '隧道尽头',
+    'achieve.deleteKey': '删除键',
+    'achieve.daily': '每日一封',
+    'phone.hint': '↑↓ 选择 · 空格 确认 · M/Esc 主页 · D 删除',
+    'phone.hint.done': '操作完成 · 空格 / Enter 继续',
+    'phone.mail': '邮件',
+    'phone.contacts': '通讯录',
+    'phone.album': '相册',
+    'phone.home': '◂ 主页',
+    'phone.noSubject': '（无主题）',
+    'phone.back': '返回 ▸',
+    'phone.deleted': '已删除',
+    'phone.writeMail': '写邮件 ▸',
+    'phone.delete': '删除 (D)',
+    'phone.deleteQ': '删除 {name}？',
+    'phone.del': '删除',
+    'phone.cancel': '取消',
+    'phone.editorHead': '新邮件 · 致 百合沢 爱理',
+    'phone.send': '发送 ▸',
+    'phone.sending': '发送中…',
+    'phone.continue': '继续 ▸',
+    'phone.keepPointless': '留着又有什么意义呢',
+    'phone.lookOthers': '再看看其他人吧。',
+    'battle.hint': '躲避弹幕，坚持 {s} 秒。方向键 / WASD 移动，Shift 慢速；也可按住画布拖动。P 暂停。',
+    'battle.aria': '弹幕生存关卡，按方向键移动躲避红色弹丸',
+    'battle.start': '开始关卡',
+    'battle.pause': '暂停',
+    'battle.resume': '继续关卡',
+    'battle.won': '成功穿过回声。',
+    'battle.lost': '回声淹没了你，再试一次吧。',
+    'battle.continue': '继续剧情',
+    'battle.retry': '重新挑战',
+    'battle.hp': '生命 {hp} / {max}',
+    'battle.paused': '已暂停 · ',
+    'battle.seconds': '{s} 秒',
+    'expl.hint': '方向键 / WASD 移动，靠近金色物件后按 E 或点击调查。',
+    'expl.aria': '教室地图：蓝色是玩家，金色是线索，深色墙壁不可通行。',
+    'expl.submit': '提交推理',
+    'expl.needAll': '还需要找到全部线索。',
+    'expl.wrong': '这个答案无法解释全部线索，再想一想。',
+    'expl.investigate': '调查：{label}',
+    'expl.searchHint': '走近金色物件，寻找线索。'
+  },
+  english: {
+    'chapter.title': 'Prologue · The Blue Call',
+    'menu.toggle': 'Menu ☰',
+    'menu.title': 'The Blue Call',
+    'menu.save': 'Save Game',
+    'menu.load': 'Load Game',
+    'menu.quickSave': 'Quick Save',
+    'menu.lang': 'Switch Language',
+    'menu.sound.on': 'Music On',
+    'menu.sound.off': 'Music Off',
+    'menu.fullscreen.enter': 'Enter Fullscreen',
+    'menu.fullscreen.exit': 'Exit Fullscreen',
+    'menu.clues': 'Clues',
+    'menu.hint': 'Each account has 12 manual slots, 3 rotating auto saves and 1 quick save. Click or press Space / Enter to continue; H hides the text.',
+    'menu.return': 'Back to Main Menu →',
+    'menu.close': 'Close menu',
+    'clues.empty': 'No clues found yet.',
+    'save.title.save': 'Save Game',
+    'save.title.load': 'Load Game',
+    'save.subtitle.save': 'Pick a slot to save; occupied slots ask before overwriting.',
+    'save.subtitle.load': 'Pick a save to load; confirmation is required first.',
+    'save.page.manual1': 'Manual 1',
+    'save.page.manual2': 'Manual 2',
+    'save.page.auto': 'Auto',
+    'save.page.quick': 'Quick',
+    'save.pages.aria': 'Save pages',
+    'save.close': 'Close save menu',
+    'slot.auto': 'Auto Save {n}',
+    'slot.quick': 'Quick Save',
+    'slot.manual': 'Manual Save {p}-{n}',
+    'slot.corrupt': 'Corrupted Save',
+    'slot.unavailable': 'Storage Unavailable',
+    'slot.empty': 'Empty Slot',
+    'save.progress': 'Story Progress',
+    'save.noSummary': 'No dialogue summary',
+    'save.previewAlt': '{name} preview',
+    'save.overwrite': 'Overwrite',
+    'save.save': 'Save',
+    'save.load': 'Load',
+    'save.delete': 'Delete',
+    'save.confirmOverwrite': 'Overwrite {label}?',
+    'save.confirmLoad': 'Loading {label} will discard unsaved progress. Continue?',
+    'save.confirmDelete': 'Delete {label}? This cannot be undone.',
+    'save.saved': 'Saved to {label}.',
+    'save.saveFailed': 'Save failed: {msg}',
+    'save.loaded': 'Loaded {label}.',
+    'save.loadFailed': 'Load failed: {msg}',
+    'save.deleted': 'Deleted {label}.',
+    'save.deleteFailed': 'Delete failed: {msg}',
+    'time.unknown': 'Unknown time',
+    'notify.quickSaved': 'Quick saved.',
+    'notify.quickSaveFailed': 'Quick save failed: {msg}',
+    'notify.loaded': 'Save loaded.',
+    'notify.noStorage': 'Browser storage unavailable; you can still play.',
+    'notify.noFullscreen': 'Fullscreen was blocked; the game still fills the window.',
+    'notify.noBgm': 'No music in this build yet; configure it in the asset manifest.',
+    'notify.migrated': 'Legacy single-slot save copied to Manual Save 1-1.',
+    'notify.nodeMissing': 'Story node not found: {id}',
+    'end.restart': 'Restart',
+    'end.tbc': 'To Be Continued',
+    'error.load': 'Failed to load game data. Check the data files and script order in the HTML.',
+    'dlg.narrator': 'Narrator',
+    'dlg.show': 'Show Text',
+    'dlg.hide': 'Hide Text',
+    'dlg.next': 'Next ▸',
+    'dlg.advance': 'Click / SPACE',
+    'walk.left': '◀ Left',
+    'walk.right': 'Right ▶',
+    'walk.investigate': 'Investigate (Space)',
+    'walk.exitNotify': 'You walk out of the tunnel. Moonlit shores lie ahead.',
+    'walk.exitLabel': 'Exit →',
+    'walk.hud': 'Tunnel {pct}%  ·  Investigated {done}/{total}',
+    'walk.promptSpot': '[{label}] Press Space to investigate',
+    'walk.promptGo': 'Hold → to walk toward the coast',
+    'achieve.unlocked': 'Achievement Unlocked: {label}',
+    'achieve.tunnelEnd': "Tunnel's End",
+    'achieve.deleteKey': 'Delete Key',
+    'achieve.daily': 'Daily Mail',
+    'phone.hint': '↑↓ Select · Space OK · M/Esc Home · D Delete',
+    'phone.hint.done': 'Done · Space / Enter to continue',
+    'phone.mail': 'Mail',
+    'phone.contacts': 'Contacts',
+    'phone.album': 'Album',
+    'phone.home': '◂ Home',
+    'phone.noSubject': '(No Subject)',
+    'phone.back': 'Back ▸',
+    'phone.deleted': 'Deleted',
+    'phone.writeMail': 'Write Mail ▸',
+    'phone.delete': 'Delete (D)',
+    'phone.deleteQ': 'Delete {name}?',
+    'phone.del': 'Delete',
+    'phone.cancel': 'Cancel',
+    'phone.editorHead': 'New Mail · To Airi Yurizawa',
+    'phone.send': 'Send ▸',
+    'phone.sending': 'Sending…',
+    'phone.continue': 'Continue ▸',
+    'phone.keepPointless': 'What is the point of keeping it?',
+    'phone.lookOthers': 'Maybe check the others.',
+    'battle.hint': 'Dodge the danmaku and survive {s}s. Arrows / WASD to move, Shift to slow; or drag on the canvas. P to pause.',
+    'battle.aria': 'Danmaku survival stage; use arrow keys to dodge the red bullets',
+    'battle.start': 'Start',
+    'battle.pause': 'Pause',
+    'battle.resume': 'Resume',
+    'battle.won': 'You made it through the echoes.',
+    'battle.lost': 'The echoes swallowed you. Try again.',
+    'battle.continue': 'Continue',
+    'battle.retry': 'Retry',
+    'battle.hp': 'HP {hp} / {max}',
+    'battle.paused': 'Paused · ',
+    'battle.seconds': '{s}s',
+    'expl.hint': 'Arrows / WASD to move; press E or click near golden objects to investigate.',
+    'expl.aria': 'Classroom map: blue is the player, gold marks clues, dark walls are blocked.',
+    'expl.submit': 'Submit Deduction',
+    'expl.needAll': 'Find all the clues first.',
+    'expl.wrong': 'This answer cannot explain every clue. Think again.',
+    'expl.investigate': 'Investigate: {label}',
+    'expl.searchHint': 'Walk up to golden objects to find clues.'
+  }
+};
+
+const STORAGE_KEY = 'mygame-lang';   // 与开始界面 sign&log/game.html 同一个 key
+
+function getLang() {
+  try { return localStorage.getItem(STORAGE_KEY) || 'chinese'; }
+  catch { return 'chinese'; }
+}
+
+function t(key, vars) {
+  const table = LANG[getLang()] || LANG.chinese;
+  let text = table[key] ?? LANG.chinese[key] ?? key;
+  if (vars) for (const [name, value] of Object.entries(vars)) text = text.replaceAll(`{${name}}`, value);
+  return text;
+}
+
+function setLang(name) {
+  if (!LANG[name]) return;
+  try { localStorage.setItem(STORAGE_KEY, name); } catch {}
+  document.documentElement.lang = name === 'chinese' ? 'zh-CN' : 'en';
+  /* 刷新静态 [data-i18n] 元素 */
+  document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
+  /* 通知各玩法模块重绘动态文字 */
+  window.dispatchEvent(new CustomEvent('ily:langchange'));
+}
+
+Object.assign(ILY, { t, getLang, setLang });
+
+/* 进页面即应用一次（同步开始界面选择的语言） */
+document.documentElement.lang = getLang() === 'chinese' ? 'zh-CN' : 'en';
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
+  });
+} else {
+  document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
+}
+})();
