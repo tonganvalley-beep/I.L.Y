@@ -3797,3 +3797,99 @@ ILY.data.stories.chapter1 = {
     }
   }
 };
+
+// 第一章的海边使用本章新背景，不影响序章沿用的旧海岸图。
+Object.values(ILY.data.stories.chapter1.nodes).forEach(node => {
+  if (node.scene === 'S01' && node.background === 'bg-coast-night') {
+    node.background = 'ch1-coast-night';
+  }
+});
+
+// 爱理立绘差分：未列出的对白沿用资源表中的默认微笑。
+// 这里按台本中的动作与情绪指定差分，避免渲染层猜测对白语义。
+Object.entries({
+  ch1_006: 'airi-playful',
+  ch1_008: 'airi-confused',
+  ch1_013: 'airi-blush',
+  ch1_017: 'airi-blush',
+  ch1_028: 'airi-gloomy',
+  ch1_030: 'airi-scared',
+  ch1_033: 'airi-crying',
+  ch1_040: 'airi-confused',
+  ch1_043: 'airi-scared',
+  ch1_044: 'airi-confused',
+  ch1_046: 'airi-crying',
+  ch1_050: 'airi-playful',
+  ch1_059: 'airi-confused',
+  ch1_064: 'airi-confused',
+  ch1_066: 'airi-playful',
+  ch1_071: 'airi-blush',
+  ch1_081: 'airi-blush',
+  ch1_083: 'airi-blush',
+  ch1_085: 'airi-crying',
+  ch1_091: 'airi-smile',
+  ch1_093: 'airi-crying',
+  ch1_095: 'airi-smile',
+  ch1_099: 'airi-blush',
+  ch1_101: 'airi-playful',
+  ch1_103: 'airi-blush',
+  ch1_111: 'airi-scared',
+  ch1_113: 'airi-blush',
+  ch1_116: 'airi-blush',
+  ch1_121: 'airi-smile',
+  ch1_124: 'airi-playful',
+  ch1_126: 'airi-playful',
+  ch1_134: 'airi-crying',
+  ch1_143: 'airi-confused',
+  ch1_147: 'airi-playful',
+  ch1_152: 'airi-confused',
+  ch1_154: 'airi-confused',
+  ch1_161: 'airi-confused',
+  ch1_165: 'airi-confused',
+  ch1_168: 'airi-confused',
+  ch1_171: 'airi-scared',
+  ch1_173: 'airi-playful',
+  ch1_175: 'airi-playful',
+  ch1_177: 'airi-playful',
+  ch1_191: 'airi-scared',
+  ch1_193: 'airi-playful',
+  ch1_197: 'airi-blush',
+  ch1_200: 'airi-blush',
+  ch1_203: 'airi-blush',
+  ch1_205: 'airi-blush',
+  ch1_217: 'airi-confused',
+  ch1_223: 'airi-gloomy',
+  ch1_225: 'airi-confused',
+  ch1_227: 'airi-broken',
+  ch1_229: 'airi-crying',
+  ch1_232: 'airi-gloomy',
+  ch1_235: 'airi-smile',
+  ch1_241: 'airi-scared',
+  ch1_243: 'airi-blush',
+  ch1_245: 'airi-blush',
+  ch1_257: 'airi-smile',
+  ch1_262: 'airi-playful',
+  ch1_263: 'airi-playful',
+  ch1_266: 'airi-playful',
+  ch1_269: 'airi-playful',
+  ch1_272: 'airi-playful',
+  ch1_275: 'airi-playful',
+  ch1_277: 'airi-confused',
+  ch1_279: 'airi-gloomy',
+  ch1_281: 'airi-gloomy',
+  ch1_285: 'airi-scared',
+  ch1_287: 'airi-confused',
+  ch1_289: 'airi-smile',
+  ch1_292: 'airi-playful',
+  ch1_295: 'airi-gloomy',
+  ch1_297: 'airi-crying',
+  ch1_299: 'airi-broken',
+  ch1_300: 'airi-blush',
+  ch1_346: 'airi-gloomy',
+  ch1_348: 'airi-gloomy',
+  ch1_352: 'airi-broken',
+  ch1_357: 'airi-scared'
+}).forEach(([nodeId, portrait]) => {
+  const node = ILY.data.stories.chapter1.nodes[nodeId];
+  if (node) node.portrait = portrait;
+});

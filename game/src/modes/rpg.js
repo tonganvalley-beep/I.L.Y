@@ -59,15 +59,19 @@ function mountRpg({stage,node,state,assets,go}) {
     camera.scale=Math.max(camera.width/w,camera.height/h);
     const vw=camera.width/camera.scale,vh=camera.height/camera.scale;
     camera.x=Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));camera.y=Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
-    const dpr=canvas.width/camera.width;ctx.setTransform(dpr*camera.scale,0,0,dpr*camera.scale,-camera.x*dpr*camera.scale,-camera.y*dpr*camera.scale);ctx.imageSmoothingEnabled=false;
-    for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++){
+    const dpr=canvas.width/camera.width;ctx.setTransform(dpr*camera.scale,0,0,dpr*camera.scale,-camera.x*dpr*camera.scale,-camera.y*dpr*camera.scale);
+    ctx.imageSmoothingEnabled=true;
+    const paintedBackground=map.art.background&&drawAsset(map.art.background,0,0,w,h);
+    ctx.imageSmoothingEnabled=false;
+    if(!paintedBackground)for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++){
       const wall=map.tiles[y][x]==='#',furniture=map.tiles[y][x]==='F';ctx.fillStyle=wall?map.palette.wall:furniture?map.palette.furniture:map.palette.floor;ctx.fillRect(x*t,y*t,t,t);
       if(!furniture)drawAsset(wall?map.art.wall:map.art.floor,x*t,y*t,t,t);
     }
     ctx.font='13px Zpix';ctx.textAlign='center';
-    for(const o of map.objects){drawAsset(o.image,o.x*t,o.y*t,o.w*t,o.h*t);ctx.fillStyle='#f7f0d8';ctx.fillText(o.label,(o.x+o.w/2)*t,(o.y+o.h/2)*t+5);}
+    if(!paintedBackground)for(const o of map.objects){drawAsset(o.image,o.x*t,o.y*t,o.w*t,o.h*t);ctx.fillStyle='#f7f0d8';ctx.fillText(o.label,(o.x+o.w/2)*t,(o.y+o.h/2)*t+5);}
     const nearby=closest();
     for(const e of events()){
+      if(e.image){const v=e.visual||{x:e.x-.5,y:e.y-.5,w:1,h:1};ctx.imageSmoothingEnabled=true;drawAsset(e.image,v.x*t,v.y*t,v.w*t,v.h*t);ctx.imageSmoothingEnabled=false;}
       ctx.fillStyle=e===nearby?'#fff0be':'#eac98399';ctx.beginPath();ctx.arc((e.x+.5)*t,(e.y+.5)*t,e===nearby?5:3,0,Math.PI*2);ctx.fill();
     }
     const x=(position.x+.5)*t,y=(position.y+.5)*t;

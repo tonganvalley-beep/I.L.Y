@@ -13,13 +13,13 @@ test('Continuous movement is frame-rate independent, slides along walls, and can
  for(let i=0;i<120;i++)I.moveRpg(map,b,-3.8/120,0);
  assert.ok(Math.abs(a.x-b.x)<1e-8);assert.ok(Math.abs(a.x-4.2)<1e-8);
  const c={x:8,y:8};I.moveRpg(map,c,100,0);assert.ok(c.x<16.32);assert.ok(I.canStandRpg(map,c.x,c.y));
- const d={x:11,y:5};I.moveRpg(map,d,2,1);assert.ok(d.x<11.32);assert.ok(d.y>5.9);
+ const d={x:13,y:5};I.moveRpg(map,d,2,1);assert.ok(d.x<13.7);assert.ok(d.y>5.9);
  const e={x:8,y:8};I.moveRpg(map,e,.04,.03);assert.equal(e.x,8.04);assert.equal(e.y,8.03);
 });
 test('Fractional positions survive saves; legacy integer positions stay valid',()=>{
- const s=make();s.maps['ch1-room']={x:8.125,y:7.8125};
- const saved=JSON.parse(JSON.stringify(s));I.validateSave(saved,story,I.data.maps);assert.equal(saved.maps['ch1-room'].x,8.125);
- s.maps['ch1-room']={x:8,y:9};assert.doesNotThrow(()=>I.validateSave(s,story,I.data.maps));
+ const s=make();s.maps['ch1-room']={x:13.125,y:12.8125};
+ const saved=JSON.parse(JSON.stringify(s));I.validateSave(saved,story,I.data.maps);assert.equal(saved.maps['ch1-room'].x,13.125);
+ s.maps['ch1-room']={x:13,y:13};assert.doesNotThrow(()=>I.validateSave(s,story,I.data.maps));
  for(const position of [{x:NaN,y:8},{x:Infinity,y:8},{x:11.49,y:5}])assert.throws(()=>I.validateSave({...s,maps:{'ch1-room':position}},story,I.data.maps));
 });
 test('JSON source equals the file preview bundle, and every event is reachable',async()=>{
@@ -53,6 +53,8 @@ test('A/B/C routes terminate correctly; only B collects P1-P4; gameplay and cont
 });
 test('Tasks gate progression, collect once, and automatic fallback persists complete state',()=>{
  const s=make(),room=I.data.maps['ch1-room'];
+ assert.equal(room.art.background,'ch1-room-map');
+ assert.ok(room.events.filter(e=>e.task==='G1').every(e=>e.image==='ch1-trash-pile'));
  for(const id of ['floor','floor','desk'])I.interactRpg(s,'G1',room.events.find(e=>e.id===id));
  assert.equal(s.flags.CLEAN_NUM,2);assert.equal(I.rpgProgress(s,'G1').done,false);
  I.interactRpg(s,'G1',room.events.find(e=>e.id==='shelf'));assert.equal(s.flags.G1_DONE,true);
@@ -66,9 +68,9 @@ test('Tasks gate progression, collect once, and automatic fallback persists comp
  assert.equal(s.flags.G2_TRIGGER,true);assert.equal(s.flags.G5_SCREAM,true);
 });
 test('Chapter-one saves roundtrip map and progress; old prologue saves remain valid',()=>{
- const s=make();s.node='ch1_g3';s.maps['ch1-room']={x:8,y:9};I.interactRpg(s,'G3',{id:'handle1',kind:'collect'});
+ const s=make();s.node='ch1_g3';s.maps['ch1-room']={x:13,y:13};I.interactRpg(s,'G3',{id:'handle1',kind:'collect'});
  const storage=new Map(),manager=new I.SaveManager({storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},username:'chapter-test',story,maps:I.data.maps,validateSave:I.validateSave});
- manager.save('1',1,s);const restored=manager.load('1',1);assert.equal(restored.flags.HANDLE_NUM,1);assert.equal(restored.maps['ch1-room'].x,8);
+ manager.save('1',1,s);const restored=manager.load('1',1);assert.equal(restored.flags.HANDLE_NUM,1);assert.equal(restored.maps['ch1-room'].x,13);
  assert.match(manager.inspect('1',1).record.meta.chapter,/第一章/);
  manager.save('1',2,I.createState('finale'));assert.equal(manager.load('1',2).node,'finale');
  assert.throws(()=>I.validateSave({...s,maps:{'ch1-room':{x:0,y:0}}},story,I.data.maps));

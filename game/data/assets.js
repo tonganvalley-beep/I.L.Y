@@ -20,8 +20,16 @@ ILY.data.assets = {
     // —— 人物立绘 / 精灵（images/characters） ——
     "portrait-kio":        "assets/images/characters/portrait-kio.png",         // 28岁基生 室内/外出（半身）
     "portrait-kio-young":  "assets/placeholders/character.svg", // 高中基生（回忆）
-    "portrait-airi":       "assets/placeholders/character.svg", // 爱理 校服立绘（酒红双眸）
-    "portrait-airi-flash": "assets/placeholders/character.svg", // 爱理闪回
+    "portrait-airi":       "assets/images/characters/aili/微笑 (1).png", // 爱理 校服立绘（默认微笑）
+    "portrait-airi-flash": "assets/images/characters/aili/崩坏.png",     // 爱理闪回 / 电线眼
+    "airi-smile":          "assets/images/characters/aili/微笑 (1).png",
+    "airi-playful":        "assets/images/characters/aili/歪头翘皮.png",
+    "airi-confused":       "assets/images/characters/aili/困惑 (2).png",
+    "airi-blush":          "assets/images/characters/aili/羞红.png",
+    "airi-gloomy":         "assets/images/characters/aili/阴沉.png",
+    "airi-crying":         "assets/images/characters/aili/哭腔.png",
+    "airi-scared":         "assets/images/characters/aili/惊恐.png",
+    "airi-broken":         "assets/images/characters/aili/崩坏.png",
     "kio-walk":            "assets/placeholders/character.svg", // 隧道横版步行精灵
 
     // —— 道具 / 照片 / UI（images/ui） ——
@@ -77,10 +85,11 @@ ILY.data.assets.fallbacks = {
 
 // 第一章：资源路径相对 game/index.html。RPG 空路径使用可玩的几何占位。
 Object.assign(ILY.data.assets.images, {
-  'ch1-store':'assets/placeholders/background.svg',
+  'ch1-coast-night':'assets/images/backgrounds/11 海景.png',
+  'ch1-store':'assets/images/backgrounds/12 便利店.png',
   'ch1-street':'assets/placeholders/background.svg',
-  'ch1-aquarium-outside':'assets/placeholders/background.svg',
-  'ch1-aquarium':'assets/placeholders/background.svg',
+  'ch1-aquarium-outside':'assets/images/backgrounds/13 水族馆.png',
+  'ch1-aquarium':'assets/images/backgrounds/14 鱼缸.png',
   'ch1-panorama':'assets/placeholders/background.svg',
   'ch1-empty-tank':'assets/placeholders/background.svg',
   'ch1-cg-blue':'assets/placeholders/background.svg',
@@ -88,9 +97,11 @@ Object.assign(ILY.data.assets.images, {
   'ch1-cg-bathroom':'assets/placeholders/background.svg',
   'ch1-cg-collapse':'assets/placeholders/background.svg',
   'ch1-cg-reflection':'assets/placeholders/background.svg',
-  'ch1-airi-casual':'assets/placeholders/character.svg',
+  'ch1-airi-casual':'assets/images/characters/aili/微笑 (1).png',
   'ch1-toya':'assets/placeholders/character.svg',
   'ch1-rui':'assets/placeholders/character.svg',
+  'ch1-room-map':'assets/images/backgrounds/15 出租屋俯视图.png',
+  'ch1-trash-pile':'assets/images/objects/trash-pile.png',
   'ch1-tile-floor':'', 'ch1-tile-wall':'',
   'ch1-sprite-kio':'assets/images/ui/cursor/cursor-hero-front.png', 'ch1-sprite-airi':'',
   'ch1-kio-back':'assets/images/ui/cursor/cursor-hero-back.png',

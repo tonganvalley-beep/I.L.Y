@@ -31,7 +31,7 @@ const path=require('node:path');
  // Menu must pause movement; closing it must not leave a stuck key.
  await page.keyboard.down('ArrowRight');await page.keyboard.press('Escape');await page.keyboard.up('ArrowRight');await page.waitForTimeout(180);await page.locator('#menu-close').click();
  const paused=(await snapshot()).maps['ch1-room'];await page.waitForTimeout(180);assert.deepEqual((await snapshot()).maps['ch1-room'],paused);
- await load('ch1_g1',{x:6,y:7});await page.keyboard.press('e');assert.equal((await snapshot()).flags.CLEAN_NUM,1);
+ await load('ch1_g1',{x:16,y:11});await page.keyboard.press('e');assert.equal((await snapshot()).flags.CLEAN_NUM,1);
  // Pointer movement is continuous, and releasing the pointer stops the player.
  await page.mouse.move(930,590);await page.mouse.down();await page.waitForTimeout(240);await page.mouse.up();const mouse=(await snapshot()).maps['ch1-room'];assert.ok(mouse.x>6);await page.waitForTimeout(130);assert.deepEqual((await snapshot()).maps['ch1-room'],mouse);
  await page.waitForTimeout(4100);await page.screenshot({path:path.join(__dirname,'rpg-desktop.png')});
@@ -40,7 +40,7 @@ const path=require('node:path');
   assert.equal(await page.locator('body').evaluate(e=>e.classList.contains('rpg-active')),false);
   assert.equal(await page.locator('.rpg-menu-info').count(),0);
  }
- await load('ch1_g2',{x:15,y:2.4});await page.waitForSelector('.dialogue',{timeout:6000});
+ await load('ch1_g2',{x:12,y:8.4});await page.waitForSelector('.dialogue',{timeout:6000});
  await load('ch1_g5',{x:15.7,y:6});await page.waitForTimeout(100);assert.equal((await snapshot()).flags.rpg.G5.map,'ch1-gallery');
  await page.setViewportSize({width:390,height:844});await page.waitForTimeout(150);const mobile=await page.locator('.rpg-canvas').boundingBox();assert.equal(mobile.width,390);assert.equal(mobile.height,844);
  await page.screenshot({path:path.join(__dirname,'rpg-mobile.png')});
