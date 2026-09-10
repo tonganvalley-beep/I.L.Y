@@ -64,27 +64,13 @@
         <input id="signup-username" type="text"
                data-i18n-attr="placeholder:field.username"
                placeholder="用户名" autocomplete="username" required data-page-node-id="HdjCDdQcvvPYniJmMFJ735">
-        <!-- oninput：用户每敲一个字符，就调用一次 checkPasswordStrength(当前输入)，实时刷新强度条 -->
         <input id="signup-password" type="password"
                data-i18n-attr="placeholder:field.password"
                placeholder="密码" autocomplete="new-password"
-               oninput="checkPasswordStrength(this.value)" required data-page-node-id="HD9hTtlf2TkW9bu1D2WBDg">
+               required data-page-node-id="HD9hTtlf2TkW9bu1D2WBDg">
         <input id="signup-password-check" type="password"
                data-i18n-attr="placeholder:field.passwordCheck"
                placeholder="确认密码" autocomplete="new-password" required data-page-node-id="7JSgqMMttvCZwKtHtpjaVz">
-
-        <!-- ====== 密码强度显示区：上面一行文字 + 下面 4 个小格子 ====== -->
-        <div class="strength-wrap" data-page-node-id="Nim6yF0HrbyE6vsLkA8ueF">
-          <!-- 强度文字（弱/中/强/很强），由 JS 写入 -->
-          <div id="strength-text" class="strength-text" data-page-node-id="shcJJc1DNE1mO0le0PEtP4"></div>
-          <!-- 4 个格子：满足的条件越多，点亮的格子越多，颜色从红渐变到绿 -->
-          <div class="strength-bars" data-page-node-id="Ghx1SryoSMgSHgCa2FITev">
-            <div class="cell" id="cell0" data-page-node-id="JR68F5QMQ4DoCO5xZFAq66"></div>
-            <div class="cell" id="cell1" data-page-node-id="caCw80ceO99QUevbJ8TcC3"></div>
-            <div class="cell" id="cell2" data-page-node-id="MJvUgHsREMOFGcx6b2tedh"></div>
-            <div class="cell" id="cell3" data-page-node-id="PF6DNhhY2UuAWs6MOOhsMN"></div>
-          </div>
-        </div>
 
         <div class="custom-alert hidden" data-page-node-id="YuPxrCOFOCFydrdwmmx7tm"><div class="message" data-page-node-id="isrGVtSj65RZxgJEMLn8km"></div></div>
 
@@ -94,20 +80,6 @@
           <button class="btn" onclick="showLogin()" data-i18n="signup.toLogin" data-page-node-id="L5sdHTWFtODL7MEEAzZKck">登录</button>
         </div>
       </div>
-
-      <!-- ====== 密码规则提示块：引用样式，放在表单下方 ====== -->
-      <blockquote class="tips" data-page-node-id="ZBSWAKhoLnhMkDkYxT6Zdm">
-        <p data-page-node-id="axCZXupXFZhQSAfxAMg39g">
-          <span data-i18n="tip.title" data-page-node-id="ye0XW89booZMHPDxTOGBxH">Tip</span>:
-          <span data-i18n="tip.base" data-page-node-id="h8hVNLfXv5KS0QhbRSX3VL">必须包含数字和字母且密码长度大于6</span>
-        </p>
-        <p data-i18n="tip.atLeastOne" data-page-node-id="Fvn7GvJblox0h8zJxbPllF">以下规则至少满足一条</p>
-        <ul data-page-node-id="iyR3T7PViMeCqT2VOvdEPe">
-          <li data-i18n="tip.rule1" data-page-node-id="DhJkYmcjGjvg3oHHD3RRq4">同时包含大小写字母</li>
-          <li data-i18n="tip.rule2" data-page-node-id="d92p2MYQFYwOPU62XqMBRV">包含特殊符号</li>
-          <li data-i18n="tip.rule3" data-page-node-id="hgyegEFqxvNF3LG0GQj48Z">密码长度大于10</li>
-        </ul>
-      </blockquote>
 
     </div>
 

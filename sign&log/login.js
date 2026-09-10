@@ -53,7 +53,7 @@ const LANG = {
     "alert.loginOk":       "登录成功！",
     "alert.userExists":    "用户名已存在。",
     "alert.emptyUser":     "请输入用户名。",
-    "alert.pwdTooWeak":    "密码不符合要求，请参照下方规则。",
+    "alert.pwdTooWeak":    "请输入密码。",
     "alert.pwdNotSame":    "两次密码输入不相等。",
     "alert.signupOk":      "注册成功！请登录。",
     /* 开场视频 */
@@ -86,7 +86,7 @@ const LANG = {
     "alert.loginOk":       "Login successful!",
     "alert.userExists":    "Username already taken.",
     "alert.emptyUser":     "Please enter a username.",
-    "alert.pwdTooWeak":    "Password does not meet the rules below.",
+    "alert.pwdTooWeak":    "Please enter a password.",
     "alert.pwdNotSame":    "Passwords do not match.",
     "alert.signupOk":      "Sign up successful! Please login."
   }
@@ -130,9 +130,6 @@ function setLang(name) {
   /* 语言按钮本身显示"对方语言"：当前中文显示 EN，当前英文显示 中文 */
   document.getElementById('langBtn').textContent =
     (name === 'chinese') ? 'EN' : '中文';
-  /* 如果注册表单的强度条正在显示文字，也要用新语言刷新一遍 */
-  const pwdInput = document.getElementById('signup-password');
-  if (pwdInput && pwdInput.value) checkPasswordStrength(pwdInput.value);
 }
 
 /* 页面加载完后执行：读出上次选的语言并应用，再给切换按钮绑定点击事件 */
@@ -285,23 +282,9 @@ function checkPasswordStrength(pwd) {
   }
 }
 
-/* isPasswordValid(pwd)：注册时调用，判断密码是否满足注册要求。
- * 返回 true = 可以注册；false = 不符合规则。 */
+/* 注册密码只要非空即可，不限长度、字符种类或组合。 */
 function isPasswordValid(pwd) {
-  /* 和上面相同的正则判定 */
-  const hasLetter  = /[a-zA-Z]/.test(pwd);
-  const hasDigit   = /\d/.test(pwd);
-  const hasLower   = /[a-z]/.test(pwd);
-  const hasUpper   = /[A-Z]/.test(pwd);
-  const hasSpecial = /[^a-zA-Z0-9]/.test(pwd);
-
-  /* 基础条件必须全过 */
-  const baseOK = hasLetter && hasDigit && pwd.length > 6;
-  if (!baseOK) return false;
-
-  /* 三条高级规则至少满足一条 */
-  const advancedOK = (hasLower && hasUpper) || hasSpecial || (pwd.length > 10);
-  return advancedOK;
+  return pwd.length > 0;
 }
 
 
@@ -372,7 +355,6 @@ function signup() {
   document.getElementById('signup-username').value = '';
   document.getElementById('signup-password').value = '';
   document.getElementById('signup-password-check').value = '';
-  checkPasswordStrength('');            /* 传空字符串 = 熄灭所有格子、清空强度文字 */
   setTimeout(showLogin, 800);
 }
 
