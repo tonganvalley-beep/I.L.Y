@@ -27,7 +27,7 @@ RPG 地图的两种实现方案已有独立对照 Demo：`game/rpg-demo/index.ht
 
 ## 文件职责
 
-- `data/story/prologue.js`：当前 92 节点完整序章；`data/story/phone.js`：手机内容。
+- `data/story/prologue.js`：当前 93 节点完整序章；`data/story/phone.js`：手机内容。
 - `src/main.js`：模式调度、菜单和存档界面；`src/core/saves.js`：多槽、自动档、快速档及旧档迁移；`src/core/scene.js`：背景、人物、CG、道具和场景缺图处理。
 - `src/modes/`：对白、手机、步行、格子探索、弹幕；探索和弹幕目前未接入序章节点。
 - `styles/stage.css`：最终舞台布局，最后加载；game.css / prologue.css 提供基础玩法样式。
