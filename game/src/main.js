@@ -264,6 +264,16 @@ try {
   });
   document.querySelector('#memories').onclick = () => ILY.openMemories();
 
+  /* ---------- 序章：随时掏出的手机 ----------
+     右下角常驻入口 + P 键，只在序章节点出现；打开的是只读自由手机，
+     合上后回到原来的剧情节点，不改变进度。 */
+  ILY.initFreePhone({
+    getState: () => state,
+    assets,
+    notify: (message, duration) => notify(message, duration),
+    inPrologue: () => !!ILY.data.stories.prologue.nodes[state.node]
+  });
+
   let interactionsSinceAutosave = 0;
   function maybeAutosave(node, enabled) {
     if (!enabled) return;
@@ -283,6 +293,7 @@ try {
     ILY.enterChapterNode(state,node);
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
     stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type; notify(''); refreshClues();
+    ILY.refreshFreePhone();
     const context = {stage, node, state, assets, go, notify, refreshClues};
     if (['phone', 'finale', 'branch', 'end'].includes(node.type)) ILY.mountScene(stage, node, assets);
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);

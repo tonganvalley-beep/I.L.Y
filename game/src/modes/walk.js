@@ -33,10 +33,7 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   const canvas = el('canvas', 'walk-canvas');
   const hud = el('div', 'walk-hud');
   const prompt = el('div', 'walk-prompt', '');
-  const ctrl = el('div', 'walk-ctrl');
-  /* 操作改为键盘 A/D 移动（松开即停），不再提供左右按钮；调查仍可点按钮或按空格 */
-  const inv = button(ILY.t('walk.investigate'), () => investigate());
-  ctrl.append(inv);
+  /* 不提供任何可用鼠标点击的左/右/调查按钮：A/D（方向键）移动，空格/回车调查 */
   /* 交互弹窗：调查点文字用大面板展示，打开时人物背身面向物件 */
   const dialog = el('div', 'walk-dialog');
   dialog.hidden = true;
@@ -44,12 +41,18 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   const dlgText = el('p', 'walk-dialog-text');
   const dlgBtn = button('', () => closeDialog());
   dialog.append(dlgTitle, dlgText, dlgBtn);
-  wrap.append(canvas, hud, prompt, dialog, ctrl);
+  wrap.append(canvas, hud, prompt, dialog);
+  /* 隧道尾段画面：接近出口时全屏淡入（cfg.reveal 配置），停留后走出 */
+  const reveal = el('div', 'walk-reveal');
+  const revealImg = el('div', 'walk-reveal-img');
+  const revealShade = el('div', 'walk-reveal-shade');
+  reveal.append(revealImg, revealShade);
+  wrap.append(reveal);
   stage.append(wrap);
   let facingBack = false;      // 交互中背身（面向调查物件）
+  let revealed = false;        // 隧道尾段画面已触发（冻结输入，淡入后走出）
   /* 切换语言后更新按钮文案（HUD/提示语在 draw 循环里逐帧重建，自动跟随） */
   const onLang = () => {
-    inv.textContent = ILY.t('walk.investigate');
     dlgBtn.textContent = ILY.t('walk.dialogContinue');
     if (!dialog.hidden) dlgTitle.textContent = dialog.dataset.title || '';
   };
@@ -135,8 +138,28 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     }
   }
 
-  /* 操作：A/D（及方向键）移动，松开即停；空格/回车调查或关闭交互弹窗 */
+  /* 隧道尾段画面：接近出口（cfg.reveal.atPct 进度）时触发，冻结输入、全屏淡入隧道画面，停留后走出 */
+  function startReveal() {
+    revealed = true;
+    moving = 0;
+    const rc = cfg.reveal || {};
+    const bgSrc = assets.image(rc.bg || cfg.bg);
+    if (bgSrc) revealImg.style.backgroundImage = `url("${bgSrc}")`;
+    if (rc.flip) revealImg.classList.add('walk-reveal-flip');
+    prompt.textContent = '';
+    hud.textContent = ILY.t('walk.hud', { pct: 100, done: F.TUNNEL_CHECK_COUNT, total: hotspots.length });
+    void reveal.offsetWidth;          // 强制重排，确保淡入过渡生效
+    reveal.classList.add('walk-reveal-on');
+    const hold = (typeof rc.hold === 'number') ? rc.hold : 2400;
+    exitTimer = setTimeout(() => {
+      notify(ILY.t('walk.exitNotify'));
+      go(cfg.exitNext);
+    }, hold);
+  }
+
+  /* 操作：A/D（及方向键）移动，松开即停；空格/回车调查或关闭交互弹窗。隧道尾段画面期间忽略全部输入。 */
   function onKey(e) {
+    if (revealed) return;
     if (document.querySelector('dialog[open]') || e.target.closest('button, a, input')) return;
     const key = e.key.toLowerCase();
     if (!dialog.hidden) {
@@ -157,11 +180,15 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   let last = performance.now();
   function loop(now) {
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
-    if (document.querySelector('dialog[open]') || document.hidden || !dialog.hidden) moving = 0;
-    if (!exiting) {
+    if (document.querySelector('dialog[open]') || document.hidden || !dialog.hidden || revealed) moving = 0;
+    if (!exiting && !revealed) {
       x = Math.max(0, Math.min(length, x + moving * speed * dt));
       if (moving !== 0) walkAnimTime += dt; else walkAnimTime = 0;
-      if (x >= exitX) { exiting = true; notify(ILY.t('walk.exitNotify')); exitTimer = setTimeout(() => go(cfg.exitNext), 900); }
+      if (x >= exitX) {
+        exiting = true; notify(ILY.t('walk.exitNotify')); exitTimer = setTimeout(() => go(cfg.exitNext), 900);
+      } else if (cfg.reveal && (x / length) >= (typeof cfg.reveal.atPct === 'number' ? cfg.reveal.atPct : 0.88)) {
+        startReveal();
+      }
     }
     draw();
     raf = requestAnimationFrame(loop);

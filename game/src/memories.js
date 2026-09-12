@@ -31,7 +31,7 @@ const el = (tag, className, text) => {
 /* 剧情回忆收录的章节（与 index.html 的加载顺序一致） */
 const STORY_IDS = ['prologue', 'chapter1'];
 /* 已知成就 ID（与发放处一致：walk.js / phone.js / prologue.js） */
-const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter'];
+const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter', 'father-reply'];
 /* v2 存档槽 key 的合法格式（与 src/core/saves.js 一致） */
 const SAVE_KEY_RE = /^(?:[12]-[1-6]|auto-[1-3]|quick-1)$/;
 

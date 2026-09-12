@@ -5,8 +5,7 @@ function mountRpg({stage,node,state,assets,go}) {
   const p=rpgProgress(state,node.task),maps=ILY.data.maps;
   let map=maps[p.map] || maps[node.map],position,frame,last=0,disposed=false,finishedFor=0;
   let target=null,facing='front',stride=0,walking=false,messageFor=5,idle=0;
-  const keys=new Set(),images=new Map(),roomScenes=new Map(),camera={x:0,y:0,scale:1,width:1,height:1};
-  let trashSprite;
+  const keys=new Set(),images=new Map(),camera={x:0,y:0,scale:1,width:1,height:1};
   const panel=el('section','rpg-panel'),canvas=el('canvas','rpg-canvas');canvas.tabIndex=0;
   canvas.setAttribute('aria-label','操控成田基生：WASD 或方向键连续移动，也可按住画面引导移动。靠近物件后按 E 调查，Esc 打开菜单。');
   const ctx=canvas.getContext('2d');
@@ -48,9 +47,7 @@ function mountRpg({stage,node,state,assets,go}) {
   function drawAsset(id,x,y,w,h){
     const path=assets.image(id);if(!path)return false;
     if(!images.has(path)){const img=new Image();img.src=path;images.set(path,img);}
-    const img=images.get(path);if(!img.complete||!img.naturalWidth)return false;
-    ctx.drawImage(img,x,y,w,h);
-    return true;
+    const img=images.get(path);if(!img.complete||!img.naturalWidth)return false;ctx.drawImage(img,x,y,w,h);return true;
   }
   function resize(){
     const r=panel.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
@@ -58,47 +55,26 @@ function mountRpg({stage,node,state,assets,go}) {
   }
   function draw(){
     const t=map.tileSize||48,w=map.width*t,h=map.height*t;
-    const classic=map.art.renderer==='classic-room'&&ILY.classicRoom;
-    if(classic){
-      Object.assign(camera,classic.cameraView(camera.width,camera.height,map,position));
-    }else{
-      camera.scale=Math.max(camera.width/w,camera.height/h);
-      const vw=camera.width/camera.scale,vh=camera.height/camera.scale;
-      camera.x=Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));camera.y=Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
-    }
-    const dpr=canvas.width/camera.width;ctx.setTransform(dpr*camera.scale,0,0,dpr*camera.scale,-camera.x*dpr*camera.scale,-camera.y*dpr*camera.scale);
-    ctx.imageSmoothingEnabled=!classic;
-    let paintedBackground=false;
-    if(classic){
-      if(!roomScenes.has(map.id))roomScenes.set(map.id,classic.createRoom(map));
-      ctx.drawImage(roomScenes.get(map.id),0,0,w,h);paintedBackground=true;
-    }else paintedBackground=map.art.background&&drawAsset(map.art.background,0,0,w,h);
-    ctx.imageSmoothingEnabled=false;
-    if(!paintedBackground)for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++){
+    // Cover the entire viewport without stretching; follow Kio when the map is cropped.
+    camera.scale=Math.max(camera.width/w,camera.height/h);
+    const vw=camera.width/camera.scale,vh=camera.height/camera.scale;
+    camera.x=Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));camera.y=Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
+    const dpr=canvas.width/camera.width;ctx.setTransform(dpr*camera.scale,0,0,dpr*camera.scale,-camera.x*dpr*camera.scale,-camera.y*dpr*camera.scale);ctx.imageSmoothingEnabled=false;
+    const backdrop=map.art&&map.art.background?drawAsset(map.art.background,0,0,w,h):false;
+    if(!backdrop)for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++){
       const wall=map.tiles[y][x]==='#',furniture=map.tiles[y][x]==='F';ctx.fillStyle=wall?map.palette.wall:furniture?map.palette.furniture:map.palette.floor;ctx.fillRect(x*t,y*t,t,t);
       if(!furniture)drawAsset(wall?map.art.wall:map.art.floor,x*t,y*t,t,t);
     }
     ctx.font='13px Zpix';ctx.textAlign='center';
-    if(!paintedBackground)for(const o of map.objects){drawAsset(o.image,o.x*t,o.y*t,o.w*t,o.h*t);ctx.fillStyle='#f7f0d8';ctx.fillText(o.label,(o.x+o.w/2)*t,(o.y+o.h/2)*t+5);}
+    for(const o of map.objects){drawAsset(o.image,o.x*t,o.y*t,o.w*t,o.h*t);if(!backdrop){ctx.fillStyle='#f7f0d8';ctx.fillText(o.label,(o.x+o.w/2)*t,(o.y+o.h/2)*t+5);}}
     const nearby=closest();
     for(const e of events()){
-      if(e.image){
-        const v=e.visual||{x:e.x-.5,y:e.y-.5,w:1,h:1};
-        if(classic&&e.image==='ch1-trash-pile'){
-          trashSprite ||= classic.createTrash();ctx.drawImage(trashSprite,v.x*t,v.y*t,v.w*t,v.h*t);
-        }else{ctx.imageSmoothingEnabled=!classic;drawAsset(e.image,v.x*t,v.y*t,v.w*t,v.h*t);ctx.imageSmoothingEnabled=false;}
-      }
-      const ex=(e.x+.5)*t,ey=(e.y+.5)*t;
-      ctx.fillStyle=e===nearby?'#fff0be':'#eac98399';
-      if(classic){ctx.fillRect(ex-3,ey-6,6,12);ctx.fillRect(ex-6,ey-3,12,6);}
-      else{ctx.beginPath();ctx.arc(ex,ey,e===nearby?5:3,0,Math.PI*2);ctx.fill();}
+      ctx.fillStyle=e===nearby?'#fff0be':'#eac98399';ctx.beginPath();ctx.arc((e.x+.5)*t,(e.y+.5)*t,e===nearby?5:3,0,Math.PI*2);ctx.fill();
     }
     const x=(position.x+.5)*t,y=(position.y+.5)*t;
-    // Keep Kio's original artwork and animation; the close camera supplies the enlargement.
-    const sx=classic?Math.round(x*camera.scale)/camera.scale:x,sy=classic?Math.round(y*camera.scale)/camera.scale:y;
-    ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+4,11,4,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(x,y+4,11,4,0,0,Math.PI*2);ctx.fill();
     const image=walking&&(facing==='left'||facing==='right')?`ch1-kio-${facing}-${1+Math.floor(stride/.12)%2}`:facing==='back'?'ch1-kio-back':map.art.player;
-    if(!drawAsset(image,sx-32,sy-42,64,64))drawAsset(map.art.player,sx-32,sy-42,64,64);
+    if(!drawAsset(image,x-32,y-42,64,64))drawAsset(map.art.player,x-32,y-42,64,64);
   }
   const directions={arrowleft:[-1,0],a:[-1,0],arrowright:[1,0],d:[1,0],arrowup:[0,-1],w:[0,-1],arrowdown:[0,1],s:[0,1]};
   function keydown(e){
