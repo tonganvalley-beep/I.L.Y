@@ -36,6 +36,9 @@
 .phone-row{padding:8px 10px;border:1px solid #b8c4be;border-radius:6px;background:rgba(255,255,255,.85);cursor:pointer}
 .phone-row.sel{border-color:#1f9d63;background:#e4f7ec;box-shadow:0 0 8px rgba(31,157,99,.35)}
 .phone-row.gone{opacity:.4;text-decoration:line-through}
+/* 玩家自己翻出来的隐藏邮件（父亲的回信） */
+.phone-row.is-hidden-mail{border-style:dashed;border-color:#6f93a8;background:rgba(238,247,252,.9)}
+.phone-row.is-hidden-mail .r-from{color:#1d3c52}
 .r-from{font-size:17px;color:#123326}
 .r-unread{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e23b3b;margin-right:7px;vertical-align:2px}
 .r-time{font-size:13px;color:#7a8a82}
@@ -44,6 +47,31 @@
 .phone-detail{display:flex;flex-direction:column;gap:10px}
 .d-head{font-size:15px;color:#123326;border-bottom:1px dashed #9fb3aa;padding-bottom:6px}
 .d-body{white-space:pre-wrap;line-height:1.75;font-size:16px;color:#1c2b26}
+/* 收件箱顶部「给爱理的那封信」草稿 */
+.phone-row.is-draft{border-style:dashed;border-color:#2c6b4c;background:rgba(232,246,238,.9)}
+.r-tag{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:8px;background:#1f9d63;color:#fff;
+  font-size:12px;letter-spacing:1px;vertical-align:2px}
+.phone-empty{padding:16px 10px;text-align:center;font-size:14px;color:#7a8a82}
+/* 写信界面：正文逐字敲出来，末尾一个闪烁光标 */
+.d-write{min-height:96px}
+.is-editor .d-write::after{content:'_';display:inline-block;margin-left:1px;color:#1f9d63;
+  animation:write-caret .7s steps(2,start) infinite}
+.is-editor .d-write.is-done::after{content:'';animation:none}
+@keyframes write-caret{0%,100%{opacity:1}50%{opacity:0}}
+.phone-detail button:disabled{opacity:.45;cursor:default}
+/* 「发送中……」 */
+.is-sending .d-body{font-size:14px;color:#3c5148;letter-spacing:1px}
+.sending-dots{display:flex;gap:7px;justify-content:center;padding:4px 0 2px}
+.sending-dots span{width:8px;height:8px;border-radius:50%;background:#1f9d63;animation:send-dot 1s ease-in-out infinite}
+.sending-dots span:nth-child(2){animation-delay:.18s}
+.sending-dots span:nth-child(3){animation-delay:.36s}
+@keyframes send-dot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+/* 发送失败的系统退信 */
+.is-bounce .d-head{color:#7a2b2b;border-bottom-color:#c98}
+.is-bounce .d-body{font-size:15px;line-height:1.7}
+@media (prefers-reduced-motion: reduce){
+  .is-editor .d-write::after,.sending-dots span{animation:none}
+}
 .d-link{color:#e8f6ff;background:#0b5a8f;padding:9px;border-radius:6px;font-size:15px;letter-spacing:1px}
 .phone-detail.is-link-mail{gap:10px}
 .phone-detail.is-link-mail .d-head{font-size:15px}
@@ -56,7 +84,8 @@
 .phone-detail button:hover{background:#15432f}
 .phone-detail .d-link{color:#f4fbff;background:#075a91;border-color:#64c9ff;padding:9px 10px;letter-spacing:1px}
 .phone-detail .d-link:hover,.phone-detail .d-link:focus-visible{background:#0875bb;outline:2px solid #c6efff}
-.phone-exit{margin-top:12px;text-align:center!important;background:#103524!important;border-color:#5fe0a0!important}
+.phone-exit{width:100%;margin-top:12px;font-size:15px;padding:9px 10px;border-radius:6px;cursor:pointer;
+  text-align:center!important;background:#103524!important;border-color:#5fe0a0!important;color:#cdeede!important}
 .phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .phone-cell{border:1px solid #b8c4be;border-radius:6px;padding:5px;background:rgba(255,255,255,.85);cursor:pointer;text-align:center}
 .phone-cell.sel{border-color:#1f9d63;box-shadow:0 0 8px rgba(31,157,99,.35)}
@@ -100,15 +129,56 @@
   50%{box-shadow:0 0 26px rgba(95,224,160,.85),0 4px 14px rgba(0,0,0,.5);border-color:#a5f5cd}}
 @media (prefers-reduced-motion: reduce){.phone-demo-tip{animation:none}}
 
+/* 示例演示：高亮「下一步要点的那一项」，右侧一个跳动的 ◀ 箭头指向它。
+   演示期间只有高亮处可点，其余区域不响应鼠标，避免玩家点歪。 */
+.phone.demo-active .phone-body *{pointer-events:none}
+.phone.demo-active .phone-body .demo-target{pointer-events:auto;cursor:pointer}
+.demo-target{position:relative;outline:2px dashed #ffd76a;outline-offset:2px;border-radius:6px}
+.demo-target::after{content:'◀';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-size:20px;line-height:1;color:#ffd76a;text-shadow:0 0 6px #000,0 0 12px rgba(255,215,106,.9);
+  animation:demo-arrow-blink .9s steps(2,start) infinite}
+@keyframes demo-arrow-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){.demo-target::after{animation:none}}
+
+/* ===== 序章随时掏出的手机 ===== */
+/* 位置：右上角菜单按钮下方，避免挡住底部对白的「继续」 */
+.phone-quick{position:fixed;top:66px;right:3vw;z-index:30;display:flex;align-items:center;gap:8px;
+  font:inherit;font-size:14px;letter-spacing:1px;padding:9px 16px;border-radius:24px;
+  border:1px solid #5fe0a066;background:#0c1628e6;color:#d8ffe9;cursor:pointer;
+  box-shadow:0 6px 22px #0009}
+.phone-quick:hover{background:#12352ae6;border-color:#a5f5cd}
+.phone-quick svg{width:18px;height:18px;flex:none}
+.free-phone-dialog{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;
+  padding:0;border:0;background:transparent;overflow:hidden;color:#eafff3}
+.free-phone-dialog::backdrop{background:#040a14cc}
+.free-phone-holder{position:absolute;inset:0}
+.free-phone-bar{position:absolute;top:12px;right:18px;z-index:36}
+.free-phone-close{font:inherit;font-size:13px;padding:8px 16px;border-radius:24px;
+  border:1px solid #5fe0a066;background:#0c1628e6;color:#d8ffe9;cursor:pointer}
+.free-phone-close:hover{background:#12352ae6;border-color:#a5f5cd}
+@media(max-width:600px){.phone-quick{top:56px;right:12px;padding:8px 12px;font-size:12px}
+  .free-phone-bar{top:10px;right:12px}}
+
 /* ===== 隧道步行 ===== */
 .walk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .walk-canvas{width:100%;height:100%;display:block;background:transparent}
 .walk-hud{position:absolute;top:12px;left:12px;color:#cdeede;font-size:13px;
   background:rgba(6,16,12,.6);padding:4px 10px;border-radius:6px}
-.walk-prompt{position:absolute;bottom:64px;left:0;right:0;text-align:center;color:#bdf3d6;font-size:14px;text-shadow:0 0 8px rgba(0,0,0,.8)}
-.walk-ctrl{position:absolute;bottom:14px;display:flex;gap:10px}
-.walk-ctrl button{font:inherit;padding:8px 16px;border-radius:6px;border:1px solid #2c6b4c;background:#0f3324;color:#cdeede;cursor:pointer}
-.walk-ctrl button:hover{background:#15432f}
+.walk-prompt{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:#bdf3d6;font-size:14px;text-shadow:0 0 8px rgba(0,0,0,.8)}
+
+/* 隧道尾段画面：接近出口时全屏淡入，缓慢推近 + 镜像 + 暗角，停留后走出 */
+.walk-reveal{position:absolute;inset:0;z-index:15;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.walk-reveal.walk-reveal-on{opacity:1}
+.walk-reveal-img{position:absolute;inset:-5%;background-size:cover;background-position:center;
+  animation:walkRevealZoom 2.8s ease-out forwards}
+.walk-reveal-img.walk-reveal-flip{animation-name:walkRevealZoomFlip}
+.walk-reveal-shade{position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(3,6,14,.62) 100%)}
+@keyframes walkRevealZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes walkRevealZoomFlip{from{transform:scaleX(-1) scale(1.12)}to{transform:scaleX(-1) scale(1)}}
+@media (prefers-reduced-motion: reduce){
+  .walk-reveal-img{animation:none}
+  .walk-reveal-img.walk-reveal-flip{transform:scaleX(-1)}}
 
 /* 调查交互弹窗：大面板居中 */
 .walk-dialog{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:20;
