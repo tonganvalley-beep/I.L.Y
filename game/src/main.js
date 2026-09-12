@@ -252,6 +252,18 @@ try {
     catch (error) { notify(t('notify.quickSaveFailed', { msg: error.message })); }
   };
 
+  /* ---------- 回忆：成就 / 剧情 / 画廊 ----------
+     成就 = 当前进度（可能还没存档）+ 本账号全部存档槽 + 旧版存档里解锁过的 ID；
+     剧情 = ILY.data.stories（序章 / 第一章）文字剧本；
+     画廊 = sign&log/gallery-data.js 的插图 + 手机相册照片。 */
+  ILY.initMemories({
+    saves,
+    getState: () => state,
+    resolveAsset: key => assets.image(key),
+    stage
+  });
+  document.querySelector('#memories').onclick = () => ILY.openMemories();
+
   let interactionsSinceAutosave = 0;
   function maybeAutosave(node, enabled) {
     if (!enabled) return;
