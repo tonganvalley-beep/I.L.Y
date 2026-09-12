@@ -11,9 +11,9 @@ test('Continuous movement is frame-rate independent, slides along walls, and can
  const a={x:8,y:8},b={...a};
  for(let i=0;i<60;i++)I.moveRpg(map,a,-3.8/60,0);
  for(let i=0;i<120;i++)I.moveRpg(map,b,-3.8/120,0);
- assert.ok(Math.abs(a.x-b.x)<1e-8);assert.ok(Math.abs(a.x-4.2)<1e-8);
- const c={x:8,y:8};I.moveRpg(map,c,100,0);assert.ok(c.x<16.32);assert.ok(I.canStandRpg(map,c.x,c.y));
- const d={x:13,y:5};I.moveRpg(map,d,2,1);assert.ok(d.x<13.7);assert.ok(d.y>5.9);
+ assert.ok(Math.abs(a.x-b.x)<1e-8);assert.ok(a.x>4.68&&a.x<4.75);
+ const c={x:8,y:8};I.moveRpg(map,c,100,0);assert.ok(c.x>22&&c.x<22.32);assert.ok(I.canStandRpg(map,c.x,c.y));
+ const d={x:10,y:4};I.moveRpg(map,d,2,1);assert.ok(d.x<10.32);assert.ok(d.y>4.9);
  const e={x:8,y:8};I.moveRpg(map,e,.04,.03);assert.equal(e.x,8.04);assert.equal(e.y,8.03);
 });
 test('Fractional positions survive saves; legacy integer positions stay valid',()=>{

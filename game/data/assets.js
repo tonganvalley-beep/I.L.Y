@@ -100,7 +100,7 @@ Object.assign(ILY.data.assets.images, {
   'ch1-airi-casual':'assets/images/characters/aili/微笑 (1).png',
   'ch1-toya':'assets/placeholders/character.svg',
   'ch1-rui':'assets/placeholders/character.svg',
-  'ch1-room-map':'assets/images/backgrounds/room-rpg-pixel.png',
+  'ch1-room-map':'assets/images/maps/ch1-room.png',
   'ch1-trash-pile':'assets/images/objects/trash-pile.png',
   'ch1-tile-floor':'', 'ch1-tile-wall':'',
   'ch1-sprite-kio':'assets/images/ui/cursor/cursor-hero-front.png', 'ch1-sprite-airi':'',

@@ -2,240 +2,108 @@
 ILY.data.chapter1Maps = {
   "ch1-room": {
     "id": "ch1-room",
-    "name": "出租屋 · 8叠1K",
-    "width": 26,
-    "height": 15,
+    "name": "出租屋 · 狭小单间",
+    "width": 24,
+    "height": 16,
     "tileSize": 48,
     "spawn": {
       "x": 13,
       "y": 13
     },
     "tiles": [
-      "##########################",
-      "#.FFFFFFFFFFF..........F.#",
-      "#.FFFFFFFFFFF.FFF......F.#",
-      "#.FFFFFFFFFFF.FFF.FFF..F.#",
-      "#.FFFFFFFFFFF.FFF.FFF..F.#",
-      "#.FFFFFFFFFFF.FFF.FFF..F.#",
-      "#........FFFF.FFF.FFF..F.#",
-      "#........FFFF.FFF........#",
-      "#.............FFF.FFFFF..#",
-      "#.................FFFFF..#",
-      "#.................FFFFF..#",
-      "#........................#",
-      "#........................#",
-      "#........................#",
-      "##########################"
+      "########################",
+      "#FFFF.............FFFF.#",
+      "#FFFF......FFFFFF.FFFF.#",
+      "#FFFF......FFFFFF.FFFF.#",
+      "#FFFF......FFFFFF.FFFF.#",
+      "#FFFF......FFFFFF......#",
+      "#FFFF..................#",
+      "#FFFF..................#",
+      "#FFFF..................#",
+      "#FFFF..................#",
+      "#......................#",
+      "#......................#",
+      "#FFFFFFFF...........FFF#",
+      "#FFFFFFFF........FFFFFF#",
+      "#FFFFFFFF..F..F..FFFFFF#",
+      "########################"
     ],
     "decor": [
       {
-        "kind": "rug",
-        "x": 13.8,
-        "y": 2,
-        "w": 3.5,
-        "h": 7.2
-      },
-      {
-        "kind": "rug",
-        "x": 4.3,
-        "y": 6.2,
-        "w": 2.5,
-        "h": 1.3
-      },
-      {
-        "kind": "rug",
-        "x": 12.3,
-        "y": 12.7,
-        "w": 1.5,
-        "h": 1
-      },
-      {
-        "kind": "fridge",
-        "x": 2,
-        "y": 1.7,
-        "w": 2,
-        "h": 2.8
-      },
-      {
-        "kind": "plant",
-        "x": 2.5,
-        "y": 1,
-        "w": 1,
-        "h": 1
-      },
-      {
-        "kind": "kitchen",
-        "x": 4,
-        "y": 2.3,
-        "w": 4,
-        "h": 3.5
-      },
-      {
-        "kind": "cabinet",
-        "x": 4.5,
-        "y": 1,
-        "w": 3.5,
-        "h": 1
-      },
-      {
-        "kind": "washer",
-        "x": 2,
-        "y": 4.5,
-        "w": 1.5,
-        "h": 1.5
-      },
-      {
         "kind": "shelf",
-        "x": 2,
-        "y": 6.2,
-        "w": 1,
-        "h": 1.8
-      },
-      {
-        "kind": "bath",
-        "x": 9,
+        "x": 1,
         "y": 1,
         "w": 4,
-        "h": 5
+        "h": 9
+      },
+      {
+        "kind": "picture",
+        "x": 5,
+        "y": 1,
+        "w": 5,
+        "h": 3
+      },
+      {
+        "kind": "desk",
+        "x": 11,
+        "y": 2,
+        "w": 6,
+        "h": 4
+      },
+      {
+        "kind": "chair",
+        "x": 13,
+        "y": 5,
+        "w": 2,
+        "h": 1
       },
       {
         "kind": "door",
-        "x": 10,
-        "y": 6,
+        "x": 18,
+        "y": 1,
+        "w": 4,
+        "h": 4
+      },
+      {
+        "kind": "rug",
+        "x": 5,
+        "y": 5,
+        "w": 6,
+        "h": 6.5
+      },
+      {
+        "kind": "bed",
+        "x": 1,
+        "y": 12,
+        "w": 8,
+        "h": 3
+      },
+      {
+        "kind": "rug",
+        "x": 11.7,
+        "y": 13.2,
+        "w": 2.6,
+        "h": 1.8
+      },
+      {
+        "kind": "table",
+        "x": 17,
+        "y": 13,
         "w": 3,
         "h": 2
       },
       {
-        "kind": "bed",
-        "x": 14,
-        "y": 2,
-        "w": 3,
-        "h": 7
-      },
-      {
-        "kind": "cabinet",
-        "x": 14,
-        "y": 1.5,
-        "w": 3,
-        "h": 0.5
-      },
-      {
-        "kind": "plant",
-        "x": 14.5,
-        "y": 0.9,
-        "w": 1,
-        "h": 1
-      },
-      {
-        "kind": "picture",
-        "x": 16,
-        "y": 0.8,
-        "w": 0.8,
-        "h": 1
-      },
-      {
-        "kind": "picture",
-        "x": 19,
-        "y": 0.6,
-        "w": 1.5,
-        "h": 1
-      },
-      {
-        "kind": "table",
-        "x": 18,
-        "y": 3,
+        "kind": "cushion",
+        "x": 20,
+        "y": 12,
         "w": 3,
         "h": 3
       },
       {
-        "kind": "chair",
-        "x": 18.9,
-        "y": 6,
-        "w": 1.3,
-        "h": 1
-      },
-      {
-        "kind": "cushion",
-        "x": 21.2,
-        "y": 4.5,
-        "w": 1.3,
-        "h": 1.5
-      },
-      {
-        "kind": "lamp",
-        "x": 22,
-        "y": 1.7,
-        "w": 1,
-        "h": 2
-      },
-      {
-        "kind": "shelf",
-        "x": 23,
-        "y": 1,
-        "w": 1,
-        "h": 3.5
-      },
-      {
-        "kind": "plant",
-        "x": 23,
-        "y": 0.3,
-        "w": 1,
-        "h": 1
-      },
-      {
-        "kind": "tv",
-        "x": 23,
-        "y": 4.8,
-        "w": 1,
-        "h": 2.2
-      },
-      {
-        "kind": "desk",
-        "x": 18,
-        "y": 8,
-        "w": 5,
-        "h": 2.5
-      },
-      {
-        "kind": "chair",
-        "x": 19.5,
-        "y": 10.3,
-        "w": 1.5,
-        "h": 1.2
-      },
-      {
-        "kind": "plant",
-        "x": 23,
-        "y": 8,
-        "w": 1,
-        "h": 1
-      },
-      {
-        "kind": "cabinet",
-        "x": 23.2,
-        "y": 9.2,
-        "w": 1,
-        "h": 2
-      },
-      {
-        "kind": "cabinet",
-        "x": 14.1,
-        "y": 12.5,
-        "w": 1,
-        "h": 1.4
-      },
-      {
-        "kind": "plant",
-        "x": 14.1,
-        "y": 12,
-        "w": 1,
-        "h": 1
-      },
-      {
         "kind": "shoes",
-        "x": 12.7,
-        "y": 12.8,
-        "w": 1,
+        "x": 12.2,
+        "y": 14,
+        "w": 1.6,
         "h": 1
       }
     ],
@@ -243,15 +111,15 @@ ILY.data.chapter1Maps = {
     "events": [
       {
         "id": "floor",
-        "x": 16,
-        "y": 11,
+        "x": 11,
+        "y": 10,
         "label": "地板",
         "task": "G1",
         "kind": "collect",
         "image": "ch1-trash-pile",
         "visual": {
-          "x": 15.2,
-          "y": 10.3,
+          "x": 10.2,
+          "y": 9.3,
           "w": 2.1,
           "h": 1.4
         },
@@ -259,15 +127,15 @@ ILY.data.chapter1Maps = {
       },
       {
         "id": "desk",
-        "x": 20,
-        "y": 11,
+        "x": 14,
+        "y": 6,
         "label": "桌面",
         "task": "G1",
         "kind": "collect",
         "image": "ch1-trash-pile",
         "visual": {
-          "x": 19.3,
-          "y": 8.4,
+          "x": 13.3,
+          "y": 4.7,
           "w": 1.35,
           "h": 0.9
         },
@@ -275,15 +143,15 @@ ILY.data.chapter1Maps = {
       },
       {
         "id": "shelf",
-        "x": 22,
-        "y": 4,
+        "x": 5,
+        "y": 6,
         "label": "书架",
         "task": "G1",
         "kind": "collect",
         "image": "ch1-trash-pile",
         "visual": {
-          "x": 21.5,
-          "y": 4.5,
+          "x": 3.8,
+          "y": 5.2,
           "w": 1.25,
           "h": 0.85
         },
@@ -291,8 +159,8 @@ ILY.data.chapter1Maps = {
       },
       {
         "id": "bath",
-        "x": 12,
-        "y": 8,
+        "x": 19,
+        "y": 5,
         "label": "浴室门",
         "task": "G2",
         "kind": "finish",
@@ -300,8 +168,8 @@ ILY.data.chapter1Maps = {
       },
       {
         "id": "handle1",
-        "x": 20,
-        "y": 11,
+        "x": 14,
+        "y": 6,
         "label": "桌子抽屉",
         "task": "G3",
         "kind": "collect",
@@ -309,8 +177,8 @@ ILY.data.chapter1Maps = {
       },
       {
         "id": "handle2",
-        "x": 17,
-        "y": 8,
+        "x": 8,
+        "y": 11,
         "label": "床底",
         "task": "G3",
         "kind": "collect",
@@ -318,8 +186,8 @@ ILY.data.chapter1Maps = {
       },
       {
         "id": "computer",
-        "x": 20,
-        "y": 11,
+        "x": 14,
+        "y": 6,
         "label": "电脑",
         "task": "G3",
         "kind": "finish"
@@ -327,26 +195,26 @@ ILY.data.chapter1Maps = {
     ],
     "objects": [
       {
-        "x": 18,
-        "y": 8,
-        "w": 5,
-        "h": 3,
+        "x": 11,
+        "y": 2,
+        "w": 6,
+        "h": 4,
         "label": "电脑桌",
         "image": "ch1-object-desk"
       },
       {
-        "x": 23,
+        "x": 1,
         "y": 1,
-        "w": 1,
-        "h": 6,
+        "w": 4,
+        "h": 9,
         "label": "书架",
         "image": "ch1-object-shelf"
       },
       {
-        "x": 14,
-        "y": 2,
-        "w": 3,
-        "h": 7,
+        "x": 1,
+        "y": 12,
+        "w": 8,
+        "h": 3,
         "label": "床",
         "image": "ch1-object-bed"
       }
@@ -361,8 +229,8 @@ ILY.data.chapter1Maps = {
       "renderer": "classic-room",
       "nativeTileSize": 16,
       "view": {
-        "columns": 14,
-        "rows": 9
+        "columns": 11,
+        "rows": 7
       },
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",

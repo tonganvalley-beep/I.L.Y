@@ -77,8 +77,6 @@ function createRoom(map){
     const px=x*t,py=y*t;
     if(map.tiles[y][x]==='#'){
       r(px,py,t,t,'woodShade');r(px,py,t,2,'gold');r(px,py+2,t,7,'woodLight');r(px,py+9,t,1,'ink');r(px,py+10,t,4,'wood');r(px+t-1,py+10,1,4,'woodShade');r(px,py+14,t,2,'ink');
-    }else if(x<9 || (x>=9&&x<13&&y<8)){
-      r(px,py,t,t,'shade');r(px+1,py+1,t-1,t-1,'tileLight');r(px+2,py+2,t-3,1,'paper');r(px+t-2,py+3,1,t-4,'tile');
     }else{
       r(px,py,t,t,'floor');for(let j=0;j<2;j++){
         r(px,py+j*8,t,1,'seam');r(px,py+j*8+1,t,1,'floorLight');r(px+((x+y+j)%2?5:13),py+j*8,1,8,'seam');
@@ -86,8 +84,6 @@ function createRoom(map){
       }
     }
   }
-  // Partition faces occupy the existing blocked cells, never the walking aisle.
-  panel(r,8*t,t,t,5*t);panel(r,9*t,6*t,t,2*t);
   for(const o of map.decor||[])fixture(r,o,t);
   return c;
 }

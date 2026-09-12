@@ -70,8 +70,14 @@ function mountRpg({stage,node,state,assets,go}) {
     ctx.imageSmoothingEnabled=!classic;
     let paintedBackground=false;
     if(classic){
-      if(!roomScenes.has(map.id))roomScenes.set(map.id,classic.createRoom(map));
-      ctx.drawImage(roomScenes.get(map.id),0,0,w,h);paintedBackground=true;
+      // 正式房间图与逻辑地图保持同一宽高比；加载前仍用数据驱动像素房间兜底。
+      ctx.imageSmoothingEnabled=true;
+      paintedBackground=!!(map.art.background&&drawAsset(map.art.background,0,0,w,h));
+      if(!paintedBackground){
+        ctx.imageSmoothingEnabled=false;
+        if(!roomScenes.has(map.id))roomScenes.set(map.id,classic.createRoom(map));
+        ctx.drawImage(roomScenes.get(map.id),0,0,w,h);paintedBackground=true;
+      }
     }else paintedBackground=map.art.background&&drawAsset(map.art.background,0,0,w,h);
     ctx.imageSmoothingEnabled=false;
     if(!paintedBackground)for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++){
