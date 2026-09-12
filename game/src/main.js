@@ -31,6 +31,13 @@ try {
     chapterMaps = await response.json();
   }
   Object.assign(ILY.data.maps, chapterMaps);
+  let laterMaps=ILY.data.chapterMaps||{};
+  if(location.protocol!=='file:'){
+    const response=await fetch('data/maps/chapters.json');
+    if(!response.ok)throw new Error('后续章节地图读取失败，请刷新重试。');
+    laterMaps=await response.json();
+  }
+  Object.assign(ILY.data.maps,laterMaps);
   const manifest = ILY.data.assets;
   const { maps, levels } = ILY.data;
   const assets = new Assets(manifest);
@@ -105,11 +112,11 @@ try {
 
   function refreshClues() {
     const list = document.querySelector('#clues'); list.replaceChildren();
-    const spots = Object.values(maps).flatMap(map => map.hotspots);
+    const spots = Object.values(maps).flatMap(map => map.hotspots||[]);
     for (const id of state.clues) {
       const spot = spots.find(item => item.clue === id);
       const chapterClues = {P1:'没有回家的记忆：海边到出租屋之间的空白。',P2:'十年前的口味：她还记得每天吃的巧克力螺。',P3:'暑假：她的时间仿佛停在高中。',P4:'她眼中的我：为什么如此自然地接受二十八岁的基生？'};
-      list.append(el('li', '', spot ? `${spot.label}：${spot.description}` : chapterClues[id] || id));
+      list.append(el('li', '', spot ? `${spot.label}：${spot.description}` : chapterClues[id] || ILY.data.chapterClues?.[id] || id));
     }
     if (!state.clues.length) list.append(el('li', '', t('clues.empty')));
   }
@@ -289,6 +296,7 @@ try {
     const node = story.nodes[next];
     if (!node) { notify(t('notify.nodeMissing', { id: next })); return; }
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
+    if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
     cleanup(); cleanup = () => {}; state.node = next;
     ILY.enterChapterNode(state,node);
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
@@ -301,6 +309,8 @@ try {
     else if (node.type === 'walk') cleanup = mountWalk(context);
     else if (node.type === 'corridor') cleanup = mountCorridor(context);
     else if (node.type === 'rpg') cleanup = ILY.mountRpg(context);
+    else if (node.type === 'boss') cleanup = ILY.mountBoss(context);
+    else if (['fracture','search','letter'].includes(node.type)) cleanup = ILY.mountChapterMoment(context);
     else if (node.type === 'exploration') cleanup = mountExploration({...context, map:maps[node.map]});
     else if (node.type === 'battle') cleanup = mountBattle({...context, level:levels[node.level]});
     else if (node.type === 'finale' || node.type === 'branch' || node.type === 'end') {
@@ -309,7 +319,8 @@ try {
       end.append(el('h1', '', node.title || t('end.tbc')));
       if (node.text) end.append(el('p', '', node.text));
       if (node.subtitle) end.append(el('p', 'hint', node.subtitle));
-      if (node.next) end.append(button('进入第一章', () => go(node.next)));
+      if (node.next) end.append(button(node.nextLabel||'进入第一章', () => go(node.next)));
+      if(node.ending)end.append(button('读取存档，探索另一种选择',()=>openSaveMenu('load')));
       end.append(button(t('end.restart'), () => { state = createState(story.start); go(story.start); }));
       stage.append(end);
     } else {
@@ -325,7 +336,9 @@ try {
     if (!Object.keys(manifest.bgm).length) notify(t('notify.noBgm'));
   };
 
-  if (launchParams.get('chapter') === '1' && !launchParams.get('slot') && launchParams.get('mode') !== 'load') state.node = ILY.data.stories.chapter1.start;
+  const chapterKey={'1':'chapter1','2':'chapter2','3':'chapter3','final':'final'}[launchParams.get('chapter')];
+  if(chapterKey&&!launchParams.get('slot')&&launchParams.get('mode')!=='load')state.node=ILY.data.stories[chapterKey].start;
+  if(launchParams.get('player')==='scene-preview'&&Object.hasOwn(story.nodes,launchParams.get('scene')))state.node=launchParams.get('scene');
   go(state.node, { autosave: false });
   const loadSlot = launchParams.get('slot');
   if (loadSlot && /^([12]|auto|quick)-[1-6]$/.test(loadSlot)) {

@@ -229,8 +229,8 @@ ILY.data.chapter1Maps = {
       "renderer": "classic-room",
       "nativeTileSize": 16,
       "view": {
-        "columns": 11,
-        "rows": 7
+        "columns": 17,
+        "rows": 11
       },
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
@@ -258,7 +258,7 @@ ILY.data.chapter1Maps = {
       "#................#",
       "#................#",
       "#................#",
-      "#................#",
+      "#..........FFFF..#",
       "#................#",
       "##################"
     ],
@@ -307,7 +307,8 @@ ILY.data.chapter1Maps = {
         "w": 3,
         "h": 2,
         "label": "杯面",
-        "image": "ch1-object-shelf"
+        "image": "ch1-object-shelf",
+        "kind": "shelf"
       },
       {
         "x": 7,
@@ -315,7 +316,8 @@ ILY.data.chapter1Maps = {
         "w": 3,
         "h": 2,
         "label": "零食",
-        "image": "ch1-object-shelf"
+        "image": "ch1-object-shelf",
+        "kind": "shelf"
       },
       {
         "x": 12,
@@ -323,7 +325,17 @@ ILY.data.chapter1Maps = {
         "w": 3,
         "h": 2,
         "label": "冰柜",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "shelf"
+      },
+      {
+        "x": 11,
+        "y": 9,
+        "w": 4,
+        "h": 1,
+        "kind": "shelf",
+        "label": "收银台",
+        "image": ""
       }
     ],
     "palette": {
@@ -335,8 +347,16 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-store-map"
+    },
+    "theme": "store"
   },
   "ch1-entry": {
     "id": "ch1-entry",
@@ -371,7 +391,11 @@ ILY.data.chapter1Maps = {
         "label": "小展柜回廊 →",
         "kind": "transfer",
         "to": "ch1-gallery",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 2,
+          "y": 6
+        }
       },
       {
         "id": "visitor",
@@ -389,7 +413,8 @@ ILY.data.chapter1Maps = {
         "w": 8,
         "h": 2,
         "label": "入口与售票处",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "tank"
       }
     ],
     "palette": {
@@ -401,8 +426,16 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-entry-map"
+    },
+    "theme": "aquarium"
   },
   "ch1-gallery": {
     "id": "ch1-gallery",
@@ -437,7 +470,11 @@ ILY.data.chapter1Maps = {
         "label": "← 入口与售票处",
         "kind": "transfer",
         "to": "ch1-entry",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 15,
+          "y": 6
+        }
       },
       {
         "id": "east",
@@ -446,7 +483,11 @@ ILY.data.chapter1Maps = {
         "label": "大王具足虫展区 →",
         "kind": "transfer",
         "to": "ch1-isopod",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 2,
+          "y": 6
+        }
       },
       {
         "id": "photo",
@@ -464,7 +505,8 @@ ILY.data.chapter1Maps = {
         "w": 8,
         "h": 2,
         "label": "小展柜回廊",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "tank"
       }
     ],
     "palette": {
@@ -476,8 +518,16 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-gallery-map"
+    },
+    "theme": "aquarium"
   },
   "ch1-isopod": {
     "id": "ch1-isopod",
@@ -512,7 +562,11 @@ ILY.data.chapter1Maps = {
         "label": "← 小展柜回廊",
         "kind": "transfer",
         "to": "ch1-gallery",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 15,
+          "y": 6
+        }
       },
       {
         "id": "east",
@@ -521,7 +575,11 @@ ILY.data.chapter1Maps = {
         "label": "空水槽 →",
         "kind": "transfer",
         "to": "ch1-empty",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 2,
+          "y": 6
+        }
       },
       {
         "id": "isopod",
@@ -539,7 +597,8 @@ ILY.data.chapter1Maps = {
         "w": 8,
         "h": 2,
         "label": "大王具足虫展区",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "tank"
       }
     ],
     "palette": {
@@ -551,8 +610,16 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-isopod-map"
+    },
+    "theme": "aquarium"
   },
   "ch1-empty": {
     "id": "ch1-empty",
@@ -587,7 +654,11 @@ ILY.data.chapter1Maps = {
         "label": "← 大王具足虫展区",
         "kind": "transfer",
         "to": "ch1-isopod",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 15,
+          "y": 6
+        }
       },
       {
         "id": "east",
@@ -596,7 +667,11 @@ ILY.data.chapter1Maps = {
         "label": "全景水槽 →",
         "kind": "transfer",
         "to": "ch1-panorama",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 2,
+          "y": 6
+        }
       },
       {
         "id": "airi",
@@ -614,7 +689,8 @@ ILY.data.chapter1Maps = {
         "w": 8,
         "h": 2,
         "label": "空水槽",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "tank"
       }
     ],
     "palette": {
@@ -626,8 +702,16 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-empty-map"
+    },
+    "theme": "aquarium"
   },
   "ch1-panorama": {
     "id": "ch1-panorama",
@@ -662,7 +746,11 @@ ILY.data.chapter1Maps = {
         "label": "← 空水槽",
         "kind": "transfer",
         "to": "ch1-empty",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 15,
+          "y": 6
+        }
       },
       {
         "id": "east",
@@ -671,7 +759,11 @@ ILY.data.chapter1Maps = {
         "label": "洗手间通道 →",
         "kind": "transfer",
         "to": "ch1-restroom",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 2,
+          "y": 6
+        }
       },
       {
         "id": "phone",
@@ -689,7 +781,8 @@ ILY.data.chapter1Maps = {
         "w": 8,
         "h": 2,
         "label": "全景水槽",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "tank"
       }
     ],
     "palette": {
@@ -701,8 +794,16 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-panorama-map"
+    },
+    "theme": "aquarium"
   },
   "ch1-restroom": {
     "id": "ch1-restroom",
@@ -737,7 +838,11 @@ ILY.data.chapter1Maps = {
         "label": "← 全景水槽",
         "kind": "transfer",
         "to": "ch1-panorama",
-        "touch": true
+        "touch": true,
+        "arrival": {
+          "x": 15,
+          "y": 6
+        }
       },
       {
         "id": "scream",
@@ -756,7 +861,8 @@ ILY.data.chapter1Maps = {
         "w": 8,
         "h": 2,
         "label": "洗手间通道",
-        "image": "ch1-object-tank"
+        "image": "ch1-object-tank",
+        "kind": "tank"
       }
     ],
     "palette": {
@@ -768,7 +874,15 @@ ILY.data.chapter1Maps = {
       "floor": "ch1-tile-floor",
       "wall": "ch1-tile-wall",
       "player": "ch1-sprite-kio",
-      "follower": "ch1-sprite-airi"
-    }
+      "follower": "ch1-sprite-airi",
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 15,
+        "rows": 10
+      },
+      "background": "ch1-restroom-map"
+    },
+    "theme": "aquarium"
   }
 };

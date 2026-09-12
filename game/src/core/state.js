@@ -42,7 +42,7 @@ function validateSave(value, story, maps) {
   if (value.flags.rpg !== undefined) {
     if (!value.flags.rpg || typeof value.flags.rpg !== 'object' || Array.isArray(value.flags.rpg)) throw new Error('探索进度无效。');
     for (const [task, progress] of Object.entries(value.flags.rpg)) {
-      if (!['G1','G2','G3','G4','G5'].includes(task) || !progress ||
+      if (!['G1','G2','G3','G4','G5','CH2_G1','CH2_G2','CH2_G3','CH2_G4','CH2_G5','CH3_G2','CH3_G4'].includes(task) || !progress ||
           !Array.isArray(progress.collected) || !progress.collected.every(x=>typeof x==='string') ||
           !Array.isArray(progress.visited) || !progress.visited.every(x=>Object.hasOwn(maps,x)) ||
           !Number.isFinite(progress.elapsed) || progress.elapsed<0 || typeof progress.done!=='boolean' ||
@@ -50,7 +50,7 @@ function validateSave(value, story, maps) {
     }
   }
   for (const [id, position] of Object.entries(value.maps)) {
-    if (!Object.hasOwn(maps, id) || !position || (id.startsWith('ch1-')
+    if (!Object.hasOwn(maps, id) || !position || (/^ch[123]-/.test(id)
         ? !canStandRpg(maps[id],position.x,position.y)
         : (!Number.isInteger(position.x) || !Number.isInteger(position.y) || !canWalk(maps[id], position.x, position.y)))) {
       throw new Error('存档中的地图位置无效。');

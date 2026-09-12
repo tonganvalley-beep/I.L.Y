@@ -5,11 +5,13 @@ function mountRpg({stage,node,state,assets,go}) {
   const p=rpgProgress(state,node.task),maps=ILY.data.maps;
   let map=maps[p.map] || maps[node.map],position,frame,last=0,disposed=false,finishedFor=0;
   let target=null,facing='front',stride=0,walking=false,messageFor=5,idle=0;
+  let follower=null,trail=[];
   const keys=new Set(),images=new Map(),roomScenes=new Map(),camera={x:0,y:0,scale:1,width:1,height:1};
   let trashSprite;
   const panel=el('section','rpg-panel'),canvas=el('canvas','rpg-canvas');canvas.tabIndex=0;
   canvas.setAttribute('aria-label','操控成田基生：WASD 或方向键连续移动，也可按住画面引导移动。靠近物件后按 E 调查，Esc 打开菜单。');
   const ctx=canvas.getContext('2d');
+  const inspect=el('dialog','rpg-inspect');panel.append(inspect);
   const message=el('p','rpg-message','WASD / 方向键移动 · 按住画面引导 · E 调查 · Esc 菜单');message.setAttribute('aria-live','polite');
   const prompt=button('',()=>interact());prompt.className='rpg-interact';prompt.hidden=true;
   const menuToggle=button('☰',()=>document.querySelector('#menu-toggle').click());menuToggle.className='rpg-menu-toggle';menuToggle.setAttribute('aria-label','打开菜单');
@@ -27,20 +29,31 @@ function mountRpg({stage,node,state,assets,go}) {
     const e=closest();prompt.hidden=p.done || !e;if(e)prompt.textContent='E · '+e.label;auto.hidden=p.done;
   }
   function useMap(next,arrival){
-    map=next;p.map=map.id;position=state.maps[map.id] ||= {...map.spawn};if(arrival)Object.assign(position,arrival);target=null;idle=0;
+    map=next;p.map=map.id;position=state.maps[map.id] ||= {...map.spawn};if(arrival)Object.assign(position,arrival);target=null;idle=0;trail=[];follower=null;
     if(!p.visited.includes(map.id))p.visited.push(map.id);
     if(node.task==='G5')state.flags.G5_STAGE=map.id;
     if(map.id==='ch1-restroom'&&!state.flags.G5_SCREAM)say(interactRpg(state,node.task,{id:'scream',kind:'scream',text:'十屋：哇啊啊啊——！远处的惨叫突然中断。总觉得发生了什么……'}));
     refresh();
   }
   function completeAutomatically(){
-    if(blocked()||p.done)return;finishRpgAutomatically(state,node.task);target=null;
+    if(blocked()||p.done)return;finishRpgAutomatically(state,node.task,node);target=null;
     say(node.task==='G5'?'远处传来惨叫。手机也没了信号。基生一路寻找，终于在空水槽前看到了“爱理”。':node.task==='G4'?`买好了${p.choice}。“爱理”抱紧了购物袋。`:'基生完成了眼前的事情。');refresh();
   }
   function act(e){
     if(blocked()||p.done)return;target=null;idle=0;
-    if(e.kind==='transfer'){useMap(maps[e.to],{x:e.id==='east'?2:15,y:6});canvas.focus();return;}
-    say(interactRpg(state,node.task,e));
+    if(e.kind==='transfer'){useMap(maps[e.to],e.arrival||maps[e.to].spawn);canvas.focus();return;}
+    if(e.options){
+      inspect.replaceChildren(el('h2','',e.label));
+      for(const value of e.options)inspect.append(button(value,()=>{
+        inspect.close();say(interactRpg(state,node.task,{...e,options:null,value,text:`${e.text} 基生接过了${value}冰淇淋。`},node));refresh();canvas.focus();
+      }));
+      inspect.showModal();return;
+    }
+    say(interactRpg(state,node.task,e,node));
+    if(e.preview){
+      const photo=el('img');photo.src=assets.image(e.preview);photo.alt=e.label;
+      inspect.replaceChildren(photo,el('p','',e.text),button('收起照片',()=>{inspect.close();canvas.focus();}));inspect.showModal();
+    }
     if(p.done&&node.task==='G5'&&!state.flags.G5_SCREAM){state.flags.G5_SCREAM=true;say('远处，十屋的惨叫骤然中断。空水槽前，终于出现了熟悉的身影。');}
     refresh();canvas.focus();
   }
@@ -58,7 +71,7 @@ function mountRpg({stage,node,state,assets,go}) {
   }
   function draw(){
     const t=map.tileSize||48,w=map.width*t,h=map.height*t;
-    const classic=map.art.renderer==='classic-room'&&ILY.classicRoom;
+    const classic=['classic-room','pixel-map'].includes(map.art.renderer)&&ILY.classicRoom;
     if(classic){
       Object.assign(camera,classic.cameraView(camera.width,camera.height,map,position));
     }else{
@@ -71,7 +84,7 @@ function mountRpg({stage,node,state,assets,go}) {
     let paintedBackground=false;
     if(classic){
       // 正式房间图与逻辑地图保持同一宽高比；加载前仍用数据驱动像素房间兜底。
-      ctx.imageSmoothingEnabled=true;
+      ctx.imageSmoothingEnabled=map.art.renderer==='classic-room';
       paintedBackground=!!(map.art.background&&drawAsset(map.art.background,0,0,w,h));
       if(!paintedBackground){
         ctx.imageSmoothingEnabled=false;
@@ -100,6 +113,9 @@ function mountRpg({stage,node,state,assets,go}) {
       else{ctx.beginPath();ctx.arc(ex,ey,e===nearby?5:3,0,Math.PI*2);ctx.fill();}
     }
     const x=(position.x+.5)*t,y=(position.y+.5)*t;
+    if(node.follower&&follower){
+      drawAsset('ch2-follower',(follower.x+.5)*t-24,(follower.y+.5)*t-40,48,56);
+    }
     // Keep Kio's original artwork and animation; the close camera supplies the enlargement.
     const sx=classic?Math.round(x*camera.scale)/camera.scale:x,sy=classic?Math.round(y*camera.scale)/camera.scale:y;
     ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+4,11,4,0,0,Math.PI*2);ctx.fill();
@@ -131,9 +147,13 @@ function mountRpg({stage,node,state,assets,go}) {
       const length=Math.hypot(dx,dy),distance=Math.min(3.8*dt,target?length:Infinity),before={...position};
       if(length>.02){moveRpg(map,position,dx/length*distance,dy/length*distance);idle=0;}
       walking=Math.hypot(position.x-before.x,position.y-before.y)>.0001;
+      if(walking&&node.follower){
+        if(!trail.length||Math.hypot(position.x-trail[trail.length-1].x,position.y-trail[trail.length-1].y)>.12)trail.push({...position});
+        if(trail.length>9)follower=trail.shift();
+      }
       if(walking){stride+=dt;facing=Math.abs(dx)>Math.abs(dy)*.4?(dx<0?'left':'right'):(dy<0?'back':'front');}else stride=0;
       const touch=events().find(e=>e.touch&&Math.hypot(e.x-position.x,e.y-position.y)<.5);if(touch)act(touch);
-      if(idle>({G1:60,G2:10,G3:60,G4:90,G5:240}[node.task]))completeAutomatically();
+      if(idle>(node.timeout||{G1:60,G2:10,G3:60,G4:90,G5:240}[node.task]||90))completeAutomatically();
     }else{keys.clear();target=null;walking=false;if(p.done&&!blocked()){finishedFor+=dt;if(finishedFor>=2.5){go(node.next);return;}}}
     if(!blocked()){messageFor-=dt;message.hidden=messageFor<=0;}
     refresh();draw();frame=requestAnimationFrame(tick);

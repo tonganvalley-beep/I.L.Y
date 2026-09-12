@@ -3,6 +3,8 @@
 const { el, button, mountScene } = ILY;
 function mountDialogue({stage, node, state, assets, go}) {
   mountScene(stage, node, assets);
+  if(node.screenText){const impulse=el('div','chapter-impulse',node.screenText);stage.append(impulse);}
+  if(node.sceneEffect)stage.querySelector('.scene')?.classList.add('chapter-'+node.sceneEffect);
   if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
   const box = el('section', 'dialogue');
   const text = el('p', 'dialogue-text');

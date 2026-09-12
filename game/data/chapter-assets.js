@@ -1,0 +1,22 @@
+Object.assign(ILY.data.assets.images, {
+  "ch2-stone": "../第二章mg/076f7c38c5f582d5189445f3c3f5396c.jpg",
+  "ch2-ice": "../第二章mg/0ba15042dc343443ebb56549acddf14b.jpg",
+  "ch2-vending": "../第二章mg/0c0b79deec7db838f757dc83bf08c1a7.jpg",
+  "ch2-adult": "../第二章mg/17f5b5f773b5835caec419d2e42bfe47.jpg",
+  "ch2-smile": "../第二章mg/1df1b6e44edb26dd497c17dafe91930d.jpg",
+  "ch2-couple": "../第二章mg/1e19e6a90a3f9688fcff45072f27b4c6.jpg",
+  "ch2-flowers": "../第二章mg/286bc2567a129e2d6a8cac395a37fbc9.jpg",
+  "ch2-shop": "../第二章mg/446324d714d2d599f0a9019da01455fd.jpg",
+  "ch2-memory": "../第二章mg/74119dee6c7e066ac0f921496d0e40e1.jpg",
+  "ch2-sunset": "../第二章mg/820c7cecef9ded8f2016b604e7838d53.jpg",
+  "ch2-hug": "../第二章mg/8858c166b1d93a2f4b7e36f93966bcb2.jpg",
+  "ch2-talk": "../第二章mg/9f61b81165b5eaefb311d1bf5c72d77d.jpg",
+  "ch2-blush": "../第二章mg/aebdaca15c7e831bc0ec9fe584a77cf9.jpg",
+  "ch2-beach": "../第二章mg/b3dba4b2ad795552082daa3127400c10.jpg",
+  "ch2-hug-close": "../第二章mg/bb9b4058c3747b93902130a0308d6944.jpg",
+  "ch2-hand": "../第二章mg/db60ed6c0b70c98a69d595f4a9dd6f68.jpg",
+  "ch2-path-summer": "assets/images/maps/ch2-flowers.svg",
+  "ch3-work": "assets/images/maps/ch3-work.svg",
+  "ch3-mall": "assets/images/maps/ch3-mall.svg",
+  "ch2-follower": "assets/images/maps/airi-follower.svg"
+});
