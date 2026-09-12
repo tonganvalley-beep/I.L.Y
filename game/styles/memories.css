@@ -1,0 +1,188 @@
+/* memories.css —— 游戏内「回忆」弹窗（成就 / 剧情 / 画廊）
+   配色沿用 stage.css 的存档菜单：深蓝底 #0b1725 + 青蓝描边 + 金色强调。 */
+
+/* ---------- 三个弹窗的通用外壳 ---------- */
+.mem-dialog,
+.story-dialog,
+.gal-dialog {
+  width: min(560px, calc(100vw - 48px));
+  max-height: 86dvh;
+  overflow: auto;
+  margin: auto;
+  padding: 24px;
+  color: #e5edf2;
+  background: #0b1725f8;
+  border: 1px solid #83b9ce59;
+  border-radius: 9px;
+  box-shadow: 0 24px 110px #000b;
+}
+.mem-dialog::backdrop,
+.story-dialog::backdrop,
+.gal-dialog::backdrop {
+  background: #020812a6;
+  backdrop-filter: blur(7px);
+}
+/* 剧情正文长、画廊卡片多，各自放宽一些 */
+.story-dialog { width: min(700px, calc(100vw - 48px)); }
+.gal-dialog   { width: min(900px, calc(100vw - 48px)); }
+
+.mem-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.mem-head h2 { margin: 0; font-weight: normal; font-size: 20px; }
+.mem-head p { margin: 7px 0 0; }
+.mem-head > button {
+  background: transparent;
+  border: 0;
+  font-size: 25px;
+  line-height: 1;
+  padding: 0 4px;
+  color: #cfe0ea;
+}
+.mem-head > button:hover { background: transparent; color: #fff; }
+
+.dialog-actions { display: flex; justify-content: flex-end; margin-top: 18px; }
+
+/* ---------- 标签页 ---------- */
+.mem-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #86b7ca33;
+}
+.mem-tabs button { flex: 1; background: #102638; border-color: #86b7ca33; }
+.mem-tabs button.active { background: #1d526c; color: #fff; border-color: #8ddfff99; }
+
+/* ---------- 成就列表 ---------- */
+.ach-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ach-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: #e5edf2;
+  background: #0e2232;
+  border: 1px solid #729cb033;
+  border-radius: 6px;
+}
+.ach-list li.locked { opacity: .45; }
+.ach-list .ach-state { color: #8fe0b0; font-size: 12px; }
+.ach-list li.locked .ach-state { color: #9db4d4; }
+
+/* ---------- 剧情回忆 ---------- */
+.story-log {
+  max-height: 52vh;
+  overflow-y: auto;
+  margin-top: 14px;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.story-chapter {
+  margin: 8px 0 2px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #d7eff8;
+  background: #142f42;
+  border-left: 3px solid #78b4ff;
+}
+.story-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 7px 10px;
+  background: #0e2232;
+  border: 1px solid #729cb033;
+  border-radius: 5px;
+}
+.story-entry .who { color: #8ddfff; font-size: 12px; }
+.story-entry .say {
+  color: #e5edf2;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;        /* 正文里的换行保留 */
+}
+.story-entry.plain {            /* 旁白：不显示说话人，底色更沉 */
+  background: #091726;
+}
+
+/* ---------- 画廊：翻转卡片 ---------- */
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0 4px;
+}
+.flip-card {
+  perspective: 1000px;          /* 3D 翻转的景深 */
+  aspect-ratio: 16 / 10;
+  cursor: pointer;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .6s;
+}
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 1px solid #83b9ce59;
+  border-radius: 7px;
+  overflow: hidden;
+  background: #0e2232;
+}
+.flip-front { display: grid; place-items: center; }
+.flip-front img { width: 100%; height: 100%; object-fit: cover; }
+.flip-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: #142f42;
+}
+.flip-back strong { font-weight: normal; font-size: 14px; color: #efdab0; }
+.flip-back p { margin: 0; font-size: 12px; line-height: 1.7; color: #c6d7df; }
+.flip-missing { font-size: 12px; color: #9db4d4; }
+.flip-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 7px;
+  font-size: 11px;
+  color: #cdefff;
+  background: #03101cdd;
+  border-radius: 3px;
+}
+
+/* ---------- 游戏菜单里的「回忆」按钮：独占一整行，和上方 2 列按钮区分开 ---------- */
+#game-menu .toolbar #memories {
+  grid-column: 1 / -1;
+  background: #1d3a52;
+  border-color: #8ddfff66;
+}
+
+@media (max-width: 600px) {
+  .mem-dialog, .story-dialog, .gal-dialog { padding: 16px; }
+  .story-log { max-height: 46vh; }
+  .flip-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+
+/* 尊重系统的“减少动态效果”设置：关掉翻牌动画 */
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transition: none; }
+}

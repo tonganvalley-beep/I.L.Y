@@ -17,7 +17,6 @@ function mountCorridor({ stage, node, state, assets, go, notify }) {
   const bgOn = assets.image(cfg.bgOn || node.background || 'bg-hallway');
   const bgOff = assets.image(cfg.bgOff || 'bg-hallway-dark');
   let toggled = 0;          // 已前进步数
-  let lightsOn = true;      // 当前是否开灯
   let shaking = false;      // 抖动动画进行中（忽略输入）
   let shakeTimer = 0;
   let exitTimer = 0;
@@ -28,7 +27,7 @@ function mountCorridor({ stage, node, state, assets, go, notify }) {
   bgOnEl.style.backgroundImage = bgOn ? `url("${bgOn}")` : '';
   const bgOffEl = el('div', 'corridor-bg corridor-bg-off');
   bgOffEl.style.backgroundImage = bgOff ? `url("${bgOff}")` : '';
-  bgOffEl.style.opacity = '0';   // 初始开灯；关灯层透明
+  bgOffEl.style.opacity = '1';   // 初始关灯：走廊一片漆黑，声控灯尚未触发
   const panel = el('div', 'corridor-panel');
   const text = el('p', 'corridor-text', node.text || '');
   const hint = el('p', 'corridor-hint', cfg.hint || ILY.t('corridor.hint'));
@@ -51,14 +50,14 @@ function mountCorridor({ stage, node, state, assets, go, notify }) {
   function step() {
     if (shaking || exitTimer) return;
     toggled += 1;
-    lightsOn = !lightsOn;
-    bgOffEl.style.opacity = lightsOn ? '0' : '1';
     if (Array.isArray(cfg.texts) && cfg.texts[toggled - 1]) text.textContent = cfg.texts[toggled - 1];
-    /* 屏幕抖动：代表往前走 */
+    /* 声控灯：脚步触发亮起，停留后自动熄灭（一次空格 = 一次灯亮 + 灯灭） */
+    bgOffEl.style.opacity = '0';   // 灯亮
     shaking = true;
     wrap.classList.add('corridor-shake');
     shakeTimer = setTimeout(() => {
       wrap.classList.remove('corridor-shake');
+      bgOffEl.style.opacity = '1'; // 灯灭
       shaking = false;
     }, 500);
     if (toggled >= steps) {

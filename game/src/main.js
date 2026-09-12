@@ -252,6 +252,28 @@ try {
     catch (error) { notify(t('notify.quickSaveFailed', { msg: error.message })); }
   };
 
+  /* ---------- 回忆：成就 / 剧情 / 画廊 ----------
+     成就 = 当前进度（可能还没存档）+ 本账号全部存档槽 + 旧版存档里解锁过的 ID；
+     剧情 = ILY.data.stories（序章 / 第一章）文字剧本；
+     画廊 = sign&log/gallery-data.js 的插图 + 手机相册照片。 */
+  ILY.initMemories({
+    saves,
+    getState: () => state,
+    resolveAsset: key => assets.image(key),
+    stage
+  });
+  document.querySelector('#memories').onclick = () => ILY.openMemories();
+
+  /* ---------- 序章：随时掏出的手机 ----------
+     右下角常驻入口 + P 键，只在序章节点出现；打开的是只读自由手机，
+     合上后回到原来的剧情节点，不改变进度。 */
+  ILY.initFreePhone({
+    getState: () => state,
+    assets,
+    notify: (message, duration) => notify(message, duration),
+    inPrologue: () => !!ILY.data.stories.prologue.nodes[state.node]
+  });
+
   let interactionsSinceAutosave = 0;
   function maybeAutosave(node, enabled) {
     if (!enabled) return;
@@ -271,6 +293,7 @@ try {
     ILY.enterChapterNode(state,node);
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
     stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type; notify(''); refreshClues();
+    ILY.refreshFreePhone();
     const context = {stage, node, state, assets, go, notify, refreshClues};
     if (['phone', 'finale', 'branch', 'end'].includes(node.type)) ILY.mountScene(stage, node, assets);
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);
