@@ -37,6 +37,16 @@ test('All branch combinations reach the correct ending without leaking other end
   I.validateSave(JSON.parse(JSON.stringify(state)),story,maps);
  }
 });
+test('Chapter-two shared clues are collected on every route that reaches the scene',()=>{
+ for(const route of ['A','B'])for(const n2 of ['A','B']){
+  const {state,seen}=traverse(route,n2,'buy','A');
+  assert.ok(seen.has('ch2_082'));
+  for(const clue of ['P15','P13'])assert.ok(state.clues.includes(clue),`${route}/${n2}: ${clue}`);
+  I.enterChapterNode(state,story.nodes.ch2_082);
+  for(const clue of ['P15','P13'])assert.equal(state.clues.filter(id=>id===clue).length,1);
+ }
+});
+
 test('All supplied chapter-two images are used by dialogue or investigations and exist',async()=>{
  const ids=new Set();
  for(const n of Object.values(story.nodes))for(const id of [n.background,n.cg,n.portrait,n.overlay].filter(Boolean))ids.add(id);

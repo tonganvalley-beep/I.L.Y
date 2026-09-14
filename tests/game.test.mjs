@@ -2,10 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
-const context = vm.createContext({});
+let language = 'chinese';
+const context = vm.createContext({
+  localStorage: {getItem: () => language},
+  document: {documentElement: {}, readyState: 'loading', addEventListener() {}}
+});
 context.window = context;
 const run = async file => vm.runInContext(await readFile(new URL(file, import.meta.url), 'utf8'), context, {filename:file});
 await run('../game/src/bootstrap.js');
+await run('../game/src/i18n.js');
 await run('../game/src/core/state.js');
 await run('../game/data/story/prologue.js');
 await run('../game/data/maps/classroom.js');
@@ -130,15 +135,36 @@ test('双击入口的所有脚本存在，普通脚本无需服务或模块加�
 
 
 test('两个结局可从新状态进入，成就不重复，旧存档补齐成就数组', () => {
-  for (const [nodeId, achievement] of [['finale', 'last-beach'], ['ne_ending', 'door-letter']]) {
-    const state = createState(nodeId);
-    story.nodes[nodeId].enter(state, () => {});
-    story.nodes[nodeId].enter(state, () => {});
-    assert.deepEqual(Array.from(state.flags.achievements), [achievement]);
-    if (nodeId === 'finale') assert.equal(state.flags.FLAG_BLUE_CALL, 'unlocked');
+  for (const lang of ['chinese', 'english']) {
+    language = lang;
+    for (const [nodeId, achievement] of [['finale', 'last-beach'], ['ne_ending', 'door-letter']]) {
+      const state = createState(nodeId);
+      const notices = [];
+      story.nodes[nodeId].enter(state, message => notices.push(message));
+      story.nodes[nodeId].enter(state, message => notices.push(message));
+      assert.deepEqual(Array.from(state.flags.achievements), [achievement]);
+      const labels = lang === 'chinese' ? ['最后一次海边', '门内的回信'] : ['The Last Seaside', 'The Reply Behind the Door'];
+      assert.deepEqual(notices, [(lang === 'chinese' ? '成就解锁：' : 'Achievement Unlocked: ') + labels[nodeId === 'finale' ? 0 : 1]]);
+      if (nodeId === 'finale') assert.equal(state.flags.FLAG_BLUE_CALL, 'unlocked');
+    }
   }
+  language = 'chinese';
   const old = createState(story.start); old.flags = {};
   assert.ok(Array.isArray(validateSave(old, story, {classroom: map}).flags.achievements));
+});
+
+test('结局成就名称具备中英文翻译', () => {
+  const names = {
+    'Just two of us': ['只是我们俩', 'Just Two of Us'],
+    '十年之后': ['十年之后', 'Ten Years Later'],
+    'One Last Kiss': ['最后一个吻', 'One Last Kiss'],
+    'ILY = I LOVE YOU': ['ILY = I LOVE YOU', 'ILY = I LOVE YOU']
+  };
+  for (const [index, lang] of ['chinese', 'english'].entries()) {
+    language = lang;
+    for (const [id, labels] of Object.entries(names)) assert.equal(context.ILY.t('ach.' + id), labels[index]);
+  }
+  language = 'chinese';
 });
 
 test('剧情图像 ID 全部登记，正式素材与占位图真实存在', async () => {
@@ -177,7 +203,7 @@ test('舞台支持多人物与 CG 分离，坏图按类型降级到占位图', a
   assert.equal(cgStage.children[0].children[0].style.objectFit, 'contain');
 });
 
-test('手机教学删除可按确认键继续，爱理拒绝删除且提示一秒', async () => {
+test('手机教学删除、爱理保护及隐藏回信探索正常工作', async () => {
   const timers = new Map(); let timerId = 0, keyHandler = null;
   const element = (tag='', className='', textContent='') => ({tag, className, textContent, children: [], dataset: {}, style: {},
     classList: {toggle() {}, add() {}},
@@ -185,14 +211,18 @@ test('手机教学删除可按确认键继续，爱理拒绝删除且提示一�
     replaceChildren(...nodes) {this.children = nodes;}, addEventListener() {}, removeEventListener() {}, scrollIntoView() {},
     querySelector(selector) { return selector === '.confirm' ? this.children.find(node => String(node.className).includes('confirm')) || null : null; }});
   const fresh = vm.createContext({matchMedia: () => ({matches:true}),clearInterval(){},
-    setTimeout: (fn, delay) => {timers.set(++timerId, {fn, delay}); return timerId;}, clearTimeout: id => timers.delete(id)});
+    setTimeout: (fn, delay) => {
+      const id = ++timerId;
+      timers.set(id, {fn: () => {timers.delete(id); fn();}, delay});
+      return id;
+    }, clearTimeout: id => timers.delete(id)});
   fresh.window = fresh;
   fresh.document = {querySelector: () => null};
   fresh.addEventListener = (type, handler) => { if (type === 'keydown') keyHandler = handler; };
   fresh.removeEventListener = () => {};
   fresh.ILY = {data:{}, el:element, button:(label, onClick) => Object.assign(element('button', '', label), {onClick})};
   fresh.document.documentElement={};fresh.document.readyState='loading';fresh.document.addEventListener=()=>{};
-  for (const path of ['../game/src/i18n.js','../game/data/story/phone.js','../game/src/modes/phone.js']) {
+  for (const path of ['../game/src/i18n.js','../game/data/story/phone.js','../game/src/modes/phone.js','../game/src/freephone.js']) {
     vm.runInContext(await readFile(new URL(path, import.meta.url), 'utf8'), fresh);
   }
   const press = key => keyHandler({key,target:{closest:()=>null},preventDefault(){}});
@@ -222,6 +252,37 @@ test('手机教学删除可按确认键继续，爱理拒绝删除且提示一�
   oneSecondTimer.fn();
   assert.equal(notices.at(-1), '');
   airiCleanup();
+
+  const hiddenState = createState('s01_intro');
+  const hiddenNotices = [];
+  const mountHidden = state => fresh.ILY.mountPhone({stage:element(),node:{phone:fresh.ILY.freePhoneConfig(state)},
+    state,assets:{image:()=>''},go:()=>{},notify:message=>hiddenNotices.push(message)});
+  const hiddenCleanup = mountHidden(hiddenState);
+  press('Enter'); // 打开收件箱，尚未翻到底部
+  assert.equal(timers.size, 0);
+  assert.equal(hiddenState.flags.achievements.includes('father-reply'), false);
+  for (let i = 0; i < 3; i++) press('ArrowDown');
+  const revealTimer = [...timers.values()].find(timer => timer.delay === 500);
+  assert.ok(revealTimer, '收件箱底部应触发隐藏邮件');
+  revealTimer.fn();
+  assert.deepEqual(Array.from(hiddenState.flags.phone.found), ['F02']);
+  assert.deepEqual(Array.from(hiddenState.flags.achievements), ['father-reply']);
+  assert.ok(hiddenNotices.includes('成就解锁：父亲的回信'));
+  press('ArrowDown'); press('Enter');
+  assert.ok(hiddenState.flags.phone.freeRead.includes('F02'), '隐藏邮件可打开阅读');
+  assert.equal(fresh.ILY.data.phone.mails.F02.from, '父亲');
+  assert.ok(fresh.ILY.data.phone.mails.F02.body.trim());
+  hiddenCleanup();
+
+  const restored = JSON.parse(JSON.stringify(hiddenState));
+  const restoredCleanup = mountHidden(restored);
+  press('Enter');
+  for (let i = 0; i < 4; i++) press('ArrowDown');
+  press('Enter');
+  assert.deepEqual(restored.flags.phone.found, ['F02']);
+  assert.deepEqual(restored.flags.achievements, ['father-reply']);
+  assert.equal(hiddenNotices.filter(message => message === '成就解锁：父亲的回信').length, 1);
+  restoredCleanup();
 });
 
 test('海岸回信打开后立即完整显示正文和链接，并等待玩家确认', async () => {

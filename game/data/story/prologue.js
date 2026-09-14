@@ -201,14 +201,14 @@ ILY.data.stories.prologue = {
       enter:(state, notify) => {
         state.flags.FLAG_BLUE_CALL = "unlocked";
         if (!state.flags.achievements.includes("last-beach")) {
-          state.flags.achievements.push("last-beach"); notify("成就解锁：最后一次海边");
+          state.flags.achievements.push("last-beach"); notify(ILY.t('achieve.unlocked', {label: ILY.t('ach.last-beach')}));
         }
       } },
     ne_ending: { type:"branch", background:"bg-apartment-night", title:"门内的回信", subtitle:"路线偏向怀疑与调查。",
       text:"回房后，那封邮件再也没有出现过，海浪铃声也再没有响起。第一章将从此后的日常开始：基生带着空壳旧公寓、招租牌 0A-93MC-10N4 与十年断讯的疑问，在现实中追查爱理是否真的存在过。分支存档名：门内的回信。",
       enter:(state, notify) => {
         if (!state.flags.achievements.includes("door-letter")) {
-          state.flags.achievements.push("door-letter"); notify("成就解锁：门内的回信");
+          state.flags.achievements.push("door-letter"); notify(ILY.t('achieve.unlocked', {label: ILY.t('ach.door-letter')}));
         }
       } }
   }
