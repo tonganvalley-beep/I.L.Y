@@ -110,7 +110,7 @@ test('多存档按页槽独立保存，自动档循环且兼容旧单槽', () =>
   assert.equal(legacyManager.inspect('1', 1).status, 'empty');
 });
 
-test('双击入口的所有脚本存在，普通脚本无需服务或模块加载', async () => {
+test('游戏页的所有脚本存在，普通脚本无需服务或模块加载', async () => {
   const html = await readFile(new URL('../game/index.html', import.meta.url), 'utf8');
   assert.doesNotMatch(html, /type=["']module["']/);
   const scripts = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(match => match[1]);
@@ -131,6 +131,10 @@ test('双击入口的所有脚本存在，普通脚本无需服务或模块加�
   assert.ok(fresh.ILY.data.stories.prologue);
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(entry, /sign&amp;log\/login.html/);
+  assert.match(entry, /sessionStorage\.setItem\('ily-root-entry', '1'\)/);
+  assert.doesNotMatch(entry, /href="game\/index\.html"/);
+  assert.ok(html.indexOf("sessionStorage.getItem('ily-root-entry')") < html.indexOf('<link rel="stylesheet"'), '入口校验必须早于游戏资源加载');
+  assert.match(html, /location\.replace\(new URL\('\.\.\/index\.html'/);
 });
 
 
@@ -426,10 +430,11 @@ test('开发服务器会自动打开入口、处理目录地址并在端口占�
     readFile(new URL('../package.json', import.meta.url), 'utf8').then(JSON.parse),
     readFile(new URL('../tools/serve.mjs', import.meta.url), 'utf8')
   ]);
-  assert.match(packageJson.scripts.start, /--open \/sign&log\/login\.html$/);
+  assert.match(packageJson.scripts.start, /--open \/index\.html$/);
   assert.equal(packageJson.scripts.demo, undefined);
-  assert.match(packageJson.scripts.game, /--open \/sign&log\/login\.html$/);
-  assert.match(server, /'Location':'\/sign&log\/login\.html'/, '根地址应跳转到登录入口');
+  assert.match(packageJson.scripts.game, /--open \/index\.html$/);
+  assert.equal(packageJson.scripts.chapter1, undefined, '不应保留绕过根入口的章节直达命令');
+  assert.doesNotMatch(server, /'Location':'\/sign&log\/login\.html'/, '服务器根地址应实际加载根入口');
   assert.match(server, /pathname\.endsWith\('\/'\)/, '目录 URL 应自动查找 index.html');
   assert.match(server, /error\.code === 'EADDRINUSE'/, '端口占用时应识别 EADDRINUSE');
   assert.match(server, /listen\(port \+ 1/, '端口占用时应尝试下一个端口');

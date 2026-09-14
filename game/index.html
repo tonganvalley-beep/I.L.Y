@@ -4,6 +4,16 @@
   <meta charset="utf-8" data-page-node-id="7FOyGkZObIn4P18LuXUDGr">
   <meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="Dp6rJiwnABzyu5KLVdVg1e">
   <title>I.L.Y · 故事继续</title>
+  <script>
+    (function () {
+      var allowed = false;
+      try { allowed = sessionStorage.getItem('ily-root-entry') === '1'; } catch {}
+      if (!allowed) {
+        document.documentElement.hidden = true;
+        location.replace(new URL('../index.html', location.href).href);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles/game.css" data-page-node-id="EwJ9umIJsyZMB5ZuTiWDiR">
   <link rel="stylesheet" href="styles/prologue.css" data-page-node-id="BYyRMzFoePHCw317AiHahG">
   <link rel="stylesheet" href="styles/stage.css" data-page-node-id="Xh5GpyiJR39wMP5lrZQi8F">

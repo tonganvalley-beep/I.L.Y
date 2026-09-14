@@ -36,12 +36,6 @@ const server = http.createServer(async (request, response) => {
   try {
     const url = new URL(request.url, `http://${host}`);
     const pathname = decodeURIComponent(url.pathname);
-    // 根地址进入项目的正式登录入口。
-    if (pathname === '/') {
-      response.writeHead(302, {'Location':'/sign&log/login.html', 'Cache-Control':'no-store'});
-      response.end();
-      return;
-    }
     let relative = pathname.replace(/^\/+/, '');
     if (pathname.endsWith('/')) relative += 'index.html';
     const filename = safeFilename(relative);
@@ -77,8 +71,7 @@ function listen(port, attempts = 0) {
     server.removeListener('error', retry);
     const base = `http://${host}:${port}`;
     const target = new URL(openPath, `${base}/`).href;
-    console.log(`默认入口：${base}/`);
-    console.log(`登录入口：${base}/sign&log/login.html`);
+    console.log(`游戏入口：${base}/`);
     console.log('按 Ctrl+C 停止服务器。');
     if (shouldOpen) openBrowser(target);
   };
