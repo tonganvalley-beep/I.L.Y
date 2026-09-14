@@ -7,7 +7,9 @@ main{display:block;margin:0;height:100%}
 #stage{width:100%;height:100%;min-height:0;border:0;border-radius:0;background:#142231;isolation:isolate}
 .game-header{position:fixed;inset:0 0 auto;z-index:20;padding:18px 3vw;background:linear-gradient(#050b146b,transparent);pointer-events:none}
 .game-header #chapter{font-size:12px;letter-spacing:3px;text-shadow:0 2px 6px #000;color:#e9e7e2}
+.game-header-actions{display:flex;gap:8px;align-items:center}
 .game-header button{pointer-events:auto;background:#0c162878;border-color:#ffffff30;border-radius:24px;font-size:13px;padding:7px 19px}
+.game-header button:disabled{pointer-events:none;opacity:.32}
 .scene{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
 .scene-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#142231}
 .portrait{position:absolute;height:94%;width:55%;max-width:none;object-fit:contain;object-position:center bottom;bottom:-6%;left:50%;right:auto;transform:translateX(-50%) scale(var(--character-scale,1));transform-origin:50% 100%;filter:drop-shadow(0 8px 24px #0005)}

@@ -12,10 +12,10 @@ ILY.data.chapter1Maps = {
     },
     "tiles": [
       "########################",
-      "#FFFF.............FFFF.#",
-      "#FFFF......FFFFFF.FFFF.#",
-      "#FFFF......FFFFFF.FFFF.#",
-      "#FFFF......FFFFFF.FFFF.#",
+      "#FFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFF......FFFFFFFFFFFF#",
       "#FFFF......FFFFFF......#",
       "#FFFF..................#",
       "#FFFF..................#",
@@ -25,7 +25,7 @@ ILY.data.chapter1Maps = {
       "#......................#",
       "#FFFFFFFF...........FFF#",
       "#FFFFFFFF........FFFFFF#",
-      "#FFFFFFFF..F..F..FFFFFF#",
+      "#FFFFFFFF..FFFF..FFFFFF#",
       "########################"
     ],
     "decor": [

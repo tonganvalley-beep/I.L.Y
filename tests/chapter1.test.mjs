@@ -16,6 +16,21 @@ test('Continuous movement is frame-rate independent, slides along walls, and can
  const d={x:10,y:4};I.moveRpg(map,d,2,1);assert.ok(d.x<10.32);assert.ok(d.y>4.9);
  const e={x:8,y:8};I.moveRpg(map,e,.04,.03);assert.equal(e.x,8.04);assert.equal(e.y,8.03);
 });
+test('Room collision follows the artwork at the window and both doorways',()=>{
+ const map=I.data.maps['ch1-room'];
+ for(const [x,y,label] of [[7,2,'window'],[17,3,'bathroom door left edge'],[22,3,'bathroom door right edge'],[12,14,'entrance doorway']]){
+  assert.equal(I.canStandRpg(map,x,y),false,label);
+ }
+ for(const [start,dx,dy,minY,maxY,label] of [
+  [{x:7,y:6},0,-5,3.68,3.75,'window'],
+  [{x:19,y:5},0,-3,4.68,4.75,'bathroom door'],
+  [{x:13,y:13},0,3,13.28,13.35,'entrance doorway']
+ ]){
+  const position={...start};I.moveRpg(map,position,dx,dy);
+  assert.ok(I.canStandRpg(map,position.x,position.y),label+' movement must end on walkable floor');
+  assert.ok(position.y>minY&&position.y<maxY,label+' boundary must stop movement');
+ }
+});
 test('Fractional positions survive saves; legacy integer positions stay valid',()=>{
  const s=make();s.maps['ch1-room']={x:13.125,y:12.8125};
  const saved=JSON.parse(JSON.stringify(s));I.validateSave(saved,story,I.data.maps);assert.equal(saved.maps['ch1-room'].x,13.125);

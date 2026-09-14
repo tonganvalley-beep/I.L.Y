@@ -206,9 +206,9 @@ class Chapter:
 
 for key,file in [('chapter2','第二章游戏剧情脚本.txt'),('chapter3','第三章游戏剧情脚本.txt'),('final','最终章游戏剧情脚本.txt')]:
     c=Chapter(key,file);c.build();print(key,len(c.nodes))
-assets={'ch2-'+k:'../第二章mg/'+v[0]+'.jpg' for k,v in ART.items()}
-assets.update({'ch2-path-summer':'assets/images/maps/ch2-flowers.svg','ch3-work':'assets/images/maps/ch3-work.svg','ch3-mall':'assets/images/maps/ch3-mall.svg','ch2-follower':'assets/images/maps/airi-follower.svg'})
+assets={'ch2-'+k:'assets/images/'+('backgrounds' if v[2] == 'background' else 'cg')+'/ch2-'+k+'.jpg' for k,v in ART.items()}
+assets.update({'ch2-path-summer':'assets/images/maps/ch2-flowers.svg','ch3-work':'assets/images/maps/ch3-work.svg','ch3-mall':'assets/images/maps/ch3-mall.svg','ch2-follower':'assets/images/maps/airi-follower.svg','airi-rpg-sheet':'assets/images/maps/airi-rpg-sheet.png'})
 write(ROOT/'game/data/chapter-assets.js',assets,'Object.assign(ILY.data.assets.images, ')
 # Object.assign needs a closing parenthesis.
 p=ROOT/'game/data/chapter-assets.js';p.write_text(p.read_text(encoding='utf-8').replace('};\n','});\n'),encoding='utf-8')
-(HERE/'素材对应.md').write_text('# 第二章图片逐张对照\n\n| 文件 | 资源 ID | 观察与使用位置 | 类型 |\n|---|---|---|---|\n'+''.join(f'| {v[0]}.jpg | ch2-{k} | {v[1]} | {v[2]} |\n' for k,v in ART.items())+'\n原始图片保留在第二章mg，未改动 ILY美工设计。紫阳花盛放图片用于六月回忆；八月小路由 JSON 地图绘制。\n',encoding='utf-8')
+(HERE/'素材对应.md').write_text('# 第二章图片逐张对照\n\n| 文件 | 资源 ID | 观察与使用位置 | 类型 |\n|---|---|---|---|\n'+''.join(f'| ch2-{k}.jpg | ch2-{k} | {v[1]} | {v[2]} |\n' for k,v in ART.items())+'\n图片按类型归档在 `game/assets/images/backgrounds` 与 `game/assets/images/cg`。紫阳花盛放图片用于六月回忆；八月小路由 JSON 地图绘制。\n',encoding='utf-8')

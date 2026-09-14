@@ -74,6 +74,12 @@
   border-radius: 6px;
 }
 .ach-list li.locked { opacity: .45; }
+.ach-list li.unlocked {
+  color: #fff;
+  background: linear-gradient(100deg, #12364a, #17465c);
+  border-color: #8ddfff99;
+  box-shadow: 0 0 16px #4ecfff24, inset 3px 0 #8ddfff;
+}
 .ach-list .ach-state { color: #8fe0b0; font-size: 12px; }
 .ach-list li.locked .ach-state { color: #9db4d4; }
 
@@ -150,9 +156,12 @@
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: safe center;
   gap: 8px;
   padding: 14px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   background: #142f42;
 }
 .flip-back strong { font-weight: normal; font-size: 14px; color: #efdab0; }

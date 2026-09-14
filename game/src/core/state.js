@@ -1,7 +1,76 @@
 (() => {
 'use strict';
 function createState(node = 'arrival') {
-  return { version: 1, chapter: 'prologue', node, clues: [], flags: { achievements: [] }, maps: {} };
+  return {
+    version: 1,
+    chapter: 'prologue',
+    node,
+    clues: [],
+    flags: { achievements: [], memories: { story: [], gallery: [] } },
+    maps: {}
+  };
+}
+
+// 回滚记录的是完整游戏状态，而不只是节点 ID。这样退回选项前时，
+// 分支标记、线索、地图位置和玩法进度也会一起回到当时的值；
+// 账号级的永久成就在恢复时另行合并，不会被旧快照撤销。
+function cloneState(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function ensureMemoryProgress(state) {
+  if (!state.flags || typeof state.flags !== 'object' || Array.isArray(state.flags)) state.flags = {};
+  const memories = state.flags.memories;
+  if (!memories || typeof memories !== 'object' || Array.isArray(memories)) state.flags.memories = {};
+  if (!Array.isArray(state.flags.memories.story)) state.flags.memories.story = [];
+  if (!Array.isArray(state.flags.memories.gallery)) state.flags.memories.gallery = [];
+  return state.flags.memories;
+}
+
+// 节点只有在实际进入时才会进入剧情回忆；节点中实际展示过的 CG / 插图才会进入画廊。
+function activateMemory(state, nodeId, node) {
+  const memories = ensureMemoryProgress(state);
+  if (typeof nodeId === 'string' && nodeId && !memories.story.includes(nodeId)) memories.story.push(nodeId);
+  for (const assetId of [node && node.cg, node && node.overlay, node && node.gallery]) {
+    if (typeof assetId === 'string' && assetId && !memories.gallery.includes(assetId)) memories.gallery.push(assetId);
+  }
+  return memories;
+}
+
+// 成就和已激活的回忆都是账号级的永久进度，不应随着剧情回滚而撤销。
+// 只合并这些已解锁 ID；其余剧情状态仍以历史快照为准。
+function preserveAchievements(restored, current) {
+  if (!restored.flags || typeof restored.flags !== 'object' || Array.isArray(restored.flags)) restored.flags = {};
+  const before = Array.isArray(restored.flags.achievements) ? restored.flags.achievements : [];
+  const unlocked = current && current.flags && Array.isArray(current.flags.achievements)
+    ? current.flags.achievements
+    : [];
+  restored.flags.achievements = [...new Set([...before, ...unlocked])];
+  const restoredMemories = ensureMemoryProgress(restored);
+  const currentMemories = current ? ensureMemoryProgress(current) : { story: [], gallery: [] };
+  restoredMemories.story = [...new Set([...restoredMemories.story, ...currentMemories.story])];
+  restoredMemories.gallery = [...new Set([...restoredMemories.gallery, ...currentMemories.gallery])];
+  return restored;
+}
+
+function createRollbackHistory(limit = 120) {
+  const capacity = Number.isInteger(limit) && limit > 1 ? limit : 120;
+  let entries = [];
+  return {
+    record(value) {
+      entries.push(cloneState(value));
+      if (entries.length > capacity) entries.splice(0, entries.length - capacity);
+    },
+    back(current) {
+      if (entries.length < 2) return null;
+      entries.pop();
+      const restored = cloneState(entries[entries.length - 1]);
+      return current ? preserveAchievements(restored, current) : restored;
+    },
+    reset() { entries = []; },
+    get canRollback() { return entries.length > 1; },
+    get length() { return entries.length; }
+  };
 }
 
 function addClue(state, clue) {
@@ -57,8 +126,9 @@ function validateSave(value, story, maps) {
     }
   }
   if (!Array.isArray(value.flags.achievements)) value.flags.achievements = [];
+  ensureMemoryProgress(value);
   return value;
 }
 
-Object.assign(ILY, { createState, addClue, canDeduce, canWalk, canStandRpg, moveRpg, validateSave });
+Object.assign(ILY, { createState, createRollbackHistory, preserveAchievements, ensureMemoryProgress, activateMemory, addClue, canDeduce, canWalk, canStandRpg, moveRpg, validateSave });
 })();

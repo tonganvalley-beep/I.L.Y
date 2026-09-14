@@ -1,11 +1,34 @@
 (() => {
 'use strict';
 const {el,button,rpgProgress,activeRpgEvents,interactRpg,finishRpgAutomatically,moveRpg}=ILY;
+// Follow arc length, not a count of intermittently sampled frames. Keep every
+// corner and interpolate the segment containing the fixed-distance target.
+function createRpgFollower(leader,start=leader,gap=1.05){
+  let total=Math.hypot(leader.x-start.x,leader.y-start.y),travel=0;
+  const path=[{...start,d:0}];
+  if(total)path.push({...leader,d:total});
+  const actor={...start,facing:'front',stride:0,walking:false};
+  actor.update=next=>{
+    const tail=path[path.length-1],step=Math.hypot(next.x-tail.x,next.y-tail.y);
+    if(step>1e-9){total+=step;path.push({...next,d:total});}
+    const wanted=Math.max(0,total-gap),advance=wanted-travel;
+    actor.walking=advance>1e-9;
+    if(!actor.walking){actor.stride=0;return actor;}
+    while(path.length>2&&path[1].d<=wanted)path.shift();
+    const a=path[0],b=path[1],ratio=(wanted-a.d)/(b.d-a.d);
+    actor.x=a.x+(b.x-a.x)*ratio;actor.y=a.y+(b.y-a.y)*ratio;
+    const dx=b.x-a.x,dy=b.y-a.y;
+    actor.facing=Math.abs(dx)>Math.abs(dy)*.4?(dx<0?'left':'right'):(dy<0?'back':'front');
+    actor.stride+=advance;travel=wanted;
+    return actor;
+  };
+  return actor;
+}
 function mountRpg({stage,node,state,assets,go}) {
   const p=rpgProgress(state,node.task),maps=ILY.data.maps;
   let map=maps[p.map] || maps[node.map],position,frame,last=0,disposed=false,finishedFor=0;
   let target=null,facing='front',stride=0,walking=false,messageFor=5,idle=0;
-  let follower=null,trail=[];
+  let follower=null;
   const keys=new Set(),images=new Map(),roomScenes=new Map(),camera={x:0,y:0,scale:1,width:1,height:1};
   let trashSprite;
   const panel=el('section','rpg-panel'),canvas=el('canvas','rpg-canvas');canvas.tabIndex=0;
@@ -29,7 +52,17 @@ function mountRpg({stage,node,state,assets,go}) {
     const e=closest();prompt.hidden=p.done || !e;if(e)prompt.textContent='E · '+e.label;auto.hidden=p.done;
   }
   function useMap(next,arrival){
-    map=next;p.map=map.id;position=state.maps[map.id] ||= {...map.spawn};if(arrival)Object.assign(position,arrival);target=null;idle=0;trail=[];follower=null;
+    map=next;p.map=map.id;position=state.maps[map.id] ||= {...map.spawn};if(arrival)Object.assign(position,arrival);target=null;idle=0;follower=null;
+    if(node.follower){
+      let start={...position};
+      // Seed a short, collision-checked cardinal path so she is visible on entry.
+      for(const [dx,dy] of [[0,1],[1,0],[-1,0],[0,-1]]){
+        const candidate={...position};
+        for(let i=0;i<21;i++)moveRpg(map,candidate,dx*.05,dy*.05);
+        if(Math.hypot(candidate.x-position.x,candidate.y-position.y)>Math.hypot(start.x-position.x,start.y-position.y))start=candidate;
+      }
+      follower=createRpgFollower(position,start);
+    }
     if(!p.visited.includes(map.id))p.visited.push(map.id);
     if(node.task==='G5')state.flags.G5_STAGE=map.id;
     if(map.id==='ch1-restroom'&&!state.flags.G5_SCREAM)say(interactRpg(state,node.task,{id:'scream',kind:'scream',text:'十屋：哇啊啊啊——！远处的惨叫突然中断。总觉得发生了什么……'}));
@@ -58,11 +91,12 @@ function mountRpg({stage,node,state,assets,go}) {
     refresh();canvas.focus();
   }
   function interact(){if(blocked())return;const e=closest();if(e)act(e);}
-  function drawAsset(id,x,y,w,h){
+  function drawAsset(id,x,y,w,h,cell=null){
     const path=assets.image(id);if(!path)return false;
     if(!images.has(path)){const img=new Image();img.src=path;images.set(path,img);}
     const img=images.get(path);if(!img.complete||!img.naturalWidth)return false;
-    ctx.drawImage(img,x,y,w,h);
+    if(cell===null)ctx.drawImage(img,x,y,w,h);
+    else{const cw=img.naturalWidth/4,ch=img.naturalHeight/2;ctx.drawImage(img,(cell%4)*cw,Math.floor(cell/4)*ch,cw,ch,x,y,w,h);}
     return true;
   }
   function resize(){
@@ -113,14 +147,22 @@ function mountRpg({stage,node,state,assets,go}) {
       else{ctx.beginPath();ctx.arc(ex,ey,e===nearby?5:3,0,Math.PI*2);ctx.fill();}
     }
     const x=(position.x+.5)*t,y=(position.y+.5)*t;
-    if(node.follower&&follower){
-      drawAsset('ch2-follower',(follower.x+.5)*t-24,(follower.y+.5)*t-40,48,56);
+    function drawFollower(){
+      if(!follower)return;
+      const fx=(follower.x+.5)*t,fy=(follower.y+.5)*t;
+      const sx=classic?Math.round(fx*camera.scale)/camera.scale:fx,sy=classic?Math.round(fy*camera.scale)/camera.scale:fy;
+      ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+20,10,4,0,0,Math.PI*2);ctx.fill();
+      const side=follower.facing==='left'||follower.facing==='right';
+      const cell=follower.walking&&side?(follower.facing==='left'?4:6)+Math.floor(follower.stride/.45)%2:{front:0,back:1,left:2,right:3}[follower.facing];
+      drawAsset('airi-rpg-sheet',sx-32,sy-38,64,64,cell);
     }
+    if(follower&&follower.y<=position.y)drawFollower();
     // Keep Kio's original artwork and animation; the close camera supplies the enlargement.
     const sx=classic?Math.round(x*camera.scale)/camera.scale:x,sy=classic?Math.round(y*camera.scale)/camera.scale:y;
-    ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+4,11,4,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+20,11,4,0,0,Math.PI*2);ctx.fill();
     const image=walking&&(facing==='left'||facing==='right')?`ch1-kio-${facing}-${1+Math.floor(stride/.12)%2}`:facing==='back'?'ch1-kio-back':map.art.player;
     if(!drawAsset(image,sx-32,sy-42,64,64))drawAsset(map.art.player,sx-32,sy-42,64,64);
+    if(follower&&follower.y>position.y)drawFollower();
   }
   const directions={arrowleft:[-1,0],a:[-1,0],arrowright:[1,0],d:[1,0],arrowup:[0,-1],w:[0,-1],arrowdown:[0,1],s:[0,1]};
   function keydown(e){
@@ -147,14 +189,11 @@ function mountRpg({stage,node,state,assets,go}) {
       const length=Math.hypot(dx,dy),distance=Math.min(3.8*dt,target?length:Infinity),before={...position};
       if(length>.02){moveRpg(map,position,dx/length*distance,dy/length*distance);idle=0;}
       walking=Math.hypot(position.x-before.x,position.y-before.y)>.0001;
-      if(walking&&node.follower){
-        if(!trail.length||Math.hypot(position.x-trail[trail.length-1].x,position.y-trail[trail.length-1].y)>.12)trail.push({...position});
-        if(trail.length>9)follower=trail.shift();
-      }
+      follower?.update(position);
       if(walking){stride+=dt;facing=Math.abs(dx)>Math.abs(dy)*.4?(dx<0?'left':'right'):(dy<0?'back':'front');}else stride=0;
       const touch=events().find(e=>e.touch&&Math.hypot(e.x-position.x,e.y-position.y)<.5);if(touch)act(touch);
       if(idle>(node.timeout||{G1:60,G2:10,G3:60,G4:90,G5:240}[node.task]||90))completeAutomatically();
-    }else{keys.clear();target=null;walking=false;if(p.done&&!blocked()){finishedFor+=dt;if(finishedFor>=2.5){go(node.next);return;}}}
+    }else{keys.clear();target=null;walking=false;if(follower)follower.walking=false;if(p.done&&!blocked()){finishedFor+=dt;if(finishedFor>=2.5){go(node.next);return;}}}
     if(!blocked()){messageFor-=dt;message.hidden=messageFor<=0;}
     refresh();draw();frame=requestAnimationFrame(tick);
   }
@@ -165,5 +204,5 @@ function mountRpg({stage,node,state,assets,go}) {
   frame=requestAnimationFrame(tick);
   return()=>{disposed=true;cancelAnimationFrame(frame);observer.disconnect();clear();menuInfo.remove();document.body.classList.remove('rpg-active');window.removeEventListener('keydown',keydown);window.removeEventListener('keyup',keyup);window.removeEventListener('blur',clear);document.removeEventListener('visibilitychange',clear);canvas.removeEventListener('pointerdown',pointerdown);canvas.removeEventListener('pointermove',pointermove);canvas.removeEventListener('pointerup',pointerup);canvas.removeEventListener('pointercancel',pointerup);};
 }
-Object.assign(ILY,{mountRpg});
+Object.assign(ILY,{mountRpg,createRpgFollower});
 })();

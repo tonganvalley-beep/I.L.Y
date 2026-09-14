@@ -82,6 +82,30 @@ function collectAchievements() {
   return unlocked;
 }
 
+/* 剧情与画廊和成就一样按账号汇总，但只收集实际进入节点时写入的激活记录。 */
+function collectMemoryProgress() {
+  const progress = { story: new Set(), gallery: new Set() };
+  const merge = value => {
+    const memories = value && value.flags && value.flags.memories;
+    if (!memories || typeof memories !== 'object') return;
+    for (const type of ['story', 'gallery']) {
+      if (Array.isArray(memories[type])) memories[type].forEach(id => progress[type].add(id));
+    }
+  };
+  merge(typeof deps.getState === 'function' ? deps.getState() : null);
+
+  const saves = deps.saves;
+  if (saves && saves.storage) {
+    for (const page of ['1', '2', 'auto', 'quick']) {
+      let items = [];
+      try { items = saves.list(page); } catch { continue; }
+      items.forEach(item => { if (item.status === 'ok') merge(item.record.state); });
+    }
+    try { merge(JSON.parse(saves.storage.getItem(saves.legacyKey) || 'null')); } catch { /* 忽略损坏旧档 */ }
+  }
+  return progress;
+}
+
 function renderAchievements() {
   const unlocked = collectAchievements();
   const known = new Set(ACH_IDS);
@@ -89,10 +113,10 @@ function renderAchievements() {
   achList.replaceChildren();
   [...ACH_IDS, ...extras].forEach(id => {
     const got = unlocked.has(id);
-    const li = el('li', got ? '' : 'locked');
+    const li = el('li', got ? 'unlocked' : 'locked');
     const name = el('span');
     const translated = t('ach.' + id);
-    name.textContent = translated === 'ach.' + id ? id : translated;
+    name.textContent = got ? (translated === 'ach.' + id ? id : translated) : '？？？';
     const state = el('span', 'ach-state', t(got ? 'ach.unlocked' : 'ach.locked'));
     li.append(name, state);
     achList.append(li);
@@ -102,17 +126,22 @@ function renderAchievements() {
 /* ---------- 剧情回忆：按章节重读文字剧本 ----------
    数据来自 ILY.data.stories。逐节点输出带文字的节点；旁白不显示说话人名。 */
 function renderStoryLog() {
+  const unlocked = collectMemoryProgress().story;
   storyLog.replaceChildren();
   const frag = document.createDocumentFragment();
   let anyStory = false;
   STORY_IDS.forEach(id => {
     const story = ILY.data && ILY.data.stories && ILY.data.stories[id];
     if (!story || !story.nodes) return;
-    anyStory = true;
-    frag.append(el('div', 'story-chapter', story.title || id));
+    let chapterAdded = false;
     Object.keys(story.nodes).forEach(nodeId => {
       const node = story.nodes[nodeId];
-      if (!node || typeof node.text !== 'string' || !node.text.trim()) return;
+      if (!unlocked.has(nodeId) || !node || typeof node.text !== 'string' || !node.text.trim()) return;
+      if (!chapterAdded) {
+        frag.append(el('div', 'story-chapter', story.title || id));
+        chapterAdded = true;
+        anyStory = true;
+      }
       const entry = el('div', 'story-entry');
       const isNarration = !node.speaker || node.speaker === '旁白';
       if (isNarration) entry.classList.add('plain');
@@ -144,11 +173,12 @@ function galleryBaseUrl() {
   try { return new URL(raw, location.href).href; } catch { return raw; }
 }
 
-function galleryEntries() {
+function galleryEntries(unlocked) {
   const list = Array.isArray(window.ILY_GALLERY) ? window.ILY_GALLERY : [];
   const base = galleryBaseUrl();
   return list
-    .filter(item => item && typeof item.src === 'string' && item.src)
+    .filter(item => item && typeof item.src === 'string' && item.src &&
+      typeof item.unlock === 'string' && unlocked.has(item.unlock))
     .map(item => {
       let src = item.src;
       try { src = new URL(item.src, base).href; } catch { /* 已经是绝对地址则原样保留 */ }
@@ -158,11 +188,12 @@ function galleryEntries() {
 
 /* 手机相册照片（data/story/phone.js 的 photos）也收入画廊：
    图片经资源清单 assets.images 解析路径，标题/说明取自相册数据。 */
-function phoneAlbumEntries() {
+function phoneAlbumEntries(unlocked) {
   const photos = (ILY.data.phone && ILY.data.phone.photos) || {};
   const images = (ILY.data.assets && ILY.data.assets.images) || {};
   return Object.keys(photos).map(id => {
     const photo = photos[id] || {};
+    if (!unlocked.has(photo.img)) return null;
     let src = '';
     if (typeof deps.resolveAsset === 'function') src = deps.resolveAsset(photo.img) || '';
     if (!src && images[photo.img]) src = images[photo.img];
@@ -181,8 +212,9 @@ function phoneAlbumEntries() {
 
 function renderFlipGallery() {
   flipGrid.replaceChildren();
+  const unlocked = collectMemoryProgress().gallery;
   /* 用户在 gallery-data.js 添加的图在前，手机相册的照片在后 */
-  const entries = [...galleryEntries(), ...phoneAlbumEntries()];
+  const entries = [...galleryEntries(unlocked), ...phoneAlbumEntries(unlocked)];
   galEmpty.hidden = entries.length > 0;
   galEmpty.textContent = t('gal.empty');
   entries.forEach(item => {
@@ -288,7 +320,7 @@ function build() {
   galEmpty = el('p', 'hint');
   galEmpty.hidden = true;
   galDialog.append(
-    heading('gal.title', 'gal.subtitle', 'menu.close', () => galDialog.close()),
+    heading('gal.title', null, 'menu.close', () => galDialog.close()),
     flipGrid,
     galEmpty,
     actions(() => galDialog.close())
@@ -327,7 +359,6 @@ function build() {
     storyDialog.querySelector('.hint').textContent = t('story.subtitle');
     storyDialog.querySelector('.dialog-actions button').textContent = t('common.close');
     galDialog.querySelector('h2').textContent = t('gal.title');
-    galDialog.querySelector('.hint').textContent = t('gal.subtitle');
     galDialog.querySelector('.dialog-actions button').textContent = t('common.close');
     if (memDialog.open) renderMemDialog();
     if (storyDialog.open) renderStoryLog();

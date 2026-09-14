@@ -11,10 +11,10 @@
     },
     "tiles": [
       "########################",
-      "#FFFF.............FFFF.#",
-      "#FFFF......FFFFFF.FFFF.#",
-      "#FFFF......FFFFFF.FFFF.#",
-      "#FFFF......FFFFFF.FFFF.#",
+      "#FFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFF......FFFFFFFFFFFF#",
       "#FFFF......FFFFFF......#",
       "#FFFF..................#",
       "#FFFF..................#",
@@ -24,7 +24,7 @@
       "#......................#",
       "#FFFFFFFF...........FFF#",
       "#FFFFFFFF........FFFFFF#",
-      "#FFFFFFFF..F..F..FFFFFF#",
+      "#FFFFFFFF..FFFF..FFFFFF#",
       "########################"
     ],
     "decor": [

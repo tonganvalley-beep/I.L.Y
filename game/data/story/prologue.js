@@ -51,7 +51,7 @@ ILY.data.stories.prologue = {
     } },
     s03_family: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-dusk",
       text:"对我来说早已不存在什么能称之为朋友的人了。连家人也早就……进了大学以后，爸爸和妈妈再也没有联系过我。", next:"s03_bankbook" },
-    s03_bankbook: { type:"dialogue", speaker:"旁白", background:"bg-apartment-dusk",
+    s03_bankbook: { type:"dialogue", speaker:"旁白", background:"bg-apartment-dusk", gallery:"bankbook",
       text:"一本银行存折上，大学入学后每月固定入账60,000日元，备注栏一片空白。", next:"s03_family2" },
     s03_family2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-dusk",
       text:"（冷静得近乎异常）只剩下每个月若无其事汇入我账户的6万日元。", next:"s04a" },

@@ -30,9 +30,11 @@ test('Classic room camera zooms in, follows both axes and stops at every map edg
 test('Classic room art is data driven while keeping the original task targets',()=>{
   assert.equal(room.art.renderer,'classic-room');assert.equal(room.art.nativeTileSize,16);
   for(const o of room.decor){assert.ok(o.w>0&&o.h>0);assert.ok(o.x>=0&&o.y>=0);assert.ok(o.x+o.w<=room.width&&o.y+o.h<=room.height);}
-  for(const [x,y,label] of [[2,5,'书架'],[14,3,'电脑桌'],[19,3,'浴室门框'],[5,13,'床'],[18,13,'零食桌'],[21,13,'坐垫']]) {
+  for(const [x,y,label] of [[2,5,'书架'],[7,2,'窗户'],[14,3,'电脑桌'],[17,3,'浴室门左侧'],[22,3,'浴室门右侧'],[12,14,'入户门口'],[5,13,'床'],[18,13,'零食桌'],[21,13,'坐垫']]) {
     assert.equal(room.tiles[y][x],'F',`${label}必须有真实碰撞块`);
   }
+  for(let x=1;x<room.width-1;x++)for(let y=1;y<=3;y++)assert.equal(room.tiles[y][x],'F','背墙和窗户区域不可行走');
+  for(const [x,y,label] of [[7,4,'窗前地板'],[19,5,'浴室门前交互点'],[13,13,'入户门前地板']])assert.equal(room.tiles[y][x],'.',`${label}必须仍可到达`);
   for(const event of room.events) assert.equal(room.tiles[event.y][event.x],'.',`${event.id} 调查点必须可到达`);
   assert.deepEqual(room.events.map(e=>[e.id,e.x,e.y]),[
     ['floor',11,10],['desk',14,6],['shelf',5,6],['bath',19,5],['handle1',14,6],['handle2',8,11],['computer',14,6]

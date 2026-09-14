@@ -51,9 +51,11 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   for (const id of mailIds) if (!flags.phone.seenMails.includes(id)) flags.phone.seenMails.push(id);
   for (const id of (cfg.contacts || [])) if (!flags.phone.seenContacts.includes(id)) flags.phone.seenContacts.push(id);
 
-  // 已读：自由手机与剧情进度各记一份
+  // 已读：自由手机与剧情进度各记一份。
+  // 自由手机也要认可剧情中已经读过的邮件，否则剧情读完后重新开机会再次显示未读角标；
+  // 反向仍保持隔离，避免玩家在自由手机里提前阅读后跳过剧情节点。
   const readList = () => (freeMode ? flags.phone.freeRead : flags.phone.read);
-  const isRead = id => readList().includes(id);
+  const isRead = id => flags.phone.read.includes(id) || readList().includes(id);
   const markRead = id => { const list = readList(); if (!list.includes(id)) list.push(id); };
 
   let tab = cfg.tab || 'mail';

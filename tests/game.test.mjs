@@ -16,7 +16,7 @@ await run('../game/data/story/prologue.js');
 await run('../game/data/maps/classroom.js');
 await run('../game/data/battles/first-trial.js');
 await run('../game/src/core/saves.js');
-const { createState, addClue, canWalk, canDeduce, validateSave, SaveManager } = context.ILY;
+const { createState, createRollbackHistory, addClue, canWalk, canDeduce, validateSave, SaveManager } = context.ILY;
 const story = context.ILY.data.stories.prologue;
 const map = context.ILY.data.maps.classroom;
 
@@ -152,6 +152,63 @@ test('两个结局可从新状态进入，成就不重复，旧存档补齐成�
   const old = createState(story.start); old.flags = {};
   assert.ok(Array.isArray(validateSave(old, story, {classroom: map}).flags.achievements));
 });
+test('回滚历史保存完整状态快照并丢弃未来进度', () => {
+  const history = createRollbackHistory(3);
+  const state = createState('s01_intro');
+  history.record(state);
+  state.node = 'br01'; history.record(state);
+  state.flags.route = 'A'; state.clues.push('future-clue'); state.node = 's07a'; history.record(state);
+  state.flags.route = 'B'; state.clues.push('later-change');
+  const previous = history.back();
+  assert.equal(previous.node, 'br01');
+  assert.equal(previous.flags.route, undefined);
+  assert.deepEqual(Array.from(previous.clues), []);
+  previous.flags.changedAfterRestore = true;
+  const first = history.back();
+  assert.equal(first.node, 's01_intro');
+  assert.equal(first.flags.changedAfterRestore, undefined, '返回值不能修改历史内的快照');
+  assert.equal(history.back(), null);
+});
+
+test('回滚保留已解锁成就，但仍恢复其他剧情状态', () => {
+  const history = createRollbackHistory();
+  const state = createState('s01_intro');
+  history.record(state);
+  state.node = 'br01';
+  history.record(state);
+  state.flags.route = 'A';
+  state.flags.achievements.push('father-reply');
+  state.node = 's07a';
+  history.record(state);
+  state.flags.achievements.push('last-beach');
+
+  const previous = history.back(state);
+  assert.equal(previous.node, 'br01');
+  assert.equal(previous.flags.route, undefined);
+  assert.deepEqual(Array.from(previous.flags.achievements), ['father-reply', 'last-beach']);
+
+  const first = history.back(previous);
+  assert.equal(first.node, 's01_intro');
+  assert.deepEqual(Array.from(first.flags.achievements), ['father-reply', 'last-beach']);
+});
+
+test('剧情与画廊仅在节点实际激活后解锁，且回滚不会撤销', () => {
+  const state = createState('s01_intro');
+  assert.deepEqual(Array.from(state.flags.memories.story), []);
+  assert.deepEqual(Array.from(state.flags.memories.gallery), []);
+
+  context.ILY.activateMemory(state, 's01_intro', story.nodes.s01_intro);
+  context.ILY.activateMemory(state, 's01_photo', story.nodes.s01_photo);
+  context.ILY.activateMemory(state, 's01_photo', story.nodes.s01_photo);
+  assert.deepEqual(Array.from(state.flags.memories.story), ['s01_intro', 's01_photo']);
+  assert.deepEqual(Array.from(state.flags.memories.gallery), ['photo-seaside']);
+
+  const restored = createState('s01_intro');
+  context.ILY.activateMemory(restored, 's03_bankbook', story.nodes.s03_bankbook);
+  const merged = context.ILY.preserveAchievements(restored, state);
+  assert.deepEqual(Array.from(merged.flags.memories.story), ['s03_bankbook', 's01_intro', 's01_photo']);
+  assert.deepEqual(Array.from(merged.flags.memories.gallery), ['bankbook', 'photo-seaside']);
+});
 
 test('结局成就名称具备中英文翻译', () => {
   const names = {
@@ -274,6 +331,16 @@ test('手机教学删除、爱理保护及隐藏回信探索正常工作', async
   assert.ok(fresh.ILY.data.phone.mails.F02.body.trim());
   hiddenCleanup();
 
+  const rereadState = createState('s01_photo');
+  rereadState.flags.phone = {read:['A01','A02','A03','A04'],deleted:[]};
+  const rereadStage = element();
+  const rereadCleanup = fresh.ILY.mountPhone({stage:rereadStage,node:{phone:fresh.ILY.freePhoneConfig(rereadState)},
+    state:rereadState,assets:{image:()=>''},go:()=>{},notify:()=>{}});
+  const mailIcon = rereadStage.children[0].children[0].children[1].children[0].children[0].children[0];
+  assert.equal(mailIcon.children.some(child => child.className === 'home-badge'), false,
+    '剧情中读完爱理的四封信后，自由手机不应再次显示四封未读');
+  rereadCleanup();
+
   const restored = JSON.parse(JSON.stringify(hiddenState));
   const restoredCleanup = mountHidden(restored);
   press('Enter');
@@ -354,47 +421,15 @@ test('开始菜单接入游戏、OP 跳过与读取存档启动参数', async ()
   assert.ok((await readFile(new URL('../game/I.L.Y.-OP.mp4', import.meta.url))).length > 0);
 });
 
-test('RPG 两种地图 Demo 完整，JSON 图层尺寸和引用素材有效', async () => {
-  const demoRoot = new URL('../game/rpg-demo/', import.meta.url);
-  const [html, source, map] = await Promise.all([
-    readFile(new URL('index.html', demoRoot), 'utf8'),
-    readFile(new URL('rpg-demo.js', demoRoot), 'utf8'),
-    readFile(new URL('map-demo.json', demoRoot), 'utf8').then(JSON.parse)
-  ]);
-  assert.match(html, /data-mode="photo"/);
-  assert.match(html, /data-mode="json"/);
-  assert.match(source, /photoScene/);
-  assert.match(source, /fetch\('map-demo\.json'/);
-  new vm.Script(source, {filename: 'rpg-demo.js'});
-
-  assert.equal(map.tileLayers.find(layer => layer.name === '墙体').data.length, map.height);
-  for (const layer of map.tileLayers.filter(layer => layer.data)) {
-    for (const row of layer.data) assert.equal(row.length, map.width, `${layer.name} 行宽错误`);
-  }
-  const ids = map.objects.map(object => object.id);
-  assert.equal(new Set(ids).size, ids.length, '地图物件 ID 不应重复');
-  assert.ok(map.objects.some(object => object.solid), 'JSON 地图应包含碰撞物件');
-  assert.ok(map.objects.some(object => object.interaction), 'JSON 地图应包含交互物件');
-  assert.ok(map.player?.spawn && map.player?.images, 'JSON 地图应配置人物出生点和图片');
-
-  const paths = [
-    map.tileset.image,
-    ...map.imageLayers.map(layer => layer.image),
-    ...map.objects.filter(object => object.image).map(object => object.image),
-    ...Object.values(map.player.images).flat()
-  ];
-  for (const path of new Set(paths)) assert.ok((await readFile(new URL(path, demoRoot))).length, path);
-});
-
 test('开发服务器会自动打开入口、处理目录地址并在端口占用时重试', async () => {
   const [packageJson, server] = await Promise.all([
     readFile(new URL('../package.json', import.meta.url), 'utf8').then(JSON.parse),
     readFile(new URL('../tools/serve.mjs', import.meta.url), 'utf8')
   ]);
-  assert.match(packageJson.scripts.start, /--open \/game\/rpg-demo\/index\.html$/);
-  assert.match(packageJson.scripts.demo, /--open \/game\/rpg-demo\/index\.html$/);
+  assert.match(packageJson.scripts.start, /--open \/sign&log\/login\.html$/);
+  assert.equal(packageJson.scripts.demo, undefined);
   assert.match(packageJson.scripts.game, /--open \/sign&log\/login\.html$/);
-  assert.match(server, /'Location':'\/game\/rpg-demo\/index\.html'/, '根地址应跳转到免登录 Demo');
+  assert.match(server, /'Location':'\/sign&log\/login\.html'/, '根地址应跳转到登录入口');
   assert.match(server, /pathname\.endsWith\('\/'\)/, '目录 URL 应自动查找 index.html');
   assert.match(server, /error\.code === 'EADDRINUSE'/, '端口占用时应识别 EADDRINUSE');
   assert.match(server, /listen\(port \+ 1/, '端口占用时应尝试下一个端口');

@@ -51,7 +51,7 @@ test('All supplied chapter-two images are used by dialogue or investigations and
  const ids=new Set();
  for(const n of Object.values(story.nodes))for(const id of [n.background,n.cg,n.portrait,n.overlay].filter(Boolean))ids.add(id);
  for(const m of Object.values(maps))for(const e of m.events||[])if(e.preview)ids.add(e.preview);
- const supplied=Object.entries(I.data.assets.images).filter(([,path])=>path.startsWith('../第二章mg/'));
+ const supplied=Object.entries(I.data.assets.images).filter(([,path])=>/^assets\/images\/(?:backgrounds|cg)\/ch2-.*\.jpg$/.test(path));
  assert.equal(supplied.length,16);
  for(const [id,path]of supplied){assert.ok(ids.has(id),'unused '+id);await access(new URL('game/'+path,root));}
  for(const id of ids)assert.ok(Object.hasOwn(I.data.assets.images,id),'unregistered '+id);

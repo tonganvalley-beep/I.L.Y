@@ -36,10 +36,9 @@ const server = http.createServer(async (request, response) => {
   try {
     const url = new URL(request.url, `http://${host}`);
     const pathname = decodeURIComponent(url.pathname);
-    // 开发默认入口是无需账号的 RPG Demo。使用跳转而不是内部代替文件，
-    // 让浏览器以正确目录解析 Demo 的 CSS、脚本、JSON 和图片相对路径。
+    // 根地址进入项目的正式登录入口。
     if (pathname === '/') {
-      response.writeHead(302, {'Location':'/game/rpg-demo/index.html', 'Cache-Control':'no-store'});
+      response.writeHead(302, {'Location':'/sign&log/login.html', 'Cache-Control':'no-store'});
       response.end();
       return;
     }
@@ -78,9 +77,8 @@ function listen(port, attempts = 0) {
     server.removeListener('error', retry);
     const base = `http://${host}:${port}`;
     const target = new URL(openPath, `${base}/`).href;
-    console.log(`默认入口（免登录 Demo）：${base}/`);
-    console.log(`RPG Demo：${base}/game/rpg-demo/index.html`);
-    console.log(`原登录入口：${base}/sign&log/login.html`);
+    console.log(`默认入口：${base}/`);
+    console.log(`登录入口：${base}/sign&log/login.html`);
     console.log('按 Ctrl+C 停止服务器。');
     if (shouldOpen) openBrowser(target);
   };

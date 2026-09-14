@@ -1,6 +1,6 @@
 (async () => {
 'use strict';
-const { createState, validateSave, SaveManager } = ILY;
+const { createState, createRollbackHistory, validateSave, SaveManager } = ILY;
 const { Assets } = ILY;
 const { el, button } = ILY;
 const { mountDialogue } = ILY;
@@ -64,6 +64,8 @@ try {
   const saveTitle = document.querySelector('#save-menu-title');
   const saveSubtitle = document.querySelector('#save-menu-subtitle');
   const saveStatus = document.querySelector('#save-status');
+  const rollbackBtn = document.querySelector('#rollback');
+  const rollbackHistory = createRollbackHistory();
   let saveMode = 'save';
   let savePage = '1';
 
@@ -100,6 +102,7 @@ try {
     document.querySelector('#chapter').textContent = story.nodes[state.node]?.chapterTitle || t('chapter.title');
     updateFullscreenLabel();
     soundBtn.textContent = t(assets.enabled ? 'menu.sound.off' : 'menu.sound.on');
+    rollbackBtn.title = t('menu.rollbackTitle');
     refreshClues();
     if (saveMenu.open) {
       saveTitle.textContent = t(saveMode === 'save' ? 'save.title.save' : 'save.title.load');
@@ -211,6 +214,7 @@ try {
           if (!occupied || !window.confirm(t('save.confirmLoad', { label }))) return;
           try {
             state = saves.load(savePage, inspected.slot);
+            rollbackHistory.reset();
             saveMenu.close();
             go(state.node, { autosave: false });
             notify(t('save.loaded', { label }));
@@ -298,6 +302,8 @@ try {
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
     if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
     cleanup(); cleanup = () => {}; state.node = next;
+    ILY.activateMemory(state, next, node);
+    if (options.recordRollback !== false) rollbackHistory.record(state);
     ILY.enterChapterNode(state,node);
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
     stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type; notify(''); refreshClues();
@@ -321,15 +327,42 @@ try {
       if (node.subtitle) end.append(el('p', 'hint', node.subtitle));
       if (node.next) end.append(button(node.nextLabel||'进入第一章', () => go(node.next)));
       if(node.ending)end.append(button('读取存档，探索另一种选择',()=>openSaveMenu('load')));
-      end.append(button(t('end.restart'), () => { state = createState(story.start); go(story.start); }));
+      end.append(button(t('end.restart'), () => { state = createState(story.start); rollbackHistory.reset(); go(story.start); }));
       stage.append(end);
     } else {
       const end = el('section', 'mode-panel');
-      end.append(el('h1', '', t('end.tbc')), el('p', '', node.text), button(t('end.restart'), () => { state = createState(story.start); go(story.start); }));
+      end.append(el('h1', '', t('end.tbc')), el('p', '', node.text), button(t('end.restart'), () => { state = createState(story.start); rollbackHistory.reset(); go(story.start); }));
       stage.append(end);
     }
     maybeAutosave(node, options.autosave !== false);
+    rollbackBtn.disabled = !rollbackHistory.canRollback;
   }
+
+  function rollback() {
+    if (document.querySelector('dialog[open]')) return;
+    const previous = rollbackHistory.back(state);
+    if (!previous) return;
+    state = previous;
+    go(state.node, { autosave: false, recordRollback: false });
+    notify(t('notify.rolledBack'), 1200);
+  }
+
+  rollbackBtn.onclick = rollback;
+  let lastWheelRollback = 0;
+  window.addEventListener('keydown', event => {
+    if (event.code !== 'PageUp' || event.repeat || event.ctrlKey || event.altKey || event.metaKey ||
+        event.target.closest?.('button, a, input, textarea, select')) return;
+    event.preventDefault();
+    rollback();
+  });
+  stage.addEventListener('wheel', event => {
+    if (event.deltaY >= 0 || !['dialogue', 'choice'].includes(stage.dataset.mode)) return;
+    const now = performance.now();
+    if (now - lastWheelRollback < 350) return;
+    lastWheelRollback = now;
+    event.preventDefault();
+    rollback();
+  }, { passive: false });
 
   document.querySelector('#sound').onclick = event => {
     event.target.textContent = t(assets.toggle() ? 'menu.sound.off' : 'menu.sound.on');
@@ -346,6 +379,7 @@ try {
     const [page, number] = loadSlot.split('-');
     try {
       state = saves.load(page, Number(number));
+      rollbackHistory.reset();
       go(state.node, { autosave: false });
       notify(t('notify.loaded'));
     } catch (error) { notify(t('save.loadFailed', { msg: error.message })); }
