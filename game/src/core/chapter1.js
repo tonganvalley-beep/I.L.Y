@@ -27,6 +27,20 @@ function enterChapterNode(state,node) {
   if(node.clue && state.flags.B_FLAG) ILY.addClue(state,node.clue);
   if(node.continuation) state.flags.nextChapter=node.continuation;
 }
+function resolveScriptCues(state, story, id) {
+  const seen = new Set();
+  let node = story.nodes[id];
+  while (node?.type === 'cue') {
+    if (seen.has(id)) throw new Error('Script cue cycle: ' + id);
+    seen.add(id);
+    if ((!node.route || state.flags.route === node.route) && (!node.when || state.flags[node.when.key] === node.when.value)) {
+      enterChapterNode(state, node);
+    }
+    id = node.next;
+    node = story.nodes[id];
+  }
+  return id;
+}
 function rpgProgress(state,task) {
   state.flags.rpg ||= {};
   return state.flags.rpg[task] ||= {collected:[],visited:[],elapsed:0,done:false};
@@ -77,5 +91,5 @@ function finishRpgAutomatically(state,task,node={}) {
   if(task==='G3') state.flags.HANDLE_NUM=2;
   p.done=true;state.flags[task+'_DONE']=true;
 }
-Object.assign(ILY,{prepareChapter1,enterChapterNode,rpgProgress,activeRpgEvents,interactRpg,finishRpgAutomatically});
+Object.assign(ILY,{prepareChapter1,enterChapterNode,resolveScriptCues,rpgProgress,activeRpgEvents,interactRpg,finishRpgAutomatically});
 })();

@@ -5,10 +5,13 @@ are deliberate adaptations, not executable instructions read from those files.
 """
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
+sys.path.insert(0, str(ROOT / 'tools'))
+from script_rules import parse_line, normalize_node
 TITLES = {'chapter2': '第二章 · 约定与夕阳', 'chapter3': '第三章 · 过去与现在', 'final': '最终章 · One Last Kiss'}
 ART = {
  'stone': ('076f7c38c5f582d5189445f3c3f5396c', '夕阳石阶空景；栏杆在左、挡土墙在右', 'background'),
@@ -48,7 +51,7 @@ class Chapter:
         if self.condition: n['when'] = self.condition.copy()
         n.update(kw)
         if n.get('cg'): n['backgroundFit'] = 'contain'
-        self.nodes[id] = n; self.seq.append(id)
+        self.nodes[id] = normalize_node(n); self.seq.append(id)
         return id
 
     def choice(self, id, text, key, options, **kw):
@@ -80,11 +83,10 @@ class Chapter:
             if self.special(line): continue
             if self.key == 'final' and self.scene in ('S02-X','S03','S05'): continue
             if line.startswith(('时间：','策划注','制作注','◆','【','选项','（以下','——','男主线 ·','END ｜')) or line == '完': continue
-            speaker = '旁白'; text = line
-            if line.startswith(('〔内心〕','〔心声〕')):
-                speaker = 'ILY（内心）' if line.startswith('〔心声〕') and self.key == 'final' else '基生（内心）'; text = line[4:]
-            elif re.match(r'^[^：]{1,22}：', line): speaker, text = line.split('：', 1)
-            kw = {}
+            parsed = parse_line(line)
+            speaker = parsed['speaker'] if parsed else '旁白'
+            text = parsed['text'] if parsed else line
+            kw = {'type': parsed['type']} if parsed else {}
             if not self.cg and ('爱理' in speaker or speaker == 'ILY') and '声音' not in speaker and '回忆' not in speaker:
                 kw['portrait'] = 'airi-crying' if self.key == 'final' else 'airi-blush' if self.scene == 'S05' else 'portrait-airi'
             if self.key == 'final' and self.scene == 'S02' and line in ('说喜欢我','能说你喜欢我吗'):
@@ -209,6 +211,7 @@ for key,file in [('chapter2','第二章游戏剧情脚本.txt'),('chapter3','第
     c=Chapter(key,file);c.build();print(key,len(c.nodes))
 assets={'ch2-'+k:'assets/images/'+('backgrounds' if v[2] == 'background' else 'cg')+'/ch2-'+k+'.jpg' for k,v in ART.items()}
 assets.update({'ch2-path-summer':'assets/images/maps/ch2-flowers.png','ch3-work':'assets/images/maps/ch3-work.png','ch3-mall':'assets/images/maps/ch3-mall.png','ch2-follower':'assets/images/maps/airi-follower.svg','airi-rpg-sheet':'assets/images/maps/airi-rpg-sheet.png'})
+assets.update({'npc-coworker':'assets/images/characters/npc-coworker.png','npc-hibiya':'assets/images/characters/npc-hibiya.png'})
 write(ROOT/'game/data/chapter-assets.js',assets,'Object.assign(ILY.data.assets.images, ')
 # Object.assign needs a closing parenthesis.
 p=ROOT/'game/data/chapter-assets.js';p.write_text(p.read_text(encoding='utf-8').replace('};\n','});\n'),encoding='utf-8')

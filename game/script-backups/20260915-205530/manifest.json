@@ -1,0 +1,32 @@
+[
+  {
+    "source": "tools/chapter1/source.txt",
+    "backup": "game/script-backups/20260915-205530/tools/chapter1/source.txt",
+    "sha256": "D550617557320269B719D96D0F46CE06B86648F44228279680269958B01E72B6"
+  },
+  {
+    "source": "tools/chapters/第二章游戏剧情脚本.txt",
+    "backup": "game/script-backups/20260915-205530/tools/chapters/第二章游戏剧情脚本.txt",
+    "sha256": "625945789557447A6738DC83424A41CD36C431AFEDE6520A386ECD4A4F9C8AEA"
+  },
+  {
+    "source": "tools/chapters/第三章游戏剧情脚本.txt",
+    "backup": "game/script-backups/20260915-205530/tools/chapters/第三章游戏剧情脚本.txt",
+    "sha256": "88315B0AD04494E6B0EA75E89860DF2D3E0BA524AEFE1D1F7BDE05494F01B493"
+  },
+  {
+    "source": "tools/chapters/第一章游戏剧情脚本 v1.1（RPG化补充） (1).txt",
+    "backup": "game/script-backups/20260915-205530/tools/chapters/第一章游戏剧情脚本 v1.1（RPG化补充） (1).txt",
+    "sha256": "4E8651DE852C5AFFC70567296D0F325A1C5DAF3AA5B723F2D4D927387B08F860"
+  },
+  {
+    "source": "tools/chapters/女主视角_Galgame演出脚本.txt",
+    "backup": "game/script-backups/20260915-205530/tools/chapters/女主视角_Galgame演出脚本.txt",
+    "sha256": "68BAFE56A2FA8D437F826893405E472DC1351C7FB286D64A936103C054C96633"
+  },
+  {
+    "source": "tools/chapters/最终章游戏剧情脚本.txt",
+    "backup": "game/script-backups/20260915-205530/tools/chapters/最终章游戏剧情脚本.txt",
+    "sha256": "24B5526BA77C63883D403A52485E52CE2A95385A265B4DC2D7C90E304CF3C144"
+  }
+]

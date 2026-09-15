@@ -5,9 +5,9 @@ ILY.data.stories.chapter2 = {
   "start": "ch2_s01",
   "nodes": {
     "ch2_s01": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "苏醒 —— “贫血”的谎言与迟到的道歉",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -16,9 +16,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_001"
     },
     "ch2_001": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生正在房间外收拾昨夜留下的狼藉。水族馆的那场争吵、以及“爱理”毫无征兆地倒下，还压在他的心口上。他一夜没怎么合眼，只能用忙碌来驱散不安。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -26,9 +26,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_002"
     },
     "ch2_002": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "就在这时——房间的方向，传来一声短促的惊叫。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -47,9 +47,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_004"
     },
     "ch2_004": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生的手一抖，水杯差点脱手。他几乎是撞开房门冲了进去。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -67,9 +67,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_006"
     },
     "ch2_006": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "推开门，他看见爱理已经醒来，正坐在床上，一只手按着额头。基生原本紧绷到发疼的神情，顿时松了下来——可额头上那层冷汗，仍出卖了他的担忧。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -97,9 +97,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_009"
     },
     "ch2_009": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理似乎还没有完全恢复。面对基生的询问，她稍微停顿了一下，随后故作轻松地回答。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -118,9 +118,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_011"
     },
     "ch2_011": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她说着，笑了笑，可那笑容并没有落到眼底。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -148,9 +148,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_014"
     },
     "ch2_014": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生走近床边，认真劝她继续休息。可当他伸手时，爱理却像是被烫到一般，微微向后缩了一下。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -158,9 +158,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_015"
     },
     "ch2_015": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理坐在床沿，双手拘谨地并拢在膝前。她低着头，头发遮住了双眼，显得十分紧张。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -190,9 +190,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_018"
     },
     "ch2_018": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理的脸上带着细微的汗珠。她张了张嘴，像是要说什么，却又把话咽了回去。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -211,9 +211,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_020"
     },
     "ch2_020": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看着她欲言又止的样子，有些疑惑。随即，昨日在水族馆的画面涌了上来——他说完那些气话后，“爱理”便在他面前昏倒。积攒了一整夜的愧疚，终于在此刻决堤。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -231,9 +231,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_022"
     },
     "ch2_022": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理还没有说完那句欲言又止的话，基生便走上前，一把将她拥入怀中。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -243,9 +243,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_023"
     },
     "ch2_023": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这个拥抱来得十分突然。爱理睁大双眼，身体僵在原地，显然没有预料到基生会这样回应。基生低下头，将脸埋在她的肩旁，双臂紧紧环住她。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -267,9 +267,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_025"
     },
     "ch2_025": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "“爱理”一脸震惊地感受着这个拥抱，睫毛轻轻颤动。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -327,9 +327,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_030"
     },
     "ch2_030": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "房间里安静了很久。久到基生以为，她也许永远不会回应了。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S01",
@@ -363,9 +363,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s02"
     },
     "ch2_s02": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "誓约 —— “不能说”的告白",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -374,9 +374,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_034"
     },
     "ch2_034": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理要求基生放开自己。基生慌忙松开双手——他误以为刚才的拥抱弄疼了她。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -404,9 +404,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_037"
     },
     "ch2_037": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理低着头，小声否认。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -425,9 +425,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_039"
     },
     "ch2_039": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她脸颊通红，神情慌乱。基生看到她的异常反应，又以为她正在发烧，急忙想确认她的身体状况。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -445,9 +445,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_041"
     },
     "ch2_041": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理连忙伸手阻止他靠近。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -477,9 +477,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_044"
     },
     "ch2_044": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生在她身旁坐下。短暂的沉默后，他轻轻握住爱理的双手，认真注视着她。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -507,9 +507,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_047"
     },
     "ch2_047": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他向爱理发誓，不会再重演过去的错误。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -527,9 +527,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_049"
     },
     "ch2_049": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理怔怔地看着他。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -537,9 +537,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_050"
     },
     "ch2_050": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生以为她的不安，源于自己从未明确说出感情。于是，他决定不再逃避。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -557,9 +557,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_052"
     },
     "ch2_052": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生红着脸，准备完成告白。他深吸一口气。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -587,9 +587,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_055"
     },
     "ch2_055": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "在他说出完整的话之前，爱理突然伸手，捂住了他的嘴。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -608,9 +608,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_057"
     },
     "ch2_057": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她的反应强烈而急切，连基生也被吓住了。爱理满脸通红，眼中同时流露出渴望与恐惧。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -631,7 +631,7 @@ ILY.data.stories.chapter2 = {
     "ch2_choice2": {
       "type": "choice",
       "text": "要怎样回应她的“不能说”？",
-      "speaker": "基生（内心）",
+      "speaker": "选择",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -657,9 +657,9 @@ ILY.data.stories.chapter2 = {
       ]
     },
     "ch2_n2_a": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "……",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -685,9 +685,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_062"
     },
     "ch2_062": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理像是没料到他会这样回答，愣了愣，攥紧的手慢慢松开。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -714,9 +714,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_064"
     },
     "ch2_064": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她垂下眼，声音轻得几乎听不见。紧绷的空气，似乎松动了那么一点。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -728,9 +728,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_n2_merge"
     },
     "ch2_n2_b": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "……",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -756,9 +756,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_067"
     },
     "ch2_067": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理猛地抬头，眼中的恐惧一闪而过。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -800,9 +800,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_070"
     },
     "ch2_070": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她说到一半，又硬生生把话吞了回去，摇了摇头。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -814,9 +814,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_n2_merge"
     },
     "ch2_n2_merge": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理突然站起身。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -824,9 +824,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_072"
     },
     "ch2_072": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理突然站起身，踉跄了一下，又勉强站稳。她满脸通红，生硬地转移话题。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -856,9 +856,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_075"
     },
     "ch2_075": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生对她一惊一乍的举动感到有些迷茫，迟疑地叫住她。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -876,9 +876,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_077"
     },
     "ch2_077": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理羞红了脸，突然指向另一个方向。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -897,9 +897,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_079"
     },
     "ch2_079": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生下意识地回头。等他重新转过身时——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -907,9 +907,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_080"
     },
     "ch2_080": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "房间里已经没有了她的身影。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -927,9 +927,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_082"
     },
     "ch2_082": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理刚才还身体不适，现在却转眼间消失。基生怔在原地，震惊于她的恢复速度——同时也想起昨夜那毫无征兆的昏倒。这一醒一逃之间，落差大得反常。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -941,9 +941,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_083"
     },
     "ch2_083": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "就在这时，他的手机响起提示音。屏幕上，出现一封来自“百合沢 爱理”的邮件：",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -952,7 +952,7 @@ ILY.data.stories.chapter2 = {
     },
     "ch2_084": {
       "type": "dialogue",
-      "text": "20/08/01 18:42｜发件人：百合沢 爱理｜主题：（无标题）｜正文：我出去一会儿就回来，不用担心我哦！",
+      "text": "20/08/01 18:42｜发件人：百合沢 爱理｜主题：｜正文：我出去一会儿就回来，不用担心我哦！",
       "speaker": "收件时间",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
@@ -971,9 +971,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_086"
     },
     "ch2_086": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生盯着那个名字，愣了一会儿。他这才意识到，自己其实一直只知道她叫“爱理”。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S02",
@@ -981,9 +981,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s03"
     },
     "ch2_s03": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "江之岛 —— 上岛与牵手",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -992,9 +992,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_088"
     },
     "ch2_088": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "过了几天，基生与爱理一起来到江之岛。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1002,9 +1002,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_089"
     },
     "ch2_089": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "阳光照在海面和街道上，两人背着随身物品，沿着通往岛上的道路前进。基生抬手挡住阳光，望着远处熟悉的景色。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1032,9 +1032,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_092"
     },
     "ch2_092": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理站在他的身边，轻声回应。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1053,9 +1053,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_094"
     },
     "ch2_094": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她表面上已经恢复平静，却仍带着些许拘谨。基生看向她，突然有了一个想法——他向她伸出手。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1065,7 +1065,7 @@ ILY.data.stories.chapter2 = {
     "ch2_hand": {
       "type": "choice",
       "text": "他向她伸出手。",
-      "speaker": "基生（内心）",
+      "speaker": "选择",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1105,9 +1105,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_hand_after"
     },
     "ch2_hand_after": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "手心的温度，随着海风传了过来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1127,9 +1127,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_099"
     },
     "ch2_099": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理看着他的手，脸颊微微泛红。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1137,9 +1137,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_100"
     },
     "ch2_100": {
-      "type": "dialogue",
-      "text": "哎？不应该这样吗……？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1147,9 +1147,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_101"
     },
     "ch2_101": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "短暂停顿后，“爱理”把自己的手，交给了基生。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1168,9 +1168,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_103"
     },
     "ch2_103": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "两人牵着手走在江之岛的桥上。爱理露出轻松的笑容，基生则不时悄悄看向她。周围依次掠过海岸、树林、鸟居和岛上的道路——形成一段安静的旅行蒙太奇。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S03",
@@ -1195,9 +1195,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s04"
     },
     "ch2_s04": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "紫阳花小路 —— 明年的约定",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1206,9 +1206,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_106"
     },
     "ch2_106": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生与爱理牵着手，沿着江之岛绿意茂盛的小路继续前行。道路两旁生长着紫阳花，眼前的景色唤起了两人过去共同来过这里的记忆。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1216,9 +1216,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_107"
     },
     "ch2_107": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理停下脚步，看着周围的花木。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1237,9 +1237,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_109"
     },
     "ch2_109": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生也认出了这个地方。他望着熟悉的小路，露出怀念的神情。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1279,9 +1279,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_113"
     },
     "ch2_113": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理伸手碰了碰眼前的紫阳花。现在已经进入八月，花期即将结束，只剩下一部分花朵仍然开放。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1309,9 +1309,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_116"
     },
     "ch2_116": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生脑中浮现出高中时代拍下的照片。照片里的爱理站在同一个地方，面带笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1321,9 +1321,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_117"
     },
     "ch2_117": {
-      "type": "dialogue",
-      "text": "是啊、这个地方……",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1364,9 +1364,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_120"
     },
     "ch2_120": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看着“爱理”沉默片刻。他没有继续沉浸在旧日回忆中，而是看向此刻站在身旁的爱理，向她提出了一个关于未来的约定。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1394,9 +1394,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_123"
     },
     "ch2_123": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理微微一怔。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1415,9 +1415,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_125"
     },
     "ch2_125": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "随后，她露出灿烂而安心的笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1447,9 +1447,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_128"
     },
     "ch2_128": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理走在基生身旁，两人的手再次牵在一起。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S04",
@@ -1457,9 +1457,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s05"
     },
     "ch2_s05": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "石板路 —— 相互的告白",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1468,9 +1468,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_130"
     },
     "ch2_130": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "两人在石板路上走了一会儿，爱理抬头看向基生，满眼爱意地说道。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1500,9 +1500,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_133"
     },
     "ch2_133": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这句话说出口后，她立刻紧张起来，试图补充说明，却因为害羞而说得断断续续。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1543,9 +1543,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_137"
     },
     "ch2_137": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生对这场突然的告白有些意外。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1563,9 +1563,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_139"
     },
     "ch2_139": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理没有收回自己的话。她抿着唇，倔强地看着他。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1584,9 +1584,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_141"
     },
     "ch2_141": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看着她，随后露出温柔的笑容，给予了明确的回应。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1604,9 +1604,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_143"
     },
     "ch2_143": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "听到基生的回答，爱理闭上眼睛，露出了幸福的笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S05",
@@ -1616,9 +1616,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s06"
     },
     "ch2_s06": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "最后一站 —— 夕阳之约",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1627,9 +1627,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_145"
     },
     "ch2_145": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生和爱理走到江之岛行程的最后一站。天色已经开始变化，基生原本准备带她回去。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1647,9 +1647,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_147"
     },
     "ch2_147": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理看向远处的海面，轻轻应了一声。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1679,9 +1679,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_150"
     },
     "ch2_150": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生忽然想起昨天查到的资料。从这里能够看到很漂亮的夕阳。既然今天是约会，他不想就这样结束，于是叫住了她。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1729,9 +1729,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_155"
     },
     "ch2_155": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生有些不好意思地摸着脸，试探着向她发出邀请。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1749,9 +1749,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_157"
     },
     "ch2_157": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理睁大眼睛，随即露出笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1781,9 +1781,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_160"
     },
     "ch2_160": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生决定和她留在海边，等待太阳落下。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S06",
@@ -1812,9 +1812,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s07"
     },
     "ch2_s07": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "售货机前 —— 十年与“幸福”",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1823,9 +1823,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_164"
     },
     "ch2_164": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "等待期间，基生想去附近买些饮料。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1853,9 +1853,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_167"
     },
     "ch2_167": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理摇头拒绝。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1876,7 +1876,7 @@ ILY.data.stories.chapter2 = {
     "ch2_choice3": {
       "type": "choice",
       "text": "买水，还是留下？",
-      "speaker": "基生（内心）",
+      "speaker": "选择",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1922,9 +1922,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_172"
     },
     "ch2_172": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她随即站起来，表示想和基生一起走。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1943,9 +1943,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_174"
     },
     "ch2_174": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "通往商店还要爬很长的楼梯。基生不想让她跟着受累，便让她留在原地等自己。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1963,9 +1963,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_176"
     },
     "ch2_176": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理迟疑了一下，最后还是答应了。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -1994,9 +1994,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_179"
     },
     "ch2_179": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "临走前，基生看着她身后的海面，还是有些不放心。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2014,9 +2014,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_181"
     },
     "ch2_181": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理马上大声反驳。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2035,9 +2035,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_183"
     },
     "ch2_183": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她站在原地向他挥手。基生也抬手回应，然后独自沿楼梯向上走。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2062,9 +2062,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_185"
     },
     "ch2_185": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "经过很长一段台阶后，基生终于抵达自动售货机。按下饮料按钮时，腰腿传来的酸痛让他不得不弯下身体休息。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2072,9 +2072,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_186"
     },
     "ch2_186": {
-      "type": "dialogue",
-      "text": "好……好痛～～～……",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2082,9 +2082,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_187"
     },
     "ch2_187": {
-      "type": "dialogue",
-      "text": "好久没爬……那么长的楼梯了……腰酸腿痛啊……",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2092,9 +2092,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_188"
     },
     "ch2_188": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "十年前来这里时，他从没觉得这些楼梯有多难爬。他的想法似乎没有发生多少变化，身体却已经留下了岁月的痕迹。他花了 160（日）元在售货机里买了一瓶冰镇矿泉水，拧开盖子喝了起来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2102,9 +2102,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_189"
     },
     "ch2_189": {
-      "type": "dialogue",
-      "text": "虽然脑中想的事情没有什么变化，但身体上确实留下了岁月的痕迹啊……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2112,9 +2112,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_190"
     },
     "ch2_190": {
-      "type": "dialogue",
-      "text": "虽然脑中想的事情没有什么变化……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2122,9 +2122,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_191"
     },
     "ch2_191": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他想起了爱理不久前对他说过的话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2133,18 +2133,19 @@ ILY.data.stories.chapter2 = {
     },
     "ch2_192": {
       "type": "dialogue",
-      "text": "「我想和基生一直在一起。」",
-      "speaker": "“爱理”（基生的回忆）",
+      "text": "我想和基生一直在一起。",
+      "speaker": "“爱理”：",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
       "background": "ch2-vending",
+      "portrait": "portrait-airi",
       "next": "ch2_193"
     },
     "ch2_193": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "江之岛的景色与十年前几乎没有区别。看着相同的海岸和天空，他偶尔还会产生自己仍是高中生的错觉。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2152,9 +2153,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_194"
     },
     "ch2_194": {
-      "type": "dialogue",
-      "text": "因为我看到的景色和十年前没有任何不同",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2162,9 +2163,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_195"
     },
     "ch2_195": {
-      "type": "dialogue",
-      "text": "所以我一直觉得自己还是个高中生。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2172,9 +2173,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_196"
     },
     "ch2_196": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "在那种错觉里，爱理陪在他身边，爸爸妈妈也仍然在家里等他。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2182,9 +2183,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_197"
     },
     "ch2_197": {
-      "type": "dialogue",
-      "text": "身旁伴着爱理、回到家爸爸妈妈也都在。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2192,9 +2193,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_198"
     },
     "ch2_198": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "但他知道，那段生活已经结束。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2202,9 +2203,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_199"
     },
     "ch2_199": {
-      "type": "dialogue",
-      "text": "可已经无法回去了。再也回不去了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2212,9 +2213,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_200"
     },
     "ch2_200": {
-      "type": "dialogue",
-      "text": "不过……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2222,9 +2223,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_201"
     },
     "ch2_201": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生的脑海里，浮现出这些日子里一直陪伴在他身边的“爱理”的身影。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2232,9 +2233,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_202"
     },
     "ch2_202": {
-      "type": "dialogue",
-      "text": "爱理她在我身边。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2242,9 +2243,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_203"
     },
     "ch2_203": {
-      "type": "dialogue",
-      "text": "今后也能一直在一起。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2252,9 +2253,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_204"
     },
     "ch2_204": {
-      "type": "dialogue",
-      "text": "除此之外我别无所求。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2262,9 +2263,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_205"
     },
     "ch2_205": {
-      "type": "dialogue",
-      "text": "不管旁人怎么说",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2272,9 +2273,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_206"
     },
     "ch2_206": {
-      "type": "dialogue",
-      "text": "我、",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2282,9 +2283,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_207"
     },
     "ch2_207": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他握着刚买到的饮料，第一次清楚地意识到自己此刻的感受。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2292,9 +2293,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_208"
     },
     "ch2_208": {
-      "type": "dialogue",
-      "text": "现在十分的",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2302,9 +2303,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_209"
     },
     "ch2_209": {
-      "type": "dialogue",
-      "text": "幸福。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2312,9 +2313,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_210"
     },
     "ch2_210": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "休息过后，他准备返回海边。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2322,9 +2323,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_211"
     },
     "ch2_211": {
-      "type": "dialogue",
-      "text": "好了。已经休息好了，回去吧。回去以后该考虑锻炼了啊……",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2332,9 +2333,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_212"
     },
     "ch2_212": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "路过冰淇淋店时，他停了下来。他想起爱理在便利店里看到冰淇淋时兴奋的模样，于是走到柜台前。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2369,9 +2370,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_215"
     },
     "ch2_215": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "店员把冰淇淋递给他。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",
@@ -2391,9 +2392,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_s08"
     },
     "ch2_s07-e": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "中间结局 —— Just two of us",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2402,9 +2403,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_218"
     },
     "ch2_218": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看了看远处那条通往商店街的长楼梯，又看了看身边的爱理——她正望着海面，侧脸被落日前的暖光描出一圈细细的边。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2412,9 +2413,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_219"
     },
     "ch2_219": {
-      "type": "dialogue",
-      "text": "……算了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2422,9 +2423,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_220"
     },
     "ch2_220": {
-      "type": "dialogue",
-      "text": "反正也不是很渴。比起丢下她一个人去爬楼梯……现在这样，就够了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2452,9 +2453,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_223"
     },
     "ch2_223": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理惊讶地转过头来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2494,9 +2495,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_227"
     },
     "ch2_227": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "嘴上这么说，她却往基生那边挪了半步，悄悄坐近了一点。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2526,9 +2527,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_230"
     },
     "ch2_230": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "那天傍晚，两个人谁都没有再说什么重要的话。聊的全是无关紧要的小事——十年前来江之岛时吃过的、硬得像纸板的可丽饼，紫阳花到底算不算花，海鸥是不是真的认得回家的路。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2568,9 +2569,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_234"
     },
     "ch2_234": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "太阳一点一点沉向海平线。就在它只剩最后一道金边的时候，爱理忽然开口。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2631,9 +2632,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_240"
     },
     "ch2_240": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理没有回答，只是笑了一下，把头轻轻靠在了基生的肩上。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2641,9 +2642,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_241"
     },
     "ch2_241": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "暮色温柔地漫上来，把海、把岛、把两个人一起包裹进去。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2651,9 +2652,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_242"
     },
     "ch2_242": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "没有长楼梯，没有售货机，也没有任何身影会在他回来时变成别的模样的疑问。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2661,9 +2662,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_243"
     },
     "ch2_243": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这个傍晚，只有两个人——Just two of us。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07-E",
@@ -2671,9 +2672,9 @@ ILY.data.stories.chapter2 = {
       "next": "ending_just2"
     },
     "ch2_s08": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "归来 —— 成年的“爱理”",
-      "speaker": "第二章",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2699,9 +2700,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_246"
     },
     "ch2_246": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生带着冰淇淋回到海边。隔着一段距离，他看见了爱理的身影……",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2709,9 +2710,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_247"
     },
     "ch2_247": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "夕阳下，出现了一名留着长发、拥有成年女性身形的人。她与爱理极为相似，却又不是他刚才看到的模样。纤细的身姿在夕阳的映照下那样动人，长发在风中飘舞着，仿佛晚风吹过的细柳；而那双动人的酒红色双眸，和那张似曾相识却又十分成熟的面庞——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2719,9 +2720,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_248"
     },
     "ch2_248": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生握着冰淇淋，僵在原地。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2743,9 +2744,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_250"
     },
     "ch2_250": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "长发女性同样注视着基生。她的神情显得惊讶，似乎正在辨认他的身份。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2779,9 +2780,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_253"
     },
     "ch2_253": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她迟疑着，叫出了他的名字。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2815,9 +2816,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_256"
     },
     "ch2_256": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生无法回答。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",
@@ -2827,9 +2828,9 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_257"
     },
     "ch2_257": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "周围的海面、夕阳和游客都没有改变。只有刚才还在等他买水的“爱理”，毫无征兆地，变成了十年后应有的成年模样。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S08",

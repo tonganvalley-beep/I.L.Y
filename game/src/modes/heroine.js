@@ -4,6 +4,8 @@ const { el, mountScene } = ILY;
 
 function mountHeroineMoment({stage, node, assets, go, isSkipping = () => false, getSkipDelay = () => 140}) {
   mountScene(stage, node, assets);
+  if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
+  if (node.sceneEffect) stage.querySelector('.scene')?.classList.add('chapter-' + node.sceneEffect);
   const card = node.type === 'heroine-card';
   const panel = el('section', `heroine-moment ${card ? 'heroine-card' : 'heroine-monologue'}`);
   if (card) {

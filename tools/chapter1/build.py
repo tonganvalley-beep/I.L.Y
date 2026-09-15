@@ -1,16 +1,19 @@
 """Compile the reviewed chapter transcript into the existing plain-script node format."""
 import json, re
+import sys
 from pathlib import Path
 root = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(root / 'tools'))
+from script_rules import parse_line, normalize_node
 lines = (Path(__file__).parent / 'source.txt').read_text(encoding='utf-8').splitlines()
 nodes = {}; sequence = []; scene = ''; bg = ''; index = 0
-backgrounds = {'S01':'bg-coast-night','S02':'bg-apartment-dusk','S03':'bg-apartment-dusk','S04':'ch1-store','S05':'bg-apartment-dusk','S06':'ch1-aquarium-outside'}
+backgrounds = {'S01':'ch1-coast-night','S02':'bg-apartment-dusk','S03':'bg-apartment-dusk','S04':'ch1-store','S05':'bg-apartment-dusk','S06':'ch1-aquarium-outside'}
 def add(node, id=None):
     global index
     index += 1; id = id or f'ch1_{index:03}'
     node.update(chapter='chapter1', chapterTitle='第一章 · 失而复得的日常', scene=scene)
     node.setdefault('background', bg)
-    nodes[id] = node; sequence.append(id); return id
+    nodes[id] = normalize_node(node); sequence.append(id); return id
 started = False
 for line in lines:
     line = line.strip()
@@ -57,15 +60,17 @@ for line in lines:
     if '空水槽前，找到了' in line: bg='ch1-empty-tank'
     if '“咔嗒”——门在两人身后合上' in line: bg='ch1-street'
     if '关了灯一边看电影' in line: bg='bg-apartment-night'
-    speaker='旁白'
-    if line.startswith('〔内心〕'): speaker='基生（内心）'; line=line[4:]
-    elif re.match(r'^(基生|“爱理”|十屋|小泪|男|路人（男）)：',line): speaker,line=line.split('：',1)
+    parsed = parse_line(line)
+    speaker = parsed['speaker'] if parsed else '旁白'
+    original_line = line
+    if parsed: line = parsed['text']
     # Expand compressed conversation pairs into individual dialogue nodes.
-    parts=line.split('｜') if '｜' in line else [line]
+    parts=line.split('｜') if '｜' in line and not original_line.startswith(('〔', '[')) else [line]
     for n,part in enumerate(parts):
         who = speaker if len(parts)==1 else ('“爱理”' if n%2==0 else '基生')
         if len(parts)>3: who='基生' if n%2==0 else '“爱理”'
         node=dict(type='dialogue',speaker=who,text=part.strip())
+        if parsed and len(parts) == 1: node['type'] = parsed['type']
         if who=='“爱理”': node['portrait']='ch1-airi-casual' if scene=='S06' else 'portrait-airi'
         if who in ('十屋','小泪'): node['portrait']='ch1-'+('toya' if who=='十屋' else 'rui')
         if route: node['route']=route

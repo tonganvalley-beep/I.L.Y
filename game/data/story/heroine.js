@@ -613,9 +613,9 @@ ILY.data.stories.heroine = {
       "next": "her_0030"
     },
     "her_0030": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "货架前的两人隔着不到一臂的距离。基生随手从冷藏柜里拿出一盒布丁，又放回去，目光在五颜六色的包装之间来回游移。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-01",
@@ -656,9 +656,9 @@ ILY.data.stories.heroine = {
       "next": "her_0031"
     },
     "her_0031": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "没有人看得到她。收银台后的店员低着头刷手机，货架另一端也没有任何人朝这边望上一眼。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-01",
@@ -885,9 +885,9 @@ ILY.data.stories.heroine = {
       "next": "her_0038"
     },
     "her_0038": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他等了大约两秒，像是在等一个谁也听不见的回答。然后他点了点头，仿佛真的听见了什么。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-02",
@@ -1089,9 +1089,9 @@ ILY.data.stories.heroine = {
       "next": "her_0046"
     },
     "her_0046": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "窗外的光一点点变薄。ILY站在窗边，背影被夕阳压得很薄，像一张快要被风吹走的纸。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-03",
@@ -1176,9 +1176,9 @@ ILY.data.stories.heroine = {
       "next": "her_0049"
     },
     "her_0049": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "如果在大庭广众之下把人“吃掉”，肯定会引起骚乱的吧。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-03",
@@ -1274,9 +1274,9 @@ ILY.data.stories.heroine = {
       "next": "her_0052"
     },
     "her_0052": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "走廊的白炽灯接触不良，一闪一闪。ILY站在门槛上，像踩在两种颜色的分界线上。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-04",
@@ -1447,9 +1447,9 @@ ILY.data.stories.heroine = {
       "next": "her_0058"
     },
     "her_0058": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "门合上之后，脚步声一点点远去。基生仍把手搭在门把上，没有松开。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-05",
@@ -1482,9 +1482,9 @@ ILY.data.stories.heroine = {
       "next": "her_0059"
     },
     "her_0059": {
-      "type": "dialogue",
-      "text": "在我们重逢之前",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-05",
@@ -1508,9 +1508,9 @@ ILY.data.stories.heroine = {
       "next": "her_0060"
     },
     "her_0060": {
-      "type": "dialogue",
-      "text": "她是怎么过来的呢",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-05",
@@ -1534,9 +1534,9 @@ ILY.data.stories.heroine = {
       "next": "her_0061"
     },
     "her_0061": {
-      "type": "dialogue",
-      "text": "这种事...",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-05",
@@ -1560,9 +1560,9 @@ ILY.data.stories.heroine = {
       "next": "her_0062"
     },
     "her_0062": {
-      "type": "dialogue",
-      "text": "...对不起呢，爱理...",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 看不见的她",
       "scene": "01-05",
@@ -1618,9 +1618,9 @@ ILY.data.stories.heroine = {
       "next": "her_0063"
     },
     "her_0063": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "傍晚的风把桌上的纸巾吹得翻了个身。三个人已经很久没有这样坐在一起了。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-01",
@@ -2383,9 +2383,9 @@ ILY.data.stories.heroine = {
       "next": "her_0092"
     },
     "her_0092": {
-      "type": "dialogue",
-      "text": "虽然是这样，但是...但是他都这么说了...",
-      "speaker": "春（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-03",
@@ -2416,9 +2416,9 @@ ILY.data.stories.heroine = {
       "next": "her_0093"
     },
     "her_0093": {
-      "type": "dialogue",
-      "text": "这个链接是什么呢...照片?",
-      "speaker": "春（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-03",
@@ -2441,9 +2441,9 @@ ILY.data.stories.heroine = {
       "next": "her_0094"
     },
     "her_0094": {
-      "type": "dialogue",
-      "text": "好想和拓马前辈见面哦...",
-      "speaker": "春（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-03",
@@ -2484,9 +2484,9 @@ ILY.data.stories.heroine = {
       "next": "her_0095"
     },
     "her_0095": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "春的手忽然脱力，手机从指缝间滑下去，砸在桌上，又滑落到膝盖上。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-04",
@@ -2515,9 +2515,9 @@ ILY.data.stories.heroine = {
       "next": "her_0096"
     },
     "her_0096": {
-      "type": "dialogue",
-      "text": "诶？什么？刚才好像...",
-      "speaker": "春（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-04",
@@ -2576,9 +2576,9 @@ ILY.data.stories.heroine = {
       "next": "her_0099"
     },
     "her_0099": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她的面前站着“拓马”前辈。发型、身高、说话的语气，和记忆里一模一样。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-04",
@@ -2597,9 +2597,9 @@ ILY.data.stories.heroine = {
       "next": "her_0100"
     },
     "her_0100": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "只有眼睛不一样——那是一双蓝色的眼睛。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
       "scene": "02-04",
@@ -2922,9 +2922,9 @@ ILY.data.stories.heroine = {
       "next": "her_0112"
     },
     "her_0112": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "门被推开的一瞬间，走廊的冷光从背后照过来，ILY的影子被拉得很长。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-01",
@@ -2948,9 +2948,9 @@ ILY.data.stories.heroine = {
       "next": "her_0113"
     },
     "her_0113": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "然后她愣住了。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-01",
@@ -2960,9 +2960,9 @@ ILY.data.stories.heroine = {
       "next": "her_0114"
     },
     "her_0114": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生站在玄关的灯光下。他的下巴泛着青色，头发梳得整整齐齐，身上甚至换了件熨过的衬衫。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-01",
@@ -3029,9 +3029,9 @@ ILY.data.stories.heroine = {
       "next": "her_0117"
     },
     "her_0117": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "鱼群在两人背后无声地转了个弯，像一片突然翻面的镜子。基生的喉结上下动了一下。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-02",
@@ -3093,9 +3093,9 @@ ILY.data.stories.heroine = {
       "next": "her_0119"
     },
     "her_0119": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "一个人的肩膀撞上了基生的背。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-02",
@@ -3143,9 +3143,9 @@ ILY.data.stories.heroine = {
       "next": "her_0121"
     },
     "her_0121": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她跑掉了。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-02",
@@ -3386,9 +3386,9 @@ ILY.data.stories.heroine = {
       "next": "her_0129"
     },
     "her_0129": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "一条来自“成田前辈”的短信。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-04",
@@ -3649,9 +3649,9 @@ ILY.data.stories.heroine = {
       "next": "her_0138"
     },
     "her_0138": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "画面上，是一个少女的照片。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-07",
@@ -3677,9 +3677,9 @@ ILY.data.stories.heroine = {
       "next": "her_0139"
     },
     "her_0139": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "但是她的脸上、脖子上、手臂上，到处钻出蠕虫般的电线。那些电线在照片里缓慢地扭动。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-07",
@@ -3823,9 +3823,9 @@ ILY.data.stories.heroine = {
       "next": "her_0145"
     },
     "her_0145": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "十屋的双眼里映出蓝光。恐惧让他满脸冷汗，一句话也说不出来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 错乱",
       "scene": "03-08",
@@ -3930,9 +3930,9 @@ ILY.data.stories.heroine = {
       "next": "her_0149"
     },
     "her_0149": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "空水槽像一只被挖掉眼珠的眼眶。ILY站在玻璃前，自己的倒影浅浅地浮在上面。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-01",
@@ -4332,9 +4332,9 @@ ILY.data.stories.heroine = {
       "next": "her_0166"
     },
     "her_0166": {
-      "type": "dialogue",
-      "text": "诶...我这是...怎么回事...？基生...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-02",
@@ -4370,9 +4370,9 @@ ILY.data.stories.heroine = {
       "next": "her_0167"
     },
     "her_0167": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "“我”成为了“爱理”，做了一切我能做的，企图去引诱他说出那句话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-03",
@@ -4585,9 +4585,9 @@ ILY.data.stories.heroine = {
       "next": "her_0175"
     },
     "her_0175": {
-      "type": "dialogue",
-      "text": "这里是...他的...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-04",
@@ -4615,9 +4615,9 @@ ILY.data.stories.heroine = {
       "next": "her_0176"
     },
     "her_0176": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "在那时候，我依旧是人类的...恐怕还是维持着“爱理”的模样...",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-04",
@@ -4636,9 +4636,9 @@ ILY.data.stories.heroine = {
       "next": "her_0177"
     },
     "her_0177": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这就意味着...",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-04",
@@ -4748,9 +4748,9 @@ ILY.data.stories.heroine = {
       "next": "her_0184"
     },
     "her_0184": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "ILY坐在床沿，双手拘谨地并拢在膝前。她低着头，头发遮住了双眼，十分紧张。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-05",
@@ -4817,9 +4817,9 @@ ILY.data.stories.heroine = {
       "next": "her_0188"
     },
     "her_0188": {
-      "type": "dialogue",
-      "text": "为什么我没有把他侵吞呢？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-05",
@@ -4834,9 +4834,9 @@ ILY.data.stories.heroine = {
       "next": "her_0189"
     },
     "her_0189": {
-      "type": "dialogue",
-      "text": "虽然那个时候我的确从他的口中听到了“喜欢”这句话，听到了好几次，好几次。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-05",
@@ -4851,9 +4851,9 @@ ILY.data.stories.heroine = {
       "next": "her_0190"
     },
     "her_0190": {
-      "type": "dialogue",
-      "text": "明明听到了，为什么我还——",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-05",
@@ -4905,9 +4905,9 @@ ILY.data.stories.heroine = {
       "next": "her_0192"
     },
     "her_0192": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这个拥抱来得十分突然。爱理睁大双眼，身体僵在原地，显然没有预料到基生会这样回应。基生低下头，将脸埋在她的肩旁，双臂紧紧环住她。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-06",
@@ -5175,9 +5175,9 @@ ILY.data.stories.heroine = {
       "next": "her_0203"
     },
     "her_0203": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她脸颊通红，神情慌乱。基生看到她的异常反应，凑近了些。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-06",
@@ -5264,9 +5264,9 @@ ILY.data.stories.heroine = {
       "next": "her_0207"
     },
     "her_0207": {
-      "type": "dialogue",
-      "text": "发生了什么呢？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-06",
@@ -5311,9 +5311,9 @@ ILY.data.stories.heroine = {
       "next": "her_0209"
     },
     "her_0209": {
-      "type": "dialogue",
-      "text": "我的身体里，到底发生了什么呢？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-06",
@@ -5332,9 +5332,9 @@ ILY.data.stories.heroine = {
       "next": "her_0210"
     },
     "her_0210": {
-      "type": "dialogue",
-      "text": "发生了什么，发生了什么...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-06",
@@ -5443,9 +5443,9 @@ ILY.data.stories.heroine = {
       "next": "her_0214"
     },
     "her_0214": {
-      "type": "dialogue",
-      "text": "没错，只要再一次。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-07",
@@ -5495,9 +5495,9 @@ ILY.data.stories.heroine = {
       "next": "her_0216"
     },
     "her_0216": {
-      "type": "dialogue",
-      "text": "听到那句话的话。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-07",
@@ -5516,9 +5516,9 @@ ILY.data.stories.heroine = {
       "next": "her_0217"
     },
     "her_0217": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生红着脸，准备完成告白。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-07",
@@ -5563,9 +5563,9 @@ ILY.data.stories.heroine = {
       "next": "her_0219"
     },
     "her_0219": {
-      "type": "dialogue",
-      "text": "只要能听到，只要听到了的话，我——",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-07",
@@ -5787,9 +5787,9 @@ ILY.data.stories.heroine = {
       "next": "her_0227"
     },
     "her_0227": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "房间里只剩下他自己，和那扇被风轻轻吹动的窗帘。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-08",
@@ -5832,9 +5832,9 @@ ILY.data.stories.heroine = {
       "next": "her_0228"
     },
     "her_0228": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "ILY来到了第一次见面的蓝色海边，沉默良久，然后自言自语道。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5873,9 +5873,9 @@ ILY.data.stories.heroine = {
       "next": "her_0230"
     },
     "her_0230": {
-      "type": "dialogue",
-      "text": "“爱理”的这副模样，本来只有在他目所能及，以及他的意识中有我的时候才会出现，是只有他才能看到，只为了他而存在的模样。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5890,9 +5890,9 @@ ILY.data.stories.heroine = {
       "next": "her_0231"
     },
     "her_0231": {
-      "type": "dialogue",
-      "text": "按理说，一旦离开他的身边，我就无法保持这副模样了。可是...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5902,9 +5902,9 @@ ILY.data.stories.heroine = {
       "next": "her_0232"
     },
     "her_0232": {
-      "type": "dialogue",
-      "text": "是因为作为“爱理”的时间太长了吗？不对...没有过那样的先例。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5914,9 +5914,9 @@ ILY.data.stories.heroine = {
       "next": "her_0233"
     },
     "her_0233": {
-      "type": "dialogue",
-      "text": "而且，在这之前，都可以正常回去的。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5926,9 +5926,9 @@ ILY.data.stories.heroine = {
       "next": "her_0234"
     },
     "her_0234": {
-      "type": "dialogue",
-      "text": "在这之前...没错，在今天之前。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5938,9 +5938,9 @@ ILY.data.stories.heroine = {
       "next": "her_0235"
     },
     "her_0235": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "ILY的手指轻轻点在自己的嘴边。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5955,9 +5955,9 @@ ILY.data.stories.heroine = {
       "next": "her_0236"
     },
     "her_0236": {
-      "type": "dialogue",
-      "text": "为什么我那个时候会阻止他说出来呢？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5967,9 +5967,9 @@ ILY.data.stories.heroine = {
       "next": "her_0237"
     },
     "her_0237": {
-      "type": "dialogue",
-      "text": "明明终于可以把他吃掉了。明明我，我们一直都在期望着那样的事。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -5979,9 +5979,9 @@ ILY.data.stories.heroine = {
       "next": "her_0238"
     },
     "her_0238": {
-      "type": "dialogue",
-      "text": "那个时候，我确实，“不想听到”他的话。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 「喜欢」是什么",
       "scene": "04-09",
@@ -6040,9 +6040,9 @@ ILY.data.stories.heroine = {
       "next": "her_0240"
     },
     "her_0240": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "两人背着随身物品，沿着通往岛上的道路前进。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-01",
@@ -6219,9 +6219,9 @@ ILY.data.stories.heroine = {
       "next": "her_0246"
     },
     "her_0246": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "ILY停下脚步，看着周围的花木。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-02",
@@ -6346,9 +6346,9 @@ ILY.data.stories.heroine = {
       "next": "her_0251"
     },
     "her_0251": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "现在已经进入八月，花期即将结束，只剩下一部分花朵仍然开放。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-02",
@@ -6419,9 +6419,9 @@ ILY.data.stories.heroine = {
       "next": "her_0254"
     },
     "her_0254": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "ILY脑中闪过基生手机相册里的照片，是他高中时代拍下的。照片里的爱理站在同一个地方，面带笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-02",
@@ -6445,9 +6445,9 @@ ILY.data.stories.heroine = {
       "next": "her_0255"
     },
     "her_0255": {
-      "type": "dialogue",
-      "text": "是啊、这个地方……",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-02",
@@ -6625,9 +6625,9 @@ ILY.data.stories.heroine = {
       "next": "her_0262"
     },
     "her_0262": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "ILY走在基生身旁，两人的手再次牵在一起，在石板路上走了一会儿。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6660,9 +6660,9 @@ ILY.data.stories.heroine = {
       "next": "her_0263"
     },
     "her_0263": {
-      "type": "dialogue",
-      "text": "明明之前从未感觉到过。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6681,9 +6681,9 @@ ILY.data.stories.heroine = {
       "next": "her_0264"
     },
     "her_0264": {
-      "type": "dialogue",
-      "text": "他的声音、表情、还有体温，让我感到了“温暖”，让我感到很“温柔”。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6702,9 +6702,9 @@ ILY.data.stories.heroine = {
       "next": "her_0265"
     },
     "her_0265": {
-      "type": "dialogue",
-      "text": "这具身体，感觉到了。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6723,9 +6723,9 @@ ILY.data.stories.heroine = {
       "next": "her_0266"
     },
     "her_0266": {
-      "type": "dialogue",
-      "text": "“热情”，“痛苦”，还有“愉快”。虽然这些东西我全部都不知道，也不明白。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6744,9 +6744,9 @@ ILY.data.stories.heroine = {
       "next": "her_0267"
     },
     "her_0267": {
-      "type": "dialogue",
-      "text": "但是，如果这个是“感情”的话...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6880,9 +6880,9 @@ ILY.data.stories.heroine = {
       "next": "her_0273"
     },
     "her_0273": {
-      "type": "dialogue",
-      "text": "这种“感情”...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6969,9 +6969,9 @@ ILY.data.stories.heroine = {
       "next": "her_0277"
     },
     "her_0277": {
-      "type": "dialogue",
-      "text": "这种“感情”，",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -6995,9 +6995,9 @@ ILY.data.stories.heroine = {
       "next": "her_0278"
     },
     "her_0278": {
-      "type": "dialogue",
-      "text": "是“爱理”的吗？还是说...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-03",
@@ -7619,9 +7619,9 @@ ILY.data.stories.heroine = {
       "next": "her_0302"
     },
     "her_0302": {
-      "type": "dialogue",
-      "text": "即使离开基生，我依旧保持着爱理的模样...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7631,9 +7631,9 @@ ILY.data.stories.heroine = {
       "next": "her_0303"
     },
     "her_0303": {
-      "type": "dialogue",
-      "text": "这是因为基生一直在脑海里惦记着我...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7643,9 +7643,9 @@ ILY.data.stories.heroine = {
       "next": "her_0304"
     },
     "her_0304": {
-      "type": "dialogue",
-      "text": "不...想着“爱理”，的缘故吗？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7655,9 +7655,9 @@ ILY.data.stories.heroine = {
       "next": "her_0305"
     },
     "her_0305": {
-      "type": "dialogue",
-      "text": "基生的脑海中强烈的...思念...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7679,9 +7679,9 @@ ILY.data.stories.heroine = {
       "next": "her_0307"
     },
     "her_0307": {
-      "type": "dialogue",
-      "text": "让基生如此执着的“爱理”到底是谁呢。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7691,9 +7691,9 @@ ILY.data.stories.heroine = {
       "next": "her_0308"
     },
     "her_0308": {
-      "type": "dialogue",
-      "text": "我所了解到的“爱理”就只有基生脑内数据里的她而已。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7703,9 +7703,9 @@ ILY.data.stories.heroine = {
       "next": "her_0309"
     },
     "her_0309": {
-      "type": "dialogue",
-      "text": "在此之前我从来都没有想过...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7715,9 +7715,9 @@ ILY.data.stories.heroine = {
       "next": "her_0310"
     },
     "her_0310": {
-      "type": "dialogue",
-      "text": "“爱理”她到底去哪里了呢？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7727,9 +7727,9 @@ ILY.data.stories.heroine = {
       "next": "her_0311"
     },
     "her_0311": {
-      "type": "dialogue",
-      "text": "为什么只留下基生一个人呢？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7739,9 +7739,9 @@ ILY.data.stories.heroine = {
       "next": "her_0312"
     },
     "her_0312": {
-      "type": "dialogue",
-      "text": "“爱理”是真实存在于这个世界的人吗？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7751,9 +7751,9 @@ ILY.data.stories.heroine = {
       "next": "her_0313"
     },
     "her_0313": {
-      "type": "dialogue",
-      "text": "既然已经变不会去了",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7802,9 +7802,9 @@ ILY.data.stories.heroine = {
       "next": "her_0316"
     },
     "her_0316": {
-      "type": "dialogue",
-      "text": "基生回来得好慢啊...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7814,9 +7814,9 @@ ILY.data.stories.heroine = {
       "next": "her_0317"
     },
     "her_0317": {
-      "type": "dialogue",
-      "text": "明明只是去买个喝的而已...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7826,9 +7826,9 @@ ILY.data.stories.heroine = {
       "next": "her_0318"
     },
     "her_0318": {
-      "type": "dialogue",
-      "text": "难道是遇到什么麻烦了？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-05",
@@ -7868,9 +7868,9 @@ ILY.data.stories.heroine = {
       "next": "her_0320"
     },
     "her_0320": {
-      "type": "dialogue",
-      "text": "呵呵...在找我呢~",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-06",
@@ -8082,9 +8082,9 @@ ILY.data.stories.heroine = {
       "next": "her_0328"
     },
     "her_0328": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "夕阳下，一位留着长发、拥有成年女性身形的人。她与爱理极为相似，却又不是ILY在基生记忆里看到的模样。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-06",
@@ -8114,9 +8114,9 @@ ILY.data.stories.heroine = {
       "next": "her_0329"
     },
     "her_0329": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "纤细的身姿在夕阳的映照下那样动人，长发在风中飘舞着，仿佛晚风吹过的细柳，而那双动人的酒红色双眸，和那张似曾相识却又十分成熟的面庞...",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-06",
@@ -8138,9 +8138,9 @@ ILY.data.stories.heroine = {
       "next": "her_0330"
     },
     "her_0330": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "毫无疑问，她，就是，爱理。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-06",
@@ -8284,9 +8284,9 @@ ILY.data.stories.heroine = {
       "next": "her_0335"
     },
     "her_0335": {
-      "type": "dialogue",
-      "text": "这个人，是谁？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8314,9 +8314,9 @@ ILY.data.stories.heroine = {
       "next": "her_0336"
     },
     "her_0336": {
-      "type": "dialogue",
-      "text": "我不认识。数据库里也找不到。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8339,9 +8339,9 @@ ILY.data.stories.heroine = {
       "next": "her_0337"
     },
     "her_0337": {
-      "type": "dialogue",
-      "text": "她不是数据库里保存的“爱理”。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8419,9 +8419,9 @@ ILY.data.stories.heroine = {
       "next": "her_0340"
     },
     "her_0340": {
-      "type": "dialogue",
-      "text": "这个人，就是真正的爱理？",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8444,9 +8444,9 @@ ILY.data.stories.heroine = {
       "next": "her_0341"
     },
     "her_0341": {
-      "type": "dialogue",
-      "text": "我不明白现在到底发生了什么。我也不知道接下来可能会发生什么。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8469,9 +8469,9 @@ ILY.data.stories.heroine = {
       "next": "her_0342"
     },
     "her_0342": {
-      "type": "dialogue",
-      "text": "尽管心中得不出答案。但我却强烈地感觉到，这对我来说，一定很“危险”，于是我...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8662,9 +8662,9 @@ ILY.data.stories.heroine = {
       "next": "her_0349"
     },
     "her_0349": {
-      "type": "dialogue",
-      "text": "到底是怎么回事啊...?",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8692,9 +8692,9 @@ ILY.data.stories.heroine = {
       "next": "her_0350"
     },
     "her_0350": {
-      "type": "dialogue",
-      "text": "爱理她……诶...？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8717,9 +8717,9 @@ ILY.data.stories.heroine = {
       "next": "her_0351"
     },
     "her_0351": {
-      "type": "dialogue",
-      "text": "我今天不是和爱理一起来到了这里，然后还...",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8742,9 +8742,9 @@ ILY.data.stories.heroine = {
       "next": "her_0352"
     },
     "her_0352": {
-      "type": "dialogue",
-      "text": "在附近参观了好些地方，之后又，说好了，一起去看夕阳，然后就...",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8767,9 +8767,9 @@ ILY.data.stories.heroine = {
       "next": "her_0353"
     },
     "her_0353": {
-      "type": "dialogue",
-      "text": "然后就……",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8792,9 +8792,9 @@ ILY.data.stories.heroine = {
       "next": "her_0354"
     },
     "her_0354": {
-      "type": "dialogue",
-      "text": "...然后就？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8817,9 +8817,9 @@ ILY.data.stories.heroine = {
       "next": "her_0355"
     },
     "her_0355": {
-      "type": "dialogue",
-      "text": "基生心里的声音，传到我这边来了。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -8924,9 +8924,9 @@ ILY.data.stories.heroine = {
       "next": "her_0359"
     },
     "her_0359": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "记忆的错乱感让他的大脑仿佛一片空白般的麻木，仿佛这里只有他才是不该出现的人，一切都像黑洞般吞噬着他的意识。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-07",
@@ -9050,9 +9050,9 @@ ILY.data.stories.heroine = {
       "next": "her_0363"
     },
     "her_0363": {
-      "type": "dialogue",
-      "text": "我是...和爱理...和十年前那个模样的爱理一起来这里的吧？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9100,9 +9100,9 @@ ILY.data.stories.heroine = {
       "next": "her_0365"
     },
     "her_0365": {
-      "type": "dialogue",
-      "text": "而且还说好了，我们会永远在一起的吧？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9155,9 +9155,9 @@ ILY.data.stories.heroine = {
       "next": "her_0367"
     },
     "her_0367": {
-      "type": "dialogue",
-      "text": "咦？可爱理她，我眼前的这个女性她是？我又是...？诶...？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9180,9 +9180,9 @@ ILY.data.stories.heroine = {
       "next": "her_0368"
     },
     "her_0368": {
-      "type": "dialogue",
-      "text": "这个人是爱理，是我不知道的爱理。是和我在同一个年级，和我一样长大成人的爱理。既然这样，我身边那个爱理又是？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9205,9 +9205,9 @@ ILY.data.stories.heroine = {
       "next": "her_0369"
     },
     "her_0369": {
-      "type": "dialogue",
-      "text": "我身边那个爱理，我曾深信就在我身边的爱理，",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9300,9 +9300,9 @@ ILY.data.stories.heroine = {
       "next": "her_0372"
     },
     "her_0372": {
-      "type": "dialogue",
-      "text": "以及那些今日之前的生活，",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9416,9 +9416,9 @@ ILY.data.stories.heroine = {
       "next": "her_0376"
     },
     "her_0376": {
-      "type": "dialogue",
-      "text": "全部，都是我——",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9547,9 +9547,9 @@ ILY.data.stories.heroine = {
       "next": "her_0380"
     },
     "her_0380": {
-      "type": "dialogue",
-      "text": "全部都是我妄想出来的？",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9632,9 +9632,9 @@ ILY.data.stories.heroine = {
       "next": "her_0383"
     },
     "her_0383": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "无人可见的蓝色消失在海边傍晚美丽的晚霞中。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 江之岛",
       "scene": "05-08",
@@ -9858,9 +9858,9 @@ ILY.data.stories.heroine = {
       "next": "her_0395"
     },
     "her_0395": {
-      "type": "dialogue",
-      "text": "距离那件事已经过去一个月了。",
-      "speaker": "基生（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-01",
@@ -9909,9 +9909,9 @@ ILY.data.stories.heroine = {
       "next": "her_0398"
     },
     "her_0398": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "房间里只有床铺、窗帘和昏暗的室内环境，他的眼神中流露出惊讶与疑惑。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-01",
@@ -10293,9 +10293,9 @@ ILY.data.stories.heroine = {
       "next": "her_0421"
     },
     "her_0421": {
-      "type": "dialogue",
-      "text": "基生他，和真正的爱理相遇的那天...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-02",
@@ -10335,9 +10335,9 @@ ILY.data.stories.heroine = {
       "next": "her_0423"
     },
     "her_0423": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生正躺在床上睡觉，突然感觉有什么虫子爬过他的肩膀。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-03",
@@ -10679,9 +10679,9 @@ ILY.data.stories.heroine = {
       "next": "her_0435"
     },
     "her_0435": {
-      "type": "dialogue",
-      "text": "我知道基生他已经看不到我了。我的声音也没办法传达给他了。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10702,9 +10702,9 @@ ILY.data.stories.heroine = {
       "next": "her_0436"
     },
     "her_0436": {
-      "type": "dialogue",
-      "text": "我现在的这副模样，也已经不再是凭借基生的意识存在的了...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10714,9 +10714,9 @@ ILY.data.stories.heroine = {
       "next": "her_0437"
     },
     "her_0437": {
-      "type": "dialogue",
-      "text": "但尽管如此，我还是忘不掉基生对待我时温柔的笑脸。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10726,9 +10726,9 @@ ILY.data.stories.heroine = {
       "next": "her_0438"
     },
     "her_0438": {
-      "type": "dialogue",
-      "text": "基生他再也不会去呼唤“爱理”这个名字。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10743,9 +10743,9 @@ ILY.data.stories.heroine = {
       "next": "her_0439"
     },
     "her_0439": {
-      "type": "dialogue",
-      "text": "也不会去看“爱理”以前的照片。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10755,9 +10755,9 @@ ILY.data.stories.heroine = {
       "next": "her_0440"
     },
     "her_0440": {
-      "type": "dialogue",
-      "text": "每天都重复着睡着、醒来、去洗澡、吃饭、去打工，然后回来、再睡觉，这样的流程...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10767,9 +10767,9 @@ ILY.data.stories.heroine = {
       "next": "her_0441"
     },
     "her_0441": {
-      "type": "dialogue",
-      "text": "和“爱理”一起度过的那些日子仿佛从一开始就不存在。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10779,9 +10779,9 @@ ILY.data.stories.heroine = {
       "next": "her_0442"
     },
     "her_0442": {
-      "type": "dialogue",
-      "text": "在基生心中，已经没有了“爱理”，也不需要“爱理”了。这些就连本应没有心的我都能看得出来。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10791,9 +10791,9 @@ ILY.data.stories.heroine = {
       "next": "her_0443"
     },
     "her_0443": {
-      "type": "dialogue",
-      "text": "我作为为了基生而出现的“爱理”，如今已经什么都没办法做到。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10803,9 +10803,9 @@ ILY.data.stories.heroine = {
       "next": "her_0444"
     },
     "her_0444": {
-      "type": "dialogue",
-      "text": "就连将基生给吸收进ILY病毒中也做不到。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10815,9 +10815,9 @@ ILY.data.stories.heroine = {
       "next": "her_0445"
     },
     "her_0445": {
-      "type": "dialogue",
-      "text": "现在我存在的意识，已经消失殆尽了。",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10827,9 +10827,9 @@ ILY.data.stories.heroine = {
       "next": "her_0446"
     },
     "her_0446": {
-      "type": "dialogue",
-      "text": "即便如此...",
-      "speaker": "ILY（心声）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-04",
@@ -10966,9 +10966,9 @@ ILY.data.stories.heroine = {
       "next": "her_0453"
     },
     "her_0453": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "映入眼帘的，是一只残破不堪的手。本应是少女的手上，钻出蠕虫般的电线。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 一个月后",
       "scene": "06-05",
@@ -11063,9 +11063,9 @@ ILY.data.stories.heroine = {
       "next": "her_0457"
     },
     "her_0457": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "曾有人说，老猫会在死前去往一个无人的角落，安静地化为尘土。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 尘土",
       "scene": "07-01",
@@ -11089,9 +11089,9 @@ ILY.data.stories.heroine = {
       "next": "her_0458"
     },
     "her_0458": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她似乎快要忘记自己存在于世的目的，忘掉自己曾经如何来到了这里，忘记自己曾“吞噬”的一切。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 尘土",
       "scene": "07-01",
@@ -11107,9 +11107,9 @@ ILY.data.stories.heroine = {
       "next": "her_0459"
     },
     "her_0459": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "但心里仍记着一个人的名字，和有关于他的回忆。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 尘土",
       "scene": "07-01",

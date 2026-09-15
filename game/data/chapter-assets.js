@@ -20,7 +20,6 @@ Object.assign(ILY.data.assets.images, {
   "ch3-mall": "assets/images/maps/ch3-mall.png",
   "ch2-follower": "assets/images/maps/airi-follower.svg",
   "airi-rpg-sheet": "assets/images/maps/airi-rpg-sheet.png",
-  // 第三章夜路地图上的 NPC 小人（与主角 cursor-hero-*.png 同为 48x48 规格）
   "npc-coworker": "assets/images/characters/npc-coworker.png",
   "npc-hibiya": "assets/images/characters/npc-hibiya.png"
 });

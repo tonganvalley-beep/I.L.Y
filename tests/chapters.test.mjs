@@ -48,10 +48,11 @@ test('Heroine-view labels retain their distinct presentation and production sema
  const heroine=I.data.stories.heroine,entries=Object.entries(heroine.nodes),nodes=entries.map(([,node])=>node);
  assert.equal(heroine.start,'her_chapter_prologue');
  assert.equal(nodes.length,514);
- assert.equal(nodes.filter(node=>node.type==='monologue').length,48);
+ assert.equal(nodes.filter(node=>node.type==='monologue').length,96);
  assert.equal(nodes.filter(node=>node.type==='heroine-card').length,53);
  assert.equal(nodes.filter(node=>node.checkpoint&&node.type==='heroine-card').length,53);
- assert.ok(nodes.some(node=>node.speaker==='ILY（心声）'));
+ assert.ok(nodes.some(node=>node.type==='cue'));
+ assert.ok(nodes.every(node=>!/(?:内心|心声)/.test(node.speaker||'')));
  assert.ok(nodes.some(node=>node.production?.direction?.length));
  assert.ok(nodes.some(node=>node.production?.bgm?.length));
  assert.ok(nodes.some(node=>node.production?.sfx?.length));

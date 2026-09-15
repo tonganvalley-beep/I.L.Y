@@ -327,7 +327,11 @@ try {
   }
 
   function go(id, options = {}) {
-    const next = id || state.node;
+    let next = id || state.node;
+    // Omitted script lines retain their IDs for saves and branch anchors, but
+    // never mount a blank dialogue or introduce a click between spoken lines.
+    try { next = ILY.resolveScriptCues(state, story, next); }
+    catch { notify(t('notify.nodeMissing', { id: next })); return; }
     const node = story.nodes[next];
     if (!node) { notify(t('notify.nodeMissing', { id: next })); return; }
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
