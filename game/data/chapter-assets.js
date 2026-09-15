@@ -1,0 +1,26 @@
+Object.assign(ILY.data.assets.images, {
+  "ch2-stone": "assets/images/backgrounds/ch2-stone.jpg",
+  "ch2-ice": "assets/images/cg/ch2-ice.jpg",
+  "ch2-vending": "assets/images/backgrounds/ch2-vending.jpg",
+  "ch2-adult": "assets/images/cg/ch2-adult.jpg",
+  "ch2-smile": "assets/images/cg/ch2-smile.jpg",
+  "ch2-couple": "assets/images/cg/ch2-couple.jpg",
+  "ch2-flowers": "assets/images/backgrounds/ch2-flowers.jpg",
+  "ch2-shop": "assets/images/backgrounds/ch2-shop.jpg",
+  "ch2-memory": "assets/images/cg/ch2-memory.jpg",
+  "ch2-sunset": "assets/images/backgrounds/ch2-sunset.jpg",
+  "ch2-hug": "assets/images/cg/ch2-hug.jpg",
+  "ch2-talk": "assets/images/cg/ch2-talk.jpg",
+  "ch2-blush": "assets/images/cg/ch2-blush.jpg",
+  "ch2-beach": "assets/images/backgrounds/ch2-beach.jpg",
+  "ch2-hug-close": "assets/images/cg/ch2-hug-close.jpg",
+  "ch2-hand": "assets/images/cg/ch2-hand.jpg",
+  "ch2-path-summer": "assets/images/maps/ch2-flowers.png",
+  "ch3-work": "assets/images/maps/ch3-work.png",
+  "ch3-mall": "assets/images/maps/ch3-mall.png",
+  "ch2-follower": "assets/images/maps/airi-follower.svg",
+  "airi-rpg-sheet": "assets/images/maps/airi-rpg-sheet.png",
+  // 第三章夜路地图上的 NPC 小人（与主角 cursor-hero-*.png 同为 48x48 规格）
+  "npc-coworker": "assets/images/characters/npc-coworker.png",
+  "npc-hibiya": "assets/images/characters/npc-hibiya.png"
+});

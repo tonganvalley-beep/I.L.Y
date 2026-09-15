@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
+  <title id="title">楚门的世界概念海报</title><desc id="desc">蓝天、聚光灯与通往未知之门的抽象电影海报</desc>
+  <defs><linearGradient id="day" y2="1"><stop stop-color="#70a8c4"/><stop offset=".57" stop-color="#c4d6d7"/><stop offset="1" stop-color="#17212d"/></linearGradient></defs>
+  <rect width="720" height="1080" fill="url(#day)"/><g fill="#fff" opacity=".74"><ellipse cx="145" cy="175" rx="94" ry="28"/><ellipse cx="245" cy="205" rx="78" ry="24"/><ellipse cx="560" cy="150" rx="112" ry="32"/></g><path d="M255 285h210v430H255z" fill="#0b1118"/><path d="M273 305h174v390H273z" fill="#d9e4e2"/><path d="M360 305v390" stroke="#788b91"/><circle cx="420" cy="510" r="8" fill="#a47b43"/><path d="M100 735h520" stroke="#d4ad68" opacity=".5"/>
+  <text x="72" y="828" fill="#f5f2eb" font-family="serif" font-size="69" letter-spacing="8">楚门的世界</text><text x="76" y="882" fill="#d4ad68" font-family="sans-serif" font-size="21" letter-spacing="7">THE TRUMAN SHOW</text><text x="76" y="985" fill="#bdc3c7" font-family="sans-serif" font-size="18" letter-spacing="4">THE EXIT IS ALSO AN ENTRANCE</text>
+</svg>

@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* 《I.L.Y.》序章专属样式：翻盖手机 / 隧道步行 / 终幕 */
+/* 沿用 game.css 的暗色主题与 Zpix 像素字体。 */
+
+/* ===== 翻盖手机（外观：outputs/手机.png 抠图，内容区域叠加在屏幕白色区域上）===== */
+/* 抠图后 435×1496，屏幕白色区域 x 55-382 / y 274-591，换算为百分比定位 */
+.phone{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  background:radial-gradient(ellipse at 50% 40%,rgba(8,20,16,.55),rgba(4,8,12,.85));padding:8px 16px 16px;overflow:hidden}
+.phone-screen{position:relative;flex:none;height:min(172vh,1650px);aspect-ratio:435/1496;
+  background:url('../assets/images/ui/phone-frame.png') center/contain no-repeat;
+  filter:drop-shadow(0 0 22px rgba(60,200,140,.3))}
+.phone-tabs{position:absolute;left:12.6%;right:12.2%;top:18.3%;height:2.7%;display:flex}
+.phone-tabs button{flex:1;background:transparent;border:0;border-right:1px solid #9aa4a8;color:#3a4a4a;
+  font:inherit;font-size:15px;padding:0;cursor:pointer}
+.phone-tabs button:last-child{border-right:0}
+.phone-tabs button.active{background:rgba(95,224,160,.45);color:#0d3b26;font-weight:bold}
+.phone-tabs .tab-home{flex:1;text-align:left;padding-left:8px;color:#1f6b45}
+.phone-tabs .tab-home:hover{background:rgba(95,224,160,.35);color:#0d3b26}
+.phone-tabs .tab-title{flex:1.6;align-self:center;text-align:center;font-size:15px;color:#123326;letter-spacing:2px}
+.phone-body{position:absolute;left:12.6%;right:12.2%;top:21.4%;bottom:60.5%;overflow:auto;
+  padding:6px;color:#1c2b26;background:rgba(255,255,255,.4)}
+/* 主界面（图标页）：隐藏顶栏，内容区占满整个屏幕 */
+.phone-screen.is-home .phone-tabs{display:none}
+.phone-screen.is-home .phone-body{top:18.3%;background:rgba(255,255,255,.25)}
+.phone-home{display:flex;flex-direction:column;justify-content:center;gap:14px;height:100%;padding:4px}
+.home-app{display:flex;align-items:center;gap:14px;padding:10px 14px;
+  border:1px solid #b8c4be;border-radius:8px;background:rgba(255,255,255,.88);cursor:pointer}
+.home-app.sel{border-color:#1f9d63;background:#e4f7ec;box-shadow:0 0 10px rgba(31,157,99,.4)}
+.home-icon{position:relative;width:52px;height:52px;flex:none}
+.home-icon svg{width:100%;height:100%;display:block}
+.home-badge{position:absolute;top:-7px;right:-9px;min-width:20px;height:20px;padding:0 5px;
+  border-radius:10px;background:#d43a3a;color:#fff;font-size:13px;line-height:20px;text-align:center;
+  box-shadow:0 0 5px rgba(212,58,58,.65)}
+.home-label{font-size:19px;color:#123326;letter-spacing:3px}
+.phone-list{display:flex;flex-direction:column;gap:6px}
+.phone-row{padding:8px 10px;border:1px solid #b8c4be;border-radius:6px;background:rgba(255,255,255,.85);cursor:pointer}
+.phone-row.sel{border-color:#1f9d63;background:#e4f7ec;box-shadow:0 0 8px rgba(31,157,99,.35)}
+.phone-row.gone{opacity:.4;text-decoration:line-through}
+/* 玩家自己翻出来的隐藏邮件（父亲的回信） */
+.phone-row.is-hidden-mail{border-style:dashed;border-color:#6f93a8;background:rgba(238,247,252,.9)}
+.phone-row.is-hidden-mail .r-from{color:#1d3c52}
+.r-from{font-size:17px;color:#123326}
+.r-unread{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e23b3b;margin-right:7px;vertical-align:2px}
+.r-time{font-size:13px;color:#7a8a82}
+.r-sub{font-size:14px;color:#4c5f56;margin-top:2px}
+.edge{text-align:center;color:#1f9d63;font-size:14px;padding:2px}
+.phone-detail{display:flex;flex-direction:column;gap:10px}
+.d-head{font-size:15px;color:#123326;border-bottom:1px dashed #9fb3aa;padding-bottom:6px}
+.d-body{white-space:pre-wrap;line-height:1.75;font-size:16px;color:#1c2b26}
+/* 收件箱顶部「给爱理的那封信」草稿 */
+.phone-row.is-draft{border-style:dashed;border-color:#2c6b4c;background:rgba(232,246,238,.9)}
+.r-tag{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:8px;background:#1f9d63;color:#fff;
+  font-size:12px;letter-spacing:1px;vertical-align:2px}
+.phone-empty{padding:16px 10px;text-align:center;font-size:14px;color:#7a8a82}
+/* 写信界面：正文逐字敲出来，末尾一个闪烁光标 */
+.d-write{min-height:96px}
+.is-editor .d-write::after{content:'_';display:inline-block;margin-left:1px;color:#1f9d63;
+  animation:write-caret .7s steps(2,start) infinite}
+.is-editor .d-write.is-done::after{content:'';animation:none}
+@keyframes write-caret{0%,100%{opacity:1}50%{opacity:0}}
+.phone-detail button:disabled{opacity:.45;cursor:default}
+/* 「发送中……」 */
+.is-sending .d-body{font-size:14px;color:#3c5148;letter-spacing:1px}
+.sending-dots{display:flex;gap:7px;justify-content:center;padding:4px 0 2px}
+.sending-dots span{width:8px;height:8px;border-radius:50%;background:#1f9d63;animation:send-dot 1s ease-in-out infinite}
+.sending-dots span:nth-child(2){animation-delay:.18s}
+.sending-dots span:nth-child(3){animation-delay:.36s}
+@keyframes send-dot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+/* 发送失败的系统退信 */
+.is-bounce .d-head{color:#7a2b2b;border-bottom-color:#c98}
+.is-bounce .d-body{font-size:15px;line-height:1.7}
+@media (prefers-reduced-motion: reduce){
+  .is-editor .d-write::after,.sending-dots span{animation:none}
+}
+.d-link{color:#e8f6ff;background:#0b5a8f;padding:9px;border-radius:6px;font-size:15px;letter-spacing:1px}
+.phone-detail.is-link-mail{gap:10px}
+.phone-detail.is-link-mail .d-head{font-size:15px}
+.phone-detail.is-link-mail .d-body{font-size:17px;line-height:1.65}
+.phone-detail.is-link-mail .d-link{padding:9px 10px;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
+.confirm .sel-y{outline:2px solid #1f9d63}
+.confirm .sel-n{outline:2px solid #c98}
+.phone-detail button{font:inherit;font-size:15px;padding:8px 10px;border-radius:6px;border:1px solid #2c6b4c;
+  background:#0f3324;color:#cdeede;cursor:pointer;text-align:left}
+.phone-detail button:hover{background:#15432f}
+.phone-detail .d-link{color:#f4fbff;background:#075a91;border-color:#64c9ff;padding:9px 10px;letter-spacing:1px}
+.phone-detail .d-link:hover,.phone-detail .d-link:focus-visible{background:#0875bb;outline:2px solid #c6efff}
+.phone-exit{width:100%;margin-top:12px;font-size:15px;padding:9px 10px;border-radius:6px;cursor:pointer;
+  text-align:center!important;background:#103524!important;border-color:#5fe0a0!important;color:#cdeede!important}
+.phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.phone-cell{border:1px solid #b8c4be;border-radius:6px;padding:5px;background:rgba(255,255,255,.85);cursor:pointer;text-align:center}
+.phone-cell.sel{border-color:#1f9d63;box-shadow:0 0 8px rgba(31,157,99,.35)}
+.cell-ph{height:80px;display:flex;align-items:center;justify-content:center;color:#7a8a82;font-size:13px;background:#eef2ef;border-radius:4px}
+.phone-cell img,.photo-full{width:100%;border-radius:4px;display:block}
+.cell-cap{font-size:13px;color:#4c5f56;margin-top:3px}
+.photo-full{max-height:230px;object-fit:contain;margin:0 auto}
+.photo-zoomable{cursor:zoom-in}
+/* 照片放大灯箱：覆盖整个画面 · 单击缩放 / 滚轮缩放 / 拖动平移 */
+.photo-lightbox{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;background:rgba(3,10,7,.93);animation:lb-fade .16s ease}
+.photo-lightbox .lb-img{width:min(1100px,92vw);height:72vh;object-fit:contain;image-rendering:pixelated;border-radius:8px;flex:none;
+  box-shadow:0 0 38px rgba(95,224,160,.22),0 18px 60px rgba(0,0,0,.75);
+  cursor:zoom-in;transform-origin:center center;transition:transform .16s ease;
+  user-select:none;-webkit-user-drag:none;touch-action:none}
+.photo-lightbox.zoomed .lb-img{cursor:zoom-out}
+.photo-lightbox .lb-close{position:absolute;top:14px;right:18px;z-index:1;font:inherit;font-size:14px;padding:7px 16px;border-radius:6px;
+  border:1px solid #2c6b4c;background:#0f3324;color:#cdeede;cursor:pointer}
+.photo-lightbox .lb-close:hover{background:#15432f}
+.photo-lightbox .lb-cap{font-size:16px;color:#d8ffe9;letter-spacing:1px;text-align:center;max-width:80vw}
+.photo-lightbox .lb-hint{font-size:12px;color:#7fae95;letter-spacing:1px;text-align:center}
+@keyframes lb-fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.photo-lightbox{animation:none}.photo-lightbox .lb-img{transition:none}}
+.phone-hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:#9fd8bc;letter-spacing:1px;
+  text-shadow:0 0 6px rgba(0,0,0,.9)}
+.phone-thought-dialogue{z-index:12;pointer-events:none}
+.phone-thought-dialogue .dialogue-text{min-height:0}
+
+/* 删除教学演示 · 醒目提示弹窗（悬浮在手机上方，脉冲发光） */
+.phone-demo-tip{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:30;max-width:86%;
+  display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:10px;
+  background:rgba(6,26,18,.93);border:2px solid #5fe0a0;
+  box-shadow:0 0 18px rgba(95,224,160,.55),0 4px 14px rgba(0,0,0,.5);
+  color:#eafff3;font-size:15px;letter-spacing:1px;line-height:1.5;
+  animation:demo-tip-pulse 1.1s ease-in-out infinite}
+.phone-demo-tip .demo-tag{flex:none;padding:3px 9px;border-radius:6px;background:#1f9d63;color:#fff;
+  font-size:13px;font-weight:bold;letter-spacing:2px}
+.phone-demo-tip .demo-text{max-width:64vw}
+@keyframes demo-tip-pulse{
+  0%,100%{box-shadow:0 0 12px rgba(95,224,160,.35),0 4px 14px rgba(0,0,0,.5);border-color:#5fe0a0}
+  50%{box-shadow:0 0 26px rgba(95,224,160,.85),0 4px 14px rgba(0,0,0,.5);border-color:#a5f5cd}}
+@media (prefers-reduced-motion: reduce){.phone-demo-tip{animation:none}}
+
+/* 示例演示：高亮「下一步要点的那一项」，右侧一个跳动的 ◀ 箭头指向它。
+   演示期间只有高亮处可点，其余区域不响应鼠标，避免玩家点歪。 */
+.phone.demo-active .phone-body *{pointer-events:none}
+.phone.demo-active .phone-body .demo-target{pointer-events:auto;cursor:pointer}
+.demo-target{position:relative;outline:2px dashed #ffd76a;outline-offset:2px;border-radius:6px}
+.demo-target::after{content:'◀';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-size:20px;line-height:1;color:#ffd76a;text-shadow:0 0 6px #000,0 0 12px rgba(255,215,106,.9);
+  animation:demo-arrow-blink .9s steps(2,start) infinite}
+@keyframes demo-arrow-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){.demo-target::after{animation:none}}
+
+/* ===== 序章随时掏出的手机 ===== */
+/* 位置：右上角菜单按钮下方，避免挡住底部对白的「继续」 */
+.phone-quick{position:fixed;top:66px;right:3vw;z-index:30;display:flex;align-items:center;gap:8px;
+  font:inherit;font-size:14px;letter-spacing:1px;padding:9px 16px;border-radius:24px;
+  border:1px solid #5fe0a066;background:#0c1628e6;color:#d8ffe9;cursor:pointer;
+  box-shadow:0 6px 22px #0009}
+.phone-quick:hover{background:#12352ae6;border-color:#a5f5cd}
+.phone-quick svg{width:18px;height:18px;flex:none}
+.free-phone-dialog{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;
+  padding:0;border:0;background:transparent;overflow:hidden;color:#eafff3}
+.free-phone-dialog::backdrop{background:#040a14cc}
+.free-phone-holder{position:absolute;inset:0}
+.free-phone-bar{position:absolute;top:12px;right:18px;z-index:36}
+.free-phone-close{font:inherit;font-size:13px;padding:8px 16px;border-radius:24px;
+  border:1px solid #5fe0a066;background:#0c1628e6;color:#d8ffe9;cursor:pointer}
+.free-phone-close:hover{background:#12352ae6;border-color:#a5f5cd}
+@media(max-width:600px){.phone-quick{top:56px;right:12px;padding:8px 12px;font-size:12px}
+  .free-phone-bar{top:10px;right:12px}}
+
+/* ===== 隧道步行 ===== */
+.walk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.walk-canvas{width:100%;height:100%;display:block;background:transparent}
+.walk-hud{position:absolute;top:12px;left:12px;color:#cdeede;font-size:13px;
+  background:rgba(6,16,12,.6);padding:4px 10px;border-radius:6px}
+.walk-prompt{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:#bdf3d6;font-size:14px;text-shadow:0 0 8px rgba(0,0,0,.8)}
+
+/* 隧道尾段画面：接近出口时全屏淡入，缓慢推近 + 镜像 + 暗角，停留后走出 */
+.walk-reveal{position:absolute;inset:0;z-index:15;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.walk-reveal.walk-reveal-on{opacity:1}
+.walk-reveal-img{position:absolute;inset:-5%;background-size:cover;background-position:center;
+  animation:walkRevealZoom 2.8s ease-out forwards}
+.walk-reveal-img.walk-reveal-flip{animation-name:walkRevealZoomFlip}
+.walk-reveal-shade{position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(3,6,14,.62) 100%)}
+@keyframes walkRevealZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes walkRevealZoomFlip{from{transform:scaleX(-1) scale(1.12)}to{transform:scaleX(-1) scale(1)}}
+@media (prefers-reduced-motion: reduce){
+  .walk-reveal-img{animation:none}
+  .walk-reveal-img.walk-reveal-flip{transform:scaleX(-1)}}
+
+/* 调查交互弹窗：大面板居中 */
+.walk-dialog{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:20;
+  width:min(620px,86vw);background:linear-gradient(160deg,#10281f,#081511f2);
+  border:1px solid #3a8a62;border-radius:10px;box-shadow:0 0 34px rgba(60,180,120,.22),0 18px 50px rgba(0,0,0,.55);
+  padding:26px 30px 22px;text-align:left}
+.walk-dialog[hidden]{display:none}
+.walk-dialog-title{margin:0 0 12px;font-size:21px;color:#d8ffe9;letter-spacing:1px;
+  border-bottom:1px solid #3a8a6255;padding-bottom:10px}
+.walk-dialog-text{margin:0 0 20px;font-size:17px;line-height:1.85;color:#cdeede;white-space:pre-wrap}
+.walk-dialog button{font:inherit;font-size:14px;padding:9px 26px;border-radius:6px;
+  border:1px solid #3a8a62;background:#0f3324;color:#d8ffe9;cursor:pointer}
+.walk-dialog button:hover{background:#15432f}
+
+/* ===== 走廊声控灯（场景07）===== */
+.corridor{position:absolute;inset:0;overflow:hidden}
+.corridor-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+/* 上层为关灯图：透明度过渡模拟声控灯明灭 */
+.corridor-bg-off{opacity:0;transition:opacity .3s ease}
+/* 前进步伐：整屏抖动 */
+@keyframes corridor-shake{
+  0%,100%{transform:translate(0,0)}
+  12%{transform:translate(-16px,7px)}
+  28%{transform:translate(13px,-9px)}
+  44%{transform:translate(-11px,-5px)}
+  60%{transform:translate(9px,7px)}
+  78%{transform:translate(-5px,3px)}
+}
+.corridor-shake{animation:corridor-shake .5s linear}
+@media (prefers-reduced-motion: reduce){.corridor-shake{animation:none}}
+.corridor-panel{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:22px 18px 26px;text-align:center;
+  background:linear-gradient(180deg,transparent,rgba(4,10,18,.82))}
+.corridor-text{margin:0;max-width:min(760px,92vw);font-size:17px;line-height:1.8;
+  color:#dbe6f4;text-shadow:0 0 8px rgba(0,0,0,.85)}
+.corridor-hint{margin:0;font-size:14px;color:#9fc0e8;letter-spacing:1px;
+  text-shadow:0 0 8px rgba(0,0,0,.9)}
+.corridor-count{margin:0;font-size:13px;color:#7d99bd;text-shadow:0 0 8px rgba(0,0,0,.9)}
+
+/* ===== 终幕 ===== */
+.mode-panel h1{color:#bfe9ff;text-shadow:0 0 16px rgba(120,200,255,.6);letter-spacing:4px}

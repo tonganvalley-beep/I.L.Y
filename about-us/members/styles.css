@@ -1,0 +1,266 @@
+@charset "utf-8";
+
+:root {
+    --accent: #00B4D8;
+    --accent2: #2A9D8F;
+    --accent-text: #ffffff;
+    --sidebar-bg: #333333;
+    --sidebar-text: #ffffff;
+    --main-bg: #dedede;
+    --card-bg: #ffffff;
+    --text: #222222;
+    --muted: #555555;
+}
+
+@font-face {
+    font-family: 'Source Han Serif';
+    src: local('Source Han Serif CN'),
+         url('../fonts/SourceHanSerifSC-VF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Source Han Serif', serif;
+    margin: 0;
+}
+
+body {
+    color: var(--text);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 左侧边栏 */
+.sidebar {
+    width: clamp(220px, 15vw, 280px);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 20px;
+}
+
+.sidebar .logo {
+    font-size: 220%;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+.sidebar #ul1 {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.sidebar #ul1 li {
+    padding: 0;
+}
+
+.sidebar #ul1 li a {
+    display: block;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.2s;
+}
+
+.sidebar #ul1 li a:hover {
+    background-color: #575757;
+}
+
+.sidebar #ul2 {
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    list-style-type: square;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.sidebar #ul2 li a {
+    color: rgb(201, 201, 201);
+    text-decoration: none;
+    font-size: 85%;
+    transition: color 0.2s;
+}
+
+.sidebar #ul2 li a:hover {
+    color: var(--accent);
+}
+
+.sidebar #ul2 li.current {
+    color: var(--accent);
+    font-size: 85%;
+}
+
+/* 主体 */
+.main-content {
+    margin-left: clamp(220px, 15vw, 280px);
+    flex: 1;
+    background-color: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 顶部导航栏 */
+.navbar {
+    background-image: url('../assets/lastframe.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 140px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    position: relative;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.55);
+}
+
+.navbar button {
+    position: relative;
+    z-index: 1;
+    height: 30px;
+    width: 45px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#back {
+    max-width: 30px;
+}
+
+/* 内容区 */
+.content {
+    padding: 40px 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: 180%;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 220%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content > img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+.text-box {
+    background-color: var(--card-bg);
+    max-width: 700px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.text-box h3 {
+    text-align: center;
+    font-size: 140%;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.text-box blockquote {
+    background-color: rgb(248, 248, 248);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.text-box blockquote p {
+    text-align: center;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.about-heading {
+    display: block;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 24px 0 10px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    text-align: left;
+}
+
+.text-box p {
+    line-height: 1.9;
+    text-align: left;
+    text-indent: 2em;
+    margin-bottom: 8px;
+}
+
+.text-box a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.text-box a:hover {
+    color: var(--accent2);
+    font-weight: bold;
+}
+
+/* 页脚 */
+.footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 85%;
+    color: var(--muted);
+}
+
+/* 响应式 */
+@media (max-width: 700px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .content > img {
+        width: 200px;
+        height: 200px;
+    }
+}

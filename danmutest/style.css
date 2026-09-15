@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* danmutest —— 极简弹幕原型样式
+ * 只负责 HUD / 覆盖层；战斗框与弹幕全部由 Canvas 绘制。 */
+:root {
+  color-scheme: dark;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  background: #0a0a0f;
+  color: #e8e8ef;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% 0%, #1a1a2e, #08080c 70%);
+}
+
+#wrap {
+  position: relative;
+  width: 640px;
+  max-width: 96vw;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #05050a;
+  border: 2px solid #2c2c3e;
+  border-radius: 6px;
+  touch-action: none;
+}
+
+/* ---------- HUD ---------- */
+#hud {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.label { color: #ffd34d; letter-spacing: 2px; }
+.hp-bar {
+  width: 150px;
+  height: 14px;
+  background: #2b2b3a;
+  border: 1px solid #55556a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.hp-fill {
+  height: 100%;
+  width: 100%;
+  background: #ffe14d;
+  transition: width .15s ease-out;
+}
+.hp-fill.low { background: #ff5f5f; }
+.hp-text { font-size: 13px; color: #cfcfe0; }
+.small { font-size: 12px; color: #9a9ab0; }
+.small b { color: #e8e8ef; }
+
+#tip {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #8a8aa0;
+}
+kbd {
+  background: #23233a;
+  border: 1px solid #44445c;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 11px;
+}
+.green { color: #7bd88f; }
+.red { color: #e2686a; }
+
+/* ---------- 开始 / 结束覆盖层 ---------- */
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding: 24px;
+  background: rgba(6, 6, 12, .88);
+  border-radius: 6px;
+}
+#overlay.show { display: flex; }
+#overlay h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+#overlay p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 2;
+  color: #b9b9cc;
+}
+#overlay button {
+  font: inherit;
+  padding: 10px 26px;
+  background: #23233a;
+  color: #e8e8ef;
+  border: 2px solid #6a6a90;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#overlay button:hover { background: #33334f; }

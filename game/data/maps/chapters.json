@@ -1,0 +1,739 @@
+{
+  "ch2-island": {
+    "id": "ch2-island",
+    "name": "江之岛 · 上岛小路",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#FFFFFFFFF.................#",
+      "#FFFFFFFFF.FFFFFF..........#",
+      "#FFFFFFFFF.FFFFFF..........#",
+      "#FFFFFFFFF.FFFFFF..........#",
+      "#FFFFFFFFF.................#",
+      "#FFFFFFFFF..........FFFFF..#",
+      "#...................FFFFF..#",
+      "#..........................#",
+      "#..........................#",
+      "#..........................#",
+      "#FF........................#",
+      "#FF........................#",
+      "#FF........................#",
+      "#FF........................#",
+      "#FF........................#",
+      "#FF........................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "sea",
+        "x": 5,
+        "y": 9,
+        "label": "眺望海岸",
+        "kind": "collect",
+        "text": "“爱理”：海风好舒服。基生：慢慢走吧。"
+      },
+      {
+        "id": "torii",
+        "x": 19,
+        "y": 8,
+        "label": "鸟居",
+        "kind": "collect",
+        "text": "穿过树荫，岛上的声音渐渐远了。"
+      },
+      {
+        "id": "exit",
+        "x": 24,
+        "y": 4,
+        "label": "紫阳花小路",
+        "kind": "finish",
+        "text": "前面的小路，好像曾经来过。"
+      }
+    ],
+    "objects": [
+      {
+        "x": 1,
+        "y": 1,
+        "w": 9,
+        "h": 6,
+        "kind": "water",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 1,
+        "y": 11,
+        "w": 2,
+        "h": 6,
+        "kind": "water",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 11,
+        "y": 2,
+        "w": 6,
+        "h": 3,
+        "kind": "trees",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 20,
+        "y": 6,
+        "w": 5,
+        "h": 2,
+        "kind": "torii",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "coast",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch2-island-map",
+      "player": "ch1-sprite-kio"
+    }
+  },
+  "ch2-flowers": {
+    "id": "ch2-flowers",
+    "name": "紫阳花小路 · 八月",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#..........................#",
+      "#.FFFFF.....FFFFFFFFFFFF...#",
+      "#.FFFFF.....FFFFFFFFFFFF...#",
+      "#.FFFFF.....FFFFFFFFFFFF...#",
+      "#.FFFFF....................#",
+      "#..........................#",
+      "#..................FFFFFF..#",
+      "#..................FFFFFF..#",
+      "#..................FFFFFF..#",
+      "#..................FFFFFF..#",
+      "#..FFFFFF..................#",
+      "#..FFFFFF..................#",
+      "#..FFFFFF.....FFFFFFFFFF...#",
+      "#..FFFFFF.....FFFFFFFFFF...#",
+      "#.............FFFFFFFFFF...#",
+      "#..........................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "memory1",
+        "x": 8,
+        "y": 5,
+        "label": "花丛 · 六月的小路",
+        "kind": "collect",
+        "text": "六月的紫阳花，曾经大片大片地开着。",
+        "preview": "ch2-memory"
+      },
+      {
+        "id": "memory2",
+        "x": 18,
+        "y": 8,
+        "label": "花丛 · 那时的我们",
+        "kind": "collect",
+        "text": "照片里的两个人，站在同一条小路上。",
+        "preview": "ch2-talk"
+      },
+      {
+        "id": "memory3",
+        "x": 10,
+        "y": 13,
+        "label": "花丛 · 她的笑容",
+        "kind": "collect",
+        "text": "那时她回过头，笑着等我按下快门。",
+        "preview": "ch2-blush"
+      }
+    ],
+    "objects": [
+      {
+        "x": 2,
+        "y": 2,
+        "w": 5,
+        "h": 4,
+        "kind": "flowers",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 12,
+        "y": 2,
+        "w": 12,
+        "h": 3,
+        "kind": "trees",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 19,
+        "y": 7,
+        "w": 6,
+        "h": 4,
+        "kind": "flowers",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 3,
+        "y": 11,
+        "w": 6,
+        "h": 4,
+        "kind": "flowers",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 14,
+        "y": 13,
+        "w": 10,
+        "h": 3,
+        "kind": "trees",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "garden",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch2-flowers-map",
+      "player": "ch1-sprite-kio"
+    }
+  },
+  "ch2-stairs": {
+    "id": "ch2-stairs",
+    "name": "长楼梯 · 自动售货机",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#FFFF......................#",
+      "#FFFF................FFF...#",
+      "#FFFF.....FFFFFFF....FFF...#",
+      "#FFFF.....FFFFFFF....FFF...#",
+      "#FFFF.....FFFFFFF..........#",
+      "#FFFF.....FFFFFFF..........#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF.............FFFFFFF..#",
+      "#FFFF.............FFFFFFF..#",
+      "#FFFF.............FFFFFFF..#",
+      "#FFFF.............FFFFFFF..#",
+      "#FFFF.............FFFFFFF..#",
+      "#FFFF.............FFFFFFF..#",
+      "#FFFF......................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "view",
+        "x": 7,
+        "y": 12,
+        "label": "石阶上的风景",
+        "kind": "collect",
+        "text": "十年前，走过这些台阶从没觉得累。"
+      },
+      {
+        "id": "water",
+        "x": 22,
+        "y": 5,
+        "label": "购买冰镇矿泉水 · 160日元",
+        "kind": "collect",
+        "text": "投入 160 日元。冰镇矿泉水从取货口滚了出来。"
+      }
+    ],
+    "objects": [
+      {
+        "x": 1,
+        "y": 1,
+        "w": 4,
+        "h": 16,
+        "kind": "water",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 10,
+        "y": 3,
+        "w": 7,
+        "h": 4,
+        "kind": "house",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 21,
+        "y": 2,
+        "w": 3,
+        "h": 3,
+        "kind": "vending",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 18,
+        "y": 10,
+        "w": 7,
+        "h": 6,
+        "kind": "house",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "sunset",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch2-stairs-map",
+      "player": "ch1-sprite-kio"
+    }
+  },
+  "ch2-shop": {
+    "id": "ch2-shop",
+    "name": "石阶旁 · 冰淇淋店",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF......FFFFFFFFFFFF....#",
+      "#FFFF......FFFFFFFFFFFF....#",
+      "#FFFF......FFFFFFFFFFFF....#",
+      "#FFFF......FFFFFFFFFFFF....#",
+      "#FFFF......FFFFFFFFFFFF....#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF..FFFF.........FFFF...#",
+      "#FFFF..FFFF.........FFFF...#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "#FFFF......................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "ice",
+        "x": 17,
+        "y": 8,
+        "label": "冰淇淋柜台",
+        "kind": "collect",
+        "options": [
+          "香草",
+          "草莓"
+        ],
+        "text": "店员：请拿好，欢迎下次光临。",
+        "flag": "CH2_ICE"
+      }
+    ],
+    "objects": [
+      {
+        "x": 1,
+        "y": 1,
+        "w": 4,
+        "h": 16,
+        "kind": "water",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 11,
+        "y": 3,
+        "w": 12,
+        "h": 5,
+        "kind": "ice",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 7,
+        "y": 12,
+        "w": 4,
+        "h": 2,
+        "kind": "bench",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 20,
+        "y": 12,
+        "w": 4,
+        "h": 2,
+        "kind": "bench",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "sunset",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch2-shop-map",
+      "player": "ch1-sprite-kio"
+    }
+  },
+  "ch2-return": {
+    "id": "ch2-return",
+    "name": "夕阳海边 · 归来",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#..........................#",
+      "#..........................#",
+      "#...FFFFF..................#",
+      "#...FFFFF..................#",
+      "#..........................#",
+      "#..........................#",
+      "#..............FFFFFF......#",
+      "#..............FFFFFF......#",
+      "#..........................#",
+      "#..........................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "figure",
+        "x": 23,
+        "y": 10,
+        "label": "海风中的身影",
+        "kind": "collect",
+        "text": "长发在夕阳下随风飘动。那个人，转过了身。",
+        "touch": true
+      }
+    ],
+    "objects": [
+      {
+        "x": 1,
+        "y": 1,
+        "w": 26,
+        "h": 6,
+        "kind": "water",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 4,
+        "y": 9,
+        "w": 5,
+        "h": 2,
+        "kind": "bench",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 15,
+        "y": 13,
+        "w": 6,
+        "h": 2,
+        "kind": "trees",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "sunset",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch2-return-map",
+      "player": "ch1-sprite-kio"
+    }
+  },
+  "ch3-work": {
+    "id": "ch3-work",
+    "name": "工作地点外 · 夜路",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#..........................#",
+      "#.FFFFFFFFF.....FFFFFFFFF..#",
+      "#.FFFFFFFFF.....FFFFFFFFF..#",
+      "#.FFFFFFFFF.....FFFFFFFFF..#",
+      "#.FFFFFFFFF.....FFFFFFFFF..#",
+      "#.FFFFFFFFF.....FFFFFFFFF..#",
+      "#.FFFFFFFFF.....FFFFFFFFF..#",
+      "#..........................#",
+      "#..........................#",
+      "#..........................#",
+      "#..........................#",
+      "#...FFF....................#",
+      "#...FFF........FFFFFF......#",
+      "#..............FFFFFF......#",
+      "#..........................#",
+      "#..........................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "coworker",
+        "x": 9,
+        "y": 10,
+        "label": "同事",
+        "kind": "collect",
+        "npc": true,
+        "text": "今天也辛苦了。早点休息吧。",
+        "image": "npc-coworker",
+        "visual": {
+          "x": 8.8333,
+          "y": 9.625,
+          "w": 1.3333,
+          "h": 1.3333
+        }
+      },
+      {
+        "id": "hibiya",
+        "x": 22,
+        "y": 10,
+        "label": "日日谷",
+        "kind": "collect",
+        "npc": true,
+        "text": "成田先——生！等一下！",
+        "image": "npc-hibiya",
+        "visual": {
+          "x": 21.8333,
+          "y": 9.625,
+          "w": 1.3333,
+          "h": 1.3333
+        }
+      }
+    ],
+    "objects": [
+      {
+        "x": 2,
+        "y": 2,
+        "w": 9,
+        "h": 6,
+        "kind": "house",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 16,
+        "y": 2,
+        "w": 9,
+        "h": 6,
+        "kind": "house",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 4,
+        "y": 12,
+        "w": 3,
+        "h": 2,
+        "kind": "bench",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 15,
+        "y": 13,
+        "w": 6,
+        "h": 2,
+        "kind": "trees",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "night",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch3-work-map",
+      "player": "ch1-sprite-kio"
+    }
+  },
+  "ch3-coast": {
+    "id": "ch3-coast",
+    "name": "夜海 · 呼唤",
+    "width": 28,
+    "height": 18,
+    "tileSize": 48,
+    "spawn": {
+      "x": 10,
+      "y": 15
+    },
+    "tiles": [
+      "############################",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#FFFFFFFFFFFFFFFFFFFFFFFFFF#",
+      "#..........................#",
+      "#..........................#",
+      "#..........................#",
+      "#..........................#",
+      "#...FFFFF..................#",
+      "#...FFFFF..................#",
+      "#................FFFFF.....#",
+      "#................FFFFF.....#",
+      "#..........................#",
+      "############################"
+    ],
+    "hotspots": [],
+    "events": [
+      {
+        "id": "voice",
+        "x": 23,
+        "y": 10,
+        "label": "浪声的尽头",
+        "kind": "collect",
+        "text": "只有海浪。一遍又一遍。",
+        "touch": true
+      }
+    ],
+    "objects": [
+      {
+        "x": 1,
+        "y": 1,
+        "w": 26,
+        "h": 7,
+        "kind": "water",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 4,
+        "y": 12,
+        "w": 5,
+        "h": 2,
+        "kind": "rocks",
+        "label": "",
+        "image": ""
+      },
+      {
+        "x": 17,
+        "y": 14,
+        "w": 5,
+        "h": 2,
+        "kind": "rocks",
+        "label": "",
+        "image": ""
+      }
+    ],
+    "theme": "nightsea",
+    "palette": {
+      "floor": "#baa277",
+      "wall": "#28414c",
+      "furniture": "#728775"
+    },
+    "art": {
+      "renderer": "pixel-map",
+      "nativeTileSize": 16,
+      "view": {
+        "columns": 17,
+        "rows": 11
+      },
+      "background": "ch3-coast-map",
+      "player": "ch1-sprite-kio"
+    }
+  }
+}
