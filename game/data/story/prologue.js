@@ -14,7 +14,7 @@ ILY.data.stories.prologue = {
     s01_intro3: { type:"dialogue", speaker:"系统", background:"bg-apartment-dusk",
       text:"一部十年前购买的翻盖手机摊开在床头。转轴缠着透明胶带，外壳布满划痕。滴——已保存的邮件。发件人：百合沢 爱理。时间：2009年，夏。", next:"s01_phone" },
     s01_phone: { type:"phone", background:"bg-apartment-dusk", phone:{
-      tab:"mail", lockClose:true, mails:["A01","A02","A03"],
+      startView:"mail", tab:"mail", lockClose:true, mails:["A01","A02","A03"],
       reveal:{ after:["A01","A02","A03"], id:"A04" }, exitNext:"s01_photo"
     } },
     s01_photo: { type:"dialogue", speaker:"成田基生", overlay:"photo-seaside", background:"bg-apartment-dusk",
@@ -46,7 +46,7 @@ ILY.data.stories.prologue = {
     s03a2: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-university",
       text:"那之后我就一直四处打工，让自己起码不会饿死。如果呆不下去了，就辞职。一直重复着这样的生活。", next:"s03_phone" },
     s03_phone: { type:"phone", background:"bg-university", phone:{
-      tab:"contacts", lockClose:true, manualExit:true, contacts:["work"], tutorialDelete:true,
+      tab:"contacts", lockClose:true, manualExit:true, contacts:["work"], tutorialDelete:true, autoDeleteDemo:true,
       mails:["F01"], exitNext:"s03_family"
     } },
     s03_family: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-apartment-dusk",
@@ -126,15 +126,25 @@ ILY.data.stories.prologue = {
       text:"手机落进垃圾袋，蓝光在袋内闷闷地亮着。黑暗中传来翻找垃圾袋的声音。再亮起时，基生把手机重新攥回手心，指节发白。", next:"s06_throw2" },
     s06_throw2: { type:"dialogue", speaker:"成田基生", background:"bg-apartment-night", text:"（自嘲，手发抖）……果然，做不到啊。", next:"s07" },
 
-    // ===== 场景07 昏暗幽长的隧道 =====
-    s07: { type:"dialogue", speaker:"旁白", background:"bg-hallway",
-      text:"出租屋外的走廊里，声控灯一盏接一盏亮起又熄灭。通往附近海岸，要穿过一条昏暗幽长的隧道。", next:"s07b" },
+    // ===== 场景07 公寓走廊：空格/Enter/点击 前进一步，声控灯随脚步明灭，走满 3 次进隧道口 =====
+    s07: { type:"corridor", background:"bg-hallway-dark",
+      text:"出租屋外，走廊一片漆黑。按 空格 / Enter 或点击画面，一步步往楼道口走——声控灯会随脚步亮起又熄灭。",
+      corridor:{ bgOn:"bg-hallway", bgOff:"bg-hallway-dark", steps:3, next:"s07a",
+        texts:[
+          "第一步落下，最近的声控灯亮起，又灭。",
+          "第二步，光晕向隧道口推近了一点。",
+          "第三步，隧道口的轮廓在黑暗里浮现。"
+        ] },
+      next:"s07a" },
+    s07a: { type:"dialogue", speaker:"旁白", background:"bg-hallway",
+      text:"脚步声惊动了声控灯，一盏接一盏亮起又熄灭。通往附近海岸，要穿过一条昏暗幽长的隧道。", next:"s07b" },
     s07b: { type:"dialogue", speaker:"旁白", background:"bg-tunnel",
       text:"入口处只有一盏路灯亮着，再往里，黑暗像水一样浓。墙面贴满褪色的租房广告，一张翘起的纸角在风里反复拍墙。隧道深处隐约传来海浪。", next:"s07c" },
     s07c: { type:"dialogue", speaker:"成田基生（独白）", background:"bg-tunnel",
       text:"穿过这个隧道，就能到附近的海岸。……什么都不会有的。谁也不会来。", next:"s07_walk" },
     s07_walk: { type:"walk", walk:{
       bg:"bg-tunnel", player:"kio-walk", length:2400, exitX:2200, playerStartX:60, speed:170,
+      reveal:{ atPct:0.88, hold:2400, flip:true },
       hotspots:[
         { id:"vending", x:600, label:"故障自动贩卖机", text:"……还在放着十年前的广告啊。所有商品都显示“售罄”。" },
         { id:"poster", x:1200, label:"褪色海岸海报", text:"海报上的蓝天白沙，与隧道里的黑暗形成刺眼的对比。" },
