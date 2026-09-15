@@ -137,6 +137,19 @@ test('游戏页的所有脚本存在，普通脚本无需服务或模块加载',
   assert.match(html, /location\.replace\(new URL\('\.\.\/index\.html'/);
 });
 
+test('章节试玩页可直接进入任意章节而不会返回登录入口', async () => {
+  const [html, game] = await Promise.all([
+    readFile(new URL('../game/chapters.html', import.meta.url), 'utf8'),
+    readFile(new URL('../game/index.html', import.meta.url), 'utf8')
+  ]);
+  assert.match(game, /get\('entry'\) === 'chapters'/);
+  assert.match(html, /href="index\.html\?entry=chapters"/);
+  assert.match(html, /href="index\.html\?entry=chapters&chapter=1"/);
+  assert.match(html, /href="index\.html\?entry=chapters&chapter=final"/);
+  assert.match(html, /entry=chapters&player=scene-preview/);
+  assert.match(html, /player=scene-preview/);
+});
+
 
 test('两个结局可从新状态进入，成就不重复，旧存档补齐成就数组', () => {
   for (const lang of ['chinese', 'english']) {

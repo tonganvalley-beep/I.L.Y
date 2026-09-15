@@ -7,7 +7,11 @@
   <script>
     (function () {
       var allowed = false;
-      try { allowed = sessionStorage.getItem('ily-root-entry') === '1'; } catch {}
+      try {
+        // chapters.html 是显式的开发调试入口，本地直开时也不依赖跨页面存储。
+        allowed = new URLSearchParams(location.search).get('entry') === 'chapters' ||
+          sessionStorage.getItem('ily-root-entry') === '1';
+      } catch {}
       if (!allowed) {
         document.documentElement.hidden = true;
         location.replace(new URL('../index.html', location.href).href);
