@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN" data-page-node-id="EaHQW7eLqVMwG6ntH3VigW">
+<head data-page-node-id="NJmqfnw9b7KveuRdcCr07E">
+  <meta charset="utf-8" data-page-node-id="e7YBPvf0zoDHtFhkKwJb20">
+  <title>手机相册灯箱 · 冒烟测试</title>
+  <link rel="stylesheet" href="/game/styles/game.css" data-page-node-id="vfURGOkjjzDbW7KWWdt27a">
+  <link rel="stylesheet" href="/game/styles/prologue.css" data-page-node-id="cUgK5AyPHvmbLzyMdEwJu2">
+  <style>
+    #stage{position:fixed;inset:0}
+    body{margin:0;background:#0a1410}
+  </style>
+</head>
+<body data-page-node-id="oQxbR3AfgP1Mevr0x5SrWg">
+  <div id="stage" tabindex="0" data-page-node-id="okxXGb6Xzif5CABXit5MOw"></div>
+  <script src="/game/src/bootstrap.js"></script>
+  <script src="/game/src/i18n.js"></script>
+  <script src="/game/data/assets.js"></script>
+  <script src="/game/data/story/phone.js"></script>
+  <script src="/game/src/core/dom.js"></script>
+  <script src="/game/src/core/assets.js"></script>
+  <script src="/game/src/modes/phone.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const stage = document.getElementById('stage');
+      const assets = new ILY.Assets(ILY.data.assets);
+      const state = ILY.createState ? ILY.createState('t') : { flags: {} };
+      const log = [];
+      window.__log = log;
+      window.__cleanup = ILY.mountPhone({
+        stage, state, assets,
+        node: { phone: { tab: 'album' } },
+        go: (id) => log.push('go:' + id),
+        notify: (msg) => log.push('notify:' + msg)
+      });
+    })();
+  </script>
+</body>
+</html>

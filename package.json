@@ -6,11 +6,6 @@
     "start": "node tools/serve.mjs --open /index.html",
     "game": "node tools/serve.mjs --open /index.html",
     "test": "node --test tests/*.test.mjs",
-    "build:story": "python -B tools/build_story.py",
-    "build:chapter1": "python -B tools/chapter1/build.py",
-    "build:chapter2": "python -B tools/chapter2/build.py",
-    "build:chapter3": "python -B tools/chapter3/build.py",
-    "build:final": "python -B tools/final/build.py",
     "build:maps": "node tools/build-chapter1-maps.mjs"
   }
 }

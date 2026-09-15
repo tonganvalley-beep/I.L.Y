@@ -105,7 +105,7 @@
     "sources": [
       "tests/*.test.mjs · 本次32/32通过",
       "danmu-boss/danmu-boss/tests/boss.test.mjs · 本次12/12通过",
-      "game/data/assets/ · placeholders 与音频路径",
+      "game/data/assets.js · placeholders 与音频路径",
       "game/assets/audio/ · 当前仅.gitkeep"
     ]
   },

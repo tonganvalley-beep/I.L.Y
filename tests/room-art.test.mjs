@@ -6,21 +6,23 @@ const context=vm.createContext({ILY:{}});
 vm.runInContext(await readFile(new URL('../game/src/core/room-art.js',import.meta.url),'utf8'),context);
 const room=JSON.parse(await readFile(new URL('../game/data/maps/chapter1.json',import.meta.url),'utf8'))['ch1-room'];
 const cameraView=context.ILY.classicRoom.cameraView;
-test('Classic room camera zooms in, follows both axes and stops at every map edge',()=>{
-  for(const [width,height] of [[1280,720],[1672,941],[390,844],[2560,1080]]){
-    const center={x:12.5,y:8},a=cameraView(width,height,room,center);
-    assert.ok(width/a.scale<room.width*48,'Only part of the room is visible');
-    assert.ok(height/a.scale<room.height*48);
+test('Classic room camera scales the map uniformly, covers the panel and follows the player',()=>{
+  const w=room.width*48,h=room.height*48;
+  for(const [width,height] of [[1280,720],[1672,941],[390,844],[2560,1080],[1493,610]]){
+    const a=cameraView(width,height,room,{x:11,y:7});
     assert.ok(Number.isInteger(a.scale*3),'Each native art pixel occupies whole screen pixels');
-    const b=cameraView(width,height,room,{x:center.x+1,y:center.y+1});
+    assert.ok(w*a.scale>=width-.001&&h*a.scale>=height-.001,'The scaled map covers the whole panel');
+    assert.ok(width/a.scale<w&&height/a.scale<h,'The camera still has room to follow');
+    const b=cameraView(width,height,room,{x:12,y:8});
     assert.ok(b.x>a.x);assert.ok(b.y>a.y);
-    const foot=(center.x+.5)*48*a.scale-a.x*a.scale;
-    assert.ok(Math.abs(foot-width/2)<=1,'The player stays horizontally centered away from edges');
+    // The player is centred unless the camera has hit a map edge (covered by the edge checks).
+    const foot=(11+.5)*48*a.scale-a.x*a.scale;
+    assert.ok(Math.abs(foot-width/2)<=1||a.x<=0||a.x>=w-width/a.scale-1e-6,'Player stays horizontally centered away from edges');
     for(const position of [{x:0,y:0},{x:room.width-1,y:0},{x:0,y:room.height-1},{x:room.width-1,y:room.height-1}]){
       const c=cameraView(width,height,room,position);
       assert.ok(c.x>=0&&c.y>=0);
-      assert.ok(c.x+width/c.scale<=room.width*48+.001);
-      assert.ok(c.y+height/c.scale<=room.height*48+.001);
+      assert.ok(c.x+width/c.scale<=w+.001);
+      assert.ok(c.y+height/c.scale<=h+.001);
       // Pointer conversion must invert the scrolling camera, including near boundaries.
       const screenX=(position.x+.5)*48*c.scale-c.x*c.scale;
       assert.ok(Math.abs((screenX/c.scale+c.x)/48-.5-position.x)<1e-9);

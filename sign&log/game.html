@@ -200,6 +200,8 @@
       z-index: 1;                  /* 在 body 静态背景之上、时间(5)和语言按钮(10)之下 */
     }
   </style>
+  <!-- 回忆弹窗样式：与游戏内 src/memories.js 保持一致（成就 / 剧情 / 画廊） -->
+  <link rel="stylesheet" href="../game/styles/memories.css">
 </head>
 
 <body data-page-node-id="vwvFNgmV6SVBZ85465jZsN">
@@ -220,8 +222,9 @@
       <li data-action="new"     data-i18n="menu.new">Sub1 开始新游戏</li>
       <li data-action="load"    data-i18n="menu.load">Sub2 读取存档</li>
       <li data-action="options" data-i18n="menu.options">Sub3 选项</li>
-      <li data-action="about"   data-i18n="menu.about">Sub4 关于我们</li>
-      <li data-action="exit"    data-i18n="menu.exit">Sub5 退出</li>
+      <li data-action="memories" data-i18n="menu.memories">Sub4 回忆</li>
+      <li data-action="about"   data-i18n="menu.about">Sub5 关于我们</li>
+      <li data-action="exit"    data-i18n="menu.exit">Sub6 退出</li>
     </ul>
     <!-- 选项子菜单：点击"选项"后替换主菜单显示，仍在手机屏幕内。
          同时清空标题（MENU → 选项），视觉上手机被"清空"再填三行 -->
@@ -272,8 +275,9 @@
         "menu.new":     "Sub1 开始新游戏",
         "menu.load":    "Sub2 读取存档",
         "menu.options": "Sub3 选项",
-        "menu.about":   "Sub4 关于我们",
-        "menu.exit":    "Sub5 退出",
+        "menu.memories": "Sub4 回忆",
+        "menu.about":   "Sub5 关于我们",
+        "menu.exit":    "Sub6 退出",
         "options.title": "选项",
         "options.text": "可在这里切换语言或进入全屏。",
         "options.language": "切换语言",
@@ -294,8 +298,9 @@
         "menu.new":     "Sub1 New Game",
         "menu.load":    "Sub2 Load Save",
         "menu.options": "Sub3 Options",
-        "menu.about":   "Sub4 About Us",
-        "menu.exit":    "Sub5 Exit",
+        "menu.memories": "Sub4 Memories",
+        "menu.about":   "Sub5 About Us",
+        "menu.exit":    "Sub6 Exit",
         "options.title": "Options",
         "options.text": "Switch language or toggle fullscreen here.",
         "options.language": "Switch Language",
@@ -576,6 +581,9 @@
           case 'about':
             document.getElementById('aboutDialog').showModal();
             break;
+          case 'memories':
+            if (typeof window.openMemoriesMain === 'function') window.openMemoriesMain();
+            break;
           case 'exit':
             /* 退出 = 退出登录并回到登录界面：
                先清掉登录态 token（否则直接访问 game.html/index.html 仍能绕过登录），
@@ -663,6 +671,15 @@
   <!-- 男主光标：和登录页/开始界面共用同一份 cursor.js，
        一进网站就是主角光标，页面跳转全程保持 -->
   <script src="./cursor.js"></script>
+
+  <!-- 回忆（成就 / 剧情 / 画廊）：复用游戏数据，与主界面"回忆"弹窗联动 -->
+  <script src="../game/src/bootstrap.js"></script>
+  <script src="../game/data/story/prologue.js"></script>
+  <script src="../game/data/story/chapter1.js"></script>
+  <script src="../game/data/story/phone.js"></script>
+  <script src="../game/data/assets.js"></script>
+  <script src="./gallery-data.js"></script>
+  <script src="./memories-interface.js"></script>
 </body>
 
 </html>

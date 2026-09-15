@@ -1,5 +1,17 @@
 # I.L.Y. game 改造总控书与代码报告
 
+## 第三章夜路 NPC 像素小人（2026-09-15）
+
+第三章「深夜的邀约」所在的夜路地图（`ch3-work`）上有两个可交互 NPC——「同事」和「日日谷」，此前画面上只有格子中心的十字交互光标，没有任何人物形象。现在两人各有一张 48×48 像素小人立绘，站在自己那一格上（一男一女），规格与主角在地图上使用的 `cursor-hero-*.png` 完全对齐：同一画布、同一人物高度、同一脚底基线、同款接触阴影。
+
+- 素材：`game/assets/images/characters/npc-coworker.png`、`npc-hibiya.png`（48×48 透明 PNG，人物铺满整格高度、水平居中）。制作脚本 `tools/prepare-ch3-npc-sprites.py`：AI 白底全身图 → 从边界洪水填充抠底（衣服上的白色不会被误删）→ 预乘 alpha 的 BOX 缩放到人物高 48 → 居中放进 48×48 画布。换图只需覆盖这两个 PNG。
+- 登记：`game/data/chapter-assets.js` 的 `npc-coworker` / `npc-hibiya`；`game/data/assets.js` 不用动。
+- 数据：`tools/chapters/maps.py`（长期真源）里新增 `npc()` 包装，给事件补 `image` / `npc:true` / `visual`。`visual` 以格为单位，按主角的锚点换算——主角画在 `(x*T-32, y*T-42, 64, 64)`，所以 `visual = (x-1/6, y-3/8, 4/3, 4/3)`，两者脚底一致。改完执行 `npm run build:maps` 同步 `chapters.json` 与 `chapters-bundle.js`（**不要直接改 bundle**）。
+- 渲染：`game/src/modes/rpg.js` 的事件循环里，带 `image` 的事件本来就画图；`npc:true` 额外做两件事——在脚下补一个和主角同款的接触阴影，并把格子中心的交互光标抬到头顶（默认位置会正好压在立绘胸口上）。任意地图事件都可复用这套写法。
+- 接手：挪动 NPC 改 `maps.py` 里的坐标即可（`visual` 自动换算），或临时改 `game/data/maps/chapters.json`；再加一个 NPC 就是「一张 48×48 PNG + 登记 + 一行 `npc(event(...), '新ID')`」。
+
+验证：`node --check game/src/modes/rpg.js` 通过；`npm test` 44/44；`tools/_audit_assets.cjs` 报「指向不存在的真实路径: 0」；`tools/shot_ch3_npc.cjs`（先 `node tools/serve.mjs --port 8931`）在真实浏览器里挂起 `ch3-work`，确认两张素材 48×48 正常加载、NPC 与主角同尺度站立、光标在头顶、接触阴影正常、无 pageerror（仅 favicon 404）。截图 `outputs/ch3-npc-both.png`、`ch3-npc-near-coworker.png`、`ch3-npc-near-hibiya.png`。
+
 ## 剧情回滚（2026-09-15）
 
 新增最多 120 段的会话内回滚历史。右上角按钮、PageUp，以及对白/选项画面向上滚轮均可返回上一段；每份历史记录包含完整游戏状态，分支标记、线索、地图位置和玩法进度会随节点一并恢复。回滚沿用正常模式 cleanup / mount 生命周期，不保存 DOM、计时器或音频对象。读取存档和重新开始会建立新的历史时间线，自动存档不会因回滚触发。新增单元测试验证深拷贝、分支状态恢复与历史边界。
@@ -65,11 +77,8 @@ E:\BaiduNetdiskDownload\游戏（第三周）week3-games\游戏（第三周）\�
 
 ```text
 game/index.html                      脚本加载顺序、stage、菜单、状态提示
-  data/assets/                       资源 ID → 路径，按序章、章节和地图分块
-    prologue.js                      初始化资源系统 + 序章基础素材与占位兜底
-    chapter1.js ... final.js         各章新增素材
-    maps.js                          RPG 地图背景素材
-  data/story/prologue.js             92 个序章节点、对白、分支、演出字段
+  data/assets.js                     资源 ID → 路径 + 分类占位兜底
+  data/story/prologue.js             93 个序章节点、对白、分支、演出字段
   data/story/phone.js                手机邮件 / 联系人 / 照片数据
   data/maps/classroom.js             格子地图、线索、推理条件（保留）
   data/battles/first-trial.js         弹幕关卡（保留）
@@ -107,7 +116,7 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 所有路径相对 `game/index.html`，使用 `/`，不填写 `E:\...` 绝对路径。文件名、扩展名必须与磁盘一致。
 
 1. 将正式图放入上述对应目录，例如 `game/assets/images/backgrounds/apartment-evening.webp` 和 `game/assets/images/characters/kio-normal.png`。
-2. 在 `game/data/assets/` 下对应章节清单中找到 ID，**只改值，不改 ID**：
+2. 在 `game/data/assets.js` 找到对应 ID，**只改值，不改 ID**：
 
 ```js
 "bg-apartment-dusk": "assets/images/backgrounds/apartment-evening.webp",
@@ -171,11 +180,35 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 
 保留登录 → 新开场片位置 → 开始菜单 → game 入口，账号通过 player 参数 / mygame-token 区分本地存档。用户自己的剧情、角色名、手机邮件内容和两个分支结局保留。
 
-当前主线是：出租屋旧邮件 → 主管来电 → 回忆 / 通讯录删除 → 十年退信与空壳公寓 → 错送快递 → 爱理回信 → 扔手机或出门（汇合）→ 隧道步行 → 海岸邮件隐藏链接 → 返回分支结局或蓝光主线终幕。**格子探索和弹幕模块在仓库中，但当前 92 节点序章不经过它们**，不能宣称它们已接入当前主线。
+当前主线是：出租屋旧邮件 → 主管来电 → 回忆 / 通讯录删除 → 十年退信与空壳公寓 → 错送快递 → 爱理回信 → 扔手机或出门（汇合）→ 隧道步行 → 海岸邮件隐藏链接 → 返回分支结局或蓝光主线终幕。**格子探索和弹幕模块在仓库中，但当前 93 节点序章不经过它们**，不能宣称它们已接入当前主线。
 
 存档使用 `ily-save-v2:<编码账号>:<页-槽>`：手动页 1/2 各 6 槽，另有 `auto-1..3` 循环自动档和 `quick-1` 快速档。界面显示场景背景预览、章节、场景/说话人、对白摘要和时间，并在覆盖、读取、删除前确认。旧 `ily-save-v1:<账号>` 会复制到手动 1-1，迁移不删除旧值。对白从当前句开头恢复，手机保存阅读/删除等 flags，不保存当前打开的页面；步行从该段起点恢复，调查记录保留；弹幕从关卡开头重试。没有云同步。file: 的存储行为取决于浏览器，HTTP 与 file: 存档互不迁移。
 
-## 7. 本次顺带修复的运行问题
+## 7. 手机删除教学演示与玩家提示（首次打开手机）
+
+序章「回忆 / 通讯录删除」段（s03_phone）在玩家第一次打开手机、进入通讯录时，由基生亲自演示删除一个联系人——这就是用户要求的「第一次打开手机删除联系人的自动脚本」。演示与各类玩家提示（底部提示栏、示例气泡、首删独白、爱理保护打断）配套：实现集中在 `src/modes/phone.js`，文案集中在 `src/i18n.js` 的 `phone.*`（中 / 英），改提示只动 i18n，不必碰 phone.js。
+
+### 删除教学演示（autoDeleteDemo）
+
+- 触发：s03_phone 的 `phone` 带 `tab:"contacts"`, `manualExit:true`, `contacts:["work"]`, `tutorialDelete:true`, `autoDeleteDemo:true`；`work` 联系人在 `data/story/phone.js` 标了 `tutorial:true`。每次 `render()` 末尾调 `startDeleteDemo()`，仅当 `view==='contacts'`、目标存在且尚未开始时触发一次。
+- 行为：基生自己动手删掉 `work`；**不再全自动播放**，改为玩家按 空格 / Enter 逐步推进：`demoStep` 0 选中联系人 → 1 按下「删除」→ 2 确认删除 → 结束。每一步，下一个要点的对象会被高亮（`.demo-target` 黄框 + 右侧 `◀` 箭头），直接点高亮处等价于按一次空格。
+- 演示期间 `demoBusy` 屏蔽其它按键，确认框的删除 / 取消按钮 `disabled`（禁止手工干预）；结束延迟约 2.6s 让「示例结束」停留，然后 `doDelete` 真正删掉 `work`（教学删除不计入 `CONTACT_DELETED`，不计成就）。
+- 复用：任何「首次打开」场景，只要节点带 `autoDeleteDemo:true` 且 `contacts` 含一个 `tutorial:true` 的联系人，即可复用同一演示。
+
+### 玩家提示（提示栏 / 独白 / 打断）
+
+- 底部提示栏 `phone-hint` 随状态切换文案：常态「↑↓ 选择 · 空格 确认 · M/Esc 主页 · D 删除」；进入演示切「空格 继续示例 · 也可以直接点高亮的那一项」；教学完成切「操作完成 · 空格 / Enter 继续」。
+- 示例提示气泡 `phone-demo-tip`：带「示例」标签与当前步骤文案（`phone.demo.step.open/delete/confirm`、`phone.demo.done`），注明「基生自己动手删掉一个联系人……之后你要自己清理通讯录」。
+- 首次亲手删除（非教学、非爱理）：`requestDelete` 在弹确认框之前依次播放 3 句基生独白（`phone.firstDelete.1/2/3`），期间 `promptBusy` 屏蔽键盘，播完才进入确认；`flags.phone.firstDeletePrompted` 记录后同一存档不再重复。
+- 爱理保护：对爱理按「删除」不弹确认、不删除，而是基生当场打断——文本框以「成田基生」口吻显示「先看看别人吧」（`phone.lookOthers` + `phone.self`），约数秒后随详情页自然消失；`airi` 在任何情况下都不会进入 `deleted` 列表。
+- 自由手机（序章随时按 P 掏出）：`freeMode` 只读，不提供删除 / 写信，避免打乱剧情场景的删除进度；提示文案用 `phone.hint.free`。
+
+### 接手与验证
+
+- 想改「第一次打开手机」的表现：教学开关 = `s03_phone.phone.autoDeleteDemo`；首进邮件直达列表 = `s01_phone.phone.startView:"mail"`（跳过图标主页）。逻辑都在 `modes/phone.js` 的 `startDeleteDemo` / `demoAdvance` / `requestDelete` / `refuseDeleteAiri`，不要在这些函数之外重复实现。
+- 浏览器端到端用例：`tools/test_phone_first.cjs`（首进四封邮件、点第四封进剧情）、`tools/test_freephone.cjs`（自由手机 + F02 彩蛋）、`tools/test_airi_guard.cjs`（爱理保护 + 首删独白 + 删完三人停在爱理）。`npm test` 的手机相关用例覆盖教学删除、爱理不可删、首删提示与海岸回信。
+
+## 8. 本次顺带修复的运行问题
 
 - main.js 曾用对象参数调用 `(state, notify)` 形式的结局 enter，实际会报错；统一按现有函数签名调用。
 - 新状态初始化 achievements，读入旧 v1 存档缺失此数组时补齐，结局可直接恢复并重复进入而不重复发成就。
@@ -187,9 +220,9 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 - 手机定时跳转与步行出口定时器加入 cleanup，避免读档切场景后旧定时器再次跳转。
 - 手机 / 步行输入忽略模态菜单与按钮焦点；步行打开菜单时停止移动，弹幕收到失焦暂停。
 - 步行立绘只创建一次 Image，加载成功且有 naturalWidth 才绘制，避免每帧创建与坏图 drawImage。
-- 旧测试只遍历 next / choices，遗漏手机和步行出口；存档测试引用已不存在的 classroom 剧情节点。现在覆盖全部 92 个节点且保留地图规则验证。
+- 旧测试只遍历 next / choices，遗漏手机和步行出口；存档测试引用已不存在的 classroom 剧情节点。现在覆盖全部 93 个节点且保留地图规则验证。
 
-## 8. 实现状态和后续优先级
+## 9. 实现状态和后续优先级
 
 | 项目 | 状态 | 下一步 |
 | --- | --- | --- |
@@ -201,15 +234,15 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 | 原生全屏按钮 | 已接线，失败会提示 | 不等同强制横屏；未做所有浏览器原生全屏兼容实测 |
 | 图片集中映射与分类占位图 | 已完成 | P0：逐场替换正式立绘、道具和照片；缺图仍保持画面结构 |
 | 音频 | BGM 播放机制已有，正式音频未提供、剧本未逐场配置 BGM | P1：配乐节点、音效、配音播放与音量设置 |
-| 92 节点完整序章、手机、步行、两个结局 | 已按 v1.2 补齐主剧情文本与分支 | P1：正式素材、音效、配音和高级镜头演出 |
+| 93 节点完整序章、手机、步行、两个结局 | 已按 v1.2 补齐主剧情文本与分支 | P1：正式素材、音效、配音和高级镜头演出 |
 | 存档 | 12 手动槽、3 循环自动档、1 快速档；旧单槽无损迁移；场景预览与元数据 | P2：真实画面截图、导入导出与云同步 |
 | 探索 / 弹幕 | 模块和数据保留，未接当前序章 | 按正式流程决定是否插入，新增节点后复测 |
 | 特效与高级演出 | 未完成 | P2：淡入淡出、闪白、镜头、角色表情动画、CG 鉴赏 |
 | 新章节 / 正式鉴权 / 桌面封装 | 未完成 | 按独立需求规划，不能仅增加素材路径宣称完成 |
 
-## 9. 验证记录与接手规则
+## 10. 验证记录与接手规则
 
-2026-09-07：`npm test` 14/14 通过。覆盖全部92个剧情节点、两个结局、多存档、教学删除、爱理不可删除、缺图占位兜底，以及海岸回信下滚六次显示蓝色链接且不会自动跳过。
+2026-09-07：`npm test` 14/14 通过。覆盖全部93个剧情节点、两个结局、多存档、教学删除、爱理不可删除、缺图占位兜底，以及海岸回信下滚六次显示蓝色链接且不会自动跳过。
 
 2026-09-08：修复开发服务器在 8080 被占用时因未处理 `EADDRINUSE` 直接退出的问题；现在自动尝试后续端口并打印实际入口。目录 URL 会补 `index.html`，`--no-open` 可用于自动化或只启动服务。端口占用实测从 8082 自动切换到 8083。
 
@@ -221,7 +254,7 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 
 开发运行：仓库根 `npm start`，打开 `http://127.0.0.1:8080/`。本地直接打开时也必须从仓库根目录 `index.html` 进入；所有新增脚本保持普通 script，无 npm 安装/构建步骤。
 
-接手 AI / 人工每次先读本文件与 game/README.md，再按任务定位：换素材只改 `data/assets/` 下对应分块，改对白或构图改 story，改视觉布局改 stage.css，改流程生命周期才改 main.js。不要擅自升级存档版本、替换框架或复制参考项目整个引擎。新增功能必须给出实际接线、清理逻辑与验证，不把目录、字段和按钮存在描述成已完成功能。
+接手 AI / 人工每次先读本文件与 game/README.md，再按任务定位：换素材只改 data/assets.js，改对白或构图改 story，改视觉布局改 stage.css，改流程生命周期才改 main.js。不要擅自升级存档版本、替换框架或复制参考项目整个引擎。新增功能必须给出实际接线、清理逻辑与验证，不把目录、字段和按钮存在描述成已完成功能。
 
 每次交付同步记录改动文件、影响的节点、验证结果、新增缺口。素材替换后运行 npm test；如果音视频仅登记但未接线，应继续明确标为待完成。
 

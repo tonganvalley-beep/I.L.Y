@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile,access} from 'node:fs/promises';
 import vm from 'node:vm';
 const root=new URL('../',import.meta.url),c=vm.createContext({});c.window=c;
-for(const file of ['src/bootstrap.js','data/assets/prologue.js','data/assets/chapter1.js','data/assets/chapter2.js','data/assets/chapter3.js','data/assets/final.js','data/assets/maps.js','data/story/prologue.js','data/story/chapter1.js','data/story/chapter2.js','data/story/chapter3.js','data/story/final.js','data/maps/classroom.js','data/maps/chapter1-bundle.js','data/maps/chapters-bundle.js','src/core/state.js','src/core/chapter1.js'])vm.runInContext(await readFile(new URL('game/'+file,root),'utf8'),c);
+for(const file of ['src/bootstrap.js','data/assets.js','data/chapter-assets.js','data/map-assets.js','data/story/prologue.js','data/story/chapter1.js','data/story/chapter2.js','data/story/chapter3.js','data/story/final.js','data/maps/classroom.js','data/maps/chapter1-bundle.js','data/maps/chapters-bundle.js','src/core/state.js','src/core/chapter1.js'])vm.runInContext(await readFile(new URL('game/'+file,root),'utf8'),c);
 const I=c.ILY,story=I.prepareChapter1(),maps={...I.data.maps,...I.data.chapter1Maps,...I.data.chapterMaps};
 function traverse(route,n2,n3,n4){
  const state=I.createState('ch1_s01'),seen=new Set();let id=state.node;
@@ -24,17 +24,6 @@ test('Every chapter node and gameplay target resolves; no document production no
   if(n.type==='rpg')assert.ok(maps[n.map],id);
   if(['chapter2','chapter3','final'].includes(n.chapter))assert.doesNotMatch(n.text||'',/可玩化建议|事件蓝图|策划注|制作注|待评审|接口段|兜底|存活变量|网页直连|女主视角重述/);
  }
-});
-test('Each chapter has one canonical transcript and its own build command',async()=>{
- const packageJson=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'));
- for(const chapter of ['chapter1','chapter2','chapter3','final']){
-  const source=await readFile(new URL(`../tools/${chapter}/source.txt`,import.meta.url),'utf8');
-  const builder=await readFile(new URL(`../tools/${chapter}/build.py`,import.meta.url),'utf8');
-  assert.ok(source.trim().length>0,chapter+' source');
-  assert.match(packageJson.scripts[`build:${chapter}`],new RegExp(`tools/${chapter}/build\\.py$`));
-  if(chapter!=='chapter1')assert.match(builder,new RegExp(`build_chapter\\('${chapter}'\\)`));
- }
- assert.match(packageJson.scripts['build:story'],/tools\/build_story\.py$/);
 });
 test('All branch combinations reach the correct ending without leaking other ending scenes',()=>{
  for(const route of ['A','B','C'])for(const n2 of ['A','B'])for(const n3 of ['buy','stay'])for(const n4 of ['A','B']){

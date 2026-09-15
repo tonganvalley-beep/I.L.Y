@@ -34,8 +34,8 @@ test('剧情所有分支都有目标，地图和弹幕配置均存在', async ()
   }
   await visit(story.start); assert.equal(visited.size,Object.keys(story.nodes).length);
 });
-test('序章保留可执行剧本的完整主线段落与92个节点', () => {
-  assert.equal(Object.keys(story.nodes).length, 92);
+test('序章保留可执行剧本的完整主线段落与93个节点', () => {
+  assert.equal(Object.keys(story.nodes).length, 93);
   const text = Object.values(story.nodes).map(node => node.text || '').join('\n');
   for (const excerpt of [
     '“都已经28了”啊',
@@ -137,29 +137,6 @@ test('游戏页的所有脚本存在，普通脚本无需服务或模块加载',
   assert.match(html, /location\.replace\(new URL\('\.\.\/index\.html'/);
 });
 
-test('素材清单集中分块加载，资源 ID 不会跨分块互相覆盖', async () => {
-  const blocks = ['prologue','chapter1','chapter2','chapter3','final','maps'];
-  const assetContext = vm.createContext({}); assetContext.window = assetContext;
-  vm.runInContext(await readFile(new URL('../game/src/bootstrap.js', import.meta.url), 'utf8'), assetContext);
-  vm.runInContext(await readFile(new URL('../game/data/assets/prologue.js', import.meta.url), 'utf8'), assetContext);
-  const duplicates = [];
-  const images = assetContext.ILY.data.assets.images;
-  assetContext.ILY.data.assets.images = new Proxy(images, {
-    set(target, key, value) {
-      if (Object.hasOwn(target, key)) duplicates.push(String(key));
-      target[key] = value;
-      return true;
-    }
-  });
-  for (const block of blocks.slice(1)) {
-    vm.runInContext(await readFile(new URL(`../game/data/assets/${block}.js`, import.meta.url), 'utf8'), assetContext);
-  }
-  assert.deepEqual(duplicates, []);
-  for (const legacy of ['assets.js','chapter-assets.js','map-assets.js']) {
-    await assert.rejects(readFile(new URL(`../game/data/${legacy}`, import.meta.url)));
-  }
-});
-
 
 test('两个结局可从新状态进入，成就不重复，旧存档补齐成就数组', () => {
   for (const lang of ['chinese', 'english']) {
@@ -252,9 +229,7 @@ test('结局成就名称具备中英文翻译', () => {
 });
 
 test('剧情图像 ID 全部登记，正式素材与占位图真实存在', async () => {
-  for (const file of ['prologue','chapter1','chapter2','chapter3','final','maps']) {
-    await run(`../game/data/assets/${file}.js`);
-  }
+  await run('../game/data/assets.js');
   const { images, fallbacks } = context.ILY.data.assets;
   for (const node of Object.values(story.nodes)) {
     for (const id of [node.background, node.portrait, node.cg, node.overlay, node.walk?.bg, ...(node.characters || []).map(c => c.image)]) {
@@ -292,7 +267,7 @@ test('舞台支持多人物与 CG 分离，坏图按类型降级到占位图', a
 test('手机教学删除、爱理保护及隐藏回信探索正常工作', async () => {
   const timers = new Map(); let timerId = 0, keyHandler = null;
   const element = (tag='', className='', textContent='') => ({tag, className, textContent, children: [], dataset: {}, style: {},
-    classList: {toggle() {}, add() {}},
+    classList: {toggle() {}, add() {}, remove() {}, contains() { return false; }},
     append(...nodes) { this.children.push(...nodes); }, prepend(...nodes) { this.children.unshift(...nodes); },
     replaceChildren(...nodes) {this.children = nodes;}, addEventListener() {}, removeEventListener() {}, scrollIntoView() {},
     querySelector(selector) { return selector === '.confirm' ? this.children.find(node => String(node.className).includes('confirm')) || null : null; }});
@@ -317,8 +292,8 @@ test('手机教学删除、爱理保护及隐藏回信探索正常工作', async
   tutorialState.flags.phone = {read:['F01'],deleted:[]};
   let nextNode = null;
   const tutorialCleanup = fresh.ILY.mountPhone({stage:element(),node:story.nodes.s03_phone,state:tutorialState,assets:{image:()=>''},go:id=>{nextNode=id;},notify:()=>{}});
-  press('ArrowDown'); press('Enter'); // 手机主页进入通讯录
-  press('Enter'); press('d'); press('Enter');
+  press('ArrowDown'); press('Enter'); // 手机主页进入通讯录（autoDeleteDemo：自动启动删除示例）
+  press('Enter'); press('Enter'); press('Enter'); // 示例三步：打开联系人 → 按下「删除」 → 确认删除
   assert.deepEqual(Array.from(tutorialState.flags.phone.deleted), ['work']);
   assert.equal(nextNode, null, '删除完成后应等待玩家确认继续');
   press(' ');
@@ -327,16 +302,17 @@ test('手机教学删除、爱理保护及隐藏回信探索正常工作', async
 
   const airiState = createState('s04_phone');
   airiState.flags.phone = {read:[],deleted:[]};
-  const notices = [];
-  const airiCleanup = fresh.ILY.mountPhone({stage:element(),node:story.nodes.s04_phone,state:airiState,assets:{image:()=>''},go:()=>{},notify:message=>notices.push(message)});
+  const airiStage = element();
+  const airiCleanup = fresh.ILY.mountPhone({stage:airiStage,node:story.nodes.s04_phone,state:airiState,assets:{image:()=>''},go:()=>{},notify:()=>{}});
   press('ArrowDown'); press('Enter'); // 手机主页进入通讯录
-  press('ArrowDown'); press('ArrowDown'); press('ArrowDown'); press('Enter'); press('d'); press('Enter');
+  press('ArrowDown'); press('ArrowDown'); press('ArrowDown'); press('Enter'); press('d');
   assert.equal(airiState.flags.phone.deleted.includes('airi'), false);
-  assert.equal(notices.at(-1), '再看看其他人吧。');
-  const oneSecondTimer = [...timers.values()].find(timer => timer.delay === 1000);
-  assert.ok(oneSecondTimer, '爱理删除提示应设置约一秒的消失计时器');
-  oneSecondTimer.fn();
-  assert.equal(notices.at(-1), '');
+  // 爱理不可删除：以「成田基生」的独白打断，不弹确认框
+  const thought = airiStage.children.find(node => String(node.className).includes('phone-thought-dialogue'));
+  assert.ok(thought, '删除爱理时应显示独白打断文本框');
+  assert.equal(thought.hidden, false);
+  assert.equal(thought.children[0].textContent, '成田基生');
+  assert.equal(thought.children[1].textContent, '先看看别人吧');
   airiCleanup();
 
   const hiddenState = createState('s01_intro');
@@ -384,7 +360,7 @@ test('手机教学删除、爱理保护及隐藏回信探索正常工作', async
 test('海岸回信打开后立即完整显示正文和链接，并等待玩家确认', async () => {
   let keyHandler = null;
   const element = (tag='', className='', textContent='') => ({tag, className, textContent, children: [], dataset: {}, style: {}, hidden:false,
-    classList: {toggle() {}, add() {}},
+    classList: {toggle() {}, add() {}, remove() {}, contains() { return false; }},
     append(...nodes) { this.children.push(...nodes); }, prepend(...nodes) { this.children.unshift(...nodes); },
     replaceChildren(...nodes) {this.children = nodes;}, addEventListener() {}, removeEventListener() {}, scrollIntoView() {},
     querySelector() { return null; }});
