@@ -2,7 +2,7 @@
 'use strict';
 const { el, button, mountScene } = ILY;
 function isDialogueSkippable(node) {
-  return node?.type === 'dialogue' && typeof node.next === 'string' && node.next.length > 0;
+  return ['dialogue', 'monologue', 'heroine-card'].includes(node?.type) && typeof node.next === 'string' && node.next.length > 0;
 }
 function mountDialogue({stage, node, state, assets, go, isSkipping = () => false, setSkipping = () => {}, getSkipDelay = () => 140}) {
   mountScene(stage, node, assets);

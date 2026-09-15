@@ -343,6 +343,7 @@ try {
     const context = {stage, node, state, assets, go, notify, refreshClues, isSkipping: () => Boolean(skipMode), setSkipping, getSkipDelay: () => skipMode === 'segment' ? 0 : 140};
     if (['phone', 'finale', 'branch', 'end'].includes(node.type)) ILY.mountScene(stage, node, assets);
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);
+    else if (node.type === 'monologue' || node.type === 'heroine-card') cleanup = ILY.mountHeroineMoment(context);
     else if (node.type === 'phone') cleanup = mountPhone(context);
     else if (node.type === 'walk') cleanup = mountWalk(context);
     else if (node.type === 'corridor') cleanup = mountCorridor(context);
@@ -409,7 +410,7 @@ try {
     if (!Object.keys(manifest.bgm).length) notify(t('notify.noBgm'));
   };
 
-  const chapterKey={'1':'chapter1','2':'chapter2','3':'chapter3','final':'final'}[launchParams.get('chapter')];
+  const chapterKey={'1':'chapter1','2':'chapter2','3':'chapter3','heroine':'heroine','final':'final'}[launchParams.get('chapter')];
   if(chapterKey&&!launchParams.get('slot')&&launchParams.get('mode')!=='load')state.node=ILY.data.stories[chapterKey].start;
   if(launchParams.get('player')==='scene-preview'&&Object.hasOwn(story.nodes,launchParams.get('scene')))state.node=launchParams.get('scene');
   go(state.node, { autosave: false });

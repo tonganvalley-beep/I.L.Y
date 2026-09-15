@@ -4,7 +4,7 @@ function prepareChapter1() {
   const prologue = ILY.data.stories.prologue, chapter = ILY.data.stories.chapter1;
   const story = {...prologue, chapters:['prologue','chapter1'], nodes:{...prologue.nodes,...chapter.nodes}};
   story.nodes.finale = {...story.nodes.finale,next:chapter.start};
-  for (const id of ['chapter2','chapter3','final']) {
+  for (const id of ['chapter2','chapter3','heroine','final']) {
     const extra=ILY.data.stories[id];
     if(extra){story.chapters.push(id);Object.assign(story.nodes,extra.nodes);}
   }

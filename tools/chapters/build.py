@@ -190,7 +190,8 @@ class Chapter:
             a=self.sections['S02']; self.nodes[a[a.index('ch2_n2_b')-1]]['next']='ch2_n2_merge'
         elif self.key=='chapter3':
             for a,b in [('S01','S02'),('S02','S03'),('S03','S04'),('S04','S05'),('S05','S06')]: link(a,'ch3_'+b.lower())
-            link('S07A','fin_s01'); link('S07B','ending_reality')
+            # The A route now reveals the heroine-view story before the existing finale.
+            link('S07A','her_chapter_prologue'); link('S07B','ending_reality')
             self.nodes[self.sections['S07A'][-1]]['setFlags']={'ENDING_ILY':True}
             ending('ending_reality','十年之后','ENDING_REALITY','ch2-beach')
         else:

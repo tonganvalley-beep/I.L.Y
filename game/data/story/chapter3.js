@@ -5003,7 +5003,7 @@ ILY.data.stories.chapter3 = {
       "clues": [
         "P27"
       ],
-      "next": "fin_s01",
+      "next": "her_chapter_prologue",
       "setFlags": {
         "ENDING_ILY": true
       }

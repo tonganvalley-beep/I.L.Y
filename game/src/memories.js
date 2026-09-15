@@ -29,7 +29,7 @@ const el = (tag, className, text) => {
 };
 
 /* 剧情回忆收录的章节（与 index.html 的加载顺序一致） */
-const STORY_IDS = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'final'];
+const STORY_IDS = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'heroine', 'final'];
 /* 已知成就 ID（与发放处一致：walk.js / phone.js / prologue.js） */
 const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter', 'father-reply', 'Just two of us', '十年之后', 'One Last Kiss', 'ILY = I LOVE YOU'];
 /* v2 存档槽 key 的合法格式（与 src/core/saves.js 一致） */

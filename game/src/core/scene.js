@@ -17,6 +17,10 @@ function sceneImage(assets, id, className, kind, alt = '') {
 function mountScene(stage, node, assets) {
   const scene = el('div', 'scene');
   scene.setAttribute('aria-hidden', 'true');
+  for (const effect of node.visualEffects || []) {
+    if (['glitch', 'blue', 'desaturated', 'dark', 'flash', 'soft', 'dissolve'].includes(effect)) scene.classList.add(`scene-effect-${effect}`);
+  }
+  if (['cut', 'fade-black', 'fade-white'].includes(node.transition)) scene.classList.add(`scene-transition-${node.transition}`);
   const background = sceneImage(assets, node.cg || node.background, 'scene-background', 'background');
   background.style.objectFit = node.backgroundFit === 'contain' ? 'contain' : 'cover';
   background.style.objectPosition = node.backgroundPosition || 'center';
