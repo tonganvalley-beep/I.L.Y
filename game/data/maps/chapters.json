@@ -566,7 +566,15 @@
         "y": 10,
         "label": "同事",
         "kind": "collect",
-        "text": "今天也辛苦了。早点休息吧。"
+        "npc": true,
+        "text": "今天也辛苦了。早点休息吧。",
+        "image": "npc-coworker",
+        "visual": {
+          "x": 8.8333,
+          "y": 9.625,
+          "w": 1.3333,
+          "h": 1.3333
+        }
       },
       {
         "id": "hibiya",
@@ -574,7 +582,15 @@
         "y": 10,
         "label": "日日谷",
         "kind": "collect",
-        "text": "成田先——生！等一下！"
+        "npc": true,
+        "text": "成田先——生！等一下！",
+        "image": "npc-hibiya",
+        "visual": {
+          "x": 21.8333,
+          "y": 9.625,
+          "w": 1.3333,
+          "h": 1.3333
+        }
       }
     ],
     "objects": [
