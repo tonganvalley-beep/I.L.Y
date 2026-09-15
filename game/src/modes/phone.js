@@ -395,10 +395,8 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   // 只在文本框里以「成田基生」的口吻说一句「先看看别人吧」。
   function refuseDeleteAiri() {
     promptBusy = false;
+    // 仅在文本框（独白区）以「成田基生」口吻打断，不弹确认框、不删除、不占用状态栏。
     showThought(ILY.t('phone.lookOthers'), ILY.t('phone.self'));
-    // 保留旧版状态提示契约，避免依赖 notify 的界面与测试失效。
-    notify(ILY.t('phone.lookOthers'));
-    later(() => notify(''), 1000);
   }
 
   // 第一次亲手删除联系人（非教学演示、非爱理）：

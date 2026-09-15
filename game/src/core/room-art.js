@@ -94,13 +94,21 @@ function createTrash(){
   r(17,5,9,11,'ink');r(15,7,13,7,'ink');r(17,6,7,8,'red');r(19,7,2,6,'cream');r(24,9,3,5,'metal');r(25,10,1,3,'dark');
   r(21,16,8,5,'ink');r(19,17,12,3,'ink');r(21,16,7,4,'cream');r(24,18,5,2,'shade');r(13,18,4,2,'paper');r(7,19,2,1,'woodShade');return c;
 }
+// Uniform scaling only: the artwork is never stretched, and the world grid, event tiles and
+// interaction points keep their positions. 1 = the map just covers the panel; >1 zooms in further.
+const CAMERA_ZOOM=1;
+// Cap the zoom (screen pixels per native art pixel) so the view stays well below the old close-up.
+const MAX_PIXELS=9;
 // Integer screen pixels keep tile seams and sprite edges stable during scrolling.
 function cameraView(width,height,map,position){
-  const t=map.tileSize||48,n=map.art.nativeTileSize||16,view=map.art.view||{columns:14,rows:9};
-  const pixels=Math.max(2,Math.ceil(Math.max(width/(view.columns*n),height/(view.rows*n))));
-  const scale=pixels*n/t,vw=width/scale,vh=height/scale;
-  const x=Math.max(0,Math.min(map.width*t-vw,(position.x+.5)*t-vw/2));
-  const y=Math.max(0,Math.min(map.height*t-vh,(position.y+.5)*t-vh/2));
+  const t=map.tileSize||48,n=map.art.nativeTileSize||16,steps=t/n;
+  const w=map.width*t,h=map.height*t,fit=Math.max(width/w,height/h)*CAMERA_ZOOM;
+  // Round up so the scaled map always covers the whole panel instead of leaving a bare strip.
+  const pixels=Math.max(1,Math.min(MAX_PIXELS,Math.ceil(fit*steps-1e-9)));
+  const scale=pixels/steps,vw=width/scale,vh=height/scale;
+  // Follow the player only while the map is larger than the view; otherwise centre it.
+  const x=vw>=w?(w-vw)/2:Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));
+  const y=vh>=h?(h-vh)/2:Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
   return {scale,x:Math.round(x*scale)/scale,y:Math.round(y*scale)/scale};
 }
 ILY.classicRoom={createRoom,createTrash,cameraView};

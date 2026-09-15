@@ -1,6 +1,13 @@
 (() => {
 'use strict';
 const {el,button,rpgProgress,activeRpgEvents,interactRpg,finishRpgAutomatically,moveRpg}=ILY;
+// Camera: uniform scaling only — the artwork is never stretched and world coordinates (tiles,
+// events, interaction points) never move. 1 = the map just covers the panel; >1 zooms in further.
+const CAMERA_ZOOM=1;
+// Cap the zoom (screen pixels per native art pixel) so the view stays well below the old close-up.
+const MAX_PIXELS=9;
+// Backdrop shown on the rare edge where a map is narrower than the panel.
+const STAGE='#0b1220';
 // Follow arc length, not a count of intermittently sampled frames. Keep every
 // corner and interpolate the segment containing the fixed-distance target.
 function createRpgFollower(leader,start=leader,gap=1.05){
@@ -39,6 +46,47 @@ function mountRpg({stage,node,state,assets,go}) {
   const prompt=button('',()=>interact());prompt.className='rpg-interact';prompt.hidden=true;
   const menuToggle=button('☰',()=>document.querySelector('#menu-toggle').click());menuToggle.className='rpg-menu-toggle';menuToggle.setAttribute('aria-label','打开菜单');
   panel.append(canvas,message,prompt,menuToggle);stage.append(panel);document.body.classList.add('rpg-active');
+  // ---- 左上角小地图：展示同一移动区段内全部相连地图，并标出人物当前所在与定位 ----
+  // 从起始地图沿 transfer 边做连通遍历，得到「区段」内所有地图；区段地图数 ≥ 2 才显示。
+  function buildMapGroup(startId){
+    const seen=new Set(),order=[],queue=[startId];
+    while(queue.length){const id=queue.shift();if(seen.has(id)||!maps[id])continue;seen.add(id);order.push(id);
+      for(const e of maps[id].events||[])if(e.kind==='transfer'&&e.to&&!seen.has(e.to))queue.push(e.to);}
+    return order;
+  }
+  const MINIMAP_LABEL={'ch1-entry':'入口','ch1-gallery':'回廊','ch1-isopod':'具足虫','ch1-empty':'空水槽','ch1-panorama':'全景','ch1-restroom':'洗手间','ch1-room':'出租屋','ch1-store':'便利店','ch2-island':'上岛','ch2-flowers':'紫阳花','ch2-stairs':'长楼梯','ch2-shop':'冰淇淋','ch2-return':'夕阳','ch3-work':'夜路','ch3-coast':'夜海','ch3-mall':'商场'};
+  let minimap=null,cells={};
+  const group=buildMapGroup(node.map||p.map);
+  if(group.length>=2){
+    const isAquarium=group.includes('ch1-isopod');
+    const mainSet=isAquarium?new Set(['ch1-entry','ch1-gallery','ch1-isopod']):new Set(group);
+    minimap=el('div','rpg-minimap');
+    const title=el('div','rpg-minimap-title',(isAquarium?'水族馆':'地图')+' · 导览');
+    minimap.append(title);
+    const row=el('div','rpg-minimap-maps');
+    for(const id of group){
+      const m=maps[id];if(!m)continue;
+      const cell=el('div','rpg-minimap-cell');
+      const thumb=el('div','rpg-minimap-thumb');
+      const bg=assets.image(m.art&&m.art.background);
+      if(bg)thumb.style.backgroundImage=`url("${bg}")`;
+      if(mainSet.has(id))thumb.classList.add('is-main');
+      const dot=el('div','rpg-minimap-dot');
+      thumb.append(dot);
+      const name=el('div','rpg-minimap-name',MINIMAP_LABEL[id]||m.name);
+      cell.append(thumb,name);
+      row.append(cell);
+      cells[id]={cell,thumb,dot,width:m.width,height:m.height};
+    }
+    minimap.append(row);
+    panel.append(minimap);
+  }
+  function updateMinimap(){
+    if(!minimap)return;
+    for(const id of group){const c=cells[id];if(c)c.cell.classList.toggle('is-current',id===map.id);}
+    const cur=cells[map.id];
+    if(cur){cur.dot.style.left=((position.x+.5)/cur.width*100)+'%';cur.dot.style.top=((position.y+.5)/cur.height*100)+'%';}
+  }
   const menu=document.querySelector('#game-menu'),menuInfo=el('section','rpg-menu-info'),objective=el('p');
   const auto=button('自动完成当前探索',()=>{menu.close();completeAutomatically();});
   menuInfo.append(el('h3','','当前探索'),objective,el('p','','WASD / 方向键移动；按住画面引导；E / 空格 / Enter 调查。'),auto);menu.append(menuInfo);
@@ -91,10 +139,13 @@ function mountRpg({stage,node,state,assets,go}) {
     refresh();canvas.focus();
   }
   function interact(){if(blocked())return;const e=closest();if(e)act(e);}
-  function drawAsset(id,x,y,w,h,cell=null){
-    const path=assets.image(id);if(!path)return false;
+  function assetImage(id){
+    const path=assets.image(id);if(!path)return null;
     if(!images.has(path)){const img=new Image();img.src=path;images.set(path,img);}
-    const img=images.get(path);if(!img.complete||!img.naturalWidth)return false;
+    const img=images.get(path);return (img.complete&&img.naturalWidth)?img:null;
+  }
+  function drawAsset(id,x,y,w,h,cell=null){
+    const img=assetImage(id);if(!img)return false;
     if(cell===null)ctx.drawImage(img,x,y,w,h);
     else{const cw=img.naturalWidth/4,ch=img.naturalHeight/2;ctx.drawImage(img,(cell%4)*cw,Math.floor(cell/4)*ch,cw,ch,x,y,w,h);}
     return true;
@@ -103,22 +154,32 @@ function mountRpg({stage,node,state,assets,go}) {
     const r=panel.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
     camera.width=Math.max(1,r.width);camera.height=Math.max(1,r.height);canvas.width=Math.round(camera.width*dpr);canvas.height=Math.round(camera.height*dpr);
   }
+  // Same rule as cameraView() in core/room-art.js: fit the whole map, quantised to whole screen
+  // pixels per native art pixel, never scaled past 1:1. Used when the classic module is absent.
+  function fitCamera(t,w,h){
+    const steps=t/((map.art&&map.art.nativeTileSize)||16);
+    const fit=Math.max(camera.width/w,camera.height/h)*CAMERA_ZOOM;
+    // Round up so the scaled map always covers the whole panel instead of leaving a bare strip.
+    camera.scale=Math.max(1,Math.min(MAX_PIXELS,Math.ceil(fit*steps-1e-9)))/steps;
+    const vw=camera.width/camera.scale,vh=camera.height/camera.scale;
+    camera.x=vw>=w?(w-vw)/2:Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));
+    camera.y=vh>=h?(h-vh)/2:Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
+  }
   function draw(){
     const t=map.tileSize||48,w=map.width*t,h=map.height*t;
     const classic=['classic-room','pixel-map'].includes(map.art.renderer)&&ILY.classicRoom;
-    if(classic){
-      Object.assign(camera,classic.cameraView(camera.width,camera.height,map,position));
-    }else{
-      camera.scale=Math.max(camera.width/w,camera.height/h);
-      const vw=camera.width/camera.scale,vh=camera.height/camera.scale;
-      camera.x=Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));camera.y=Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
-    }
+    if(classic)Object.assign(camera,classic.cameraView(camera.width,camera.height,map,position));
+    else fitCamera(t,w,h);
+    const vw=camera.width/camera.scale,vh=camera.height/camera.scale;
     const dpr=canvas.width/camera.width;ctx.setTransform(dpr*camera.scale,0,0,dpr*camera.scale,-camera.x*dpr*camera.scale,-camera.y*dpr*camera.scale);
+    // Stage: cover the area around the centred map so the canvas backdrop never shows through.
+    if(vw>w||vh>h){ctx.fillStyle=(map.art&&map.art.outside)||STAGE;ctx.fillRect(camera.x-2,camera.y-2,vw+4,vh+4);}
     ctx.imageSmoothingEnabled=!classic;
     let paintedBackground=false;
     if(classic){
       // 正式房间图与逻辑地图保持同一宽高比；加载前仍用数据驱动像素房间兜底。
-      ctx.imageSmoothingEnabled=map.art.renderer==='classic-room';
+      // Downscaling a pixel map reads better interpolated; enlarging stays crisp.
+      ctx.imageSmoothingEnabled=camera.scale<1||map.art.renderer==='classic-room';
       paintedBackground=!!(map.art.background&&drawAsset(map.art.background,0,0,w,h));
       if(!paintedBackground){
         ctx.imageSmoothingEnabled=false;
@@ -135,18 +196,49 @@ function mountRpg({stage,node,state,assets,go}) {
     if(!paintedBackground)for(const o of map.objects){drawAsset(o.image,o.x*t,o.y*t,o.w*t,o.h*t);ctx.fillStyle='#f7f0d8';ctx.fillText(o.label,(o.x+o.w/2)*t,(o.y+o.h/2)*t+5);}
     const nearby=closest();
     for(const e of events()){
+      let sprite=null;
       if(e.image){
         const v=e.visual||{x:e.x-.5,y:e.y-.5,w:1,h:1};
+        sprite=v;
+        // 站立的 NPC（e.npc）先铺一脚接触阴影，再画人，和主角的落地顺序一致。
+        if(e.npc){
+          ctx.fillStyle='#0004';
+          ctx.beginPath();ctx.ellipse((v.x+v.w/2)*t,(v.y+v.h)*t-3,11,4,0,0,Math.PI*2);ctx.fill();
+        }
         if(classic&&e.image==='ch1-trash-pile'){
           trashSprite ||= classic.createTrash();ctx.drawImage(trashSprite,v.x*t,v.y*t,v.w*t,v.h*t);
         }else{ctx.imageSmoothingEnabled=!classic;drawAsset(e.image,v.x*t,v.y*t,v.w*t,v.h*t);ctx.imageSmoothingEnabled=false;}
       }
       const ex=(e.x+.5)*t,ey=(e.y+.5)*t;
+      // 人物类事件的光标抬到头顶，否则会正好压在立绘胸口上。
+      const my=(e.npc&&sprite)?sprite.y*t-6:ey;
       ctx.fillStyle=e===nearby?'#fff0be':'#eac98399';
-      if(classic){ctx.fillRect(ex-3,ey-6,6,12);ctx.fillRect(ex-6,ey-3,12,6);}
-      else{ctx.beginPath();ctx.arc(ex,ey,e===nearby?5:3,0,Math.PI*2);ctx.fill();}
+      if(classic){ctx.fillRect(ex-3,my-6,6,12);ctx.fillRect(ex-6,my-3,12,6);}
+      else{ctx.beginPath();ctx.arc(ex,my,e===nearby?6:4,0,Math.PI*2);ctx.fill();}
+    }
+    // Off-screen indicator: point the player toward uncollected interaction points that sit
+    // outside the current view. This never moves the points — it only adds a screen-edge arrow.
+    {const m=28;
+      ctx.save();
+      ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;
+      for(const e of events()){
+        const ex=(e.x+.5)*t,ey=(e.y+.5)*t;
+        const sx=(ex-camera.x)*camera.scale,sy=(ey-camera.y)*camera.scale;
+        if(sx>=m&&sx<=camera.width-m&&sy>=m&&sy<=camera.height-m)continue;
+        const cx=Math.max(m,Math.min(camera.width-m,sx)),cy=Math.max(m,Math.min(camera.height-m,sy));
+        const ang=Math.atan2(sy-cy,sx-cx);
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(ang);ctx.globalAlpha=0.92;ctx.fillStyle='#ffd479';
+        ctx.beginPath();ctx.moveTo(11,0);ctx.lineTo(-7,-8);ctx.lineTo(-7,8);ctx.closePath();ctx.fill();
+        ctx.restore();
+      }
+      ctx.restore();
     }
     const x=(position.x+.5)*t,y=(position.y+.5)*t;
+    // Constant on-screen character size. Cover-fit zooms the bigger ch2/ch3 maps OUT, which used to
+    // shrink Kio/Airi to a speck there. Draw the sprite at world size = screenTarget / camera.scale
+    // so it stays the same height on screen on every map. Only ever enlarges (max with the old
+    // 64-units look) — ch1 is never shrunk. Map art scaling and interaction coords are untouched.
+    const S=Math.max(88,64*camera.scale)/camera.scale;
     function drawFollower(){
       if(!follower)return;
       const fx=(follower.x+.5)*t,fy=(follower.y+.5)*t;
@@ -154,15 +246,16 @@ function mountRpg({stage,node,state,assets,go}) {
       ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+20,10,4,0,0,Math.PI*2);ctx.fill();
       const side=follower.facing==='left'||follower.facing==='right';
       const cell=follower.walking&&side?(follower.facing==='left'?4:6)+Math.floor(follower.stride/.45)%2:{front:0,back:1,left:2,right:3}[follower.facing];
-      drawAsset('airi-rpg-sheet',sx-32,sy-38,64,64,cell);
+      drawAsset('airi-rpg-sheet',sx-S/2,(sy+26)-S,S,S,cell);
     }
     if(follower&&follower.y<=position.y)drawFollower();
     // Keep Kio's original artwork and animation; the close camera supplies the enlargement.
     const sx=classic?Math.round(x*camera.scale)/camera.scale:x,sy=classic?Math.round(y*camera.scale)/camera.scale:y;
     ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+20,11,4,0,0,Math.PI*2);ctx.fill();
     const image=walking&&(facing==='left'||facing==='right')?`ch1-kio-${facing}-${1+Math.floor(stride/.12)%2}`:facing==='back'?'ch1-kio-back':map.art.player;
-    if(!drawAsset(image,sx-32,sy-42,64,64))drawAsset(map.art.player,sx-32,sy-42,64,64);
+    if(!drawAsset(image,sx-S/2,(sy+22)-S,S,S))drawAsset(map.art.player,sx-S/2,(sy+22)-S,S,S);
     if(follower&&follower.y>position.y)drawFollower();
+    updateMinimap();
   }
   const directions={arrowleft:[-1,0],a:[-1,0],arrowright:[1,0],d:[1,0],arrowup:[0,-1],w:[0,-1],arrowdown:[0,1],s:[0,1]};
   function keydown(e){

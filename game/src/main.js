@@ -178,7 +178,8 @@ try {
       } else {
         preview.append(el('span', 'save-slot-tag', label));
         preview.append(el('span', 'empty-label', inspected.status === 'corrupt' ? t('slot.corrupt') : inspected.status === 'unavailable' ? t('slot.unavailable') : t('slot.empty')));
-        card.append(preview);
+        const info = el('div', 'save-info save-info-empty');
+        card.append(preview, info);
       }
 
       const actions = el('div', 'save-actions');
