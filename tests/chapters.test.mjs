@@ -25,6 +25,17 @@ test('Every chapter node and gameplay target resolves; no document production no
   if(['chapter2','chapter3','final'].includes(n.chapter))assert.doesNotMatch(n.text||'',/可玩化建议|事件蓝图|策划注|制作注|待评审|接口段|兜底|存活变量|网页直连|女主视角重述/);
  }
 });
+test('Each chapter has one canonical transcript and its own build command',async()=>{
+ const packageJson=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'));
+ for(const chapter of ['chapter1','chapter2','chapter3','final']){
+  const source=await readFile(new URL(`../tools/${chapter}/source.txt`,import.meta.url),'utf8');
+  const builder=await readFile(new URL(`../tools/${chapter}/build.py`,import.meta.url),'utf8');
+  assert.ok(source.trim().length>0,chapter+' source');
+  assert.match(packageJson.scripts[`build:${chapter}`],new RegExp(`tools/${chapter}/build\\.py$`));
+  if(chapter!=='chapter1')assert.match(builder,new RegExp(`build_chapter\\('${chapter}'\\)`));
+ }
+ assert.match(packageJson.scripts['build:story'],/tools\/build_story\.py$/);
+});
 test('All branch combinations reach the correct ending without leaking other ending scenes',()=>{
  for(const route of ['A','B','C'])for(const n2 of ['A','B'])for(const n3 of ['buy','stay'])for(const n4 of ['A','B']){
   const {state,seen}=traverse(route,n2,n3,n4);
