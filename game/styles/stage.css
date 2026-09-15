@@ -10,6 +10,7 @@ main{display:block;margin:0;height:100%}
 .game-header-actions{display:flex;gap:8px;align-items:center}
 .game-header button{pointer-events:auto;background:#0c162878;border-color:#ffffff30;border-radius:24px;font-size:13px;padding:7px 19px}
 .game-header button:disabled{pointer-events:none;opacity:.32}
+.game-header #skip[aria-pressed=true],.game-header #skip-segment[aria-pressed=true]{background:#b47a2bd9;border-color:#ffe0a2;color:#fff7df;box-shadow:0 0 18px #e4a84e55}
 .scene{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
 .scene-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#142231}
 .portrait{position:absolute;height:94%;width:55%;max-width:none;object-fit:contain;object-position:center bottom;bottom:-6%;left:50%;right:auto;transform:translateX(-50%) scale(var(--character-scale,1));transform-origin:50% 100%;filter:drop-shadow(0 8px 24px #0005)}
@@ -37,5 +38,7 @@ main{display:block;margin:0;height:100%}
 #status{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:50;background:#091523eb;color:#efdab0;max-width:90vw;border-radius:5px;padding:10px 18px;font-size:13px;pointer-events:none}#status:empty{display:none}
 .mode-panel{height:100%;overflow:auto;padding:86px 5vw 24px}.mode-panel canvas{max-height:62vh;width:auto;max-width:100%;margin:auto}.walk-hud{top:76px}
 .phone{padding-top:76px}.phone-screen{min-height:0}.phone-body{min-height:0}.phone-hint{margin:5px}
-@media(max-width:600px){.game-header{padding:12px 16px}.game-header #chapter{font-size:10px;letter-spacing:1px}.portrait{width:100%;height:83%;bottom:0}.portrait[data-position=left]{left:25%}.portrait[data-position=right]{left:75%}.dialogue{padding:30px 22px 16px}.dialogue .dialogue-text{max-height:31vh}.advance-hint{display:none}.scene-prop{width:75%}.phone{padding:66px 12px 10px}.save-menu{padding:16px}.save-pages{display:grid;grid-template-columns:1fr 1fr}.save-slots{grid-template-columns:1fr}.save-preview{aspect-ratio:16/7}}
+@media(max-width:600px){.game-header{padding:12px 10px}.game-header #chapter{font-size:10px;letter-spacing:1px}.game-header-actions{gap:4px}.game-header button{padding:7px 10px}.portrait{width:100%;height:83%;bottom:0}.portrait[data-position=left]{left:25%}.portrait[data-position=right]{left:75%}.dialogue{padding:30px 22px 16px}.dialogue .dialogue-text{max-height:31vh}.advance-hint{display:none}.scene-prop{width:75%}.phone{padding:66px 12px 10px}.save-menu{padding:16px}.save-pages{display:grid;grid-template-columns:1fr 1fr}.save-slots{grid-template-columns:1fr}.save-preview{aspect-ratio:16/7}}
+@media(min-width:361px) and (max-width:440px){.phone-quick{top:8px}.phone{padding-top:100px}.mode-panel{padding-top:104px}.walk-hud{top:102px}#status{top:102px}}
+@media(max-width:360px){.game-header #chapter{display:none}.game-header-actions{width:100%;justify-content:center}}
 @media(max-height:500px){.game-header{padding:8px 18px}.dialogue{padding:22px 5vw 8px}.dialogue .dialogue-text{font-size:15px;min-height:0;max-height:23vh;margin:6px 0}.speaker{font-size:17px}.portrait{height:100%}.phone{padding:45px 12px 4px}.phone-screen{max-height:94%}.phone-hint{display:none}.phone-body{min-height:0}.walk-hud{top:48px}}

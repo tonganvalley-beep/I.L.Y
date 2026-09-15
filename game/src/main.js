@@ -3,7 +3,7 @@
 const { createState, createRollbackHistory, validateSave, SaveManager } = ILY;
 const { Assets } = ILY;
 const { el, button } = ILY;
-const { mountDialogue } = ILY;
+const { isDialogueSkippable, mountDialogue } = ILY;
 const { mountPhone } = ILY;
 const { mountWalk } = ILY;
 const { mountCorridor } = ILY;
@@ -64,12 +64,41 @@ try {
   const saveTitle = document.querySelector('#save-menu-title');
   const saveSubtitle = document.querySelector('#save-menu-subtitle');
   const saveStatus = document.querySelector('#save-status');
+  const skipBtn = document.querySelector('#skip');
+  const skipSegmentBtn = document.querySelector('#skip-segment');
   const rollbackBtn = document.querySelector('#rollback');
   const rollbackHistory = createRollbackHistory();
   let saveMode = 'save';
   let savePage = '1';
+  let skipMode = '';
+
+  function updateSkipControl() {
+    const available = isDialogueSkippable(story.nodes[state.node]);
+    skipBtn.disabled = !available;
+    skipSegmentBtn.disabled = !available;
+    skipBtn.classList.toggle('is-active', skipMode === 'fast');
+    skipBtn.setAttribute('aria-pressed', String(skipMode === 'fast'));
+    skipBtn.textContent = t(skipMode === 'fast' ? 'menu.fastForwardActive' : 'menu.fastForward');
+    skipBtn.title = t(skipMode === 'fast' ? 'menu.fastForwardStopTitle' : 'menu.fastForwardTitle');
+    skipSegmentBtn.classList.toggle('is-active', skipMode === 'segment');
+    skipSegmentBtn.setAttribute('aria-pressed', String(skipMode === 'segment'));
+    skipSegmentBtn.title = t('menu.skipSegmentTitle');
+  }
+
+  function setSkipMode(value) {
+    const nextValue = ['fast', 'segment'].includes(value) && isDialogueSkippable(story.nodes[state.node]) && !document.querySelector('dialog[open]') ? value : '';
+    if (skipMode === nextValue) { updateSkipControl(); return; }
+    skipMode = nextValue;
+    updateSkipControl();
+    window.dispatchEvent(new Event('ily:skipchange'));
+  }
+
+  const setSkipping = value => setSkipMode(value ? 'fast' : '');
+  skipBtn.onclick = () => setSkipMode(skipMode === 'fast' ? '' : 'fast');
+  skipSegmentBtn.onclick = () => setSkipMode(skipMode === 'segment' ? '' : 'segment');
 
   menuToggle.onclick = () => {
+    setSkipMode('');
     gameMenu.showModal();
     window.dispatchEvent(new Event('blur'));
     menuToggle.setAttribute('aria-expanded', 'true');
@@ -102,6 +131,7 @@ try {
     document.querySelector('#chapter').textContent = story.nodes[state.node]?.chapterTitle || t('chapter.title');
     updateFullscreenLabel();
     soundBtn.textContent = t(assets.enabled ? 'menu.sound.off' : 'menu.sound.on');
+    updateSkipControl();
     rollbackBtn.title = t('menu.rollbackTitle');
     refreshClues();
     if (saveMenu.open) {
@@ -302,6 +332,7 @@ try {
     if (!node) { notify(t('notify.nodeMissing', { id: next })); return; }
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
     if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
+    if (skipMode && !isDialogueSkippable(node)) setSkipMode('');
     cleanup(); cleanup = () => {}; state.node = next;
     ILY.activateMemory(state, next, node);
     if (options.recordRollback !== false) rollbackHistory.record(state);
@@ -309,7 +340,7 @@ try {
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
     stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type; notify(''); refreshClues();
     ILY.refreshFreePhone();
-    const context = {stage, node, state, assets, go, notify, refreshClues};
+    const context = {stage, node, state, assets, go, notify, refreshClues, isSkipping: () => Boolean(skipMode), setSkipping, getSkipDelay: () => skipMode === 'segment' ? 0 : 140};
     if (['phone', 'finale', 'branch', 'end'].includes(node.type)) ILY.mountScene(stage, node, assets);
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);
     else if (node.type === 'phone') cleanup = mountPhone(context);
@@ -336,11 +367,13 @@ try {
       stage.append(end);
     }
     maybeAutosave(node, options.autosave !== false);
+    updateSkipControl();
     rollbackBtn.disabled = !rollbackHistory.canRollback;
   }
 
   function rollback() {
     if (document.querySelector('dialog[open]')) return;
+    setSkipMode('');
     const previous = rollbackHistory.back(state);
     if (!previous) return;
     state = previous;
@@ -351,10 +384,16 @@ try {
   rollbackBtn.onclick = rollback;
   let lastWheelRollback = 0;
   window.addEventListener('keydown', event => {
-    if (event.code !== 'PageUp' || event.repeat || event.ctrlKey || event.altKey || event.metaKey ||
-        event.target.closest?.('button, a, input, textarea, select')) return;
-    event.preventDefault();
-    rollback();
+    if (event.repeat || event.ctrlKey || event.altKey || event.metaKey ||
+        event.target.closest?.('button, a, input, textarea, select') || document.querySelector('dialog[open]')) return;
+    if (event.code === 'KeyS') {
+      if (!skipMode && !isDialogueSkippable(story.nodes[state.node])) return;
+      event.preventDefault();
+      setSkipMode(skipMode === 'fast' ? '' : 'fast');
+    } else if (event.code === 'PageUp') {
+      event.preventDefault();
+      rollback();
+    }
   });
   stage.addEventListener('wheel', event => {
     if (event.deltaY >= 0 || !['dialogue', 'choice'].includes(stage.dataset.mode)) return;
