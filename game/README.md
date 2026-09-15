@@ -17,7 +17,7 @@
 ## 换图只需两步
 
 1. 图片放入 `game/assets/images/backgrounds/`、`characters/`、`cg/` 或 `ui/`。
-2. 修改 `game/data/assets.js` 中对应 ID 的路径，例如 `"portrait-kio": "assets/images/characters/kio-normal.png"`。
+2. 修改 `game/data/assets/` 中对应章节清单里的 ID 路径，例如 `"portrait-kio": "assets/images/characters/kio-normal.png"`。
 
 路径相对 game/index.html，使用 `/`。保持 ID 不变，原来引用它的节点自动使用新图。程序不扫描文件夹。当前未提供的素材指向 `assets/placeholders/`，补图时直接把对应 ID 改为正式图片路径即可。
 
@@ -29,7 +29,7 @@
 - `src/main.js`：模式调度、菜单和存档界面；`src/core/saves.js`：多槽、自动档、快速档及旧档迁移；`src/core/scene.js`：背景、人物、CG、道具和场景缺图处理。
 - `src/modes/`：对白、手机、步行、格子探索、弹幕；探索和弹幕目前未接入序章节点。
 - `styles/stage.css`：最终舞台布局，最后加载；game.css / prologue.css 提供基础玩法样式。
-- `assets/placeholders/`：正式素材待补位置使用的分类占位图；`data/assets.js`：全部资源映射与缺图兜底。
+- `assets/placeholders/`：正式素材待补位置使用的分类占位图；`data/assets/`：按序章、章节和地图分块的资源映射与缺图兜底。
 
 普通 script 按 bootstrap → 数据 → core → modes → main 加载，不使用 fetch 或 ES module，以保留双击运行。文本通过 textContent 渲染。
 

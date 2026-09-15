@@ -137,6 +137,29 @@ test('游戏页的所有脚本存在，普通脚本无需服务或模块加载',
   assert.match(html, /location\.replace\(new URL\('\.\.\/index\.html'/);
 });
 
+test('素材清单集中分块加载，资源 ID 不会跨分块互相覆盖', async () => {
+  const blocks = ['prologue','chapter1','chapter2','chapter3','final','maps'];
+  const assetContext = vm.createContext({}); assetContext.window = assetContext;
+  vm.runInContext(await readFile(new URL('../game/src/bootstrap.js', import.meta.url), 'utf8'), assetContext);
+  vm.runInContext(await readFile(new URL('../game/data/assets/prologue.js', import.meta.url), 'utf8'), assetContext);
+  const duplicates = [];
+  const images = assetContext.ILY.data.assets.images;
+  assetContext.ILY.data.assets.images = new Proxy(images, {
+    set(target, key, value) {
+      if (Object.hasOwn(target, key)) duplicates.push(String(key));
+      target[key] = value;
+      return true;
+    }
+  });
+  for (const block of blocks.slice(1)) {
+    vm.runInContext(await readFile(new URL(`../game/data/assets/${block}.js`, import.meta.url), 'utf8'), assetContext);
+  }
+  assert.deepEqual(duplicates, []);
+  for (const legacy of ['assets.js','chapter-assets.js','map-assets.js']) {
+    await assert.rejects(readFile(new URL(`../game/data/${legacy}`, import.meta.url)));
+  }
+});
+
 
 test('两个结局可从新状态进入，成就不重复，旧存档补齐成就数组', () => {
   for (const lang of ['chinese', 'english']) {
@@ -229,7 +252,9 @@ test('结局成就名称具备中英文翻译', () => {
 });
 
 test('剧情图像 ID 全部登记，正式素材与占位图真实存在', async () => {
-  await run('../game/data/assets.js');
+  for (const file of ['prologue','chapter1','chapter2','chapter3','final','maps']) {
+    await run(`../game/data/assets/${file}.js`);
+  }
   const { images, fallbacks } = context.ILY.data.assets;
   for (const node of Object.values(story.nodes)) {
     for (const id of [node.background, node.portrait, node.cg, node.overlay, node.walk?.bg, ...(node.characters || []).map(c => c.image)]) {

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile,access} from 'node:fs/promises';
 import vm from 'node:vm';
 const root=new URL('../',import.meta.url),c=vm.createContext({});c.window=c;
-for(const file of ['src/bootstrap.js','data/assets.js','data/chapter-assets.js','data/map-assets.js','data/story/prologue.js','data/story/chapter1.js','data/story/chapter2.js','data/story/chapter3.js','data/story/final.js','data/maps/classroom.js','data/maps/chapter1-bundle.js','data/maps/chapters-bundle.js','src/core/state.js','src/core/chapter1.js'])vm.runInContext(await readFile(new URL('game/'+file,root),'utf8'),c);
+for(const file of ['src/bootstrap.js','data/assets/prologue.js','data/assets/chapter1.js','data/assets/chapter2.js','data/assets/chapter3.js','data/assets/final.js','data/assets/maps.js','data/story/prologue.js','data/story/chapter1.js','data/story/chapter2.js','data/story/chapter3.js','data/story/final.js','data/maps/classroom.js','data/maps/chapter1-bundle.js','data/maps/chapters-bundle.js','src/core/state.js','src/core/chapter1.js'])vm.runInContext(await readFile(new URL('game/'+file,root),'utf8'),c);
 const I=c.ILY,story=I.prepareChapter1(),maps={...I.data.maps,...I.data.chapter1Maps,...I.data.chapterMaps};
 function traverse(route,n2,n3,n4){
  const state=I.createState('ch1_s01'),seen=new Set();let id=state.node;

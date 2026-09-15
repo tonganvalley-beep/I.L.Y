@@ -65,7 +65,10 @@ E:\BaiduNetdiskDownload\游戏（第三周）week3-games\游戏（第三周）\�
 
 ```text
 game/index.html                      脚本加载顺序、stage、菜单、状态提示
-  data/assets.js                     资源 ID → 路径 + 分类占位兜底
+  data/assets/                       资源 ID → 路径，按序章、章节和地图分块
+    prologue.js                      初始化资源系统 + 序章基础素材与占位兜底
+    chapter1.js ... final.js         各章新增素材
+    maps.js                          RPG 地图背景素材
   data/story/prologue.js             92 个序章节点、对白、分支、演出字段
   data/story/phone.js                手机邮件 / 联系人 / 照片数据
   data/maps/classroom.js             格子地图、线索、推理条件（保留）
@@ -104,7 +107,7 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 所有路径相对 `game/index.html`，使用 `/`，不填写 `E:\...` 绝对路径。文件名、扩展名必须与磁盘一致。
 
 1. 将正式图放入上述对应目录，例如 `game/assets/images/backgrounds/apartment-evening.webp` 和 `game/assets/images/characters/kio-normal.png`。
-2. 在 `game/data/assets.js` 找到对应 ID，**只改值，不改 ID**：
+2. 在 `game/data/assets/` 下对应章节清单中找到 ID，**只改值，不改 ID**：
 
 ```js
 "bg-apartment-dusk": "assets/images/backgrounds/apartment-evening.webp",
@@ -218,7 +221,7 @@ game/index.html                      脚本加载顺序、stage、菜单、状�
 
 开发运行：仓库根 `npm start`，打开 `http://127.0.0.1:8080/`。本地直接打开时也必须从仓库根目录 `index.html` 进入；所有新增脚本保持普通 script，无 npm 安装/构建步骤。
 
-接手 AI / 人工每次先读本文件与 game/README.md，再按任务定位：换素材只改 data/assets.js，改对白或构图改 story，改视觉布局改 stage.css，改流程生命周期才改 main.js。不要擅自升级存档版本、替换框架或复制参考项目整个引擎。新增功能必须给出实际接线、清理逻辑与验证，不把目录、字段和按钮存在描述成已完成功能。
+接手 AI / 人工每次先读本文件与 game/README.md，再按任务定位：换素材只改 `data/assets/` 下对应分块，改对白或构图改 story，改视觉布局改 stage.css，改流程生命周期才改 main.js。不要擅自升级存档版本、替换框架或复制参考项目整个引擎。新增功能必须给出实际接线、清理逻辑与验证，不把目录、字段和按钮存在描述成已完成功能。
 
 每次交付同步记录改动文件、影响的节点、验证结果、新增缺口。素材替换后运行 npm test；如果音视频仅登记但未接线，应继续明确标为待完成。
 

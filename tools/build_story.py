@@ -14,6 +14,6 @@ BUILDERS = [
 for builder in BUILDERS:
     subprocess.run([sys.executable, '-B', str(builder)], check=True)
 
-from chapters.build import build_shared_assets
+from chapters.build import build_asset_manifests
 
-build_shared_assets()
+build_asset_manifests()

@@ -10,7 +10,7 @@
  *   ILY.t                 src/i18n.js
  *   ILY.data.stories.*    data/story/prologue.js / chapter1.js
  *   ILY.data.phone.photos data/story/phone.js
- *   ILY.data.assets       data/assets.js
+ *   ILY.data.assets       data/assets/prologue.js + chapter asset blocks
  *   window.ILY_GALLERY    ../sign&log/gallery-data.js（可选，图由用户自行添加）
  *
  * 用法（main.js 中调用一次）：

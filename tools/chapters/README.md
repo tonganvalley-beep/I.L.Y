@@ -8,4 +8,4 @@
 - `tools/chapter3/source.txt` 与 `tools/chapter3/build.py`
 - `tools/final/source.txt` 与 `tools/final/build.py`
 
-日常修改文案时运行对应的 `npm run build:chapter2`、`npm run build:chapter3` 或 `npm run build:final`。只有需要同时重建全部故事和共享资源表时，才运行 `npm run build:story`。
+日常修改文案时运行对应的 `npm run build:chapter2`、`npm run build:chapter3` 或 `npm run build:final`。只有需要同时重建全部故事和各章节素材清单时，才运行 `npm run build:story`。

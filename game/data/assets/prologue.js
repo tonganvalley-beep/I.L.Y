@@ -1,4 +1,4 @@
-// 《I.L.Y.》序章 · 资源清单（占位）
+// 《I.L.Y.》序章基础素材清单；这里初始化资源系统，后续章节可复用通用 ID。
 // 路径沿用项目既有约定：images/backgrounds|characters|ui，audio/bgm|sfx|voices。
 // 当前已有正式图片直接使用；尚未提供的素材指向对应类型的占位 SVG，后续只需替换路径。
 //
@@ -82,33 +82,3 @@ ILY.data.assets.fallbacks = {
   character: 'assets/placeholders/character.svg',
   prop: 'assets/placeholders/prop.svg'
 };
-
-// 第一章：资源路径相对 game/index.html。RPG 空路径使用可玩的几何占位。
-Object.assign(ILY.data.assets.images, {
-  'ch1-coast-night':'assets/images/backgrounds/11 海景.png',
-  'ch1-store':'assets/images/backgrounds/12 便利店.png',
-  'ch1-street':'assets/placeholders/background.svg',
-  'ch1-aquarium-outside':'assets/images/backgrounds/13 水族馆.png',
-  'ch1-aquarium':'assets/images/backgrounds/14 鱼缸.png',
-  'ch1-panorama':'assets/placeholders/background.svg',
-  'ch1-empty-tank':'assets/placeholders/background.svg',
-  'ch1-cg-blue':'assets/placeholders/background.svg',
-  'ch1-cg-mirror':'assets/placeholders/background.svg',
-  'ch1-cg-bathroom':'assets/placeholders/background.svg',
-  'ch1-cg-collapse':'assets/placeholders/background.svg',
-  'ch1-cg-reflection':'assets/placeholders/background.svg',
-  'ch1-airi-casual':'assets/images/characters/aili/微笑 (1).png',
-  'ch1-toya':'assets/placeholders/character.svg',
-  'ch1-rui':'assets/placeholders/character.svg',
-  'ch1-room-map':'assets/images/maps/ch1-room.png',
-  'ch1-trash-pile':'assets/images/objects/trash-pile.png',
-  'ch1-tile-floor':'', 'ch1-tile-wall':'',
-  'ch1-sprite-kio':'assets/images/ui/cursor/cursor-hero-front.png', 'ch1-sprite-airi':'',
-  'ch1-kio-back':'assets/images/ui/cursor/cursor-hero-back.png',
-  'ch1-kio-left-1':'assets/images/ui/cursor/cursor-walk-left-1.png',
-  'ch1-kio-left-2':'assets/images/ui/cursor/cursor-walk-left-2.png',
-  'ch1-kio-right-1':'assets/images/ui/cursor/cursor-walk-right-1.png',
-  'ch1-kio-right-2':'assets/images/ui/cursor/cursor-walk-right-2.png',
-  'ch1-object-desk':'', 'ch1-object-shelf':'',
-  'ch1-object-bed':'', 'ch1-object-tank':''
-});
