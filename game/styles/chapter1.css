@@ -9,6 +9,20 @@ body.rpg-active .game-header{display:none}
 @media(pointer:coarse){.rpg-menu-toggle{opacity:.45}}
 @media(max-width:600px){.rpg-message{font-size:12px;bottom:11%}.rpg-interact{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.rpg-menu-toggle{transition:none}}
+/* 左上角小地图：同一移动区段的全部相连地图 + 人物定位 */
+.rpg-minimap{position:absolute;top:12px;left:12px;z-index:6;display:flex;flex-direction:column;gap:5px;padding:8px 9px;background:#0b1622cc;border:1px solid #eac98355;border-radius:6px;pointer-events:none;font-family:Zpix,monospace}
+.rpg-minimap-title{font-size:10px;color:#d6b982;letter-spacing:1px;text-align:center}
+.rpg-minimap-maps{display:flex;gap:6px}
+.rpg-minimap-cell{display:flex;flex-direction:column;align-items:center;gap:3px}
+.rpg-minimap-thumb{position:relative;width:46px;height:31px;background-size:100% 100%;background-repeat:no-repeat;background-position:center;image-rendering:pixelated;border:1px solid #0006;border-radius:2px;box-shadow:inset 0 0 0 1px #ffffff10}
+.rpg-minimap-thumb.is-main{outline:1px solid #eac98380}
+.rpg-minimap-cell:not(.is-main) .rpg-minimap-thumb{opacity:.5}
+.rpg-minimap-cell.is-current .rpg-minimap-thumb{border-color:#ffd27a;box-shadow:0 0 0 2px #ffd27a88,inset 0 0 0 1px #fff3}
+.rpg-minimap-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:#ff5a5a;box-shadow:0 0 4px #ff5a5a;transform:translate(-50%,-50%);display:none}
+.rpg-minimap-cell.is-current .rpg-minimap-dot{display:block}
+.rpg-minimap-name{font-size:9px;line-height:1;color:#cfe;max-width:48px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rpg-minimap-cell.is-current .rpg-minimap-name{color:#ffd27a}
+@media(max-width:600px){.rpg-minimap{padding:6px 7px;top:8px;left:8px}.rpg-minimap-thumb{width:34px;height:23px}.rpg-minimap-name{font-size:8px}.rpg-minimap-title{font-size:9px}}
 .danmu-panel{text-align:center;background:#08080f}.danmu-arena{position:relative;width:min(800px,100%);margin:0 auto 12px}.danmu-arena canvas{display:block;background:#05050a;width:100%;height:auto;max-height:none;border:0}.danmu-hud{position:absolute;top:3%;left:3%;display:flex;gap:14px;font-size:13px;color:#ffe14d}.danmu-overlay{position:absolute;inset:0;background:#06060ce8;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}.danmu-overlay.show{display:flex}.danmu-overlay p{font-size:14px;line-height:1.9;max-width:520px}.danmu-panel>button{margin:4px 8px}.danmu-overlay h2{font-size:22px}
 @media(max-height:600px){.danmu-arena{width:min(560px,72vh)}.danmu-panel{padding-top:48px}.danmu-panel>h1{font-size:16px;margin:4px}.danmu-overlay p{font-size:11px;margin:4px}.danmu-overlay h2{font-size:16px}.danmu-hud{font-size:10px;gap:7px}}
 .danmu-panel{padding:70px 3vw 12px}.danmu-panel>h1{font-size:20px;margin:0 0 12px}.danmu-arena{width:min(800px,100%,calc((100dvh - 170px)*1.3333))}.danmu-arena canvas{touch-action:none}
