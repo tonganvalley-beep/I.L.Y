@@ -20,6 +20,10 @@ Object.assign(ILY.data.assets.images, {
   "ch3-mall": "assets/images/maps/ch3-mall.png",
   "ch2-follower": "assets/images/maps/airi-follower.svg",
   "airi-rpg-sheet": "assets/images/maps/airi-rpg-sheet.png",
+  "airi-sailor-rpg-sheet": "assets/images/maps/airi-sailor-rpg-sheet.png",
   "npc-coworker": "assets/images/characters/npc-coworker.png",
-  "npc-hibiya": "assets/images/characters/npc-hibiya.png"
+  "npc-hibiya": "assets/images/characters/npc-hibiya.png",
+  "ch3-battery-full": "assets/images/cg/ch3-battery-full.png",
+  "ch3-battery-medium": "assets/images/cg/ch3-battery-medium.png",
+  "ch3-battery-low": "assets/images/cg/ch3-battery-low.png"
 });

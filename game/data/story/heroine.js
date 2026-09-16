@@ -834,6 +834,11 @@ ILY.data.stories.heroine = {
           "演出：ILY双手背在身后，身体微微前倾，像在闻布丁的味道。眉头轻轻皱起。"
         ]
       },
+      "postProduction": {
+        "direction": [
+          "演出：第一遍结束后，整幅画面转为灰度，将本场已显示的画面和文字按相反顺序快速倒放一遍；倒放结束后进入路人视角，继续保持灰度。"
+        ]
+      },
       "next": "her_scene_01_02"
     },
     "her_scene_01_02": {
@@ -847,7 +852,11 @@ ILY.data.stories.heroine = {
       "background": "ch1-store",
       "checkpoint": true,
       "sectionLabel": "01－02",
-      "next": "her_0037"
+      "next": "her_0037",
+      "rewindScene": "her_scene_01_01",
+      "visualEffects": [
+        "grayscale"
+      ]
     },
     "her_0037": {
       "type": "dialogue",
@@ -858,10 +867,6 @@ ILY.data.stories.heroine = {
       "scene": "01-02",
       "sceneTitle": "便利店（路人视角）",
       "background": "ch1-store",
-      "portrait": "portrait-kio",
-      "visualEffects": [
-        "desaturated"
-      ],
       "production": {
         "background": [
           "同一家便利店，同一个机位。"
@@ -876,13 +881,22 @@ ILY.data.stories.heroine = {
           "同上，但多出两道刻意放大的、压着嗓子的女声窃笑。"
         ],
         "effects": [
-          "画面整体去饱和一档；右半边画面微微“空”出来一块。"
+          "画面整体保持灰度；基生仍留在第一遍的左侧位置，右半边爱理原本的位置空出来。"
         ],
         "direction": [
           "演出：基生侧过脸，对着空无一物的右侧笑了笑。"
         ]
       },
-      "next": "her_0038"
+      "next": "her_0038",
+      "visualEffects": [
+        "grayscale"
+      ],
+      "characters": [
+        {
+          "image": "portrait-kio",
+          "position": "left"
+        }
+      ]
     },
     "her_0038": {
       "type": "monologue",
@@ -893,11 +907,16 @@ ILY.data.stories.heroine = {
       "scene": "01-02",
       "sceneTitle": "便利店（路人视角）",
       "background": "ch1-store",
-      "portrait": "portrait-kio",
+      "next": "her_0039",
       "visualEffects": [
-        "desaturated"
+        "grayscale"
       ],
-      "next": "her_0039"
+      "characters": [
+        {
+          "image": "portrait-kio",
+          "position": "left"
+        }
+      ]
     },
     "her_0039": {
       "type": "dialogue",
@@ -908,11 +927,16 @@ ILY.data.stories.heroine = {
       "scene": "01-02",
       "sceneTitle": "便利店（路人视角）",
       "background": "ch1-store",
-      "portrait": "portrait-kio",
+      "next": "her_0040",
       "visualEffects": [
-        "desaturated"
+        "grayscale"
       ],
-      "next": "her_0040"
+      "characters": [
+        {
+          "image": "portrait-kio",
+          "position": "left"
+        }
+      ]
     },
     "her_0040": {
       "type": "dialogue",
@@ -923,16 +947,21 @@ ILY.data.stories.heroine = {
       "scene": "01-02",
       "sceneTitle": "便利店（路人视角）",
       "background": "ch1-store",
-      "portrait": "portrait-kio",
-      "visualEffects": [
-        "desaturated"
-      ],
       "production": {
         "direction": [
           "演出：基生把布丁举到空气里晃了晃。"
         ]
       },
-      "next": "her_0041"
+      "next": "her_0041",
+      "visualEffects": [
+        "grayscale"
+      ],
+      "characters": [
+        {
+          "image": "portrait-kio",
+          "position": "left"
+        }
+      ]
     },
     "her_0041": {
       "type": "dialogue",
@@ -953,9 +982,6 @@ ILY.data.stories.heroine = {
           "position": "right"
         }
       ],
-      "visualEffects": [
-        "desaturated"
-      ],
       "production": {
         "portraits": [
           "蝶（右后／银灰色短发／一脸嫌恶）、优那（右后／跟在蝶身边／表情为难）"
@@ -965,7 +991,10 @@ ILY.data.stories.heroine = {
           "演出：蝶猛地缩回脑袋，扯了扯优那的袖子。"
         ]
       },
-      "next": "her_0042"
+      "next": "her_0042",
+      "visualEffects": [
+        "grayscale"
+      ]
     },
     "her_0042": {
       "type": "dialogue",
@@ -986,10 +1015,10 @@ ILY.data.stories.heroine = {
           "position": "right"
         }
       ],
+      "next": "her_0043",
       "visualEffects": [
-        "desaturated"
-      ],
-      "next": "her_0043"
+        "grayscale"
+      ]
     },
     "her_0043": {
       "type": "dialogue",
@@ -1010,10 +1039,10 @@ ILY.data.stories.heroine = {
           "position": "right"
         }
       ],
+      "next": "her_0044",
       "visualEffects": [
-        "desaturated"
-      ],
-      "next": "her_0044"
+        "grayscale"
+      ]
     },
     "her_0044": {
       "type": "dialogue",
@@ -1034,10 +1063,10 @@ ILY.data.stories.heroine = {
           "position": "right"
         }
       ],
+      "next": "her_0045",
       "visualEffects": [
-        "desaturated"
-      ],
-      "next": "her_0045"
+        "grayscale"
+      ]
     },
     "her_0045": {
       "type": "dialogue",
@@ -1058,9 +1087,6 @@ ILY.data.stories.heroine = {
           "position": "right"
         }
       ],
-      "visualEffects": [
-        "desaturated"
-      ],
       "production": {
         "direction": [
           "演出：优那慌忙伸手去捂蝶的嘴，一边紧张地朝基生的方向瞟。"
@@ -1072,7 +1098,10 @@ ILY.data.stories.heroine = {
         ]
       },
       "exitTransition": "cut",
-      "next": "her_scene_01_03"
+      "next": "her_scene_01_03",
+      "visualEffects": [
+        "grayscale"
+      ]
     },
     "her_scene_01_03": {
       "type": "heroine-card",
@@ -2192,11 +2221,23 @@ ILY.data.stories.heroine = {
       "background": "heroine-phone-screen",
       "checkpoint": true,
       "sectionLabel": "02－02",
-      "next": "her_0083"
+      "next": "her_scene_02_03",
+      "phoneConversation": {
+        "senderKey": "heroine.sms.sender",
+        "timeKey": "heroine.sms.time",
+        "messageKeys": [
+          "heroine.sms.message.1",
+          "heroine.sms.message.2",
+          "heroine.sms.message.3",
+          "heroine.sms.message.4",
+          "heroine.sms.message.5",
+          "heroine.sms.message.6"
+        ]
+      }
     },
     "her_0083": {
       "type": "monologue",
-      "text": "takuma sasano 18：32",
+      "text": "笹野拓马 18：32",
       "speaker": "",
       "chapter": "heroine",
       "chapterTitle": "女主视角 · 捕食",
@@ -3431,7 +3472,17 @@ ILY.data.stories.heroine = {
       "background": "heroine-phone-screen",
       "checkpoint": true,
       "sectionLabel": "03－05",
-      "next": "her_0130"
+      "next": "her_scene_03_06",
+      "phoneConversation": {
+        "variant": "toya",
+        "ariaKey": "heroine.sms.toya.aria",
+        "senderKey": "heroine.sms.toya.sender",
+        "messageKeys": [
+          "heroine.sms.toya.message.1",
+          "heroine.sms.toya.message.2",
+          "heroine.sms.toya.message.3"
+        ]
+      }
     },
     "her_0130": {
       "type": "monologue",
@@ -3456,7 +3507,17 @@ ILY.data.stories.heroine = {
           "屏幕边缘的青色描边比上一次更明显。"
         ]
       },
-      "next": "her_0131"
+      "next": "her_scene_03_06",
+      "phoneConversation": {
+        "variant": "toya",
+        "ariaKey": "heroine.sms.toya.aria",
+        "senderKey": "heroine.sms.toya.sender",
+        "messageKeys": [
+          "heroine.sms.toya.message.1",
+          "heroine.sms.toya.message.2",
+          "heroine.sms.toya.message.3"
+        ]
+      }
     },
     "her_0131": {
       "type": "monologue",
@@ -3470,7 +3531,17 @@ ILY.data.stories.heroine = {
       "visualEffects": [
         "blue"
       ],
-      "next": "her_0132"
+      "next": "her_scene_03_06",
+      "phoneConversation": {
+        "variant": "toya",
+        "ariaKey": "heroine.sms.toya.aria",
+        "senderKey": "heroine.sms.toya.sender",
+        "messageKeys": [
+          "heroine.sms.toya.message.1",
+          "heroine.sms.toya.message.2",
+          "heroine.sms.toya.message.3"
+        ]
+      }
     },
     "her_0132": {
       "type": "monologue",
@@ -3489,7 +3560,17 @@ ILY.data.stories.heroine = {
           "演出：链接的末尾几个字符像虫一样蜷了一下。"
         ]
       },
-      "next": "her_scene_03_06"
+      "next": "her_scene_03_06",
+      "phoneConversation": {
+        "variant": "toya",
+        "ariaKey": "heroine.sms.toya.aria",
+        "senderKey": "heroine.sms.toya.sender",
+        "messageKeys": [
+          "heroine.sms.toya.message.1",
+          "heroine.sms.toya.message.2",
+          "heroine.sms.toya.message.3"
+        ]
+      }
     },
     "her_scene_03_06": {
       "type": "heroine-card",

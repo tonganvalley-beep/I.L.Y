@@ -31,21 +31,25 @@ function createRpgFollower(leader,start=leader,gap=1.05){
   };
   return actor;
 }
-function mountRpg({stage,node,state,assets,go}) {
+function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>false,checkpointRollback=()=>{},restoringRollback=false}) {
   const p=rpgProgress(state,node.task),maps=ILY.data.maps;
   let map=maps[p.map] || maps[node.map],position,frame,last=0,disposed=false,finishedFor=0;
   let target=null,facing='front',stride=0,walking=false,messageFor=5,idle=0;
   let follower=null;
+  // 回滚可能落在触碰事件范围内，离开该范围后才重新允许自动触发；E 调查仍可主动重试。
+  let touchReady=!restoringRollback;
   const keys=new Set(),images=new Map(),roomScenes=new Map(),camera={x:0,y:0,scale:1,width:1,height:1};
   let trashSprite;
   const panel=el('section','rpg-panel'),canvas=el('canvas','rpg-canvas');canvas.tabIndex=0;
-  canvas.setAttribute('aria-label','操控成田基生：WASD 或方向键连续移动，也可按住画面引导移动。靠近物件后按 E 调查，Esc 打开菜单。');
+  canvas.setAttribute('aria-label','操控成田基生：WASD 或方向键连续移动，也可按住画面引导移动。靠近物件后按 E 调查，PageUp 或向上滚轮回滚，Esc 打开菜单。');
   const ctx=canvas.getContext('2d');
   const inspect=el('dialog','rpg-inspect');panel.append(inspect);
-  const message=el('p','rpg-message','WASD / 方向键移动 · 按住画面引导 · E 调查 · Esc 菜单');message.setAttribute('aria-live','polite');
+  const message=el('p','rpg-message','WASD / 方向键移动 · 按住画面引导 · E 调查 · PageUp / 向上滚轮回滚 · Esc 菜单');message.setAttribute('aria-live','polite');
   const prompt=button('',()=>interact());prompt.className='rpg-interact';prompt.hidden=true;
   const menuToggle=button('☰',()=>document.querySelector('#menu-toggle').click());menuToggle.className='rpg-menu-toggle';menuToggle.setAttribute('aria-label','打开菜单');
-  panel.append(canvas,message,prompt,menuToggle);stage.append(panel);document.body.classList.add('rpg-active');
+  const rollbackControl=button(ILY.t('menu.rollback'),()=>{if(!blocked())rollback();});
+  rollbackControl.className='rpg-rollback';rollbackControl.setAttribute('aria-keyshortcuts','PageUp');
+  panel.append(canvas,message,prompt,menuToggle,rollbackControl);stage.append(panel);document.body.classList.add('rpg-active');
   // ---- 左上角小地图：展示同一移动区段内全部相连地图，并标出人物当前所在与定位 ----
   // 从起始地图沿 transfer 边做连通遍历，得到「区段」内所有地图；区段地图数 ≥ 2 才显示。
   function buildMapGroup(startId){
@@ -89,14 +93,16 @@ function mountRpg({stage,node,state,assets,go}) {
   }
   const menu=document.querySelector('#game-menu'),menuInfo=el('section','rpg-menu-info'),objective=el('p');
   const auto=button('自动完成当前探索',()=>{menu.close();completeAutomatically();});
-  menuInfo.append(el('h3','','当前探索'),objective,el('p','','WASD / 方向键移动；按住画面引导；E / 空格 / Enter 调查。'),auto);menu.append(menuInfo);
+  menuInfo.append(el('h3','','当前探索'),objective,el('p','','WASD / 方向键移动；按住画面引导；E / 空格 / Enter 调查；PageUp / 向上滚轮回滚。'),auto);menu.append(menuInfo);
   const blocked=()=>disposed || document.hidden || !!document.querySelector('dialog[open]');
   function say(text){message.textContent=text;messageFor=4;message.hidden=false;}
   function events(){return activeRpgEvents(map,node.task).filter(e=>(e.kind!=='scream' || !state.flags.G5_SCREAM) && !p.collected.includes(e.id));}
   function closest(){return events().filter(e=>Math.hypot(e.x-position.x,e.y-position.y)<=1.05).sort((a,b)=>Math.hypot(a.x-position.x,a.y-position.y)-Math.hypot(b.x-position.x,b.y-position.y))[0];}
   function refresh(){
+    rollbackControl.disabled=!canRollback();
+    rollbackControl.textContent=ILY.t('menu.rollback');rollbackControl.title=ILY.t('menu.rollbackTitle');
     const count=p.collected.length;
-    objective.textContent=map.name+' · '+(p.done?'目标完成':node.task==='G1'?`整理房间 ${count}/3`:node.task==='G3'?`找到手柄 ${count}/2，回电脑前开局`:node.task==='G4'?`采购：${p.choice||'尚未选择'}，到收银台结账`:node.task==='G5'?(p.collected.includes('photo')&&p.collected.includes('isopod')?'去空水槽前寻找“爱理”':'调查拍照点与大王具足虫展区'):node.text);
+    objective.textContent=map.name+' · '+(p.done?'目标完成':node.task==='G1'?`整理房间 ${count}/3`:node.task==='G3'?`找到手柄 ${count}/2，回电脑前开局`:node.task==='G4'?`和“爱理”一起挑选食物 ${count}/${node.required?.length||3}`:node.task==='G5'?(p.collected.includes('photo')&&p.collected.includes('isopod')?'去空水槽前寻找“爱理”':'调查拍照点与大王具足虫展区'):node.text);
     const e=closest();prompt.hidden=p.done || !e;if(e)prompt.textContent='E · '+e.label;auto.hidden=p.done;
   }
   function useMap(next,arrival){
@@ -117,20 +123,20 @@ function mountRpg({stage,node,state,assets,go}) {
     refresh();
   }
   function completeAutomatically(){
-    if(blocked()||p.done)return;finishRpgAutomatically(state,node.task,node);target=null;
-    say(node.task==='G5'?'远处传来惨叫。手机也没了信号。基生一路寻找，终于在空水槽前看到了“爱理”。':node.task==='G4'?`买好了${p.choice}。“爱理”抱紧了购物袋。`:'基生完成了眼前的事情。');refresh();
+    if(blocked()||p.done)return;checkpointRollback();finishRpgAutomatically(state,node.task,node);target=null;
+    say(node.task==='G5'?'远处传来惨叫。手机也没了信号。基生一路寻找，终于在空水槽前看到了“爱理”。':node.task==='G4'?'两人看好了想吃的东西，继续在货架前商量。':'基生完成了眼前的事情。');refresh();
   }
   function act(e){
     if(blocked()||p.done)return;target=null;idle=0;
-    if(e.kind==='transfer'){useMap(maps[e.to],e.arrival||maps[e.to].spawn);canvas.focus();return;}
+    if(e.kind==='transfer'){checkpointRollback();useMap(maps[e.to],e.arrival||maps[e.to].spawn);canvas.focus();return;}
     if(e.options){
       inspect.replaceChildren(el('h2','',e.label));
       for(const value of e.options)inspect.append(button(value,()=>{
-        inspect.close();say(interactRpg(state,node.task,{...e,options:null,value,text:`${e.text} 基生接过了${value}冰淇淋。`},node));refresh();canvas.focus();
+        if(disposed)return;checkpointRollback();inspect.close();say(interactRpg(state,node.task,{...e,options:null,value,text:`${e.text} 基生接过了${value}冰淇淋。`},node));refresh();canvas.focus();
       }));
       inspect.showModal();return;
     }
-    say(interactRpg(state,node.task,e,node));
+    checkpointRollback();say(interactRpg(state,node.task,e,node));
     if(e.preview){
       const photo=el('img');photo.src=assets.image(e.preview);photo.alt=e.label;
       inspect.replaceChildren(photo,el('p','',e.text),button('收起照片',()=>{inspect.close();canvas.focus();}));inspect.showModal();
@@ -246,7 +252,7 @@ function mountRpg({stage,node,state,assets,go}) {
       ctx.fillStyle='#0004';ctx.beginPath();ctx.ellipse(sx,sy+20,10,4,0,0,Math.PI*2);ctx.fill();
       const side=follower.facing==='left'||follower.facing==='right';
       const cell=follower.walking&&side?(follower.facing==='left'?4:6)+Math.floor(follower.stride/.45)%2:{front:0,back:1,left:2,right:3}[follower.facing];
-      drawAsset('airi-rpg-sheet',sx-S/2,(sy+26)-S,S,S,cell);
+      drawAsset(node.followerSprite||'airi-rpg-sheet',sx-S/2,(sy+26)-S,S,S,cell);
     }
     if(follower&&follower.y<=position.y)drawFollower();
     // Keep Kio's original artwork and animation; the close camera supplies the enlargement.
@@ -284,7 +290,9 @@ function mountRpg({stage,node,state,assets,go}) {
       walking=Math.hypot(position.x-before.x,position.y-before.y)>.0001;
       follower?.update(position);
       if(walking){stride+=dt;facing=Math.abs(dx)>Math.abs(dy)*.4?(dx<0?'left':'right'):(dy<0?'back':'front');}else stride=0;
-      const touch=events().find(e=>e.touch&&Math.hypot(e.x-position.x,e.y-position.y)<.5);if(touch)act(touch);
+      const touch=events().find(e=>e.touch&&Math.hypot(e.x-position.x,e.y-position.y)<.5);
+      if(!touch)touchReady=true;
+      if(touch&&touchReady)act(touch);
       if(idle>(node.timeout||{G1:60,G2:10,G3:60,G4:90,G5:240}[node.task]||90))completeAutomatically();
     }else{keys.clear();target=null;walking=false;if(follower)follower.walking=false;if(p.done&&!blocked()){finishedFor+=dt;if(finishedFor>=2.5){go(node.next);return;}}}
     if(!blocked()){messageFor-=dt;message.hidden=messageFor<=0;}

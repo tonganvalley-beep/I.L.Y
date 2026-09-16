@@ -1230,9 +1230,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_102"
     },
     "ch3_102": {
-      "type": "dialogue",
-      "text": "拿着手机回头看他的笑、闭着眼睛的灿烂笑容，以及陪在他身边时温柔的微笑。他终于意识到，那些自己从未怀疑过的表情背后，可能一直隐藏着痛苦。",
-      "speaker": "基生沉默地回想着爱理曾经展露的各种笑容",
+      "type": "monologue",
+      "text": "基生沉默地回想着爱理曾经展露的各种笑容：拿着手机回头看他的笑、闭着眼睛的灿烂笑容，以及陪在他身边时温柔的微笑。他终于意识到，那些自己从未怀疑过的表情背后，可能一直隐藏着痛苦。",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1893,13 +1893,27 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_158"
     },
     "ch3_158": {
-      "type": "monologue",
+      "type": "battery-montage",
       "text": "2020 年 8 月 3 日 22:53（电量 3 格／满）→ 8 月 14 日 20:38（电量 2 格）→ 8 月 31 日 16:24（电量 1 格／红色）",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
       "background": "bg-apartment-night",
+      "frames": [
+        {
+          "image": "ch3-battery-full",
+          "label": "2020 年 8 月 3 日 22:53，电量三格"
+        },
+        {
+          "image": "ch3-battery-medium",
+          "label": "2020 年 8 月 14 日 20:38，电量两格"
+        },
+        {
+          "image": "ch3-battery-low",
+          "label": "2020 年 8 月 31 日 16:24，电量一格，红色"
+        }
+      ],
       "next": "ch3_159"
     },
     "ch3_159": {
@@ -2020,6 +2034,7 @@ ILY.data.stories.chapter3 = {
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
       "background": "bg-apartment-night",
+      "phoneNotice": "battery-low",
       "next": "ch3_171"
     },
     "ch3_171": {

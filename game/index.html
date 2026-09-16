@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="styles/chapters.css">
 </head>
 <body data-page-node-id="SwCaPY9TmlKoERAvQKeMRs">
-  <header class="game-header" data-page-node-id="FbyVXPwoOde4o0iQOKKvH4"><span id="chapter" data-page-node-id="ztM65z8AsWkEendIXzGaA6">序章 · 蓝色来电</span><div class="game-header-actions"><button id="skip" type="button" data-i18n="menu.fastForward" aria-pressed="false" aria-keyshortcuts="S" disabled title="快速连续播放对白，遇到选项或玩法自动停止（S）">快进</button><button id="skip-segment" type="button" data-i18n="menu.skipSegment" aria-pressed="false" disabled title="立即跳过当前连续对白，停在下一个选项或玩法">整段跳过</button><button id="rollback" type="button" data-i18n="menu.rollback" disabled title="回到上一段（PageUp / 鼠标滚轮向上）">↶ 回滚</button><button id="menu-toggle" aria-controls="game-menu" aria-expanded="false" data-i18n="menu.toggle" data-page-node-id="DEpwUyHJuSxaJAauhQmZAh">菜单 ☰</button></div></header>
+  <header class="game-header" data-page-node-id="FbyVXPwoOde4o0iQOKKvH4"><span id="chapter" data-page-node-id="ztM65z8AsWkEendIXzGaA6">序章 · 蓝色来电</span><div class="game-header-actions"><button id="skip" type="button" data-i18n="menu.fastForward" aria-pressed="false" aria-keyshortcuts="S" disabled title="快速连续播放对白，遇到选项或玩法自动停止（S）">快进</button><button id="skip-segment" type="button" data-i18n="menu.skipSegment" aria-pressed="false" disabled title="立即跳过当前连续对白，停在下一个选项或玩法">整段跳过</button><button id="rollback" type="button" data-i18n="menu.rollback" disabled title="回到上一段（PageUp / 鼠标滚轮向上）">↶ 回滚</button><button id="script-editor-toggle" type="button" title="查看并编辑当前剧本文本">剧本编辑</button><button id="menu-toggle" aria-controls="game-menu" aria-expanded="false" data-i18n="menu.toggle" data-page-node-id="DEpwUyHJuSxaJAauhQmZAh">菜单 ☰</button></div></header>
   <main data-page-node-id="tvBn9bWSDFiDTtKlyLoxXb">
     <section id="stage" aria-label="游戏场景" data-page-node-id="ogB9YE97ZVRGsDjZfkEGwH"></section>
   </main>
@@ -40,6 +40,7 @@
     <p id="save-status" class="hint" role="status" aria-live="polite" data-page-node-id="OaZ6h4y1dj8KygMTt8oWr0"></p>
   </dialog>
   <p id="status" role="status" data-page-node-id="gLeaTS6NCJtTigYbe6aEz8"></p>
+  <dialog id="script-editor" class="script-editor"><div class="menu-heading"><div><h2>剧本校对</h2><p id="script-editor-meta" class="hint"></p></div><button id="script-editor-close">×</button></div><p class="hint">当前句会高亮显示。文本只读；下拉框用于修正“台词 / 旁白 / 内心 / 演出”等归类。</p><div id="script-editor-list" class="script-editor-list"></div><div class="toolbar"><button id="script-editor-save">保存归类</button><button id="script-editor-export">导出归类记录</button><button id="script-editor-clear">清除本地归类</button></div><p id="script-editor-status" class="hint"></p></dialog>
   <!-- 普通脚本按顺序加载：命名空间 → 数据 → 工具 → 玩法 → 入口。 -->
   <script>
     /* ---------- 全屏状态跨页面保持 ----------
@@ -118,6 +119,8 @@
   <!-- 回忆（成就 / 剧情 / 画廊）：画廊插图清单来自 sign&log/gallery-data.js -->
   <script src="../sign&log/gallery-data.js"></script>
   <script src="src/memories.js"></script>
+  <script src="src/script-review-model.js"></script>
+  <script src="src/script-editor.js"></script>
   <script src="src/main.js"></script>
 </body>
 </html>

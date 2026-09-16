@@ -235,6 +235,52 @@ nodes[sequence[0]].setFlags = { HEROINE_POV_STARTED: true };
 nodes[sequence.at(-1)].setFlags = { HEROINE_POV_COMPLETE: true };
 nodes[sequence.at(-1)].next = 'fin_s01';
 
+// Replay the first store scene backwards before revealing the same shot without ILY.
+// Keep the existing card/line IDs so saved games and script-review edits still resolve.
+nodes.her_scene_01_02.rewindScene = 'her_scene_01_01';
+for (const node of Object.values(nodes)) {
+  if (node.scene !== '01-02') continue;
+  node.visualEffects = ['grayscale'];
+  if (node.portrait === 'portrait-kio') {
+    node.characters = [{ image: 'portrait-kio', position: 'left' }];
+    delete node.portrait;
+  }
+}
+
+// "Smartphone screen" is staging, not an intertitle. Present the complete
+// message as one layered UI while retaining the generated line nodes for old
+// saves and the script-review tool.
+nodes.her_scene_02_02.phoneConversation = {
+  senderKey: 'heroine.sms.sender',
+  timeKey: 'heroine.sms.time',
+  messageKeys: [
+    'heroine.sms.message.1',
+    'heroine.sms.message.2',
+    'heroine.sms.message.3',
+    'heroine.sms.message.4',
+    'heroine.sms.message.5',
+    'heroine.sms.message.6'
+  ]
+};
+nodes.her_scene_02_02.next = 'her_scene_02_03';
+
+// Toya's handset uses the same separated text layers with its own appearance.
+// Attach the presentation to old line IDs too, so in-scene saves open the phone.
+const toyaConversation = {
+  variant: 'toya',
+  ariaKey: 'heroine.sms.toya.aria',
+  senderKey: 'heroine.sms.toya.sender',
+  messageKeys: [
+    'heroine.sms.toya.message.1',
+    'heroine.sms.toya.message.2',
+    'heroine.sms.toya.message.3'
+  ]
+};
+for (const id of ['her_scene_03_05', 'her_0130', 'her_0131', 'her_0132']) {
+  nodes[id].phoneConversation = toyaConversation;
+  nodes[id].next = 'her_scene_03_06';
+}
+
 const story = {
   id: 'heroine', title: '女主视角 · 青', start: sequence[0],
   source: '《女主视角_Galgame演出脚本.docx》', nodes

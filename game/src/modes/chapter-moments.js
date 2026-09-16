@@ -45,4 +45,70 @@ function mountChapterMoment({stage,node,state,assets,go}) {
   return()=>cancelAnimationFrame(frame);
 }
 ILY.mountChapterMoment=mountChapterMoment;
+
+// A single image slot prevents overlapping battery states, including on slow loads.
+function mountBatteryMontage({stage, node, assets, go}) {
+  const panel = el('section', 'battery-montage');
+  panel.setAttribute('aria-label', '八月，手机电量逐渐耗尽');
+  const image = el('img', 'battery-montage-image');
+  image.draggable = false;
+  image.hidden = true;
+  panel.append(image);
+  stage.append(panel);
+  const frames = node.frames || [];
+  const phases = [-1];
+  frames.forEach((entry, index) => phases.push(index, -1));
+  let phase = 0, disposed = false;
+  const preload = frames.map((entry, index) => {
+    const img = new Image();
+    const ready = () => {
+      if (!disposed && phases[phase] === index) show();
+    };
+    img.onload = ready;
+    img.onerror = ready; // A missing asset must never trap story progression.
+    img.src = assets.image(entry.image);
+    return img;
+  });
+  const blocked = () => document.hidden || !!document.querySelector('dialog[open]');
+  function show() {
+    const index = phases[phase];
+    image.hidden = true;
+    if (index < 0) return;
+    image.alt = frames[index].label;
+    image.src = preload[index].src;
+    image.hidden = !preload[index].naturalWidth;
+  }
+  function advance() {
+    if (disposed || blocked()) return;
+    phase++;
+    if (phase >= phases.length) {
+      disposed = true;
+      go(node.next);
+      return;
+    }
+    show();
+  }
+  const click = event => {
+    event.preventDefault();
+    advance();
+  };
+  const key = event => {
+    if (event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target.closest('button, a, input, textarea, select')) return;
+    if (event.code === 'Space' || event.code === 'Enter') {
+      event.preventDefault();
+      advance();
+    }
+  };
+  stage.tabIndex = -1;
+  stage.focus({preventScroll: true});
+  panel.addEventListener('click', click);
+  window.addEventListener('keydown', key);
+  return () => {
+    disposed = true;
+    panel.removeEventListener('click', click);
+    window.removeEventListener('keydown', key);
+    preload.forEach(img => { img.onload = img.onerror = null; });
+  };
+}
+ILY.mountBatteryMontage = mountBatteryMontage;
 })();

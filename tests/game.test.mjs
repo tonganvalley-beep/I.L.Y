@@ -187,6 +187,63 @@ test('回滚历史保存完整状态快照并丢弃未来进度', () => {
   assert.equal(history.back(), null);
 });
 
+test('RPG 操作检查点恢复操作前位置和进度，回滚后可重新选择', () => {
+  const history = createRollbackHistory();
+  let state = createState('before-rpg');
+  history.record(state);
+  state.node = 'rpg'; history.record(state);
+  state.maps.room = { x: 1.5, y: 2 };
+  state.flags.rpg = { G1: { collected: [], visited: ['room'], elapsed: 3, done: false } };
+  history.checkpoint(state);
+  state.flags.rpg.G1.collected.push('desk');
+  state.maps.room.x = 4;
+  history.checkpoint(state);
+  state.flags.rpg.G1.done = true;
+  state.flags.G1_DONE = true;
+  state.flags.achievements.push('explorer');
+
+  state = history.back(state);
+  assert.equal(state.node, 'rpg');
+  assert.equal(state.maps.room.x, 4);
+  assert.deepEqual(Array.from(state.flags.rpg.G1.collected), ['desk']);
+  assert.equal(state.flags.rpg.G1.done, false);
+  assert.equal(state.flags.G1_DONE, undefined);
+  assert.deepEqual(Array.from(state.flags.achievements), ['explorer']);
+  state = history.back(state);
+  assert.equal(state.maps.room.x, 1.5);
+  assert.deepEqual(Array.from(state.flags.rpg.G1.collected), []);
+  history.checkpoint(state);
+  state.flags.rpg.G1.collected.push('shelf');
+  state = history.back(state);
+  assert.deepEqual(Array.from(state.flags.rpg.G1.collected), []);
+  assert.equal(history.back(state).node, 'before-rpg');
+  assert.equal(history.back(state), null);
+});
+
+test('离开 RPG 后回滚会撤销完成状态，检查点仍遵守历史容量和重置边界', () => {
+  const history = createRollbackHistory(3);
+  const state = createState('rpg');
+  history.record(state);
+  for (let step = 0; step < 5; step++) {
+    state.flags.step = step;
+    history.checkpoint(state);
+  }
+  state.flags.done = true;
+  state.node = 'after-rpg'; history.record(state);
+  assert.equal(history.length, 3);
+  const restored = history.back(state);
+  assert.equal(restored.node, 'rpg');
+  assert.equal(restored.flags.done, undefined);
+  assert.equal(restored.flags.step, 4);
+  assert.equal(history.back(restored).flags.step, 3, '跨节点返回后，下一次回滚不能停在重复检查点');
+  history.reset();
+  assert.equal(history.canRollback, false);
+  history.checkpoint(restored);
+  restored.flags.step = 99;
+  assert.equal(history.back(restored).flags.step, 4);
+  assert.equal(history.canRollback, false);
+});
+
 test('回滚保留已解锁成就，但仍恢复其他剧情状态', () => {
   const history = createRollbackHistory();
   const state = createState('s01_intro');

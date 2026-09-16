@@ -17,6 +17,8 @@ def add(node, id=None):
 started = False
 for line in lines:
     line = line.strip()
+    source_line = line
+    line = re.sub(r'^(?:【[^】]+】)?\[(?:旁白|台词|内心|演出|画面|字幕)\]', '', line)
     if line.startswith('附录 A'): break
     if line.startswith('S01 ｜'): started = True
     if not started or not line: continue
@@ -35,7 +37,9 @@ for line in lines:
     if line.startswith('十屋：哇啊啊'): continue # The scream now occurs during the playable search.
     if line.startswith('【Gameplay'):
         g = re.search(r'G[1-5]',line)[0]
-        add(dict(type='rpg', map={'G1':'ch1-room','G2':'ch1-room','G3':'ch1-room','G4':'ch1-store','G5':'ch1-entry'}[g], task=g, text={'G1':'整理三处杂物','G2':'赶到浴室门前','G3':'找到两只手柄，在电脑前开局','G4':'挑选食品，到收银台结账','G5':'寻找“爱理”'}[g], checkpoint=True), 'ch1_'+g.lower()); continue
+        gameplay = dict(type='rpg', map={'G1':'ch1-room','G2':'ch1-room','G3':'ch1-room','G4':'ch1-store','G5':'ch1-entry'}[g], task=g, text={'G1':'整理三处杂物','G2':'赶到浴室门前','G3':'找到两只手柄，在电脑前开局','G4':'和“爱理”一起在货架与冰柜前挑选食物','G5':'寻找“爱理”'}[g], checkpoint=True)
+        if g == 'G4': gameplay.update(follower=True, followerSprite='airi-sailor-rpg-sheet', required=['noodles','snack','ice'])
+        add(gameplay, 'ch1_'+g.lower()); continue
     if line.startswith('◆ Gameplay'):
         add(dict(type='battle', level='ch1-tutorial', text='双人游戏 · 红心弹幕生存练习',checkpoint=True),'ch1_battle'); continue
     if line.startswith('◆'):
@@ -60,9 +64,10 @@ for line in lines:
     if '空水槽前，找到了' in line: bg='ch1-empty-tank'
     if '“咔嗒”——门在两人身后合上' in line: bg='ch1-street'
     if '关了灯一边看电影' in line: bg='bg-apartment-night'
-    parsed = parse_line(line)
+    line_for_parse = source_line
+    parsed = parse_line(line_for_parse)
     speaker = parsed['speaker'] if parsed else '旁白'
-    original_line = line
+    original_line = line_for_parse
     if parsed: line = parsed['text']
     # Expand compressed conversation pairs into individual dialogue nodes.
     parts=line.split('｜') if '｜' in line and not original_line.startswith(('〔', '[')) else [line]

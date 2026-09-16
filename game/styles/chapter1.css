@@ -5,6 +5,8 @@ body.rpg-active .game-header{display:none}
 .rpg-interact{position:absolute;bottom:3%;left:50%;transform:translateX(-50%);background:#10232dd9;border:1px solid #eac98370;padding:8px 18px;color:#fff0cd;font-size:14px}
 .rpg-menu-toggle{position:absolute;top:14px;right:18px;opacity:0;transition:opacity .2s;background:#101e2bd0;padding:7px 12px;border:1px solid #ffffff30}
 .rpg-menu-toggle:hover,.rpg-menu-toggle:focus-visible{opacity:1}
+.rpg-rollback{position:absolute;right:18px;bottom:18px;z-index:7;min-height:44px;padding:8px 14px;background:#101e2be6;border:1px solid #eac98370;color:#fff0cd;font-size:14px}
+.rpg-rollback:disabled{opacity:.45}
 .rpg-menu-info p{font-size:13px;line-height:1.8;color:#c3d0d4}
 @media(pointer:coarse){.rpg-menu-toggle{opacity:.45}}
 @media(max-width:600px){.rpg-message{font-size:12px;bottom:11%}.rpg-interact{font-size:13px}}

@@ -56,18 +56,33 @@ function preserveAchievements(restored, current) {
 function createRollbackHistory(limit = 120) {
   const capacity = Number.isInteger(limit) && limit > 1 ? limit : 120;
   let entries = [];
+  let pendingCheckpoint = false;
   return {
     record(value) {
+      // 新剧情节点直接接替 RPG 当前操作槽，避免退回 RPG 后多出一次无变化的回滚。
+      if (pendingCheckpoint) entries.pop();
+      pendingCheckpoint = false;
       entries.push(cloneState(value));
+      if (entries.length > capacity) entries.splice(0, entries.length - capacity);
+    },
+    // RPG 在同一节点内改变状态：更新当前快照到操作前的位置，再预留当前操作槽。
+    // back() 弹出该槽即可撤销操作；离开 RPG 后也会回到完成任务之前。
+    checkpoint(value) {
+      const snapshot = cloneState(value);
+      if (entries.length) entries[entries.length - 1] = snapshot;
+      else entries.push(snapshot);
+      entries.push(cloneState(value));
+      pendingCheckpoint = true;
       if (entries.length > capacity) entries.splice(0, entries.length - capacity);
     },
     back(current) {
       if (entries.length < 2) return null;
       entries.pop();
+      pendingCheckpoint = false;
       const restored = cloneState(entries[entries.length - 1]);
       return current ? preserveAchievements(restored, current) : restored;
     },
-    reset() { entries = []; },
+    reset() { entries = []; pendingCheckpoint = false; },
     get canRollback() { return entries.length > 1; },
     get length() { return entries.length; }
   };

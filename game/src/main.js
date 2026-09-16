@@ -24,6 +24,9 @@ const notify = (message, duration = 0) => {
 
 try {
   const story = ILY.prepareChapter1();
+  ILY.initScriptEditor(story, (id, fallback) => {
+    go(story.nodes[id] ? id : fallback, { autosave: false, recordRollback: false, refresh: true });
+  });
   let chapterMaps = ILY.data.chapter1Maps;
   if (location.protocol !== 'file:') {
     const response = await fetch('data/maps/chapter1.json');
@@ -334,17 +337,24 @@ try {
     catch { notify(t('notify.nodeMissing', { id: next })); return; }
     const node = story.nodes[next];
     if (!node) { notify(t('notify.nodeMissing', { id: next })); return; }
+    ILY.updateScriptEditor(Object.assign(node, { id: next }));
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
     if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
     if (skipMode && !isDialogueSkippable(node)) setSkipMode('');
+    const refreshing = options.refresh && next === state.node;
     cleanup(); cleanup = () => {}; state.node = next;
-    ILY.activateMemory(state, next, node);
+    if (!refreshing) ILY.activateMemory(state, next, node);
     if (options.recordRollback !== false) rollbackHistory.record(state);
-    ILY.enterChapterNode(state,node);
+    if (!refreshing) ILY.enterChapterNode(state,node);
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
-    stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type; notify(''); refreshClues();
+    stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type;
+    stage.dataset.palette = node.visualEffects?.includes('grayscale') ? 'grayscale' : '';
+    notify(''); refreshClues();
     ILY.refreshFreePhone();
-    const context = {stage, node, state, assets, go, notify, refreshClues, isSkipping: () => Boolean(skipMode), setSkipping, getSkipDelay: () => skipMode === 'segment' ? 0 : 140};
+    const context = {stage, node, story, state, assets, go, notify, refreshClues, rollback, restoringRollback: options.restoringRollback === true,
+      canRollback: () => rollbackHistory.canRollback,
+      checkpointRollback: () => { rollbackHistory.checkpoint(state); rollbackBtn.disabled = !rollbackHistory.canRollback; },
+      isSkipping: () => Boolean(skipMode), setSkipping, getSkipDelay: () => skipMode === 'segment' ? 0 : 140};
     if (['phone', 'finale', 'branch', 'end'].includes(node.type)) ILY.mountScene(stage, node, assets);
     if (node.type === 'dialogue' || node.type === 'choice') cleanup = mountDialogue(context);
     else if (node.type === 'monologue' || node.type === 'heroine-card') cleanup = ILY.mountHeroineMoment(context);
@@ -353,6 +363,7 @@ try {
     else if (node.type === 'corridor') cleanup = mountCorridor(context);
     else if (node.type === 'rpg') cleanup = ILY.mountRpg(context);
     else if (node.type === 'boss') cleanup = ILY.mountBoss(context);
+    else if (node.type === 'battery-montage') cleanup = ILY.mountBatteryMontage(context);
     else if (['fracture','search','letter'].includes(node.type)) cleanup = ILY.mountChapterMoment(context);
     else if (node.type === 'exploration') cleanup = mountExploration({...context, map:maps[node.map]});
     else if (node.type === 'battle') cleanup = mountBattle({...context, level:levels[node.level]});
@@ -381,8 +392,9 @@ try {
     setSkipMode('');
     const previous = rollbackHistory.back(state);
     if (!previous) return;
+    const refresh = previous.node === state.node && story.nodes[previous.node]?.type === 'rpg';
     state = previous;
-    go(state.node, { autosave: false, recordRollback: false });
+    go(state.node, { autosave: false, recordRollback: false, refresh, restoringRollback: true });
     notify(t('notify.rolledBack'), 1200);
   }
 
@@ -401,7 +413,8 @@ try {
     }
   });
   stage.addEventListener('wheel', event => {
-    if (event.deltaY >= 0 || !['dialogue', 'choice'].includes(stage.dataset.mode)) return;
+    if (event.deltaY >= 0 || event.ctrlKey || event.altKey || event.metaKey ||
+        document.querySelector('dialog[open]') || !['dialogue', 'choice', 'rpg'].includes(stage.dataset.mode)) return;
     const now = performance.now();
     if (now - lastWheelRollback < 350) return;
     lastWheelRollback = now;

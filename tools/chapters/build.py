@@ -87,6 +87,8 @@ class Chapter:
             speaker = parsed['speaker'] if parsed else '旁白'
             text = parsed['text'] if parsed else line
             kw = {'type': parsed['type']} if parsed else {}
+            if self.key == 'chapter3' and self.scene == 'S02' and text.startswith('电量即将耗尽。'):
+                kw['phoneNotice'] = 'battery-low'
             if not self.cg and ('爱理' in speaker or speaker == 'ILY') and '声音' not in speaker and '回忆' not in speaker:
                 kw['portrait'] = 'airi-crying' if self.key == 'final' else 'airi-blush' if self.scene == 'S05' else 'portrait-airi'
             if self.key == 'final' and self.scene == 'S02' and line in ('说喜欢我','能说你喜欢我吗'):
@@ -104,6 +106,7 @@ class Chapter:
         return 'bg-apartment-dusk' if scene in ('S06','S07') else 'bg-coast-blue'
 
     def special(self, line):
+        line = re.sub(r'^(?:【[^】]+】)?\[(?:旁白|台词|内心|演出|画面|字幕)\]', '', line)
         if '疑点 P' in line and line.startswith(('【','〔')):
             m = re.search(r'P\d+',line)
             if m and self.seq:
@@ -126,8 +129,10 @@ class Chapter:
             if line.startswith('【Gameplay'):
                 if 'G1 续' in line: self.cg = None; self.rpg('G1','ch2-island','沿着海岸走到紫阳花小路入口。',follower=True)
                 elif 'G1' in line:
-                    self.choice('ch2_hand','他向她伸出手。','CH2_HAND', [('牵住她的手',True,'ch2_hand_after'),('稍稍迟疑',False,'ch2_hand_hesitate')],cg='ch2-hand')
-                    self.add('……基生？她轻轻握住了那只停在半空的手。','“爱理”',id='ch2_hand_hesitate',cg='ch2-hand')
+                    self.add('……基生？她轻轻握住了他的手。','“爱理”',id='ch2_hand',cg='ch2-hand')
+                    # Keep the former branch target loadable for existing saves, but out of the live route.
+                    self.add('……基生？她轻轻握住了他的手。','“爱理”',id='ch2_hand_hesitate',cg='ch2-hand',next='ch2_hand_after')
+                    self.seq.pop()
                     self.add('手心的温度，随着海风传了过来。',id='ch2_hand_after',cg='ch2-couple')
                 elif 'G2' in line:
                     self.cg = None; self.rpg('G2','ch2-flowers','调查三处花丛，找回六月的照片。',required=['memory1','memory2','memory3'],follower=True)
@@ -150,6 +155,14 @@ class Chapter:
             if '——毫无疑问，她，就是，爱理' in line: self.cg = 'ch2-adult'
             if self.scene == 'S04' and not self.cg: self.bg = 'ch2-path-summer'
         if self.key == 'chapter3':
+            if self.scene == 'S02' and line.startswith('2020 年 8 月 3 日 22:53'):
+                # Keep this single node's ID stable for existing saves/editor records.
+                self.add(line, '', type='battery-montage',
+                         frames=[dict(image='ch3-battery-'+level, label=label) for level,label in [
+                             ('full', '2020 年 8 月 3 日 22:53，电量三格'),
+                             ('medium', '2020 年 8 月 14 日 20:38，电量两格'),
+                             ('low', '2020 年 8 月 31 日 16:24，电量一格，红色')]])
+                return True
             if line.startswith('◆ 关键转折节点'):
                 self.choice('ch3_choice4','两部手机同时作响。','n4',[
                     ('去找“爱理”。','A','ch3_s07a'),('接通日日谷的电话。','B','ch3_s07b')]); return True
@@ -211,7 +224,8 @@ for key,file in [('chapter2','第二章游戏剧情脚本.txt'),('chapter3','第
     c=Chapter(key,file);c.build();print(key,len(c.nodes))
 assets={'ch2-'+k:'assets/images/'+('backgrounds' if v[2] == 'background' else 'cg')+'/ch2-'+k+'.jpg' for k,v in ART.items()}
 assets.update({'ch2-path-summer':'assets/images/maps/ch2-flowers.png','ch3-work':'assets/images/maps/ch3-work.png','ch3-mall':'assets/images/maps/ch3-mall.png','ch2-follower':'assets/images/maps/airi-follower.svg','airi-rpg-sheet':'assets/images/maps/airi-rpg-sheet.png'})
-assets.update({'npc-coworker':'assets/images/characters/npc-coworker.png','npc-hibiya':'assets/images/characters/npc-hibiya.png'})
+assets.update({'airi-sailor-rpg-sheet':'assets/images/maps/airi-sailor-rpg-sheet.png','npc-coworker':'assets/images/characters/npc-coworker.png','npc-hibiya':'assets/images/characters/npc-hibiya.png'})
+assets.update({'ch3-battery-'+level:'assets/images/cg/ch3-battery-'+level+'.png' for level in ('full','medium','low')})
 write(ROOT/'game/data/chapter-assets.js',assets,'Object.assign(ILY.data.assets.images, ')
 # Object.assign needs a closing parenthesis.
 p=ROOT/'game/data/chapter-assets.js';p.write_text(p.read_text(encoding='utf-8').replace('};\n','});\n'),encoding='utf-8')

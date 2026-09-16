@@ -61,11 +61,15 @@ function interactRpg(state,task,event,node={}) {
     if(task==='G3') state.flags.HANDLE_NUM=p.collected.length;
     if(task==='G5') state.flags.G5_CLUE=[...p.collected];
   }
-  if(event.kind==='shop') {state.flags.G4_CHOICE=event.text;p.choice=event.text;}
+  if(task==='G4' && event.kind==='shop') {
+    if(!p.collected.includes(key)) p.collected.push(key);
+    state.flags.G4_CHOICE=event.item||event.text;p.choice=state.flags.G4_CHOICE;
+    if((node.required||['noodles','snack','ice']).every(id=>p.collected.includes(id)))p.done=true;
+  }
   if(event.kind==='scream') {state.flags.G5_SCREAM=true;}
   if(event.kind==='finish') {
     if(task==='G3' && p.collected.length<2) return '手柄还没找齐。再看看抽屉和床底。';
-    if(task==='G4' && !p.choice) return '先在货架或冰柜挑选想吃的东西吧。';
+    if(task==='G4') return '和“爱理”一起在货架与冰柜前挑选食物吧。';
     p.done=true;
   }
   if(event.kind==='reunion') {
@@ -74,7 +78,8 @@ function interactRpg(state,task,event,node={}) {
   }
   if(p.done) state.flags[task+'_DONE']=true;
   if(task==='G2' && p.done) state.flags.G2_TRIGGER=true;
-  return event.text || (task==='G4' ? `买好了${p.choice}。“爱理”抱紧了购物袋。` : '可以继续了。');
+  if(task==='G4' && p.done) return '两人看好了想吃的东西，继续在货架前商量。';
+  return event.text || '可以继续了。';
 }
 function finishRpgAutomatically(state,task,node={}) {
   const p=rpgProgress(state,task);
@@ -84,7 +89,10 @@ function finishRpgAutomatically(state,task,node={}) {
   }
   if(task==='G1') p.collected=['floor','desk','shelf'];
   if(task==='G3') p.collected=['handle1','handle2'];
-  if(task==='G4') {p.choice ||= '海鲜杯面';state.flags.G4_CHOICE=p.choice;}
+  if(task==='G4') {
+    p.collected=[...new Set([...p.collected,...(node.required||['noodles','snack','ice'])])];
+    p.choice ||= '海鲜杯面';state.flags.G4_CHOICE=p.choice;
+  }
   if(task==='G5') {p.collected=[...new Set([...p.collected,'photo','isopod','phone'])];state.flags.G5_SCREAM=true;state.flags.G5_CLUE=[...p.collected];}
   if(task==='G1') state.flags.CLEAN_NUM=3;
   if(task==='G2') state.flags.G2_TRIGGER=true;

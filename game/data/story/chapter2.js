@@ -1063,38 +1063,8 @@ ILY.data.stories.chapter2 = {
       "next": "ch2_hand"
     },
     "ch2_hand": {
-      "type": "choice",
-      "text": "他向她伸出手。",
-      "speaker": "选择",
-      "chapter": "chapter2",
-      "chapterTitle": "第二章 · 约定与夕阳",
-      "scene": "S03",
-      "background": "ch2-beach",
-      "checkpoint": true,
-      "choices": [
-        {
-          "text": "牵住她的手",
-          "flag": {
-            "key": "CH2_HAND",
-            "value": true
-          },
-          "next": "ch2_hand_after"
-        },
-        {
-          "text": "稍稍迟疑",
-          "flag": {
-            "key": "CH2_HAND",
-            "value": false
-          },
-          "next": "ch2_hand_hesitate"
-        }
-      ],
-      "cg": "ch2-hand",
-      "backgroundFit": "contain"
-    },
-    "ch2_hand_hesitate": {
       "type": "dialogue",
-      "text": "……基生？她轻轻握住了那只停在半空的手。",
+      "text": "……基生？她轻轻握住了他的手。",
       "speaker": "“爱理”",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
@@ -1103,6 +1073,18 @@ ILY.data.stories.chapter2 = {
       "cg": "ch2-hand",
       "backgroundFit": "contain",
       "next": "ch2_hand_after"
+    },
+    "ch2_hand_hesitate": {
+      "type": "dialogue",
+      "text": "……基生？她轻轻握住了他的手。",
+      "speaker": "“爱理”",
+      "chapter": "chapter2",
+      "chapterTitle": "第二章 · 约定与夕阳",
+      "scene": "S03",
+      "background": "ch2-beach",
+      "cg": "ch2-hand",
+      "next": "ch2_hand_after",
+      "backgroundFit": "contain"
     },
     "ch2_hand_after": {
       "type": "monologue",
@@ -2134,7 +2116,7 @@ ILY.data.stories.chapter2 = {
     "ch2_192": {
       "type": "dialogue",
       "text": "我想和基生一直在一起。",
-      "speaker": "“爱理”：",
+      "speaker": "“爱理”",
       "chapter": "chapter2",
       "chapterTitle": "第二章 · 约定与夕阳",
       "scene": "S07",

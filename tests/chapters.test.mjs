@@ -25,6 +25,14 @@ test('Every chapter node and gameplay target resolves; no document production no
   if(['chapter2','chapter3','heroine','final'].includes(n.chapter))assert.doesNotMatch(n.text||'',/可玩化建议|事件蓝图|策划注|制作注|待评审|接口段|兜底|存活变量|网页直连|女主视角重述/);
  }
 });
+test('Chapter-two handholding stays in Kio viewpoint without a player choice',()=>{
+ const node=story.nodes.ch2_hand;
+ assert.equal(node.type,'dialogue');
+ assert.equal(node.speaker,'“爱理”');
+ assert.equal(node.text,'……基生？她轻轻握住了他的手。');
+ assert.equal(node.choices,undefined);
+ assert.ok(!Object.values(story.nodes).some(node=>(node.choices||[]).some(choice=>choice.flag?.key==='CH2_HAND')));
+});
 test('All branch combinations reach the correct ending without leaking other ending scenes',()=>{
  for(const route of ['A','B','C'])for(const n2 of ['A','B'])for(const n3 of ['buy','stay'])for(const n4 of ['A','B']){
   const {state,seen}=traverse(route,n2,n3,n4);

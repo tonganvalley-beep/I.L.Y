@@ -10,6 +10,7 @@ function createHarness(skipping = true) {
   const element = (tag = '', className = '', textContent = '') => ({
     tag, className, textContent, hidden: false, children: [],
     append(...nodes) { this.children.push(...nodes); },
+    querySelector(selector) { return this.children.find(child => child.className.split(' ').includes(selector.slice(1))) || null; },
     addEventListener(type, handler) { this.listeners ||= new Map(); this.listeners.set(type, handler); },
     removeEventListener() {},
     focus() {}
@@ -65,6 +66,32 @@ test('剧情快进会加速普通对白，但不会自动越过选项', async ()
   });
   assert.equal(harness.context.ILY.isDialogueSkippable(choice), false);
   assert.equal(choiceHarness.timers.size, 0, '选项节点不能被跳过');
+});
+
+test('屏幕旁白支持播放中开启快进、零等待整段跳过以及点击停止', async () => {
+  const harness = createHarness(false);
+  vm.runInContext(await readFile(new URL('../game/src/modes/heroine.js', import.meta.url), 'utf8'), harness.context);
+  const nextNodes = [];
+  const cleanup = harness.context.ILY.mountHeroineMoment({
+    stage: harness.stage, node: { type: 'monologue', text: '屏幕上的旁白', next: 'next' },
+    assets: {}, go: id => nextNodes.push(id), isSkipping: harness.isSkipping,
+    setSkipping: harness.setSkipping, getSkipDelay: () => 0
+  });
+  assert.equal(harness.timers.size, 0);
+  harness.setSkipping(true);
+  harness.windowListeners.get('ily:skipchange')();
+  const timer = [...harness.timers.values()][0];
+  assert.equal(timer.delay, 0);
+  assert.equal(harness.stage.children[0].children[0].textContent, '屏幕上的旁白');
+  harness.stage.listeners.get('click')({ target: { closest: () => null }, preventDefault() {}, stopImmediatePropagation() {} });
+  assert.equal(harness.isSkipping(), false);
+  timer.fn();
+  assert.deepEqual(nextNodes, []);
+  harness.setSkipping(true);
+  harness.windowListeners.get('ily:skipchange')();
+  [...harness.timers.values()][0].fn();
+  assert.deepEqual(nextNodes, ['next']);
+  cleanup();
 });
 
 test('整段跳过使用零等待连续推进', async () => {
