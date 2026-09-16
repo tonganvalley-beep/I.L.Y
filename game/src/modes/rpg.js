@@ -8,6 +8,20 @@ const CAMERA_ZOOM=1;
 const MAX_PIXELS=9;
 // Backdrop shown on the rare edge where a map is narrower than the panel.
 const STAGE='#0b1220';
+// 交互点类型 → 颜色 + 图标。世界内徽章、屏幕边缘箭头、小地图圆点、气泡边框共用这一套色，
+// 让玩家一眼分清「这是门还是线索」。图标由 tools/gen-marker-icons.py 生成（16×16 点阵，2 倍输出）。
+const MARKER={
+  collect :{color:'#eac983',icon:'marker-collect' ,verb:'调查',name:'调查'},
+  transfer:{color:'#7fd1e8',icon:'marker-transfer',verb:'前往',name:'通行'},
+  finish  :{color:'#ff9d5c',icon:'marker-finish'  ,verb:'使用',name:'目标'},
+  clue    :{color:'#b79ce8',icon:'marker-clue'    ,verb:'查看',name:'线索'},
+  shop    :{color:'#6fdb9a',icon:'marker-shop'    ,verb:'选购',name:'选购'},
+  reunion :{color:'#ff8fb1',icon:'marker-reunion' ,verb:'呼唤',name:'汇合'},
+  scream  :{color:'#ff6b6b',icon:'marker-scream'  ,verb:'倾听',name:'事件'}
+};
+const MARKER_DONE={color:'#7f8f96',icon:'marker-done',verb:'已完成',name:'已完成'};
+const MARKER_OTHER={color:'#eac983',icon:'marker-collect',verb:'调查',name:'调查'};
+const markerMeta=(kind,done)=>done?MARKER_DONE:(MARKER[kind]||MARKER_OTHER);
 // Follow arc length, not a count of intermittently sampled frames. Keep every
 // corner and interpolate the segment containing the fixed-distance target.
 function createRpgFollower(leader,start=leader,gap=1.05){
@@ -35,7 +49,7 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
   const p=rpgProgress(state,node.task),maps=ILY.data.maps;
   let map=maps[p.map] || maps[node.map],position,frame,last=0,disposed=false,finishedFor=0;
   let target=null,facing='front',stride=0,walking=false,messageFor=5,idle=0;
-  let follower=null;
+  let follower=null,nearbyEvent=null,nearbyPoint=null;
   // 回滚可能落在触碰事件范围内，离开该范围后才重新允许自动触发；E 调查仍可主动重试。
   let touchReady=!restoringRollback;
   const keys=new Set(),images=new Map(),roomScenes=new Map(),camera={x:0,y:0,scale:1,width:1,height:1};
@@ -76,18 +90,38 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
       if(bg)thumb.style.backgroundImage=`url("${bg}")`;
       if(mainSet.has(id))thumb.classList.add('is-main');
       const dot=el('div','rpg-minimap-dot');
-      thumb.append(dot);
+      const layer=el('div','rpg-minimap-layer');
+      thumb.append(layer,dot);
       const name=el('div','rpg-minimap-name',MINIMAP_LABEL[id]||m.name);
       cell.append(thumb,name);
       row.append(cell);
-      cells[id]={cell,thumb,dot,width:m.width,height:m.height};
+      cells[id]={cell,thumb,dot,layer,width:m.width,height:m.height};
     }
     minimap.append(row);
     panel.append(minimap);
   }
+  let minimapKey='';
   function updateMinimap(){
     if(!minimap)return;
-    for(const id of group){const c=cells[id];if(c)c.cell.classList.toggle('is-current',id===map.id);}
+    // 交互点状态只在收集数 / 地图 / 剧情旗标变化时重建，玩家定位点仍每帧更新。
+    const key=map.id+':'+p.collected.length+':'+(state.flags.G5_SCREAM?1:0);
+    const stale=key!==minimapKey;minimapKey=key;
+    for(const id of group){
+      const c=cells[id];if(!c)continue;
+      const on=id===map.id;
+      c.cell.classList.toggle('is-current',on);
+      if(!stale)continue;
+      c.layer.replaceChildren();
+      if(!on)continue;
+      // 当前地图上未完成的交互点画成类型色小圆点，与世界内徽章同色。
+      for(const e of activeRpgEvents(maps[id],node.task)){
+        if(p.collected.includes(e.id)||(e.kind==='scream'&&state.flags.G5_SCREAM))continue;
+        const d=el('div','rpg-minimap-mark');
+        d.style.background=markerMeta(e.kind,false).color;
+        d.style.left=((e.x+.5)/c.width*100)+'%';d.style.top=((e.y+.5)/c.height*100)+'%';
+        c.layer.append(d);
+      }
+    }
     const cur=cells[map.id];
     if(cur){cur.dot.style.left=((position.x+.5)/cur.width*100)+'%';cur.dot.style.top=((position.y+.5)/cur.height*100)+'%';}
   }
@@ -103,7 +137,18 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
     rollbackControl.textContent=ILY.t('menu.rollback');rollbackControl.title=ILY.t('menu.rollbackTitle');
     const count=p.collected.length;
     objective.textContent=map.name+' · '+(p.done?'目标完成':node.task==='G1'?`整理房间 ${count}/3`:node.task==='G3'?`找到手柄 ${count}/2，回电脑前开局`:node.task==='G4'?`和“爱理”一起挑选食物 ${count}/${node.required?.length||3}`:node.task==='G5'?(p.collected.includes('photo')&&p.collected.includes('isopod')?'去空水槽前寻找“爱理”':'调查拍照点与大王具足虫展区'):node.text);
-    const e=closest();prompt.hidden=p.done || !e;if(e)prompt.textContent='E · '+e.label;auto.hidden=p.done;
+    const e=closest();prompt.hidden=p.done || !e;auto.hidden=p.done;
+    if(e){
+      const meta=markerMeta(e.kind,false);
+      if(prompt.dataset.for!==e.id){                 // 只在目标切换时重建内容，位置每帧更新
+        prompt.dataset.for=e.id;
+        prompt.style.setProperty('--c',meta.color);
+        prompt.replaceChildren();
+        const img=document.createElement('img');img.className='rpg-marker-icon';img.alt='';img.src=assets.image(meta.icon)||'';
+        prompt.append(img,el('span','rpg-marker-kind',meta.verb+' · '),el('b','',e.label));
+        const k=document.createElement('kbd');k.textContent='E';prompt.append(k);
+      }
+    }else prompt.dataset.for='';
   }
   function useMap(next,arrival){
     map=next;p.map=map.id;position=state.maps[map.id] ||= {...map.spawn};if(arrival)Object.assign(position,arrival);target=null;idle=0;follower=null;
@@ -171,6 +216,54 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
     camera.x=vw>=w?(w-vw)/2:Math.max(0,Math.min(w-vw,(position.x+.5)*t-vw/2));
     camera.y=vh>=h?(h-vh)/2:Math.max(0,Math.min(h-vh,(position.y+.5)*t-vh/2));
   }
+  // ---- 交互点标记：八边形徽章 + 类型图标 + 类型色，屏幕尺寸恒定（不随相机缩放变大变小）----
+  // 世界锚点：人物类事件的标记抬到立绘头顶，其余落在格子中心。
+  function markerAnchor(e,sprite){
+    const t=map.tileSize||48;
+    if(e.npc&&sprite)return{x:(e.x+.5)*t,y:sprite.y*t-6};
+    return{x:(e.x+.5)*t,y:(e.y+.5)*t};
+  }
+  function drawMarker(ax,ay,meta,near,done,now){
+    const px=1/camera.scale;                          // 1 屏幕像素对应的世界单位
+    const beat=done?1:1+Math.sin(now/460+ax*.03+ay*.03)*0.05;
+    const size=(done?18:near?26:22)*(near?1:beat)*px;
+    const h=size/2,cy=ay-size-7*px,c=h*0.3;
+    ctx.save();
+    ctx.globalAlpha=done?0.5:near?1:0.9;
+    // 指向锚点的小尾巴
+    ctx.fillStyle=meta.color;
+    ctx.beginPath();ctx.moveTo(ax,ay-px);ctx.lineTo(ax-4*px,cy+h-px);ctx.lineTo(ax+4*px,cy+h-px);ctx.closePath();ctx.fill();
+    // 靠近时向外扩散的脉冲环
+    if(near){
+      const step=(now/1100)%1;
+      ctx.globalAlpha=(1-step)*0.45;ctx.strokeStyle=meta.color;ctx.lineWidth=2*px;
+      ctx.beginPath();ctx.arc(ax,cy,h*(1+step*1.2),0,Math.PI*2);ctx.stroke();
+      ctx.globalAlpha=1;
+    }
+    // 八边形徽章
+    ctx.beginPath();
+    ctx.moveTo(ax-h+c,cy-h);ctx.lineTo(ax+h-c,cy-h);ctx.lineTo(ax+h,cy-h+c);ctx.lineTo(ax+h,cy+h-c);
+    ctx.lineTo(ax+h-c,cy+h);ctx.lineTo(ax-h+c,cy+h);ctx.lineTo(ax-h,cy+h-c);ctx.lineTo(ax-h,cy-h+c);
+    ctx.closePath();
+    ctx.fillStyle='#0b1622e8';ctx.fill();
+    ctx.shadowColor=meta.color;ctx.shadowBlur=near?12:5;
+    ctx.lineWidth=Math.max(1,2*px);ctx.strokeStyle=meta.color;ctx.stroke();
+    ctx.shadowBlur=0;
+    // 类型图标（素材没加载完时退化成一个实心点）
+    const isz=size*0.58;
+    ctx.imageSmoothingEnabled=false;
+    if(!drawAsset(meta.icon,ax-isz/2,cy-isz/2,isz,isz)){
+      ctx.fillStyle=meta.color;ctx.beginPath();ctx.arc(ax,cy,isz*0.16,0,Math.PI*2);ctx.fill();
+    }
+    ctx.restore();
+  }
+  // 提示气泡锚在最近那个点的头顶：提示与场景产生关联，不再是屏幕底部一条固定文案。
+  function positionPrompt(){
+    if(prompt.hidden||!nearbyPoint)return;
+    const sx=(nearbyPoint.x-camera.x)*camera.scale,sy=(nearbyPoint.y-camera.y)*camera.scale;
+    prompt.style.left=Math.max(80,Math.min(camera.width-80,sx))+'px';
+    prompt.style.top=Math.max(54,sy-12)+'px';
+  }
   function draw(){
     const t=map.tileSize||48,w=map.width*t,h=map.height*t;
     const classic=['classic-room','pixel-map'].includes(map.art.renderer)&&ILY.classicRoom;
@@ -200,10 +293,13 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
     }
     ctx.font='13px Zpix';ctx.textAlign='center';
     if(!paintedBackground)for(const o of map.objects){drawAsset(o.image,o.x*t,o.y*t,o.w*t,o.h*t);ctx.fillStyle='#f7f0d8';ctx.fillText(o.label,(o.x+o.w/2)*t,(o.y+o.h/2)*t+5);}
-    const nearby=closest();
-    for(const e of events()){
+    const nearby=closest();nearbyEvent=(nearby&&!p.done)?nearby:null;
+    const now=performance.now();
+    // 已完成的点也画出来（灰勾），玩家能看出「这里已经处理过」，而不是标记凭空消失。
+    for(const e of activeRpgEvents(map,node.task)){
+      const done=p.collected.includes(e.id)||(e.kind==='scream'&&state.flags.G5_SCREAM);
       let sprite=null;
-      if(e.image){
+      if(e.image&&!(done&&e.kind==='collect')){
         const v=e.visual||{x:e.x-.5,y:e.y-.5,w:1,h:1};
         sprite=v;
         // 站立的 NPC（e.npc）先铺一脚接触阴影，再画人，和主角的落地顺序一致。
@@ -215,12 +311,10 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
           trashSprite ||= classic.createTrash();ctx.drawImage(trashSprite,v.x*t,v.y*t,v.w*t,v.h*t);
         }else{ctx.imageSmoothingEnabled=!classic;drawAsset(e.image,v.x*t,v.y*t,v.w*t,v.h*t);ctx.imageSmoothingEnabled=false;}
       }
-      const ex=(e.x+.5)*t,ey=(e.y+.5)*t;
-      // 人物类事件的光标抬到头顶，否则会正好压在立绘胸口上。
-      const my=(e.npc&&sprite)?sprite.y*t-6:ey;
-      ctx.fillStyle=e===nearby?'#fff0be':'#eac98399';
-      if(classic){ctx.fillRect(ex-3,my-6,6,12);ctx.fillRect(ex-6,my-3,12,6);}
-      else{ctx.beginPath();ctx.arc(ex,my,e===nearby?6:4,0,Math.PI*2);ctx.fill();}
+      const a=markerAnchor(e,sprite);
+      // 记下最近那个点的实际锚点，气泡要贴着它（NPC 的标记是抬到头顶的）。
+      if(!done&&e===nearby)nearbyPoint=a;
+      drawMarker(a.x,a.y,markerMeta(e.kind,done),!done&&e===nearby,done,now);
     }
     // Off-screen indicator: point the player toward uncollected interaction points that sit
     // outside the current view. This never moves the points — it only adds a screen-edge arrow.
@@ -228,13 +322,15 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
       ctx.save();
       ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=false;
       for(const e of events()){
-        const ex=(e.x+.5)*t,ey=(e.y+.5)*t;
-        const sx=(ex-camera.x)*camera.scale,sy=(ey-camera.y)*camera.scale;
+        // 屏幕边缘箭头沿用同一套类型色，颜色和世界内的徽章对得上。
+        const meta=markerMeta(e.kind,false),a=markerAnchor(e,null);
+        const sx=(a.x-camera.x)*camera.scale,sy=(a.y-camera.y)*camera.scale;
         if(sx>=m&&sx<=camera.width-m&&sy>=m&&sy<=camera.height-m)continue;
         const cx=Math.max(m,Math.min(camera.width-m,sx)),cy=Math.max(m,Math.min(camera.height-m,sy));
         const ang=Math.atan2(sy-cy,sx-cx);
-        ctx.save();ctx.translate(cx,cy);ctx.rotate(ang);ctx.globalAlpha=0.92;ctx.fillStyle='#ffd479';
-        ctx.beginPath();ctx.moveTo(11,0);ctx.lineTo(-7,-8);ctx.lineTo(-7,8);ctx.closePath();ctx.fill();
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(ang);ctx.globalAlpha=0.92;
+        ctx.fillStyle=meta.color;ctx.strokeStyle='#04090d99';ctx.lineWidth=2;
+        ctx.beginPath();ctx.moveTo(11,0);ctx.lineTo(-7,-8);ctx.lineTo(-7,8);ctx.closePath();ctx.fill();ctx.stroke();
         ctx.restore();
       }
       ctx.restore();
@@ -261,7 +357,7 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
     const image=walking&&(facing==='left'||facing==='right')?`ch1-kio-${facing}-${1+Math.floor(stride/.12)%2}`:facing==='back'?'ch1-kio-back':map.art.player;
     if(!drawAsset(image,sx-S/2,(sy+22)-S,S,S))drawAsset(map.art.player,sx-S/2,(sy+22)-S,S,S);
     if(follower&&follower.y>position.y)drawFollower();
-    updateMinimap();
+    positionPrompt();updateMinimap();
   }
   const directions={arrowleft:[-1,0],a:[-1,0],arrowright:[1,0],d:[1,0],arrowup:[0,-1],w:[0,-1],arrowdown:[0,1],s:[0,1]};
   function keydown(e){

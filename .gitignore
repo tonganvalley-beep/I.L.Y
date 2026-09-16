@@ -14,3 +14,7 @@ Desktop.ini
 
 # Local chapter-one browser QA captures
 tools/chapter1/*.png
+
+# Script editor local recovery backup and atomic-save temporary files
+game/data/story/script-edits.js.bak
+game/data/story/script-edits-*.tmp

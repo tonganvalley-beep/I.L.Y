@@ -2,7 +2,16 @@
 .rpg-canvas{display:block;width:100%!important;height:100%!important;max-width:none;max-height:none;border:0;border-radius:0;image-rendering:pixelated;touch-action:none;outline:none}
 body.rpg-active .game-header{display:none}
 .rpg-message{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);max-width:min(680px,90%);width:max-content;box-sizing:border-box;text-align:center;font-size:14px;line-height:1.7;padding:10px 18px;border-radius:4px;background:#07121cce;pointer-events:none}
-.rpg-interact{position:absolute;bottom:3%;left:50%;transform:translateX(-50%);background:#10232dd9;border:1px solid #eac98370;padding:8px 18px;color:#fff0cd;font-size:14px}
+/* 交互提示气泡：锚定在最近那个交互点的头顶，left/top 由 rpg.js 每帧写入，--c 为类型色 */
+.rpg-interact{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);display:flex;align-items:center;gap:7px;
+  background:#07121ceb;border:1px solid var(--c,#eac983);padding:5px 10px;border-radius:6px;color:#fff0cd;font-size:13px;
+  white-space:nowrap;box-shadow:0 6px 18px #000a,0 0 16px -8px var(--c,#eac983)}
+.rpg-interact[hidden]{display:none}
+.rpg-interact::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--c,#eac983)}
+.rpg-interact b{font-weight:400}
+.rpg-marker-icon{width:13px;height:13px;image-rendering:pixelated;flex:none}
+.rpg-marker-kind{color:var(--c,#eac983);font-size:11px;opacity:.9}
+.rpg-interact kbd{min-width:17px;padding:0 4px;border-radius:3px;background:var(--c,#eac983);color:#0a141d;font-size:11px;font-weight:700}
 .rpg-menu-toggle{position:absolute;top:14px;right:18px;opacity:0;transition:opacity .2s;background:#101e2bd0;padding:7px 12px;border:1px solid #ffffff30}
 .rpg-menu-toggle:hover,.rpg-menu-toggle:focus-visible{opacity:1}
 .rpg-rollback{position:absolute;right:18px;bottom:18px;z-index:7;min-height:44px;padding:8px 14px;background:#101e2be6;border:1px solid #eac98370;color:#fff0cd;font-size:14px}
@@ -21,6 +30,9 @@ body.rpg-active .game-header{display:none}
 .rpg-minimap-cell:not(.is-main) .rpg-minimap-thumb{opacity:.5}
 .rpg-minimap-cell.is-current .rpg-minimap-thumb{border-color:#ffd27a;box-shadow:0 0 0 2px #ffd27a88,inset 0 0 0 1px #fff3}
 .rpg-minimap-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:#ff5a5a;box-shadow:0 0 4px #ff5a5a;transform:translate(-50%,-50%);display:none}
+/* 当前地图上未完成的交互点：类型色小圆点，与世界内徽章同色 */
+.rpg-minimap-layer{position:absolute;inset:0;pointer-events:none}
+.rpg-minimap-mark{position:absolute;width:4px;height:4px;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 1px #0009}
 .rpg-minimap-cell.is-current .rpg-minimap-dot{display:block}
 .rpg-minimap-name{font-size:9px;line-height:1;color:#cfe;max-width:48px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rpg-minimap-cell.is-current .rpg-minimap-name{color:#ffd27a}

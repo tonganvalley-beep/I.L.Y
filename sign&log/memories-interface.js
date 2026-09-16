@@ -18,9 +18,23 @@
 'use strict';
 
 /* 收录的章节（与游戏内一致；不存在的章节自动跳过） */
-const STORY_IDS = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'final'];
+const STORY_IDS = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'heroine', 'final'];
 /* 已知成就 ID（与发放处一致） */
 const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter', 'father-reply', 'Just two of us', '十年之后', 'One Last Kiss', 'ILY = I LOVE YOU'];
+/* 每个成就解锁时所在的那一幕：填该成就实际发放节点 / 玩法所处的 background 资源 ID，
+   作为成就方格的底图，等价于“获取时的游戏背景”。与 game/src/memories.js 保持同一份。 */
+const ACH_BG = {
+  'tunnel-end':       'bg-tunnel',           // 隧道横版玩法走出隧道
+  'delete-key':       'bg-apartment-dusk',   // 序章出租屋 黄昏（删联系人）
+  'daily':            'bg-apartment-dusk',   // 序章出租屋 黄昏（读满三封邮件）
+  'last-beach':       'bg-coast-blue',       // 序章终幕 蓝光海岸
+  'door-letter':      'bg-apartment-night',  // 分支结局「门内的回信」出租屋 夜晚
+  'father-reply':     'bg-apartment-dusk',   // 序章出租屋 黄昏（父亲的回信）
+  'Just two of us':   'ch2-sunset',          // 第二章 END 夕阳
+  '十年之后':           'ch2-beach',           // 第三章 END 海边
+  'One Last Kiss':    'bg-coast-blue',       // 终章 S04 蓝光海岸
+  'ILY = I LOVE YOU': 'bg-coast-blue'        // 终章 搜索演出 S05
+};
 /* v2 存档槽 key 的合法格式（与 game/src/core/saves.js 一致） */
 const SAVE_KEY_RE = /^(?:[12]-[1-6]|auto-[1-3]|quick-1)$/;
 
@@ -106,6 +120,15 @@ function collectFromSaves() {
 }
 
 /* ---------- 成就 ---------- */
+/* 把「解锁时的那一幕背景」解析成可用地址；资源清单路径相对 game/，主界面在 sign&log/ 需补 ../game/ */
+function achBgSrc(img) {
+  const images = (window.ILY && window.ILY.data && window.ILY.data.assets && window.ILY.data.assets.images) || {};
+  let src = images[img] || '';
+  if (!src) return '';
+  if (src.startsWith('assets/')) src = '../game/' + src;
+  try { src = new URL(src, location.href).href; } catch { /* 已是绝对地址 */ }
+  return src;
+}
 function renderAchievements(list) {
   const { achievements } = collectFromSaves();
   const known = new Set(ACH_IDS);
@@ -113,11 +136,26 @@ function renderAchievements(list) {
   list.replaceChildren();
   [...ACH_IDS, ...extras].forEach(id => {
     const got = achievements.has(id);
-    const li = el('li', got ? 'unlocked' : 'locked');
-    const name = el('span');
+    const li = el('li', 'ach-tile ' + (got ? 'unlocked' : 'locked'));
+
+    /* 底图：解锁所在场景的背景；加载失败留占位而不是碎图 */
+    if (got) {
+      const src = achBgSrc(ACH_BG[id]);
+      if (src) {
+        const img = document.createElement('img');
+        img.className = 'ach-bg';
+        img.src = src;
+        img.alt = '';
+        img.loading = 'lazy';
+        img.onerror = () => { img.remove(); li.append(el('span', 'ach-missing')); };
+        li.append(img);
+      }
+    }
+
     const info = ACH_NAME[id];
-    name.textContent = got ? (info ? info[curLang()] : id) : '？？？';
-    li.append(name, el('span', 'ach-state', T(got ? 'ach.unlocked' : 'ach.locked')));
+    const name = got ? (info ? info[curLang()] : id) : '？？？';
+    li.append(el('span', 'ach-state', T(got ? 'ach.unlocked' : 'ach.locked')));
+    li.append(el('span', 'ach-name', name));
     list.append(li);
   });
 }
@@ -129,12 +167,16 @@ function renderStory(log) {
   const frag = document.createDocumentFragment();
   let any = false;
   const stories = (window.ILY && window.ILY.data && window.ILY.data.stories) || {};
+  // 使用工作区发布的文本与增删记录，避免新版画廊带回旧版台词。
+  const current={nodes:Object.fromEntries(Object.values(stories).flatMap(s=>Object.entries(s.nodes).map(([key,node])=>[key,{...node}])))};
+  if(window.ILYScriptReview)window.ILYScriptReview.create(current).apply(window.ILY_SCRIPT_EDITS||{});
   STORY_IDS.forEach(id => {
     const story = stories[id];
     if (!story || !story.nodes) return;
     let added = false;
-    Object.keys(story.nodes).forEach(nid => {
-      const node = story.nodes[nid];
+    Object.keys(current.nodes).forEach(nid => {
+      const node = current.nodes[nid];
+      if((node.chapter||'prologue')!==id)return;
       if (!progress.story.has(nid) || !node || typeof node.text !== 'string' || !node.text.trim()) return;
       if (!added) { frag.append(el('div', 'story-chapter', story.title || id)); added = true; any = true; }
       const entry = el('div', 'story-entry');
@@ -239,7 +281,7 @@ function renderContent() {
   content.replaceChildren();                 /* 每次只渲染当前一项，绝不重复显示 */
   if (activeTab === 'achievements') {
     subEl.textContent = T('ach.subtitle');
-    const list = el('ul', 'ach-list');
+    const list = el('ul', 'ach-grid');
     renderAchievements(list);
     content.append(list);
   } else if (activeTab === 'story') {
@@ -297,8 +339,7 @@ function injectStyles() {
   const style = document.createElement('style');
   style.id = 'memoriesInterfaceStyle';
   style.textContent = [
-    '#memoriesDialog { width: min(820px, calc(100vw - 40px)); }',                 /* 单弹窗放宽，给画廊留空间 */
-    '#memoriesDialog .mem-content { margin-top: 8px; }',
+    /* 弹窗自身样式（含铺满屏幕）统一由 ../game/styles/memories.css 提供，这里只补 dialog 内联元素的配色 */
     '#memoriesDialog .dialog-actions { margin-top: 18px; }',
     '#memoriesDialog .dialog-actions button { padding: 9px 16px; color: #e5edf2; background: #173d79;',
     '  border: 1px solid #83b9ce; border-radius: 5px; font: inherit; cursor: pointer; }',

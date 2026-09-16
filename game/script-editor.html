@@ -7,27 +7,32 @@
   <link rel="stylesheet" href="styles/chapters.css">
   <style>
     body{margin:0;background:#081321;color:#f4f1e8;font-family:system-ui;padding:20px}
-    .review{max-width:850px;margin:auto}.toolbar,.row-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .review{max-width:1050px;margin:auto}.toolbar,.row-actions{display:flex;gap:8px;flex-wrap:wrap}
     .toolbar{position:sticky;bottom:0;background:#081321;padding:12px 0}
     .row{border:1px solid #385a73;background:#0b1b2b;padding:10px;margin:9px 0}
     .row.current{border-color:#f3ca62;background:#263d4c}.row.deleted{border-style:dashed;opacity:.65}
     .head{display:flex;gap:10px;align-items:center;color:#a9c1d0;flex-wrap:wrap}.head small{flex:1;overflow-wrap:anywhere;min-width:150px}
     .row select,.row textarea{background:#071422;color:#fff;border:1px solid #63809a;padding:7px}
     .row textarea{display:block;width:100%;box-sizing:border-box;margin-top:8px;line-height:1.5;font:inherit;resize:vertical}
+    .visual-editor{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:12px;margin-top:10px;align-items:stretch}
+    .visual-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.visual-controls label{display:grid;gap:5px;color:#a9c1d0;font-size:13px}.visual-controls select{width:100%;min-width:0}
+    .visual-preview{position:relative;overflow:hidden;min-height:112px;background:#050b11;border:1px solid #385a73}.visual-preview img{position:absolute;inset:0;width:100%;height:100%}.preview-background{object-fit:cover}.preview-portrait{object-fit:contain;object-position:center bottom}.visual-preview span{position:absolute;inset:0;display:grid;place-items:center;color:#63809a;font-size:13px}
+    .visual-preview [hidden]{display:none}
     .row-actions{margin-top:8px}button{background:#18344b;color:#f4f1e8;border:1px solid #63809a;padding:7px 10px;cursor:pointer;font:inherit}
     button:hover:enabled{background:#294d68}button:disabled{opacity:.45;cursor:not-allowed}
-    #count{color:#a9c1d0}#status{min-height:1.5em}
+    #count{color:#a9c1d0}#status{min-height:1.5em}@media(max-width:720px){body{padding:10px}.visual-editor{grid-template-columns:1fr}.visual-controls{grid-template-columns:1fr}.visual-preview{min-height:150px}}
   </style>
 </head>
 <body>
   <main class="review">
     <h1>剧本校对器</h1>
     <p id="meta">等待游戏连接……</p>
-    <p>游戏推进时，本窗口会自动显示当前场景。可修改文本、类型和说话人，也可在每段前后新增或删除文本段。修改后点击“保存修改”。</p>
+    <p>游戏推进时，本窗口会自动显示当前场景。可修改文本、类型、说话人、背景和人物立绘，也可在每段前后新增或删除文本段。修改后点击“保存修改”。</p>
+    <p>通过 npm start 启动游戏后，“保存修改”直接写入项目，之后运行自动使用已保存版本；导出仅用于备份。</p>
     <p id="count"></p>
     <label><input type="checkbox" id="show-deleted">显示已删除段落（可恢复）</label>
     <section id="list"></section>
-    <div class="toolbar"><button id="save">保存修改</button><button id="export">导出 JSON</button><button id="clear">清除本地修改</button></div>
+    <div class="toolbar"><button id="save">保存修改</button><button id="export">导出 JSON</button><button id="export-js">导出项目 JS</button><button id="clear">恢复项目已保存版本</button></div>
     <p id="status" role="status" aria-live="polite"></p>
   </main>
   <script src="data/story/script-edits.js"></script>

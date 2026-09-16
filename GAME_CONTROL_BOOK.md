@@ -1,10 +1,16 @@
 # I.L.Y. game 改造总控书与代码报告
 
+## 模块统一与清理（2026-09-16）
+
+正式小游戏现统一在 `game/minigames/{photo-rhythm,winxp,boss}/`；红心弹幕源码由原 `danmutest/game.js` 迁至 `game/src/engines/danmu.js`，主线和 XP 共用同一引擎。嵌入适配器为 `game/src/modes/embedded-games.js`。摄影立绘复用 `game/assets/images/characters/aili/`，Boss 字体复用 `sign&log/fonts/zpix.ttf`。
+
+已删除两份导入包及解压副本、旧 RPG 方案 Demo、水族馆管道谜题及专用检查、电影欣赏/中华食味录/唐诗宋词三个独立网站、重复字体立绘和旧 Boss 预览截图。剧情真源、已发布编辑、现有历史备份及汇报材料保留。目录删除清单和体积记录见 `outputs/cleanup-manifest.json`。下面历史记录中的旧路径以本节为准。
+
 ## 编辑器文本修改落盘（2026-09-16）
 
 从浏览器已保存的最新剧本记录恢复 279 条编辑：序章 88、第一章 27、第二章 5、第三章 18、女主篇 38、最终章 103；包含 17 条新增与 23 条删除记录。全部原始文本、说话人、归类及插入位置保存在 `game/data/story/script-edits.js`，由游戏及编辑器统一加载。TXT 编译数据保留为基础，已发布编辑覆盖基础，本地后续编辑再覆盖已发布字段；避免重复新增，并使重新编译不会丢失编辑成果。
 
-后续导出用 `node tools/import-script-review.mjs "ily-script-review.json 的完整路径"` 导入，检查差异后提交；普通浏览器保存不会自动提交或上传。已发布文本的修改优先检查这个覆盖文件。测试覆盖全部记录、新浏览器加载、原浏览器重复加载、本地覆盖与清除、增删连接及无效导入。
+后续使用 `npm start` 启动项目，编辑器“保存修改”通过本机 `/api/script-review` 接口直接校验并写入 `game/data/story/script-edits.js`，无需下载或手动替换。成功后更新当前游戏，下一次启动以项目已确认版本为准，忽略旧浏览器修改缓存；首次升级前的本地修改保留为待保存草稿。接口使用版本校验避免旧窗口覆盖新版本，先备份 `script-edits.js.bak` 再替换正式文件。“恢复项目已保存版本”仅读取项目、不写文件。导出 JSON / JS 用于备份，JSON 仍可用 `node tools/import-script-review.mjs "ily-script-review.json 的完整路径"` 导入。保存不会自动提交或上传；双击 HTML、其他静态服务不能写项目，旧的开发服务器需重启。新增回归覆盖真实文件写入、重新加载、备份、并发冲突、无效请求、磁盘失败及缓存优先级。
 
 验证：279 条落盘记录与恢复出的浏览器记录逐条完全一致；`npm test` 72/72 通过；远程上传只包含剧本数据、加载逻辑、导入工具及测试文档。
 

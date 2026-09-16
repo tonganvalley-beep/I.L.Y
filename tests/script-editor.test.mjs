@@ -47,6 +47,35 @@ test('已有段落的旁白和内心分类控制播放类型，切回台词和�
   assert.equal(story.nodes.b.type, 'monologue');
 });
 
+test('背景和立绘修改会覆盖实际渲染字段，清除记录后恢复原场景', () => {
+  const { story, model } = setup();
+  story.nodes.a.cg = 'old-cg';
+  story.nodes.a.characters = [{ image: 'old-left', position: 'left' }, { image: 'old-right', position: 'right' }];
+  model.base.a.cg = 'old-cg';
+  model.base.a.characters = [{ image: 'old-left', position: 'left' }, { image: 'old-right', position: 'right' }];
+  model.apply({ a: { background: 'new-background', portrait: 'new-portrait' } });
+  assert.equal(story.nodes.a.background, 'new-background');
+  assert.equal(story.nodes.a.portrait, 'new-portrait');
+  assert.equal(story.nodes.a.cg, undefined);
+  assert.equal(story.nodes.a.characters, undefined);
+  model.apply({});
+  assert.equal(story.nodes.a.background, 'room');
+  assert.equal(story.nodes.a.cg, 'old-cg');
+  assert.deepEqual(story.nodes.a.characters, [{ image: 'old-left', position: 'left' }, { image: 'old-right', position: 'right' }]);
+});
+
+test('新增段继承图片且发布 JS 序列化完整保留图片修改', () => {
+  const { context, story } = setup();
+  story.nodes.a.portrait = 'portrait-kio';
+  const added = context.ILYScriptReview.addition(story.nodes.a);
+  assert.equal(added.background, 'room');
+  assert.equal(added.portrait, 'portrait-kio');
+  const records = { a: { background: 'bg-next', portrait: '' } };
+  const output = vm.createContext({}); output.window = output;
+  vm.runInContext(context.ILYScriptReview.serializeRecords(records), output);
+  assert.equal(JSON.stringify(output.ILY_SCRIPT_EDITS), JSON.stringify(records));
+});
+
 test('序章原有旁白默认全屏显示，明确的台词覆盖与女主标题卡保持有效', async () => {
   const { context } = setup();
   context.ILY.data = { stories: {} };

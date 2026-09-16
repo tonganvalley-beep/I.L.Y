@@ -5,6 +5,6 @@
 <p class="hint">方向键 / WASD 移动，E 调查。RPG 菜单内可自动完成当前探索；最终战提供实战与剧情模式。</p>
 <details><summary>场景与分支预览（含剧透，使用独立试玩存档）</summary><section id="links"></section></details>
 <script>
-const scenes=[['出租屋 · 清扫','ch1_g1'],['便利店 · 采购','ch1_g4'],['水族馆 · 寻人','ch1_g5'],['室内拥抱','ch2_s01'],['不能说 · 分歧','ch2_choice2'],['牵手','ch2_hand'],['上岛散步','ch2_g1'],['紫阳花回忆','ch2_g2'],['买水或留下 · 分歧','ch2_choice3'],['长楼梯与售货机','ch2_g3'],['冰淇淋店','ch2_g4'],['成年爱理 · 归来','ch2_s08'],['两部手机 · 分歧','ch3_choice4'],['夜海寻找','ch3_g4'],['女主视角 · 青','her_chapter_prologue'],['看不见的她','her_scene_01_01'],['真正的爱理','her_scene_05_07'],['黎明前','her_scene_07_01'],['崩坏选项','fin_s02-x'],['七幕 Boss 战','fin_s03'],['海边告别','fin_s04'],['搜索 ILY','fin_s05'],['十年后 · 收信','fin_s06']];
+const scenes=[['出租屋 · 清扫','ch1_g1'],['电脑 · Windows XP','ch1_battle'],['便利店 · 采购','ch1_g4'],['水族馆 · 寻人','ch1_g5'],['室内拥抱','ch2_s01'],['不能说 · 分歧','ch2_choice2'],['牵手','ch2_hand'],['上岛散步','ch2_g1'],['紫阳花回忆','ch2_g2'],['小径 · 节拍摄影','ch2_photo'],['买水或留下 · 分歧','ch2_choice3'],['长楼梯与售货机','ch2_g3'],['冰淇淋店','ch2_g4'],['成年爱理 · 归来','ch2_s08'],['两部手机 · 分歧','ch3_choice4'],['夜海寻找','ch3_g4'],['女主视角 · 青','her_chapter_prologue'],['看不见的她','her_scene_01_01'],['真正的爱理','her_scene_05_07'],['黎明前','her_scene_07_01'],['崩坏选项','fin_s02-x'],['七幕 Boss 战','fin_s03'],['海边告别','fin_s04'],['搜索 ILY','fin_s05'],['十年后 · 收信','fin_s06']];
 for(const [label,id]of scenes){const a=document.createElement('a');a.textContent=label;a.href='index.html?entry=chapters&player=scene-preview&scene='+encodeURIComponent(id);document.querySelector('#links').append(a);}
 </script></main></body></html>

@@ -25,5 +25,15 @@ Object.assign(ILY.data.assets.images, {
   "npc-hibiya": "assets/images/characters/npc-hibiya.png",
   "ch3-battery-full": "assets/images/cg/ch3-battery-full.png",
   "ch3-battery-medium": "assets/images/cg/ch3-battery-medium.png",
-  "ch3-battery-low": "assets/images/cg/ch3-battery-low.png"
+  "ch3-battery-low": "assets/images/cg/ch3-battery-low.png",
+  // 交互点标记图标（16×16 点阵 2 倍输出，由 tools/gen-marker-icons.py 生成）
+  "marker-collect": "assets/images/ui/marker/marker-collect.png",
+  "marker-transfer": "assets/images/ui/marker/marker-transfer.png",
+  "marker-finish": "assets/images/ui/marker/marker-finish.png",
+  "marker-clue": "assets/images/ui/marker/marker-clue.png",
+  "marker-shop": "assets/images/ui/marker/marker-shop.png",
+  "marker-reunion": "assets/images/ui/marker/marker-reunion.png",
+  "marker-scream": "assets/images/ui/marker/marker-scream.png",
+  "marker-done": "assets/images/ui/marker/marker-done.png",
+  "marker-locked": "assets/images/ui/marker/marker-locked.png"
 });

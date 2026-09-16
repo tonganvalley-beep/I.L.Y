@@ -1,0 +1,35 @@
+@charset "utf-8";
+@font-face{font-family:Zpix;src:url('../../../sign&log/fonts/zpix.ttf') format('truetype');font-display:swap}
+:root{color-scheme:dark;font-family:Zpix,monospace;color:#e9edff;background:#060713}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 25% 10%,#242146 0%,#090b1b 48%,#050611 100%)}
+#wrap{width:min(1600px,96vw,calc((100dvh - 106px)*16/9));margin:12px auto}
+.toolbar{height:48px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-size:23px;letter-spacing:4px;color:#f3eaff}.brand span{font-size:12px;letter-spacing:2px;color:#b2afd0;margin-left:16px}
+.controls{display:flex;gap:8px}
+button{font:inherit;font-size:12px;border:1px solid #484265;background:#19192e;color:#d9d9ee;padding:8px 14px;cursor:pointer;border-radius:4px}
+button:hover{background:#30304f;border-color:#bcb3e9}button:focus-visible{outline:2px solid #8fffc7;outline-offset:3px}button:disabled{opacity:.55;cursor:wait}
+.stage{position:relative;box-shadow:0 18px 80px #0009,0 0 0 1px #595274;overflow:hidden;border-radius:5px}
+canvas{display:block;width:100%;height:auto;background:#10142a;touch-action:none}
+footer{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:#9298b5}
+#actLabel{color:#c4b9ed}footer b{font-weight:normal}#status{text-align:center}
+#overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px;text-align:center;padding:24px;background:linear-gradient(90deg,rgba(7,10,29,.83),rgba(10,12,33,.93) 50%,rgba(7,10,29,.78))}
+#overlay.show{display:flex}
+#overlay h1{margin:0;font-size:clamp(28px,4.2vw,58px);font-weight:normal;letter-spacing:10px;color:#f1eaff;text-shadow:0 0 25px #aa80f477}
+#overlay p{margin:0;font-size:15px;line-height:1.9;color:#bfc3dd}
+#overlay .eyebrow{font-size:11px;letter-spacing:4px;color:#a69acb}
+#overlay .instructions{font-size:13px}#overlay .small{font-size:11px;color:#858aa8}
+.legend{display:flex;gap:28px;font-size:13px}.legend span:first-child{color:#ff99bb}.legend span:last-child{color:#8ce8b7}
+#overlay button{padding:13px 48px;font-size:16px;border-color:#b2a0e8;background:#383052;box-shadow:0 0 28px #a68bed22}
+#wrap:fullscreen{width:100%;height:100%;margin:0;padding:8px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#050611}
+#wrap:fullscreen .toolbar,#wrap:fullscreen footer{width:min(100%,calc((100dvh - 102px)*16/9))}
+#wrap:fullscreen .stage{width:min(100%,calc((100dvh - 102px)*16/9))}
+@media(max-width:700px){#wrap{width:98vw}.brand span{display:none}.controls{gap:4px}.controls button{padding:6px 8px}#overlay{gap:8px;padding:12px}#overlay p{font-size:12px}#overlay .instructions,#overlay .small{font-size:10px}#overlay h1{font-size:26px}#overlay button{padding:8px 28px}footer{font-size:9px;flex-wrap:wrap;justify-content:center}#status{order:3;width:100%}}
+/* 最终胜利动画：固定铺满视口的全屏视频层，文字叠在视频之上 */
+#endingLayer{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden}
+#endingLayer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+#endingLayer .ending-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;padding:26px 34px;border-radius:10px;background:radial-gradient(ellipse at center,rgba(6,8,20,.30),rgba(6,8,20,.74))}
+#endingLayer .ending-content h1{margin:0;font-size:clamp(28px,5vw,64px);font-weight:normal;letter-spacing:10px;color:#f1eaff;text-shadow:0 0 30px #aa80f4cc}
+#endingLayer .ending-content p{margin:0;font-size:16px;line-height:1.8;color:#dfe3f7;text-shadow:0 2px 10px #000}
+#endingLayer .ending-content button{padding:13px 48px;font-size:16px;border-color:#b2a0e8;background:#383052;box-shadow:0 0 28px #a68bed44}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}

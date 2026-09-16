@@ -19,7 +19,7 @@ export function validateRecords(records, nodes) {
   let added = 0, deleted = 0;
   for (const [id, record] of Object.entries(records)) {
     if (!record || typeof record !== 'object' || Array.isArray(record)) throw new Error(`${id}: 记录格式错误。`);
-    for (const key of ['text', 'speaker', 'kind']) if (record[key] != null && typeof record[key] !== 'string') throw new Error(`${id}: ${key} 必须是文本。`);
+    for (const key of ['text', 'speaker', 'kind', 'background', 'portrait']) if (record[key] != null && typeof record[key] !== 'string') throw new Error(`${id}: ${key} 必须是文本。`);
     if (record.kind != null && !kinds.has(record.kind)) throw new Error(`${id}: 未知文本类型。`);
     for (const key of ['added', 'deleted']) if (record[key] != null && typeof record[key] !== 'boolean') throw new Error(`${id}: ${key} 必须是布尔值。`);
     let anchor = id;

@@ -5,6 +5,29 @@ import vm from 'node:vm';
 const root=new URL('../',import.meta.url),c=vm.createContext({});c.window=c;
 for(const file of ['src/bootstrap.js','data/assets.js','data/chapter-assets.js','data/map-assets.js','data/story/prologue.js','data/story/chapter1.js','data/story/chapter2.js','data/story/chapter3.js','data/story/heroine.js','data/story/final.js','data/maps/classroom.js','data/maps/chapter1-bundle.js','data/maps/chapters-bundle.js','src/core/state.js','src/core/chapter1.js'])vm.runInContext(await readFile(new URL('game/'+file,root),'utf8'),c);
 const I=c.ILY,story=I.prepareChapter1(),maps={...I.data.maps,...I.data.chapter1Maps,...I.data.chapterMaps};
+test('Embedded games preserve chapter text and survive story preparation and save roundtrips',()=>{
+ const source=I.data.stories;
+ const rebuilt=I.prepareChapter1();
+ assert.equal(rebuilt.nodes.ch2_g2.next,'ch2_photo');
+ assert.equal(rebuilt.nodes.ch2_photo.next,source.chapter2.nodes.ch2_g2.next);
+ assert.equal(rebuilt.nodes.ch2_photo.chapter,'chapter2');
+ assert.equal(rebuilt.nodes.ch1_battle.type,'computer');
+ assert.equal(rebuilt.nodes.ch1_battle.next,'ch1_137');
+ assert.equal(source.chapter1.nodes.ch1_battle.type,'battle');
+ assert.equal(source.chapter2.nodes.ch2_g2.next,'ch2_119');
+ for(const chapter of ['chapter1','chapter2','chapter3']){
+  for(const [id,node]of Object.entries(source[chapter].nodes)){
+   if(['ch1_end','ch1_c_end'].includes(id))continue;
+   assert.equal(rebuilt.nodes[id].text,node.text,id+' preserves workspace dialogue');
+  }
+ }
+ for(const id of ['ch1_battle','ch2_photo']){
+  const state=I.createState(id);I.enterChapterNode(state,rebuilt.nodes[id]);
+  state.flags.PHOTO_COMPLETED=true;state.flags.PHOTO_RESULT={score:42000,perfect:25,bestCombo:12,accuracy:.75};
+  const saved=JSON.parse(JSON.stringify(state));I.validateSave(saved,rebuilt,maps);
+  assert.equal(saved.node,id);assert.equal(saved.flags.PHOTO_RESULT.score,42000);
+ }
+});
 function traverse(route,n2,n3,n4){
  const state=I.createState('ch1_s01'),seen=new Set();let id=state.node;
  while(id){

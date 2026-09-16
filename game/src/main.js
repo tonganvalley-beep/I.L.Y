@@ -6,6 +6,7 @@ const { el, button } = ILY;
 const { isDialogueSkippable, mountDialogue } = ILY;
 const { mountPhone } = ILY;
 const { mountWalk } = ILY;
+const { mountPhoto } = ILY;
 const { mountCorridor } = ILY;
 const { mountExploration } = ILY;
 const { mountBattle } = ILY;
@@ -302,6 +303,7 @@ try {
      剧情 = ILY.data.stories（序章 / 第一章）文字剧本；
      画廊 = sign&log/gallery-data.js 的插图 + 手机相册照片。 */
   ILY.initMemories({
+    getStory: () => story,
     saves,
     getState: () => state,
     resolveAsset: key => assets.image(key),
@@ -323,7 +325,7 @@ try {
   function maybeAutosave(node, enabled) {
     if (!enabled) return;
     interactionsSinceAutosave++;
-    const checkpoint = node.checkpoint || node.type === 'choice' || ['rpg', 'phone', 'walk', 'corridor', 'finale', 'branch', 'end'].includes(node.type);
+    const checkpoint = node.checkpoint || node.type === 'choice' || ['rpg', 'photo', 'computer', 'phone', 'walk', 'corridor', 'finale', 'branch', 'end'].includes(node.type);
     if (!checkpoint && interactionsSinceAutosave < 8) return;
     try { saves.autosave(state); } catch {}
     interactionsSinceAutosave = 0;
@@ -360,6 +362,8 @@ try {
     else if (node.type === 'monologue' || node.type === 'heroine-card') cleanup = ILY.mountHeroineMoment(context);
     else if (node.type === 'phone') cleanup = mountPhone(context);
     else if (node.type === 'walk') cleanup = mountWalk(context);
+    else if (node.type === 'photo') cleanup = mountPhoto(context);
+    else if (node.type === 'computer') cleanup = ILY.mountComputer(context);
     else if (node.type === 'corridor') cleanup = mountCorridor(context);
     else if (node.type === 'rpg') cleanup = ILY.mountRpg(context);
     else if (node.type === 'boss') cleanup = ILY.mountBoss(context);

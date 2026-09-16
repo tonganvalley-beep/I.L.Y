@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { createScriptReviewApi } from './script-review-api.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const host = '127.0.0.1';
@@ -32,10 +33,12 @@ function safeFilename(relative) {
   return filename;
 }
 
+const scriptReviewApi = createScriptReviewApi();
 const server = http.createServer(async (request, response) => {
   try {
     const url = new URL(request.url, `http://${host}`);
     const pathname = decodeURIComponent(url.pathname);
+    if (pathname === '/api/script-review') { await scriptReviewApi(request, response); return; }
     let relative = pathname.replace(/^\/+/, '');
     if (pathname.endsWith('/')) relative += 'index.html';
     const filename = safeFilename(relative);

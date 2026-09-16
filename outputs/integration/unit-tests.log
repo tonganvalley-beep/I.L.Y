@@ -1,0 +1,563 @@
+
+> test
+> node --test tests/*.test.mjs game/minigames/boss/tests/*.test.mjs
+
+TAP version 13
+# Subtest: all seven acts complete, advanced mechanisms appear, finale has healing words only
+ok 1 - all seven acts complete, advanced mechanisms appear, finale has healing words only
+  ---
+  duration_ms: 1155.2932
+  type: 'test'
+  ...
+# Subtest: transition is smooth, harmless, preserves HP and clears hazards
+ok 2 - transition is smooth, harmless, preserves HP and clears hazards
+  ---
+  duration_ms: 3.0016
+  type: 'test'
+  ...
+# Subtest: restarting keeps one RAF chain, resets state, and pause freezes time
+ok 3 - restarting keeps one RAF chain, resets state, and pause freezes time
+  ---
+  duration_ms: 1.8271
+  type: 'test'
+  ...
+# Subtest: damage, healing, word hitbox and laser warning retain gameplay semantics
+ok 4 - damage, healing, word hitbox and laser warning retain gameplay semantics
+  ---
+  duration_ms: 3.0983
+  type: 'test'
+  ...
+# Subtest: integrated entry uses shared font and source is valid UTF-8
+ok 5 - integrated entry uses shared font and source is valid UTF-8
+  ---
+  duration_ms: 3.1128
+  type: 'test'
+  ...
+# Subtest: stage durations stay fixed across collection and bullet collisions
+ok 6 - stage durations stay fixed across collection and bullet collisions
+  ---
+  duration_ms: 196.8816
+  type: 'test'
+  ...
+# Subtest: dangerous density rises by attack stage with bounded overlap
+ok 7 - dangerous density rises by attack stage with bounded overlap
+  ---
+  duration_ms: 251.5487
+  type: 'test'
+  ...
+# Subtest: word warning is harmless and curtain keeps its advertised opening
+ok 8 - word warning is harmless and curtain keeps its advertised opening
+  ---
+  duration_ms: 3.8501
+  type: 'test'
+  ...
+# Subtest: finale has three sections and enough time for its last attacks to expire
+ok 9 - finale has three sections and enough time for its last attacks to expire
+  ---
+  duration_ms: 96.6643
+  type: 'test'
+  ...
+# Subtest: late hits have weight and the clock stays stable across display refresh rates
+ok 10 - late hits have weight and the clock stays stable across display refresh rates
+  ---
+  duration_ms: 331.601
+  type: 'test'
+  ...
+# Subtest: five minutes contain real additional waves with continuous firing and higher density
+ok 11 - five minutes contain real additional waves with continuous firing and higher density
+  ---
+  duration_ms: 226.541
+  type: 'test'
+  ...
+# Subtest: each act delivers its sentence up front, alternates with bullets, then sustains bullet-only waves
+ok 12 - each act delivers its sentence up front, alternates with bullets, then sustains bullet-only waves
+  ---
+  duration_ms: 635.1087
+  type: 'test'
+  ...
+# Subtest: Continuous movement is frame-rate independent, slides along walls, and cannot tunnel
+ok 13 - Continuous movement is frame-rate independent, slides along walls, and cannot tunnel
+  ---
+  duration_ms: 11.8955
+  type: 'test'
+  ...
+# Subtest: Room collision follows the artwork at the window and both doorways
+ok 14 - Room collision follows the artwork at the window and both doorways
+  ---
+  duration_ms: 0.7667
+  type: 'test'
+  ...
+# Subtest: Fractional positions survive saves; legacy integer positions stay valid
+ok 15 - Fractional positions survive saves; legacy integer positions stay valid
+  ---
+  duration_ms: 1.0737
+  type: 'test'
+  ...
+# Subtest: JSON source equals the file preview bundle, and every event is reachable
+ok 16 - JSON source equals the file preview bundle, and every event is reachable
+  ---
+  duration_ms: 12.3389
+  type: 'test'
+  ...
+# Subtest: A/B/C routes terminate correctly; only B collects P1-P4; gameplay and content reachable
+ok 17 - A/B/C routes terminate correctly; only B collects P1-P4; gameplay and content reachable
+  ---
+  duration_ms: 6.8915
+  type: 'test'
+  ...
+# Subtest: Tasks gate progression, collect once, and automatic fallback persists complete state
+ok 18 - Tasks gate progression, collect once, and automatic fallback persists complete state
+  ---
+  duration_ms: 1.1424
+  type: 'test'
+  ...
+# Subtest: Chapter-one saves roundtrip map and progress; old prologue saves remain valid
+ok 19 - Chapter-one saves roundtrip map and progress; old prologue saves remain valid
+  ---
+  duration_ms: 5.9917
+  type: 'test'
+  ...
+# Subtest: Embedded games preserve chapter text and survive story preparation and save roundtrips
+ok 20 - Embedded games preserve chapter text and survive story preparation and save roundtrips
+  ---
+  duration_ms: 3.4924
+  type: 'test'
+  ...
+# Subtest: Every chapter node and gameplay target resolves; no document production notes reach dialogue
+ok 21 - Every chapter node and gameplay target resolves; no document production notes reach dialogue
+  ---
+  duration_ms: 9.7739
+  type: 'test'
+  ...
+# Subtest: Chapter-two handholding stays in Kio viewpoint without a player choice
+ok 22 - Chapter-two handholding stays in Kio viewpoint without a player choice
+  ---
+  duration_ms: 1.3838
+  type: 'test'
+  ...
+# Subtest: All branch combinations reach the correct ending without leaking other ending scenes
+ok 23 - All branch combinations reach the correct ending without leaking other ending scenes
+  ---
+  duration_ms: 113.7057
+  type: 'test'
+  ...
+# Subtest: Heroine-view labels retain their distinct presentation and production semantics
+ok 24 - Heroine-view labels retain their distinct presentation and production semantics
+  ---
+  duration_ms: 2.5933
+  type: 'test'
+  ...
+# Subtest: Chapter-two shared clues are collected on every route that reaches the scene
+ok 25 - Chapter-two shared clues are collected on every route that reaches the scene
+  ---
+  duration_ms: 21.7321
+  type: 'test'
+  ...
+# Subtest: All supplied chapter-two images are used by dialogue or investigations and exist
+ok 26 - All supplied chapter-two images are used by dialogue or investigations and exist
+  ---
+  duration_ms: 12.1073
+  type: 'test'
+  ...
+# Subtest: Every new JSON event is walkable and reachable; scenery footprints match collision blocks
+ok 27 - Every new JSON event is walkable and reachable; scenery footprints match collision blocks
+  ---
+  duration_ms: 7.4273
+  type: 'test'
+  ...
+# Subtest: New RPG tasks are independently saved, gated, idempotent and support automatic completion
+ok 28 - New RPG tasks are independently saved, gated, idempotent and support automatic completion
+  ---
+  duration_ms: 2.188
+  type: 'test'
+  ...
+# Subtest: Shared danmutest engine wins once at duration, resets cleanly, and disposes RAF/input
+ok 29 - Shared danmutest engine wins once at duration, resets cleanly, and disposes RAF/input
+  ---
+  duration_ms: 18.3663
+  type: 'test'
+  ...
+# Subtest: Paused time does not count toward tutorial completion
+ok 30 - Paused time does not count toward tutorial completion
+  ---
+  duration_ms: 21.7311
+  type: 'test'
+  ...
+# Subtest: Original waves spawn and can lose; restart recovers HP and clears hazards
+ok 31 - Original waves spawn and can lose; restart recovers HP and clears hazards
+  ---
+  duration_ms: 212.6975
+  type: 'test'
+  ...
+# Subtest: 剧情所有分支都有目标，地图和弹幕配置均存在
+ok 32 - 剧情所有分支都有目标，地图和弹幕配置均存在
+  ---
+  duration_ms: 4.4879
+  type: 'test'
+  ...
+# Subtest: 序章保留可执行剧本的完整主线段落与93个节点
+ok 33 - 序章保留可执行剧本的完整主线段落与93个节点
+  ---
+  duration_ms: 0.6729
+  type: 'test'
+  ...
+# Subtest: 地图阻挡生效，每个线索都可从出生点走到
+ok 34 - 地图阻挡生效，每个线索都可从出生点走到
+  ---
+  duration_ms: 0.6229
+  type: 'test'
+  ...
+# Subtest: 线索不重复，推理必须收集完整证据
+ok 35 - 线索不重复，推理必须收集完整证据
+  ---
+  duration_ms: 0.4029
+  type: 'test'
+  ...
+# Subtest: 存档往返保留位置和线索，拒绝损坏或不兼容的存档
+ok 36 - 存档往返保留位置和线索，拒绝损坏或不兼容的存档
+  ---
+  duration_ms: 1.2711
+  type: 'test'
+  ...
+# Subtest: 多存档按页槽独立保存，自动档循环且兼容旧单槽
+ok 37 - 多存档按页槽独立保存，自动档循环且兼容旧单槽
+  ---
+  duration_ms: 7.4122
+  type: 'test'
+  ...
+# Subtest: 游戏页的所有脚本存在，普通脚本无需服务或模块加载
+ok 38 - 游戏页的所有脚本存在，普通脚本无需服务或模块加载
+  ---
+  duration_ms: 117.081
+  type: 'test'
+  ...
+# Subtest: 章节试玩页可直接进入任意章节而不会返回登录入口
+ok 39 - 章节试玩页可直接进入任意章节而不会返回登录入口
+  ---
+  duration_ms: 1.7607
+  type: 'test'
+  ...
+# Subtest: 两个结局可从新状态进入，成就不重复，旧存档补齐成就数组
+ok 40 - 两个结局可从新状态进入，成就不重复，旧存档补齐成就数组
+  ---
+  duration_ms: 1.9016
+  type: 'test'
+  ...
+# Subtest: 回滚历史保存完整状态快照并丢弃未来进度
+ok 41 - 回滚历史保存完整状态快照并丢弃未来进度
+  ---
+  duration_ms: 1.0637
+  type: 'test'
+  ...
+# Subtest: RPG 操作检查点恢复操作前位置和进度，回滚后可重新选择
+ok 42 - RPG 操作检查点恢复操作前位置和进度，回滚后可重新选择
+  ---
+  duration_ms: 0.7447
+  type: 'test'
+  ...
+# Subtest: 离开 RPG 后回滚会撤销完成状态，检查点仍遵守历史容量和重置边界
+ok 43 - 离开 RPG 后回滚会撤销完成状态，检查点仍遵守历史容量和重置边界
+  ---
+  duration_ms: 0.508
+  type: 'test'
+  ...
+# Subtest: 回滚保留已解锁成就，但仍恢复其他剧情状态
+ok 44 - 回滚保留已解锁成就，但仍恢复其他剧情状态
+  ---
+  duration_ms: 0.5
+  type: 'test'
+  ...
+# Subtest: 剧情与画廊仅在节点实际激活后解锁，且回滚不会撤销
+ok 45 - 剧情与画廊仅在节点实际激活后解锁，且回滚不会撤销
+  ---
+  duration_ms: 0.4234
+  type: 'test'
+  ...
+# Subtest: 结局成就名称具备中英文翻译
+ok 46 - 结局成就名称具备中英文翻译
+  ---
+  duration_ms: 0.3152
+  type: 'test'
+  ...
+# Subtest: 剧情图像 ID 全部登记，正式素材与占位图真实存在
+ok 47 - 剧情图像 ID 全部登记，正式素材与占位图真实存在
+  ---
+  duration_ms: 86.9974
+  type: 'test'
+  ...
+# Subtest: 舞台支持多人物与 CG 分离，坏图按类型降级到占位图
+ok 48 - 舞台支持多人物与 CG 分离，坏图按类型降级到占位图
+  ---
+  duration_ms: 2.7241
+  type: 'test'
+  ...
+# Subtest: 手机教学删除、爱理保护及隐藏回信探索正常工作
+ok 49 - 手机教学删除、爱理保护及隐藏回信探索正常工作
+  ---
+  duration_ms: 12.7464
+  type: 'test'
+  ...
+# Subtest: 海岸回信打开后立即完整显示正文和链接，并等待玩家确认
+ok 50 - 海岸回信打开后立即完整显示正文和链接，并等待玩家确认
+  ---
+  duration_ms: 2.8693
+  type: 'test'
+  ...
+# Subtest: 全游戏保留 Zpix 像素字体，手机和舞台不被新主题覆盖
+ok 51 - 全游戏保留 Zpix 像素字体，手机和舞台不被新主题覆盖
+  ---
+  duration_ms: 1.1115
+  type: 'test'
+  ...
+# Subtest: 开始菜单接入游戏、OP 跳过与读取存档启动参数
+ok 52 - 开始菜单接入游戏、OP 跳过与读取存档启动参数
+  ---
+  duration_ms: 16.7089
+  type: 'test'
+  ...
+# Subtest: 开发服务器会自动打开入口、处理目录地址并在端口占用时重试
+ok 53 - 开发服务器会自动打开入口、处理目录地址并在端口占用时重试
+  ---
+  duration_ms: 1.3427
+  type: 'test'
+  ...
+# Subtest: store rewind follows edited links in reverse and keeps original character shots
+ok 54 - store rewind follows edited links in reverse and keeps original character shots
+  ---
+  duration_ms: 24.6072
+  type: 'test'
+  ...
+# Subtest: passerby scene stays grayscale, removes Airi and preserves Kio at the left
+ok 55 - passerby scene stays grayscale, removes Airi and preserves Kio at the left
+  ---
+  duration_ms: 11.3087
+  type: 'test'
+  ...
+# Subtest: automatic rewind pauses for menus, does not advance story, and cleans up timers
+ok 56 - automatic rewind pauses for menus, does not advance story, and cleans up timers
+  ---
+  duration_ms: 16.3452
+  type: 'test'
+  ...
+# Subtest: 全新浏览器加载所有已发布文本、说话人、归类、新增与删除
+ok 57 - 全新浏览器加载所有已发布文本、说话人、归类、新增与删除
+  ---
+  duration_ms: 167.7405
+  type: 'test'
+  ...
+# Subtest: 原浏览器再次加载同一份记录不会重复新增或改变文本与连接
+ok 58 - 原浏览器再次加载同一份记录不会重复新增或改变文本与连接
+  ---
+  duration_ms: 223.9703
+  type: 'test'
+  ...
+# Subtest: 后续本地编辑覆盖指定字段，清除本地记录恢复已发布文本
+ok 59 - 后续本地编辑覆盖指定字段，清除本地记录恢复已发布文本
+  ---
+  duration_ms: 110.8235
+  type: 'test'
+  ...
+# Subtest: 导入导出完整保留文本和增删记录，并拒绝失效编号与循环插入
+ok 60 - 导入导出完整保留文本和增删记录，并拒绝失效编号与循环插入
+  ---
+  duration_ms: 78.6077
+  type: 'test'
+  ...
+# Subtest: Classic room camera scales the map uniformly, covers the panel and follows the player
+ok 61 - Classic room camera scales the map uniformly, covers the panel and follows the player
+  ---
+  duration_ms: 2.1506
+  type: 'test'
+  ...
+# Subtest: Classic room art is data driven while keeping the original task targets
+ok 62 - Classic room art is data driven while keeping the original task targets
+  ---
+  duration_ms: 1.5281
+  type: 'test'
+  ...
+# Subtest: Follower moves every frame at the same speed and gap across frame rates
+ok 63 - Follower moves every frame at the same speed and gap across frame rates
+  ---
+  duration_ms: 6.6686
+  type: 'test'
+  ...
+# Subtest: Follower preserves corners instead of cutting diagonally through walls
+ok 64 - Follower preserves corners instead of cutting diagonally through walls
+  ---
+  duration_ms: 0.6679
+  type: 'test'
+  ...
+# Subtest: Stopping and restarting never oscillates or teleports; map reset drops old trail
+ok 65 - Stopping and restarting never oscillates or teleports; map reset drops old trail
+  ---
+  duration_ms: 0.7573
+  type: 'test'
+  ...
+# Subtest: Reversing follows recorded footsteps and returns to idle without jitter
+ok 66 - Reversing follows recorded footsteps and returns to idle without jitter
+  ---
+  duration_ms: 0.6916
+  type: 'test'
+  ...
+# Subtest: 已有段落的旁白和内心分类控制播放类型，切回台词和清除修改可恢复
+ok 67 - 已有段落的旁白和内心分类控制播放类型，切回台词和清除修改可恢复
+  ---
+  duration_ms: 4.0002
+  type: 'test'
+  ...
+# Subtest: 背景和立绘修改会覆盖实际渲染字段，清除记录后恢复原场景
+ok 68 - 背景和立绘修改会覆盖实际渲染字段，清除记录后恢复原场景
+  ---
+  duration_ms: 1.9332
+  type: 'test'
+  ...
+# Subtest: 新增段继承图片且发布 JS 序列化完整保留图片修改
+ok 69 - 新增段继承图片且发布 JS 序列化完整保留图片修改
+  ---
+  duration_ms: 1.9224
+  type: 'test'
+  ...
+# Subtest: 序章原有旁白默认全屏显示，明确的台词覆盖与女主标题卡保持有效
+ok 70 - 序章原有旁白默认全屏显示，明确的台词覆盖与女主标题卡保持有效
+  ---
+  duration_ms: 11.6437
+  type: 'test'
+  ...
+# Subtest: 编辑器保存立即通知当前段刷新，重复同步不刷新，清除后恢复
+ok 71 - 编辑器保存立即通知当前段刷新，重复同步不刷新，清除后恢复
+  ---
+  duration_ms: 4.7336
+  type: 'test'
+  ...
+# Subtest: 新增首段、连续新增和删除原段后，播放与编辑器顺序一致且保留分支入口
+ok 72 - 新增首段、连续新增和删除原段后，播放与编辑器顺序一致且保留分支入口
+  ---
+  duration_ms: 2.2607
+  type: 'test'
+  ...
+# Subtest: 保存记录往返后不会重复新增；删除仍执行原段标记，清除恢复文本和链接
+ok 73 - 保存记录往返后不会重复新增；删除仍执行原段标记，清除恢复文本和链接
+  ---
+  duration_ms: 3.0193
+  type: 'test'
+  ...
+# Subtest: 新增段删除与恢复不丢失其子段；旧文本修改记录兼容
+ok 74 - 新增段删除与恢复不丢失其子段；旧文本修改记录兼容
+  ---
+  duration_ms: 1.4789
+  type: 'test'
+  ...
+# Subtest: 新增段继承场景但不复制奖励；保存和清除时已挂载段落仍能继续
+ok 75 - 新增段继承场景但不复制奖励；保存和清除时已挂载段落仍能继续
+  ---
+  duration_ms: 1.8404
+  type: 'test'
+  ...
+# Subtest: 保存 API 实际写入正式 JS，重新加载后文本、图片与增删生效，并备份上一版
+ok 76 - 保存 API 实际写入正式 JS，重新加载后文本、图片与增删生效，并备份上一版
+  ---
+  duration_ms: 245.5665
+  type: 'test'
+  ...
+# Subtest: 无效记录、跨站请求与并发旧版本都不能覆盖文件
+ok 77 - 无效记录、跨站请求与并发旧版本都不能覆盖文件
+  ---
+  duration_ms: 99.5744
+  type: 'test'
+  ...
+# Error: EISDIR: illegal operation on a directory, open 'C:\\Users\\TONGAN~1\\AppData\\Local\\Temp\\ily-script-save-9qDdVJ\\script-edits.js.bak'
+#     at async open (node:internal/fs/promises:641:25)
+#     at async writeFile (node:internal/fs/promises:1215:14)
+#     at async save (file:///E:/Github/I.L.Y/tools/script-review-api.mjs:54:11) {
+#   errno: -4068,
+#   code: 'EISDIR',
+#   syscall: 'open',
+#   path: 'C:\\\\Users\\\\TONGAN~1\\\\AppData\\\\Local\\\\Temp\\\\ily-script-save-9qDdVJ\\\\script-edits.js.bak'
+# }
+# Subtest: 磁盘写入失败不会误报成功或损坏正式版本
+ok 78 - 磁盘写入失败不会误报成功或损坏正式版本
+  ---
+  duration_ms: 59.3064
+  type: 'test'
+  ...
+# Subtest: 编辑器等待写盘成功才通知游戏；恢复按钮读取项目而不写入
+ok 79 - 编辑器等待写盘成功才通知游戏；恢复按钮读取项目而不写入
+  ---
+  duration_ms: 2.8574
+  type: 'test'
+  ...
+# Subtest: 写盘失败保留草稿和离开提醒，不把未保存记录回传游戏
+ok 80 - 写盘失败保留草稿和离开提醒，不把未保存记录回传游戏
+  ---
+  duration_ms: 1.3674
+  type: 'test'
+  ...
+# Subtest: 已确认项目版本加载后忽略浏览器陈旧缓存
+ok 81 - 已确认项目版本加载后忽略浏览器陈旧缓存
+  ---
+  duration_ms: 43.3573
+  type: 'test'
+  ...
+# Subtest: 统一符号：台词、画面旁白、心声、括号说明与错误标签
+ok 82 - 统一符号：台词、画面旁白、心声、括号说明与错误标签
+  ---
+  duration_ms: 10.1446
+  type: 'test'
+  ...
+# Subtest: 编译章节不把旁白、心声和括号说明送进对话框
+ok 83 - 编译章节不把旁白、心声和括号说明送进对话框
+  ---
+  duration_ms: 33.7575
+  type: 'test'
+  ...
+# Subtest: 连续省略内容直接跳到台词，保留正确分支线索和章节结束标记
+ok 84 - 连续省略内容直接跳到台词，保留正确分支线索和章节结束标记
+  ---
+  duration_ms: 4.5112
+  type: 'test'
+  ...
+# Subtest: 旁白渲染在场景文字层，无底部对话框，保留演出并支持推进
+ok 85 - 旁白渲染在场景文字层，无底部对话框，保留演出并支持推进
+  ---
+  duration_ms: 4.5365
+  type: 'test'
+  ...
+# Subtest: 剧情快进会加速普通对白，但不会自动越过选项
+ok 86 - 剧情快进会加速普通对白，但不会自动越过选项
+  ---
+  duration_ms: 11.2915
+  type: 'test'
+  ...
+# Subtest: 屏幕旁白支持播放中开启快进、零等待整段跳过以及点击停止
+ok 87 - 屏幕旁白支持播放中开启快进、零等待整段跳过以及点击停止
+  ---
+  duration_ms: 5.0115
+  type: 'test'
+  ...
+# Subtest: 整段跳过使用零等待连续推进
+ok 88 - 整段跳过使用零等待连续推进
+  ---
+  duration_ms: 5.7984
+  type: 'test'
+  ...
+# Subtest: 跳过状态可由点击画面立刻停止
+ok 89 - 跳过状态可由点击画面立刻停止
+  ---
+  duration_ms: 4.5167
+  type: 'test'
+  ...
+# Subtest: 游戏顶栏同时提供快进和整段跳过入口
+ok 90 - 游戏顶栏同时提供快进和整段跳过入口
+  ---
+  duration_ms: 2.5156
+  type: 'test'
+  ...
+1..90
+# tests 90
+# suites 0
+# pass 90
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3019.514

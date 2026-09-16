@@ -26,7 +26,7 @@ function mountBoss({stage,node,state,go}) {
     ready=false;intro.hidden=true;
     if(frame)frame.remove();
     frame=el('iframe','boss-frame');frame.title='I.L.Y. · 七幕回响';
-    frame.src='../danmu-boss/danmu-boss/index.html?embed=1';
+    frame.src='minigames/boss/index.html?embed=1';
     frame.setAttribute('allow','fullscreen');panel.prepend(frame);
     frame.addEventListener('load',()=>send({type:'boss:hello'}));
   }

@@ -1,4 +1,4 @@
-// Adapter only: patterns, physics, collision and rendering come from danmutest/game.js.
+// Adapter only: patterns, physics, collision and rendering come from src/engines/danmu.js.
 (() => {
 'use strict';
 ILY.mountDanmu = function({stage,level,node,go}) {
@@ -18,7 +18,7 @@ ILY.mountDanmu = function({stage,level,node,go}) {
   function instructions(){overlay.replaceChildren(el('h2','','弹幕教学'),el('p','','红心中的白点是判定中心。绿色弹幕可以回血；激光虚线是预警，亮起后要避开。'),el('p','',`方向键 / WASD 移动 · Shift 慢速 · P 暂停 · R 重试。坚持 ${level.duration} 秒后继续剧情。`));}
   instructions();
   const engine=window.ILYDanmu.create({canvas,root:panel,duration:level.duration,
-    blocked:()=>document.hidden||!!document.querySelector('dialog[open]'),
+    blocked:()=>document.hidden||!!window.ILY_HOST_PAUSED||!!document.querySelector('dialog[open]'),
     onState:({paused,gameOver})=>{toggle.textContent=paused?'继续关卡':'暂停';if(!gameOver){toggle.disabled=false;if(paused){overlay.replaceChildren(el('h2','','已暂停'));overlay.classList.add('show');}else overlay.classList.remove('show');}},
     onFinish:won=>{
       toggle.disabled=true;overlay.replaceChildren(el('h2','',won?'练习完成':'再试一次？'),el('p','',won?'基生放下手柄，转头看向“爱理”。':'练习失败不会影响剧情。'));

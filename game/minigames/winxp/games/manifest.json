@@ -1,0 +1,16 @@
+{
+  "games": [
+    {
+      "name": "红心弹幕",
+      "dir": "games/heart",
+      "icon": "games/heart/ico.svg",
+      "launch": "games/heart/index.html"
+    },
+    {
+      "name": "三维弹球",
+      "dir": "games/space_pinball",
+      "icon": "games/space_pinball/ico.png",
+      "launch": "games/space_pinball/index.html"
+    }
+  ]
+}

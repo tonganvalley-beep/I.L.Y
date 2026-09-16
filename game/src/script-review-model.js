@@ -57,6 +57,16 @@
             else node.title = record.text;
           }
           if (record.speaker != null) node.speaker = record.speaker;
+          // Explicit visual edits replace CG/multi-character staging so the selected
+          // background and portrait are the assets the scene renderer actually uses.
+          if (record.background != null) {
+            node.background = record.background;
+            delete node.cg;
+          }
+          if (record.portrait != null) {
+            node.portrait = record.portrait;
+            delete node.characters;
+          }
           // Classification controls playback for existing paragraphs as well as additions.
           // Structural nodes (choices, phones, gameplay) keep their interaction type.
           if (textTypes.includes(source.type)) {
@@ -92,5 +102,8 @@
     for (const [id, record] of Object.entries(local || {})) result[id] = { ...result[id], ...record };
     return result;
   }
-  window.ILYScriptReview = { kind, canDelete, ordered, addition, create, mergeRecords };
+  function serializeRecords(records) {
+    return '// Published script-editor changes. Import future exports with tools/import-script-review.mjs.\nwindow.ILY_SCRIPT_EDITS = ' + JSON.stringify(records, null, 2) + ';\n';
+  }
+  window.ILYScriptReview = { kind, canDelete, ordered, addition, create, mergeRecords, serializeRecords };
 })();
