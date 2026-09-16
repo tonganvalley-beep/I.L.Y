@@ -4,7 +4,8 @@
   const state = { current: null, records: {} };
   const channel = 'BroadcastChannel' in window ? new BroadcastChannel('ily-script-review') : null;
   let editorWindow = null, model = null, story = null, onChange = () => {}, version = 0;
-  const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; } };
+  const withPublished = records => ILYScriptReview.mergeRecords(window.ILY_SCRIPT_EDITS, records);
+  const read = () => { try { return withPublished(JSON.parse(localStorage.getItem(KEY) || '{}')); } catch { return withPublished({}); } };
   const snapshot = node => {
     if (!node) return '';
     const { id, ...content } = node;
@@ -26,7 +27,7 @@
     const mounted = story.nodes[state.nodeId];
     const before = snapshot(mounted);
     const refreshable = ['dialogue', 'monologue', 'heroine-card', 'choice'].includes(mounted?.type);
-    state.records = event.data.records || {};
+    state.records = withPublished(event.data.records);
     model.apply(state.records);
     localStorage.setItem(KEY, JSON.stringify(state.records));
     if (refreshable && before !== snapshot(story.nodes[state.nodeId])) onChange(state.nodeId, mounted.next);

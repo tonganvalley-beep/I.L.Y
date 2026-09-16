@@ -77,11 +77,11 @@
       const message = { type: 'ily-script-save', records: state.records };
       window.opener?.postMessage(message, '*'); channel?.postMessage(message);
       dirty = false;
-      status('已保存到本机浏览器并回传游戏，当前文本已刷新；旁白直接显示在画面中。');
+      status('已保存到本机浏览器并回传游戏。要保存到项目并上传，请导出 JSON 后导入项目。');
     } catch { status('保存失败，请导出 JSON 备份后重试。'); }
   }
   $('save').onclick = save;
-  $('clear').onclick = () => { state.records = {}; save(); render(); status('已清除本地修改并恢复原始段落。'); };
+  $('clear').onclick = () => { state.records = model.mergeRecords(window.ILY_SCRIPT_EDITS); save(); render(); status('已清除本地修改并恢复项目已发布的剧本。'); };
   $('show-deleted').onchange = () => render();
   $('export').onclick = () => {
     const a = document.createElement('a');
@@ -106,6 +106,7 @@
   if (channel) channel.onmessage = event => apply(event.data);
   addEventListener('beforeunload', event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
   try { state.records = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
+  state.records = model.mergeRecords(window.ILY_SCRIPT_EDITS, state.records);
   window.opener?.postMessage({ type: 'ily-script-editor-ready' }, '*');
   channel?.postMessage({ type: 'ily-script-editor-ready' });
   render(); sync(); setInterval(sync, 250);

@@ -87,5 +87,10 @@
     }
     return { base, apply };
   }
-  window.ILYScriptReview = { kind, canDelete, ordered, addition, create };
+  function mergeRecords(published = {}, local = {}) {
+    const result = { ...published };
+    for (const [id, record] of Object.entries(local || {})) result[id] = { ...result[id], ...record };
+    return result;
+  }
+  window.ILYScriptReview = { kind, canDelete, ordered, addition, create, mergeRecords };
 })();
