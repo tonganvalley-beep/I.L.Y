@@ -1,0 +1,3 @@
+﻿line_id	chapter	chapter_title	scene	route	order	speaker	kind	display_text	context_before	context_after	speech_text	translation_status	translation_note	pronunciation_note	source_fingerprint	source_revision
+her_0043	heroine	女主视角 · 青	01-02		1085	优那	dialogue	有点像	her_0042 | 蝶 | 是变态吗？	her_0044 | 蝶 | 呜——哇 好可怕啊		untranslated			d92e2c4eb85c976ff534473f5de2d246570c0bec066b33316a12f4d4bb89c595	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f
+her_0045	heroine	女主视角 · 青	01-02		1087	优那	dialogue	你等下啦 他听得到的…	her_0044 | 蝶 | 呜——哇 好可怕啊	her_scene_01_03 | heroine-card | 基生的房间		untranslated			b826a5674860fba09c87944da748bb1ccc1ef835fa8c2cdc09a4c55aa2370b3d	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f

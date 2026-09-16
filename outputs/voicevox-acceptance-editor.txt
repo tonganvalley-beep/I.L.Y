@@ -1,0 +1,1 @@
+Editor PASS: source load, <=200-row pagination, live engine discovery, line selection, Japanese editing, style selection, real audio query, search/clear, zero page errors. No project saved.

@@ -1,0 +1,4 @@
+﻿line_id	chapter	chapter_title	scene	route	order	speaker	kind	display_text	context_before	context_after	speech_text	translation_status	translation_note	pronunciation_note	source_fingerprint	source_revision
+her_0041	heroine	女主视角 · 青	01-02		1083	蝶	dialogue	呜哇	her_0040 | 基生 | 这个怎么样？感觉你会喜欢。	her_0042 | 蝶 | 是变态吗？		untranslated			2b4ee4542d746fa22f41f09fe7b3f57cf5ae47bc3e78067d10a4308fcca929de	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f
+her_0042	heroine	女主视角 · 青	01-02		1084	蝶	dialogue	是变态吗？	her_0041 | 蝶 | 呜哇	her_0043 | 优那 | 有点像		untranslated			78a93e46f66f01cd657285b23e481937a59f03bcc8934a7f25affad95e7c98a2	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f
+her_0044	heroine	女主视角 · 青	01-02		1086	蝶	dialogue	呜——哇 好可怕啊	her_0043 | 优那 | 有点像	her_0045 | 优那 | 你等下啦 他听得到的…		untranslated			d72d21b36242a796ba8db52780eb70e0202905c3e9348de56003b72a8be2e23a	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f

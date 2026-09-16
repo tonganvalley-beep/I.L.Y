@@ -71,6 +71,7 @@ function mountHeroineRewind(context) {
   // Defer even an empty/skipped reel so the outer cleanup is installed first.
   timer = setTimeout(step, 0);
   return () => {
+    context.voice?.stop();
     disposed = true;
     clearTimeout(timer);
     cleanupCard();
@@ -80,8 +81,9 @@ function mountHeroineRewind(context) {
   };
 }
 
-function mountHeroinePhoneConversation({ stage, node, assets, go, isSkipping = () => false, setSkipping = () => {}, getSkipDelay = () => 140 }) {
+function mountHeroinePhoneConversation({ stage, node, assets, voice, go, isSkipping = () => false, setSkipping = () => {}, getSkipDelay = () => 140 }) {
   mountScene(stage, node, assets);
+  void voice?.play(node);
   const conversation = node.phoneConversation;
   const panel = el('section', 'heroine-sms-scene');
   if (conversation.variant === 'toya') panel.classList.add('heroine-sms-toya');
@@ -171,6 +173,7 @@ function mountHeroinePhoneConversation({ stage, node, assets, go, isSkipping = (
   window.addEventListener('ily:skipchange', scheduleSkip);
   scheduleSkip();
   return () => {
+    voice?.stop();
     disposed = true;
     clearTimeout(skipTimer);
     stage.removeEventListener('click', click, true);
@@ -185,6 +188,7 @@ function mountHeroineMoment(context) {
   if (node.rewindScene) return mountHeroineRewind(context);
   if (node.phoneConversation) return mountHeroinePhoneConversation(context);
   mountScene(stage, node, assets);
+  void context.voice?.play(node);
   if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
   if (node.sceneEffect) stage.querySelector('.scene')?.classList.add('chapter-' + node.sceneEffect);
   const card = node.type === 'heroine-card';
@@ -266,6 +270,7 @@ function mountHeroineMoment(context) {
   window.addEventListener('ily:skipchange', scheduleSkip);
   scheduleSkip();
   return () => {
+    context.voice?.stop();
     disposed = true;
     clearInterval(timer);
     clearTimeout(skipTimer);

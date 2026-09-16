@@ -5,6 +5,8 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createScriptReviewApi } from './script-review-api.mjs';
+import { createScriptReviewAssetApi } from './script-review-assets.mjs';
+import { createVoicevoxApi } from './voicevox-api.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const host = '127.0.0.1';
@@ -21,9 +23,9 @@ if (!Number.isInteger(requestedPort) || requestedPort < 1 || requestedPort > 655
 }
 
 const mime = {
-  '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8',
+  '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.mjs':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8',
   '.css':'text/css; charset=utf-8', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp',
-  '.svg':'image/svg+xml', '.ttf':'font/ttf', '.mp3':'audio/mpeg', '.ogg':'audio/ogg', '.mp4':'video/mp4'
+  '.svg':'image/svg+xml', '.ttf':'font/ttf', '.mp3':'audio/mpeg', '.ogg':'audio/ogg', '.wav':'audio/wav', '.mp4':'video/mp4'
 };
 
 function safeFilename(relative) {
@@ -34,11 +36,15 @@ function safeFilename(relative) {
 }
 
 const scriptReviewApi = createScriptReviewApi();
+const scriptReviewAssetApi = createScriptReviewAssetApi();
+const voicevoxApi = createVoicevoxApi();
 const server = http.createServer(async (request, response) => {
   try {
     const url = new URL(request.url, `http://${host}`);
     const pathname = decodeURIComponent(url.pathname);
     if (pathname === '/api/script-review') { await scriptReviewApi(request, response); return; }
+    if (pathname === '/api/script-review-asset') { await scriptReviewAssetApi(request, response); return; }
+    if (pathname.startsWith('/api/voicevox/')) { await voicevoxApi(request, response, pathname); return; }
     let relative = pathname.replace(/^\/+/, '');
     if (pathname.endsWith('/')) relative += 'index.html';
     const filename = safeFilename(relative);

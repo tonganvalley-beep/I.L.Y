@@ -1,6 +1,7 @@
 Object.assign(ILY.data.assets.images, {
   "ch2-stone": "assets/images/backgrounds/ch2-stone.jpg",
   "ch2-ice": "assets/images/cg/ch2-ice.jpg",
+  "ch2-香草": "assets/images/cg/ch2-香草.jpg",
   "ch2-vending": "assets/images/backgrounds/ch2-vending.jpg",
   "ch2-adult": "assets/images/cg/ch2-adult.jpg",
   "ch2-smile": "assets/images/cg/ch2-smile.jpg",
@@ -23,6 +24,8 @@ Object.assign(ILY.data.assets.images, {
   "airi-sailor-rpg-sheet": "assets/images/maps/airi-sailor-rpg-sheet.png",
   "npc-coworker": "assets/images/characters/npc-coworker.png",
   "npc-hibiya": "assets/images/characters/npc-hibiya.png",
+  "npc-airi-back": "assets/images/characters/npc-airi-back.png",
+  "npc-airi-adult-back": "assets/images/characters/npc-airi-adult-back.png",
   "ch3-battery-full": "assets/images/cg/ch3-battery-full.png",
   "ch3-battery-medium": "assets/images/cg/ch3-battery-medium.png",
   "ch3-battery-low": "assets/images/cg/ch3-battery-low.png",

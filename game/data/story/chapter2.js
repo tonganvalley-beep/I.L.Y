@@ -2370,8 +2370,12 @@ ILY.data.stories.chapter2 = {
       "scene": "S07",
       "background": "ch2-shop",
       "cg": "ch2-ice",
-      "backgroundFit": "contain",
-      "next": "ch2_s08"
+      "backgroundFit": "cover",
+      "next": "ch2_216_vanilla",
+      "when": {
+        "key": "CH2_ICE",
+        "value": "草莓"
+      }
     },
     "ch2_s07-e": {
       "type": "monologue",
@@ -2832,6 +2836,22 @@ ILY.data.stories.chapter2 = {
       "ending": "ENDING_JUST2",
       "achievement": "Just two of us",
       "checkpoint": true
+    },
+    "ch2_216_vanilla": {
+      "type": "dialogue",
+      "text": "请拿好，欢迎下次光临—",
+      "speaker": "店员",
+      "chapter": "chapter2",
+      "chapterTitle": "第二章 · 约定与夕阳",
+      "scene": "S07",
+      "background": "ch2-shop",
+      "cg": "ch2-香草",
+      "backgroundFit": "cover",
+      "next": "ch2_s08",
+      "when": {
+        "key": "CH2_ICE",
+        "value": "香草"
+      }
     }
   }
 };

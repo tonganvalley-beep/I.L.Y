@@ -4,8 +4,9 @@ const { el, button, mountScene } = ILY;
 function isDialogueSkippable(node) {
   return ['dialogue', 'monologue', 'heroine-card'].includes(node?.type) && typeof node.next === 'string' && node.next.length > 0;
 }
-function mountDialogue({stage, node, state, assets, go, isSkipping = () => false, setSkipping = () => {}, getSkipDelay = () => 140}) {
+function mountDialogue({stage, node, state, assets, voice, go, isSkipping = () => false, setSkipping = () => {}, getSkipDelay = () => 140}) {
   mountScene(stage, node, assets);
+  void voice?.play(node);
   if(node.screenText){const impulse=el('div','chapter-impulse',node.screenText);stage.append(impulse);}
   if(node.sceneEffect)stage.querySelector('.scene')?.classList.add('chapter-'+node.sceneEffect);
   if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
@@ -87,7 +88,7 @@ function mountDialogue({stage, node, state, assets, go, isSkipping = () => false
   stage.addEventListener('click', click, true);
   window.addEventListener('keydown', key);
   scheduleSkip();
-  return () => { clearInterval(timer); clearTimeout(skipTimer); stage.removeEventListener('click', click, true); window.removeEventListener('keydown', key); window.removeEventListener('ily:langchange', onLang); window.removeEventListener('ily:skipchange', onSkipChange); };
+  return () => { voice?.stop(); clearInterval(timer); clearTimeout(skipTimer); stage.removeEventListener('click', click, true); window.removeEventListener('keydown', key); window.removeEventListener('ily:langchange', onLang); window.removeEventListener('ily:skipchange', onSkipChange); };
 }
 Object.assign(ILY, { isDialogueSkippable, mountDialogue });
 })();

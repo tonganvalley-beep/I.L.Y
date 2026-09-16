@@ -18,3 +18,9 @@ tools/chapter1/*.png
 # Script editor local recovery backup and atomic-save temporary files
 game/data/story/script-edits.js.bak
 game/data/story/script-edits-*.tmp
+
+# VOICEVOX local queue state, render cache, and atomic temporary files
+game/data/voice/voicevox-queue.json
+game/data/voice/renders/
+game/data/voice/*.bak
+game/data/voice/*.tmp

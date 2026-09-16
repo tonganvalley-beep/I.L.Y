@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "voicevox-character-batch-import",
+  "sourceRevision": "707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f",
+  "total": 691,
+  "files": [
+    {
+      "voiceRole": "成田基生",
+      "file": "成田基生.tsv",
+      "count": 446,
+      "sourceSpeakers": [
+        "成田基生",
+        "基生"
+      ]
+    },
+    {
+      "voiceRole": "主管",
+      "file": "主管.tsv",
+      "count": 4,
+      "sourceSpeakers": [
+        "主管"
+      ]
+    },
+    {
+      "voiceRole": "快递员",
+      "file": "快递员.tsv",
+      "count": 2,
+      "sourceSpeakers": [
+        "快递员"
+      ]
+    },
+    {
+      "voiceRole": "百合沢爱理",
+      "file": "百合沢爱理.tsv",
+      "count": 239,
+      "sourceSpeakers": [
+        "百合沢爱理",
+        "“爱理”",
+        "爱理"
+      ]
+    }
+  ]
+}

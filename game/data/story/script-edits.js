@@ -529,7 +529,8 @@ window.ILY_SCRIPT_EDITS = {
   "ch1_109": {
     "kind": "旁白",
     "speaker": "",
-    "text": "基生赶紧冲进浴室，本想在“爱理”洗澡之前收拾一下，没想到却——眼前的少女刚准备换下衣服，似乎根本没有想到这里会来人。\n"
+    "text": "基生赶紧冲进浴室，本想在“爱理”洗澡之前收拾一下，没想到却——眼前的少女刚准备换下衣服，似乎根本没有想到这里会来人。\n",
+    "background": "bg-upload-20260916-38ab6e"
   },
   "ch1_097": {
     "deleted": true
@@ -705,7 +706,8 @@ window.ILY_SCRIPT_EDITS = {
   "ch2_247": {
     "kind": "旁白",
     "speaker": "",
-    "text": "夕阳下，出现了一名留着长发、拥有成年女性身形的人。"
+    "text": "夕阳下，出现了一名留着长发、拥有成年女性身形的人。",
+    "background": "bg-upload-20260916-a1be98"
   },
   "review_00e5134b-af15-44a7-b0b8-d476a4e964de": {
     "added": true,
@@ -723,7 +725,8 @@ window.ILY_SCRIPT_EDITS = {
     },
     "kind": "旁白",
     "speaker": "",
-    "text": "她与爱理极为相似，却又不是他刚才看到的模样。"
+    "text": "她与爱理极为相似，却又不是他刚才看到的模样。",
+    "background": "bg-upload-20260916-a1be98"
   },
   "review_a826ebd8-0b0b-432b-bd70-d2c66e76b075": {
     "added": true,
@@ -741,17 +744,20 @@ window.ILY_SCRIPT_EDITS = {
     },
     "kind": "旁白",
     "speaker": "",
-    "text": "纤细的身姿在夕阳的映照下那样动人，长发在风中飘舞着，仿佛晚风吹过的细柳；而那双动人的酒红色双眸，和那张似曾相识却又十分成熟的面庞——"
+    "text": "纤细的身姿在夕阳的映照下那样动人，长发在风中飘舞着，仿佛晚风吹过的细柳；而那双动人的酒红色双眸，和那张似曾相识却又十分成熟的面庞——",
+    "background": "bg-upload-20260916-a1be98"
   },
   "ch3_102": {
     "kind": "旁白",
     "speaker": "基生沉默地回想着爱理曾经展露的各种笑容",
-    "text": "回头看他的笑、闭着眼睛的灿烂笑容，以及陪在他身边时温柔的微笑……"
+    "text": "回头看他的笑、闭着眼睛的灿烂笑容，以及陪在他身边时温柔的微笑……",
+    "background": "bg-upload-20260916-d159cd"
   },
   "ch3_108": {
     "kind": "旁白",
     "speaker": "",
-    "text": "夕阳沉入无边的大海，炽热的感情在浩如烟海的时间里慢慢冷却。"
+    "text": "夕阳沉入无边的大海，炽热的感情在浩如烟海的时间里慢慢冷却。",
+    "background": "bg-upload-20260916-da96d4"
   },
   "review_ad7848a8-1630-4e0e-b099-c2192106a0dd": {
     "added": true,
@@ -769,27 +775,32 @@ window.ILY_SCRIPT_EDITS = {
     },
     "kind": "旁白",
     "speaker": "",
-    "text": "过往的欢喜与苦痛都早已成为箱底的旧相册，只在翻阅时，能略微追忆起当时那浸入骨髓的情愫。"
+    "text": "过往的欢喜与苦痛都早已成为箱底的旧相册，只在翻阅时，能略微追忆起当时那浸入骨髓的情愫。",
+    "background": "bg-upload-20260916-da96d4"
   },
   "ch3_153": {
     "kind": "旁白",
     "speaker": "旁白",
-    "text": "”是虚构出来的爱理呢“"
+    "text": "”是虚构出来的爱理呢“",
+    "background": "bg-upload-20260916-b0d006"
   },
   "ch3_154": {
     "kind": "旁白",
     "speaker": "旁白",
-    "text": "“我真的非常喜欢基生哦”"
+    "text": "“我真的非常喜欢基生哦”",
+    "background": "bg-upload-20260916-ebeef1"
   },
   "ch3_155": {
     "kind": "旁白",
     "speaker": "旁白",
-    "text": "“我呢，下个月就要结婚了”"
+    "text": "“我呢，下个月就要结婚了”",
+    "background": "bg-upload-20260916-bc6a8b"
   },
   "ch3_157": {
     "kind": "旁白",
     "speaker": "旁白",
-    "text": "“再见了，基生君”"
+    "text": "“再见了，基生君”",
+    "background": "bg-upload-20260916-a1be98"
   },
   "review_55736349-f8a2-40c8-b7e5-907a0f2c4054": {
     "added": true,
@@ -807,7 +818,8 @@ window.ILY_SCRIPT_EDITS = {
     },
     "kind": "旁白",
     "speaker": "基生沉默地回想着爱理曾经展露的各种笑容",
-    "text": "他终于意识到，那些自己从未怀疑过的表情背后，可能一直隐藏着痛苦。"
+    "text": "他终于意识到，那些自己从未怀疑过的表情背后，可能一直隐藏着痛苦。",
+    "background": "bg-upload-20260916-1ed78f"
   },
   "review_0ddb47d0-2cad-4510-8d1a-12cde0c03d83": {
     "added": true,
@@ -825,17 +837,22 @@ window.ILY_SCRIPT_EDITS = {
     },
     "kind": "旁白",
     "speaker": "基生沉默地回想着爱理曾经展露的各种笑容",
-    "text": "基生沉默地回想着爱理曾经展露的各种笑容"
+    "text": "基生沉默地回想着爱理曾经展露的各种笑容",
+    "background": "bg-upload-20260916-d159cd"
   },
   "ch3_263": {
     "kind": "旁白",
     "speaker": "记忆里“爱理”的声音",
-    "text": "”我，想和基生一直在一起。“"
+    "text": "”我，想和基生一直在一起。“",
+    "background": "ch1-coast-night",
+    "portrait": "airi-blush"
   },
   "ch3_261": {
     "kind": "旁白",
     "speaker": "记忆里“爱理”的声音",
-    "text": "”最喜欢你了，基生。“"
+    "text": "”最喜欢你了，基生。“",
+    "background": "ch1-coast-night",
+    "portrait": "airi-blush"
   },
   "ch3_331": {
     "kind": "旁白",
@@ -995,12 +1012,14 @@ window.ILY_SCRIPT_EDITS = {
   "her_scene_04_09": {
     "kind": "旁白",
     "speaker": "",
-    "text": "第一次见面的海边"
+    "text": "第一次见面的海边",
+    "background": "bg-upload-20260916-66a267"
   },
   "her_0229": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "果然，我变不回去了..."
+    "text": "果然，我变不回去了...",
+    "background": "bg-upload-20260916-66a267"
   },
   "her_scene_05_01": {
     "kind": "旁白",
@@ -1061,162 +1080,224 @@ window.ILY_SCRIPT_EDITS = {
   "fin_116": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "人们对于他人的牵挂之情，不应当被我们这群，在人类的儿戏之下诞生的怪物，肆意抹去。"
+    "text": "人们对于他人的牵挂之情，不应当被我们这群，在人类的儿戏之下诞生的怪物，肆意抹去。",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_094": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "哈啊……哈啊……哈啊……"
+    "text": "哈啊……哈啊……哈啊……",
+    "portrait": "",
+    "background": "bg-upload-20260916-1d8b0f"
   },
   "fin_095": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "基生……"
+    "text": "基生……",
+    "portrait": "",
+    "background": "bg-upload-20260916-1d8b0f"
   },
   "fin_096": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "对不起……非常对不起……"
+    "text": "对不起……非常对不起……",
+    "portrait": "",
+    "background": "bg-upload-20260916-1d8b0f"
   },
   "fin_097": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "……我，已经快要，消失了。"
+    "text": "……我，已经快要，消失了。",
+    "portrait": "",
+    "background": "bg-upload-20260916-1d8b0f"
   },
   "fin_099": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "嗯……这种事，我能感觉到。"
+    "text": "嗯……这种事，我能感觉到。",
+    "background": "bg-upload-20260916-9980f9",
+    "portrait": ""
   },
   "fin_100": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "如果我……"
+    "text": "如果我……",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_101": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "坚持不吃掉人类的话，就没办法变回‘ILY’。"
+    "text": "坚持不吃掉人类的话，就没办法变回‘ILY’。",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_102": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "这样的话，‘ILY’的内部一定会发生故障……甚至还可能会使整个‘ILY’都发生崩坏。"
+    "text": "这样的话，‘ILY’的内部一定会发生故障……甚至还可能会使整个‘ILY’都发生崩坏。",
+    "portrait": "",
+    "background": "bg-upload-20260916-1d8b0f"
   },
   "fin_109": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "如果\"ILY\"令一个人从世上消失，那么下一个被感染而消失的，就会是牵挂着那个人的另一个人。"
+    "text": "如果\"ILY\"令一个人从世上消失，那么下一个被感染而消失的，就会是牵挂着那个人的另一个人。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_108": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我自己，并不想做那种事情。"
+    "text": "我自己，并不想做那种事情。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_107": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不要这样，基生。"
+    "text": "不要这样，基生。",
+    "background": "bg-upload-20260916-b49c2c",
+    "portrait": ""
   },
   "fin_110": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "而后，又再一次传染到下一个，牵挂着后者的人身上……"
+    "text": "而后，又再一次传染到下一个，牵挂着后者的人身上……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_111": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "\"ILY\"是不会停止下来的。"
+    "text": "\"ILY\"是不会停止下来的。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_112": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "这样下去，迟早有一天，人类会从这个世界上消失掉。"
+    "text": "这样下去，迟早有一天，人类会从这个世界上消失掉。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_113": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "但是呢，我不希望人类消失。"
+    "text": "但是呢，我不希望人类消失。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_114": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我不想失去，基生教会我的这种名为‘喜欢’的感情……不想失去，这份令我感到温暖的感觉。"
+    "text": "我不想失去，基生教会我的这种名为‘喜欢’的感情……不想失去，这份令我感到温暖的感觉。",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_115": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "这种事情，无论谁都会这么想吧。"
+    "text": "这种事情，无论谁都会这么想吧。",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_117": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "所以啊……"
+    "text": "所以啊……",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_118": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "请你什么都不要说。求求你。"
+    "text": "请你什么都不要说。求求你。",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_119": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我直到最后，都想当基生所思念的那个\"ILY\"。"
+    "text": "我直到最后，都想当基生所思念的那个\"ILY\"。",
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
   },
   "fin_121": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "那个，基生，"
+    "text": "那个，基生，",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_122": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "那个啊……"
+    "text": "那个啊……",
+    "background": "bg-upload-20260916-b49c2c",
+    "portrait": ""
   },
   "fin_123": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我因为已经是这副样子了，即便你讨厌我也好，即便你害怕我也好……"
+    "text": "我因为已经是这副样子了，即便你讨厌我也好，即便你害怕我也好……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_124": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "直到最后……我消失掉为止，可以静静地，在我身旁听我讲一些话吗？"
+    "text": "直到最后……我消失掉为止，可以静静地，在我身旁听我讲一些话吗？",
+    "background": "bg-upload-20260916-b49c2c",
+    "portrait": ""
   },
   "fin_125": {
     "kind": "台词",
     "speaker": "基生",
-    "text": "呜呜、呜呜、"
+    "text": "呜呜、呜呜、",
+    "background": "bg-upload-20260916-ec7c7c"
   },
   "fin_126": {
     "kind": "台词",
     "speaker": "基生",
-    "text": "嗯、"
+    "text": "嗯、",
+    "background": "bg-upload-20260916-ec7c7c"
   },
   "fin_128": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "那个呢，"
+    "text": "那个呢，",
+    "portrait": "",
+    "background": "bg-upload-20260916-fe23ed"
   },
   "fin_129": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我，和基生呆在一起的时候，非常的开心。"
+    "text": "我，和基生呆在一起的时候，非常的开心。",
+    "portrait": "",
+    "background": "bg-upload-20260916-fe23ed"
   },
   "fin_130": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "能成为“爱理”……我能够成为”ILY“，真是太好了。"
+    "text": "能成为“爱理”……我能够成为”ILY“，真是太好了。",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_131": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "谢谢你一直注视着我，触摸我，还给予我你温柔的声音。"
+    "text": "谢谢你一直注视着我，触摸我，还给予我你温柔的声音。",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_132": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "谢谢你。"
+    "text": "谢谢你。",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_s07": {
     "kind": "旁白",
@@ -1251,272 +1332,378 @@ window.ILY_SCRIPT_EDITS = {
   "fin_010": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "……其实"
+    "text": "……其实",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_011": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "在那天、"
+    "text": "在那天、",
+    "background": "bg-upload-20260916-b49c2c",
+    "portrait": ""
   },
   "fin_012": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "最开始，在海边遇到基生那天，我本来打算，立刻把基生吃掉的。一切本该就此结束。"
+    "text": "最开始，在海边遇到基生那天，我本来打算，立刻把基生吃掉的。一切本该就此结束。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_013": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "如果把基生，也就是人类吃掉的话，那个人就会变成所有‘ILY’的食粮。"
+    "text": "如果把基生，也就是人类吃掉的话，那个人就会变成所有‘ILY’的食粮。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_014": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "然后我们就会去寻找下一个感染者，再将他吃掉……"
+    "text": "然后我们就会去寻找下一个感染者，再将他吃掉……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_015": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我们就是这样生存下来的。"
+    "text": "我们就是这样生存下来的。",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_016": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "一切本该只是这个过程的一次重复。"
+    "text": "一切本该只是这个过程的一次重复。",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_017": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "……"
+    "text": "……",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_018": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "可是，在基生问我‘喜欢’是什么的时候……"
+    "text": "可是，在基生问我‘喜欢’是什么的时候……",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_019": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我自己，一句话都说不出来。"
+    "text": "我自己，一句话都说不出来。",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_020": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "因为我对这种感情，一无所知。"
+    "text": "因为我对这种感情，一无所知。",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_021": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "所以……"
+    "text": "所以……",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_022": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "到那时为止，我想，我还只是\"作为 ILY 病毒\"而存在着。"
+    "text": "到那时为止，我想，我还只是\"作为 ILY 病毒\"而存在着。",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_023": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "但也只到那时为止……"
+    "text": "但也只到那时为止……",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_024": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "因为，一旦明白了‘喜欢’……原来是那么温暖、又那么珍贵的心情……"
+    "text": "因为，一旦明白了‘喜欢’……原来是那么温暖、又那么珍贵的心情……",
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
   },
   "fin_025": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我怎么可能，去吃下抱着这种心情的人啊……！"
+    "text": "我怎么可能，去吃下抱着这种心情的人啊……！",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_026": {
     "kind": "台词",
     "speaker": "基生",
-    "text": "……！"
+    "text": "……！",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_027": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我啊，从那之后，在和基生一起的生活中，完全理解了基生你对\"爱理\"的那份思念。"
+    "text": "我啊，从那之后，在和基生一起的生活中，完全理解了基生你对\"爱理\"的那份思念。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_028": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "基生的言语……也是，那些无法用言语表达的东西也是，都传递到了我的心里。"
+    "text": "基生的言语……也是，那些无法用言语表达的东西也是，都传递到了我的心里。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_029": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "基生的眼神、声音，全部都是那么地温暖，好像要溢出来一样，让我十分舒服……"
+    "text": "基生的眼神、声音，全部都是那么地温暖，好像要溢出来一样，让我十分舒服……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_030": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我非常地羡慕\"爱理\"。"
+    "text": "我非常地羡慕\"爱理\"。",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_031": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "她竟然被基生这样珍惜、这样思念，真好啊……"
+    "text": "她竟然被基生这样珍惜、这样思念，真好啊……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_032": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "要是能变成真正的\"爱理\"就好了，我无数次地这么想……"
+    "text": "要是能变成真正的\"爱理\"就好了，我无数次地这么想……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_033": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "但是这种事情，是不可能的……"
+    "text": "但是这种事情，是不可能的……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_034": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "因为我……就是这样的……"
+    "text": "因为我……就是这样的……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_035": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "这样的，让人害怕的生物……"
+    "text": "这样的，让人害怕的生物……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_036": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我明明知道这件事，但我还……"
+    "text": "我明明知道这件事，但我还……",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_050": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "是……是这样吗……？"
+    "text": "是……是这样吗……？",
+    "portrait": "",
+    "background": "bg-upload-20260916-b49c2c"
   },
   "fin_047": {
     "kind": "台词",
     "speaker": "基生",
-    "text": "我的那份感情，一定是倾注在了，找到了我、陪伴着我的\"ILY\"身上。"
+    "text": "我的那份感情，一定是倾注在了，找到了我、陪伴着我的\"ILY\"身上。",
+    "background": "bg-upload-20260916-d52e87"
   },
   "fin_052": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "呜呜、"
+    "text": "呜呜、",
+    "portrait": "",
+    "background": "bg-upload-20260916-fe23ed"
   },
   "fin_053": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "呜呜呜、呜呜、"
+    "text": "呜呜呜、呜呜、",
+    "portrait": "",
+    "background": "bg-upload-20260916-d52e87"
   },
   "fin_054": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "呜呜呜、"
+    "text": "呜呜呜、",
+    "portrait": "",
+    "background": "bg-upload-20260916-fe23ed"
   },
   "fin_055": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "基生……"
+    "text": "基生……",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_056": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我真的好高兴，真的好高兴呢……"
+    "text": "我真的好高兴，真的好高兴呢……",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_057": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "基生……"
+    "text": "基生……",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_058": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "那个……"
+    "text": "那个……",
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
   },
   "fin_087": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不是这样，基生，"
+    "text": "不是这样，基生，",
+    "background": "bg-upload-20260916-f34440",
+    "portrait": ""
   },
   "fin_085": {
     "kind": "台词",
     "speaker": "爱理",
-    "text": "不要！！"
+    "text": "不要！！",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_084": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不对！"
+    "text": "不对！",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_082": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我讨厌这样……"
+    "text": "我讨厌这样……",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_081": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我，讨厌这样。"
+    "text": "我，讨厌这样。",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_080": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "为什么会这样？"
+    "text": "为什么会这样？",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_078": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "呜呜……为什么啊，"
+    "text": "呜呜……为什么啊，",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_076": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不要这样！！"
+    "text": "不要这样！！",
+    "background": "bg-upload-20260916-1047d9",
+    "portrait": ""
   },
   "fin_075": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不要！！"
+    "text": "不要！！",
+    "portrait": "",
+    "background": "bg-upload-20260916-1047d9"
   },
   "fin_073": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "你什么都不要说，我不会吃掉你的。"
+    "text": "你什么都不要说，我不会吃掉你的。",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_072": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "对不起，基生，"
+    "text": "对不起，基生，",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_071": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "对不起，"
+    "text": "对不起，",
+    "portrait": "",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_069": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "我早就不希望那样了！！"
+    "text": "我早就不希望那样了！！",
+    "portrait": "",
+    "background": "bg-upload-20260916-1047d9"
   },
   "fin_068": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不要！！"
+    "text": "不要！！",
+    "portrait": "",
+    "background": "bg-upload-20260916-1047d9"
   },
   "fin_066": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不要！！"
+    "text": "不要！！",
+    "portrait": "",
+    "background": "bg-upload-20260916-1047d9"
   },
   "fin_065": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不是这样！！"
+    "text": "不是这样！！",
+    "portrait": "",
+    "background": "bg-upload-20260916-1047d9"
   },
   "fin_063": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不是这样！！"
+    "text": "不是这样！！",
+    "background": "bg-upload-20260916-1047d9",
+    "portrait": ""
   },
   "fin_061": {
     "kind": "台词",
     "speaker": "ILY",
-    "text": "不是……！"
+    "text": "不是……！",
+    "background": "bg-upload-20260916-1047d9",
+    "portrait": ""
   },
   "fin_060": {
     "kind": "旁白",
@@ -1556,7 +1743,8 @@ window.ILY_SCRIPT_EDITS = {
   "fin_083": {
     "kind": "旁白",
     "speaker": "",
-    "text": "\"说喜欢我\""
+    "text": "\"说喜欢我\"",
+    "background": "bg-upload-20260916-d4d499"
   },
   "fin_088": {
     "kind": "旁白",
@@ -1567,5 +1755,1263 @@ window.ILY_SCRIPT_EDITS = {
     "kind": "旁白",
     "speaker": "",
     "text": "\"说喜欢我\""
+  },
+  "ch1_018": {
+    "background": "bg-upload-20260916-24c8bb",
+    "portrait": "portrait-upload-20260916-0a27a1"
+  },
+  "ch1_110": {
+    "background": "bg-upload-20260916-38ab6e"
+  },
+  "ch1_111": {
+    "background": "bg-upload-20260916-38ab6e",
+    "portrait": ""
+  },
+  "ch1_112": {
+    "background": "bg-upload-20260916-38ab6e"
+  },
+  "ch1_113": {
+    "background": "bg-upload-20260916-38ab6e",
+    "portrait": ""
+  },
+  "ch1_282": {
+    "background": "bg-upload-20260916-e2cf64"
+  },
+  "ch1_359": {
+    "background": "bg-upload-20260916-416ad2"
+  },
+  "ch1_360": {
+    "background": "bg-upload-20260916-416ad2"
+  },
+  "ch2_106": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_107": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_108": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_109": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_110": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_111": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_113": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_114": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_115": {
+    "background": "bg-upload-20260916-1b5b2a"
+  },
+  "ch2_g5": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "ch2_246": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "ch2_248": {
+    "background": "bg-upload-20260916-b389f3"
+  },
+  "ch2_249": {
+    "background": "bg-upload-20260916-b389f3"
+  },
+  "ch2_250": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "ch2_251": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "ch2_252": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "ch2_253": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch2_254": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch2_255": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch2_256": {
+    "background": "bg-upload-20260916-b389f3"
+  },
+  "ch2_257": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "ch3_s01": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "ch3_001": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "ch3_002": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "ch3_003": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "ch3_004": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_005": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_006": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_007": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_008": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_009": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_010": {
+    "background": "bg-upload-20260916-55b3e1"
+  },
+  "ch3_014": {
+    "background": "bg-upload-20260916-55b3e1"
+  },
+  "ch3_019": {
+    "background": "bg-upload-20260916-a96c03"
+  },
+  "ch3_020": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_021": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_022": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_024": {
+    "background": "bg-upload-20260916-b354aa"
+  },
+  "ch3_023": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_025": {
+    "background": "bg-upload-20260916-b354aa"
+  },
+  "ch3_032": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_033": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_034": {
+    "background": "bg-upload-20260916-747baf"
+  },
+  "ch3_036": {
+    "background": "bg-upload-20260916-dec4f8",
+    "kind": "旁白",
+    "speaker": "",
+    "text": "基生与爱理面对面站在海边，两人之间隔着一段略显生疏的距离，身后的夕阳正缓缓沉向海平线。"
+  },
+  "ch3_037": {
+    "background": "bg-upload-20260916-a347c4"
+  },
+  "ch3_038": {
+    "background": "bg-upload-20260916-a347c4"
+  },
+  "ch3_039": {
+    "background": "bg-upload-20260916-b354aa"
+  },
+  "ch3_040": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_041": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_042": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_043": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_047": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_052": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_053": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_054": {
+    "background": "bg-upload-20260916-8501d9",
+    "deleted": true
+  },
+  "ch3_055": {
+    "deleted": true
+  },
+  "ch3_056": {
+    "background": "bg-upload-20260916-a96c03"
+  },
+  "ch3_057": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_058": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_059": {
+    "background": "bg-upload-20260916-b354aa"
+  },
+  "ch3_063": {
+    "background": "bg-upload-20260916-61d5b6"
+  },
+  "ch3_064": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_065": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_066": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_067": {
+    "background": "bg-upload-20260916-e482c1"
+  },
+  "ch3_069": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_070": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_072": {
+    "background": "bg-upload-20260916-1978ba",
+    "deleted": true
+  },
+  "ch3_074": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_075": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_077": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_078": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_079": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_080": {
+    "background": "bg-upload-20260916-a347c4"
+  },
+  "ch3_081": {
+    "background": "bg-upload-20260916-a347c4"
+  },
+  "ch3_082": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_083": {
+    "background": "bg-upload-20260916-8501d9",
+    "kind": "旁白",
+    "speaker": "",
+    "text": "爱理目光略微低垂，开始解释自己高中毕业后突然消失的原因。"
+  },
+  "ch3_084": {
+    "background": "bg-upload-20260916-6f206a"
+  },
+  "ch3_085": {
+    "background": "bg-upload-20260916-6f206a"
+  },
+  "ch3_086": {
+    "background": "bg-upload-20260916-6f206a"
+  },
+  "ch3_087": {
+    "background": "bg-upload-20260916-2045ae"
+  },
+  "ch3_088": {
+    "background": "bg-upload-20260916-2f6cf6",
+    "kind": "旁白",
+    "speaker": "",
+    "text": "基生望着她，神情越发茫然。"
+  },
+  "review_4b6d016b-9044-48cf-805b-71f76f078647": {
+    "added": true,
+    "anchor": "ch3_088",
+    "position": "before",
+    "node": {
+      "type": "monologue",
+      "speaker": "",
+      "text": "",
+      "next": "ch3_089",
+      "chapter": "chapter3",
+      "chapterTitle": "第三章 · 过去与现在",
+      "scene": "S01",
+      "background": "ch2-sunset"
+    },
+    "kind": "旁白",
+    "speaker": "",
+    "text": "",
+    "deleted": true
+  },
+  "review_8f015766-7e4d-4a51-a4d6-684bc4f4f7d9": {
+    "added": true,
+    "anchor": "ch3_088",
+    "position": "after",
+    "node": {
+      "type": "monologue",
+      "speaker": "",
+      "text": "",
+      "next": "ch3_089",
+      "chapter": "chapter3",
+      "chapterTitle": "第三章 · 过去与现在",
+      "scene": "S01",
+      "background": "ch2-sunset"
+    },
+    "kind": "旁白",
+    "speaker": "",
+    "text": "在他的记忆中，学生时代的爱理总是笑得十分灿烂，从来没有显露过痛苦。",
+    "background": "bg-upload-20260916-747baf"
+  },
+  "ch3_089": {
+    "background": "bg-upload-20260916-b354aa"
+  },
+  "ch3_090": {
+    "background": "bg-upload-20260916-e00373"
+  },
+  "ch3_093": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_094": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_095": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_096": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_097": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_098": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_099": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_100": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_101": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_103": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_104": {
+    "background": "bg-upload-20260916-1ed78f"
+  },
+  "ch3_105": {
+    "background": "bg-upload-20260916-1ed78f"
+  },
+  "ch3_106": {
+    "background": "bg-upload-20260916-1ed78f"
+  },
+  "ch3_107": {
+    "background": "bg-upload-20260916-1978ba"
+  },
+  "ch3_109": {
+    "background": "bg-upload-20260916-014ea2"
+  },
+  "ch3_110": {
+    "background": "bg-upload-20260916-2b97ad"
+  },
+  "ch3_111": {
+    "background": "bg-upload-20260916-2b97ad"
+  },
+  "ch3_112": {
+    "background": "bg-upload-20260916-5a2481"
+  },
+  "ch3_113": {
+    "background": "bg-upload-20260916-5a2481"
+  },
+  "ch3_114": {
+    "background": "bg-upload-20260916-61d5b6"
+  },
+  "ch3_115": {
+    "background": "bg-upload-20260916-61d5b6"
+  },
+  "ch3_116": {
+    "background": "bg-upload-20260916-d6b3fd"
+  },
+  "ch3_117": {
+    "background": "bg-upload-20260916-d6b3fd"
+  },
+  "ch3_118": {
+    "background": "bg-upload-20260916-1dc8d1"
+  },
+  "ch3_119": {
+    "background": "bg-upload-20260916-33b3a5",
+    "kind": "旁白",
+    "speaker": "",
+    "text": "爱理微微转过头，露出温柔而遗憾的、复杂的笑容。"
+  },
+  "ch3_120": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_121": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_122": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "ch3_123": {
+    "background": "bg-upload-20260916-61d5b6",
+    "deleted": true
+  },
+  "ch3_124": {
+    "background": "bg-upload-20260916-a347c4"
+  },
+  "ch3_125": {
+    "background": "bg-upload-20260916-61d5b6"
+  },
+  "ch3_126": {
+    "background": "bg-upload-20260916-61d5b6"
+  },
+  "ch3_127": {
+    "background": "bg-upload-20260916-61d5b6"
+  },
+  "ch3_128": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_129": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_131": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_130": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_132": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_133": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "ch3_134": {
+    "background": "bg-upload-20260916-2f6cf6"
+  },
+  "ch3_135": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_136": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_137": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_138": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_139": {
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "ch3_140": {
+    "background": "bg-upload-20260916-212ea5"
+  },
+  "ch3_141": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "ch3_142": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "ch3_143": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "ch3_144": {
+    "background": "bg-upload-20260916-da96d4",
+    "deleted": true
+  },
+  "ch3_145": {
+    "background": "bg-upload-20260916-dec4f8",
+    "deleted": true
+  },
+  "ch3_146": {
+    "background": "bg-upload-20260916-dec4f8"
+  },
+  "ch3_147": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "ch3_148": {
+    "background": "bg-upload-20260916-435f32"
+  },
+  "ch3_149": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "ch3_150": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "ch3_159": {
+    "portrait": ""
+  },
+  "ch3_184": {
+    "portrait": "portrait-upload-20260916-709dca"
+  },
+  "ch3_186": {
+    "portrait": "portrait-upload-20260916-709dca"
+  },
+  "ch3_188": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_191": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_195": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_196": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_197": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_199": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_202": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_203": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_206": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_209": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_211": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_212": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_213": {
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_s05": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_228": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_229": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-709dca"
+  },
+  "ch3_230": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-709dca"
+  },
+  "ch3_231": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_232": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_233": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_259": {
+    "background": "ch1-coast-night",
+    "portrait": "portrait-airi"
+  },
+  "ch3_235": {
+    "portrait": "portrait-upload-20260916-0920b8",
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_239": {
+    "portrait": "portrait-upload-20260916-0920b8",
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_241": {
+    "portrait": "portrait-upload-20260916-0920b8",
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_244": {
+    "portrait": "portrait-upload-20260916-0920b8",
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_247": {
+    "portrait": "portrait-upload-20260916-0920b8",
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_248": {
+    "portrait": "portrait-upload-20260916-0920b8",
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_266": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_234": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_236": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_model": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_model_after": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_240": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_242": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_243": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_245": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_246": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_249": {
+    "background": "bg-upload-20260916-c7a01a"
+  },
+  "ch3_250": {
+    "background": "bg-upload-20260916-c7a01a"
+  },
+  "ch3_251": {
+    "background": "bg-upload-20260916-c7a01a",
+    "portrait": ""
+  },
+  "ch3_267": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_268": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_269": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_270": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_271": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_272": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_273": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_274": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_275": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_276": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_277": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_278": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_279": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_280": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_281": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_282": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_283": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_284": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_285": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_286": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_287": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_288": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_289": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_290": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_291": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_292": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_293": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_294": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_295": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_296": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_297": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_298": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_299": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_300": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_301": {
+    "background": "bg-upload-20260916-747baf"
+  },
+  "ch3_303": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_304": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_305": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_306": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_307": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_308": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_329": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_328": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_327": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_326": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_325": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_324": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_323": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_322": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_321": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_320": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_319": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_309": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_310": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_312": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_311": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_313": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_314": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_315": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_316": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_317": {
+    "background": "bg-upload-20260916-d0dd1c",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_318": {
+    "background": "bg-upload-20260916-d0dd1c"
+  },
+  "ch3_252": {
+    "background": "bg-upload-20260916-c7a01a"
+  },
+  "ch3_253": {
+    "background": "bg-upload-20260916-c7a01a"
+  },
+  "ch3_254": {
+    "background": "bg-upload-20260916-c7a01a"
+  },
+  "ch3_255": {
+    "background": "bg-upload-20260916-bc4394"
+  },
+  "ch3_256": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_257": {
+    "background": "bg-upload-20260916-bc4394",
+    "portrait": "portrait-upload-20260916-0920b8"
+  },
+  "ch3_421": {
+    "background": "bg-upload-20260916-1a2d58"
+  },
+  "ch3_425": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_426": {
+    "background": "bg-upload-20260916-186143"
+  },
+  "ch3_427": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_428": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_429": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_435": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_436": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_437": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_438": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_439": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_440": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_441": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_442": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_443": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_444": {
+    "background": "bg-upload-20260916-186143"
+  },
+  "ch3_445": {
+    "background": "bg-upload-20260916-186143",
+    "portrait": ""
+  },
+  "ch3_446": {
+    "background": "bg-upload-20260916-186143"
+  },
+  "ch3_447": {
+    "background": "bg-upload-20260916-b6cdb9"
+  },
+  "ch3_448": {
+    "background": "bg-upload-20260916-b6cdb9"
+  },
+  "ch3_449": {
+    "background": "bg-upload-20260916-9e0a0e",
+    "portrait": ""
+  },
+  "ch3_450": {
+    "background": "bg-upload-20260916-9e0a0e",
+    "portrait": ""
+  },
+  "ch3_451": {
+    "background": "bg-upload-20260916-9e0a0e",
+    "portrait": ""
+  },
+  "ch3_452": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9e0a0e"
+  },
+  "ch3_453": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9e0a0e"
+  },
+  "ch3_455": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9e0a0e"
+  },
+  "ch3_456": {
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
+  },
+  "ch3_457": {
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
+  },
+  "ch3_458": {
+    "portrait": "",
+    "background": "bg-upload-20260916-708a24"
+  },
+  "ch3_459": {
+    "background": "bg-upload-20260916-708a24"
+  },
+  "her_0001": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0002": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0003": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0004": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0005": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0006": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0008": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0007": {
+    "portrait": "",
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0029": {
+    "background": "bg-upload-20260916-9980f9"
+  },
+  "her_0228": {
+    "background": "bg-upload-20260916-66a267"
+  },
+  "her_0235": {
+    "background": "bg-upload-20260916-66a267"
+  },
+  "her_0239": {
+    "background": "bg-upload-20260916-66a267"
+  },
+  "her_chapter_05": {
+    "background": "bg-coast-night"
+  },
+  "her_0331": {
+    "portrait": "",
+    "background": "bg-upload-20260916-b0d006"
+  },
+  "her_0332": {
+    "portrait": "",
+    "background": "bg-upload-20260916-ebeef1"
+  },
+  "her_0328": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "her_0329": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "her_0330": {
+    "background": "bg-upload-20260916-a1be98"
+  },
+  "her_0333": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "her_0334": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "her_0338": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "her_0339": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "her_0343": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "her_0344": {
+    "background": "bg-upload-20260916-33b3a5"
+  },
+  "her_0345": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "her_0346": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "her_0347": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "her_0348": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "her_0356": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "her_0357": {
+    "background": "bg-upload-20260916-bc6a8b"
+  },
+  "her_0358": {
+    "background": "bg-upload-20260916-65f1b5"
+  },
+  "her_0359": {
+    "background": "bg-upload-20260916-da96d4"
+  },
+  "fin_037": {
+    "background": "bg-upload-20260916-fe23ed"
+  },
+  "fin_038": {
+    "background": "bg-upload-20260916-ec7c7c"
+  },
+  "fin_039": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_040": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_041": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_042": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_043": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_044": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_045": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_046": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_051": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_062": {
+    "background": "bg-upload-20260916-ec7c7c"
+  },
+  "fin_086": {
+    "background": "bg-upload-20260916-ac0451"
+  },
+  "fin_089": {
+    "background": "bg-upload-20260916-f34440",
+    "portrait": ""
+  },
+  "fin_091": {
+    "portrait": "",
+    "background": "bg-upload-20260916-f34440"
+  },
+  "fin_092": {
+    "portrait": "",
+    "background": "bg-upload-20260916-f34440"
+  },
+  "fin_098": {
+    "background": "bg-upload-20260916-ac0451"
+  },
+  "fin_103": {
+    "background": "bg-upload-20260916-ec7c7c"
+  },
+  "fin_104": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_105": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_106": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_120": {
+    "portrait": "",
+    "background": "bg-upload-20260916-b43191"
+  },
+  "fin_127": {
+    "background": "bg-upload-20260916-ec7c7c"
+  },
+  "fin_133": {
+    "background": "bg-upload-20260916-ed3ebe"
+  },
+  "fin_134": {
+    "portrait": "",
+    "background": "bg-upload-20260916-ed3ebe"
+  },
+  "fin_135": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_136": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_137": {
+    "background": "bg-upload-20260916-d52e87"
+  },
+  "fin_138": {
+    "background": "bg-upload-20260916-3c1b07"
+  },
+  "fin_139": {
+    "background": "bg-upload-20260916-ec7c7c"
+  },
+  "fin_140": {
+    "background": "bg-upload-20260916-ec7c7c"
+  },
+  "fin_155": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "fin_156": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "fin_157": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "fin_159": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "fin_160": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "fin_161": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "ch3_465": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "ch3_466": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "ch3_467": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "ch3_469": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "ch3_470": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "ch3_471": {
+    "portrait": "portrait-upload-20260916-b16517"
+  },
+  "review_af48eb7c-d3a4-4c3d-81ac-9b448eb33971": {
+    "added": true,
+    "anchor": "fin_134",
+    "position": "after",
+    "node": {
+      "type": "dialogue",
+      "speaker": "ILY",
+      "text": "",
+      "next": "fin_135",
+      "chapter": "final",
+      "chapterTitle": "最终章 · One Last Kiss",
+      "scene": "S04",
+      "background": "bg-coast-blue",
+      "portrait": "airi-crying"
+    },
+    "kind": "台词",
+    "speaker": "ILY",
+    "text": "。。。。。。",
+    "portrait": "",
+    "background": "bg-upload-20260916-24da63"
   }
 };
+window.ILY_SCRIPT_EDITS_PROJECT_SAVED = true;

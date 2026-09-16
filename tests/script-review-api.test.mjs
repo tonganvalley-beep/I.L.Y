@@ -55,8 +55,12 @@ test('无效记录、跨站请求与并发旧版本都不能覆盖文件', async
   assert.equal((await post(before, { Origin: 'https://example.com' })).status, 403);
   assert.equal((await post(before, { 'Content-Type': 'text/plain' })).status, 415);
   assert.equal(await readFile(filename, 'utf8'), original);
-  const responses = await Promise.all([post(before), post(before)]);
-  assert.deepEqual(responses.map(r => r.status).sort(), [200, 409]);
+  // 重复提交同一份内容不会改写文件，属于幂等重写，不会丢更新。
+  assert.deepEqual((await Promise.all([post(before), post(before)])).map(response => response.status), [200, 200]);
+  // 两个不同修改并发提交时，后者必须被旧版本号挡住。
+  const competing = { ...before, records: { ...before.records, s01_intro2: { ...before.records.s01_intro2, text: '并发的另一版台词' } } };
+  const responses = await Promise.all([post(competing), post({ ...competing, records: { ...competing.records, s01_intro2: { ...competing.records.s01_intro2, text: '并发的第三版台词' } } })]);
+  assert.deepEqual(responses.map(response => response.status).sort(), [200, 409]);
   assert.equal((await post(before)).status, 409);
 });
 

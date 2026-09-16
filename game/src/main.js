@@ -25,6 +25,7 @@ const notify = (message, duration = 0) => {
 
 try {
   const story = ILY.prepareChapter1();
+  const voiceBase = Object.fromEntries(Object.entries(story.nodes).map(([id, node]) => [id, { ...node }]));
   ILY.initScriptEditor(story, (id, fallback) => {
     go(story.nodes[id] ? id : fallback, { autosave: false, recordRollback: false, refresh: true });
   });
@@ -75,6 +76,32 @@ try {
   let saveMode = 'save';
   let savePage = '1';
   let skipMode = '';
+  const voice = new ILY.VoicePlayer({
+    manifest: window.ILY_VOICE_MANIFEST,
+    storage,
+    getSource: id => ILY.collectVoiceSources(story, voiceBase, ILY.data.stories).find(line => line.lineId === id),
+    canPlay: () => !skipMode && !document.hidden && !document.querySelector('dialog[open]')
+  });
+  const voiceToggle = document.querySelector('#voice-toggle');
+  const voiceVolume = document.querySelector('#voice-volume');
+  const updateVoiceControls = () => {
+    voiceToggle.textContent = t(voice.enabled ? 'menu.voice.off' : 'menu.voice.on');
+    voiceToggle.setAttribute('aria-pressed', String(voice.enabled));
+    voiceVolume.value = Math.round(voice.volume * 100);
+    document.querySelector('#voice-volume-value').textContent = voiceVolume.value + '%';
+  };
+  voiceToggle.onclick = () => { voice.setEnabled(!voice.enabled); updateVoiceControls(); };
+  voiceVolume.oninput = () => { voice.setVolume(Number(voiceVolume.value) / 100); updateVoiceControls(); };
+  window.addEventListener('ily:langchange', updateVoiceControls);
+  window.addEventListener('blur', () => voice.stop());
+  window.addEventListener('pagehide', () => voice.stop());
+  document.addEventListener('visibilitychange', () => { if (document.hidden) voice.stop(); });
+  // Includes menus owned by memories, the phone and the script editor.
+  const voiceMenus = new MutationObserver(records => {
+    if (records.some(record => record.target.tagName === 'DIALOG' && record.target.open)) voice.stop();
+  });
+  voiceMenus.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open'] });
+  updateVoiceControls();
 
   function updateSkipControl() {
     const available = isDialogueSkippable(story.nodes[state.node]);
@@ -93,6 +120,7 @@ try {
     const nextValue = ['fast', 'segment'].includes(value) && isDialogueSkippable(story.nodes[state.node]) && !document.querySelector('dialog[open]') ? value : '';
     if (skipMode === nextValue) { updateSkipControl(); return; }
     skipMode = nextValue;
+    if (skipMode) voice.stop();
     updateSkipControl();
     window.dispatchEvent(new Event('ily:skipchange'));
   }
@@ -344,6 +372,7 @@ try {
     if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
     if (skipMode && !isDialogueSkippable(node)) setSkipMode('');
     const refreshing = options.refresh && next === state.node;
+    voice.stop();
     cleanup(); cleanup = () => {}; state.node = next;
     if (!refreshing) ILY.activateMemory(state, next, node);
     if (options.recordRollback !== false) rollbackHistory.record(state);
@@ -353,7 +382,7 @@ try {
     stage.dataset.palette = node.visualEffects?.includes('grayscale') ? 'grayscale' : '';
     notify(''); refreshClues();
     ILY.refreshFreePhone();
-    const context = {stage, node, story, state, assets, go, notify, refreshClues, rollback, restoringRollback: options.restoringRollback === true,
+    const context = {stage, node, story, state, assets, voice, go, notify, refreshClues, rollback, restoringRollback: options.restoringRollback === true,
       canRollback: () => rollbackHistory.canRollback,
       checkpointRollback: () => { rollbackHistory.checkpoint(state); rollbackBtn.disabled = !rollbackHistory.canRollback; },
       isSkipping: () => Boolean(skipMode), setSkipping, getSkipDelay: () => skipMode === 'segment' ? 0 : 140};

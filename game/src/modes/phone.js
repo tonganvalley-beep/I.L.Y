@@ -602,6 +602,8 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
     photoId = id; view = 'photo';
     closeLightbox();
     const p = F.photos[id];
+    // 在手机相册里查看照片 → 收进回忆画廊（相册图片的解锁标记即图片资源 id）
+    if (p && p.img && typeof ILY.recordGallery === 'function') ILY.recordGallery(state, p.img);
     const wrap = el('div', 'phone-detail');
     const img = assets.image(p.img);
     if (img) {

@@ -37,6 +37,13 @@ function activateMemory(state, nodeId, node) {
   return memories;
 }
 
+// 手机相册里查看某张照片时，也把该照片收进画廊（相册图片的“解锁”标记就是图片资源 id）。
+function recordGallery(state, assetId) {
+  const memories = ensureMemoryProgress(state);
+  if (typeof assetId === 'string' && assetId && !memories.gallery.includes(assetId)) memories.gallery.push(assetId);
+  return memories;
+}
+
 // 成就和已激活的回忆都是账号级的永久进度，不应随着剧情回滚而撤销。
 // 只合并这些已解锁 ID；其余剧情状态仍以历史快照为准。
 function preserveAchievements(restored, current) {
@@ -145,5 +152,5 @@ function validateSave(value, story, maps) {
   return value;
 }
 
-Object.assign(ILY, { createState, createRollbackHistory, preserveAchievements, ensureMemoryProgress, activateMemory, addClue, canDeduce, canWalk, canStandRpg, moveRpg, validateSave });
+Object.assign(ILY, { createState, createRollbackHistory, preserveAchievements, ensureMemoryProgress, activateMemory, recordGallery, addClue, canDeduce, canWalk, canStandRpg, moveRpg, validateSave });
 })();

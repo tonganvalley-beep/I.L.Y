@@ -7,6 +7,16 @@
   const $ = id => document.getElementById(id);
   let state = { nodes: [], current: null, records: {} }, dirty = false, saving = false, loading = true, revision = null;
   const status = text => { $('status').textContent = text; };
+  // 顶部横幅：保存/上传失败这类会让人以为“改了没生效”的情况必须醒目。
+  const banner = (text, kind = 'info') => {
+    const element = $('banner');
+    if (!element) return;
+    if (!text) { element.hidden = true; element.textContent = ''; return; }
+    element.hidden = false;
+    element.className = `banner banner-${kind}`;
+    element.textContent = text;
+  };
+  const offlineHint = '请用 npm start 启动项目，并从 http://127.0.0.1:8080/ 打开游戏；改过 tools/ 下的服务器代码后要重启 npm start。';
   function change(id, patch) {
     state.records[id] = { ...state.records[id], ...patch };
     dirty = true;
@@ -35,18 +45,93 @@
     }
     return element;
   }
+  const uploads = () => window.ILY_UPLOADED_ASSETS || {};
+  // 本地选过的图片登记在 uploaded-assets.js；游戏推送的素材表可能还没包含，补进去。
+  function mergeUploaded(media) {
+    const ids = Object.keys(uploads());
+    if (!ids.length) return media;
+    const source = media || { images: {}, backgrounds: [], portraits: [] };
+    const match = { backgrounds: /^(bg|background)-/i, portraits: /^portrait-/i };
+    return {
+      images: { ...(source.images || {}), ...uploads() },
+      backgrounds: [...new Set([...(source.backgrounds || []), ...ids.filter(id => match.backgrounds.test(id))])].sort(),
+      portraits: [...new Set([...(source.portraits || []), ...ids.filter(id => match.portraits.test(id))])].sort()
+    };
+  }
+  function registerAsset(asset, kind) {
+    window.ILY_UPLOADED_ASSETS = { ...uploads(), [asset.id]: asset.path };
+    state.media = mergeUploaded(state.media);
+    const list = state.media[kind];
+    if (!list.includes(asset.id)) state.media[kind] = [...list, asset.id];
+    try { window.opener?.postMessage({ type: 'ily-script-media-refresh' }, '*'); channel?.postMessage({ type: 'ily-script-media-refresh' }); } catch {}
+  }
+  async function uploadAsset(file, kind) {
+    if (!['http:', 'https:'].includes(location.protocol)) throw new Error('请用 npm start 启动项目，再从服务器地址打开游戏，才能从本地选择图片。');
+    const response = await fetch(`/api/script-review-asset?kind=${encodeURIComponent(kind)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': file.type || 'application/octet-stream', 'X-File-Name': encodeURIComponent(file.name) },
+      body: file, cache: 'no-store', signal: AbortSignal.timeout(60000)
+    });
+    let data;
+    try { data = await response.json(); } catch { throw new Error('当前服务器不支持图片上传。请重启 npm start 后重试。'); }
+    if (!response.ok || !data?.id || !data?.path) throw new Error(data?.error || '图片上传失败。');
+    return data;
+  }
+  function ensureOption(element, value, text) {
+    if ([...element.options].some(option => option.value === value)) return;
+    const option = document.createElement('option');
+    option.value = value; option.textContent = text || value;
+    element.append(option);
+  }
+  // “选择本地图片…”按钮：直接打开系统文件窗口；下拉框保留，用来挑已有素材。
+  function mediaField(kind, value, label, onPick) {
+    const wrap = document.createElement('div'); wrap.className = 'media-field';
+    const element = mediaSelect(kind, value, label);
+    const picker = document.createElement('button');
+    picker.type = 'button'; picker.className = 'pick-file'; picker.textContent = '选择本地图片…';
+    picker.title = '打开本地文件夹挑选一张图片，选好后自动存入项目';
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = 'image/*'; input.hidden = true;
+    input.setAttribute('aria-label', `${label}（从本地选择）`);
+    picker.onclick = () => input.click();
+    input.onchange = async () => {
+      const file = input.files?.[0];
+      input.value = '';
+      if (!file) return;
+      const caption = picker.textContent;
+      picker.disabled = true; picker.textContent = '处理中…';
+      status(`正在识别本地图片 ${file.name}…`);
+      try {
+        const asset = await uploadAsset(file, kind === 'backgrounds' ? 'background' : 'portrait');
+        if (asset.register) registerAsset(asset, kind);
+        ensureOption(element, asset.id, asset.reused ? `${asset.id}（项目已有）` : `${asset.id}（本地）`);
+        element.value = asset.id;
+        onPick(asset.id);
+        const message = asset.reused
+          ? `${asset.name} 与项目素材 ${asset.id} 内容一致，已直接引用，没有重复保存。`
+          : `已选择本地图片 ${asset.name}，保存后生效。`;
+        status(message);
+        banner(message, 'ok');
+      } catch (error) {
+        status(error.message);
+        banner(`本地图片没有存入项目：${error.message} ${offlineHint}`, 'error');
+      } finally { picker.disabled = false; picker.textContent = caption; }
+    };
+    wrap.append(picker, element, input);
+    return { wrap, element };
+  }
   function visualEditor(id, node, record) {
     const wrap = document.createElement('div'); wrap.className = 'visual-editor';
     const controls = document.createElement('div'); controls.className = 'visual-controls';
     const backgroundValue = record.background ?? node.cg ?? node.background ?? '';
     const stagedPortraits = node.characters?.map(character => character.image).filter(Boolean) || [];
     const portraitValue = record.portrait ?? node.portrait ?? (stagedPortraits.length === 1 ? stagedPortraits[0] : '');
-    const background = mediaSelect('backgrounds', backgroundValue, `背景图片 ${id}`);
-    const portrait = mediaSelect('portraits', portraitValue, `人物立绘 ${id}`);
+    const background = mediaField('backgrounds', backgroundValue, `背景图片 ${id}`, value => { change(id, { background: value }); refresh(); });
+    const portrait = mediaField('portraits', portraitValue, `人物立绘 ${id}`, value => { change(id, { portrait: value }); refresh(); });
     const field = (text, control) => {
       const label = document.createElement('label');
       const caption = document.createElement('span'); caption.textContent = text;
-      label.append(caption, control); return label;
+      label.append(caption, control.wrap); return label;
     };
     controls.append(field('背景图片', background), field('人物立绘', portrait));
     const preview = document.createElement('div'); preview.className = 'visual-preview';
@@ -57,15 +142,18 @@
     preview.append(bg, person, empty);
     const refresh = () => {
       const images = state.media?.images || {};
-      const bgPath = images[background.value], personPath = images[portrait.value];
+      const bgPath = images[background.element.value], personPath = images[portrait.element.value];
       bg.hidden = !bgPath; person.hidden = !personPath;
       if (bgPath) bg.src = bgPath; else bg.removeAttribute('src');
       if (personPath) person.src = personPath; else person.removeAttribute('src');
       empty.hidden = !bg.hidden || !person.hidden;
     };
-    background.onchange = () => { change(id, { background: background.value }); refresh(); };
-    portrait.onchange = () => { change(id, { portrait: portrait.value }); refresh(); };
-    background.disabled = portrait.disabled = !!record.deleted;
+    background.element.onchange = () => { change(id, { background: background.element.value }); refresh(); };
+    portrait.element.onchange = () => { change(id, { portrait: portrait.element.value }); refresh(); };
+    background.element.disabled = portrait.element.disabled = !!record.deleted;
+    for (const picker of [background, portrait]) {
+      for (const control of picker.wrap.querySelectorAll('button, input')) control.disabled = !!record.deleted;
+    }
     bg.onerror = () => { bg.hidden = true; empty.hidden = !person.hidden; };
     person.onerror = () => { person.hidden = true; empty.hidden = !bg.hidden; };
     refresh(); wrap.append(controls, preview); return wrap;
@@ -161,8 +249,14 @@
       state.records = result.records;
       publish(result.records);
       dirty = false;
-      status('已写入项目 game/data/story/script-edits.js。文本和图片修改已生效，下次运行自动使用此版本。');
-    } catch (error) { dirty = true; status(`未确认保存到项目：${error.message} 草稿仍保留，可导出备份。`); }
+      const written = `已写入项目 game/data/story/script-edits.js（${new Date().toLocaleTimeString('zh-CN')}）。文本和图片修改已生效，刷新游戏后仍使用这一版。`;
+      status(written);
+      banner(written + '如果没有变化，请确认游戏页面是从 npm start 的地址打开的（不是双击 HTML）。', 'ok');
+    } catch (error) {
+      dirty = true;
+      status(`未确认保存到项目：${error.message}`);
+      banner(`保存没有写入项目：${error.message} ${offlineHint}`, 'error');
+    }
     finally { busy(false); }
   }
   $('save').onclick = save;
@@ -198,6 +292,7 @@
     const records = dirty || saving || loading || revision ? state.records : (payload.records || {});
     const sameScene = state.current && payload.current?.chapter === state.current.chapter && payload.current?.scene === state.current.scene;
     state = { ...payload, records };
+    state.media = mergeUploaded(state.media);
     if (sameScene && document.activeElement?.matches('textarea, select')) {
       // Keep the caret and unsaved edits while the game advances.
       for (const row of $('list').children) row.classList.toggle('current', row.dataset.id === state.current.id);
@@ -210,11 +305,13 @@
   addEventListener('beforeunload', event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
   if (!window.ILY_SCRIPT_EDITS_PROJECT_SAVED) try { state.records = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
   state.records = model.mergeRecords(window.ILY_SCRIPT_EDITS, state.records);
+  state.media = mergeUploaded(state.media);
   window.opener?.postMessage({ type: 'ily-script-editor-ready' }, '*');
   channel?.postMessage({ type: 'ily-script-editor-ready' });
   render(); sync(); setInterval(sync, 250);
   $('save').disabled = $('clear').disabled = true;
-  (async () => {
+  const connect = async () => {
+    loading = true;
     try {
       const result = await projectRequest();
       revision = result.revision;
@@ -225,7 +322,14 @@
         dirty = JSON.stringify(state.records) !== JSON.stringify(result.records);
       }
       status(dirty ? '已保留旧版浏览器修改，点击“保存修改”写入项目。' : '已连接项目，点击“保存修改”直接写入正式 JS。');
-    } catch (error) { status(`尚未连接项目保存：${error.message}`); }
-    finally { loading = false; busy(false); }
-  })();
+      banner(dirty ? '已连接项目，但本地还有未写入的修改，点击“保存修改”写入。' : '', dirty ? 'info' : 'info');
+      render();
+    } catch (error) {
+      status(`尚未连接项目保存：${error.message}`);
+      banner(`尚未连接项目保存：${error.message} 此时只能查看，保存和选择本地图片都不会生效。${offlineHint}`, 'error');
+    } finally { loading = false; busy(false); }
+  };
+  const reconnect = $('reconnect');
+  if (reconnect) reconnect.onclick = () => { if (!saving) connect(); };
+  connect();
 })();

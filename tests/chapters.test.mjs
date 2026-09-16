@@ -109,9 +109,22 @@ test('All supplied chapter-two images are used by dialogue or investigations and
  for(const n of Object.values(story.nodes))for(const id of [n.background,n.cg,n.portrait,n.overlay].filter(Boolean))ids.add(id);
  for(const m of Object.values(maps))for(const e of m.events||[])if(e.preview)ids.add(e.preview);
  const supplied=Object.entries(I.data.assets.images).filter(([,path])=>/^assets\/images\/(?:backgrounds|cg)\/ch2-.*\.jpg$/.test(path));
- assert.equal(supplied.length,16);
+ assert.equal(supplied.length,17);
  for(const [id,path]of supplied){assert.ok(ids.has(id),'unused '+id);await access(new URL('game/'+path,root));}
  for(const id of ids)assert.ok(Object.hasOwn(I.data.assets.images,id),'unregistered '+id);
+});
+test('Ice-cream flavor routes to the matching full-screen CG',()=>{
+ const pick=flavor=>{
+  const state=I.createState('ch2_216');state.flags.CH2_ICE=flavor;
+  let id='ch2_216';
+  while(story.nodes[id].when&&state.flags[story.nodes[id].when.key]!==story.nodes[id].when.value)id=story.nodes[id].next;
+  return story.nodes[id];
+ };
+ assert.equal(pick('草莓').cg,'ch2-ice');
+ assert.equal(pick('香草').cg,'ch2-香草');
+ assert.equal(pick('草莓').next,'ch2_216_vanilla');
+ assert.equal(pick('香草').next,'ch2_s08');
+ for(const id of ['ch2_216','ch2_216_vanilla'])assert.equal(story.nodes[id].backgroundFit,'cover');
 });
 test('Every new JSON event is walkable and reachable; scenery footprints match collision blocks',async()=>{
  const source=JSON.parse(await readFile(new URL('game/data/maps/chapters.json',root),'utf8'));

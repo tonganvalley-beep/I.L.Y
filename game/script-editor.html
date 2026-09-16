@@ -16,25 +16,34 @@
     .row textarea{display:block;width:100%;box-sizing:border-box;margin-top:8px;line-height:1.5;font:inherit;resize:vertical}
     .visual-editor{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:12px;margin-top:10px;align-items:stretch}
     .visual-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.visual-controls label{display:grid;gap:5px;color:#a9c1d0;font-size:13px}.visual-controls select{width:100%;min-width:0}
+    .media-field{display:grid;gap:5px}.media-field .pick-file{background:#2b4d6b;border-color:#8ab4d0}
     .visual-preview{position:relative;overflow:hidden;min-height:112px;background:#050b11;border:1px solid #385a73}.visual-preview img{position:absolute;inset:0;width:100%;height:100%}.preview-background{object-fit:cover}.preview-portrait{object-fit:contain;object-position:center bottom}.visual-preview span{position:absolute;inset:0;display:grid;place-items:center;color:#63809a;font-size:13px}
     .visual-preview [hidden]{display:none}
     .row-actions{margin-top:8px}button{background:#18344b;color:#f4f1e8;border:1px solid #63809a;padding:7px 10px;cursor:pointer;font:inherit}
     button:hover:enabled{background:#294d68}button:disabled{opacity:.45;cursor:not-allowed}
+    .banner{margin:0 0 12px;padding:10px 12px;border:1px solid #63809a;border-left-width:5px;line-height:1.6}
+    .banner[hidden]{display:none}
+    .banner-error{background:#3a1620;border-color:#d0556f;color:#ffd9e1}
+    .banner-ok{background:#12301f;border-color:#4fae74;color:#d6f5e2}
+    .banner-info{background:#12283a;border-color:#4d7fa3;color:#d7e7f2}
+    .banner code{background:rgba(255,255,255,.12);padding:1px 4px;border-radius:3px}
     #count{color:#a9c1d0}#status{min-height:1.5em}@media(max-width:720px){body{padding:10px}.visual-editor{grid-template-columns:1fr}.visual-controls{grid-template-columns:1fr}.visual-preview{min-height:150px}}
   </style>
 </head>
 <body>
   <main class="review">
     <h1>剧本校对器</h1>
+    <p id="banner" class="banner" role="alert" hidden></p>
     <p id="meta">等待游戏连接……</p>
     <p>游戏推进时，本窗口会自动显示当前场景。可修改文本、类型、说话人、背景和人物立绘，也可在每段前后新增或删除文本段。修改后点击“保存修改”。</p>
-    <p>通过 npm start 启动游戏后，“保存修改”直接写入项目，之后运行自动使用已保存版本；导出仅用于备份。</p>
+    <p><b>必须先用 <code>npm start</code> 启动项目，再从 <code>http://127.0.0.1:8080/</code> 打开游戏。</b>直接双击 HTML（file://）时本窗口只能看，不能写入项目、也不能上传本地图片；改动 <code>tools/</code> 下的服务器代码后还要重启 npm start。</p>
     <p id="count"></p>
     <label><input type="checkbox" id="show-deleted">显示已删除段落（可恢复）</label>
     <section id="list"></section>
-    <div class="toolbar"><button id="save">保存修改</button><button id="export">导出 JSON</button><button id="export-js">导出项目 JS</button><button id="clear">恢复项目已保存版本</button></div>
+    <div class="toolbar"><button id="save">保存修改</button><button id="reconnect">检查项目连接</button><button id="export">导出 JSON</button><button id="export-js">导出项目 JS</button><button id="clear">恢复项目已保存版本</button></div>
     <p id="status" role="status" aria-live="polite"></p>
   </main>
+  <script src="data/uploaded-assets.js"></script>
   <script src="data/story/script-edits.js"></script>
   <script src="src/script-review-model.js"></script>
   <script src="src/script-editor-window.js"></script>

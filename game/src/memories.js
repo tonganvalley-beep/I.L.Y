@@ -203,17 +203,112 @@ function galleryBaseUrl() {
   try { return new URL(raw, location.href).href; } catch { return raw; }
 }
 
+/* 特殊 CG 的展示标题（中文 / 英文）。未登记 id 时回退到资源 id 的美化版。 */
+const CG_META = {
+  'bankbook':          { title: '银行存折', titleEn: 'Bankbook' },
+  'parcel-label':      { title: '快递单', titleEn: 'Parcel Label' },
+  'ch1-cg-blue':       { title: '蓝光中的爱理', titleEn: 'Airi in the Blue' },
+  'ch1-cg-mirror':     { title: '镜中的她', titleEn: 'Her in the Mirror' },
+  'ch1-cg-collapse':   { title: '崩塌', titleEn: 'Collapse' },
+  'ch1-cg-reflection': { title: '海面倒影', titleEn: 'Reflection on the Sea' },
+  'ch2-hug':           { title: '相拥', titleEn: 'Embrace' },
+  'ch2-hug-close':     { title: '贴近的体温', titleEn: 'Close Embrace' },
+  'ch2-hand':          { title: '交握的手', titleEn: 'Held Hands' },
+  'ch2-couple':        { title: '并肩', titleEn: 'Side by Side' },
+  'ch2-flowers':       { title: '夏日花径', titleEn: 'Summer Flowers' },
+  'ch2-ice':           { title: '香草冰淇淋', titleEn: 'Vanilla Ice Cream' },
+  'ch2-smile':         { title: '她的笑颜', titleEn: 'Her Smile' },
+  'ch2-blush':         { title: '泛红的面颊', titleEn: 'Blushing Cheeks' },
+  'ch2-adult':         { title: '十年后的她', titleEn: 'Her, Ten Years Later' },
+  'ch2-香草':            { title: '香草', titleEn: 'Vanilla' }
+};
+
+/* 资源 id → 可用于 <img src> 的地址：优先走资源清单，再退回相对地址 */
+function cgSrc(id) {
+  let src = '';
+  if (typeof deps.resolveAsset === 'function') src = deps.resolveAsset(id) || '';
+  if (!src) src = (ILY.data.assets && ILY.data.assets.images && ILY.data.assets.images[id]) || '';
+  if (!src) return '';
+  try { src = new URL(src, location.href).href; } catch { /* 已是绝对地址则原样保留 */ }
+  return src;
+}
+
+/* 资源 id 转成好看一点的默认标题 */
+function prettyCgTitle(id) {
+  return String(id).replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/* 用户在 gallery-data.js（window.ILY_GALLERY）手动添加的插画。
+   可只填 unlock + 标题，src 缺省时按资源 id 反查资源清单。 */
 function galleryEntries(unlocked) {
   const list = Array.isArray(window.ILY_GALLERY) ? window.ILY_GALLERY : [];
   const base = galleryBaseUrl();
   return list
-    .filter(item => item && typeof item.src === 'string' && item.src &&
-      typeof item.unlock === 'string' && unlocked.has(item.unlock))
+    .filter(item => item && typeof item.unlock === 'string' && unlocked.has(item.unlock) &&
+      (typeof item.src === 'string' ? item.src : true))
     .map(item => {
-      let src = item.src;
-      try { src = new URL(item.src, base).href; } catch { /* 已经是绝对地址则原样保留 */ }
-      return { ...item, src, fromPhone: false };
+      let src = '';
+      if (typeof item.src === 'string' && item.src) {
+        src = item.src;
+        try { src = new URL(item.src, base).href; } catch { /* 已是绝对地址则原样保留 */ }
+      } else {
+        src = cgSrc(item.unlock);
+      }
+      if (!src) return null;
+      const meta = CG_META[item.unlock] || {};
+      return {
+        src,
+        title: item.title || meta.title || item.unlock,
+        titleEn: item.titleEn || meta.titleEn || item.title || item.unlock,
+        desc: item.note || item.desc || '',
+        descEn: item.noteEn || item.descEn || item.note || item.desc || '',
+        fromPhone: false
+      };
+    })
+    .filter(Boolean);
+}
+
+/* 剧本里所有“特殊 CG”（节点 cg / overlay / gallery 字段）自动收录进画廊，
+   不再需要手动在 gallery-data.js 逐一登记；已手动登记的（同 unlock）优先、不会重复。
+   说明文字取自首次出现该 CG 的节点正文。 */
+function storyCgEntries(unlocked) {
+  const curated = new Set((Array.isArray(window.ILY_GALLERY) ? window.ILY_GALLERY : [])
+    .map(item => item && item.unlock).filter(Boolean));
+  const stories = ILY.data && ILY.data.stories;
+  const seen = new Map();                 // unlock -> 首次出现该 CG 的节点正文
+  if (stories) {
+    for (const sid of Object.keys(stories)) {
+      const story = stories[sid];
+      if (!story || !story.nodes) continue;
+      for (const nid of Object.keys(story.nodes)) {
+        const node = story.nodes[nid];
+        if (!node || typeof node !== 'object') continue;
+        for (const key of ['cg', 'overlay', 'gallery']) {
+          const id = node[key];
+          if (typeof id !== 'string' || !id || curated.has(id)) continue;
+          if (!seen.has(id) && typeof node.text === 'string' && node.text.trim()) {
+            seen.set(id, node.text.trim());
+          }
+        }
+      }
+    }
+  }
+  const out = [];
+  for (const [id, firstText] of seen) {
+    if (!unlocked.has(id)) continue;
+    const src = cgSrc(id);
+    if (!src) continue;
+    const meta = CG_META[id] || {};
+    out.push({
+      src,
+      title: meta.title || prettyCgTitle(id),
+      titleEn: meta.titleEn || prettyCgTitle(id),
+      desc: firstText || '',
+      descEn: firstText || '',
+      fromPhone: false
     });
+  }
+  return out;
 }
 
 /* 手机相册照片（data/story/phone.js 的 photos）也收入画廊：
@@ -240,11 +335,27 @@ function phoneAlbumEntries(unlocked) {
   }).filter(Boolean);
 }
 
+/* 按图片地址去重，避免手动插画 / 剧本 CG / 相册照片出现重复卡片 */
+function dedupeGallery(list) {
+  const seen = new Set();
+  const out = [];
+  for (const item of list) {
+    if (!item || !item.src || seen.has(item.src)) continue;
+    seen.add(item.src);
+    out.push(item);
+  }
+  return out;
+}
+
 function renderFlipGallery(grid, empty) {
   grid.replaceChildren();
   const unlocked = collectMemoryProgress().gallery;
-  /* 用户在 gallery-data.js 添加的图在前，手机相册的照片在后 */
-  const entries = [...galleryEntries(unlocked), ...phoneAlbumEntries(unlocked)];
+  /* 顺序：手动插画 → 剧本特殊 CG → 手机相册照片；按 src 去重 */
+  const entries = dedupeGallery([
+    ...galleryEntries(unlocked),
+    ...storyCgEntries(unlocked),
+    ...phoneAlbumEntries(unlocked)
+  ]);
   empty.hidden = entries.length > 0;
   empty.textContent = t('gal.empty');
   entries.forEach(item => {

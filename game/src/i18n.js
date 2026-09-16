@@ -18,6 +18,9 @@
 
 const LANG = {
   chinese: {
+    'menu.voice.on': '开启语音',
+    'menu.voice.off': '关闭语音',
+    'menu.voice.volume': '语音音量',
     'chapter.title': '序章 · 蓝色来电',
     'menu.toggle': '菜单 ☰',
     'menu.title': '蓝色来电',
@@ -226,6 +229,9 @@ const LANG = {
     'expl.searchHint': '走近金色物件，寻找线索。'
   },
   english: {
+    'menu.voice.on': 'Enable voices',
+    'menu.voice.off': 'Mute voices',
+    'menu.voice.volume': 'Voice volume',
     'chapter.title': 'Prologue · The Blue Call',
     'menu.toggle': 'Menu ☰',
     'menu.title': 'The Blue Call',

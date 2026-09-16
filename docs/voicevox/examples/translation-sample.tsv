@@ -1,0 +1,2 @@
+line_id	chapter	chapter_title	scene	route	order	speaker	kind	display_text	context_before	context_after	speech_text	translation_status	translation_note	pronunciation_note	source_fingerprint	source_revision
+s01_intro2	prologue	序章 · 蓝色来电	S01		2	成田基生	dialogue	……又到傍晚了啊。	s01_intro | 旁白 | 都内某处老旧公寓的一间出租屋。	s01_intro3 | 系统 | 一部十年前购买的翻盖手机摊开在床头。	……もう夕方か。	draft	格式示例，需人工复核，不代表正式翻译。		ba8ad9b36d36c938917477b3e5d78e61a82fff6a89f3912f067212ff9029d0a7	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f

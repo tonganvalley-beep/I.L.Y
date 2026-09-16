@@ -39,6 +39,8 @@
   }
   function receive(event) {
     if (event.data?.type === 'ily-script-editor-ready') { if (event.source) editorWindow = event.source; send(); return; }
+    // 编辑器刚从本地选了一张新图：重新扫描素材表，让新图出现在候选里。
+    if (event.data?.type === 'ily-script-media-refresh') { media = mediaCatalog(); send(); return; }
     if (event.data?.type !== 'ily-script-save' || !model) return;
     if (event.data.projectSaved) {
       window.ILY_SCRIPT_EDITS = event.data.records;

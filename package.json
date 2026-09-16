@@ -9,6 +9,7 @@
     "build:maps": "node tools/build-chapter1-maps.mjs",
     "build:heroine": "node tools/heroine/build.mjs",
     "build:story": "python -B tools/chapter1/build.py && python -B tools/chapters/build.py && node tools/heroine/build.mjs",
-    "test:script-rules": "python -B -m unittest discover -s tests -p test_script_rules.py && node --test tests/script-rules.test.mjs"
+    "test:script-rules": "python -B -m unittest discover -s tests -p test_script_rules.py && node --test tests/script-rules.test.mjs",
+    "voice:translations": "node tools/voicevox-translations.mjs"
   }
 }

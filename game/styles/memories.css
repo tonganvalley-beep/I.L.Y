@@ -72,18 +72,25 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 14px;
+  /* 最小格宽调大 → 列数变少、格子变大，避免整屏时挤成一排小方块显得空 */
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  align-content: start;
 }
 .ach-tile {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;              /* 比 16:10 更高，画面撑得更满 */
   overflow: hidden;
   display: flex;
   align-items: flex-end;            /* 名字贴底 */
   border: 1px solid #729cb033;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #0e2232;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.ach-tile.unlocked:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px #00000073, 0 0 22px #4ecfff33;
 }
 .ach-tile.unlocked {
   border-color: #8ddfff99;
@@ -107,7 +114,7 @@
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #9db4d4;
 }
 /* 名字：压在图上，底部加渐变保证可读 */
@@ -115,21 +122,22 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 22px 12px 10px;
-  font-size: 14px;
+  padding: 30px 18px 15px;
+  font-size: 18px;
+  line-height: 1.4;
   color: #fff;
   background: linear-gradient(to top, rgba(4, 12, 22, .93), rgba(4, 12, 22, .5) 55%, transparent);
 }
 .ach-tile .ach-state {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 11px;
+  right: 11px;
   z-index: 1;
-  padding: 3px 7px;
-  font-size: 11px;
+  padding: 5px 11px;
+  font-size: 13px;
   color: #8fe0b0;
   background: #03101cdd;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .ach-tile.locked .ach-state { color: #9db4d4; }
 
@@ -234,7 +242,8 @@
 
 @media (max-width: 600px) {
   .mem-dialog { padding: 16px 14px; }
-  .ach-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .ach-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+  .ach-tile .ach-name { font-size: 15px; padding: 22px 12px 11px; }
   .flip-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 

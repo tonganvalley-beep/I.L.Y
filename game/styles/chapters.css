@@ -49,6 +49,21 @@
 .heroine-sms-toya .heroine-sms-back,.heroine-sms-toya .heroine-sms-info,.heroine-sms-toya .heroine-sms-add{color:#46745c;border-color:#9aba9f}
 .heroine-sms-toya .heroine-sms-send{background:#507c62}.heroine-sms-toya .heroine-sms-compose-label{border-radius:7px;border-color:#bfceba;color:#6d806e;background:#f8faf3}
 @keyframes heroine-sms-link{0%,94%,100%{transform:none;filter:none}95%{transform:translateX(1px);filter:hue-rotate(12deg)}97%{transform:translateX(-1px)}}
+/* 最终章「搜索演出 / ILY 回信短信」：复用新款手机（heroine-sms-device）作为弹窗 UI */
+.moment-phone-scene{cursor:default}
+.moment-screen-search{grid-template-rows:27px 62px minmax(0,1fr)}
+.moment-search-bar{display:flex;align-items:center;gap:8px;padding:10px 12px 8px;border-bottom:1px solid #c8dde2;background:#f7fbfce8}
+.moment-search-query{flex:1;min-width:0;padding:9px 13px;border:1px solid #c5d8dc;border-radius:17px;background:#fff;color:#132630;font-size:16px;letter-spacing:.08em;box-shadow:inset 0 1px 3px #24424b10}
+.moment-search-bar button{margin:0;padding:8px 15px;border:0;border-radius:17px;background:#1686a2;color:#fff;font-size:13px}
+.moment-search-bar button:disabled{opacity:.4}
+.moment-search-results{min-height:0;overflow:auto;display:flex;flex-direction:column;gap:7px;padding:13px 15px;background:linear-gradient(#eaf4f6dd,#dcebefee)}
+.moment-search-results h2{margin:2px 0 3px;color:#0b3a4d;font-size:15px;line-height:1.55}
+.moment-search-results p{margin:0;color:#28444c;font-size:13px;line-height:1.75}
+.moment-search-results button{margin:12px 0 4px;align-self:center;padding:8px 24px;border:0;border-radius:17px;background:#1686a2;color:#fff}
+.moment-phone-footer{display:grid;place-items:center;border-top:1px solid #c8dde2;background:#f8fbfc}
+.moment-phone-footer button{margin:0;padding:8px 26px;border:0;border-radius:17px;background:#1686a2;color:#fff}
+.moment-sms-subject{display:block;margin-bottom:3px;color:#087c9f;font:11px/1.3 system-ui,sans-serif;letter-spacing:0}
+@media(max-width:420px){.moment-screen-search{grid-template-rows:25px 56px minmax(0,1fr)}.moment-search-results{padding:10px 11px}.moment-search-query{padding:7px 11px;font-size:14px}}
 .scene-effect-blue::after,.scene-effect-dark::after{content:"";position:absolute;inset:0;pointer-events:none}.scene-effect-blue::after{background:rgba(13,78,145,.22);mix-blend-mode:color}.scene-effect-dark::after{background:rgba(0,7,18,.46)}
 .scene-effect-desaturated .scene-background,.scene-effect-desaturated .portrait{filter:saturate(.32)}.scene-effect-soft .scene-background,.scene-effect-soft .portrait{filter:brightness(1.05) contrast(.9)}.scene-effect-dissolve .portrait{opacity:.7;filter:drop-shadow(0 0 15px rgba(79,189,255,.45))}
 .scene-effect-glitch{animation:heroine-glitch 4.5s steps(1,end) infinite}.scene-effect-flash{animation:heroine-flash .42s ease-out both}.scene-transition-fade-black{animation:heroine-fade-black .75s ease-out both}.scene-transition-fade-white{animation:heroine-fade-white .75s ease-out both}.scene-transition-cut{animation:heroine-cut .16s steps(1,end) both}

@@ -1,5 +1,11 @@
 # I.L.Y. game 改造总控书与代码报告
 
+## VOICEVOX 编辑器完成 P5（2026-09-16）
+
+独立日语配音编辑器的 P1-P5 已完成。游戏有效剧本同步、稳定台词 ID、增量过期检测与发布 manifest 见 `docs/voicevox/reports/P4.md`；5,000 条工作表、保存恢复、导入和路径边界、本地 API、端口回退及真实引擎短句抽样见 `docs/voicevox/reports/P5.md`。P5 只交付制作工具，没有改变游戏推进、中文字幕或运行时音频行为。
+
+2026-09-17 按用户调度完成 P6：稳定 ID 播放、源指纹校验、切换/回滚/读档/快进/菜单中断、独立语音设置及缺失资产降级均已接入。默认开语音、音量 80%，菜单和失焦停止且不自动续播，重新开启仅影响后续节点；推进保持原有节奏、不等待语音。详见 docs/voicevox/reports/P6.md。
+
 ## 模块统一与清理（2026-09-16）
 
 正式小游戏现统一在 `game/minigames/{photo-rhythm,winxp,boss}/`；红心弹幕源码由原 `danmutest/game.js` 迁至 `game/src/engines/danmu.js`，主线和 XP 共用同一引擎。嵌入适配器为 `game/src/modes/embedded-games.js`。摄影立绘复用 `game/assets/images/characters/aili/`，Boss 字体复用 `sign&log/fonts/zpix.ttf`。
@@ -13,6 +19,12 @@
 后续使用 `npm start` 启动项目，编辑器“保存修改”通过本机 `/api/script-review` 接口直接校验并写入 `game/data/story/script-edits.js`，无需下载或手动替换。成功后更新当前游戏，下一次启动以项目已确认版本为准，忽略旧浏览器修改缓存；首次升级前的本地修改保留为待保存草稿。接口使用版本校验避免旧窗口覆盖新版本，先备份 `script-edits.js.bak` 再替换正式文件。“恢复项目已保存版本”仅读取项目、不写文件。导出 JSON / JS 用于备份，JSON 仍可用 `node tools/import-script-review.mjs "ily-script-review.json 的完整路径"` 导入。保存不会自动提交或上传；双击 HTML、其他静态服务不能写项目，旧的开发服务器需重启。新增回归覆盖真实文件写入、重新加载、备份、并发冲突、无效请求、磁盘失败及缓存优先级。
 
 验证：279 条落盘记录与恢复出的浏览器记录逐条完全一致；`npm test` 72/72 通过；远程上传只包含剧本数据、加载逻辑、导入工具及测试文档。
+
+## 编辑器本地选图（2026-09-16）
+
+剧本编辑器的「背景图片 / 人物立绘」改为默认从本地文件夹挑图：每行新增「选择本地图片…」按钮，点击直接打开系统文件窗口，不需要再在素材名下拉里找 ID。原下拉框保留，用于选回项目已有素材。
+
+选中的图片经本机 `POST /api/script-review-asset` 存入 `game/assets/images/uploads/`，并以 `bg-upload-*` / `portrait-upload-*` 的 ID 登记到自动生成的 `game/data/uploaded-assets.js`（游戏与编辑器都加载它，删除其中某行即取消该素材）。仅支持 PNG / JPG / WEBP / GIF / BMP，单张上限 20 MB，接口沿用同源与本机校验。选择后立即在本行预览，并通知游戏窗口刷新素材表；点击「保存修改」后随剧本记录一起写入项目。未通过 `npm start` 打开时按钮会给出提示，不会静默失败。
 
 ## RPG 回滚（2026-09-16）
 

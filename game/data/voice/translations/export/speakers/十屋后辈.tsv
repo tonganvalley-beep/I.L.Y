@@ -1,0 +1,3 @@
+﻿line_id	chapter	chapter_title	scene	route	order	speaker	kind	display_text	context_before	context_after	speech_text	translation_status	translation_note	pronunciation_note	source_fingerprint	source_revision
+her_0123	heroine	女主视角 · 青	03-03		1169	十屋后辈	dialogue	诶——	her_0122 | 基生 | ...对不起，我失陪了！	her_0124 | 十屋后辈 | 那么，请之后把小aili的照片发过来让我看一下哦——！		untranslated			faa0b367c339f017c4e228439854e339a6e47d373059f31ab6ca7012a046d38d	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f
+her_0124	heroine	女主视角 · 青	03-03		1170	十屋后辈	dialogue	那么，请之后把小aili的照片发过来让我看一下哦——！	her_0123 | 十屋后辈 | 诶——	her_0125 | 基生 | 才不给你发啦...		untranslated			beb22d29f06d2c7158e9c09f7d28df6b14d0dcdbd89f7eb594e58aedb9b2a92e	707ba1c82dcdb9307ae9b809b15746a0585a5bda61f67b7ba74149f40b97fa8f

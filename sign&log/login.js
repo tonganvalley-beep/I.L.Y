@@ -141,6 +141,14 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('langBtn').addEventListener('click', () => {
     setLang(currentLang === 'chinese' ? 'english' : 'chinese');
   });
+
+  /* 表单提交（在用户名 / 密码任意框按 Enter 都会触发）：
+     阻止浏览器默认的整页刷新，改为调用 login() / signup() 直接登录 / 注册。
+     主按钮已是 type="submit"，点击也会走这里；次按钮是 type="button" 不会误触发。 */
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) loginForm.addEventListener('submit', e => { e.preventDefault(); login(); });
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) signupForm.addEventListener('submit', e => { e.preventDefault(); signup(); });
 });
 
 

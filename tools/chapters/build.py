@@ -15,7 +15,8 @@ from script_rules import parse_line, normalize_node
 TITLES = {'chapter2': '第二章 · 约定与夕阳', 'chapter3': '第三章 · 过去与现在', 'final': '最终章 · One Last Kiss'}
 ART = {
  'stone': ('076f7c38c5f582d5189445f3c3f5396c', '夕阳石阶空景；栏杆在左、挡土墙在右', 'background'),
- 'ice': ('0ba15042dc343443ebb56549acddf14b', '石阶上的冰淇淋特写；购买后使用', 'cg'),
+ 'ice': ('0ba15042dc343443ebb56549acddf14b', '石阶上的草莓冰淇淋特写；购买草莓后使用', 'cg'),
+ '香草': ('ch2-vanilla-flavor', '石阶上的香草冰棒特写；购买香草后使用', 'cg'),
  'vending': ('0c0b79deec7db838f757dc83bf08c1a7', '长楼梯右侧售货机；购买与十年独白', 'background'),
  'adult': ('17f5b5f773b5835caec419d2e42bfe47', '夕阳海边长发成年爱理；S08 揭晓及第三章重逢', 'cg'),
  'smile': ('1df1b6e44edb26dd497c17dafe91930d', '紫阳花前少女闭眼微笑；告白回应', 'cg'),
@@ -50,7 +51,7 @@ class Chapter:
         if self.cg: n['cg'] = self.cg; n['backgroundFit'] = 'contain'
         if self.condition: n['when'] = self.condition.copy()
         n.update(kw)
-        if n.get('cg'): n['backgroundFit'] = 'contain'
+        if n.get('cg'): n.setdefault('backgroundFit', 'contain')
         self.nodes[id] = normalize_node(n); self.seq.append(id)
         return id
 
@@ -203,6 +204,15 @@ class Chapter:
             ending('ending_just2','Just two of us','ENDING_JUST2','ch2-sunset')
             # Branch A jumps over B, with a shared exit; node-local guards also support old saves.
             a=self.sections['S02']; self.nodes[a[a.index('ch2_n2_b')-1]]['next']='ch2_n2_merge'
+            # Ice-cream flavor CG (G4): strawberry shows ch2-ice, vanilla shows ch2-香草,
+            # both full-screen (cover). Splitting happens after wiring so every other
+            # node keeps its generated ID and existing saves stay valid.
+            base = self.nodes['ch2_216']
+            self.nodes['ch2_216_vanilla'] = {**base, 'cg': 'ch2-香草', 'backgroundFit': 'cover',
+                                             'when': {'key': 'CH2_ICE', 'value': '香草'}}
+            self.nodes['ch2_216'] = {**base, 'backgroundFit': 'cover',
+                                     'when': {'key': 'CH2_ICE', 'value': '草莓'},
+                                     'next': 'ch2_216_vanilla'}
         elif self.key=='chapter3':
             for a,b in [('S01','S02'),('S02','S03'),('S03','S04'),('S04','S05'),('S05','S06')]: link(a,'ch3_'+b.lower())
             # The A route now reveals the heroine-view story before the existing finale.
