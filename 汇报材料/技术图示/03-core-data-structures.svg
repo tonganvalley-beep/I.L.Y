@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#69d5ff"/></marker></defs>
+  <rect width="1600" height="900" fill="#081523"/>
+  <style>text{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif;fill:#f5f4ef;letter-spacing:0}.mono{font-family:Consolas,"Microsoft YaHei",monospace}.cyan{fill:#69d5ff}.orange{fill:#ff9a70}.muted{fill:#a9c8dc}.panel{fill:#12283a}.edge{stroke:#69d5ff;stroke-width:3;fill:none;marker-end:url(#arr3)}.line{stroke:#3b6075;stroke-width:2}</style>
+  <text x="68" y="58" class="cyan" font-size="20" font-weight="700">关键数据结构</text>
+  <text x="68" y="135" font-size="50" font-weight="700">三个对象，连接故事与操作</text>
+  <text x="68" y="181" class="muted" font-size="24">节点描述“接下来发生什么”，地图描述“在哪里发生”，状态记录“玩家已经做过什么”。</text>
+
+  <g>
+    <rect x="70" y="255" width="430" height="480" class="panel"/>
+    <text x="105" y="307" class="mono cyan" font-size="26" font-weight="700">StoryNode</text><text x="455" y="307" text-anchor="end" class="orange" font-size="18">剧情节点</text>
+    <line x1="105" y1="330" x2="465" y2="330" class="line"/>
+    <g class="mono" font-size="19">
+      <text x="105" y="375" class="orange">type</text><text x="225" y="375">"rpg"</text>
+      <text x="105" y="417" class="orange">map</text><text x="225" y="417">"ch1-room"</text>
+      <text x="105" y="459" class="orange">task</text><text x="225" y="459">"G1"</text>
+      <text x="105" y="501" class="orange">next</text><text x="225" y="501">"ch1_g1_done"</text>
+      <text x="105" y="543" class="orange">route</text><text x="225" y="543">"A" | "B" | "C"</text>
+      <text x="105" y="585" class="orange">when</text><text x="225" y="585">{ key, value }</text>
+    </g>
+    <text x="105" y="652" class="muted" font-size="17">以稳定节点 ID 组成有向图，</text><text x="105" y="681" class="muted" font-size="17">通过 next / route / when 控制分支。</text>
+
+    <rect x="585" y="255" width="430" height="480" class="panel"/>
+    <text x="620" y="307" class="mono cyan" font-size="26" font-weight="700">MapData</text><text x="970" y="307" text-anchor="end" class="orange" font-size="18">地图对象</text>
+    <line x1="620" y1="330" x2="980" y2="330" class="line"/>
+    <g class="mono" font-size="19">
+      <text x="620" y="375" class="orange">size</text><text x="740" y="375">{ width, height }</text>
+      <text x="620" y="417" class="orange">spawn</text><text x="740" y="417">{ x, y }</text>
+      <text x="620" y="459" class="orange">blocked</text><text x="740" y="459">Set&lt;Cell&gt;</text>
+      <text x="620" y="501" class="orange">hotspots</text><text x="740" y="501">Event[]</text>
+      <text x="620" y="543" class="orange">art</text><text x="740" y="543">layers / props</text>
+      <text x="620" y="585" class="orange">camera</text><text x="740" y="585">bounds</text>
+    </g>
+    <text x="620" y="652" class="muted" font-size="17">碰撞格负责边界，事件点负责交互，</text><text x="620" y="681" class="muted" font-size="17">美术层可替换而不改任务逻辑。</text>
+
+    <rect x="1100" y="255" width="430" height="480" class="panel"/>
+    <text x="1135" y="307" class="mono cyan" font-size="26" font-weight="700">GameState</text><text x="1485" y="307" text-anchor="end" class="orange" font-size="18">运行状态</text>
+    <line x1="1135" y1="330" x2="1495" y2="330" class="line"/>
+    <g class="mono" font-size="19">
+      <text x="1135" y="375" class="orange">node</text><text x="1255" y="375">currentId</text>
+      <text x="1135" y="417" class="orange">chapter</text><text x="1255" y="417">chapterId</text>
+      <text x="1135" y="459" class="orange">flags</text><text x="1255" y="459">Record&lt;key,value&gt;</text>
+      <text x="1135" y="501" class="orange">clues</text><text x="1255" y="501">string[]</text>
+      <text x="1135" y="543" class="orange">maps</text><text x="1255" y="543">task progress</text>
+      <text x="1135" y="585" class="orange">position</text><text x="1255" y="585">{ x, y }</text>
+    </g>
+    <text x="1135" y="652" class="muted" font-size="17">序列化后进入账号存档；恢复时校验，</text><text x="1135" y="681" class="muted" font-size="17">保留路线、任务、线索与玩家位置。</text>
+  </g>
+
+  <path d="M500 458H585" class="edge"/><text x="542" y="439" text-anchor="middle" class="muted" font-size="15">引用 map</text>
+  <path d="M1015 458H1100" class="edge"/><text x="1058" y="439" text-anchor="middle" class="muted" font-size="15">写入进度</text>
+  <path d="M1315 735V795H285V735" class="edge"/><text x="800" y="785" text-anchor="middle" class="muted" font-size="16">读取 flags，决定下一个有效节点</text>
+  <text x="68" y="865" class="muted" font-size="16">依据：game/data/story/*.js · game/data/maps/*.json · game/src/core/state.js</text>
+</svg>

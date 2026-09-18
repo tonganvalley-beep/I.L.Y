@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-17T04:41:25.428Z",
+  "count": 1,
+  "entries": [
+    {
+      "lineId": "ch1_297",
+      "file": "c2c943d2923a97fe472d5f6e.wav",
+      "inputHash": "e2db27f3876624bb3ac5821fd100ae0ec8b01976fc7c043f5b6716a93d9712cc",
+      "cacheKey": "3aed756722fb120755a6ce3218eaec5c18479d59cdce57dde7813ce403f72805",
+      "styleId": 4,
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      },
+      "generatedAt": "2026-09-17T04:41:23.033Z"
+    }
+  ]
+}

@@ -3,6 +3,10 @@
 .boss-intro{position:absolute;inset:0;background:#0b142deb;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;padding:36px 24px;text-align:center;z-index:2;overflow:auto}
 .boss-intro[hidden]{display:none}.boss-intro p{max-width:680px;line-height:1.9}.boss-intro h1{font-size:clamp(23px,4vw,40px)}
 .boss-host-bar{position:absolute;top:8px;left:8px;display:flex;gap:8px;z-index:3}.boss-host-bar button{font-size:12px;padding:7px 10px;background:#101d37cc}
+/* 通关影片：全屏铺满并保留原始比例，播完自动进入后续剧情 */
+.boss-ending{position:fixed;inset:0;z-index:60;background:#000;display:grid;place-items:center;overflow:hidden}
+.boss-ending-video{width:100%;height:100%;object-fit:contain;background:#000;display:block}
+.boss-ending-skip{position:absolute;right:18px;bottom:18px;z-index:2;font-size:13px;padding:9px 16px;background:#101d37cc;color:#edf2ff;border:1px solid #ffffff2e}
 .chapter-moment{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);width:min(480px,90vw);max-height:85vh;overflow:auto;padding:28px;background:#edf1e9;color:#223344;border:8px solid #293546;box-shadow:0 15px 80px #0009;line-height:1.9}
 .chapter-moment button{background:#294766;color:#fff;margin-top:16px}.chapter-moment p{margin:12px 0}.letter-date{font-size:14px;color:#637178}.letter-body{min-height:140px;padding:28px 0}.search-query{border-bottom:2px solid #889b9d;font-size:28px}
 .chapter-moment.fracture{inset:0;transform:none;max-height:none;width:100%;height:100%;border:0;background:#0e2550d9;padding:0;overflow:hidden}
@@ -51,19 +55,87 @@
 @keyframes heroine-sms-link{0%,94%,100%{transform:none;filter:none}95%{transform:translateX(1px);filter:hue-rotate(12deg)}97%{transform:translateX(-1px)}}
 /* 最终章「搜索演出 / ILY 回信短信」：复用新款手机（heroine-sms-device）作为弹窗 UI */
 .moment-phone-scene{cursor:default}
-.moment-screen-search{grid-template-rows:27px 62px minmax(0,1fr)}
-.moment-search-bar{display:flex;align-items:center;gap:8px;padding:10px 12px 8px;border-bottom:1px solid #c8dde2;background:#f7fbfce8}
-.moment-search-query{flex:1;min-width:0;padding:9px 13px;border:1px solid #c5d8dc;border-radius:17px;background:#fff;color:#132630;font-size:16px;letter-spacing:.08em;box-shadow:inset 0 1px 3px #24424b10}
-.moment-search-bar button{margin:0;padding:8px 15px;border:0;border-radius:17px;background:#1686a2;color:#fff;font-size:13px}
+/* 浏览器外壳：状态栏 / 地址栏 / 页面区（+ 搜索后出现底部操作栏） */
+.moment-screen-search{grid-template-rows:27px 44px minmax(0,1fr)}
+.moment-screen-search.has-footer{grid-template-rows:27px 44px minmax(0,1fr) 49px}
+.moment-browser{display:grid;grid-template-columns:26px minmax(0,1fr) 26px;align-items:center;gap:6px;padding:6px 9px;border-bottom:1px solid #c8dde2;background:#eef4f6}
+.moment-browser-back,.moment-browser-reload{display:grid;width:26px;height:26px;place-items:center;margin:0;padding:0;border:0;border-radius:50%;background:none;color:#1686a2;font:20px/1 system-ui,sans-serif;cursor:pointer}
+.moment-browser-back:disabled{opacity:.26;cursor:default}
+.moment-browser-reload{font-size:16px}
+.moment-browser-back:not(:disabled):hover,.moment-browser-reload:hover{background:#dcebf0}
+.moment-browser-address{display:flex;align-items:center;gap:6px;min-width:0;padding:6px 10px;border:1px solid #c5d8dc;border-radius:14px;background:#fff;box-shadow:inset 0 1px 3px #24424b10}
+.moment-browser-address.is-loading{animation:moment-address-load .55s ease-out}
+.moment-browser-lock{position:relative;flex:none;width:9px;height:6px;margin-top:4px;border-radius:2px;background:#4a8f6b}
+.moment-browser-lock::before{content:"";position:absolute;left:2px;top:-4px;width:5px;height:5px;border:1.4px solid #4a8f6b;border-bottom:0;border-radius:3px 3px 0 0}
+.moment-browser-url{flex:1;min-width:0;overflow:hidden;color:#3a5b64;font:11px/1.3 system-ui,sans-serif;letter-spacing:.01em;text-align:left;text-overflow:ellipsis;white-space:nowrap;direction:ltr}
+@keyframes moment-address-load{0%{background:#e2f5fa}100%{background:#fff}}
+/* 页面区：一次只显示一页 */
+.moment-browser-pages{position:relative;min-height:0;overflow:hidden;background:#fff}
+.moment-page{position:absolute;inset:0;overflow-x:hidden;overflow-y:auto;scrollbar-width:thin}
+.moment-page[hidden]{display:none!important}
+/* 首页：搜索框 */
+.moment-page.is-home{display:flex;flex-direction:column;justify-content:center;gap:15px;padding:0 16px 40px;background:linear-gradient(#fff,#f1f8f9)}
+.moment-home-logo{display:flex;align-items:baseline;justify-content:center;gap:1px;font:700 30px/1 system-ui,sans-serif}
+.moment-home-logo-char.is-0{color:#2f7fd0}.moment-home-logo-char.is-1{color:#d8564f}.moment-home-logo-char.is-2{color:#d8a13a}
+.moment-home-logo-text{margin-left:7px;color:#78909a;font:400 13px/1 system-ui,sans-serif;letter-spacing:.22em}
+.moment-search-bar{display:flex;align-items:center;gap:8px;padding:0;border:0;background:none}
+.moment-search-query{flex:1;min-width:0;padding:10px 14px;border:1px solid #c5d8dc;border-radius:19px;background:#fff;color:#132630;font-size:15px;letter-spacing:.08em;box-shadow:0 1px 5px #24424b14,inset 0 1px 3px #24424b10}
+.moment-search-bar button{margin:0;padding:10px 15px;border:0;border-radius:19px;background:#1686a2;color:#fff;font-size:13px;cursor:pointer}
 .moment-search-bar button:disabled{opacity:.4}
-.moment-search-results{min-height:0;overflow:auto;display:flex;flex-direction:column;gap:7px;padding:13px 15px;background:linear-gradient(#eaf4f6dd,#dcebefee)}
-.moment-search-results h2{margin:2px 0 3px;color:#0b3a4d;font-size:15px;line-height:1.55}
-.moment-search-results p{margin:0;color:#28444c;font-size:13px;line-height:1.75}
-.moment-search-results button{margin:12px 0 4px;align-self:center;padding:8px 24px;border:0;border-radius:17px;background:#1686a2;color:#fff}
+.moment-home-hint{margin:0;color:#8aa2aa;font-size:11px;line-height:1.6;letter-spacing:0;text-align:center}
+/* 结果页：一条搜索结果＝一个网站，整条可点 */
+.moment-page.is-results{background:linear-gradient(#eef6f8,#e2eff2)}
+.moment-results-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:7px 13px 6px;border-bottom:1px solid #d3e3e7}
+.moment-results-count{color:#5c7a83;font:11px/1.3 system-ui,sans-serif;letter-spacing:0}
+.moment-results-tip{color:#1686a2;font:11px/1.3 system-ui,sans-serif;letter-spacing:0}
+.moment-results-list{display:flex;flex-direction:column;gap:1px;padding:5px 6px 0}
+.moment-result{display:block;width:100%;padding:6px 8px 7px;border:0;border-radius:8px;background:none;text-align:left;cursor:pointer;animation:moment-result-in .34s ease-out both;animation-delay:calc(var(--i,0)*70ms)}
+.moment-result:hover,.moment-result:focus-visible{background:#ffffffcc;box-shadow:0 1px 4px #24424b14}
+.moment-result-url{display:block;overflow:hidden;color:#2f7d5b;font:11px/1.4 system-ui,sans-serif;letter-spacing:.01em;text-align:left;text-overflow:ellipsis;white-space:nowrap;direction:ltr}
+.moment-result-title{display:block;margin:1px 0 2px;color:#1d4ed8;font-size:14px;line-height:1.4;letter-spacing:0}
+.moment-result:hover .moment-result-title{text-decoration:underline}
+.moment-result-snippet{display:-webkit-box;overflow:hidden;color:#456069;font-size:12px;line-height:1.6;letter-spacing:0;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.moment-results-related{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 13px 12px}
+.moment-related-label{width:100%;color:#5c7a83;font:11px/1.3 system-ui,sans-serif;letter-spacing:0}
+.moment-results-chip{margin:0;padding:4px 10px;border:1px solid #bcd4d9;border-radius:13px;background:#ffffffb0;color:#215c6b;font-size:11.5px;cursor:pointer}
+.moment-results-chip:hover{background:#fff;border-color:#8fbdc7}
+@keyframes moment-result-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+/* 网站页：点开链接后的正文 */
+.moment-page.is-site{background:#fff}
+.moment-site-article{padding:14px 15px 18px;color:#22383f}
+.moment-site-title{margin:0 0 3px;color:#102a36;font-size:16px;font-weight:600;line-height:1.45;letter-spacing:0}
+.moment-site-url{margin:0 0 10px;color:#2f7d5b;font:11px/1.4 system-ui,sans-serif;letter-spacing:.01em;text-align:left;overflow-wrap:anywhere;direction:ltr}
+.moment-site-lead{margin:0 0 10px;padding-bottom:9px;border-bottom:1px solid #e2ecef;color:#173b47;font-size:13px;line-height:1.8}
+.moment-site-rows{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 10px;margin:0 0 10px;padding:8px 10px;border-radius:8px;background:#f1f7f8;font-size:12px;line-height:1.6}
+.moment-site-rows dt{margin:0;color:#63808b}.moment-site-rows dd{margin:0;color:#1b3b46}
+.moment-site-list{display:grid;gap:6px;margin:0 0 10px}
+.moment-site-line{margin:0;padding:2px 0 2px 11px;border-left:2px solid #bcd9e0;color:#22444f;font-size:13px;line-height:1.75}
+.moment-site-copy{margin:0 0 9px;color:#2b4b55;font-size:12.5px;line-height:1.85}
+.moment-site-back{margin:8px 0 0;padding:7px 14px;border:1px solid #b7d3da;border-radius:15px;background:#f4fafb;color:#1686a2;font-size:12px;cursor:pointer}
+.moment-site-back:hover{background:#e8f5f8}
 .moment-phone-footer{display:grid;place-items:center;border-top:1px solid #c8dde2;background:#f8fbfc}
+.moment-phone-footer[hidden]{display:none}
 .moment-phone-footer button{margin:0;padding:8px 26px;border:0;border-radius:17px;background:#1686a2;color:#fff}
 .moment-sms-subject{display:block;margin-bottom:3px;color:#087c9f;font:11px/1.3 system-ui,sans-serif;letter-spacing:0}
-@media(max-width:420px){.moment-screen-search{grid-template-rows:25px 56px minmax(0,1fr)}.moment-search-results{padding:10px 11px}.moment-search-query{padding:7px 11px;font-size:14px}}
+@media(max-width:420px){
+  .moment-screen-search{grid-template-rows:25px 40px minmax(0,1fr)}
+  .moment-screen-search.has-footer{grid-template-rows:25px 40px minmax(0,1fr) 44px}
+  .moment-browser{grid-template-columns:22px minmax(0,1fr) 22px;gap:5px;padding:5px 7px}
+  .moment-browser-back,.moment-browser-reload{width:22px;height:22px;font-size:17px}
+  .moment-browser-address{padding:5px 9px;gap:5px;border-radius:12px}
+  .moment-browser-url{font-size:10px}
+  .moment-page.is-home{gap:12px;padding:0 12px 28px}
+  .moment-home-logo{font-size:25px}
+  .moment-search-query{padding:8px 12px;font-size:14px}
+  .moment-search-bar button{padding:8px 13px;font-size:12px}
+  .moment-result{padding:6px 6px 7px}
+  .moment-result-title{font-size:13px}
+  .moment-result-snippet{font-size:11.5px}
+  .moment-site-article{padding:11px 12px 14px}
+  .moment-site-title{font-size:15px}
+  .moment-site-line,.moment-site-lead{font-size:12.5px}
+}
+@media(prefers-reduced-motion:reduce){.moment-result{animation:none}.moment-browser-address.is-loading{animation:none}}
 .scene-effect-blue::after,.scene-effect-dark::after{content:"";position:absolute;inset:0;pointer-events:none}.scene-effect-blue::after{background:rgba(13,78,145,.22);mix-blend-mode:color}.scene-effect-dark::after{background:rgba(0,7,18,.46)}
 .scene-effect-desaturated .scene-background,.scene-effect-desaturated .portrait{filter:saturate(.32)}.scene-effect-soft .scene-background,.scene-effect-soft .portrait{filter:brightness(1.05) contrast(.9)}.scene-effect-dissolve .portrait{opacity:.7;filter:drop-shadow(0 0 15px rgba(79,189,255,.45))}
 .scene-effect-glitch{animation:heroine-glitch 4.5s steps(1,end) infinite}.scene-effect-flash{animation:heroine-flash .42s ease-out both}.scene-transition-fade-black{animation:heroine-fade-black .75s ease-out both}.scene-transition-fade-white{animation:heroine-fade-white .75s ease-out both}.scene-transition-cut{animation:heroine-cut .16s steps(1,end) both}

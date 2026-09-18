@@ -6,6 +6,20 @@
 
 2026-09-17 按用户调度完成 P6：稳定 ID 播放、源指纹校验、切换/回滚/读档/快进/菜单中断、独立语音设置及缺失资产降级均已接入。默认开语音、音量 80%，菜单和失焦停止且不自动续播，重新开启仅影响后续节点；推进保持原有节奏、不等待语音。详见 docs/voicevox/reports/P6.md。
 
+## 终章「检索 ily」改为浏览器式结果页（2026-09-17）
+
+最终章 S05 搜索演出（节点 `fin_s05`，type `search`）从「手机屏上直接铺一段文案」改成**手机浏览器**：顶部地址栏（锁标 + 地址 + 刷新）随导航变化，左侧返回键按访问历史回退。
+
+- 首页 `sou.example.com`：搜索框预填 `ily` + 「搜索」按钮；不点则 6 秒后自动检索（旧兜底不变）。
+- 结果页 `sou.example.com/search?q=ily`：给出 5 个网站并逐条浮出，条目＝绿色网址 + 蓝色标题 + 灰色摘要，整条可点；下方「其他用户还搜索了」为可点标签（点标签直接进入对应网站）。
+- 网站页：点开链接进入该站，标题 + 网址 + 词条（词性／全拼／读音／词条编号）＋ 释义列表，结尾有「‹ 返回搜索结果」。
+- **原本文案已收进链接**：`ILY 是 I LOVE YOU 的首字母缩写。／我爱你。／我喜欢你。／也用来传达道别时的爱意。` 现在是最后一条「「ILY」的意思与用法」（`www.essay.example/ily`）的正文，不再是直接铺开的段落。
+- 底部「继续」在搜索出现后才显示（与旧版一致），结果页或网站页都可推进下一节点；旗标 `G3_SEARCHED` 与成就「ILY = I LOVE YOU」的落点不变。
+
+实现：`game/src/modes/chapter-moments.js`（搜索分支 + `SEARCH_SITES` 站点表 + `browserShow/browserBack/openSite`）；样式在 `game/styles/chapters.css` 的 moment-* 段（地址栏 / 结果条目 / 网站页 / 窄屏断点，`.has-footer` 控制底部行只在搜索后占位）。
+
+验证：`node tests/final-phone-moment-check.cjs`（playwright + Edge，端口 8097）——首页地址栏、5 条结果、现文案在链接里、点开正文、地址栏随链接前进、返回结果页、6 秒自动展开、点继续推进、短信弹窗，全部通过且 0 pageerror；`node --test tests/*.test.mjs game/minigames/boss/tests/*.test.mjs` 99/99。截图：`outputs/final-phone-search-{home,results,site,copy}.png`、`outputs/final-phone-mail.png`。改完记得暂停 OneDrive 同步并硬刷新（Ctrl+Shift+R）。
+
 ## 模块统一与清理（2026-09-16）
 
 正式小游戏现统一在 `game/minigames/{photo-rhythm,winxp,boss}/`；红心弹幕源码由原 `danmutest/game.js` 迁至 `game/src/engines/danmu.js`，主线和 XP 共用同一引擎。嵌入适配器为 `game/src/modes/embedded-games.js`。摄影立绘复用 `game/assets/images/characters/aili/`，Boss 字体复用 `sign&log/fonts/zpix.ttf`。

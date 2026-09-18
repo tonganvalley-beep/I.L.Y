@@ -1029,21 +1029,43 @@ function reset(){
 
 
 let endingLayer=null, endingVideo=null;
+/** 生命归零后的弹窗：重来 / 跳过游戏看剧情，风格与开始界面一致，不会卡死。 */
+function showDeathPopup(){
+  const ov=$('overlay');ov.innerHTML='';
+  const eyebrow=document.createElement('p');eyebrow.className='eyebrow';eyebrow.textContent='HP DEPLETED · 生命归零';
+  const h=document.createElement('h1');h.textContent='战斗失败';
+  const p=document.createElement('p');p.textContent=`她的执念还是太重了——你撑到了第 ${currentAct+1} 幕 · ${clockText(totalElapsed)}。要再试一次，还是跳过这场战斗，直接听她说完剩下的话？`;
+  const note=document.createElement('p');note.className='small';note.textContent='按 R 也可立即重来';
+  const row=document.createElement('div');row.className='overlay-actions';
+  const retry=document.createElement('button');retry.type='button';retry.textContent='重来';
+  retry.addEventListener('click',()=>{ov.classList.remove('show');startGame();});
+  const skip=document.createElement('button');skip.type='button';skip.textContent='跳过游戏看剧情';
+  skip.addEventListener('click',()=>{
+    ov.classList.remove('show');
+    if(embedded){
+      // 通知宿主（最终章）以剧情模式继续，不结算通关。
+      hostSend({type:'boss:end',win:false,skip:true,hp:0,maxHp:G.maxhp,timeMs:Math.round(totalElapsed/60*1000),reachedAct:currentAct+1,reducedMotion,bossMode:'story'});
+    }else{
+      victory=true;showEnding();
+    }
+  });
+  row.append(retry,skip);
+  ov.append(eyebrow,h,p,note,row);
+  ov.classList.add('show');
+}
 function endGame(win){
   if(embedded){
     if(gameOver||victory)return;
-    victory=!!win;gameOver=!win;keys.clear();
-    hostSend({type:'boss:end',win:!!win,hp:G.hp,maxHp:G.maxhp,timeMs:Math.round(totalElapsed/60*1000),reachedAct:currentAct+1,reducedMotion,bossMode:'play'});
+    if(win){ victory=true;gameOver=false;keys.clear();
+      hostSend({type:'boss:end',win:true,hp:G.hp,maxHp:G.maxhp,timeMs:Math.round(totalElapsed/60*1000),reachedAct:currentAct+1,reducedMotion,bossMode:'play'});
+      return;
+    }
+    gameOver=true;victory=false;keys.clear();
+    showDeathPopup();
     return;
   }
   if(win){victory=true;showEnding();return;}
-  gameOver=true;
-  const ov=$('overlay');ov.innerHTML='';
-  const h=document.createElement('h1');h.textContent='GAME OVER';
-  const p=document.createElement('p');p.textContent=`撑到了第 ${currentAct+1} 幕 · ${clockText(totalElapsed)}。再试一次？`;
-  const btn=document.createElement('button');btn.type='button';btn.textContent='再来一次';
-  btn.addEventListener('click',()=>{ov.classList.remove('show');startGame();});
-  ov.append(h,p,btn);ov.classList.add('show');
+  gameOver=true;showDeathPopup();
 }
 // 通关：全屏播放 ending.mp4。文件缺失 / 解码失败 / 自动播放受限时回退文字界面。
 function showEnding(){

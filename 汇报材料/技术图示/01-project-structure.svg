@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#081523"/>
+  <style>
+    text{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif;fill:#f5f4ef;letter-spacing:0}
+    .mono{font-family:Consolas,"Microsoft YaHei",monospace}.cyan{fill:#69d5ff}.orange{fill:#ff9a70}.muted{fill:#a9c8dc}
+    .panel{fill:#12283a}.line{stroke:#3b6075;stroke-width:2}.branch{stroke:#69d5ff;stroke-width:3;fill:none}
+  </style>
+  <text x="68" y="58" class="cyan" font-size="20" font-weight="700">项目文件夹结构</text>
+  <text x="68" y="135" font-size="50" font-weight="700">从入口到内容，再到工具链</text>
+  <text x="68" y="181" class="muted" font-size="24">运行时、内容数据与制作工具分层组织，核心游戏集中在 game/。</text>
+
+  <rect x="68" y="230" width="360" height="590" class="panel"/>
+  <text x="100" y="280" class="mono cyan" font-size="30" font-weight="700">I.L.Y/</text>
+  <path d="M112 310V749 M112 333H138 M112 398H138 M112 463H138 M112 528H138 M112 593H138 M112 658H138 M112 723H138" class="branch"/>
+  <g font-size="22">
+    <text x="150" y="341" class="mono">index.html</text><text x="150" y="367" class="muted" font-size="17">统一启动入口</text>
+    <text x="150" y="406" class="mono orange">game/</text><text x="150" y="432" class="muted" font-size="17">游戏本体与编辑器</text>
+    <text x="150" y="471" class="mono">sign&amp;log/</text><text x="150" y="497" class="muted" font-size="17">登录、菜单与回忆界面</text>
+    <text x="150" y="536" class="mono">tools/</text><text x="150" y="562" class="muted" font-size="17">构建、服务与配音工具</text>
+    <text x="150" y="601" class="mono">tests/</text><text x="150" y="627" class="muted" font-size="17">主线与玩法回归测试</text>
+    <text x="150" y="666" class="mono">docs/</text><text x="150" y="692" class="muted" font-size="17">技术说明与验收报告</text>
+    <text x="150" y="731" class="mono">汇报材料/</text><text x="150" y="757" class="muted" font-size="17">PPT、截图与讲稿</text>
+  </g>
+
+  <text x="500" y="271" class="mono orange" font-size="26" font-weight="700">game/</text>
+  <line x1="500" y1="292" x2="1530" y2="292" class="line"/>
+  <g>
+    <rect x="500" y="322" width="310" height="192" class="panel"/>
+    <text x="530" y="365" class="mono cyan" font-size="24" font-weight="700">data/</text>
+    <text x="530" y="404" font-size="20">story/　剧情节点与分支</text>
+    <text x="530" y="438" font-size="20">maps/　地图、碰撞与事件</text>
+    <text x="530" y="472" font-size="20">voice/　配音工程与清单</text>
+    <text x="530" y="500" class="muted" font-size="16">内容数据，可独立于运行逻辑更新</text>
+
+    <rect x="840" y="322" width="330" height="192" class="panel"/>
+    <text x="870" y="365" class="mono cyan" font-size="24" font-weight="700">src/</text>
+    <text x="870" y="404" font-size="20">core/　状态、存档、场景</text>
+    <text x="870" y="438" font-size="20">modes/　对白、RPG、战斗</text>
+    <text x="870" y="472" font-size="20">engines/　弹幕共享引擎</text>
+    <text x="870" y="500" class="muted" font-size="16">main.js 负责统一调度</text>
+
+    <rect x="1200" y="322" width="330" height="192" class="panel"/>
+    <text x="1230" y="365" class="mono cyan" font-size="24" font-weight="700">minigames/</text>
+    <text x="1230" y="404" font-size="20">photo-rhythm/　节拍摄影</text>
+    <text x="1230" y="438" font-size="20">winxp/　XP 电脑玩法</text>
+    <text x="1230" y="472" font-size="20">boss/　七幕最终战</text>
+    <text x="1230" y="500" class="muted" font-size="16">可复用、可单测的独立玩法</text>
+
+    <rect x="500" y="544" width="490" height="192" class="panel"/>
+    <text x="530" y="587" class="mono cyan" font-size="24" font-weight="700">assets/ + styles/</text>
+    <text x="530" y="627" font-size="20">图片、音频、字体、分层舞台样式</text>
+    <text x="530" y="665" class="muted" font-size="17">表现层只保存一份公共资源，避免重复导入</text>
+    <text x="530" y="700" class="mono orange" font-size="18">表现资源  ⇄  资源清单  ⇄  场景渲染</text>
+
+    <rect x="1020" y="544" width="510" height="192" class="panel"/>
+    <text x="1050" y="587" class="mono cyan" font-size="24" font-weight="700">voicevox-editor.*</text>
+    <text x="1050" y="627" font-size="20">日语台词编辑、批量合成与发布</text>
+    <text x="1050" y="665" class="muted" font-size="17">调用 tools/voicevox/，输出稳定 ID 的 WAV 与 manifest</text>
+    <text x="1050" y="700" class="mono orange" font-size="18">剧本  →  队列  →  缓存  →  游戏语音</text>
+  </g>
+  <line x1="68" y1="850" x2="1532" y2="850" class="line"/>
+  <text x="68" y="880" class="muted" font-size="16">依据：README.md · game/src/ · game/data/ · tools/voicevox/</text>
+</svg>

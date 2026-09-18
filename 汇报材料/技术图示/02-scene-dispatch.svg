@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#69d5ff"/></marker></defs>
+  <rect width="1600" height="900" fill="#081523"/>
+  <style>
+    text{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif;fill:#f5f4ef;letter-spacing:0}.mono{font-family:Consolas,"Microsoft YaHei",monospace}.cyan{fill:#69d5ff}.orange{fill:#ff9a70}.muted{fill:#a9c8dc}.panel{fill:#12283a}.edge{stroke:#69d5ff;stroke-width:3;fill:none;marker-end:url(#arr)}.thin{stroke:#3b6075;stroke-width:2;fill:none}
+  </style>
+  <text x="68" y="58" class="cyan" font-size="20" font-weight="700">关键算法 01 / 剧情节点调度</text>
+  <text x="68" y="135" font-size="50" font-weight="700">一个 go(nodeId)，驱动所有场景</text>
+  <text x="68" y="181" class="muted" font-size="24">读取节点、清理旧模式、更新状态，再按 type 挂载新玩法。</text>
+
+  <g>
+    <rect x="70" y="294" width="230" height="104" class="panel"/><text x="185" y="336" text-anchor="middle" class="mono orange" font-size="24" font-weight="700">go(nodeId)</text><text x="185" y="370" text-anchor="middle" class="muted" font-size="17">统一入口</text>
+    <path d="M300 346H380" class="edge"/>
+    <rect x="380" y="275" width="250" height="142" class="panel"/><text x="505" y="320" text-anchor="middle" class="cyan" font-size="24" font-weight="700">① 读取节点</text><text x="505" y="355" text-anchor="middle" class="mono" font-size="18">story.nodes[id]</text><text x="505" y="386" text-anchor="middle" class="muted" font-size="16">next / route / when</text>
+    <path d="M630 346H710" class="edge"/>
+    <rect x="710" y="275" width="250" height="142" class="panel"/><text x="835" y="320" text-anchor="middle" class="cyan" font-size="24" font-weight="700">② 清理旧模式</text><text x="835" y="355" text-anchor="middle" class="mono" font-size="18">cleanup()</text><text x="835" y="386" text-anchor="middle" class="muted" font-size="16">事件 / 计时器 / 动画</text>
+    <path d="M960 346H1040" class="edge"/>
+    <rect x="1040" y="275" width="250" height="142" class="panel"/><text x="1165" y="320" text-anchor="middle" class="cyan" font-size="24" font-weight="700">③ 更新状态</text><text x="1165" y="355" text-anchor="middle" class="mono" font-size="18">state.node = id</text><text x="1165" y="386" text-anchor="middle" class="muted" font-size="16">旗标 / 回忆 / 自动存档</text>
+    <path d="M1290 346H1370" class="edge"/>
+    <rect x="1370" y="294" width="160" height="104" class="panel"/><text x="1450" y="336" text-anchor="middle" class="cyan" font-size="24" font-weight="700">④ 分派</text><text x="1450" y="370" text-anchor="middle" class="mono" font-size="17">node.type</text>
+  </g>
+
+  <path d="M1450 398V486H260" class="thin"/>
+  <path d="M260 486V535" class="edge"/><path d="M530 486V535" class="edge"/><path d="M800 486V535" class="edge"/><path d="M1070 486V535" class="edge"/><path d="M1340 486V535" class="edge"/>
+  <g>
+    <rect x="120" y="535" width="280" height="138" class="panel"/><text x="260" y="580" text-anchor="middle" class="mono orange" font-size="21">dialogue / choice</text><text x="260" y="618" text-anchor="middle" font-size="21">对白与选择</text><text x="260" y="648" text-anchor="middle" class="muted" font-size="16">mountDialogue()</text>
+    <rect x="390" y="535" width="280" height="138" class="panel"/><text x="530" y="580" text-anchor="middle" class="mono orange" font-size="21">phone</text><text x="530" y="618" text-anchor="middle" font-size="21">邮件与联系人</text><text x="530" y="648" text-anchor="middle" class="muted" font-size="16">mountPhone()</text>
+    <rect x="660" y="535" width="280" height="138" class="panel"/><text x="800" y="580" text-anchor="middle" class="mono orange" font-size="21">rpg / exploration</text><text x="800" y="618" text-anchor="middle" font-size="21">地图探索</text><text x="800" y="648" text-anchor="middle" class="muted" font-size="16">mountRpg()</text>
+    <rect x="930" y="535" width="280" height="138" class="panel"/><text x="1070" y="580" text-anchor="middle" class="mono orange" font-size="21">battle / boss</text><text x="1070" y="618" text-anchor="middle" font-size="21">弹幕战斗</text><text x="1070" y="648" text-anchor="middle" class="muted" font-size="16">mountBattle() / mountBoss()</text>
+    <rect x="1200" y="535" width="280" height="138" class="panel"/><text x="1340" y="580" text-anchor="middle" class="mono orange" font-size="21">end / finale</text><text x="1340" y="618" text-anchor="middle" font-size="21">结局与演出</text><text x="1340" y="648" text-anchor="middle" class="muted" font-size="16">mountScene()</text>
+  </g>
+
+  <rect x="250" y="722" width="1100" height="76" fill="#0e2131"/>
+  <text x="800" y="753" text-anchor="middle" class="cyan" font-size="20" font-weight="700">关键收益</text>
+  <text x="800" y="784" text-anchor="middle" font-size="19">玩法可以独立实现；场景切换时旧监听器不会干扰新场景；新增 type 不必重写剧情数据。</text>
+  <text x="68" y="865" class="muted" font-size="16">依据：game/src/main.js · go() · game/src/core/chapter1.js</text>
+</svg>

@@ -9042,26 +9042,9 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "production": {
         "background": [
           "纯黑与夕阳交替闪烁。画面在“有 ILY”与“没有 ILY”两个版本之间高频切换。"
-        ],
-        "portraits": [
-          "ILY（中／开始崩坏）、基生（左／表情空白）、成年爱理（右／握着衣襟）"
         ],
         "bgm": [
           "崩坏音，层层叠加，逐渐撕裂。"
@@ -9084,20 +9067,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0362"
     },
     "her_0362": {
@@ -9109,20 +9078,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "production": {
         "direction": [
           "演出：ILY绕到他面前，双手在空中胡乱地挥。"
@@ -9139,20 +9094,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0364"
     },
     "her_0364": {
@@ -9164,20 +9105,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0365"
     },
     "her_0365": {
@@ -9189,20 +9116,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0366"
     },
     "her_0366": {
@@ -9214,20 +9127,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "production": {
         "direction": [
           "演出：ILY的声音已经带上了哭腔。"
@@ -9244,20 +9143,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0368"
     },
     "her_0368": {
@@ -9269,20 +9154,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0369"
     },
     "her_0369": {
@@ -9294,20 +9165,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9331,20 +9188,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9360,20 +9203,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9389,20 +9218,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9418,20 +9233,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9447,20 +9248,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9476,20 +9263,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9505,20 +9278,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9534,20 +9293,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9568,20 +9313,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9602,20 +9333,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "glitch",
         "dissolve"
@@ -9636,20 +9353,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "production": {
         "effects": [
           "基生的脑海里，如同意识流般流过这一个月以来“爱理”的形象——便利店的、房间的、水族馆的、江之岛的，一帧一帧，全部褪色。"
@@ -9666,20 +9369,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "production": {
         "direction": [
           "演出：ILY的全身都开始变得崩坏而虚幻，渐渐消失。"
@@ -9696,20 +9385,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "next": "her_0383"
     },
     "her_0383": {
@@ -9721,20 +9396,6 @@ ILY.data.stories.heroine = {
       "scene": "05-08",
       "sceneTitle": "崩坏",
       "background": "ch2-sunset",
-      "characters": [
-        {
-          "image": "ch2-adult",
-          "position": "right"
-        },
-        {
-          "image": "airi-broken",
-          "position": "center"
-        },
-        {
-          "image": "portrait-kio",
-          "position": "left"
-        }
-      ],
       "visualEffects": [
         "blue",
         "dissolve"
