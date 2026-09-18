@@ -370,6 +370,8 @@ try {
     ILY.updateScriptEditor(Object.assign(node, { id: next }));
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
     if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
+    const musicCue = ILY.musicCueFor?.(next, node);
+    if (musicCue !== undefined) assets.setMusic(musicCue);
     if (skipMode && !isDialogueSkippable(node)) setSkipMode('');
     const refreshing = options.refresh && next === state.node;
     voice.stop();
