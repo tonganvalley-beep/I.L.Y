@@ -26,7 +26,7 @@ test('保存 API 实际写入正式 JS，重新加载后文本、图片与增删
   const { directory, filename, original, get, post } = await fixture(t);
   const before = await get();
   const records = structuredClone(before.records);
-  records.s01_intro2 = { ...records.s01_intro2, text: '保存到项目的台词', background: 'bg-coast-night', portrait: 'portrait-airi' };
+  records.s01_intro2 = { ...records.s01_intro2, text: '保存到项目的台词', background: 'bg-coast-night', characters: [{ image: 'portrait-kio', position: 'left' }, { image: 'portrait-airi', position: 'right' }] };
   records.review_api_test = { added: true, anchor: 's01_intro2', position: 'after', node: { type: 'dialogue', text: '', next: 's01_intro3' }, text: '新的一段', background: 'bg-coast-blue', portrait: '' };
   records.s01_intro3 = { ...records.s01_intro3, deleted: true };
   const response = await post({ revision: before.revision, records });
@@ -42,7 +42,7 @@ test('保存 API 实际写入正式 JS，重新加载后文本、图片与增删
   context.ILYScriptReview.create(story).apply(context.ILY_SCRIPT_EDITS);
   assert.equal(story.nodes.s01_intro2.text, '保存到项目的台词');
   assert.equal(story.nodes.s01_intro2.background, 'bg-coast-night');
-  assert.equal(story.nodes.s01_intro2.portrait, 'portrait-airi');
+  assert.equal(JSON.stringify(story.nodes.s01_intro2.characters), JSON.stringify(records.s01_intro2.characters));
   assert.equal(story.nodes.s01_intro2.next, 'review_api_test');
   assert.equal(story.nodes.review_api_test.background, 'bg-coast-blue');
   assert.equal(story.nodes.s01_intro3.type, 'cue');

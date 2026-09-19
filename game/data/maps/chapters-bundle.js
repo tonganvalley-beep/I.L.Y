@@ -383,7 +383,11 @@ ILY.data.chapterMaps = {
           "草莓"
         ],
         "text": "店员：请拿好，欢迎下次光临。",
-        "flag": "CH2_ICE"
+        "flag": "CH2_ICE",
+        "item": {
+          "香草": "冰棍",
+          "草莓": "冰淇淋"
+        }
       }
     ],
     "objects": [

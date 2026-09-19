@@ -130,10 +130,11 @@ test('游戏页的所有脚本存在，普通脚本无需服务或模块加载',
   assert.ok(fresh.ILY.data.assets);
   assert.ok(fresh.ILY.data.stories.prologue);
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(entry, /sign&amp;log\/login.html/);
+  assert.match(entry, /sign&amp;log\/login.html\?entry=root/);
   assert.match(entry, /sessionStorage\.setItem\('ily-root-entry', '1'\)/);
   assert.doesNotMatch(entry, /href="game\/index\.html"/);
   assert.ok(html.indexOf("sessionStorage.getItem('ily-root-entry')") < html.indexOf('<link rel="stylesheet"'), '入口校验必须早于游戏资源加载');
+  assert.match(html, /\['root', 'chapters'\]\.includes/);
   assert.match(html, /location\.replace\(new URL\('\.\.\/index\.html'/);
 });
 
@@ -142,7 +143,7 @@ test('章节试玩页可直接进入任意章节而不会返回登录入口', as
     readFile(new URL('../game/chapters.html', import.meta.url), 'utf8'),
     readFile(new URL('../game/index.html', import.meta.url), 'utf8')
   ]);
-  assert.match(game, /get\('entry'\) === 'chapters'/);
+  assert.match(game, /\['root', 'chapters'\]\.includes/);
   assert.match(html, /href="index\.html\?entry=chapters"/);
   assert.match(html, /href="index\.html\?entry=chapters&chapter=1"/);
   assert.match(html, /href="index\.html\?entry=chapters&chapter=final"/);
@@ -478,18 +479,24 @@ test('全游戏保留 Zpix 像素字体，手机和舞台不被新主题覆盖',
 });
 
 test('开始菜单接入游戏、OP 跳过与读取存档启动参数', async () => {
-  const [menuHtml, mainSource] = await Promise.all([
+  const [loginSource, introHtml, menuHtml, mainSource] = await Promise.all([
+    readFile(new URL('../sign&log/login.js', import.meta.url), 'utf8'),
+    readFile(new URL('../sign&log/index.html', import.meta.url), 'utf8'),
     readFile(new URL('../sign&log/game.html', import.meta.url), 'utf8'),
     readFile(new URL('../game/src/main.js', import.meta.url), 'utf8')
   ]);
+  assert.match(loginSource, /searchParams\.set\('entry', 'root'\)/);
+  assert.match(introHtml, /for \(const key of \['entry', 'player'\]\)/);
   assert.match(menuHtml, /src="\.\.\/game\/I\.L\.Y\.-OP\.mp4"/);
   assert.match(menuHtml, /event\.key === 'Escape'/);
   assert.match(menuHtml, /enterGame\('load'\)/);
   assert.match(menuHtml, /ily-save-v2:/);
   assert.match(menuHtml, /hasPlayerSave\(\)/);
   assert.match(menuHtml, /new URL\('\.\.\/game\/index\.html'/);
+  assert.match(menuHtml, /url\.searchParams\.set\('entry', 'root'\)/);
   assert.match(mainSource, /launchParams\.get\('mode'\) === 'load'/);
   assert.match(mainSource, /new URL\('\.\.\/sign&log\/game\.html'/);
+  assert.match(mainSource, /launchParams\.get\('entry'\) === 'root'/);
   const inlineScripts = [...menuHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);
   assert.ok(inlineScripts.length);
   for (const source of inlineScripts) new vm.Script(source);
@@ -502,6 +509,7 @@ test('开发服务器会自动打开入口、处理目录地址并在端口占�
     readFile(new URL('../tools/serve.mjs', import.meta.url), 'utf8')
   ]);
   assert.match(packageJson.scripts.start, /--open \/index\.html$/);
+  assert.match(packageJson.scripts.chapters, /--open \/game\/chapters\.html$/);
   assert.equal(packageJson.scripts.demo, undefined);
   assert.match(packageJson.scripts.game, /--open \/index\.html$/);
   assert.equal(packageJson.scripts.chapter1, undefined, '不应保留绕过根入口的章节直达命令');
@@ -511,4 +519,5 @@ test('开发服务器会自动打开入口、处理目录地址并在端口占�
   assert.match(server, /listen\(port \+ 1/, '端口占用时应尝试下一个端口');
   assert.match(server, /rundll32\.exe/, 'Windows 应通过系统默认浏览器打开地址');
   assert.match(server, /args\.includes\('--no-open'\)/, '应支持只启动而不打开浏览器');
+  assert.match(server, /打开地址：\$\{target\}/, '终端应打印实际打开的入口路径');
 });

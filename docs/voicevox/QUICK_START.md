@@ -5,7 +5,7 @@
 ## 1. 启动
 
 1. 启动本机 VOICEVOX，确认 Engine 监听 `127.0.0.1:50021`。
-2. 在仓库根目录执行 `npm start -- --no-open`。
+2. 在仓库根目录执行 `node tools/serve.mjs --open /game/voicevox-editor.html`
 3. 访问终端打印的实际端口，例如 `http://127.0.0.1:8080/game/voicevox-editor.html`。
 4. 点击右上角引擎状态重新检测。端口被占用时项目服务会自动尝试后续端口；VOICEVOX Engine 端口不随之改变。
 

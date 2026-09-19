@@ -24,6 +24,16 @@ npm run game
 
 只启动、不自动打开浏览器：`npm start -- --no-open`。指定起始端口：`npm start -- --port 9000 --no-open`。
 
+没有 Node.js 时，也可以直接双击仓库根目录的 `index.html`，按同一条“登录 → 开场 → 正式游戏”流程试玩。此模式使用随页面加载的内嵌地图数据，不需要本地服务器；但浏览器会把 `file:` 存档与 HTTP 存档分开，剧本保存、图片上传和 VOICEVOX 等需要本机 API 的功能仍须使用 `npm start`。
+
+需要直接调试章节并使用剧本编辑器时，运行：
+
+```powershell
+npm run chapters
+```
+
+它会在同一个本地服务器上直接打开章节索引（`/game/chapters.html`），不会经过登录页。请使用终端打印的 HTTP 地址进入，不要从文件管理器双击 `game/chapters.html`；端口被占用时，以终端打印的实际端口为准。
+
 ## VOICEVOX 配音工具
 
 **T1、P1-P6 技术验收通过（2026-09-17）。** 最终检查、修复与生产边界见 [全项目验收报告](docs/voicevox/reports/FINAL_ACCEPTANCE.md)。 5,000 条工作表与工程往返、批量故障恢复、导入边界、声音映射丢失、端口与路径约束、完整游戏回归及少量真实引擎抽样结果见 [P5 阶段报告](docs/voicevox/reports/P5.md)。人工听感与所用音声库许可仍须在正式制作时逐项确认。

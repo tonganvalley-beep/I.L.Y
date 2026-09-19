@@ -64,6 +64,22 @@ test('背景和立绘修改会覆盖实际渲染字段，清除记录后恢复�
   assert.deepEqual(story.nodes.a.characters, [{ image: 'old-left', position: 'left' }, { image: 'old-right', position: 'right' }]);
 });
 
+test('多人物修改保留立绘列表和站位，空列表会明确清空，旧单立绘记录仍兼容', () => {
+  const { story, model } = setup();
+  story.nodes.a.portrait = 'old-center';
+  model.base.a.portrait = 'old-center';
+  const characters = [{ image: 'new-left', position: 'left' }, { image: 'new-right', position: 'right' }];
+  model.apply({ a: { characters } });
+  assert.equal(JSON.stringify(story.nodes.a.characters), JSON.stringify(characters));
+  assert.equal(story.nodes.a.portrait, undefined);
+  model.apply({ a: { characters: [] } });
+  assert.deepEqual(story.nodes.a.characters, []);
+  assert.equal(story.nodes.a.portrait, undefined);
+  model.apply({ a: { portrait: 'legacy-center' } });
+  assert.equal(story.nodes.a.portrait, 'legacy-center');
+  assert.equal(story.nodes.a.characters, undefined);
+});
+
 test('新增段继承图片且发布 JS 序列化完整保留图片修改', () => {
   const { context, story } = setup();
   story.nodes.a.portrait = 'portrait-kio';
@@ -74,6 +90,15 @@ test('新增段继承图片且发布 JS 序列化完整保留图片修改', () =
   const output = vm.createContext({}); output.window = output;
   vm.runInContext(context.ILYScriptReview.serializeRecords(records), output);
   assert.equal(JSON.stringify(output.ILY_SCRIPT_EDITS), JSON.stringify(records));
+});
+
+test('新增段落继承多人物配置且不共享人物对象', () => {
+  const { context, story } = setup();
+  story.nodes.a.characters = [{ image: 'left', position: 'left' }, { image: 'right', position: 'right' }];
+  const added = context.ILYScriptReview.addition(story.nodes.a);
+  assert.equal(JSON.stringify(added.characters), JSON.stringify(story.nodes.a.characters));
+  added.characters[0].image = 'changed';
+  assert.equal(story.nodes.a.characters[0].image, 'left');
 });
 
 test('序章原有旁白默认全屏显示，明确的台词覆盖与女主标题卡保持有效', async () => {
@@ -116,6 +141,56 @@ test('编辑器保存立即通知当前段刷新，重复同步不刷新，清�
   save({});
   assert.equal(refreshes.length, 2);
   assert.equal(story.nodes.a.type, 'dialogue');
+});
+
+test('剧本编辑入口提供独立窗口链接', async () => {
+  const html = await readFile(new URL('../game/index.html', import.meta.url), 'utf8');
+  assert.match(html, /<a id="script-editor-toggle" href="script-editor\.html" target="ily-script-editor" role="button"/);
+});
+
+test('剧本编辑器成功弹窗并保留当前游戏页', async () => {
+  const { context, story } = setup();
+  const listeners = new Map(), storage = new Map(), button = {};
+  const opened = [], popupMessages = [];
+  let prevented = false;
+  context.URL = URL;
+  context.location = { href: 'http://127.0.0.1:8080/game/index.html?entry=chapters&chapter=1' };
+  context.addEventListener = (type, handler) => listeners.set(type, handler);
+  context.localStorage = { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) };
+  context.document = { getElementById: () => button };
+  context.open = (...args) => { opened.push(args); return { closed: false, postMessage: message => popupMessages.push(message) }; };
+  vm.runInContext(await readFile(new URL('../game/src/script-editor.js', import.meta.url), 'utf8'), context);
+  context.ILY.initScriptEditor(story);
+  context.ILY.updateScriptEditor(Object.assign(story.nodes.a, { id: 'a' }));
+  button.onclick({ preventDefault: () => { prevented = true; } });
+  assert.deepEqual(opened, [[
+    'http://127.0.0.1:8080/game/script-editor.html',
+    'ily-script-editor',
+    'popup=yes,width=960,height=800,resizable=yes,scrollbars=yes'
+  ]]);
+  assert.equal(prevented, true);
+  assert.equal(JSON.parse(storage.get('ily-script-live-state')).current.id, 'a');
+  assert.equal(popupMessages.at(-1).current.id, 'a');
+});
+
+test('弹窗接口缺失或被拦截时保留原生第二标签页行为', async () => {
+  for (const blocked of [false, true]) {
+    const { context, story } = setup();
+    const storage = new Map(), button = {};
+    let prevented = false;
+    context.URL = URL;
+    context.location = { href: 'http://127.0.0.1:8080/game/index.html?entry=chapters&chapter=1' };
+    context.addEventListener = () => {};
+    context.localStorage = { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) };
+    context.document = { getElementById: () => button };
+    if (blocked) context.open = () => null;
+    vm.runInContext(await readFile(new URL('../game/src/script-editor.js', import.meta.url), 'utf8'), context);
+    context.ILY.initScriptEditor(story);
+    context.ILY.updateScriptEditor(Object.assign(story.nodes.a, { id: 'a' }));
+    button.onclick({ preventDefault: () => { prevented = true; } });
+    assert.equal(prevented, false, '应允许带 target 的链接继续默认导航');
+    assert.equal(JSON.parse(storage.get('ily-script-live-state')).current.id, 'a');
+  }
 });
 
 test('新增首段、连续新增和删除原段后，播放与编辑器顺序一致且保留分支入口', () => {

@@ -28,6 +28,7 @@
     for (const key of ['chapter', 'chapterTitle', 'scene', 'background', 'portrait', 'bgm', 'route', 'when', 'sectionLabel']) {
       if (Object.hasOwn(node, key)) result[key] = node[key];
     }
+    if (Array.isArray(node.characters)) result.characters = node.characters.map(character => ({ ...character }));
     return result;
   }
   function create(story) {
@@ -57,13 +58,15 @@
             else node.title = record.text;
           }
           if (record.speaker != null) node.speaker = record.speaker;
-          // Explicit visual edits replace CG/multi-character staging so the selected
-          // background and portrait are the assets the scene renderer actually uses.
+          // Explicit visual edits replace CG/character staging with editor selections.
           if (record.background != null) {
             node.background = record.background;
             delete node.cg;
           }
-          if (record.portrait != null) {
+          if (Array.isArray(record.characters)) {
+            node.characters = record.characters.map(character => ({ ...character }));
+            delete node.portrait;
+          } else if (record.portrait != null) {
             node.portrait = record.portrait;
             delete node.characters;
           }

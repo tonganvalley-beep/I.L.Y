@@ -80,7 +80,7 @@ function listen(port, attempts = 0) {
     server.removeListener('error', retry);
     const base = `http://${host}:${port}`;
     const target = new URL(openPath, `${base}/`).href;
-    console.log(`游戏入口：${base}/`);
+    console.log(`打开地址：${target}`);
     console.log('按 Ctrl+C 停止服务器。');
     if (shouldOpen) openBrowser(target);
   };

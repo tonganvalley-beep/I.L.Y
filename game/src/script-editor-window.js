@@ -16,7 +16,11 @@
     element.className = `banner banner-${kind}`;
     element.textContent = text;
   };
-  const offlineHint = '请用 npm start 启动项目，并从 http://127.0.0.1:8080/ 打开游戏；改过 tools/ 下的服务器代码后要重启 npm start。';
+  const offlineHint = '请用 npm run chapters 启动章节调试，并使用终端打印的 HTTP 地址；改过 tools/ 下的服务器代码后要重启命令。';
+  try {
+    const referrer = document.referrer && new URL(document.referrer);
+    if (referrer?.origin === location.origin) $('return-game').href = referrer.href;
+  } catch {}
   function change(id, patch) {
     state.records[id] = { ...state.records[id], ...patch };
     dirty = true;
@@ -32,17 +36,18 @@
     }
     return element;
   }
-  function mediaSelect(kind, value, label) {
+  function mediaSelect(kind, value, label, emptyText) {
     const element = document.createElement('select');
     element.setAttribute('aria-label', label);
     const empty = document.createElement('option');
-    empty.value = ''; empty.textContent = kind === 'backgrounds' ? '无背景' : '无立绘';
+    empty.value = ''; empty.textContent = emptyText || (kind === 'backgrounds' ? '无背景' : '无立绘');
     element.append(empty);
     for (const id of [...new Set([value, ...(state.media?.[kind] || [])])].filter(Boolean)) {
       const option = document.createElement('option');
       option.value = id; option.textContent = id; option.selected = id === value;
       element.append(option);
     }
+    element.value = value || '';
     return element;
   }
   const uploads = () => window.ILY_UPLOADED_ASSETS || {};
@@ -84,9 +89,9 @@
     element.append(option);
   }
   // “选择本地图片…”按钮：直接打开系统文件窗口；下拉框保留，用来挑已有素材。
-  function mediaField(kind, value, label, onPick) {
+  function mediaField(kind, value, label, onPick, emptyText) {
     const wrap = document.createElement('div'); wrap.className = 'media-field';
-    const element = mediaSelect(kind, value, label);
+    const element = mediaSelect(kind, value, label, emptyText);
     const picker = document.createElement('button');
     picker.type = 'button'; picker.className = 'pick-file'; picker.textContent = '选择本地图片…';
     picker.title = '打开本地文件夹挑选一张图片，选好后自动存入项目';
@@ -120,43 +125,161 @@
     wrap.append(picker, element, input);
     return { wrap, element };
   }
+  const cloneCharacters = characters => characters.map(character => ({ ...character }));
+  function sourceCharacters(node) {
+    if (Array.isArray(node.characters)) return cloneCharacters(node.characters);
+    return node.portrait ? [{ image: node.portrait, position: 'center' }] : [];
+  }
+  function effectiveCharacters(node, record) {
+    if (Array.isArray(record.characters)) return cloneCharacters(record.characters);
+    if (record.portrait != null) return record.portrait ? [{ image: record.portrait, position: 'center' }] : [];
+    return sourceCharacters(node);
+  }
+  function hasCharacterOverride(record) {
+    return Object.hasOwn(record, 'characters') || Object.hasOwn(record, 'portrait');
+  }
+  function changeCharacters(id, characters) {
+    const record = { ...(state.records[id] || {}) };
+    delete record.portrait;
+    record.characters = cloneCharacters(characters);
+    state.records[id] = record;
+    dirty = true;
+    status('有未保存的修改。');
+  }
+  function restoreCharacters(id) {
+    const record = { ...(state.records[id] || {}) };
+    delete record.characters;
+    delete record.portrait;
+    if (Object.keys(record).length) state.records[id] = record;
+    else delete state.records[id];
+    dirty = true;
+    status('已恢复此段的原始人物配置，保存后生效。');
+  }
+  function positionSelect(value, label) {
+    const element = document.createElement('select');
+    element.setAttribute('aria-label', label);
+    for (const [id, text] of [['left', '左侧'], ['center', '中间'], ['right', '右侧']]) {
+      const option = document.createElement('option');
+      option.value = id; option.textContent = text; option.selected = id === value;
+      element.append(option);
+    }
+    element.value = ['left', 'center', 'right'].includes(value) ? value : 'center';
+    return element;
+  }
   function visualEditor(id, node, record) {
     const wrap = document.createElement('div'); wrap.className = 'visual-editor';
     const controls = document.createElement('div'); controls.className = 'visual-controls';
     const backgroundValue = record.background ?? node.cg ?? node.background ?? '';
-    const stagedPortraits = node.characters?.map(character => character.image).filter(Boolean) || [];
-    const portraitValue = record.portrait ?? node.portrait ?? (stagedPortraits.length === 1 ? stagedPortraits[0] : '');
+    const originalCharacters = sourceCharacters(node);
+    let characters = effectiveCharacters(node, record);
     const background = mediaField('backgrounds', backgroundValue, `背景图片 ${id}`, value => { change(id, { background: value }); refresh(); });
-    const portrait = mediaField('portraits', portraitValue, `人物立绘 ${id}`, value => { change(id, { portrait: value }); refresh(); });
     const field = (text, control) => {
       const label = document.createElement('label');
       const caption = document.createElement('span'); caption.textContent = text;
       label.append(caption, control.wrap); return label;
     };
-    controls.append(field('背景图片', background), field('人物立绘', portrait));
+    controls.append(field('背景图片', background));
+    const characterEditor = document.createElement('section'); characterEditor.className = 'character-editor';
+    const characterHead = document.createElement('div'); characterHead.className = 'character-head';
+    const characterStatus = document.createElement('span');
+    const characterActions = document.createElement('div'); characterActions.className = 'character-actions';
+    const characterList = document.createElement('div'); characterList.className = 'character-list';
+    const addCharacter = button('添加人物', () => {
+      if (characters.length >= 12) return;
+      const positions = ['center', 'right', 'left'];
+      characters.push({ image: state.media?.portraits?.[0] || '', position: positions[characters.length % positions.length] });
+      changeCharacters(id, characters); renderCharacterRows(); refresh();
+    });
+    const clearCharacters = button('清空全部', () => {
+      characters = [];
+      changeCharacters(id, characters); renderCharacterRows(); refresh();
+    });
+    const restoreOriginal = button('恢复原始配置', () => {
+      restoreCharacters(id);
+      characters = sourceCharacters(node); renderCharacterRows(); refresh();
+    });
+    characterActions.append(addCharacter, clearCharacters, restoreOriginal);
+    characterHead.append(characterStatus, characterActions);
+    characterEditor.append(characterHead, characterList);
+    controls.append(characterEditor);
     const preview = document.createElement('div'); preview.className = 'visual-preview';
     preview.setAttribute('aria-label', '场景图片预览');
     const bg = document.createElement('img'); bg.className = 'preview-background'; bg.alt = '';
-    const person = document.createElement('img'); person.className = 'preview-portrait'; person.alt = '';
+    const previewCharacters = document.createElement('div'); previewCharacters.className = 'preview-characters';
     const empty = document.createElement('span'); empty.textContent = '无图片';
-    preview.append(bg, person, empty);
+    preview.append(bg, previewCharacters, empty);
     const refresh = () => {
       const images = state.media?.images || {};
-      const bgPath = images[background.element.value], personPath = images[portrait.element.value];
-      bg.hidden = !bgPath; person.hidden = !personPath;
+      const bgPath = images[background.element.value];
+      bg.hidden = !bgPath;
       if (bgPath) bg.src = bgPath; else bg.removeAttribute('src');
-      if (personPath) person.src = personPath; else person.removeAttribute('src');
-      empty.hidden = !bg.hidden || !person.hidden;
+      previewCharacters.replaceChildren();
+      for (const character of characters) {
+        const path = images[character.image];
+        if (!path) continue;
+        const person = document.createElement('img');
+        person.className = 'preview-portrait'; person.alt = ''; person.src = path;
+        person.dataset.position = ['left', 'center', 'right'].includes(character.position) ? character.position : 'center';
+        person.style.setProperty?.('--preview-scale', Math.min(1.4, Math.max(.5, Number(character.scale) || 1)));
+        person.onerror = () => { person.hidden = true; empty.hidden = !bg.hidden || [...previewCharacters.children].some(image => !image.hidden); };
+        previewCharacters.append(person);
+      }
+      empty.hidden = !bg.hidden || previewCharacters.children.length > 0;
     };
-    background.element.onchange = () => { change(id, { background: background.element.value }); refresh(); };
-    portrait.element.onchange = () => { change(id, { portrait: portrait.element.value }); refresh(); };
-    background.element.disabled = portrait.element.disabled = !!record.deleted;
-    for (const picker of [background, portrait]) {
-      for (const control of picker.wrap.querySelectorAll('button, input')) control.disabled = !!record.deleted;
+    function updateCharacterStatus() {
+      const overridden = hasCharacterOverride(state.records[id] || {});
+      characterStatus.textContent = overridden
+        ? (characters.length ? `人物 ${characters.length} 人 · 已修改` : `人物 0 人 · 已清空（原始 ${originalCharacters.length} 人）`)
+        : `人物 ${characters.length} 人 · 原始配置`;
+      clearCharacters.disabled = !!record.deleted || characters.length === 0;
+      restoreOriginal.disabled = !!record.deleted || !overridden;
+      addCharacter.disabled = !!record.deleted || characters.length >= 12;
+      addCharacter.title = characters.length >= 12 ? '每个场景最多添加 12 个人物' : '';
     }
-    bg.onerror = () => { bg.hidden = true; empty.hidden = !person.hidden; };
-    person.onerror = () => { person.hidden = true; empty.hidden = !bg.hidden; };
-    refresh(); wrap.append(controls, preview); return wrap;
+    function renderCharacterRows() {
+      characterList.replaceChildren();
+      updateCharacterStatus();
+      if (!characters.length) {
+        const none = document.createElement('p'); none.className = 'character-empty'; none.textContent = '当前没有人物立绘';
+        characterList.append(none);
+        return;
+      }
+      characters.forEach((character, index) => {
+        const row = document.createElement('div'); row.className = 'character-row';
+        const media = mediaField('portraits', character.image || '', `人物 ${index + 1} 立绘 ${id}`, value => {
+          characters[index] = { ...characters[index], image: value };
+          changeCharacters(id, characters); updateCharacterStatus(); refresh();
+        }, '选择立绘…');
+        const assetLabel = document.createElement('label');
+        const assetCaption = document.createElement('span'); assetCaption.textContent = `人物 ${index + 1}`;
+        assetLabel.append(assetCaption, media.wrap);
+        const position = positionSelect(character.position, `人物 ${index + 1} 站位 ${id}`);
+        const positionLabel = document.createElement('label');
+        const positionCaption = document.createElement('span'); positionCaption.textContent = '站位';
+        positionLabel.append(positionCaption, position);
+        const remove = button('移除', () => {
+          characters.splice(index, 1);
+          changeCharacters(id, characters); renderCharacterRows(); refresh();
+        });
+        remove.className = 'remove-character';
+        media.element.onchange = () => {
+          characters[index] = { ...characters[index], image: media.element.value };
+          changeCharacters(id, characters); updateCharacterStatus(); refresh();
+        };
+        position.onchange = () => {
+          characters[index] = { ...characters[index], position: position.value };
+          changeCharacters(id, characters); updateCharacterStatus(); refresh();
+        };
+        media.element.disabled = position.disabled = remove.disabled = !!record.deleted;
+        for (const control of media.wrap.querySelectorAll('button, input')) control.disabled = !!record.deleted;
+        row.append(assetLabel, positionLabel, remove); characterList.append(row);
+      });
+    }
+    background.element.onchange = () => { change(id, { background: background.element.value }); refresh(); };
+    background.element.disabled = !!record.deleted;
+    for (const control of background.wrap.querySelectorAll('button, input')) control.disabled = !!record.deleted;
+    bg.onerror = () => { bg.hidden = true; empty.hidden = [...previewCharacters.children].some(image => !image.hidden); };
+    renderCharacterRows(); refresh(); wrap.append(controls, preview); return wrap;
   }
   function button(label, action, disabled = false, title = '') {
     const element = document.createElement('button');

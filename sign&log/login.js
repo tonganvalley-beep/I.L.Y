@@ -383,6 +383,16 @@ function signup() {
 /* 跳转目标页：登录成功、视频播完后要去哪个页面，改这一行就行 */
 const NEXT_PAGE = './index.html';
 
+function nextPageUrl() {
+  const url = new URL(NEXT_PAGE, window.location.href);
+  url.searchParams.set('entry', 'root');
+  try {
+    const player = localStorage.getItem('mygame-token');
+    if (player) url.searchParams.set('player', player);
+  } catch {}
+  return url.href;
+}
+
 /* 守卫标记：防止"播完自动跳"和"点跳过跳"同时触发，导致跳两次 */
 let introJumped = false;
 
@@ -413,6 +423,6 @@ function goNextPage() {
 
   /* 等白屏完全盖上来之后再跳页，视觉上是"白色 → 白色"，没有跳变 */
   setTimeout(() => {
-    window.location.href = NEXT_PAGE;
+    window.location.href = nextPageUrl();
   }, 600);
 }

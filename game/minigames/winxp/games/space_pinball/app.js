@@ -1,5 +1,5 @@
 // ============================================================================
-// 三维弹球（3D Pinball: Space Cadet）网页复刻版
+// 三维弹球（3D Pinball: Space Cadet）
 // 基于开源项目 jmanuelcorral/pinball（MIT 许可，纯 HTML5 Canvas + 原生 JS）整合而来。
 // 原作者保留 MIT 版权；本文件将其 8 个 ES 模块合并为单一脚本以适配 iframe / 离线运行，
 // 并汉化了标题与提示文案、加入 iframe 尺寸自适应。玩法与原版一致：
@@ -16,12 +16,15 @@
   const GRAVITY = 900;
   const BALL_RADIUS = 7;
   const BALL_MAX_SPEED = 1400;
-  const WALL_RESTITUTION = 0.45;
-  const BUMPER_RESTITUTION = 1.5;
-  const SLINGSHOT_RESTITUTION = 1.2;
+  // 边界墙完全弹性碰撞（e=1.0）：球碰到边界不损失能量、干净弹回，绝不会被“吸”住或漏出。
+  const WALL_RESTITUTION = 1.0;
+  const BUMPER_RESTITUTION = 1.5; // 保险杠仍作为加分助推器（故意 >1），非边界
+  const SLINGSHOT_RESTITUTION = 1.0;
   const FLIPPER_RESTITUTION = 0.85;
 
-  const FLIPPER_LENGTH = 52;
+  // 挡板长度：52→71。pivot 仍固定在两侧滑槽(112/268)，加长使两 tip 向中心多伸，
+  // 静止时中间缺口由 66px 收窄到 ~33px（减半），边上守住、中间只留够不到的小缝。
+  const FLIPPER_LENGTH = 71;
   const FLIPPER_THICKNESS = 4;
   const FLIPPER_REST_ANGLE_L = Math.PI / 6;
   const FLIPPER_ACTIVE_ANGLE_L = -Math.PI / 3.5;
@@ -317,9 +320,10 @@
       new Wall(300, 35, 342, 50),
       new Wall(342, 50, 383, 62),
       new Wall(383, 62, 383, 660),
-      new Wall(347, 660, 383, 660),
-      new Wall(342, 125, 342, 555),
-      new Wall(342, 55, 342, 120, null, false, { nx: -1, ny: 0 }),
+      // 发射道与盘面的分隔墙：实心（y=110 以下整段）。y=50~110 为开口，
+      // 上升的球经顶部实心导板（342,50-383,62）被向左打进盘面。
+      // 发射道底部（原 347,660-383,660）故意不封：回落/误入的球直接 drain，不会卡在发射道。
+      new Wall(342, 110, 342, 660),
       new Wall(30, 100, 30, 555),
       new Wall(30, 555, 112, 628),
       new Wall(342, 555, 268, 628),
@@ -327,7 +331,6 @@
       new Wall(268, 628, 268, 660),
       new Wall(30, 660, 112, 660),
       new Wall(268, 660, 342, 660),
-      new Wall(342, 555, 342, 660),
       new Wall(55, 460, 55, 538, SLINGSHOT_RESTITUTION, true),
       new Wall(55, 538, 112, 592, SLINGSHOT_RESTITUTION, true),
       new Wall(325, 460, 325, 538, SLINGSHOT_RESTITUTION, true),
@@ -357,9 +360,12 @@
       new Rollover(273, 60, 20, 45),
     ];
 
+    // 挡板 pivot 贴两侧滑槽（112 / 268），向盘面内伸展：
+    // 左挡板覆盖 x≈112~157，右挡板覆盖 x≈223~268，中间 x≈157~223 为挡板够不到的缺口（漏球区）。
+    // 这样球从两侧滑槽下来会被挡板接住（边上不会掉），只有落在中间缺口才会漏下。
     const flippers = [
-      new Flipper(138, 628, 'left'),
-      new Flipper(242, 628, 'right'),
+      new Flipper(112, 628, 'left'),
+      new Flipper(268, 628, 'right'),
     ];
 
     const plunger = new Plunger(363, 630);
@@ -377,58 +383,70 @@
 
       if (!ball.active) return { drained: false, scored: events };
 
-      ball.vy += GRAVITY * dt;
-      ball.update(dt);
-
       for (const b of table.bumpers) b.update(dt);
       for (const t of table.targets) t.update(dt);
       for (const r of table.rollovers) r.update(dt);
       for (const w of table.walls) w.update(dt);
 
-      for (const wall of table.walls) {
-        const rest = wall.restitution ?? WALL_RESTITUTION;
-        if (this._ballVsSegment(ball, wall.x1, wall.y1, wall.x2, wall.y2, rest, wall.oneWayNormal)) {
-          wall.onHit();
-          if (wall.isSlingshot) events.push({ type: 'slingshot', points: POINTS.SLINGSHOT });
-        }
-      }
+      // 子步进：把一帧拆成若干子步，保证每步位移 ≤ ~3px，彻底杜绝高速穿墙（球再快也钻不出边界）。
+      const sub = Math.max(1, Math.ceil((BALL_MAX_SPEED * dt) / 3));
+      const sdt = dt / sub;
+      for (let s = 0; s < sub; s++) {
+        ball.vy += GRAVITY * sdt;
+        ball.update(sdt);
 
-      for (const bumper of table.bumpers) {
-        if (this._ballVsCircle(ball, bumper.x, bumper.y, bumper.radius, BUMPER_RESTITUTION)) {
-          bumper.onHit();
-          events.push({ type: 'bumper', points: POINTS.BUMPER });
-        }
-      }
-
-      for (const flipper of table.flippers) {
-        this._ballVsFlipper(ball, flipper);
-      }
-
-      for (const target of table.targets) {
-        if (!target.isHit) {
-          if (this._ballVsRect(ball, target)) {
-            target.onHit();
-            events.push({ type: 'target', points: POINTS.TARGET });
+        for (const wall of table.walls) {
+          const rest = wall.restitution ?? WALL_RESTITUTION;
+          if (this._ballVsSegment(ball, wall.x1, wall.y1, wall.x2, wall.y2, rest, wall.oneWayNormal)) {
+            wall.onHit();
+            if (wall.isSlingshot) events.push({ type: 'slingshot', points: POINTS.SLINGSHOT });
           }
         }
-      }
 
-      for (const rollover of table.rollovers) {
-        if (rollover.cooldown <= 0) {
-          if (this._pointInRect(ball.x, ball.y, rollover)) {
-            rollover.onHit();
-            events.push({ type: 'rollover', points: POINTS.ROLLOVER });
+        for (const bumper of table.bumpers) {
+          if (this._ballVsCircle(ball, bumper.x, bumper.y, bumper.radius, BUMPER_RESTITUTION)) {
+            bumper.onHit();
+            // 随机扰动：每次撞保险杠给一点随机切向速度，避免每局轨迹完全一样
+            const a = Math.random() * Math.PI * 2;
+            const kick = 15;
+            ball.vx += Math.cos(a) * kick;
+            ball.vy += Math.sin(a) * kick;
+            events.push({ type: 'bumper', points: POINTS.BUMPER });
           }
         }
-      }
 
-      if (ball.x - ball.radius < 0) { ball.x = ball.radius; ball.vx = Math.abs(ball.vx) * 0.5; }
-      if (ball.x + ball.radius > CANVAS_WIDTH) { ball.x = CANVAS_WIDTH - ball.radius; ball.vx = -Math.abs(ball.vx) * 0.5; }
-      if (ball.y - ball.radius < 0) { ball.y = ball.radius; ball.vy = Math.abs(ball.vy) * 0.3; }
+        for (const flipper of table.flippers) {
+          this._ballVsFlipper(ball, flipper);
+        }
 
-      if (ball.y - ball.radius > DRAIN_Y) {
-        ball.active = false;
-        drained = true;
+        for (const target of table.targets) {
+          if (!target.isHit) {
+            if (this._ballVsRect(ball, target)) {
+              target.onHit();
+              events.push({ type: 'target', points: POINTS.TARGET });
+            }
+          }
+        }
+
+        for (const rollover of table.rollovers) {
+          if (rollover.cooldown <= 0) {
+            if (this._pointInRect(ball.x, ball.y, rollover)) {
+              rollover.onHit();
+              events.push({ type: 'rollover', points: POINTS.ROLLOVER });
+            }
+          }
+        }
+
+        // 画布边缘作为完全弹性兜底：万一球到达边缘，按 e=1.0 干净弹回（实际有实体边界墙，很少触发）。
+        if (ball.x - ball.radius < 0) { ball.x = ball.radius; ball.vx = Math.abs(ball.vx); }
+        if (ball.x + ball.radius > CANVAS_WIDTH) { ball.x = CANVAS_WIDTH - ball.radius; ball.vx = -Math.abs(ball.vx); }
+        if (ball.y - ball.radius < 0) { ball.y = ball.radius; ball.vy = Math.abs(ball.vy); }
+
+        if (ball.y - ball.radius > DRAIN_Y) {
+          ball.active = false;
+          drained = true;
+          break;
+        }
       }
 
       if (table.targets.every(t => t.isHit)) {
@@ -1016,7 +1034,7 @@
       ctx.shadowBlur = 8;
       ctx.fillStyle = COLORS.titleSecondary;
       ctx.font = '14px monospace';
-      ctx.fillText('SPACE CADET · 网页复刻版', 200, 312);
+      ctx.fillText('SPACE CADET', 200, 312);
       ctx.restore();
 
       ctx.fillStyle = COLORS.uiText;
@@ -1142,12 +1160,8 @@
       window.addEventListener('resize', () => this.renderer.resize());
 
       const loop = (timestamp) => {
-        if(document.hidden||window.ILY_HOST_PAUSED){
-          this._lastTime=timestamp;this._accumulator=0;
-          this.input._held.clear();this.input._pressed.clear();this.input._released.clear();
-          this.input._pointerHeld=false;this.input._pointerReleased=false;
-          requestAnimationFrame(loop);return;
-        }
+        // 外壳最小化或外层剧情菜单打开时，ILY_HOST_PAUSED 置真 → 冻结循环（不推进物理、不渲染新帧）
+        if (window.ILY_HOST_PAUSED) { this._lastTime = timestamp; this._accumulator = 0; requestAnimationFrame(loop); return; }
         const frameTime = Math.min((timestamp - this._lastTime) / 1000, 0.05);
         this._lastTime = timestamp;
         this._accumulator += frameTime;
@@ -1196,7 +1210,12 @@
 
       if (this.input.plungerReleased) {
         if (plunger.compression > 2) {
-          this.ball.vy = plunger.release();
+          // 实心边界方案：球竖直上升，由顶部实心导板（342,50-383,62）向左打进盘面。
+          // 随机扰动：发射力度 ±4%、纵向速度 ±20，使每次发射的轨迹都不一样。
+          const power = Math.max(plunger.compression / plunger.maxCompression, 0.70) * (1 + (Math.random() * 2 - 1) * 0.04);
+          plunger.release();
+          this.ball.vy = -plunger.launchForce * power + (Math.random() * 2 - 1) * 20;
+          this.ball.vx = 0; // 竖直上升，由顶部导板导入盘面
           this.ball.active = true;
           this.state = 'PLAYING';
         } else {

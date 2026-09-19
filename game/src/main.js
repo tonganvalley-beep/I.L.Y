@@ -59,6 +59,7 @@ try {
   const saves = new SaveManager({ storage, username, story, maps, validateSave });
   const migratedLegacySave = saves.migrateLegacy();
   const menu = new URL('../sign&log/game.html', location.href);
+  if (launchParams.get('entry') === 'root') menu.searchParams.set('entry', 'root');
   menu.searchParams.set('player', username);
   document.querySelector('#return-menu').href = menu.href;
 
@@ -176,7 +177,9 @@ try {
   document.querySelector('#chapter').textContent = t('chapter.title');
 
   function refreshClues() {
-    const list = document.querySelector('#clues'); list.replaceChildren();
+    const list = document.querySelector('#clues');
+    if (!list) return;
+    list.replaceChildren();
     const spots = Object.values(maps).flatMap(map => map.hotspots||[]);
     for (const id of state.clues) {
       const spot = spots.find(item => item.clue === id);

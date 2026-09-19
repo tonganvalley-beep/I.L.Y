@@ -935,7 +935,21 @@ window.ILY_SCRIPT_EDITS = {
   "her_scene_02_01": {
     "kind": "旁白",
     "speaker": "",
-    "text": "车站前的咖啡店"
+    "text": "车站前的咖啡店",
+    "characters": [
+      {
+        "image": "airi-blush",
+        "position": "center"
+      },
+      {
+        "image": "airi-blush",
+        "position": "right"
+      },
+      {
+        "image": "airi-blush",
+        "position": "left"
+      }
+    ]
   },
   "her_scene_02_03": {
     "kind": "旁白",
@@ -3014,6 +3028,16 @@ window.ILY_SCRIPT_EDITS = {
     "text": "。。。。。。",
     "portrait": "",
     "background": "bg-upload-20260916-24da63"
+  },
+  "her_0032": {
+    "portrait": "",
+    "background": "ch1-store"
+  },
+  "her_0034": {
+    "portrait": ""
+  },
+  "her_0064": {
+    "portrait": "airi-blush"
   }
 };
 window.ILY_SCRIPT_EDITS_PROJECT_SAVED = true;

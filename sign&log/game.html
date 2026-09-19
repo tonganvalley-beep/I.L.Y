@@ -255,11 +255,19 @@
     /* ============================================================
      * 第 0 块：鉴权守卫（最先执行！）
      *
-     * 登录成功时 login.js 会写 localStorage['mygame-token'] = 用户名。
-     * 如果本页打开时没有这个 token，说明用户没登录（比如直接双击
-     * game.html），立刻弹回登录页。
+     * HTTP 模式使用 login.js 写入的 token；file: 模式额外接受登录页沿
+     * 正式入口传来的 player 参数，避免跨本地文件存储隔离中断流程。
      * ============================================================ */
-    if (!localStorage.getItem('mygame-token')) {
+    const launchParams = new URLSearchParams(window.location.search);
+    let browserStorage = null;
+    let storedPlayer = '';
+    try {
+      browserStorage = window.localStorage;
+      storedPlayer = browserStorage.getItem('mygame-token') || '';
+    } catch {}
+    const forwardedPlayer = window.location.protocol === 'file:' ? launchParams.get('player') : '';
+    const authenticatedPlayer = storedPlayer || forwardedPlayer;
+    if (!authenticatedPlayer) {
       window.location.href = './login.html';
     }
 
@@ -449,7 +457,7 @@
       el.style.fontSize = Math.max(11, 42 * cover.scale) + 'px';
     }
 
-    const player = localStorage.getItem('mygame-token') || 'guest';
+    const player = authenticatedPlayer || 'guest';
     const legacySaveKey = `ily-save-v1:${player}`;
     const savePrefix = `ily-save-v2:${encodeURIComponent(player)}:`;
     let statusTimer = 0;
@@ -466,16 +474,24 @@
 
     function gameUrl(mode) {
       const url = new URL('../game/index.html', window.location.href);
+      url.searchParams.set('entry', 'root');
       url.searchParams.set('player', player);
       url.searchParams.set('mode', mode);
       return url.href;
     }
 
     function hasPlayerSave() {
-      if (localStorage.getItem(legacySaveKey)) return true;
-      for (let index = 0; index < localStorage.length; index++) {
-        const key = localStorage.key(index) || '';
-        if (key.startsWith(savePrefix) && /^(?:[12]-[1-6]|auto-[1-3]|quick-1)$/.test(key.slice(savePrefix.length))) return true;
+      // file: 页面可能各自拥有独立存储域；进入游戏页后再由 SaveManager 检查该页存档。
+      if (window.location.protocol === 'file:') return true;
+      if (!browserStorage) return false;
+      try {
+        if (browserStorage.getItem(legacySaveKey)) return true;
+        for (let index = 0; index < browserStorage.length; index++) {
+          const key = browserStorage.key(index) || '';
+          if (key.startsWith(savePrefix) && /^(?:[12]-[1-6]|auto-[1-3]|quick-1)$/.test(key.slice(savePrefix.length))) return true;
+        }
+      } catch {
+        return false;
       }
       return false;
     }
@@ -588,7 +604,7 @@
             /* 退出 = 退出登录并回到登录界面：
                先清掉登录态 token（否则直接访问 game.html/index.html 仍能绕过登录），
                再跳回 login.html 重新登录 */
-            localStorage.removeItem('mygame-token');
+            try { browserStorage?.removeItem('mygame-token'); } catch {}
             window.location.href = './login.html';
             break;
         }

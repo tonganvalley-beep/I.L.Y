@@ -2,9 +2,22 @@
 window.ILY_VOICE_MANIFEST = {
   "schemaVersion": 1,
   "sourceRevision": "dad15973cb4a107a5e0591c24ce8b1488a49e45181b2bef0ea24295dade8e3dd",
-  "projectRevision": "9dc463ba25908e92a4a166b9db067f591db18db7266a7d1cec21509e232fd7cb",
-  "generatedAt": "2026-09-16T20:22:10.919Z",
+  "projectRevision": "63397dc8dc44f6107bfb7a4ab03674709db4b74fee004f3c8f18c411d0f6e1d5",
+  "generatedAt": "2026-09-19T02:47:55.111Z",
   "entries": {
+    "review_eced44bf-8dbf-4da8-aabc-c8b10d40d4b0": {
+      "file": "assets/audio/voices/published/8a197152d953a6d16a32.wav",
+      "sourceFingerprint": "795ed1fe307a002df6d47f366920eb3e31cd1ef6e0316ac281ecd063204c58fc",
+      "renderHash": "9acb5e2d917ff68385482b6949cd2b4d37eba0c03945cdba29c576840c15ba3f",
+      "styleId": 0,
+      "speaker": "百合沢爱理",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
     "ch1_010": {
       "file": "assets/audio/voices/published/ab09ceb971f8fee790c3.wav",
       "sourceFingerprint": "098779457ef0b9a228b6e18583b35b24d521092e78c59198d04ac7ccd24b9a54",
@@ -1194,19 +1207,6 @@ window.ILY_VOICE_MANIFEST = {
       "renderHash": "244d5af6748514d9d62034f14093dec5749bc055a055fe8518d859b5a4b138a2",
       "styleId": 41,
       "speaker": "基生",
-      "kind": "dialogue",
-      "engine": {
-        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
-        "version": "0.25.2",
-        "manifestVersion": null
-      }
-    },
-    "review_eced44bf-8dbf-4da8-aabc-c8b10d40d4b0": {
-      "file": "assets/audio/voices/published/8a197152d953a6d16a32.wav",
-      "sourceFingerprint": "795ed1fe307a002df6d47f366920eb3e31cd1ef6e0316ac281ecd063204c58fc",
-      "renderHash": "0f17ca124403ef287ad34332e297534c2654389fcae827bf1f2fa04e763f8af9",
-      "styleId": 4,
-      "speaker": "百合沢爱理",
       "kind": "dialogue",
       "engine": {
         "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",

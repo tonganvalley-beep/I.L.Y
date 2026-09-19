@@ -177,7 +177,7 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
     if(e.options){
       inspect.replaceChildren(el('h2','',e.label));
       for(const value of e.options)inspect.append(button(value,()=>{
-        if(disposed)return;checkpointRollback();inspect.close();say(interactRpg(state,node.task,{...e,options:null,value,text:`${e.text} 基生接过了${value}冰淇淋。`},node));refresh();canvas.focus();
+        if(disposed)return;checkpointRollback();inspect.close();say(interactRpg(state,node.task,{...e,options:null,value,text:`${e.text} 基生接过了${value}${(e.item&&e.item[value])||'冰淇淋'}。`},node));refresh();canvas.focus();
       }));
       inspect.showModal();return;
     }

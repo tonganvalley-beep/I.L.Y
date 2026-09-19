@@ -67,8 +67,16 @@
     media = mediaCatalog();
     state.records = read();
     model.apply(state.records);
-    document.getElementById('script-editor-toggle').onclick = () => {
-      editorWindow = window.open('script-editor.html', 'ily-script-editor', 'width=960,height=800');
+    document.getElementById('script-editor-toggle').onclick = event => {
+      // The native target opens a second tab when popup APIs are unavailable or blocked.
+      send();
+      const editorUrl = new URL('script-editor.html', location.href);
+      if (typeof window.open !== 'function') return;
+      try {
+        editorWindow = window.open(editorUrl.href, 'ily-script-editor', 'popup=yes,width=960,height=800,resizable=yes,scrollbars=yes');
+      } catch { editorWindow = null; }
+      if (!editorWindow) return;
+      event?.preventDefault();
       send();
     };
   };

@@ -105,9 +105,9 @@ test('编辑器文本段提供本地选图入口，选中的图片立即应用�
   const store = new Map([['ily-script-live-state', JSON.stringify({
     type: 'ily-script-state', time: '1-1',
     current: { id: 'n1', chapter: 'prologue', chapterTitle: '序章', scene: '01' },
-    nodes: [['n1', { type: 'dialogue', speaker: '基生', text: '测试台词', background: 'bg-apartment-dusk', next: 'n2' }]],
+    nodes: [['n1', { type: 'dialogue', speaker: '基生', text: '测试台词', background: 'bg-apartment-dusk', characters: [{ image: 'portrait-kio', position: 'left' }, { image: 'portrait-airi', position: 'right' }], next: 'n2' }]],
     records: {},
-    media: { images: { 'bg-apartment-dusk': 'assets/images/backgrounds/1.夜晚家.png' }, backgrounds: ['bg-apartment-dusk'], portraits: [] }
+    media: { images: { 'bg-apartment-dusk': 'assets/images/backgrounds/1.夜晚家.png', 'portrait-kio': 'assets/images/characters/portrait-kio.svg', 'portrait-airi': 'assets/images/characters/portrait-airi.svg' }, backgrounds: ['bg-apartment-dusk'], portraits: ['portrait-airi', 'portrait-kio'] }
   })]]);
   const byId = {};
   globalThis.document = {
@@ -135,8 +135,26 @@ test('编辑器文本段提供本地选图入口，选中的图片立即应用�
     const row = byId.list.children[0];
     assert.ok(row, '应渲染出当前场景的文本段');
     const inputs = row.querySelectorAll('input').filter(node => node.type === 'file');
-    assert.equal(row.querySelectorAll('button').filter(node => node.textContent === '选择本地图片…').length, 2);
-    assert.equal(inputs.length, 2, '背景与立绘各有一个本地文件选择框');
+    assert.equal(row.querySelectorAll('button').filter(node => node.textContent === '选择本地图片…').length, 3);
+    assert.equal(inputs.length, 3, '背景与两个角色各有一个本地文件选择框');
+    assert.equal(row.querySelectorAll('select')[3].value, 'portrait-kio');
+    assert.equal(row.querySelectorAll('select')[4].value, 'left');
+    assert.equal(row.querySelectorAll('select')[5].value, 'portrait-airi');
+    assert.equal(row.querySelectorAll('select')[6].value, 'right');
+    assert.equal(row.querySelectorAll('img').filter(node => node.className === 'preview-portrait').length, 2);
+    assert.ok(row.querySelectorAll('span').some(node => node.textContent === '人物 2 人 · 原始配置'));
+    row.querySelectorAll('button').find(node => node.textContent === '清空全部').click();
+    assert.equal(row.querySelectorAll('button').filter(node => node.textContent === '选择本地图片…').length, 1);
+    assert.ok(row.querySelectorAll('span').some(node => /已清空（原始 2 人）/.test(node.textContent)));
+    row.querySelectorAll('button').find(node => node.textContent === '恢复原始配置').click();
+    assert.equal(row.querySelectorAll('button').filter(node => node.textContent === '选择本地图片…').length, 3);
+    const addCharacter = row.querySelectorAll('button').find(node => node.textContent === '添加人物');
+    addCharacter.click();
+    assert.equal(row.querySelectorAll('button').filter(node => node.textContent === '选择本地图片…').length, 4, '可新增第三个人物立绘');
+    for (let index = 3; index < 12; index++) addCharacter.click();
+    assert.equal(row.querySelectorAll('img').filter(node => node.className === 'preview-portrait').length, 12);
+    assert.equal(addCharacter.disabled, true, '达到 12 人上限后禁用添加按钮');
+    assert.match(addCharacter.title, /最多添加 12/);
     inputs[0].files = [new File([png], '冒烟测试.png', { type: 'image/png' })];
     await inputs[0].onchange();
     const background = row.querySelectorAll('select')[2];

@@ -10,24 +10,18 @@
   const itemMenu = document.getElementById('itemMenu');
 
   let zCounter = 10;
-  let hostPaused=false;
-  const hostOrigin=location.origin==='null'?'*':location.origin;
-  function syncGame(win){
-    win.querySelector('iframe')?.contentWindow?.postMessage({type:'ily-embed-control',action:hostPaused||win.style.display==='none'?'pause':'resume'},hostOrigin);
-  }
-  addEventListener('message',event=>{
-    if(event.source!==parent||event.origin!==location.origin||event.data?.type!=='ily-embed-control')return;
-    hostPaused=event.data.action==='pause';
-    windowsEl.querySelectorAll('.game-win').forEach(syncGame);
-  });
 
   // 游戏注册表：每个游戏是 games/<游戏名>/ 下的子文件夹，固定含 4 个文件
   //   index.html(主入口) / app.js(逻辑) / styles.css(样式) / ico.png(图标)
   // 新增游戏：在 games/ 下新建同名子文件夹并放入这 4 个文件，再到此处添加一条记录即可。
   // 也可在 games/manifest.json（{"games":[...]}）集中登记，加载时优先读取、失败时回退到下方内置列表。
   let GAMES = [
-    { name: '红心弹幕', dir: 'games/heart', icon: 'games/heart/ico.svg', launch: 'games/heart/index.html' },
+    { name: '红心弹幕', dir: 'games/heart', icon: 'games/heart/ico.svg', launch: 'games/heart/index.html', w: 720, h: 540 },
     { name: '三维弹球', dir: 'games/space_pinball', icon: 'games/space_pinball/ico.png', launch: 'games/space_pinball/index.html' },
+    { name: '扫雷', dir: 'games/xp_minesweeper', icon: 'games/xp_minesweeper/ico.png', launch: 'games/xp_minesweeper/index.html', w: 516, h: 380 },
+    { name: '纸牌', dir: 'games/xp_solitaire', icon: 'games/xp_solitaire/ico.png', launch: 'games/xp_solitaire/index.html', w: 656, h: 500 },
+    { name: '空当接龙', dir: 'games/xp_freecell', icon: 'games/xp_freecell/ico.png', launch: 'games/xp_freecell/index.html', w: 716, h: 500 },
+    { name: '红心大战', dir: 'games/xp_hearts', icon: 'games/xp_hearts/ico.png', launch: 'games/xp_hearts/index.html', w: 656, h: 540 },
   ];
 
   // 桌面根级默认图标（不含「我的电脑」）
@@ -35,7 +29,7 @@
     { id: 'docs',     type: 'docs',     name: '我的文档', glyph: '📁', x: 24, y: 16 },
     { id: 'recycle',  type: 'recycle',  name: '回收站',   glyph: '🗑️', x: 24, y: 108 },
     { id: 'games',    type: 'games',    name: 'games',    glyph: '📁', x: 24, y: 200,
-      children: GAMES.map(g => ({ id: 'game-' + g.name, type: 'game', name: g.name, iconSrc: g.icon, launch: g.launch })) },
+      children: GAMES.map(g => ({ id: 'game-' + g.name, type: 'game', name: g.name, iconSrc: g.icon, launch: g.launch, w: g.w, h: g.h })) },
   ];
 
   // 优先从 games/manifest.json 读取游戏列表；失败（如 file:// 直接打开）则保留内置 GAMES，并同步到 games 文件夹子项
@@ -48,7 +42,7 @@
       }
     } catch (e) { /* 非标准服务 / 本地文件：保留内置 GAMES */ }
     const gf = rootItems.find(it => it.id === 'games');
-    if (gf) gf.children = GAMES.map(g => ({ id: 'game-' + g.name, type: 'game', name: g.name, iconSrc: g.icon, launch: g.launch }));
+    if (gf) gf.children = GAMES.map(g => ({ id: 'game-' + g.name, type: 'game', name: g.name, iconSrc: g.icon, launch: g.launch, w: g.w, h: g.h }));
   }
 
   const escapeHtml = s => String(s).replace(/[&<>"']/g, c =>
@@ -206,8 +200,7 @@
     enableDrag(win, title);
     win.addEventListener('mousedown', () => { win.style.zIndex = ++zCounter; });
     win.querySelector('.win-close').addEventListener('click', () => win.remove());
-    // 保留可恢复的窗口；再次双击同一项目会把它还原。
-    win.querySelector('.win-min').addEventListener('click', () => { win.style.display = 'none';syncGame(win); });
+    win.querySelector('.win-min').addEventListener('click', () => { win.style.display = 'none'; });
     const maxBtn = win.querySelector('.win-max');
     enableMaximize(win, maxBtn);
     win._maxBtn = maxBtn;
@@ -215,10 +208,7 @@
 
   // ── 打开文件夹 / 我的文档 / games 窗口（可拖拽标题栏、可拖边缘缩放） ──
   function openItem(item) {
-    const existing=[...windowsEl.children].find(w=>w.dataset.item===item.id);
-    if(existing){existing.style.display='';existing.style.zIndex=++zCounter;return;}
     const win = createWindow({ title: item.name });
-    win.dataset.item=item.id;
     wireChrome(win);
     // 窗口空白处右键 → 新建文件夹（子项右键由 itemMenu 处理）
     win.addEventListener('contextmenu', e => {
@@ -231,21 +221,27 @@
 
   // ── 打开游戏：XP 窗口外壳内嵌 iframe 加载游戏主页面（大小可调 / 可最大化） ──
   function openGame(entry) {
-    const existing=[...windowsEl.children].find(w=>w.dataset.game===entry.launch);
-    if(existing){existing.style.display='';existing.style.zIndex=++zCounter;syncGame(existing);existing.querySelector('iframe')?.focus();return;}
-    const win = createWindow({ cls: 'game-win', title: entry.name, width: '480px', height: '360px' });
-    win.dataset.game=entry.launch;
+    const existing = [...windowsEl.children].find(w => w.dataset.game === entry.launch);
+    if (existing) { existing.style.display = ''; existing.style.zIndex = ++zCounter; syncGame(existing); existing.querySelector('iframe')?.focus(); return; }
+    // 支持在 manifest 里为单个游戏指定窗口尺寸（entry.w / entry.h，单位 px），默认 480×360
+    const gw = (entry && entry.w ? entry.w : 480) + 'px';
+    const gh = (entry && entry.h ? entry.h : 360) + 'px';
+    const win = createWindow({ cls: 'game-win', title: entry.name, width: gw, height: gh });
     const body = win.querySelector('.win-body');
     body.innerHTML =
       `<iframe class="game-frame" src="${escapeHtml(entry.launch)}" title="${escapeHtml(entry.name)}"></iframe>`;
     wireChrome(win);
 
     const iframe = body.querySelector('iframe');
-    // 让键盘事件进入游戏，而不是停留在窗口标题栏按钮上（否则空格会误触最大化/还原）
-    win.querySelectorAll('.win-btns button').forEach(b => b.setAttribute('tabindex', '-1'));
     const focusGame = () => { try { iframe.focus(); } catch (e) {} };
+    // 标题栏按钮移出 tab 顺序；点击（最小化/最大化/关闭）后立即 blur 自身并把焦点交还游戏，
+    // 否则焦点停留在按钮上，空格会再次触发该按钮（如切换最大化）而非进入游戏。
+    win.querySelectorAll('.win-btns button').forEach(b => {
+      b.setAttribute('tabindex', '-1');
+      b.addEventListener('click', () => { b.blur(); focusGame(); });
+    });
     iframe.addEventListener('load', focusGame);
-    iframe.addEventListener('load',()=>syncGame(win));
+    iframe.addEventListener('load', () => syncGame(win));
     focusGame();
     // 点击窗口内任意非按钮区域都把焦点交给游戏
     win.addEventListener('mousedown', e => { if (!e.target.closest('button')) focusGame(); });

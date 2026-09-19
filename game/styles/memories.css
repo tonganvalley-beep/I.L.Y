@@ -233,12 +233,7 @@
   border-radius: 3px;
 }
 
-/* ---------- 游戏菜单里的「回忆」按钮：独占一整行，和上方 2 列按钮区分开 ---------- */
-#game-menu .toolbar #memories {
-  grid-column: 1 / -1;
-  background: #1d3a52;
-  border-color: #8ddfff66;
-}
+/* ---------- 游戏菜单里的「回忆」按钮沿用统一菜单样式 ---------- */
 
 @media (max-width: 600px) {
   .mem-dialog { padding: 16px 14px; }

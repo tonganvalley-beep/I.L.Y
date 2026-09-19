@@ -15,17 +15,30 @@ export async function loadStory() {
 
 export function validateRecords(records, nodes) {
   if (!records || typeof records !== 'object' || Array.isArray(records)) throw new Error('导出内容必须是段落修改记录对象。');
-  const chapters = {}, kinds = new Set(['台词', '旁白', '内心', '演出', '玩法/结构']);
+  const chapters = {}, kinds = new Set(['台词', '旁白', '内心', '演出', '玩法/结构']), positions = new Set(['left', 'center', 'right']);
+  const validateCharacters = (characters, label) => {
+    if (!Array.isArray(characters) || characters.length > 12) throw new Error(`${label}: characters 必须是最多 12 人的数组。`);
+    characters.forEach((character, index) => {
+      const prefix = `${label}: characters[${index}]`;
+      if (!character || typeof character !== 'object' || Array.isArray(character)) throw new Error(`${prefix} 格式错误。`);
+      if (typeof character.image !== 'string' || !character.image.trim()) throw new Error(`${prefix}.image 必须是非空文本。`);
+      if (character.position != null && !positions.has(character.position)) throw new Error(`${prefix}.position 必须是 left、center 或 right。`);
+      if (character.scale != null && (!Number.isFinite(character.scale) || character.scale < 0.5 || character.scale > 1.4)) throw new Error(`${prefix}.scale 必须是 0.5 到 1.4 的数字。`);
+      if (character.speaking != null && typeof character.speaking !== 'boolean') throw new Error(`${prefix}.speaking 必须是布尔值。`);
+    });
+  };
   let added = 0, deleted = 0;
   for (const [id, record] of Object.entries(records)) {
     if (!record || typeof record !== 'object' || Array.isArray(record)) throw new Error(`${id}: 记录格式错误。`);
     for (const key of ['text', 'speaker', 'kind', 'background', 'portrait']) if (record[key] != null && typeof record[key] !== 'string') throw new Error(`${id}: ${key} 必须是文本。`);
+    if (record.characters != null) validateCharacters(record.characters, id);
     if (record.kind != null && !kinds.has(record.kind)) throw new Error(`${id}: 未知文本类型。`);
     for (const key of ['added', 'deleted']) if (record[key] != null && typeof record[key] !== 'boolean') throw new Error(`${id}: ${key} 必须是布尔值。`);
     let anchor = id;
     if (record.added) {
       added++;
       if (nodes[id] || !record.node || !['dialogue', 'monologue', 'heroine-card', 'cue'].includes(record.node.type) || !['before', 'after'].includes(record.position)) throw new Error(`${id}: 新增段落格式错误或编号重复。`);
+      if (record.node.characters != null) validateCharacters(record.node.characters, `${id}.node`);
       const seen = new Set();
       while (records[anchor]?.added) {
         if (seen.has(anchor)) throw new Error(`${id}: 新增段落位置形成循环。`);

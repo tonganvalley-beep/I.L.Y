@@ -90,6 +90,9 @@ test('导入导出完整保留文本和增删记录，并拒绝失效编号与�
   assert.throws(() => validateRecords({ nonexistent: { text: '未定位文本' } }, original), /找不到原段落/);
   assert.throws(() => validateRecords({ fin_116: { background: 42 } }, original), /background 必须是文本/);
   assert.doesNotThrow(() => validateRecords({ fin_116: { background: 'bg-coast-blue', portrait: 'portrait-airi' } }, original));
+  assert.doesNotThrow(() => validateRecords({ fin_116: { characters: [{ image: 'portrait-kio', position: 'left' }, { image: 'portrait-airi', position: 'right' }] } }, original));
+  assert.throws(() => validateRecords({ fin_116: { characters: [{ image: '', position: 'left' }] } }, original), /image 必须是非空文本/);
+  assert.throws(() => validateRecords({ fin_116: { characters: [{ image: 'portrait-airi', position: 'behind' }] } }, original), /position 必须是/);
   const node = { type: 'dialogue' };
   assert.throws(() => validateRecords({ x: { added: true, node, position: 'after', anchor: 'y' }, y: { added: true, node, position: 'after', anchor: 'x' } }, original), /循环/);
   for (const page of ['index.html', 'script-editor.html']) {
