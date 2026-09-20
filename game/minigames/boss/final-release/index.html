@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>I.L.Y. · 七幕回响</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-state="loading">
+<main id="wrap">
+  <aside class="toolbar" id="toolbar" hidden aria-label="战斗操作">
+
+    <div class="controls">
+      <span id="difficultyLabel">剧情难度</span>
+      <button id="motion" type="button" aria-pressed="true">动态：开</button>
+      <button id="pause" type="button">暂停</button>
+      <button id="menu" type="button">返回开始</button>
+      <button id="hostMenu" type="button" hidden>游戏菜单</button>
+      <button data-story-skip type="button">跳过战斗</button>
+      <button id="fullscreen" type="button">全屏</button>
+    </div>
+  </aside>
+  <div class="stage">
+    <canvas id="cv" width="960" height="540" aria-label="弹幕战斗区域"></canvas>
+    <section id="startScreen" class="screen">
+      <div class="menu-content">
+        <p class="eyebrow">I . L . Y .</p>
+        <h1>七幕回响</h1>
+        <p class="tagline">躲开她的执念，接住她的温柔。</p>
+        <label class="difficulty-control" for="difficulty">难度
+          <select id="difficulty"><option value="normal">普通</option><option value="story" selected>剧情</option></select>
+        </label>
+        <p id="difficultyWarning" role="status" aria-live="polite">boss战比较困难，建议选剧情难度通关</p>
+
+        <div class="start-actions">
+          <button id="start" class="primary" type="button" disabled>正在准备…</button>
+          <button id="skip" class="text-button" type="button" >跳过战斗 · 继续剧情（skip）</button>
+        </div>
+        <p id="loadStatus" class="small" role="status" aria-live="polite">正在准备音乐与画面</p>
+      </div>
+      <aside class="instructions" aria-label="操作介绍">
+        <h2>操作介绍</h2>
+        <dl>
+          <div><dt>方向键 / WASD</dt> <dd>移动</dd></div>
+          <div><dt>Shift</dt> <dd>低速</dd></div>
+          <div><dt>↑ / W</dt> <dd>跳跃（蓝心）</dd></div>
+          <div><dt>J / 空格</dt> <dd>射击</dd></div>
+          <div><dt>Z / Enter</dt> <dd>确认攻击键</dd></div>
+          <div><dt>P / Esc</dt> <dd>暂停</dd></div>
+          <div><dt>R</dt> <dd>重开</dd></div>
+        </dl>
+      </aside>
+    </section>
+    <section id="headphoneScreen" class="screen" hidden aria-label="耳机提示">
+      <div id="headphoneContent">
+        <svg class="headphones" viewBox="0 0 32 32" aria-hidden="true" shape-rendering="crispEdges">
+          <path fill="currentColor" d="M10 3h12v3H10zM6 6h4v3H6zM22 6h4v3h-4zM3 9h3v15H3zM26 9h3v15h-3zM6 16h5v12H6zM21 16h5v12h-5zM3 20h3v6H3zM26 20h3v6h-3z"/>
+          <path fill="#8d8d98" d="M7 18h2v8H7zM23 18h2v8h-2zM10 6h12v2H10z"/>
+        </svg>
+        <p>佩戴耳机以获得最佳体验</p>
+      </div>
+    </section>
+    <section id="pauseScreen" class="screen overlay" hidden>
+      <h2>已暂停</h2><p id="pauseMessage">准备好了，再继续。</p>
+      <button id="resume" class="primary" type="button">继续</button>
+      <button id="pauseMenu" type="button">返回开始</button>
+      <button data-story-skip type="button">跳过战斗 · 继续剧情（skip）</button>
+    </section>
+    <section id="endScreen" class="screen overlay" hidden>
+      <h2 id="endTitle"></h2><p id="endMessage"></p>
+      <button id="restart" class="primary" type="button">再来一次</button>
+      <button id="endMenu" type="button">返回开始</button>
+      <button data-story-skip type="button">跳过战斗 · 继续剧情（skip）</button>
+    </section>
+  </div>
+  <div id="touchControls" hidden aria-label="触屏操作">
+    <div class="direction-pad"><button data-key="ArrowUp" aria-label="向上 / 跳跃">↑</button><button data-key="ArrowLeft" aria-label="向左">←</button><button data-key="ArrowDown" aria-label="向下">↓</button><button data-key="ArrowRight" aria-label="向右">→</button></div>
+    <div class="action-pad"><button data-key="ShiftLeft">低速</button><button data-key="KeyZ">确认</button><button data-key="KeyJ">射击</button></div>
+  </div>
+  <footer id="footer" hidden><span id="status">P / Esc 暂停 · R 重开</span></footer>
+</main>
+<script src="chart-runtime/pattern_demo/patterns.js"></script>
+<script src="chart-runtime/pattern_demo/sans-wire-demo/mechanics.js"></script>
+<script src="chart-runtime/chart-model.js"></script>
+<script src="chart-runtime/chart-timing.js"></script>
+<script src="chart-runtime/chart-sans.js"></script>
+<script src="chart-runtime/chart-bullets.js"></script>
+<script src="chart-runtime/chart-playback.js"></script>
+<script src="chart-runtime/chart-media.js"></script>
+<script src="chart-runtime/chart-runtime.js"></script>
+<script src="chart/boss-chart-bundle.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

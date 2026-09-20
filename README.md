@@ -6,7 +6,7 @@
 
 ## 启动
 
-正式小游戏统一位于 `game/minigames/`（节拍摄影、XP 电脑、七幕 Boss），红心弹幕共享引擎位于 `game/src/engines/danmu.js`。公共立绘、字体只保留一份。重复导入包、旧地图试玩、独立课程网站和水族馆原型已移除，清理明细见 `outputs/cleanup-manifest.json`。`npm test` 同时运行主线和 Boss 的回归测试。
+正式小游戏统一位于 `game/minigames/`（节拍摄影、XP 电脑、七幕 Boss），最终章使用 `game/minigames/boss/final-release/` 的完整谱面版本；共享弹幕引擎位于 `game/src/engines/danmu.js`，同时提供红心生存与蓝心跳跃教学。公共立绘、字体只保留一份。重复导入包、旧地图试玩、独立课程网站和水族馆原型已移除，清理明细见 `outputs/cleanup-manifest.json`。`npm test` 同时运行主线和 Boss 的回归测试。
 
 在本文件所在的仓库根目录执行：
 

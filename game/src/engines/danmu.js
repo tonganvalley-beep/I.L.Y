@@ -15,7 +15,11 @@ options ||= {};
 const listeners=[];
 const on=(type,handler)=>{window.addEventListener(type,handler);listeners.push([type,handler]);};
 let disposed=false, frameId=0, elapsed=0, pointerTarget=null;
-const duration=options.duration || Infinity;
+const blueTraining=options.tutorial==='blue';
+const duration=blueTraining?Infinity:(options.duration || Infinity);
+let jumpPressed=false;
+const lesson={step:0,jumps:0,cleared:0,wait:1.2,obstacle:null,feedback:''};
+let grounded=false,jumpReleased=true;
 
 // ───────────────────────── ① 固定步长 ─────────────────────────
 // 逻辑帧率可锁：默认 60，按 F 切 30（对应 GML 的 room_speed 减半）。
@@ -170,6 +174,7 @@ const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
 
 // ─────────────────── 玩家移动（对应 obj_heart） ───────────────────
 function moveHeart() {
+  if(blueTraining){moveBlueHeart();return;}
   // ★ SHIFT 半速 = 东方系列的「低速模式」，用来精确穿缝
   const slow = (keys.has('ShiftLeft') || keys.has('ShiftRight')) ? 0.5 : 1;
   const sp = G.sp * slow * SCALE;         // ★ 乘 SCALE：锁 30 帧时每步走两倍距离
@@ -186,6 +191,76 @@ function moveHeart() {
   // ★ 记录真实速度（px/帧，不含 SCALE）供追踪弹预判未来位置
   heart.vx = (heart.x - px) / SCALE;
   heart.vy = (heart.y - py) / SCALE;
+}
+
+// A small, non-lethal blue-heart lesson. Gravity and jump height match the Boss defaults.
+const blueSteps=[
+  ['① 重力与跳跃','蓝心会落到地面。← / → 或 A / D 移动；按 ↑ / W 跳起，再落地。'],
+  ['② 越过低骨条','白骨条从右侧扫来。等它靠近，按 ↑ / W 跳过去；碰到只重试，不扣血。'],
+  ['③ 按住跳得更高','这次骨条更高。靠近时按住 ↑ / W，越过后松开；松开会提早落下。']
+];
+function notifyLesson(message=''){
+  lesson.feedback=message;
+  const [title,hint]=blueSteps[Math.min(lesson.step,2)];
+  options.onLesson?.({step:lesson.step,title,hint,feedback:message,cleared:lesson.cleared});
+}
+function moveBlueHeart(){
+  const dt=SCALE/60,h=heart.size/2,floor=box.y2-h;
+  const up=jumpPressed||keys.has('ArrowUp')||keys.has('KeyW');
+  const slow=keys.has('ShiftLeft')||keys.has('ShiftRight');
+  let dx=Number(keys.has('ArrowRight')||keys.has('KeyD'))-Number(keys.has('ArrowLeft')||keys.has('KeyA'));
+  if(pointerTarget)dx=clamp((pointerTarget.x-heart.x)/((slow?130:240)*dt),-1,1);
+  heart.vx=dx*(slow?130:240)/60;
+  heart.x=clamp(heart.x+heart.vx*SCALE,box.x1+h,box.x2-h);
+  // Use 120 Hz substeps for the same jump arc at either render/logic rate.
+  let remaining=dt;
+  while(remaining>1e-9){
+    const step=Math.min(remaining,1/120);remaining-=step;
+    if(up&&grounded){heart.vy=-Math.sqrt(2*690*63);grounded=false;jumpReleased=false;lesson.jumps++;}
+    if(!up&&!jumpReleased){if(heart.vy<0)heart.vy*=.25;jumpReleased=true;}
+    if(grounded)continue;
+    const gravity=up&&heart.vy<0&&!jumpReleased?690:1120;
+    heart.y+=heart.vy*step+.5*gravity*step*step;
+    heart.vy=Math.min(520,heart.vy+gravity*step);
+    if(heart.y>=floor){
+      heart.y=floor;heart.vy=0;grounded=true;jumpReleased=true;
+      if(lesson.step===0&&lesson.jumps>0){lesson.step=1;lesson.wait=1.6;notifyLesson('跳得很好！接下来试着越过低骨条。');}
+    }
+  }
+}
+function updateBlueLesson(){
+  if(lesson.step===0)return;
+  const dt=SCALE/60;
+  if(!lesson.obstacle){
+    lesson.wait-=dt;if(lesson.wait>0)return;
+    lesson.obstacle={x:box.x2-12,width:16,height:lesson.step===1?20:42,warn:1.2,failed:false,crossed:false};
+    notifyLesson();return;
+  }
+  const o=lesson.obstacle;
+  if(o.warn>0){o.warn-=dt;return;}
+  o.x-=110*dt;
+  const nearestX=clamp(heart.x,o.x,o.x+o.width),nearestY=clamp(heart.y,box.y2-o.height,box.y2);
+  if(!o.failed&&Math.hypot(heart.x-nearestX,heart.y-nearestY)<heart.r){
+    o.failed=true;invc=30;notifyLesson('没关系，不扣血。等下一根靠近时再跳。');
+  }
+  if(!o.failed&&heart.x>=o.x-heart.r&&heart.x<=o.x+o.width+heart.r&&heart.y+heart.r<box.y2-o.height)o.crossed=true;
+  if(!o.failed&&o.crossed&&o.x+o.width+heart.r<heart.x){
+    lesson.cleared++;lesson.obstacle=null;
+    if(lesson.step===2){lesson.step=3;notifyLesson('蓝心练习完成！');endGame(true);return;}
+    lesson.step=2;lesson.wait=2;notifyLesson('低骨条通过！下一根需要按住跳跃键。');return;
+  }
+  if(o.x+o.width<box.x1){lesson.obstacle=null;lesson.wait=1.2;}
+}
+function drawBlueLesson(){
+  ctx.save();ctx.strokeStyle='#679fff';ctx.lineWidth=3;
+  ctx.beginPath();ctx.moveTo(box.x1,box.y2);ctx.lineTo(box.x2,box.y2);ctx.stroke();
+  const o=lesson.obstacle;
+  if(o){
+    ctx.fillStyle=o.failed?'#ff8b91':'#f3f5ff';
+    if(o.warn>0){ctx.strokeStyle='#9bbcff';ctx.setLineDash([4,4]);ctx.strokeRect(o.x,box.y2-o.height,o.width,o.height);}
+    else{ctx.fillRect(o.x+5,box.y2-o.height,6,o.height);ctx.fillRect(o.x,box.y2-o.height,o.width,5);ctx.fillRect(o.x,box.y2-5,o.width,5);}
+  }
+  ctx.restore();
 }
 
 // ─────────── ⑤ 波次编排：生成器函数替代 alarm[] 链 ───────────
@@ -594,6 +669,7 @@ function draw() {
   ctx.beginPath();
   ctx.rect(box.x1, box.y1, box.x2 - box.x1, box.y2 - box.y1);
   ctx.clip();
+  if(blueTraining)drawBlueLesson();
   drawLasers();                                          // 激光垫在弹幕下面
   for (const b of bullets) if (b.active && b.telegraph <= 0) drawBullet(b);
   ctx.restore();
@@ -677,7 +753,7 @@ function roundRect(x, y, w, h, r) {
 }
 
 function drawHeartShape(x, y) {
-  ctx.fillStyle = '#ff3b3b';
+  ctx.fillStyle = blueTraining?'#467dff':'#ff3b3b';
   ctx.beginPath();
   ctx.arc(x - 4, y - 2, 5, 0, Math.PI * 2);
   ctx.arc(x + 4, y - 2, 5, 0, Math.PI * 2);
@@ -713,9 +789,9 @@ function syncHUD() {
   fill.style.width = pct + '%';
   fill.classList.toggle('low', G.hp <= G.maxhp * 0.3);
   $('hpText').textContent = `${G.hp} / ${G.maxhp}`;
-  $('wave').textContent = waveNo;
+  $('wave').textContent = blueTraining?Math.min(3,lesson.step+1)+'/3':waveNo;
   $('count').textContent = aliveCount();
-  if($('time'))$('time').textContent=Math.max(0,duration-elapsed).toFixed(1);
+  if($('time'))$('time').textContent=blueTraining?'—':Math.max(0,duration-elapsed).toFixed(1);
 }
 
 function syncFpsLock() {
@@ -731,6 +807,7 @@ function update() {
   elapsed+=SCALE/60;
   if(elapsed>=duration){endGame(true);return;}
   moveHeart();
+  if(blueTraining){updateBlueLesson();if(invc>0)invc-=SCALE;return;}
   updateClones();                        // 分身跟随玩家输入移动
   updateRoutines();
   updateWarnings();
@@ -780,6 +857,12 @@ function reset() {
   heart.x = (box.x1 + box.x2) / 2;
   heart.y = box.y2 - 40;
   heart.vx = 0; heart.vy = 0;
+  grounded=false;jumpReleased=true;jumpPressed=false;
+  if(blueTraining){
+    heart.y=box.y2-80;
+    Object.assign(lesson,{step:0,jumps:0,cleared:0,wait:1.2,obstacle:null,feedback:''});
+    notifyLesson();
+  }
   for (const b of bullets) b.active = false;
   lasers.length = 0;
   routines.length = 0;
@@ -816,7 +899,7 @@ function start() {
   frameId = requestAnimationFrame(frame);
 }
 
-function setPaused(value){paused=value;acc=0;keys.clear();pointerTarget=null;options.onState?.({paused,gameOver});}
+function setPaused(value){if(paused===value)return;paused=value;jumpPressed=false;acc=0;keys.clear();pointerTarget=null;options.onState?.({paused,gameOver});}
 on('blur',()=>setPaused(true));
 const visibility=()=>{if(document.hidden)setPaused(true);};
 document.addEventListener('visibilitychange',visibility);
@@ -826,6 +909,6 @@ drawBox();
 drawHeart();
 syncHUD();
 syncFpsLock();
-return {start,reset,setPaused,setTarget:value=>{pointerTarget=value;},getSnapshot:()=>({hp:G.hp,elapsed,wave:waveNo,paused,gameOver,bullets:aliveCount(),lasers:lasers.length}),
+return {start,reset,setPaused,setJump:value=>{jumpPressed=!!value&&!paused&&!gameOver&&!options.blocked?.();},setTarget:value=>{pointerTarget=value;},getSnapshot:()=>({hp:G.hp,elapsed,wave:waveNo,paused,gameOver,bullets:aliveCount(),lasers:lasers.length,heart:{...heart,grounded,mode:blueTraining?'blue':'red'},lesson:blueTraining?{...lesson,obstacle:lesson.obstacle?{...lesson.obstacle}:null}:null}),
 destroy(){disposed=true;running=false;cancelAnimationFrame(frameId);keys.clear();for(const [type,handler]of listeners)window.removeEventListener(type,handler);document.removeEventListener('visibilitychange',visibility);routines.length=0;lasers.length=0;warnings.length=0;clones.length=0;}};
 }};

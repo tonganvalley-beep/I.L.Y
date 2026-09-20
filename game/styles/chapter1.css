@@ -40,3 +40,9 @@ body.rpg-active .game-header{display:none}
 .danmu-panel{text-align:center;background:#08080f}.danmu-arena{position:relative;width:min(800px,100%);margin:0 auto 12px}.danmu-arena canvas{display:block;background:#05050a;width:100%;height:auto;max-height:none;border:0}.danmu-hud{position:absolute;top:3%;left:3%;display:flex;gap:14px;font-size:13px;color:#ffe14d}.danmu-overlay{position:absolute;inset:0;background:#06060ce8;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}.danmu-overlay.show{display:flex}.danmu-overlay p{font-size:14px;line-height:1.9;max-width:520px}.danmu-panel>button{margin:4px 8px}.danmu-overlay h2{font-size:22px}
 @media(max-height:600px){.danmu-arena{width:min(560px,72vh)}.danmu-panel{padding-top:48px}.danmu-panel>h1{font-size:16px;margin:4px}.danmu-overlay p{font-size:11px;margin:4px}.danmu-overlay h2{font-size:16px}.danmu-hud{font-size:10px;gap:7px}}
 .danmu-panel{padding:70px 3vw 12px}.danmu-panel>h1{font-size:20px;margin:0 0 12px}.danmu-arena{width:min(800px,100%,calc((100dvh - 170px)*1.3333))}.danmu-arena canvas{touch-action:none}
+.danmu-lesson{max-width:740px;margin:0 auto 5px;color:#b7d3ff;font-size:13px;line-height:1.7}
+.danmu-feedback{min-height:1.6em;margin:0 auto 8px;color:#9ce5b7;font-size:12px;line-height:1.6}
+.danmu-jump{touch-action:none;user-select:none;min-height:44px;border-color:#689ef9;color:#d7e8ff}
+.danmu-panel[data-lesson=blue] .danmu-hud{color:#b7d3ff}
+@media(max-width:600px){.danmu-panel[data-lesson=blue]{padding-top:100px}.danmu-lesson{font-size:12px}.danmu-panel[data-lesson=blue] .danmu-arena{width:min(100%,calc((100dvh - 330px)*1.3333))}.danmu-panel>button{font-size:12px;margin:4px;padding:9px 12px}}
+@media(max-height:600px){.danmu-panel[data-lesson=blue]{padding-top:54px}.danmu-lesson{font-size:11px;line-height:1.45}.danmu-feedback{margin-bottom:2px;font-size:11px}.danmu-panel[data-lesson=blue] .danmu-arena{width:min(100%,calc((100dvh - 200px)*1.3333))}}

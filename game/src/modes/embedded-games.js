@@ -20,10 +20,11 @@
     pause.hidden=!photo;
     wrap.append(frame,bar);stage.replaceChildren(wrap);
     assets.audio?.pause();
-    const targetOrigin=location.origin==='null'?'*':location.origin;
+    const expectedOrigin=location.protocol==='file:'?'null':location.origin;
+    const targetOrigin=expectedOrigin==='null'?'*':expectedOrigin;
     function send(action){frame.contentWindow?.postMessage({type:'ily-embed-control',action},targetOrigin)}
     function message(event){
-      if(disposed||event.source!==frame.contentWindow||event.origin!==location.origin)return;
+      if(disposed||event.source!==frame.contentWindow||event.origin!==expectedOrigin)return;
       const data=event.data;
       if(data?.type==='ily-photo-result'&&photo){
         const result={};

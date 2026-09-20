@@ -10,6 +10,21 @@
   const itemMenu = document.getElementById('itemMenu');
 
   let zCounter = 10;
+  let hostPaused=false;
+  const expectedHostOrigin=location.protocol==='file:'?'null':location.origin;
+  const targetHostOrigin=expectedHostOrigin==='null'?'*':expectedHostOrigin;
+  function syncGame(win){
+    const paused=hostPaused||document.hidden||win.style.display==='none';
+    win.querySelector('iframe')?.contentWindow?.postMessage({type:'ily-embed-control',action:paused?'pause':'resume'},targetHostOrigin);
+  }
+  addEventListener('message',event=>{
+    if(event.source!==parent||event.origin!==expectedHostOrigin||event.data?.type!=='ily-embed-control')return;
+    if(!['pause','resume'].includes(event.data.action))return;
+    hostPaused=event.data.action==='pause';
+    for(const win of windowsEl.querySelectorAll('.game-win'))syncGame(win);
+  });
+  document.addEventListener('visibilitychange',()=>{for(const win of windowsEl.querySelectorAll('.game-win'))syncGame(win);});
+
 
   // 游戏注册表：每个游戏是 games/<游戏名>/ 下的子文件夹，固定含 4 个文件
   //   index.html(主入口) / app.js(逻辑) / styles.css(样式) / ico.png(图标)
@@ -200,7 +215,7 @@
     enableDrag(win, title);
     win.addEventListener('mousedown', () => { win.style.zIndex = ++zCounter; });
     win.querySelector('.win-close').addEventListener('click', () => win.remove());
-    win.querySelector('.win-min').addEventListener('click', () => { win.style.display = 'none'; });
+    win.querySelector('.win-min').addEventListener('click', () => { win.style.display = 'none'; syncGame(win); });
     const maxBtn = win.querySelector('.win-max');
     enableMaximize(win, maxBtn);
     win._maxBtn = maxBtn;
@@ -227,10 +242,14 @@
     const gw = (entry && entry.w ? entry.w : 480) + 'px';
     const gh = (entry && entry.h ? entry.h : 360) + 'px';
     const win = createWindow({ cls: 'game-win', title: entry.name, width: gw, height: gh });
+    win.dataset.game=entry.launch;
     const body = win.querySelector('.win-body');
     body.innerHTML =
       `<iframe class="game-frame" src="${escapeHtml(entry.launch)}" title="${escapeHtml(entry.name)}"></iframe>`;
     wireChrome(win);
+
+    // The teaching controls must stay reachable on phone-sized desktops.
+    if(entry.launch==='games/heart/index.html'&&(desktop.clientWidth<820||desktop.clientHeight<600))setMaximized(win,win._maxBtn,true);
 
     const iframe = body.querySelector('iframe');
     const focusGame = () => { try { iframe.focus(); } catch (e) {} };
