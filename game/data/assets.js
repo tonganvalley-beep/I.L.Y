@@ -59,6 +59,14 @@ ILY.data.assets = {
     "title-ily":           "assets/placeholders/prop.svg"  // 终幕 I.L.Y. 标题
   },
   "bgm": {
+    "bgm-prologue-ambient": "assets/audio/bgm/bgm-prologue-ambient.mp3",
+    "bgm-ch1-neo": "assets/audio/bgm/bgm-ch1-neo.flac",
+    "bgm-ch2-confession": "assets/audio/bgm/bgm-ch2-confession.flac",
+    "bgm-true-airi-melancholic": "assets/audio/bgm/bgm-true-airi-melancholic.mp3",
+    "bgm-blue-music-box": "assets/audio/bgm/bgm-blue-music-box.mp3",
+    "bgm-heroine-memory": "assets/audio/bgm/bgm-heroine-memory.flac",
+    "bgm-final-farewell": "assets/audio/bgm/bgm-final-farewell.mp3",
+    "bgm-ending-voyager": "assets/audio/bgm/bgm-ending-voyager.flac",
     "bgm-dusk":      "assets/audio/bgm/bgm-dusk.mp3",      // 出租屋 黄昏/深夜
     "bgm-university":"assets/audio/bgm/bgm-university.mp3",// 场景03 回忆蒙太奇
     "bgm-coast":     "assets/audio/bgm/bgm-coast.mp3",     // 场景08 月夜海岸（自然空间感）
