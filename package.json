@@ -5,7 +5,12 @@
   "scripts": {
     "start": "node tools/serve.mjs --open /index.html",
     "game": "node tools/serve.mjs --open /index.html",
-    "test": "node --test tests/*.test.mjs",
-    "build:maps": "node tools/build-chapter1-maps.mjs"
+    "chapters": "node tools/serve.mjs --open /game/chapters.html",
+    "test": "node --test tests/*.test.mjs game/minigames/boss/tests/*.test.mjs",
+    "build:maps": "node tools/build-chapter1-maps.mjs",
+    "build:heroine": "node tools/heroine/build.mjs",
+    "build:story": "python -B tools/chapter1/build.py && python -B tools/chapters/build.py && node tools/heroine/build.mjs",
+    "test:script-rules": "python -B -m unittest discover -s tests -p test_script_rules.py && node --test tests/script-rules.test.mjs",
+    "voice:translations": "node tools/voicevox-translations.mjs"
   }
 }

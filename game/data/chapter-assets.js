@@ -1,6 +1,7 @@
 Object.assign(ILY.data.assets.images, {
   "ch2-stone": "assets/images/backgrounds/ch2-stone.jpg",
   "ch2-ice": "assets/images/cg/ch2-ice.jpg",
+  "ch2-香草": "assets/images/cg/ch2-香草.jpg",
   "ch2-vending": "assets/images/backgrounds/ch2-vending.jpg",
   "ch2-adult": "assets/images/cg/ch2-adult.jpg",
   "ch2-smile": "assets/images/cg/ch2-smile.jpg",
@@ -20,7 +21,22 @@ Object.assign(ILY.data.assets.images, {
   "ch3-mall": "assets/images/maps/ch3-mall.png",
   "ch2-follower": "assets/images/maps/airi-follower.svg",
   "airi-rpg-sheet": "assets/images/maps/airi-rpg-sheet.png",
-  // 第三章夜路地图上的 NPC 小人（与主角 cursor-hero-*.png 同为 48x48 规格）
+  "airi-sailor-rpg-sheet": "assets/images/maps/airi-sailor-rpg-sheet.png",
   "npc-coworker": "assets/images/characters/npc-coworker.png",
-  "npc-hibiya": "assets/images/characters/npc-hibiya.png"
+  "npc-hibiya": "assets/images/characters/npc-hibiya.png",
+  "npc-airi-back": "assets/images/characters/npc-airi-back.png",
+  "npc-airi-adult-back": "assets/images/characters/npc-airi-adult-back.png",
+  "ch3-battery-full": "assets/images/cg/ch3-battery-full.png",
+  "ch3-battery-medium": "assets/images/cg/ch3-battery-medium.png",
+  "ch3-battery-low": "assets/images/cg/ch3-battery-low.png",
+  // 交互点标记图标（16×16 点阵 2 倍输出，由 tools/gen-marker-icons.py 生成）
+  "marker-collect": "assets/images/ui/marker/marker-collect.png",
+  "marker-transfer": "assets/images/ui/marker/marker-transfer.png",
+  "marker-finish": "assets/images/ui/marker/marker-finish.png",
+  "marker-clue": "assets/images/ui/marker/marker-clue.png",
+  "marker-shop": "assets/images/ui/marker/marker-shop.png",
+  "marker-reunion": "assets/images/ui/marker/marker-reunion.png",
+  "marker-scream": "assets/images/ui/marker/marker-scream.png",
+  "marker-done": "assets/images/ui/marker/marker-done.png",
+  "marker-locked": "assets/images/ui/marker/marker-locked.png"
 });

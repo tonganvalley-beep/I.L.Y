@@ -5,9 +5,9 @@ ILY.data.stories.chapter3 = {
   "start": "ch3_s01",
   "nodes": {
     "ch3_s01": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "海边的重逢 —— “虚构的爱理”",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -18,9 +18,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_001"
     },
     "ch3_001": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "傍晚的海边被夕阳染成橙红色，海面泛着细碎的金光。基生看着面前这名长发女子——她脸颊微红，额角带着细汗，正惊讶地望着他。基生瞪大双眼，一时没有反应过来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -54,9 +54,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_004"
     },
     "ch3_004": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她露出怀念的笑容，主动解释起自己来到这里的原因。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -90,9 +90,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_007"
     },
     "ch3_007": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她的语气自然得仿佛两人只是久别重逢，还继续说起了小野乃的近况。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -126,9 +126,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_010"
     },
     "ch3_010": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看着她，眼神里充满惊疑。他无法理解眼前的状况，也无法将这名熟悉又陌生的女子，与自己的记忆对应起来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -138,9 +138,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_011"
     },
     "ch3_011": {
-      "type": "dialogue",
-      "text": "这是……？什么情况……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -150,9 +150,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_012"
     },
     "ch3_012": {
-      "type": "dialogue",
-      "text": "到底是怎么回事啊……？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -162,9 +162,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_013"
     },
     "ch3_013": {
-      "type": "dialogue",
-      "text": "爱理她……诶……？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -174,9 +174,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_014"
     },
     "ch3_014": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他的思绪开始变得断断续续，只能拼命回忆自己来到海边之后发生的事情。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -186,9 +186,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_015"
     },
     "ch3_015": {
-      "type": "dialogue",
-      "text": "我今天不是和爱理一起来到了这里，然后还……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -198,9 +198,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_016"
     },
     "ch3_016": {
-      "type": "dialogue",
-      "text": "在附近参观了好些地方，之后又，说好了，一起去看夕阳，然后就……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -210,9 +210,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_017"
     },
     "ch3_017": {
-      "type": "dialogue",
-      "text": "然后就……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -222,9 +222,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_018"
     },
     "ch3_018": {
-      "type": "dialogue",
-      "text": "……然后就？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -234,9 +234,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_019"
     },
     "ch3_019": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生越是试图回想，脑海中的顺序就越混乱，连自己为何会站在这里都变得难以确定。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -258,9 +258,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_021"
     },
     "ch3_021": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她微微扬起嘴角，像是又想起了一件事。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -294,9 +294,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_024"
     },
     "ch3_024": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生怔怔地看向爱理和她身后的夕阳，看向大海与天际线，看向这真实又模糊的一切。记忆的错乱感让他的大脑像一片空白般的麻木，仿佛这里只有他才是那个不该出现的人，一切都在像黑洞般吞噬着他的意识。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -318,9 +318,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_026"
     },
     "ch3_026": {
-      "type": "dialogue",
-      "text": "我是……和爱理……和十年前那个模样的爱理一起来这里的吧？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -330,9 +330,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_027"
     },
     "ch3_027": {
-      "type": "dialogue",
-      "text": "而且还说好了，我们会永远在一起的吧？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -342,9 +342,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_028"
     },
     "ch3_028": {
-      "type": "dialogue",
-      "text": "咦？可爱理她，我眼前的这个女性她是？我又是……？诶……？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -354,9 +354,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_029"
     },
     "ch3_029": {
-      "type": "dialogue",
-      "text": "这个人是爱理，是我不知道的爱理。是和我在同一个年级、和我一样长大成人的爱理。既然这样，我身边那个爱理又是？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -366,9 +366,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_030"
     },
     "ch3_030": {
-      "type": "dialogue",
-      "text": "我身边那个爱理，我曾深信就在我身边的爱理，以及那些今日之前的生活，",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -378,9 +378,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_031"
     },
     "ch3_031": {
-      "type": "dialogue",
-      "text": "全部，都是我——",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -390,9 +390,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_032"
     },
     "ch3_032": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理握着自己的衣襟，小心地唤他。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -414,9 +414,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_034"
     },
     "ch3_034": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生的脑海里，如同意识流般流过这一个月以来“爱理”的模样。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -426,9 +426,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_035"
     },
     "ch3_035": {
-      "type": "dialogue",
-      "text": "全部都是我妄想出来的？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -438,9 +438,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_036"
     },
     "ch3_036": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生与爱理面对面站在海边，两人之间隔着一段略显生疏的距离，身后的夕阳正缓缓沉向海平线。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -450,9 +450,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_037"
     },
     "ch3_037": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理看着基生奇怪的状态，有些担心，笑容略微收敛。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -474,9 +474,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_039"
     },
     "ch3_039": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生额角不断冒汗，反应迟钝，连一句完整的话都说不出来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -522,9 +522,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_043"
     },
     "ch3_043": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生感到口干舌燥，双眼发昏。眼前发生的一切，都远远超出了他的理解范围。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -534,9 +534,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_044"
     },
     "ch3_044": {
-      "type": "dialogue",
-      "text": "全部都是我的妄想。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -546,9 +546,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_045"
     },
     "ch3_045": {
-      "type": "dialogue",
-      "text": "都是妄想。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -558,9 +558,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_046"
     },
     "ch3_046": {
-      "type": "dialogue",
-      "text": "全都是妄想。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -570,9 +570,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_047"
     },
     "ch3_047": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他开始怀疑自己的精神是否早已出了问题，甚至试图用“幻觉”来解释眼前的一切。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -582,9 +582,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_048"
     },
     "ch3_048": {
-      "type": "dialogue",
-      "text": "我的脑子可能早就出问题了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -594,9 +594,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_049"
     },
     "ch3_049": {
-      "type": "dialogue",
-      "text": "十年间一直杳无音讯的爱理，忽然就以十年前的模样出现在我的面前这种事，",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -606,9 +606,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_050"
     },
     "ch3_050": {
-      "type": "dialogue",
-      "text": "一般来说的话，这种事情怎么都是不可能的。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -618,9 +618,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_051"
     },
     "ch3_051": {
-      "type": "dialogue",
-      "text": "而明明是完全不可能发生的事情，我却……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -630,9 +630,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_052"
     },
     "ch3_052": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生的脸色越来越苍白，冷汗不断从脸颊滑落，身体也因为震惊而微微颤抖。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -642,9 +642,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_053"
     },
     "ch3_053": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理察觉到他的异常，收起笑容，担忧地观察着他的脸色。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -678,9 +678,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_056"
     },
     "ch3_056": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生只能机械地点头。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -726,9 +726,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_060"
     },
     "ch3_060": {
-      "type": "dialogue",
-      "text": "脑袋完全转不过弯来。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -738,9 +738,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_061"
     },
     "ch3_061": {
-      "type": "dialogue",
-      "text": "空白一片，什么都想不出来。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -750,9 +750,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_062"
     },
     "ch3_062": {
-      "type": "dialogue",
-      "text": "自己，自己，已经，完全……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -762,9 +762,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_063"
     },
     "ch3_063": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "两人来到海边的石阶坐下。基生把背包放在一旁，与爱理隔着一小段距离，共同望向被晚霞染红的海面。海风吹过，周围安静下来，气氛却比刚才更加沉重。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -774,9 +774,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_064"
     },
     "ch3_064": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理低着头，双手拘谨地交握在膝前。她沉默片刻，终于准备说出压在心中多年的事情。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -810,9 +810,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_067"
     },
     "ch3_067": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生僵硬地坐在她身旁，越听越困惑，仿佛这些文字从耳朵里进去，又滑过大脑。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -822,9 +822,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_068"
     },
     "ch3_068": {
-      "type": "dialogue",
-      "text": "……什么？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -858,9 +858,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_071"
     },
     "ch3_071": {
-      "type": "dialogue",
-      "text": "爱理她在说什么？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -882,9 +882,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_073"
     },
     "ch3_073": {
-      "type": "dialogue",
-      "text": "爱理她到底……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -918,9 +918,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_076"
     },
     "ch3_076": {
-      "type": "dialogue",
-      "text": "在说什么……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -942,9 +942,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_078"
     },
     "ch3_078": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "晚霞铺满海面，基生与爱理并排坐在岸边。听见爱理将十年前陪伴自己的少女称为“虚构的爱理”，基生满脸冷汗，震惊地转头看她，无法理解这句话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -966,9 +966,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_080"
     },
     "ch3_080": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理望着基生错愕的脸，闭上眼睛，露出略显为难的微笑。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1002,9 +1002,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_083"
     },
     "ch3_083": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理目光略微低垂，将手轻轻攥在下巴前，开始解释自己高中毕业后突然消失的原因。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1062,9 +1062,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_088"
     },
     "ch3_088": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生望着她，神情越发茫然。在他的记忆中，学生时代的爱理总是笑得十分灿烂，从来没有显露过痛苦。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1086,9 +1086,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_090"
     },
     "ch3_090": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生脑海里浮现出高中时爱理甜美的笑容，想着——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1098,9 +1098,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_091"
     },
     "ch3_091": {
-      "type": "dialogue",
-      "text": "我知道的爱理，总是面带着笑容。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1110,9 +1110,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_092"
     },
     "ch3_092": {
-      "type": "dialogue",
-      "text": "并且在我的脑海中，也只有她那副开朗活泼、惹人喜爱的模样……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1122,9 +1122,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_093"
     },
     "ch3_093": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理将交叠的双手放在大腿上，坦白道。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1230,9 +1230,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_102"
     },
     "ch3_102": {
-      "type": "dialogue",
-      "text": "拿着手机回头看他的笑、闭着眼睛的灿烂笑容，以及陪在他身边时温柔的微笑。他终于意识到，那些自己从未怀疑过的表情背后，可能一直隐藏着痛苦。",
-      "speaker": "基生沉默地回想着爱理曾经展露的各种笑容",
+      "type": "monologue",
+      "text": "基生沉默地回想着爱理曾经展露的各种笑容：拿着手机回头看他的笑、闭着眼睛的灿烂笑容，以及陪在他身边时温柔的微笑。他终于意识到，那些自己从未怀疑过的表情背后，可能一直隐藏着痛苦。",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1302,9 +1302,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_108"
     },
     "ch3_108": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "夕阳沉入无边的大海，炽热的感情在浩如烟海的时间里慢慢冷却，过往的欢喜与苦痛都早已成为箱底的旧相册，只在翻阅时，能略微追忆起当时那浸入骨髓的情愫。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1434,9 +1434,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_119"
     },
     "ch3_119": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理微微转过头，看向基生，露出温柔而遗憾的、复杂的笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1494,9 +1494,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_124"
     },
     "ch3_124": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "说到这里，爱理像是想冲淡沉重的气氛，闭眼笑着自嘲。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1542,9 +1542,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_128"
     },
     "ch3_128": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看着她，嘴唇微微张开。他想叫住爱理，也想说出自己的感受，却只能断断续续地发出声音。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1578,9 +1578,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_131"
     },
     "ch3_131": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理忽然想起另一件事，神情变得轻松起来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1614,9 +1614,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_134"
     },
     "ch3_134": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生猛然睁大眼睛，脸颊再次冒出冷汗。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1638,9 +1638,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_136"
     },
     "ch3_136": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理有些羞涩地笑着，感慨道。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1690,9 +1690,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_140"
     },
     "ch3_140": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这时，爱理的手机响起，来电显示为“小野乃”。她接起电话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1750,9 +1750,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_145"
     },
     "ch3_145": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理站起身，向仍坐在石阶上的基生道歉。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1822,9 +1822,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_s02"
     },
     "ch3_s02": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "空房间 —— 一个月与一通打工电话",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1833,9 +1833,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_152"
     },
     "ch3_152": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "夜晚，基生回到昏暗的房间，独自坐在床边。他双手交握，目光空洞，耳边反复回响着爱理说过的话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1873,9 +1873,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_156"
     },
     "ch3_156": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生躺倒在床上，睁着眼睛望向黑暗，仍然无法摆脱那些话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1893,13 +1893,27 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_158"
     },
     "ch3_158": {
-      "type": "dialogue",
+      "type": "battery-montage",
       "text": "2020 年 8 月 3 日 22:53（电量 3 格／满）→ 8 月 14 日 20:38（电量 2 格）→ 8 月 31 日 16:24（电量 1 格／红色）",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
       "background": "bg-apartment-night",
+      "frames": [
+        {
+          "image": "ch3-battery-full",
+          "label": "2020 年 8 月 3 日 22:53，电量三格"
+        },
+        {
+          "image": "ch3-battery-medium",
+          "label": "2020 年 8 月 14 日 20:38，电量两格"
+        },
+        {
+          "image": "ch3-battery-low",
+          "label": "2020 年 8 月 31 日 16:24，电量一格，红色"
+        }
+      ],
       "next": "ch3_159"
     },
     "ch3_159": {
@@ -2003,9 +2017,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_169"
     },
     "ch3_169": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "通话结束后，基生坐在昏暗的房间里，拿着手机发愣。他按下按键，手机屏幕突然跳出警告：",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2013,19 +2027,20 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_170"
     },
     "ch3_170": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "电量即将耗尽。手机即将关机，请您立刻充电或者更换充电完成的手机电池。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
       "background": "bg-apartment-night",
+      "phoneNotice": "battery-low",
       "next": "ch3_171"
     },
     "ch3_171": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看着屏幕，神情疲惫而空洞。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2033,9 +2048,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_172"
     },
     "ch3_172": {
-      "type": "dialogue",
-      "text": "距离那件事已经过去一个月了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2043,9 +2058,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_173"
     },
     "ch3_173": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他低头看着手里的旧手机，随后把手机放到一旁，开始脱下衣服准备休息。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2076,9 +2091,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_176"
     },
     "ch3_176": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生猛地抬头，可床边并没有人。房间里只有床铺、窗帘和昏暗的室内环境。他的眼神中流露出惊讶与疑惑。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2106,9 +2121,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_179"
     },
     "ch3_179": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他转身走向房门，准备离开房间。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2126,9 +2141,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_s03"
     },
     "ch3_s03": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "深夜的邀约 —— “没有手机的成田先生”",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2214,9 +2229,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_189"
     },
     "ch3_189": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生额头冒出冷汗。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2254,9 +2269,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_193"
     },
     "ch3_193": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生沉默片刻，想了想，然后改口道——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2264,9 +2279,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_194"
     },
     "ch3_194": {
-      "type": "dialogue",
-      "text": "啊，不对……因为没有，所以想要买台智能机。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2274,9 +2289,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_195"
     },
     "ch3_195": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐听后露出震惊的表情。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2334,9 +2349,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_201"
     },
     "ch3_201": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐听完后，脸上露出兴奋的笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2374,9 +2389,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_205"
     },
     "ch3_205": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷似乎很惊讶。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2394,9 +2409,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_207"
     },
     "ch3_207": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生以为自己说了什么奇怪的话，小声地道歉。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2424,9 +2439,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_210"
     },
     "ch3_210": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她很快又高兴地拍板。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2464,9 +2479,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_s04"
     },
     "ch3_s04": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "不速之客 —— 肩膀上的“虫子”",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2475,9 +2490,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_215"
     },
     "ch3_215": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生走到床前，脱下衣服，然后躺在床上。今天工作的疲劳让他感到十分困倦。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2485,9 +2500,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_216"
     },
     "ch3_216": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "夜深后，基生正躺在床上睡觉，突然感觉有什么东西爬过他的肩膀。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2495,9 +2510,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_217"
     },
     "ch3_217": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生突然惊醒，身体猛地坐起。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2515,9 +2530,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_219"
     },
     "ch3_219": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他慌张地摸着自己的衣服和身体。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2545,9 +2560,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_222"
     },
     "ch3_222": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生看了看，却什么都没有发现，神情烦躁又不适。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2585,9 +2600,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_226"
     },
     "ch3_226": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "房间再次安静下来，基生重新躺下，疲惫地坠入梦乡。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2598,9 +2613,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_s05"
     },
     "ch3_s05": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "第一台智能手机 —— 日日谷的“过去论”",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2609,9 +2624,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_228"
     },
     "ch3_228": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "下午，基生来到约定的商场附近。身后突然传来日日谷小姐的声音。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2649,9 +2664,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_232"
     },
     "ch3_232": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐无奈地说道。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2669,9 +2684,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_234"
     },
     "ch3_234": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷拿出自己挑好的几款手机海报，举到基生面前。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2689,9 +2704,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_236"
     },
     "ch3_236": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生惊讶地看着这些款式，有些眼花缭乱。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2701,7 +2716,7 @@ ILY.data.stories.chapter3 = {
     "ch3_model": {
       "type": "choice",
       "text": "挑选第一台智能手机。",
-      "speaker": "基生（内心）",
+      "speaker": "选择",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2777,9 +2792,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_243"
     },
     "ch3_243": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐抿着嘴，惊讶地听着，然后连忙回应。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2807,9 +2822,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_246"
     },
     "ch3_246": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐听后有些慌张，支吾着。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2837,9 +2852,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_249"
     },
     "ch3_249": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐在一旁指导基生操作。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2897,9 +2912,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_255"
     },
     "ch3_255": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐露出开心的笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2927,9 +2942,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_258"
     },
     "ch3_258": {
-      "type": "dialogue",
-      "text": "为什么……眼前浮现出了那时爱理的笑容……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2937,9 +2952,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_259"
     },
     "ch3_259": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "眼前浮现出那天在海边的“爱理”的笑容。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2947,9 +2962,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_260"
     },
     "ch3_260": {
-      "type": "dialogue",
-      "text": "那不过是我自己的幻想而已，那天我不就已经明白了吗……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2967,9 +2982,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_262"
     },
     "ch3_262": {
-      "type": "dialogue",
-      "text": "好想忘掉。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2987,9 +3002,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_264"
     },
     "ch3_264": {
-      "type": "dialogue",
-      "text": "已经不想再回忆起来了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2997,9 +3012,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_265"
     },
     "ch3_265": {
-      "type": "dialogue",
-      "text": "全从我的大脑里消失吧……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3007,9 +3022,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_266"
     },
     "ch3_266": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐察觉到基生的异常，叫他。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3027,9 +3042,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_268"
     },
     "ch3_268": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生回过神来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3067,9 +3082,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_272"
     },
     "ch3_272": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐想了想。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3187,9 +3202,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_284"
     },
     "ch3_284": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生回过神来，突然意识到自己说了很多气话。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3357,9 +3372,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_301"
     },
     "ch3_301": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生听完，心中忽然又浮现出那个身影。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3367,9 +3382,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_302"
     },
     "ch3_302": {
-      "type": "dialogue",
-      "text": "改变了我的，重要缘由……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3387,9 +3402,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_304"
     },
     "ch3_304": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "她说到这里，手指不自觉地攥紧胸前的衣服。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3417,9 +3432,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_307"
     },
     "ch3_307": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐回过神来，顿时慌张起来。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3457,9 +3472,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_311"
     },
     "ch3_311": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这时，集合时间已经到了。同伴们喊道——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3477,9 +3492,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_313"
     },
     "ch3_313": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐转头看向他们。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3507,9 +3522,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_316"
     },
     "ch3_316": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "日日谷小姐惊讶地问。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3650,9 +3665,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_s06"
     },
     "ch3_s06": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "黑屏 —— 消失的数据与屏幕里的“爱理”",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3671,9 +3686,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_332"
     },
     "ch3_332": {
-      "type": "dialogue",
-      "text": "没错……随时都可以去死。在那个昏暗的房间里，我的确，总是这么想着。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3681,9 +3696,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_333"
     },
     "ch3_333": {
-      "type": "dialogue",
-      "text": "一边想着随时都可以去死，却又没有真的赴死的勇气，只能打点工勉强维生，日复一日地消磨光阴。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3721,9 +3736,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_337"
     },
     "ch3_337": {
-      "type": "dialogue",
-      "text": "我曾看见的爱理的身影，即便那只是一场幻梦，即便那只是我的妄想，",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3731,9 +3746,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_338"
     },
     "ch3_338": {
-      "type": "dialogue",
-      "text": "但在彼时彼刻，如果爱理没有在我面前出现，我的人生，一定会永远停滞在那里。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3741,9 +3756,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_339"
     },
     "ch3_339": {
-      "type": "dialogue",
-      "text": "说不定爱理是为了拯救我，从过去而来的呢……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3751,9 +3766,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_340"
     },
     "ch3_340": {
-      "type": "dialogue",
-      "text": "说笑的……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3761,9 +3776,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_341"
     },
     "ch3_341": {
-      "type": "dialogue",
-      "text": "这都什么跟什么……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3801,9 +3816,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_345"
     },
     "ch3_345": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "他拿起旧手机，等待日日谷小姐的来电，同时又忍不住怀疑——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3811,9 +3826,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_346"
     },
     "ch3_346": {
-      "type": "dialogue",
-      "text": "不过……她真的会打电话过来吗……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3841,9 +3856,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_349"
     },
     "ch3_349": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "旧手机始终没有反应。基生连续按下按键，伴随着“按下……按下……”的拟声，屏幕却无法打开。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3881,9 +3896,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_353"
     },
     "ch3_353": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "电量明明已经充好，昨天也还能正常使用。旧手机的屏幕漆黑一片，基生额头冒出冷汗。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3941,9 +3956,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_359"
     },
     "ch3_359": {
-      "type": "dialogue",
-      "text": "就因为我说了，让它消失也无所谓？",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3961,9 +3976,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_361"
     },
     "ch3_361": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生低声喊出那个名字。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3983,7 +3998,7 @@ ILY.data.stories.chapter3 = {
     "ch3_363": {
       "type": "dialogue",
       "text": "……生",
-      "speaker": "？（屏幕里的声音）",
+      "speaker": "？",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3993,7 +4008,7 @@ ILY.data.stories.chapter3 = {
     "ch3_364": {
       "type": "dialogue",
       "text": "基生……",
-      "speaker": "？（屏幕里的声音）",
+      "speaker": "？",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4021,9 +4036,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_367"
     },
     "ch3_367": {
-      "type": "dialogue",
-      "text": "这都什么啊……刚才那到底是什么情况……为什么……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4031,9 +4046,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_368"
     },
     "ch3_368": {
-      "type": "dialogue",
-      "text": "是爱理。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4041,9 +4056,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_369"
     },
     "ch3_369": {
-      "type": "dialogue",
-      "text": "刚才屏幕上的确显示出了爱理的身影。笼罩着蓝色的光芒，在那片充满回忆的海边，",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4094,9 +4109,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_374"
     },
     "ch3_374": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "就在这时，新手机响起 LIME 消息提示。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4124,9 +4139,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_377"
     },
     "ch3_377": {
-      "type": "dialogue",
-      "text": "对了……电话……日日谷小姐说了要给我打电话的……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4134,9 +4149,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_378"
     },
     "ch3_378": {
-      "type": "dialogue",
-      "text": "就是啊……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4144,9 +4159,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_379"
     },
     "ch3_379": {
-      "type": "dialogue",
-      "text": "我在干什么呢……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4154,9 +4169,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_380"
     },
     "ch3_380": {
-      "type": "dialogue",
-      "text": "爱理在哭泣？爱理在呼唤我？那根本……不可能。不可能的。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4164,9 +4179,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_381"
     },
     "ch3_381": {
-      "type": "dialogue",
-      "text": "因为爱理她，早已经成为大人了……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4174,9 +4189,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_382"
     },
     "ch3_382": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生伸出手，捡起掉在地上的智能机。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4184,9 +4199,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_383"
     },
     "ch3_383": {
-      "type": "dialogue",
-      "text": "从我和爱理重逢的那一天起，那个时候（十年前）的爱理就从我眼前消失了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4194,9 +4209,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_384"
     },
     "ch3_384": {
-      "type": "dialogue",
-      "text": "这不就是，证明一切都是我的妄想的，最有力的证据吗。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4204,9 +4219,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_385"
     },
     "ch3_385": {
-      "type": "dialogue",
-      "text": "所以……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4214,9 +4229,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_386"
     },
     "ch3_386": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生的脑海里，又浮现出刚才手机里显示的“爱理”坐在海边的画面。他告诫自己。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4224,9 +4239,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_387"
     },
     "ch3_387": {
-      "type": "dialogue",
-      "text": "不要思考。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4234,9 +4249,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_388"
     },
     "ch3_388": {
-      "type": "dialogue",
-      "text": "不要回忆。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4244,9 +4259,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_389"
     },
     "ch3_389": {
-      "type": "dialogue",
-      "text": "不可能的。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4254,9 +4269,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_390"
     },
     "ch3_390": {
-      "type": "dialogue",
-      "text": "我……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4264,9 +4279,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_391"
     },
     "ch3_391": {
-      "type": "dialogue",
-      "text": "我要……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4274,9 +4289,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_392"
     },
     "ch3_392": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "手机来电声响彻房间。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4286,7 +4301,7 @@ ILY.data.stories.chapter3 = {
     "ch3_choice4": {
       "type": "choice",
       "text": "两部手机同时作响。",
-      "speaker": "基生（内心）",
+      "speaker": "选择",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4312,9 +4327,9 @@ ILY.data.stories.chapter3 = {
       ]
     },
     "ch3_s07a": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "夜海 —— “我是被人制造出来的‘ILY 病毒’”（A 线 · 主线）",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4333,9 +4348,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_396"
     },
     "ch3_396": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生拿着没有反应的翻盖手机，在夜晚向着那个熟悉的海边跑去。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4353,9 +4368,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_398"
     },
     "ch3_398": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "终于，他来到了这里。就像一个月前独自一人看到“爱理”的来信而来那样，此刻他也一人独自看向海边。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4363,9 +4378,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_399"
     },
     "ch3_399": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "漆黑的海，在夏末的夜色里轰鸣。那潮声，却被我胸腔中咚咚震颤的心跳声所覆盖，我感到连身体也随之颤抖。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4373,9 +4388,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_400"
     },
     "ch3_400": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "我不知道自己要去哪里，仅仅任由双腿奔跑，等到回过神来，才发现自己来到了这里。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4383,9 +4398,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_401"
     },
     "ch3_401": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "这个仅有大海，并且只有我一个人的——",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4393,9 +4408,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_402"
     },
     "ch3_402": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "海边。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4430,9 +4445,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_405"
     },
     "ch3_405": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "爱理不在这里。她也不可能会在这里。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4440,9 +4455,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_406"
     },
     "ch3_406": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "即使我很清楚这样的事实，但在我的头脑之中，却不断地浮现着爱理寂寞的背影。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4590,9 +4605,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_421"
     },
     "ch3_421": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "回应他呐喊的，只有一遍又一遍海浪的轰鸣。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4600,9 +4615,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_422"
     },
     "ch3_422": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生低下头，自嘲着。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4620,9 +4635,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_424"
     },
     "ch3_424": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "接着，他便转身，准备离开。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4653,7 +4668,7 @@ ILY.data.stories.chapter3 = {
     "ch3_427": {
       "type": "dialogue",
       "text": "求求你，",
-      "speaker": "“爱理”（哭腔）",
+      "speaker": "“爱理”",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4664,7 +4679,7 @@ ILY.data.stories.chapter3 = {
     "ch3_428": {
       "type": "dialogue",
       "text": "不要看这边，",
-      "speaker": "“爱理”（哭腔）",
+      "speaker": "“爱理”",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4675,7 +4690,7 @@ ILY.data.stories.chapter3 = {
     "ch3_429": {
       "type": "dialogue",
       "text": "我不想让你看到，我这副样子……",
-      "speaker": "“爱理”（哭腔）",
+      "speaker": "“爱理”",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4684,9 +4699,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_430"
     },
     "ch3_430": {
-      "type": "dialogue",
-      "text": "环抱着我的纤细手臂，冰冷得完全不像人类……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4694,9 +4709,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_431"
     },
     "ch3_431": {
-      "type": "dialogue",
-      "text": "被她触碰的位置，传来了似曾体会过的、被虫子爬过的恶心感。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4704,9 +4719,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_432"
     },
     "ch3_432": {
-      "type": "dialogue",
-      "text": "尽管这样，我也能肯定。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4714,9 +4729,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_433"
     },
     "ch3_433": {
-      "type": "dialogue",
-      "text": "她是……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4724,9 +4739,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_434"
     },
     "ch3_434": {
-      "type": "dialogue",
-      "text": "爱理。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4864,9 +4879,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_447"
     },
     "ch3_447": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "抱住他的手突然抓紧。基生低头看时，发现那双手上，伸出了许多蠕虫般的电线……",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4939,9 +4954,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_454"
     },
     "ch3_454": {
-      "type": "dialogue",
-      "text": "爱理的……身体……",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4983,7 +4998,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_458": {
       "type": "dialogue",
-      "text": "‘ILY’（爱理）。",
+      "text": "‘ILY’。",
       "speaker": "ILY",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4993,9 +5008,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_459"
     },
     "ch3_459": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "说完，“ILY”……“爱理”她，将关于她的、关于它们的事，告诉了我。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -5003,15 +5018,15 @@ ILY.data.stories.chapter3 = {
       "clues": [
         "P27"
       ],
-      "next": "fin_s01",
+      "next": "her_chapter_prologue",
       "setFlags": {
         "ENDING_ILY": true
       }
     },
     "ch3_s07b": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "十年之后 —— 现实结局（B 线 · END）",
-      "speaker": "第三章",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5020,9 +5035,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_461"
     },
     "ch3_461": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "那天之后，又过了 10 年。新闻上时不时会出现的原因不明的失踪事件，突然就没有再听到过了。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5030,9 +5045,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_462"
     },
     "ch3_462": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "十年前那个荒唐的“暑假”早已成为记忆。翻盖手机里也只剩下一封奇怪的、来自 ILY 的信，但印象里出现的蓝色链接早已不见踪影——可能是某个诈骗短信吧。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5053,9 +5068,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_464"
     },
     "ch3_464": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生被这个稚嫩的童声吓了一跳。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5135,7 +5150,7 @@ ILY.data.stories.chapter3 = {
     "ch3_472": {
       "type": "dialogue",
       "text": "我穿好泳衣了！出发吧——！！",
-      "speaker": "（画外）另一个房间的小男孩",
+      "speaker": "另一个房间的小男孩",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5143,9 +5158,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_473"
     },
     "ch3_473": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "基生欣慰地叹了口气，收起翻盖手机。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5153,9 +5168,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_474"
     },
     "ch3_474": {
-      "type": "dialogue",
-      "text": "现在不必再去想过去的往事了，我已经有一个全新的生活和我爱的人了。",
-      "speaker": "基生（内心）",
+      "type": "cue",
+      "text": "",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5163,9 +5178,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_475"
     },
     "ch3_475": {
-      "type": "dialogue",
+      "type": "monologue",
       "text": "向着屋外明媚的大海奔去吧，在这盛夏热烈的阳光里。",
-      "speaker": "旁白",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",

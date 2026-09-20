@@ -4,12 +4,20 @@ function prepareChapter1() {
   const prologue = ILY.data.stories.prologue, chapter = ILY.data.stories.chapter1;
   const story = {...prologue, chapters:['prologue','chapter1'], nodes:{...prologue.nodes,...chapter.nodes}};
   story.nodes.finale = {...story.nodes.finale,next:chapter.start};
-  for (const id of ['chapter2','chapter3','final']) {
+  for (const id of ['chapter2','chapter3','heroine','final']) {
     const extra=ILY.data.stories[id];
     if(extra){story.chapters.push(id);Object.assign(story.nodes,extra.nodes);}
   }
   if(ILY.data.stories.chapter2) story.nodes.ch1_end={...story.nodes.ch1_end,next:'ch2_s01',nextLabel:'进入第二章',text:'“爱理”倒下了。那一晚之后，天光再次照进出租屋。'};
   if(ILY.data.stories.chapter3) story.nodes.ch1_c_end={...story.nodes.ch1_c_end,next:'ch3_s02',nextLabel:'进入第三章',text:'基生一遍遍告诉自己，那只是一个噩梦。自那之后，“爱理”再也没有出现。日子又回到了空荡荡的房间。'};
+  // 保留生成剧本及工作区文本覆盖，仅在组装时接入电脑玩法。
+  story.nodes.ch1_battle={...story.nodes.ch1_battle,type:'computer'};
+  // 紫阳花小径在现行剧本属于第二章 S04；摄影接在六月照片回忆之后。
+  if(story.nodes.ch2_g2){
+    story.nodes.ch2_photo={type:'photo',chapter:'chapter2',chapterTitle:ILY.data.stories.chapter2.title,
+      scene:'S04',background:'ch2-flowers',checkpoint:true,next:story.nodes.ch2_g2.next};
+    story.nodes.ch2_g2={...story.nodes.ch2_g2,next:'ch2_photo'};
+  }
   return story;
 }
 function enterChapterNode(state,node) {
@@ -26,6 +34,20 @@ function enterChapterNode(state,node) {
   for (const route of ['A','B','C']) state.flags[route+'_FLAG']=state.flags.route===route;
   if(node.clue && state.flags.B_FLAG) ILY.addClue(state,node.clue);
   if(node.continuation) state.flags.nextChapter=node.continuation;
+}
+function resolveScriptCues(state, story, id) {
+  const seen = new Set();
+  let node = story.nodes[id];
+  while (node?.type === 'cue') {
+    if (seen.has(id)) throw new Error('Script cue cycle: ' + id);
+    seen.add(id);
+    if ((!node.route || state.flags.route === node.route) && (!node.when || state.flags[node.when.key] === node.when.value)) {
+      enterChapterNode(state, node);
+    }
+    id = node.next;
+    node = story.nodes[id];
+  }
+  return id;
 }
 function rpgProgress(state,task) {
   state.flags.rpg ||= {};
@@ -47,11 +69,15 @@ function interactRpg(state,task,event,node={}) {
     if(task==='G3') state.flags.HANDLE_NUM=p.collected.length;
     if(task==='G5') state.flags.G5_CLUE=[...p.collected];
   }
-  if(event.kind==='shop') {state.flags.G4_CHOICE=event.text;p.choice=event.text;}
+  if(task==='G4' && event.kind==='shop') {
+    if(!p.collected.includes(key)) p.collected.push(key);
+    state.flags.G4_CHOICE=event.item||event.text;p.choice=state.flags.G4_CHOICE;
+    if((node.required||['noodles','snack','ice']).every(id=>p.collected.includes(id)))p.done=true;
+  }
   if(event.kind==='scream') {state.flags.G5_SCREAM=true;}
   if(event.kind==='finish') {
     if(task==='G3' && p.collected.length<2) return '手柄还没找齐。再看看抽屉和床底。';
-    if(task==='G4' && !p.choice) return '先在货架或冰柜挑选想吃的东西吧。';
+    if(task==='G4') return '和“爱理”一起在货架与冰柜前挑选食物吧。';
     p.done=true;
   }
   if(event.kind==='reunion') {
@@ -60,7 +86,8 @@ function interactRpg(state,task,event,node={}) {
   }
   if(p.done) state.flags[task+'_DONE']=true;
   if(task==='G2' && p.done) state.flags.G2_TRIGGER=true;
-  return event.text || (task==='G4' ? `买好了${p.choice}。“爱理”抱紧了购物袋。` : '可以继续了。');
+  if(task==='G4' && p.done) return '两人看好了想吃的东西，继续在货架前商量。';
+  return event.text || '可以继续了。';
 }
 function finishRpgAutomatically(state,task,node={}) {
   const p=rpgProgress(state,task);
@@ -70,12 +97,15 @@ function finishRpgAutomatically(state,task,node={}) {
   }
   if(task==='G1') p.collected=['floor','desk','shelf'];
   if(task==='G3') p.collected=['handle1','handle2'];
-  if(task==='G4') {p.choice ||= '海鲜杯面';state.flags.G4_CHOICE=p.choice;}
+  if(task==='G4') {
+    p.collected=[...new Set([...p.collected,...(node.required||['noodles','snack','ice'])])];
+    p.choice ||= '海鲜杯面';state.flags.G4_CHOICE=p.choice;
+  }
   if(task==='G5') {p.collected=[...new Set([...p.collected,'photo','isopod','phone'])];state.flags.G5_SCREAM=true;state.flags.G5_CLUE=[...p.collected];}
   if(task==='G1') state.flags.CLEAN_NUM=3;
   if(task==='G2') state.flags.G2_TRIGGER=true;
   if(task==='G3') state.flags.HANDLE_NUM=2;
   p.done=true;state.flags[task+'_DONE']=true;
 }
-Object.assign(ILY,{prepareChapter1,enterChapterNode,rpgProgress,activeRpgEvents,interactRpg,finishRpgAutomatically});
+Object.assign(ILY,{prepareChapter1,enterChapterNode,resolveScriptCues,rpgProgress,activeRpgEvents,interactRpg,finishRpgAutomatically});
 })();

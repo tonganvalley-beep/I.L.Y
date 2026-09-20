@@ -2,14 +2,5045 @@
 window.ILY_VOICE_MANIFEST = {
   "schemaVersion": 1,
   "sourceRevision": "dad15973cb4a107a5e0591c24ce8b1488a49e45181b2bef0ea24295dade8e3dd",
-  "projectRevision": "6447a4a3b14293e2d507435fe72076b5bd1aea5246de318965af2aeab127e3e8",
-  "generatedAt": "2026-09-19T22:35:14.859Z",
+  "projectRevision": "aebc7de718d22ebb228e4ff102ccdaa7f3c06949ea98595265b4117e4e7117a9",
+  "generatedAt": "2026-09-20T05:44:56.231Z",
   "entries": {
+    "s02b": {
+      "file": "assets/audio/voices/published/d20028aa2649413275d3.wav",
+      "sourceFingerprint": "861c934dc8a6d807c9c58fd2d0592ab34149aa2fe6a35218a665f6027f067286",
+      "renderHash": "f8bbf50749e4a16fd7e763d0fa55dec77963b72aff2e152f62f1e83648979caf",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "s02c": {
+      "file": "assets/audio/voices/published/5a8b0dae46891ecab0bb.wav",
+      "sourceFingerprint": "5e60e0715b84d36620928b0f022d0beef6ddda020f6aa5f2218b8390843b4436",
+      "renderHash": "fdf78d533c36100cd078598fbba0d0a0a66aa7186b8d1cc080146b583acf53f7",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "s02e": {
+      "file": "assets/audio/voices/published/496f3d8123401b1a33d3.wav",
+      "sourceFingerprint": "cebd7a22f1958ab7d77a655830544ebc41b822bb58b2256fcd920e3677874689",
+      "renderHash": "4d13b3c9a52ac5c443245fbcb273072d82f98c6a901423062a5a4f52e8457176",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "s02f2": {
+      "file": "assets/audio/voices/published/51f88ef195b0e60b74c4.wav",
+      "sourceFingerprint": "057b3ffd33fd0ba6ea8e38153d0421e6e9a009febf27a031f2977454d4cbe1dd",
+      "renderHash": "35bcf7d0eef2a5da152608ced23a35dfc22195299b6b4a3727b8416ed9ff400e",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "review_ae6a8059-52f9-4db9-a2e1-0c555e94b731": {
+      "file": "assets/audio/voices/published/8a2c121c750fa724395b.wav",
+      "sourceFingerprint": "0593e1d79d4c4815a1b040b89deaed9349cf6d7b5254abff3d1d6e150f5a5c3a",
+      "renderHash": "8a9a6aa9438af5382be3d9aa8b4c9e803a28cdafcad9b307a428e55034181158",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_180": {
+      "file": "assets/audio/voices/published/afa639b3829b37e3fdef.wav",
+      "sourceFingerprint": "489da165ee21ae1ee546e7432fa8427dc4266d02ce7a4a8e4f12fbd65846959e",
+      "renderHash": "2a0b8ce3304f547c38e4f0f309a50f125a8ed5b7164373b629d939c49a2208f6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_188": {
+      "file": "assets/audio/voices/published/453d6c3580cb74d8e6fe.wav",
+      "sourceFingerprint": "e9832ce50c6aba4a6a160c9dbdee9895306b56e18a46ab0eee2104ce9ed42cb5",
+      "renderHash": "61862256f30e1cf6cc037e1c5c3bbf7073bd4de87c6231c167ac67aa2bc8e196",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_190": {
+      "file": "assets/audio/voices/published/96412aa4398e1e26db66.wav",
+      "sourceFingerprint": "d40875b4b734467d68c115c5d7ecb3760a9a0466792eca8971695a6ae40a1a0e",
+      "renderHash": "26b5c4e9b81a30cd6324f4c2fafb6c4e4b9066f5f4da407c2b409ac8a0045e37",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_192": {
+      "file": "assets/audio/voices/published/f5821343b86a2d18dff2.wav",
+      "sourceFingerprint": "bc1dd2ee36de7fd70418e978c7dce21493f5db4a92e0c6b08d3f2fc5e8024683",
+      "renderHash": "7f820a1b05df487c550a8c4f81b7a9ee8bee84e91975990c98e0eaa6c450a21a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "review_50a8f20c-1917-4e68-8d3e-d85f9e414917": {
+      "file": "assets/audio/voices/published/3779a4e15460fc457a4d.wav",
+      "sourceFingerprint": "517f75a18f358f94d3c70504c639ee2374502e4884d6de7f94cd2943e11d6546",
+      "renderHash": "bd00a34f86010cab728e2eb299b5132ee5cfd1eea9a8a7d29c0e9fdcfb222622",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_196": {
+      "file": "assets/audio/voices/published/abca29f803756885b446.wav",
+      "sourceFingerprint": "43e5a663ee46854ded2cd21ff6a0c617775d51cd6f24138e2a42d4d27c5e05af",
+      "renderHash": "742b8ab1ac91791648497ee79e1edecbc7492842449d9fd7ce55e5bbb97ecc51",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_198": {
+      "file": "assets/audio/voices/published/258894f1ce859e5edf03.wav",
+      "sourceFingerprint": "f814b3980b6b19373badafa10b82b9d2b66c0c8f23b8835663ffa48caa0ba12f",
+      "renderHash": "d3ec731b8d5a4fd8c8a8b69e2d036b0d446f79d19511dad103b8fda1084f0d6f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_202": {
+      "file": "assets/audio/voices/published/6be5c626548f9b512cee.wav",
+      "sourceFingerprint": "80ed96a2fc08681e3f516b44e25a5ce7335c1c8104dcf2bd2ebe0b2e899f9f7a",
+      "renderHash": "9a2d0a85370a3105f41822123ce1c29d870069b35aabf859ec681c69fa62e101",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_204": {
+      "file": "assets/audio/voices/published/b4dc8d68d6870620c049.wav",
+      "sourceFingerprint": "639a4b27c2db17b8eb96ebb5b6023d4d68b9f5d9daa858cf455c1d530880b1a7",
+      "renderHash": "7ff161da64ccb3b24ba0ba4d4546edc4e01f50784eb87183ecaf8dd3432741ce",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_209": {
+      "file": "assets/audio/voices/published/47df2d4822cb55261bf6.wav",
+      "sourceFingerprint": "3309c29337479630a8db4515a5312ca1545407c04e27c90bfdca40cbb8e2fb80",
+      "renderHash": "b20913453574654a3e7e5c997f42d40a5e52a3766cc56ec00b6a84cc2da076db",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_210": {
+      "file": "assets/audio/voices/published/8ad8a3d5363484181c7a.wav",
+      "sourceFingerprint": "4ec977e370840062b4c4f1de270fad032b56d7600b2102231dd0405fb17dfa52",
+      "renderHash": "f0dcc89d5c9061d0f8b93741655cd5f883bd27d6885f63c55d0e6c5880e4bb87",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "review_5d7ff8ec-4a21-4bd0-ab50-e764b43d5f39": {
+      "file": "assets/audio/voices/published/3b544af1761a9d174734.wav",
+      "sourceFingerprint": "6fd2c3129562d47966616c795b30a2baa91da9f2401cdd42f7215493c4020d41",
+      "renderHash": "bb4d11cab49c073f78938862f2b57befc6af7021a4f9409c1f98bad4ee345d47",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_213": {
+      "file": "assets/audio/voices/published/37994d32059559506928.wav",
+      "sourceFingerprint": "f76102c63e94a5d37c727fdd7f9f1bf992684bf53b645a7e15fc94e6d3490421",
+      "renderHash": "cfde4fb187d7014daa6699aeb8a4f141d07043b6beb43a6f8d69df7436ec1711",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_214": {
+      "file": "assets/audio/voices/published/009ff3681dcdaa49049b.wav",
+      "sourceFingerprint": "660dbae53a883d085bd0afa1702c3e5319543ff7154a40feffca173c8b3d717a",
+      "renderHash": "745983ee644acff62eb900014bc246a6e3e4f1d87a83180b2a0156462f2fac16",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_218": {
+      "file": "assets/audio/voices/published/5280b84beb498b93c35c.wav",
+      "sourceFingerprint": "9947e919e5baa62c00978925e822f86f686acb0eda2ef57a158dcbc8938b2bfd",
+      "renderHash": "178d7e9402d0cafc5a2eadd2506d16eac69116a9d9f51d8e5080af1a27b9f3f5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_220": {
+      "file": "assets/audio/voices/published/5fa2990af0f07fed81d2.wav",
+      "sourceFingerprint": "941de89f048540a22cbeb62ae3e65d1868d2c669a01b710e3d4b2805ff5a7b50",
+      "renderHash": "ec72dd0c63b889ea9f46728ba7e8f950147294dab42dda78418372d9ce005193",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_222": {
+      "file": "assets/audio/voices/published/21cc203749f12bb369b0.wav",
+      "sourceFingerprint": "ddc3628ce1129bf19b9c5f67142eb0e4d530aa1a805bd6f5712011c52f18be76",
+      "renderHash": "95457ee08e9ef3c1245e08f47cac84dd9f4a867047d2bc3c2c6815cd5737e588",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_224": {
+      "file": "assets/audio/voices/published/ae1209e26d9e18725d0d.wav",
+      "sourceFingerprint": "538f0dfa5f90f0de4b70fca316c59167f31c630e49db963d674c921aeb97c2b5",
+      "renderHash": "b2cca247d39b7a93ad5a4e3aff26ffa3c40590c1790e2357307196e5bdb3cbc2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_226": {
+      "file": "assets/audio/voices/published/1bdab60ff60b3662fd2d.wav",
+      "sourceFingerprint": "c5ef8c8a0c79ddc3f38cefe8bdb90236dc490e1f895d4422dce63bd10b7e2c2c",
+      "renderHash": "92350fe44ccf852d1ccd6b7f228efd74c2a0f273ba1a8703d3e0b38908240a49",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_228": {
+      "file": "assets/audio/voices/published/4c0885d45f14d5cf825a.wav",
+      "sourceFingerprint": "5f87ae82cc5fc32a0133b3e3f3a0866cac0217327a6d793862a46481b595ae86",
+      "renderHash": "35520669797b2ac5e14eb051def2ed27ab4955e7750a5e30ff03fb0bc9b64a04",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_230": {
+      "file": "assets/audio/voices/published/5b999a586180b2090a05.wav",
+      "sourceFingerprint": "5e261a268da251d341af994fd3f143498eb065adc18120bfebdc7056cc1a895f",
+      "renderHash": "ef391bd304bda0564b52569671e604e0424fcb0e7eef23fb6c7ee27cd29447d2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_231": {
+      "file": "assets/audio/voices/published/9374b707e7b8488593ad.wav",
+      "sourceFingerprint": "7d81815ab7615ac7a4db1792574c52f0736c642558a869d843999b9a38cd4894",
+      "renderHash": "db6a524aeb20e82d8f438e3f147c795a96f47781a646492691a206dd82b3919b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_233": {
+      "file": "assets/audio/voices/published/52711d20fb58602d488e.wav",
+      "sourceFingerprint": "63c89f0b0004cf3ffc76618960e0706bd449f6fd08cae064a5271ecfcda2cd9d",
+      "renderHash": "18ae6b38b7e84a3e0bde96c82f236ee1315d1bc61884c16246f9cdfc29f3e3ad",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_234": {
+      "file": "assets/audio/voices/published/648d07ea9005db4433a2.wav",
+      "sourceFingerprint": "485ac6ad9ce51fc3b435b8594ec120eaa31563ec423723774b9212ba98ac04fb",
+      "renderHash": "24147388687163ac44c1672100fa8a6f88c69aa12e7b42027ae8f11715ed5f3b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_236": {
+      "file": "assets/audio/voices/published/cabe8114f48b964af839.wav",
+      "sourceFingerprint": "c916a22ea1ef9dc43a012cf13e4503ff6645599d68f0c9ef0dbcd322aee8d316",
+      "renderHash": "d573a08752924e5c2a42583833c02d7d9a1e259111bf921793320b9ee5e2ca0e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_238": {
+      "file": "assets/audio/voices/published/b869438fdef6b2909095.wav",
+      "sourceFingerprint": "85dc11089689f43cd1f8004b2eefa869c4c62c87ff8fbea28934b05aa14a4b6f",
+      "renderHash": "d5c3072ed4dc9012272daa92a24e3119ab7713d4f19725913f01abe2db5a6a27",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_240": {
+      "file": "assets/audio/voices/published/e6215133cb72dc95cd12.wav",
+      "sourceFingerprint": "2e98c13aade271a6a5be2cfe30feb313d403f5c50ec4fc3c28f99963fec4fb14",
+      "renderHash": "f912634b5f967990266441014af282b3268bd3ca3fbe4724cf71b66b7a5596f9",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_242": {
+      "file": "assets/audio/voices/published/c72c567de565f7e792d1.wav",
+      "sourceFingerprint": "0e9e87e838bd6dbe9804664b5499fdfc44e716ae3f100d1befb78d687e48fc09",
+      "renderHash": "dfcc4c71910e8cb1195aa01283991d317a073b5a3f9d346b24cfc962d33c4ed7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_244": {
+      "file": "assets/audio/voices/published/51596ab963ec2c56db0e.wav",
+      "sourceFingerprint": "0e85997723d4d8771d9023e8bcfc04da447b74b52484bd0292452b09eaf55e0b",
+      "renderHash": "85a14671f64d103987aa86397374d87c7fb5a9dabd99d16ce5e7dcc2c7d4b8ea",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_246": {
+      "file": "assets/audio/voices/published/bf847c461396dadc7170.wav",
+      "sourceFingerprint": "6ff53e757bdb2189028c9cd4393f22baccb3ca8c727966150438ac6f3f09d759",
+      "renderHash": "8509d9121cea313db11aac34c68fe11138a1e4d24ab53b7c9a54407b9eb41395",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_256": {
+      "file": "assets/audio/voices/published/099242f12931ea6985b1.wav",
+      "sourceFingerprint": "5a78d01923a5822fa14d8e09b173f62faf26e7fcf2101f1efce7847d016a150f",
+      "renderHash": "ef77c89daca544572e08c46d57f01a89acbeee6ce1f255809186e0de8b97306f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_261": {
+      "file": "assets/audio/voices/published/01e82d1d5f50547caddd.wav",
+      "sourceFingerprint": "fac77b09d19ec181e88cefeea77d4f00d1d00c07c604e35e82ce3aa0922d6fca",
+      "renderHash": "81ed7be1b9489cdba96189c8acc8e3e5a341bdd6ccd7f50499d147e530be8015",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_264": {
+      "file": "assets/audio/voices/published/a72d0ff6ab8625cc8f5f.wav",
+      "sourceFingerprint": "44f5c2db41575a6aad7b4effb2968237f4e216d612af788f50431ceffd97a78d",
+      "renderHash": "cb4e007efe735ceb1fbf2c21776c79ac01642d24015a2470fb0a154e13328149",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_270": {
+      "file": "assets/audio/voices/published/d6a2868d1f88ce6f7df1.wav",
+      "sourceFingerprint": "8a616d8b3d9e839a24eff8a2d364f2fe2733663922c348b0f846d857b213812b",
+      "renderHash": "f54571b563289750f2a7d7435000dcea8d558d3b2dfe7c8cb9b8ad22c13b44f4",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_274": {
+      "file": "assets/audio/voices/published/251742e5a24f936b0ca1.wav",
+      "sourceFingerprint": "176730f375e524e074898cc7b926a43ebfb6c5133c0699acfe8908a7e6c81e94",
+      "renderHash": "bb0a0f1012bb337be587217735eb0b3ac6b1a577edc6957cf47aa5c09294e02b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_276": {
+      "file": "assets/audio/voices/published/207585493c7c01f02c90.wav",
+      "sourceFingerprint": "e96bfd9cf31043f32e4275906eef38d88c5117e73e791b3e8e4b40744b243328",
+      "renderHash": "5c1010437adcb51f375eae4f8420978934c722f8c3135e9fbb585a4a7c6e0f3c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_278": {
+      "file": "assets/audio/voices/published/a3396a1cf9714d88af39.wav",
+      "sourceFingerprint": "803ab3fe8b4bfad215e1e3c255c162306bb19a981f5dea4708b32f2d409da755",
+      "renderHash": "11f5a8675f1a0da79b46a89e2c995508bb875caac254f8f0dd08d244f84e28f7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_280": {
+      "file": "assets/audio/voices/published/36c027022fdfbb8eb167.wav",
+      "sourceFingerprint": "259207a9d2677dff79c8fb688b2327c0ce705e978350d74aa6eb1002d579730e",
+      "renderHash": "bcfcd901ae1f47c40cdbc54ed60acf364b7af8c9c8718773783b46a08708cf93",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_288": {
+      "file": "assets/audio/voices/published/44713da314c55c1b0151.wav",
+      "sourceFingerprint": "83039e11b9421ba6e940a04d83d98afad9a601301275b093504318e2226c78dc",
+      "renderHash": "d1da257e9ab0172e8248b6d7b6b132ecd69d18eac827bc635896da8b11645dbb",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_291": {
+      "file": "assets/audio/voices/published/a0fdf73f29d4c4e1797e.wav",
+      "sourceFingerprint": "21b3e0226cae01850dfb23c8e83e21aeb0e5808f8642718fa8486ff714bed14a",
+      "renderHash": "9608264459315cbbe3af17afd792a0f8f1f8478dcb79187d833236e499e397d1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_294": {
+      "file": "assets/audio/voices/published/3f682867a275bbfb29b3.wav",
+      "sourceFingerprint": "00ec2f0e2359ada2c004386dd21b53d90e8fc477e5b214e700c10666f0d580d1",
+      "renderHash": "4d69d63d78c7bcf55fd463b22071bd36bae6e8ea5ce60fcf92a4460e6d191cc0",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_296": {
+      "file": "assets/audio/voices/published/c9426569a56032afa487.wav",
+      "sourceFingerprint": "73c707d515f81d57656e7fded4836ba67d4fcedacbdaefd194612861a02ccb6f",
+      "renderHash": "2bfeba3ae40b70df94ed418a1818df89b1c185f7a527fab2698a8a395fe64b96",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_298": {
+      "file": "assets/audio/voices/published/405a9c633ef02183ce7a.wav",
+      "sourceFingerprint": "e5907f4d8e6a48585de2479386f7e149f35b7229b50ee868af685c9c08455ca5",
+      "renderHash": "c4acd4c5399d6f0b9c18f62b7f89c60e98205ed562f3a871d721fef76d749543",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_303": {
+      "file": "assets/audio/voices/published/fff4cfc6484ddd8b43e4.wav",
+      "sourceFingerprint": "230e34f5787df97832e154a8aac44fabc1e56eb6932f64708e80004b15bc4544",
+      "renderHash": "0bb7866e816d769ba6284603d498774979567bf831c2baac7868a5550ac57361",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_306": {
+      "file": "assets/audio/voices/published/3033ddd589c2b8beb7be.wav",
+      "sourceFingerprint": "d20c289794a8911ac736fffca46069e1e865e9fb7683694e577c93851a85887c",
+      "renderHash": "94e4eb0ff52ab5da8d724fa782e67506f9efb1ba1e23dafd842cb6e6b02a3e3d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_309": {
+      "file": "assets/audio/voices/published/a3da839f9e3a9aa07a0a.wav",
+      "sourceFingerprint": "73c707d515f81d57656e7fded4836ba67d4fcedacbdaefd194612861a02ccb6f",
+      "renderHash": "2bfeba3ae40b70df94ed418a1818df89b1c185f7a527fab2698a8a395fe64b96",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_311": {
+      "file": "assets/audio/voices/published/66180ffd5c50c1d81fc8.wav",
+      "sourceFingerprint": "4d121458f9d64be560fd030a500d3ae78d61e20b02b2090a47e2a5e16fae238c",
+      "renderHash": "0420ff3d055cef50b4c526ca62120904587500b08eee5b376460912ba4b16a37",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_316": {
+      "file": "assets/audio/voices/published/8219cab4516ae15ada9b.wav",
+      "sourceFingerprint": "f71cf4950b34450693425a398cf71ece2ecce6763e93d2bdab3b6ffb72727662",
+      "renderHash": "ec77e9a1ac97da36a0554c0c88d8ae852f29e29a5b952286fa6ee5fae9bee721",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_318": {
+      "file": "assets/audio/voices/published/67077b91b848fade4755.wav",
+      "sourceFingerprint": "f7921a8b0ae5eba9435cb0239bb73e7a29ee1aaa90768d8bd6232e4c61e2b75c",
+      "renderHash": "9dd6a58ece16de895503b03212f6b0e71c0abb8a03883ea2a1f49baead2f5046",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_320": {
+      "file": "assets/audio/voices/published/34716131cf56f65c791a.wav",
+      "sourceFingerprint": "4bd8811fa5320d5d9d89422de0f1ef6d6df9b3ae53fce355339c54861613e509",
+      "renderHash": "cbf760ad5a6bb3530dc65b388fc3e182821229fd9cd626c0740d8b8ba9a1af31",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_322": {
+      "file": "assets/audio/voices/published/dfd850d172371b6e2f4e.wav",
+      "sourceFingerprint": "809c14b97a33a50c2503c47330b6eeed4a0213484b3d69ab75378d6f33714bfa",
+      "renderHash": "fd8543538e953000ca740b3f511297e47cf9a030f511567235cae2305b84e2f5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_325": {
+      "file": "assets/audio/voices/published/f39482eeb31cc96f0d47.wav",
+      "sourceFingerprint": "ce2a9654b477c382636a1cb165b2426acfa2823f0280eed2dc5b6e1bb906e9f8",
+      "renderHash": "e612bc573575bb61c1e48a1198ccd556895b238c84df06af66f6865a9a25465b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_327": {
+      "file": "assets/audio/voices/published/c855cbb50c883506cc32.wav",
+      "sourceFingerprint": "4cd8abc62f4c8dd158573cef0558ed1615bd2c7be85fe52e6f8c31abbe46ae01",
+      "renderHash": "6d1fc2c6c842507da735eaaf56c15a2fee2e72871b78e8def289726a48d61331",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_329": {
+      "file": "assets/audio/voices/published/c5169622d532e17e688f.wav",
+      "sourceFingerprint": "52ecac37c8e2a1f3733a26f1ea5da7f9dd8f2754072a5709dab1825270bf9e64",
+      "renderHash": "3d4eb325773b673fe37bf010e09221e2f8a160107081b5ea1e9d72f07df5c008",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_332": {
+      "file": "assets/audio/voices/published/f3932c2840059d1fbd79.wav",
+      "sourceFingerprint": "490539d40549a44565dfe60c6289df2821a7b26f8065d833b437525b1f69cc77",
+      "renderHash": "071885bf0c736888bc2f812e1c7e617632af911d2438bed3b92edbb7c2d4c20d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_335": {
+      "file": "assets/audio/voices/published/0d547eea02f2ea0ab047.wav",
+      "sourceFingerprint": "f13c171f1d17fb853509fff40f3bf1cb08825fa3f8a9e8949a20a9cd66f8199f",
+      "renderHash": "3f567eaf1bbc97517f560fc0bbb72f65e56ebdf915af01b9ff5b625c4b473158",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_339": {
+      "file": "assets/audio/voices/published/0953b39d441a76155ec5.wav",
+      "sourceFingerprint": "152d868cc70bbcaf531f2b867f5bf7a23db919257cdc85b4441732697a0f4eb7",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_341": {
+      "file": "assets/audio/voices/published/65e09b33896714fc23d4.wav",
+      "sourceFingerprint": "db1166d6c4b63246f40f753455640eeb8be195810a2d00f7b6a208afaebe2302",
+      "renderHash": "1c8862bcac78153fc8685c961bbb9b4f0a5c3621eb69857413624727e9a845bf",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_343": {
+      "file": "assets/audio/voices/published/f9c44e4909277a97c552.wav",
+      "sourceFingerprint": "7324be98818e9ee4e7dfa91fed96306bb284870bd73a8d160037f53ab0c30672",
+      "renderHash": "b4114fae5f8e57095bfcfbe0e39b5962f13e35e8909f11a34b01bb9b53e92119",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_345": {
+      "file": "assets/audio/voices/published/2dac6dfeb3a89c9b2a0d.wav",
+      "sourceFingerprint": "a31bee185e2d3ade948b0310f48e0f6eada34cf0aaa5fd0977690390dec0dfc2",
+      "renderHash": "bec282630d5b262a338bfed6f1881eab57bb53f057a90693e7df8eb3ade3e84e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_347": {
+      "file": "assets/audio/voices/published/50b5af7f85098c6cb0a0.wav",
+      "sourceFingerprint": "c6f85275fa588dba9166c2db9769726ab9e4fe83fa05d814f45fd5881e7597e9",
+      "renderHash": "14e81a2a7c119bd914175cc49bec14c800c3b5088db6f84f5cb17222a0d3c90e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_349": {
+      "file": "assets/audio/voices/published/b3ba076d9123772b3e83.wav",
+      "sourceFingerprint": "0affcae35f18c3020d9597d4f4a4ab529d47eea9f3e8762a457d7a3a0f8bc44e",
+      "renderHash": "4f59d7b24c256c92f9aa7f3a4663d72baf76b58abc94d308967ec61832c74112",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_351": {
+      "file": "assets/audio/voices/published/7dbe9c730f6801310efe.wav",
+      "sourceFingerprint": "f9c94ec0ea60f672dff5193686f2a602fa9b4de4168817ff1fc090398c3e1595",
+      "renderHash": "c2b8680a94fe989b2d71d7af2aa893b2e3ac4d833644b8755c0be5e04756e5a2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_353": {
+      "file": "assets/audio/voices/published/c537b96614bf90f8c40e.wav",
+      "sourceFingerprint": "45181c6d149b2fc0c1ba1b82dd2e16d87069d4ddefc10190cdb1e3f95f23484d",
+      "renderHash": "4f41893046c72a8360a0daf306f404874f704dcea563a0fd95863f127f1cbcdc",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_354": {
+      "file": "assets/audio/voices/published/3bce1c39065d95755071.wav",
+      "sourceFingerprint": "10201f2ad868487b7d3f3ec7a902e6b0df4ae8efb0230813d0fe290264f2b526",
+      "renderHash": "c70d6a236f6a6259abe8266253a821b0aacaf4af2c0967df4b6508ef600b2f5e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_355": {
+      "file": "assets/audio/voices/published/42be6cbffa9a36d5dd35.wav",
+      "sourceFingerprint": "b3ff0b547f6cd05c04e82e2a8408d969e946c8ea6b968d9680e06a00c044bc53",
+      "renderHash": "6693fad312a46fbeab1480fd8680121415cd6bfdf7151d364b28387de9e23cdf",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_358": {
+      "file": "assets/audio/voices/published/2b840d11f072a3a6135d.wav",
+      "sourceFingerprint": "ec12b852a98614f480b649499506fcb61521fabffd04f077a6de122b52084862",
+      "renderHash": "03a165bc88c62aa04773a97902d81e2605295e84c8a6fad94319c33dfb0340bf",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch1_360": {
+      "file": "assets/audio/voices/published/cd71ad059af606433b2a.wav",
+      "sourceFingerprint": "350dcc493a32492f1357979efc827f0f2a4d6c56ff28b5c567d08cc55d534509",
+      "renderHash": "4be4e4556bb757ececd2678580adf00fa641cf665863397494ba2b765b1cd4fe",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_005": {
+      "file": "assets/audio/voices/published/5f775afdc808d46b2db0.wav",
+      "sourceFingerprint": "502b165422ba3873e48f2a43d67e88f4eacc011afa2095a11f3da88150c54a3d",
+      "renderHash": "2fe23cad7c7b6e01baa689b4bcfef85fc8e241ddaca720e6dbfdf766a965796c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_007": {
+      "file": "assets/audio/voices/published/987b999abd351867f42e.wav",
+      "sourceFingerprint": "ef8a72644451ff7eb7dabd9b11cb3bd24af0bfa889b5e07ca0dde7db33203232",
+      "renderHash": "020b8bf6f03b184fdd437d57c83b42381a4ecfe4a8cac193a734e6b937453109",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_008": {
+      "file": "assets/audio/voices/published/1c9c82344ba333fd4c27.wav",
+      "sourceFingerprint": "5bb76da1b0e52fa9d8cc2210fde929048d190f51e8cca4df383d8be685deedc4",
+      "renderHash": "12119c6bd1450a5009cabc1e1f559537f34640b88dad13796f4844c50207645a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_012": {
+      "file": "assets/audio/voices/published/f600af4e96e02598df0d.wav",
+      "sourceFingerprint": "3be9e4c8af4b63ac2c7a37f62d67f38180907377a71ebe99dde992b07e888390",
+      "renderHash": "54e8f2ef3b2062ead1a2eca891554ef302c69c31c5c9a54b51cf8d32f29e6ce6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_013": {
+      "file": "assets/audio/voices/published/ba53df47ddb99da96766.wav",
+      "sourceFingerprint": "c032979759991487d3f4c9f51cfc65fef45d6c25e4bd46f1928fbd84152905c8",
+      "renderHash": "7d6c91ea641ea9f999bf92f9c35b6dabde6b247df56b2c72d3ba224981ac6a2c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_021": {
+      "file": "assets/audio/voices/published/3f965a6db64554a85549.wav",
+      "sourceFingerprint": "2df180287202dbfa922defbc3b36a29f7386e8c3afddabf3d60545e6058d03e3",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_024": {
+      "file": "assets/audio/voices/published/68d88b1e20a4083a54a6.wav",
+      "sourceFingerprint": "ce15343eebbefe04426c32b48bdf40782ecba0f74b4433c8c5b5b106effebc29",
+      "renderHash": "ce66b6d3e6bfc8781e6abf56c6259feaa7b5ea396ccfe56037040813cd6d430b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_026": {
+      "file": "assets/audio/voices/published/6fe8d190a49481b57bcd.wav",
+      "sourceFingerprint": "78d860b4bc7d47054e35e2531c6602a4fe97005f95da27ae6db5d0ab04c7d92c",
+      "renderHash": "4ffb7ec2eade06a3c2f04666caf3555f4d2ca6d75d166bf6ffa703c6a11b870d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_027": {
+      "file": "assets/audio/voices/published/c508326b88610873f90c.wav",
+      "sourceFingerprint": "8d8d409fb66ac5805845040c2c67e0a3cce5aa3ab1e7a95a57a325bb77bf2dee",
+      "renderHash": "d004c02da653e614fb6777f4109de10e2cb96610be5a66b3a50b28f0735aa1fd",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_028": {
+      "file": "assets/audio/voices/published/7e73320e4e31f6f9cc59.wav",
+      "sourceFingerprint": "306cc897dd8e3464b91b33892448ded0b498cc210364e4ea4ecf360a82a7e8f7",
+      "renderHash": "a354b6e29735a8a2972fd2b6a343274f61f48fd9778bad08c61642bcf6f455db",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_029": {
+      "file": "assets/audio/voices/published/462b6ead3f8206c510eb.wav",
+      "sourceFingerprint": "178affecb9aead4887d3a139545c8b7136aa9246d0e1d90039d019783735786f",
+      "renderHash": "c245bbfdcb51280d991d109ac4450ecbcbf0876fb9a696183a0a0528534f2987",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_035": {
+      "file": "assets/audio/voices/published/35dde2b7d0c1d1cfa3ff.wav",
+      "sourceFingerprint": "9edeb2a0324d6796e20322e74528810bacdfa1daf4078beb96ed3ac0652b096d",
+      "renderHash": "4d256e6d33f38489195a057fb2781791930a54c01a320b0a256424d810231e55",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_036": {
+      "file": "assets/audio/voices/published/c9c7068e5f9f28a88d29.wav",
+      "sourceFingerprint": "c984e07b3ccdfc79243f2ee9b2856a758623d5fb25e5bb71bbcb4a1391bcc27e",
+      "renderHash": "aab816625d50e3f4968acf2d2f242c693244a76185a8420fdc7d23523fc183c4",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_040": {
+      "file": "assets/audio/voices/published/8710f4288650ac15f785.wav",
+      "sourceFingerprint": "a7d25a9ce8660a02a6291feeb3f77f8ba08e1f40254e32ace11178bb96998015",
+      "renderHash": "cf59a6d16dc7476aba901c9c02129a8dfa88d6c8dbca29ebf913494bdaa9ba0b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_045": {
+      "file": "assets/audio/voices/published/459c5085fdd1a7d74df1.wav",
+      "sourceFingerprint": "a15977ea8ede01667a67d8c90987d1e0f48a74a75663b2d5d30267853405a717",
+      "renderHash": "ba4e67672998afc8d5fa61f642813a93a472534522d719e2688861b1fac74d0d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_046": {
+      "file": "assets/audio/voices/published/d8ff422b1eeb309815aa.wav",
+      "sourceFingerprint": "9ed3d014aa84de0386b290e3cbf326e6dec92022a55b746ae278a4cfc3889db2",
+      "renderHash": "938f3916f65c4fa70f226bf1e2394d57806fba0537e0931a226498eb2c72f23c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_048": {
+      "file": "assets/audio/voices/published/e56371dd55aa066a6106.wav",
+      "sourceFingerprint": "323798ac0846241a1f7e33b5c4a26aa9294af11fc66c963116963d345e61d937",
+      "renderHash": "51808d69e6b0260e0bf584ecfbecbba34f9e1c345bae6cd068252699156878a0",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_051": {
+      "file": "assets/audio/voices/published/9adc7ef8889736bec422.wav",
+      "sourceFingerprint": "c1047ae278cabf235c11df30cb443f5d49ba0168b15b399e71f5cfc2b81b860e",
+      "renderHash": "da260d31012ac6b86c4c6fc16711a83d3ef10437328dcd5b93aa1f3277013d02",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_053": {
+      "file": "assets/audio/voices/published/ef2a06eb02d714e7d200.wav",
+      "sourceFingerprint": "19be8d12965be512387e320c9c51385fe4281337764c7efa5b04fee5b14defa2",
+      "renderHash": "1fe57611f3217dfdf7b9dbe1840f2511df5b04b5b221e8b36597789635d8166f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_054": {
+      "file": "assets/audio/voices/published/3def6429e7c20f2913a6.wav",
+      "sourceFingerprint": "c07f138257c7a68531a88f891af30cc26f9fab26fee33004c48e5c0975a6b689",
+      "renderHash": "4ff5691c63de696bb94ef714bbb9bcbb8f1a0ba707a28cdaacd8c072e09ce509",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_061": {
+      "file": "assets/audio/voices/published/cd867c7f3324e4f3c4ba.wav",
+      "sourceFingerprint": "e4bca9a0443a3ef5068b17e46837aa40a83ac2e2fb80a4fbfd78c33b18e03c18",
+      "renderHash": "37960ce0db4712f1d612abe4cadd8d6a3ca15b53a90fcadb92009a2588303f42",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_066": {
+      "file": "assets/audio/voices/published/b95a1682a5f35ff01e17.wav",
+      "sourceFingerprint": "0fde887a9457456128f73b290d0abe82fac31c438e9216751c2b0931f4ba2923",
+      "renderHash": "6840394ef81eb8772a7f9ccf0b0d618c8016877618f14082202076d2b50ab38f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_076": {
+      "file": "assets/audio/voices/published/9f49e1964c32e8256e0a.wav",
+      "sourceFingerprint": "afb44175472dafbf609058956f96a9d8c5cf09cf77d3128983d437ba61be1702",
+      "renderHash": "5cf7f42ee4bd76bed99caff6f0a3082805389c69622d7153441d5132fdbd3991",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_081": {
+      "file": "assets/audio/voices/published/d446a240a8e634564e73.wav",
+      "sourceFingerprint": "47ece7588d07726fa46701c09dfa0750b6758aecbd9b4cd993e9a27012bb36a8",
+      "renderHash": "b75fc045c994a75d64ac836c55722583dbfbfc0ccd14699ad2c128694e8e58d8",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_085": {
+      "file": "assets/audio/voices/published/71618e54d44161c30401.wav",
+      "sourceFingerprint": "d06a112e47134466dac429824b66da48ecd500834a0cc8ea15a6d33124682986",
+      "renderHash": "abd334eeea0805a975f49968d2b0013a5fe164d9a5322dbe74610af84ea6ef83",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_090": {
+      "file": "assets/audio/voices/published/c217c22a1d5f6bf68a36.wav",
+      "sourceFingerprint": "f908232550757a089724ee2a97355d3d6642e8784b07f103fd7262cfbbdca533",
+      "renderHash": "a2c5a899644a5d6e640d4906317ca81f9b4f0241d949aa992d2b94fd12027dc8",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_091": {
+      "file": "assets/audio/voices/published/ebced1b9491a398c2237.wav",
+      "sourceFingerprint": "d786d0878c9ec465ea4f5562196d4b9d561b05d1542edce446ee7fe1f94d1bf9",
+      "renderHash": "30b1bcc9b9469bf6e873f6ae662c3f589b4a60342c3d86a020bac90740ade50d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_098": {
+      "file": "assets/audio/voices/published/1d48ee2afb3245c966ab.wav",
+      "sourceFingerprint": "b24c11dadf68bce48bc64382bb9fcd325ca15702fa85f2c517cfe3a1390c8cc4",
+      "renderHash": "224550233dc5070e66800b73a4518ba9baeec227ce037b0db931439516350463",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_110": {
+      "file": "assets/audio/voices/published/c29304c027440c6f15d0.wav",
+      "sourceFingerprint": "5d12f82b4c6c0b96dd73b6bcb694dac55d702b678584cf36f3e71ae31da4275f",
+      "renderHash": "a4e89e599d45e2f9e93f6fbaffc4cadd68f0bc32e2e4068c6797316ca99d64d5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_111": {
+      "file": "assets/audio/voices/published/375f28cdfafa18f3cb9d.wav",
+      "sourceFingerprint": "bfc2f2780bcfb1c74c8f83e93709ee0f953953e88e07c99ec63406b983890ee6",
+      "renderHash": "57ffde507ec90b8b0eb58a6f76192dac111898e4c79c7ebcd2cbe3dff008d05b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_112": {
+      "file": "assets/audio/voices/published/4309f3a8528510bb4f20.wav",
+      "sourceFingerprint": "d0adbe73f419774b8e7aebf40f2016ba67d47dfd0457ba20a97bf2ad6acf85e3",
+      "renderHash": "38d0a244c55fe5558977c9a4fab9a34a9a0fb4149b030dddd34b27623d73fa64",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_114": {
+      "file": "assets/audio/voices/published/cfcdfe37b1b6269acd1a.wav",
+      "sourceFingerprint": "de35e76ef10123ad2bcb40340c85e6c1e90672d89ee890413de248e67894c85b",
+      "renderHash": "523d60fc1ff0cbc403e9e3ea5fb5a326dc425593f2a1237d0724eee3c7203769",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_115": {
+      "file": "assets/audio/voices/published/5afe1ea7f101189f40c8.wav",
+      "sourceFingerprint": "a04f7c88963b543b4dc14c2a71b34c36bfe75de3e1e3585ad8c59f1af7196bf3",
+      "renderHash": "8c63fb2811039a5be3440569b1a01432b149a0fa1bc87cd9ca99f6ce075c3f42",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_121": {
+      "file": "assets/audio/voices/published/f809323db096865eb68c.wav",
+      "sourceFingerprint": "95920b00452e39e52fd881cef1e80748c95f5fd970cde2c7c508bcc5d9fc9570",
+      "renderHash": "ea71dbadc8ae12e02995dbffb8961d3080019396cd42eeef3a823930bd4377d3",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_122": {
+      "file": "assets/audio/voices/published/e5be8dcba94efb9a542b.wav",
+      "sourceFingerprint": "ab1cee92d01760f9c835c262c3334920229095311ef0ef3e4f4a3aca88f252be",
+      "renderHash": "8df02cbb3b946f3dd73471c5aa59c4dcfedd6901a0c0bc40508df9e053d00395",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_138": {
+      "file": "assets/audio/voices/published/91ad200296b516c7dab3.wav",
+      "sourceFingerprint": "afe62328f2af9bb396414c55f5ecaa7a4e6f9fb41c8da83f574516224f7ada88",
+      "renderHash": "ecf52326b7512e4db396612a0f7a894f81c74d0d32b0bd1e80ff37710527a30a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_142": {
+      "file": "assets/audio/voices/published/2f6507dd9b94b8c757db.wav",
+      "sourceFingerprint": "5d0281a237576eacb09061837ebd8ab5295638d63f3e5555321a8f6d8ab79417",
+      "renderHash": "e8d5e3464a4dfea43aed9fe823b98d8ba527d214765245498c56fa0ab1795e6f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_146": {
+      "file": "assets/audio/voices/published/fbad9f5ff1031002ce07.wav",
+      "sourceFingerprint": "99c2e4560a324f40ad8814fb629d58c9df076d0e30fefd9320567cff101f2edf",
+      "renderHash": "3798da11200c4c373a45c1bf7625d9da69656fd53d409e8fa1c07b43a65e1fab",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_151": {
+      "file": "assets/audio/voices/published/aa1f0521cfc7c5a5288a.wav",
+      "sourceFingerprint": "6a269f8144931cdb5a979163d23ad4ad150b5cc6bf12deee15cb018dc1830226",
+      "renderHash": "bfa3171ca8e1516a8c253fea3a78bdd797991e111c4faba9b4f9531a089abc72",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_152": {
+      "file": "assets/audio/voices/published/010ecee8ccf4212a6e5a.wav",
+      "sourceFingerprint": "34e5ac17ef341e718c3048f3a2fb2d8a72d795784b68001aacce7ad46a33230f",
+      "renderHash": "ca71471e2700edc630307771a66a4536082e4339a48100327420e2210045cab0",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_153": {
+      "file": "assets/audio/voices/published/193528bd0326b1d0c565.wav",
+      "sourceFingerprint": "d8afa3562aa84b9444d91b833cda80bc2a5b9949331145180398b7ffee8236b1",
+      "renderHash": "5a40bafba1f2c27d920c2a82c89c7b4e3c31e9383361b63eb0f5b3bfedd00961",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_154": {
+      "file": "assets/audio/voices/published/3edd499396df2dae8caf.wav",
+      "sourceFingerprint": "a536bc138703ea7c7eded5920411b749a568e271cc12fb1f4812560dd4a30d40",
+      "renderHash": "47e81ebbfc78974386d3c45772f5b24f09992fe9771977154ede63b622d6d3af",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_156": {
+      "file": "assets/audio/voices/published/415960eebf5cb9d0e472.wav",
+      "sourceFingerprint": "205cebac55de6b0aa657781b7529273ab233f7b2dcf5ec253a835280afdc6704",
+      "renderHash": "b2590e5eecc435849d461e93c5ed321f7f6e46fbc7612fa19566b5b9780a21cf",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_161": {
+      "file": "assets/audio/voices/published/054ee30c03ce7abb337d.wav",
+      "sourceFingerprint": "313506acf7d6b093f992fd496ff70d78d89c733795887d84ac63f2d47aafdaf9",
+      "renderHash": "d4232453f12ed758a5274dcc5dd34c4770a8cead37eaf2c5f2c7dc7fe1e3cff7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_165": {
+      "file": "assets/audio/voices/published/daf43dfd2845135c4cb8.wav",
+      "sourceFingerprint": "5587a827ecf008067f4cef79011eb39483efccd17854265c4e2c453d76dbbd3b",
+      "renderHash": "d202f4632eb21b2c09a5cf1021ddf85cecc8e60176de50b0c7368f1ef01b282a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_166": {
+      "file": "assets/audio/voices/published/57cbdd94815074d48f13.wav",
+      "sourceFingerprint": "a85ace672e0b544d258da50106f8da7236c4f7d8ca92f45ebbbfc6f061a131a6",
+      "renderHash": "a7d22d344e7e20d2340bed20cd78b6164aa18ed01337fd829af8913f5db11487",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_buy": {
+      "file": "assets/audio/voices/published/43a35ba6dc3f52e2e400.wav",
+      "sourceFingerprint": "46010cc89c076e3b3a738ce88e1e5d11746415919c0ed41e193ca9ea52a693b8",
+      "renderHash": "09f8561900e93a1846f98d68f392134a2dfeaecebc83e63c81b7dd1a6c0f463b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_171": {
+      "file": "assets/audio/voices/published/4ba8912901781cef514e.wav",
+      "sourceFingerprint": "46010cc89c076e3b3a738ce88e1e5d11746415919c0ed41e193ca9ea52a693b8",
+      "renderHash": "09f8561900e93a1846f98d68f392134a2dfeaecebc83e63c81b7dd1a6c0f463b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_175": {
+      "file": "assets/audio/voices/published/2da16d1b5a73b1736694.wav",
+      "sourceFingerprint": "2f0889cd74e8b5bbc3bf49006b643bbe795a7de99d9467f7239594d4c8c5f295",
+      "renderHash": "6642fccf8df06644d06e6d0dacbf6836bae3e0d855147cfc23f8a8d1a1d03eee",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_178": {
+      "file": "assets/audio/voices/published/234cc5163b36c02f276c.wav",
+      "sourceFingerprint": "c864cd5144b01f5b52a56ee09d15f2837e749ef24b13c83de952b8bb39226fef",
+      "renderHash": "8ff913d5478ed86773b0eea64ba64541b8414e98d3278b8df7ec5f34d83bcfb1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_180": {
+      "file": "assets/audio/voices/published/a333b9ca161823cf021f.wav",
+      "sourceFingerprint": "73ac043b91bd2e5d34869c64a33f3029ba66d2d26780860feb9dbe6cc9b90e30",
+      "renderHash": "d1d41cf57de3449401b7cf958361d443a92f3ae9b17be5127636cab52799b6c9",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_214": {
+      "file": "assets/audio/voices/published/57012655e288f7f2387a.wav",
+      "sourceFingerprint": "288718618dd509aec15024d3fcb6d738d7828cab78a925160f8bda692e4be423",
+      "renderHash": "6516c374895d96f81021be5585b1e0d06b8f9f4f52b6e7d6083b8d9321489df8",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_221": {
+      "file": "assets/audio/voices/published/e230cfc10a44931b5d23.wav",
+      "sourceFingerprint": "0157140c68910d9e7b5ba874ccc734c77ca5b599b56323225e1ba208e5e0e174",
+      "renderHash": "066831642ff58ab5014f4738dd85ae758acc1e04494fae6fe45029808bf9fc67",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_222": {
+      "file": "assets/audio/voices/published/7518227573de435c7ad3.wav",
+      "sourceFingerprint": "f315f825ee246b6a9cdac129fba7899ff57c54a2d4da61645345d734caf9a2fc",
+      "renderHash": "73d7b7be01389adf4f88ff79e8a554684433ed6760bccda2a2a18788d807f9da",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_225": {
+      "file": "assets/audio/voices/published/c27096807748355ef7ba.wav",
+      "sourceFingerprint": "e01f513d203150cc5c9095e6330f14bced4889ddbca28ff48d6ca2f6bb57ea50",
+      "renderHash": "8e60855cb44d6d693a080db9daf27e3e2f0bfd3f0a4ad94548df36db5b31696f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_232": {
+      "file": "assets/audio/voices/published/94dd6fcadf692bdd2998.wav",
+      "sourceFingerprint": "339246c91ccd7260dd1ed1d976c0a6878a803aaa1d256f3aaa8efddde8831e82",
+      "renderHash": "18e5edcbb2a0197e3af874f7e5a8e1254012481c73eec88a0104815e84c6eb77",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_238": {
+      "file": "assets/audio/voices/published/58813d49042253839781.wav",
+      "sourceFingerprint": "039723a737deb2770050d70aac9906994c190e0dfe5be53fbaacecc683741e6e",
+      "renderHash": "94a74b8e2187dba6ee65a190e70ce2edafdec3a34d94f624dc10791761ee9876",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_239": {
+      "file": "assets/audio/voices/published/db45ac593a0ad2845ab7.wav",
+      "sourceFingerprint": "09c2464450982a7640987b2d2cf41dd8e533e2e5f30ddb8d1431e8ede1751f40",
+      "renderHash": "2a722441a8417087669014d8058c5b8a74cf732a0fc97cca8e6fae11bb14a850",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch2_249": {
+      "file": "assets/audio/voices/published/e00a574bcd611fd9112f.wav",
+      "sourceFingerprint": "8cf611846efb8e9a2908e6474a71f36946688e0d75536c0688adc8ed8e20e334",
+      "renderHash": "b4114fae5f8e57095bfcfbe0e39b5962f13e35e8909f11a34b01bb9b53e92119",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_025": {
+      "file": "assets/audio/voices/published/76c15f9516a5dfdd86fc.wav",
+      "sourceFingerprint": "9427e0480aa7cdf82a1ac88c93f9abe3b4c93fbf142aca5c72f1c70d57c44676",
+      "renderHash": "7f84573a1237488a27707027be6f122309259976cbcf1340fe406f0de82cfd8b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_040": {
+      "file": "assets/audio/voices/published/87c913628bfb0fe96556.wav",
+      "sourceFingerprint": "90ef874200e81f874baea5447d400a14a45d4a7332d25228791089fdc71e4d1a",
+      "renderHash": "2ca2f4abe53491e2a2875062b37f4c07734b529d5bdecd86cb3e7175dd2c153a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_041": {
+      "file": "assets/audio/voices/published/842e02284ec7c547f524.wav",
+      "sourceFingerprint": "62f6e1ef489fc8e367acfa993a6e0945146ac512d57bac21165746630b231b8b",
+      "renderHash": "23373e4821d22535f932b3e5e18d15d1f6c50348e1faaf3cb472129621a814ba",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_042": {
+      "file": "assets/audio/voices/published/b0fb81d5714f8242c2de.wav",
+      "sourceFingerprint": "6fd70f9381c9e6f46a3fa6d76b5919bee982285eedc7255f4d52268c370277c3",
+      "renderHash": "8271d3a91cebcbd8df684232b2b0a3ec3ec5479d43069d6d510639ce01af0396",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_057": {
+      "file": "assets/audio/voices/published/a65cdad19f916ad95f5d.wav",
+      "sourceFingerprint": "f67692697c182192989f013ba90fb4e82d8efa2ca43a2db53dd22c2aee1de637",
+      "renderHash": "be21c406f27d87dfeddc997fa6c69ff39cf11f163dab2ad80563c210b8918106",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_058": {
+      "file": "assets/audio/voices/published/faf1402ae16c341df324.wav",
+      "sourceFingerprint": "04b77a303fb5b9b4406394652e4699d9e6459020ef192564739d7c37f5aa8b9b",
+      "renderHash": "8ff913d5478ed86773b0eea64ba64541b8414e98d3278b8df7ec5f34d83bcfb1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_059": {
+      "file": "assets/audio/voices/published/e3a6bcd9b0f8201ef1f3.wav",
+      "sourceFingerprint": "457983299868943157b385c30254ed8a46c5c9606a8c9dab6ce8aa8afa178771",
+      "renderHash": "38840f07b357f1339842f8a0f03a3c8e6761069c783e5d98c61f6c0318ab0694",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_079": {
+      "file": "assets/audio/voices/published/a145a0839c4e50bcf652.wav",
+      "sourceFingerprint": "7833fc407f15483976fa6fb3e8e46fa448d5f197ba69c31499450a17b5edcd46",
+      "renderHash": "c8e4bdb490be8c13bfaa1ecb8f07cfa3ab640d1e65981fb7a31b47c08a0294b6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_082": {
+      "file": "assets/audio/voices/published/7452ba9de9c2647beb5f.wav",
+      "sourceFingerprint": "045c3a3d3d2c04737ea062eb90f9e0e4620c05b5a195c756c6e46025ac5a6011",
+      "renderHash": "9973f56891090c5b1374e35e4892b9aaa4d7ccb68af4aa448549d98ec5526f05",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_089": {
+      "file": "assets/audio/voices/published/3649af993be2e8e76c90.wav",
+      "sourceFingerprint": "310d3cb62d4448275dfc440a084af9298bc487f36d1e8bfe79fd4c1a8c376e05",
+      "renderHash": "77cf90813f2d15cab3c7891258f0088e028aadca4186e29cc354d98835a75f3d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_129": {
+      "file": "assets/audio/voices/published/bd16db15b77f08b79fa0.wav",
+      "sourceFingerprint": "4d438f50d4c54ffa879c6a7254974c9a6851cf7f2822b297fcd54a2ccb8ae617",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_130": {
+      "file": "assets/audio/voices/published/5db1484f0f91242404d1.wav",
+      "sourceFingerprint": "72323c72ef6fd6b1c4f5ff3d76e72c641f8be56d1ca37de7b7ec1086524cb7af",
+      "renderHash": "df88b82c55a83fd68749a03bf942e8dd2c508a1e1144c2e5c781420fc960bd44",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_135": {
+      "file": "assets/audio/voices/published/049716f5a3e1315a888b.wav",
+      "sourceFingerprint": "615c46cf64a53d4431c0c9608ca993eec66b7c48f419e5d6160a8ca933216c8d",
+      "renderHash": "ee981b3a4b991b460ee56dbf838ea21aef315d4219bad11f7f0689f1a21f5197",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_148": {
+      "file": "assets/audio/voices/published/f645b371a5e30faac372.wav",
+      "sourceFingerprint": "90ef874200e81f874baea5447d400a14a45d4a7332d25228791089fdc71e4d1a",
+      "renderHash": "2ca2f4abe53491e2a2875062b37f4c07734b529d5bdecd86cb3e7175dd2c153a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_159": {
+      "file": "assets/audio/voices/published/5fe4967078196abaff2f.wav",
+      "sourceFingerprint": "f701da88c43f07aa89e19bb0bcab6f044b56efd0c210ae4c179935a0a73f36aa",
+      "renderHash": "8d907082b90514b9d003ecb1bddc7e64f9d086c078359da34c9a26e8b39fd8aa",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_160": {
+      "file": "assets/audio/voices/published/bbf5075c6a1e67d48c8b.wav",
+      "sourceFingerprint": "00cd3387b9d1d8530040bab6bab5c03f08139d917af014800b3af3bc128d06ac",
+      "renderHash": "8b1106a0fcb0b4432343cca7d87a4d3e9812974b1829d9317499450e3bd5b1df",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_161": {
+      "file": "assets/audio/voices/published/8288bc1009587012a4b6.wav",
+      "sourceFingerprint": "de635d3a43c155dfd4c2d858184a53adbcc2d6006fcc88fea5cea40fa524c9cd",
+      "renderHash": "f3a9f00174c90a7ec96c8a0ee33fa98d4bf0c02c76252e21c3056bf84327436d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_162": {
+      "file": "assets/audio/voices/published/886d0e93f8d827a09e10.wav",
+      "sourceFingerprint": "75242b88c96bb5ff439778eacaba12db01df04010ff402f23e1783056a178b29",
+      "renderHash": "b53d1b14042f4afee54e9c8c8d46b04e810dd93ed3376db89bf1aa4dd2829cbb",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_163": {
+      "file": "assets/audio/voices/published/7fe9d1aa836ddb38f667.wav",
+      "sourceFingerprint": "204a6bb5a6f18f7b22c0e4b6f9002ec07202679edcc04bd9b6956c325a48e99d",
+      "renderHash": "8d47ec4fbc69a586c70d42de971fb576abba861d2a5df0a35e3f5755d939e034",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_164": {
+      "file": "assets/audio/voices/published/6e4a32fa2c2985c1acb1.wav",
+      "sourceFingerprint": "f1fc3790657231d44d6b01839e07c1fd4a57fa07ec2154dde197c5c43c129a9d",
+      "renderHash": "44f1ebfc26217d5a58560bb83194cfa74f9fd3267beca225731fcc52eec2a9db",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_165": {
+      "file": "assets/audio/voices/published/8afed7f8e4ba4f942659.wav",
+      "sourceFingerprint": "7d453539d3fd489f5dfe3fcc6533002aac60f96abcf1b0e99551844872a2a883",
+      "renderHash": "9e15aa96d0e438f7d63474e1806e4522b37e66a9db67b2cc729e31fee85fae35",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_166": {
+      "file": "assets/audio/voices/published/d9b0f81c2aa6ed7cb718.wav",
+      "sourceFingerprint": "bbd11f77ce1dd42a27fcff495af3a67afdffe2ec7c6f097ab24d69f96cf2e4a7",
+      "renderHash": "b6bf8a1053d613e59178c6574c7dbf38670e2bdc82874a677185d8739720e048",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_167": {
+      "file": "assets/audio/voices/published/5d1b1587d6c8cf6c0cfa.wav",
+      "sourceFingerprint": "6355591f6597c50605b2b3f8ff2dbb3ed6d93c7e01efb2041d726105b784846f",
+      "renderHash": "713697cd297491f094c2db68c2e9aaaf5aafe80f01d5c4ecc998727d59db7496",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_168": {
+      "file": "assets/audio/voices/published/d2e9f7934cafa4dae542.wav",
+      "sourceFingerprint": "ff4c4d9ebf62fb573c059bc4257b9acd1c10380ef046df26eb2fa6a7d7a7cb5d",
+      "renderHash": "f82ce15a12f6aa7e5ec5fd10f8d31b3f10ba0c89a2a97d863d27d76ea24aabb5",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_174": {
+      "file": "assets/audio/voices/published/3f9b32f72f6fbbd3a2af.wav",
+      "sourceFingerprint": "174d2b46140a3fd7b493ca0c515c1c1ed9c3f81ce6516f33b2f593331ddaa768",
+      "renderHash": "5c26115e62f73310411dc27acb9d6e6bcebd0676480b01156e264134e17cc78e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_177": {
+      "file": "assets/audio/voices/published/92f51da0669e4d14d4b8.wav",
+      "sourceFingerprint": "21652b9204718a2236396e9582db17f54503f0a3822111b39988c62f95e6b907",
+      "renderHash": "ee981b3a4b991b460ee56dbf838ea21aef315d4219bad11f7f0689f1a21f5197",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_178": {
+      "file": "assets/audio/voices/published/a6e57bcd9e11e891f7a2.wav",
+      "sourceFingerprint": "3ae4a8d27e4af232ffbf8765c701b4d843b8c597e006c62a7d90bb1000430f72",
+      "renderHash": "e0da0c54631aed721ec68ca3b9a9de3f683750f6e53609fdf667a68fe3166c88",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_180": {
+      "file": "assets/audio/voices/published/8587d0d19604c8c7a8e6.wav",
+      "sourceFingerprint": "7f59716eb5cd5dc84eef394ad5828ef3a64051efe57127353b76fe6c6965a491",
+      "renderHash": "4490308ea907887036693cfe092100eb4fa781e2997c7d8af5facfe8b7924fa6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_185": {
+      "file": "assets/audio/voices/published/7dd66d1d0e982f4d35e5.wav",
+      "sourceFingerprint": "07fe6512ea58eef63119184e5ca4bbec206f8c6846408cf3d963beebd666ac2e",
+      "renderHash": "9ce2dc1e12f8a3ed67a5805bb890fdfd488674cf244fc366f1f062ca102766e7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_187": {
+      "file": "assets/audio/voices/published/c4132cbb234f59e16cbe.wav",
+      "sourceFingerprint": "9500a2abfd8a903fdcdcdc0733140e2a42cb381fdc3c34a59e878cb4049f5363",
+      "renderHash": "8295a83ee53b388317ce4ad8e8584616b5d2cc5817bccadffe23d35df5c93d56",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_190": {
+      "file": "assets/audio/voices/published/3aace97d41769a87a9f0.wav",
+      "sourceFingerprint": "d23543ef86b5b85e1608aa7c1440471d813708956aca1946cd42da15184a8fc5",
+      "renderHash": "e5520c8d7e80598b0acb058d4fa7ea9124bb36e22ad97e34aa067f631fddc93e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_192": {
+      "file": "assets/audio/voices/published/6ff08d907a525c3205f6.wav",
+      "sourceFingerprint": "0e9e47faca954afd77743b0a6f764a24a9f6b57d63bb53d2ceb163d3cb5c3dda",
+      "renderHash": "57c60a26fce593133fa0f8e949cad6336b49dbf469d86cb36263bc1d0902e507",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_198": {
+      "file": "assets/audio/voices/published/b7d70af61bd9b3151aa8.wav",
+      "sourceFingerprint": "08d9dd11dd3431d04d1c513b1cf744da4a782c4d8cf8926845ba5bd57979ff42",
+      "renderHash": "6f670a33edb9b2e1f542543670f6f9c815f14028e7b00fd4ff99f34228bfdcf2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_200": {
+      "file": "assets/audio/voices/published/e31e5c2f0a47d5729c48.wav",
+      "sourceFingerprint": "a2df32d4f5de744b48796a6610edd646b6cf74cc2fc2773eab3656f6f997ee80",
+      "renderHash": "7e08997e3f67e5992e8b140069f999180f9cac0e3e6884ba442f2296ad72e234",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_204": {
+      "file": "assets/audio/voices/published/3637cfcde9e3769c2a93.wav",
+      "sourceFingerprint": "9951cdf2c77f9e700fa87f2538862e1a201885839a4c383462b4c08ea7b5a35f",
+      "renderHash": "bb29d6bfa444fd3c21270f5a8995c6b724b0e5997bfc0237b4940f9e93598871",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_208": {
+      "file": "assets/audio/voices/published/0858eac5780a53a93425.wav",
+      "sourceFingerprint": "3c83022a40a687f058c4edab98deeb26d297363ae5a13bc40986247d809931de",
+      "renderHash": "71425e18cdd488a21fd450005c24982472160310bbd00135a38683c4a2f8ac31",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_218": {
+      "file": "assets/audio/voices/published/bb05ae99506533e9bb97.wav",
+      "sourceFingerprint": "730afc30d00bbb040f3ba14f914e4abdf38c8ec4644875ae5be1f96ae0cacac6",
+      "renderHash": "3f133eb0c50e79837b5d8da1cec88510e292bce1d713dbec7710089b656064cd",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_220": {
+      "file": "assets/audio/voices/published/07034b2d654bd9432c7a.wav",
+      "sourceFingerprint": "6b4f9e0fa5c3d10aae7cfc17a91ce46e4ce7aab99cae6fc48049128d62017a64",
+      "renderHash": "d10afefd47946bbe464694b5e0f28224dd9e4f91518fd528680a578d3ffa171d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_221": {
+      "file": "assets/audio/voices/published/24b804438ca49f1bb88b.wav",
+      "sourceFingerprint": "3b133878f43dd8232f9c3909b4a98a2bf221606f799416e8f0deefb6cc9b7200",
+      "renderHash": "74f2ea6d81a3c8543bbf9c3e461e54be98a50fc7ed505ee11f4bf5bd3946a749",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_223": {
+      "file": "assets/audio/voices/published/e8b83207aa25e8f1d8ee.wav",
+      "sourceFingerprint": "7f3df0936ee075d17ad94e012c444bcb05a3dfbf1c54e142bc0d540e8a2e959e",
+      "renderHash": "6aa321a5b32327b85414205dbabf34b2121348f438c821b3f38a3bdb305bd0e5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_224": {
+      "file": "assets/audio/voices/published/d133b1bd35dbb60e048b.wav",
+      "sourceFingerprint": "b2697556b9aa2b39c98c1a65dc2f76cda71af68eeaa14a45af2beb206fc0db0d",
+      "renderHash": "3a1addbd23229d4f7909650edca3a7637769ff22a9e00385a9738d6b9a971758",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_225": {
+      "file": "assets/audio/voices/published/aaa789f8cfa615195df0.wav",
+      "sourceFingerprint": "139b438fdb4131494e72b1b8b45ced338b3b39f5284c202a3e7df3ca74f371fb",
+      "renderHash": "3cf31077e993c738bccb7ffae131977ee7f823ba5c503dcd90e0d639c6a1400b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_231": {
+      "file": "assets/audio/voices/published/1782c907fdef35a6b451.wav",
+      "sourceFingerprint": "2228df7a5ba60428b8f9a622fa77162532aff527ababe0a30b78789ff0678c88",
+      "renderHash": "34f6f4ada70dde1a763481ba990514f3f7bdac0ee13a25cbcb3ff293f2794c7a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_model_after": {
+      "file": "assets/audio/voices/published/e397b71fe896380b3241.wav",
+      "sourceFingerprint": "20ece8cd21310fc7aef71a1cd44cd75ddf5c73b4d76b2397c74ade0f548463c8",
+      "renderHash": "3a10c16ec926d80c7f9bf1f0b37ecba3493db3ff9babf23c3f2117322f07986a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_240": {
+      "file": "assets/audio/voices/published/054e5544afc179568a4b.wav",
+      "sourceFingerprint": "9e4c7e85840499ddc885c17c05ff4bcbcfaafa433c7c134e27d0f6b21ce56b72",
+      "renderHash": "248ce41abc653375f52ad8c9355dbc7b5e876e36480641829be9f2211a249f7c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_242": {
+      "file": "assets/audio/voices/published/2aa2822a212a8e4c21db.wav",
+      "sourceFingerprint": "3eceee73accaa368479c72a3943164caeed1a2ec6264608fed1610d89d112c4f",
+      "renderHash": "ffe606d9d1a05046734b931173f71927fe03271232f7b1d0d26915e3bbf1c186",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_245": {
+      "file": "assets/audio/voices/published/0799c04fa32c2b36bf38.wav",
+      "sourceFingerprint": "c06b3d8a17467deb88df6b3a9cc0f5f4a50bcb8e69552f50b45e6526099edd13",
+      "renderHash": "00bb6045aff3aa5907f1ccf3650740609a597ef72fc1a9bd8669438950e15878",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_250": {
+      "file": "assets/audio/voices/published/aff7c0700b0b013e55b0.wav",
+      "sourceFingerprint": "4db51b987291ba1ae560545846f9eee9b6f37ca158f70375420215015e6ad077",
+      "renderHash": "3d684b15252f7553d17095a7a8eaa93c3476fe861d4c35bfa0070e455ca8c57e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_252": {
+      "file": "assets/audio/voices/published/588db722dca0932dd3b8.wav",
+      "sourceFingerprint": "6b892153982663d23be699d1537b664c83de52ad6a6be083eca73e02ab163412",
+      "renderHash": "d75a3468ec059fa8751b9d990007f502c376868bab897a6d7ae5a0e7c68f00de",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_253": {
+      "file": "assets/audio/voices/published/314ffbb0be3e9bcd6651.wav",
+      "sourceFingerprint": "978222f28abc0b5c7d501313112e9ebe4a90453304055985d48263df4711380e",
+      "renderHash": "065f8f944e46f6c119472a72f5a762f603f491e4282972dc6d9cb25e1bf06d5e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_269": {
+      "file": "assets/audio/voices/published/91fc9cbb80e487d77020.wav",
+      "sourceFingerprint": "58c980890db9bf88945e223f2c42340b6e43b47bb072d220d05f8ca73d66384b",
+      "renderHash": "7f914d2d1b6e5f37589908b34081089f6d11f5d685bef7ff69ed3b9eefb987a1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_271": {
+      "file": "assets/audio/voices/published/6758c3e89690714d51ec.wav",
+      "sourceFingerprint": "60ac51061b89181a2ab5151763f2b485648d4bf47f7104a1eba375e4d7920c9c",
+      "renderHash": "9a6c005d739ce48f8cc84c8c5ebab1044c8f5b8611a142a4ebeb0dd63c2fa689",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_276": {
+      "file": "assets/audio/voices/published/d302931982712e1afb17.wav",
+      "sourceFingerprint": "188089fe578d08680b8af130cca79fd75d8c1bc2756cdd3e05b6bba5b3f4f9b4",
+      "renderHash": "52ae0348e54f25846d7c8f9e2c5e85c52ebdcc077f323091883bcda736e9bca2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_277": {
+      "file": "assets/audio/voices/published/aba19b0fe74c5a94f681.wav",
+      "sourceFingerprint": "bf4b1aad5454d5ece8a60bde945794670d4612f70dfac1daf80e6ac06465c884",
+      "renderHash": "037a17be5e77818a1b8e12895dbeca2b9fac0a423540be11bbdd6c6f43bdfe44",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_279": {
+      "file": "assets/audio/voices/published/fec11ccc2568d99aebd3.wav",
+      "sourceFingerprint": "4716bb835020ad26aefe412d8809e434cc5053fd2634cf1dfecbe625295df461",
+      "renderHash": "c223b5171fd50476aed6840673260f2efca470581b90437dcfd319a721687a8b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_281": {
+      "file": "assets/audio/voices/published/ecd98f7c0be0eadcfd28.wav",
+      "sourceFingerprint": "1dde1e5331d98bcb4787fc07936fcb6b9a023f61e65c453b521391e5d6fbbbc0",
+      "renderHash": "d37dc9f8ba4d1d58d4c0888641e867fb1f015c7bd99e7b0537edfb92eef11eb5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_283": {
+      "file": "assets/audio/voices/published/83538cb0d5050fa9a87b.wav",
+      "sourceFingerprint": "f0ca817fe5a6c2800aff774a7c97a4fe52fe6e9b42bdd5fdc722c7f491c90f73",
+      "renderHash": "9bb283cef8467cbeb8facf29bf40faabb87cbe438fa5dd523a0f098a1ecc6515",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_285": {
+      "file": "assets/audio/voices/published/4c9a6fa9fa874fcae369.wav",
+      "sourceFingerprint": "166a0f44b485a3601f2d74d57f7c72d1c8261a171a0fc5f89ec458e9332ae047",
+      "renderHash": "af4a0d7743b49440c6ff17bdaa9bbab110ce061de4222caa14fa5e5631c62d8c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_306": {
+      "file": "assets/audio/voices/published/b10014b7a3a3e94c584b.wav",
+      "sourceFingerprint": "73677845d020feb2a7cbf0475f4d702e0e4618e596de9006ff499c2d7d5e07df",
+      "renderHash": "2763969000ce5c57251d4fe5a58d41f78f2219b9d9f4ee2eca7bf1f9d9815a24",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_309": {
+      "file": "assets/audio/voices/published/dcd748bf71b98b1e1b2e.wav",
+      "sourceFingerprint": "97218c07530301de679e448a963ae1b94bcc419504feb4de6b806164b1564e1e",
+      "renderHash": "be09ef536d3aeb0fb99b57ca1020d69703dc8e23463c63cf96ebca18fc43dffe",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_315": {
+      "file": "assets/audio/voices/published/41bebb3cedea3d10e325.wav",
+      "sourceFingerprint": "5538cb88abbe2bb6d46cf80e40e3fb5dda8915f795409cbb5111daaa1e701915",
+      "renderHash": "9bcb474b5010dc93727912f32eb619d3362c2a594fbddd895c8912c4715ed64a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_318": {
+      "file": "assets/audio/voices/published/530ab2ebb552f6a38edb.wav",
+      "sourceFingerprint": "a2f01a5d4f2168e7a5f21aa1c824b5a4ce0226ee5c299a4f99178ebfb98a21c0",
+      "renderHash": "916bd31a10d8f4e6433608c347de29df130cc7042126a360c034f74ad0ff672c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_320": {
+      "file": "assets/audio/voices/published/aa29845111032e91018f.wav",
+      "sourceFingerprint": "50f9a0005bf23300dab314b15a804d11c7646857543e55481ab3726144196502",
+      "renderHash": "a684ce34ff2303fa35e9254d1a74a07ec37e17e907dbd2ed0bf128d3f5c4b2e6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_324": {
+      "file": "assets/audio/voices/published/0fba101131c494e07bd2.wav",
+      "sourceFingerprint": "f6079b2bdb8294e4b561493a455703b20f9be7e7666aec70f3ded7ad40bf3e93",
+      "renderHash": "d50c296e1051ab45eead5731bc2a95c58d9f244111e26424bf5c1d753839676d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_326": {
+      "file": "assets/audio/voices/published/43438688eda08fa47256.wav",
+      "sourceFingerprint": "0f891ad1ce7ec3004d2bd4c5825fc4103095063ad90b8100351d18e136e08ea7",
+      "renderHash": "84e39a2d0a3213a224744a928c1d639ddfae375ebb204318d2cd15f2d73e2d94",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_328": {
+      "file": "assets/audio/voices/published/0a76353098507b8a5ed9.wav",
+      "sourceFingerprint": "c4b614522558404242234d59da1a051549f6bcf6eb1c41b79f85e604ef6577b4",
+      "renderHash": "d77b458e52a9fe3de55f1ed644d78db04e7e491ac567dfb10f25938bb4ea748d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_329": {
+      "file": "assets/audio/voices/published/78c74a60e432ee1818d4.wav",
+      "sourceFingerprint": "3a20f475a2bf6a209c0e95acb4d796865597a1e1b73838c159031148e8a74bf6",
+      "renderHash": "f73977974e3e68a19a032e36d1f61fffebcac89e6761851194d4d948e130b104",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_342": {
+      "file": "assets/audio/voices/published/c918f2bc5dfd49c7ff96.wav",
+      "sourceFingerprint": "4bf181576b2bcf4576acb94190abdeadf844796a77c2d92ba2b06bbb727bf64d",
+      "renderHash": "1f1a44558b068933b02a51096ec44b1183c056331cd420188f35456b5141a9e1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_343": {
+      "file": "assets/audio/voices/published/dbcf477029d77b95f49e.wav",
+      "sourceFingerprint": "795dab77525188ee6e44c5d18a44941b6db30c928d57ad45a31afc7c5c4425c0",
+      "renderHash": "1e803088aaf2e48fb3ee79b297befde344c242ec685151e4a8aa132637f75b30",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_344": {
+      "file": "assets/audio/voices/published/1599fe0ab00752512221.wav",
+      "sourceFingerprint": "c296d1e378890efeba9185ca9e088d24f489193265386cc9667c52efd8024f36",
+      "renderHash": "bc99bad285dd8dbd618865eaa92283aba1572f5de622936a652c925006779815",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_347": {
+      "file": "assets/audio/voices/published/6cc5ff5a40be62e00b7b.wav",
+      "sourceFingerprint": "00c99c47810dea7dcc7d5054d3a3045e3ba574acf2e08ee5544064ac6b2bb4fe",
+      "renderHash": "60112ec4bf3609ffcb4c5cb9d9bbf08e167d0bd4673b38f2c4652abdf8fd0556",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_348": {
+      "file": "assets/audio/voices/published/7c4d59a320229c4f9d8b.wav",
+      "sourceFingerprint": "879a6f9cc0edb7444bbf85b700cfd5865a6d46ce01ab720be34a331866dad06c",
+      "renderHash": "fd7b277f4dba3bec07eb8d1f56b9b3ded3da9e6027094d8b6d3017c80fee9f28",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_350": {
+      "file": "assets/audio/voices/published/49db11b637663ef20355.wav",
+      "sourceFingerprint": "c51d969d6a9a3dedc8e2608dd615769b41b68ca3084fa0b0215ee54c2425e918",
+      "renderHash": "aec0cb50cc3aa80d6ddd0a21aca44c08d69a08520e1a2a789576c7bdeff6baaa",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_351": {
+      "file": "assets/audio/voices/published/af0e5b454afc1886ea91.wav",
+      "sourceFingerprint": "28c3640f2de9180760614a45c9bbc98cc3bb731c99742d933cdc8271c088a910",
+      "renderHash": "2bfeba3ae40b70df94ed418a1818df89b1c185f7a527fab2698a8a395fe64b96",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_352": {
+      "file": "assets/audio/voices/published/a3c3a58fad6bbd6c1434.wav",
+      "sourceFingerprint": "d2fc0406aecab24af7c58f7e71cf364c7f88104613c2ace8af13befaa394eea5",
+      "renderHash": "deb29ff66420671ea1cf5dc2010c640cc8bab822dd0353e0cd9f44f9705e18b0",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_354": {
+      "file": "assets/audio/voices/published/a56313a4bb11dd34b59c.wav",
+      "sourceFingerprint": "4665a7e01c5ff3f56ccce5a170a57648be3bfdece9fe062568aa9d64b5b8e48a",
+      "renderHash": "be5d4ed2ccf78608e090d516dc90d3c402882de317a1f19dab58a4fa309c1db2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_355": {
+      "file": "assets/audio/voices/published/50b9df771ef0a53d17db.wav",
+      "sourceFingerprint": "24c279aa105d431f970ad31c27c7ee43a4aa9a0e287cedeb5bef38a8ee23fe2f",
+      "renderHash": "d095e0d5f61de1016b8ac4460330a3b95f98f1abc714bd44623aecbd076dc136",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_356": {
+      "file": "assets/audio/voices/published/f1bb91ecdf3b2fdbbcc0.wav",
+      "sourceFingerprint": "f2ef6e7f0fb664adcdc8ab4d41ab47cf5eb24ea11e744b541526dd7022470ebd",
+      "renderHash": "b77bdeaaf2a66ea6e380a56e3e152b330d69b5085400c28856c0709a8108e3a3",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_357": {
+      "file": "assets/audio/voices/published/09cf03a49f7f6bba70a3.wav",
+      "sourceFingerprint": "d410edc90fb35fe4d347d0c1b6faa6a8cb77dc750a43f54a4fcb78675423fe86",
+      "renderHash": "ce7ce27cc0e4d101c8eefe6d9a0ef15c52efc0fd0aa8ac4ccca3960fb9836fdb",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_358": {
+      "file": "assets/audio/voices/published/af31f352299bce3a8580.wav",
+      "sourceFingerprint": "050ac35b3db10121c3603001ae195c28e69cc99e7b6981c77849049c113df791",
+      "renderHash": "e2f949213e9c1527a74c4743563c403723dc0037d46614b4314eb25bc746b243",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_360": {
+      "file": "assets/audio/voices/published/c28f45b0436076c4aaef.wav",
+      "sourceFingerprint": "f18cb8dfefa50bf446a028d364f64bf2cf7b1d048ee769368c452f2122bcdb69",
+      "renderHash": "4d38d37e4957e9baa47aee58f5bf6467614f608b9e5b824f7345f91046d25d14",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_362": {
+      "file": "assets/audio/voices/published/b3264d756b75fe8ecc05.wav",
+      "sourceFingerprint": "177c72bf2d1fae450041629c2740d6ce0e3f103ba8b5ecb00f407ce4754f23dd",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_365": {
+      "file": "assets/audio/voices/published/03c35fd45c22bcc544e5.wav",
+      "sourceFingerprint": "dd01bfbdcc9dad18dac50f388c4a85b192e44ed42246233b2f85d502fcb7f0e2",
+      "renderHash": "052c27af772f06a26e14f16a32e6c58340a7d0ab56d9f499c90fcf000e753400",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_366": {
+      "file": "assets/audio/voices/published/cbf102cf70ee9f60f625.wav",
+      "sourceFingerprint": "6caadb3748c2355ba778b190c6bb0cbb0a0d5669c4f714fe37794f205c797bf2",
+      "renderHash": "ab3101d3d96fbbb52a678bd38393da6af47812d45f39e2dd867030532b769b3e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_370": {
+      "file": "assets/audio/voices/published/e947e80302a3c879ea56.wav",
+      "sourceFingerprint": "62bdcedd1b30b2a92b3ec599c53efbb2fea6c1948563d15311f4759895e9e90c",
+      "renderHash": "d5ab335ce99edfa2809cf65340e0edd970e35f62018a264d2fa96c4da40d294c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_371": {
+      "file": "assets/audio/voices/published/ef5cc79a43b9d7bf4d65.wav",
+      "sourceFingerprint": "7ae632a4e5c02670faacc9b01a2fa02ce64382321f05960f1f2c67e14084fb48",
+      "renderHash": "266defa2a69ab247f283aaf5301e3377ffa2ee6bff47e9fc1e2b5cc52a21dc2e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_372": {
+      "file": "assets/audio/voices/published/f48983e168e935a1ca4b.wav",
+      "sourceFingerprint": "0fa8de24ea002484205f58fb660a8c9eea878e8d2af33a69fab1ab082d83de76",
+      "renderHash": "df88b82c55a83fd68749a03bf942e8dd2c508a1e1144c2e5c781420fc960bd44",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_373": {
+      "file": "assets/audio/voices/published/0ea2feb1147b0a24c7a0.wav",
+      "sourceFingerprint": "7d59fa8858bc3a3258df3e651e96007efd8d573a456e1a2f38be59e90e2f9b1e",
+      "renderHash": "992ae9ef13df288b4966be577a36cf7fb9af04d77d880a1f288297bc47825b57",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_376": {
+      "file": "assets/audio/voices/published/8e808ae47679cc083103.wav",
+      "sourceFingerprint": "2443ac672c31d50a5b34eda0ba514f0ea47e412e6a943dff080675f11a9de5c9",
+      "renderHash": "2763969000ce5c57251d4fe5a58d41f78f2219b9d9f4ee2eca7bf1f9d9815a24",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_395": {
+      "file": "assets/audio/voices/published/fcdfbce0857284c719aa.wav",
+      "sourceFingerprint": "b4cbf81fbda9764357364df092053a3e0083d60a348eaae73fd0f0b4013b1f1d",
+      "renderHash": "8a66195637ce9ed3f5e564f88fd15f2f0c08d3650976ba65b6b17b6383cb835c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_397": {
+      "file": "assets/audio/voices/published/1d27c698d7ba3d70ac4b.wav",
+      "sourceFingerprint": "2cff5322acbb66c74c9d827cbcaa40e16dd805b769a9fc67b4d19c324e905efd",
+      "renderHash": "ef5d7d576dd6136c4c86fb5cbc53174f645226163dd7b72be9030dce5bd06159",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_404": {
+      "file": "assets/audio/voices/published/ee553eab1540bad268c0.wav",
+      "sourceFingerprint": "aca1bdb4550feee709651e94e1826e13026ba9f25edf2ae75d2e1f64b52ab70e",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_407": {
+      "file": "assets/audio/voices/published/e791b5d9626ce50bb748.wav",
+      "sourceFingerprint": "209a90755a703692ffe653d732ae6fca1f864e17a3a28d5f38ae1bc0a0783b8a",
+      "renderHash": "86cecdb705357dde567baf39e8558e4875eb5b43f1cb3f385479af6568ef23e8",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_408": {
+      "file": "assets/audio/voices/published/4e59eccbc8b4f572c5a5.wav",
+      "sourceFingerprint": "9d9bafafdfd36997bb3601e92b11c33c9dbb8d1f78c4a3562390b5cd3e93a827",
+      "renderHash": "27dd43078fdf3dd428b4351abee79df65cf264cb96d26cbbd365cc243a3fa37c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_409": {
+      "file": "assets/audio/voices/published/f8c21dfe9b161bcfae9f.wav",
+      "sourceFingerprint": "35ad333fd09ba7d1c5d3afa7e18e15aa17010a4f00600e05a0e4594b4cce4813",
+      "renderHash": "3ed280b901ff2e39e34acfbbb75cd4a0f66ead6f8b7552e412ac79b5786fd290",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_410": {
+      "file": "assets/audio/voices/published/40c1813e4331fc6d4c63.wav",
+      "sourceFingerprint": "fcebd5e0fd82ff16c959f51120ed9034debdc229e4d594e8f0d81b4d166564af",
+      "renderHash": "eb398fb0ed9bcdcd01ea41a6e8875d5d47e3720ee32123f216cd8f73ab89a7a4",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_411": {
+      "file": "assets/audio/voices/published/2d2f97c1941ce60a570b.wav",
+      "sourceFingerprint": "3b9a23d424cbb25856a254379269ad489be64bcaf51b39551b8905bb6a3d7380",
+      "renderHash": "a01438876f28a761a5b0360673e007fe62d3816e0d9a921f8c5f9775b8254a9b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_412": {
+      "file": "assets/audio/voices/published/1425265a989588c8be36.wav",
+      "sourceFingerprint": "e5567cacc285cbedec4829a014a9e0672f280c31a53ed9d1e193775a6b641712",
+      "renderHash": "8a1dfc4cdecfb10fc39247ab956a83074ac3da95891168958e1c19c659019ca4",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_413": {
+      "file": "assets/audio/voices/published/ee83f1bee872d1607be8.wav",
+      "sourceFingerprint": "7466a8537dfd05c49415a6a688c0ca44a47a207e46d3d6cbaf3bf6f8c96018d0",
+      "renderHash": "0655d743a39b8087fd1f6db8d1467dd7c25b06394b4ba8774fa5679368e7a50b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_414": {
+      "file": "assets/audio/voices/published/e394ce779509f80083a1.wav",
+      "sourceFingerprint": "c3d6e0b8a3712f73e5bb88a0134a84a98d96832c3f8da206bf6f72a7ced7aaf4",
+      "renderHash": "0e39f21aa44977ae4febf3029663f6fd43fce3ebdcd4580dd089f0cf0ae05e62",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_415": {
+      "file": "assets/audio/voices/published/bfc0a56b7f12fa4a464e.wav",
+      "sourceFingerprint": "adf5706b8cdfc52eff57a4f0ae758ae5af28880f9d2286d2696214939d3a59ab",
+      "renderHash": "243fbcfcfd1eed57f6f53beb62a1b8e155b959db4fe765b5e11369170462d01f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_416": {
+      "file": "assets/audio/voices/published/672d942ed4f642b7e9a6.wav",
+      "sourceFingerprint": "031a3e3fb76ebb41e3f83f24852df0fba2c9d787b1399e677b4e838179873da4",
+      "renderHash": "a1735a17fc6913dfabbea9b7ed691e524e838330d85c46b3832a88da135bb701",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_417": {
+      "file": "assets/audio/voices/published/7731ff3e6920a1aeb080.wav",
+      "sourceFingerprint": "fb52dabbac74abc9f6c00b04ee83e783ed57f776e5710762790d3916315ddbff",
+      "renderHash": "e826d0f6da827722b8380c4c3fd2a86d38dce9f8b8743c53f6385c3ef445928b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_418": {
+      "file": "assets/audio/voices/published/cec0bfe0ebea5ea19ef1.wav",
+      "sourceFingerprint": "f5e08788329d59784a53c971a42244d964cbcf06796034e095eed4c90ca57d49",
+      "renderHash": "5f6fdc0c73d83305f8792d9f16fe59db423a9353f9ca65fc608e65f4cb2bc2c2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_419": {
+      "file": "assets/audio/voices/published/e5f896f9a99665ee8c0e.wav",
+      "sourceFingerprint": "f5e08788329d59784a53c971a42244d964cbcf06796034e095eed4c90ca57d49",
+      "renderHash": "5f6fdc0c73d83305f8792d9f16fe59db423a9353f9ca65fc608e65f4cb2bc2c2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_420": {
+      "file": "assets/audio/voices/published/bbf61596110534bc25ef.wav",
+      "sourceFingerprint": "f5e08788329d59784a53c971a42244d964cbcf06796034e095eed4c90ca57d49",
+      "renderHash": "5f6fdc0c73d83305f8792d9f16fe59db423a9353f9ca65fc608e65f4cb2bc2c2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_423": {
+      "file": "assets/audio/voices/published/908f19120ff19d56b326.wav",
+      "sourceFingerprint": "2b0a587ccbdec81ca0ec580e11cffc42abfb73ec57804c51190633b7c7a84661",
+      "renderHash": "fc18effaa06aaa08c4102f52d86e1408b74c3dbf8d8dabd060cb2075c843dac6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_426": {
+      "file": "assets/audio/voices/published/80a92e931e12098abfd3.wav",
+      "sourceFingerprint": "897a61ec63aa8c450018edcb3e96a2fccfc217a4c3a327fb4e912380cec3635f",
+      "renderHash": "2dbbe6b401e432efb2be336f68b36e917e52054a1d074ef0fb9ade82fcf555bd",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_444": {
+      "file": "assets/audio/voices/published/d8b54056d30234675d64.wav",
+      "sourceFingerprint": "aca1bdb4550feee709651e94e1826e13026ba9f25edf2ae75d2e1f64b52ab70e",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_446": {
+      "file": "assets/audio/voices/published/d97a9178a4cc7f8b3043.wav",
+      "sourceFingerprint": "64b1cc417e4729f50e3732868bb6ea4943ceff05ed1c0d25050e0838bf21c5b8",
+      "renderHash": "ee981b3a4b991b460ee56dbf838ea21aef315d4219bad11f7f0689f1a21f5197",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_448": {
+      "file": "assets/audio/voices/published/7216228a8ebb3a815988.wav",
+      "sourceFingerprint": "5beb859097c7c37cd369830123ef9135270622f6db280c8d1df10da4d5eef204",
+      "renderHash": "9940ac050031d74c69e9d91c92928724999f786ac04a68216b38ba779e1110a6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "ch3_468": {
+      "file": "assets/audio/voices/published/91f45aa2b1680689e4f9.wav",
+      "sourceFingerprint": "92952f87adcc8eff2930ff5f9fd00096118915a4d552c053acb4c08b98bf2ff5",
+      "renderHash": "9f85b1f83cba37ffacfaa7f607fc33ae2d68a62a20cc3c77d8a6f49e33185b9a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0032": {
+      "file": "assets/audio/voices/published/7cfae6c846af1b39528e.wav",
+      "sourceFingerprint": "f5ea6d02b70c2eb1faf26d7e74b1c27b57114a353805fcc6dce1269304bc5d99",
+      "renderHash": "24ef625557d85b8f8861cb4c9c6d108f7fa7e1364110225b8e03951d6e1a4238",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0034": {
+      "file": "assets/audio/voices/published/2a0d5a7149e01f3c0ca9.wav",
+      "sourceFingerprint": "8f2d9a6035b0f18e0553e25231cd81999184ab9fc7d39ee1dd04245c14faf7b9",
+      "renderHash": "fa425f706a6e568baf4c7afa56717415afe77eb67466e334cf72733ddc93689b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0035": {
+      "file": "assets/audio/voices/published/5490181f61b966b9946f.wav",
+      "sourceFingerprint": "c992b884a337034e5a5ee13532ec44b57371ec373b4dedada53894127b73751f",
+      "renderHash": "f7e168563c1ea8cbdfb203c06134018e62d80fa9c4245e4c130e07e5540b04ab",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0037": {
+      "file": "assets/audio/voices/published/1ef91093e5814c6fa168.wav",
+      "sourceFingerprint": "7b9cbe7f0b063ab3cb9c9abdb509f5e6869904d8af950af33efd4702bc0e37f4",
+      "renderHash": "24ef625557d85b8f8861cb4c9c6d108f7fa7e1364110225b8e03951d6e1a4238",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0039": {
+      "file": "assets/audio/voices/published/5d483707506a3a993294.wav",
+      "sourceFingerprint": "3c2c15795648edf78e60a50d80105adf2d76ca7725d41a3285872bb7b8a2095f",
+      "renderHash": "fa425f706a6e568baf4c7afa56717415afe77eb67466e334cf72733ddc93689b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0040": {
+      "file": "assets/audio/voices/published/bf2ee0f88c52b68ded0c.wav",
+      "sourceFingerprint": "271b1259272d4e3254682511e6e1e6e01d96d6900c62cdb745c9ae06440c3edc",
+      "renderHash": "f7e168563c1ea8cbdfb203c06134018e62d80fa9c4245e4c130e07e5540b04ab",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0047": {
+      "file": "assets/audio/voices/published/455e2de2a7e1b064cd15.wav",
+      "sourceFingerprint": "5a064c273698550f7cbe2eb65c982e1a62cd3c46ef5ff5f973630bc142cdfc05",
+      "renderHash": "121d4c0fae22d57349048f031381c2a3a9c5e3b68ca7e8c877db79d7436385e2",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0051": {
+      "file": "assets/audio/voices/published/4e30c3c4737e9d771351.wav",
+      "sourceFingerprint": "6f77b366e08fac8174614cfe86809d5dfc3c4130707d4460ebe1a4f1fb0db8f0",
+      "renderHash": "104b4bbc812bf6118763c294582a2a71eb87854d2e94845b6ae63b8bc3f85f24",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0053": {
+      "file": "assets/audio/voices/published/ff1b97f6c496f54402e9.wav",
+      "sourceFingerprint": "40c4313c25413e467fcf0342b18d4b58b1f4268fd58955ebcc3f752f6c32fa84",
+      "renderHash": "c700ea65b411b354d3e01bbf72ae4686d6ee74b58b705b3ec207e9dc67b320ea",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0055": {
+      "file": "assets/audio/voices/published/4cd949f90ce25777d886.wav",
+      "sourceFingerprint": "9bd69c964a2cc11dffd6b0cd013ff43dfa32650c79692624f2c0b4fab6c88761",
+      "renderHash": "b447446746f27fa8233f1d19ae927acb0cfe462bcdc0be4ee4311055513c8bec",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0057": {
+      "file": "assets/audio/voices/published/977adc0c29a55aee8a4e.wav",
+      "sourceFingerprint": "fb1a4d45d99d0839f6ecda0c51ae26bed5f958f6495ec19636d5e273c5a9c2a5",
+      "renderHash": "e84957c068500126913a81d02feebc447e6bc8471a49a0a591c264e3881214c3",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0067": {
+      "file": "assets/audio/voices/published/d2833564ebfb1f0e3f45.wav",
+      "sourceFingerprint": "cd390db84fdb6422f5b7214e0fe0d9cb1290f21b45325a80209ba99e42ba8bf7",
+      "renderHash": "e1dffda2ed74c12a41bee7f8d11417d3c728553b64373714549e4134e2654e39",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0070": {
+      "file": "assets/audio/voices/published/30f431e0c1fd531b5dee.wav",
+      "sourceFingerprint": "3657e220d4359dadbcb6064593561dc84075194160314a7e528d607fa9064761",
+      "renderHash": "1fd9b8ee18491ee8c774d38045a95367c48fe437d264dc3e8f66e85dcbf6c555",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0072": {
+      "file": "assets/audio/voices/published/1a37ba3e062fd920c6a2.wav",
+      "sourceFingerprint": "fea892924268fabe9f880053b900283001352e7f1f901e34c5433f103f052648",
+      "renderHash": "0457b750ab9cc2e109ebe0ba89021b4522d25b46260b236205aa7cc6ecc7d681",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0115": {
+      "file": "assets/audio/voices/published/7bbe898c52c21af6f9f4.wav",
+      "sourceFingerprint": "8ce7bba8602394d70f2d3e15e0ea6ab2a552891876d3ada007e12d030d95bd09",
+      "renderHash": "17569e0dc45563d6d6fb8eed358bbcc90d323b0527d96b8f2a5a50677dcde52c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0118": {
+      "file": "assets/audio/voices/published/fd42e25af99297ec6f41.wav",
+      "sourceFingerprint": "589b71e77985b492e5a2d4be7c5199aa265885eb5c07cc5fe8a76c3520115813",
+      "renderHash": "43236bf28a577567e11daaff565c4b42bf2375745c6c2bd1d2c7413c1f82d3cf",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0122": {
+      "file": "assets/audio/voices/published/dec7e697447b5dfa442b.wav",
+      "sourceFingerprint": "003062dfda5f27b3a4c1d4d4863fe329fc630b7c76b00cb58caed8510bae86bd",
+      "renderHash": "071885bf0c736888bc2f812e1c7e617632af911d2438bed3b92edbb7c2d4c20d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0125": {
+      "file": "assets/audio/voices/published/9ddf9aa6571fba23b88b.wav",
+      "sourceFingerprint": "0ef13590e94f03c5f0d23432edb9da8753a64a960e667c0daa59b6c3ee3fb3b6",
+      "renderHash": "267ca8dd1c7277fc0a572b8a08e6bef1d7d60a8caec2e7a5b34133c05be5ccbb",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0152": {
+      "file": "assets/audio/voices/published/b3fc838d9b244870560c.wav",
+      "sourceFingerprint": "e2ea7879a820ad31d124b4f404c3a3feb68be69ac254d5ca40fd20e592343396",
+      "renderHash": "4f41893046c72a8360a0daf306f404874f704dcea563a0fd95863f127f1cbcdc",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0153": {
+      "file": "assets/audio/voices/published/810e5ff34c5689137428.wav",
+      "sourceFingerprint": "0fa4a2bd6ece39dbc5bf97132572f42c572e3256706a8b733d3753a97fb6700b",
+      "renderHash": "25b8da3ace4f03021fcdaed782ebbfdd05111a96c8e7ab08f3791f92dcd7ecbc",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0154": {
+      "file": "assets/audio/voices/published/1b87e0b0205411e0fda0.wav",
+      "sourceFingerprint": "94c799497010038c95b9bc059535fc65b83857ddccd63bb7839c3cd35c7146f2",
+      "renderHash": "f4963167ce32e35f0e9614a6df44da8f01efe172cd31da1d2e9f0e8402f2361e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0155": {
+      "file": "assets/audio/voices/published/be080dd6194b29d7f188.wav",
+      "sourceFingerprint": "9ec4743debac89daf17771a0a159b6c15418a4e46acecf87119eb71233a15efa",
+      "renderHash": "c8ffd58f33b53c0265c2fc97d0cbf9f32adeab76a7c940ce98f15a222a4831a6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0156": {
+      "file": "assets/audio/voices/published/3b9d2b18bd9591535e67.wav",
+      "sourceFingerprint": "f230e2dc98bbf0bae04befeeaad7f97e7f6491ccbdc0f79cffc569d9ff523924",
+      "renderHash": "04194842ed7d59bcfd30e390777f2617eba61b657e2fd2f9207792432475db0c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0157": {
+      "file": "assets/audio/voices/published/34a7f0e396b8e79edfce.wav",
+      "sourceFingerprint": "ea079ab60c5af343850e5ca8bc389e947a2ee45a2ec4cbd84b49c517fb7f5918",
+      "renderHash": "5ec36e29d13cbf77fba4564a2abe423b4a415c123b74a97dd15b01265c4c0e67",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0162": {
+      "file": "assets/audio/voices/published/d3c13263f0fa475734a7.wav",
+      "sourceFingerprint": "7395e97f4cca05af361e89c48e228ccd662bc2aef7531c425b509a882626460a",
+      "renderHash": "b4114fae5f8e57095bfcfbe0e39b5962f13e35e8909f11a34b01bb9b53e92119",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0164": {
+      "file": "assets/audio/voices/published/53b8eac9b2b9d22f554a.wav",
+      "sourceFingerprint": "e2069e1d631aae9d1aabde6c8929a71e173aa6e73763f96d82634977b1e61660",
+      "renderHash": "b4114fae5f8e57095bfcfbe0e39b5962f13e35e8909f11a34b01bb9b53e92119",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0165": {
+      "file": "assets/audio/voices/published/8fbfe03b8f6dc7ea7e44.wav",
+      "sourceFingerprint": "4d9fdc172d9e0de063a3f9f0a62ed69d98dae9235ce63d47140c8d79c74c5c9b",
+      "renderHash": "5016c4551f778b4b2bed21936f438acda4fc1eea34dec3c42e4eed65d88e7b6d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0172": {
+      "file": "assets/audio/voices/published/c9a5997b86425c2491b9.wav",
+      "sourceFingerprint": "f7d1d524ff8133964092fc7030205e2f68e3c9798c53bcc2c31f2d36d0dca706",
+      "renderHash": "5f6d0435beadcffcf10f17425cdc42040d461de4e84fdb49fe8687b47627ce4e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0178": {
+      "file": "assets/audio/voices/published/9b13f42104f1e6cd2a99.wav",
+      "sourceFingerprint": "ecf262b4347c53caeee83e1e9b6912b6b13108bbb4ed89638db31db9944ab132",
+      "renderHash": "0975c8f13504769feb6e2abd926457e1a4ee3ab16020d4e9ea043393a305e701",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0179": {
+      "file": "assets/audio/voices/published/5b7521d0c9efae845ae8.wav",
+      "sourceFingerprint": "adb50332e31c25870fda78449f0fb491620e9f1ab3771b156a18078829255791",
+      "renderHash": "020b8bf6f03b184fdd437d57c83b42381a4ecfe4a8cac193a734e6b937453109",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0180": {
+      "file": "assets/audio/voices/published/78f0d30e006213ae2cca.wav",
+      "sourceFingerprint": "aed5879a878cb58c26860244916b9cd11800b7df4df1740808a2df0609aa47ba",
+      "renderHash": "12119c6bd1450a5009cabc1e1f559537f34640b88dad13796f4844c50207645a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0182": {
+      "file": "assets/audio/voices/published/cc846a1af93cdf184787.wav",
+      "sourceFingerprint": "af7669b3b68a0356ac5e4594a66d387d93ac6bdf9b4685cce3b28aeb1dd0e737",
+      "renderHash": "54e8f2ef3b2062ead1a2eca891554ef302c69c31c5c9a54b51cf8d32f29e6ce6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0183": {
+      "file": "assets/audio/voices/published/379a2ce4b8e786f394a7.wav",
+      "sourceFingerprint": "869c5d6fa8ea8f004ebd4457c2b04ef120b1bcc8c42722e3328b6a87a8e6a8a7",
+      "renderHash": "7d6c91ea641ea9f999bf92f9c35b6dabde6b247df56b2c72d3ba224981ac6a2c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0191": {
+      "file": "assets/audio/voices/published/608f7cb2be4ca69e5c4d.wav",
+      "sourceFingerprint": "7f1a0c21caa1ec300ffb5a5c765c63894edb9d5d06f032a78cfa7f76f1e03c06",
+      "renderHash": "14f27e0f4a514c9dcf20eaae990f5bec0b1ce898c9931499e815e1d2a32d5564",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0193": {
+      "file": "assets/audio/voices/published/570d77c01087e05a4a4e.wav",
+      "sourceFingerprint": "ff1dc1713fab95007834915beeae0ac18fa73bc5ff8108915246353bd1328ca9",
+      "renderHash": "ce66b6d3e6bfc8781e6abf56c6259feaa7b5ea396ccfe56037040813cd6d430b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0194": {
+      "file": "assets/audio/voices/published/6c08ef0bc710586cd417.wav",
+      "sourceFingerprint": "85709508f38758a4d7b375126d2c9e897b569fd3d3fd479327c6b5505212f062",
+      "renderHash": "4ffb7ec2eade06a3c2f04666caf3555f4d2ca6d75d166bf6ffa703c6a11b870d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0195": {
+      "file": "assets/audio/voices/published/0e8760bdba220b2838d9.wav",
+      "sourceFingerprint": "620601e70f8927acfc9aa9ed7ced07c0c41b492516937a23231b72bbd89436d6",
+      "renderHash": "d004c02da653e614fb6777f4109de10e2cb96610be5a66b3a50b28f0735aa1fd",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0196": {
+      "file": "assets/audio/voices/published/7fdcb5101a1bc5c31acb.wav",
+      "sourceFingerprint": "b0a7cdb8e3fbba9d2ad01de8d2c517475f2284aa7619701de6e4643442715195",
+      "renderHash": "a354b6e29735a8a2972fd2b6a343274f61f48fd9778bad08c61642bcf6f455db",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0197": {
+      "file": "assets/audio/voices/published/2bf699d2af774fc0dd2a.wav",
+      "sourceFingerprint": "8bfa9ccb6509dc7d89638a0bf91efd914a334db0024e6b2e49e3de9f723b7c7b",
+      "renderHash": "c245bbfdcb51280d991d109ac4450ecbcbf0876fb9a696183a0a0528534f2987",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0200": {
+      "file": "assets/audio/voices/published/b85029da18478cde76b1.wav",
+      "sourceFingerprint": "76f70cbd63f8097acdddbf0b536da3c1100b4f1251518a3026458269db934582",
+      "renderHash": "4d256e6d33f38489195a057fb2781791930a54c01a320b0a256424d810231e55",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0201": {
+      "file": "assets/audio/voices/published/9945430682986cd17601.wav",
+      "sourceFingerprint": "4caaf0bba341d6fe48eddab8c9acb3b6bb80a320b6311d4db3e027fde7349e47",
+      "renderHash": "aab816625d50e3f4968acf2d2f242c693244a76185a8420fdc7d23523fc183c4",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0204": {
+      "file": "assets/audio/voices/published/1b5bd4db855b9619f76e.wav",
+      "sourceFingerprint": "4ae85ec498880d0e4ebc1635d0f03def62ce3249cd8fa58422fcce34e848bf54",
+      "renderHash": "cf59a6d16dc7476aba901c9c02129a8dfa88d6c8dbca29ebf913494bdaa9ba0b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0211": {
+      "file": "assets/audio/voices/published/01ffdf1b5845b666860a.wav",
+      "sourceFingerprint": "a0115024ee218c608885262b744072418c3badb3e435a18a0e70e42ea5514cff",
+      "renderHash": "ba4e67672998afc8d5fa61f642813a93a472534522d719e2688861b1fac74d0d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0212": {
+      "file": "assets/audio/voices/published/c40188eb6dcba605a2f8.wav",
+      "sourceFingerprint": "787bb754fb8e58ed3e3e4c2937eb253b3b4c8420279d6b4b5d1551de5a95d279",
+      "renderHash": "938f3916f65c4fa70f226bf1e2394d57806fba0537e0931a226498eb2c72f23c",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0213": {
+      "file": "assets/audio/voices/published/36a965effda63b8c6444.wav",
+      "sourceFingerprint": "67d9fe9515f9ab4ade84c2c4d4274326249a04db965674209d6d8574b2dfcb68",
+      "renderHash": "ab48c6b747ac4213fd1642924eb44c069f11a14c34691e3d5fe1a702734f0a31",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0215": {
+      "file": "assets/audio/voices/published/2a0caa1b0af94d8cb2a5.wav",
+      "sourceFingerprint": "3f40fd6acd15c661862e0d9d7ddad173e7e653e29fc4888198e90db22093a58b",
+      "renderHash": "da260d31012ac6b86c4c6fc16711a83d3ef10437328dcd5b93aa1f3277013d02",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0218": {
+      "file": "assets/audio/voices/published/6d5b747b8b50169d11f5.wav",
+      "sourceFingerprint": "1aa546aa488639f2d834bcd82f1b9ae99fe3eff15c53ceb7781b089ef1d176f7",
+      "renderHash": "1fe57611f3217dfdf7b9dbe1840f2511df5b04b5b221e8b36597789635d8166f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0220": {
+      "file": "assets/audio/voices/published/c93101f75c9d4c812d57.wav",
+      "sourceFingerprint": "3a243fdf8d4533802d5f02495861c5608a56d33c106abbc224027c901a359437",
+      "renderHash": "7ec82e13dbeab60c2fc9a1b657fa24b46d0203d9990851d3ffc96c5675cebba1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0225": {
+      "file": "assets/audio/voices/published/0bea9922424e84b74105.wav",
+      "sourceFingerprint": "2ad4d77ab7ca6d73a2568d9653621c31d0cfa7f259ec22c4e494e843d3cf91bc",
+      "renderHash": "5cf7f42ee4bd76bed99caff6f0a3082805389c69622d7153441d5132fdbd3991",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0241": {
+      "file": "assets/audio/voices/published/695d09a459a0d001cab2.wav",
+      "sourceFingerprint": "418d05577932903c1bd27764b4586a69547cc9c3f5d958dab4b675058bf5fed4",
+      "renderHash": "a2c5a899644a5d6e640d4906317ca81f9b4f0241d949aa992d2b94fd12027dc8",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0242": {
+      "file": "assets/audio/voices/published/ff86e0691e62e0cbdd9d.wav",
+      "sourceFingerprint": "b8e06afbdaa89ce11db3c536473d218adae97ff7e19fc8605450057cbafb1c46",
+      "renderHash": "30b1bcc9b9469bf6e873f6ae662c3f589b4a60342c3d86a020bac90740ade50d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0244": {
+      "file": "assets/audio/voices/published/9fa76a95ad13eba518e0.wav",
+      "sourceFingerprint": "46f563d27bb9b5242a05b6c79001e472e810d6d02e9a1052293cdd150415a1b7",
+      "renderHash": "224550233dc5070e66800b73a4518ba9baeec227ce037b0db931439516350463",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0248": {
+      "file": "assets/audio/voices/published/0bead984a7d0cdfe2251.wav",
+      "sourceFingerprint": "060cc5f0c3627a4a504a5af89bf6f872f97f7d2a3476af8468ad790a1f8d840b",
+      "renderHash": "a4e89e599d45e2f9e93f6fbaffc4cadd68f0bc32e2e4068c6797316ca99d64d5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0249": {
+      "file": "assets/audio/voices/published/f25ccc992a8211cdd9f9.wav",
+      "sourceFingerprint": "61d8e0e7f3fbbcadb962f5fb02313a233c465be948b270110eab238189f7ed5c",
+      "renderHash": "57ffde507ec90b8b0eb58a6f76192dac111898e4c79c7ebcd2cbe3dff008d05b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0250": {
+      "file": "assets/audio/voices/published/8059e465038718f1a4f8.wav",
+      "sourceFingerprint": "1dc8a4a2e881e992a0f50e00b8d27a429769d16c1ddc4a480a19aedebef387bd",
+      "renderHash": "38d0a244c55fe5558977c9a4fab9a34a9a0fb4149b030dddd34b27623d73fa64",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0252": {
+      "file": "assets/audio/voices/published/6bc2e579a5c15e7dd097.wav",
+      "sourceFingerprint": "76a2cd967772bed6d6a2a275556843c83a27fac05adb11a610d290d529775090",
+      "renderHash": "523d60fc1ff0cbc403e9e3ea5fb5a326dc425593f2a1237d0724eee3c7203769",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0253": {
+      "file": "assets/audio/voices/published/97fd2a3bc45373cf2dc6.wav",
+      "sourceFingerprint": "a3054c7fc33aebc573f9713e4fbcd5c3b03511b41713c5e5352daf1d760082d6",
+      "renderHash": "8c63fb2811039a5be3440569b1a01432b149a0fa1bc87cd9ca99f6ce075c3f42",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0257": {
+      "file": "assets/audio/voices/published/e5c8c196371d2eb4e8a2.wav",
+      "sourceFingerprint": "64339f8646b457d7b2c65516366896b6fb56d4f301a8c4f9a70a95ab40527a42",
+      "renderHash": "ea71dbadc8ae12e02995dbffb8961d3080019396cd42eeef3a823930bd4377d3",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0258": {
+      "file": "assets/audio/voices/published/ea2050586feff2f65c83.wav",
+      "sourceFingerprint": "fccb7b7c28300abbac1060bc98c74cf871812cbc68d038872577438142537ace",
+      "renderHash": "8df02cbb3b946f3dd73471c5aa59c4dcfedd6901a0c0bc40508df9e053d00395",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0274": {
+      "file": "assets/audio/voices/published/e29118377fa431d7ea5f.wav",
+      "sourceFingerprint": "00c4b17f0502e5722b5b3dc9ecedf9d88df2636aa5343cbd39fb3934dd5a05ce",
+      "renderHash": "ecf52326b7512e4db396612a0f7a894f81c74d0d32b0bd1e80ff37710527a30a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0275": {
+      "file": "assets/audio/voices/published/d3a5fb1a988a79f80948.wav",
+      "sourceFingerprint": "e2a845cf9f41293695f9d7343a0e48c3a0203558c33e8e7881d9d02657d848d7",
+      "renderHash": "8ff913d5478ed86773b0eea64ba64541b8414e98d3278b8df7ec5f34d83bcfb1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0276": {
+      "file": "assets/audio/voices/published/b434416532747a3bd52a.wav",
+      "sourceFingerprint": "ef127facbbdb8bf3122792ef9ebc0fa758edb4e1903023a70f9a509154548118",
+      "renderHash": "e8d5e3464a4dfea43aed9fe823b98d8ba527d214765245498c56fa0ab1795e6f",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0279": {
+      "file": "assets/audio/voices/published/d6603f1143903a255a19.wav",
+      "sourceFingerprint": "ff87eb41254298ce7b6e664f6c16581825060b9b307156f66ca702cd08c23977",
+      "renderHash": "3798da11200c4c373a45c1bf7625d9da69656fd53d409e8fa1c07b43a65e1fab",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0282": {
+      "file": "assets/audio/voices/published/49ca81dff36e218fd31a.wav",
+      "sourceFingerprint": "c7583e36e9daf176db47fc900b1cdffffc942df1fc9362f3adcb2ff5921842ac",
+      "renderHash": "bfa3171ca8e1516a8c253fea3a78bdd797991e111c4faba9b4f9531a089abc72",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0283": {
+      "file": "assets/audio/voices/published/c68fbb4c71be82b01472.wav",
+      "sourceFingerprint": "e1fc48feeef702816fda92bf1723cba2d520810bf037674b4f3532a3ca532eaa",
+      "renderHash": "ca71471e2700edc630307771a66a4536082e4339a48100327420e2210045cab0",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0284": {
+      "file": "assets/audio/voices/published/26562fe31bcd740c14e5.wav",
+      "sourceFingerprint": "a6404228add086747fa84084b775cafaafd99407e7f8c301494f4949abd3869f",
+      "renderHash": "5a40bafba1f2c27d920c2a82c89c7b4e3c31e9383361b63eb0f5b3bfedd00961",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0285": {
+      "file": "assets/audio/voices/published/6f2b9f067cd3c2b33cf3.wav",
+      "sourceFingerprint": "a057ad0a7d1a20eb29fd27176645d40a4a8b73d6950f0d2a261e0b4d6e548709",
+      "renderHash": "47e81ebbfc78974386d3c45772f5b24f09992fe9771977154ede63b622d6d3af",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0286": {
+      "file": "assets/audio/voices/published/26aa99d55a9ce7c2083c.wav",
+      "sourceFingerprint": "3deadecb0c47b07765a066e105c8f4756f2bfc1df1845fcc0d47b7682eecf774",
+      "renderHash": "b2590e5eecc435849d461e93c5ed321f7f6e46fbc7612fa19566b5b9780a21cf",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0289": {
+      "file": "assets/audio/voices/published/81d67ee103fb7c3d7617.wav",
+      "sourceFingerprint": "2d130a6b84aa96734d87f983d370f107aa5ad7ea2243cf6ecb6ade89ee6b4cfd",
+      "renderHash": "d4232453f12ed758a5274dcc5dd34c4770a8cead37eaf2c5f2c7dc7fe1e3cff7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0291": {
+      "file": "assets/audio/voices/published/1315b97c22a3269bd22f.wav",
+      "sourceFingerprint": "61e0709f3378793b5efe8bcf297b1647260de50d928abeb3b5be29ad160d3bc4",
+      "renderHash": "d202f4632eb21b2c09a5cf1021ddf85cecc8e60176de50b0c7368f1ef01b282a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0292": {
+      "file": "assets/audio/voices/published/7ed554b6520af4b3a343.wav",
+      "sourceFingerprint": "7dd21ae16101b9b1e17756022c6da24b601d13978bd60e4c74e9852b8078dbda",
+      "renderHash": "a7d22d344e7e20d2340bed20cd78b6164aa18ed01337fd829af8913f5db11487",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0294": {
+      "file": "assets/audio/voices/published/2b5d369ef5980972d28d.wav",
+      "sourceFingerprint": "83e55fa94c271fa083cd77915b771c3a19d46b41342cf3d526e48ed61b534ae1",
+      "renderHash": "09f8561900e93a1846f98d68f392134a2dfeaecebc83e63c81b7dd1a6c0f463b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0296": {
+      "file": "assets/audio/voices/published/75bf7522bbc4a923af50.wav",
+      "sourceFingerprint": "588ae7b6bd34abb550820cb9d415c12ab65a7e4bc33053db125eb388ea6cacf5",
+      "renderHash": "6642fccf8df06644d06e6d0dacbf6836bae3e0d855147cfc23f8a8d1a1d03eee",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0298": {
+      "file": "assets/audio/voices/published/5710f85719f3fe05b2e5.wav",
+      "sourceFingerprint": "bad05871955cb415dcd38b9af41b6cde408f0502aec4cd9571153bba903aca20",
+      "renderHash": "8ff913d5478ed86773b0eea64ba64541b8414e98d3278b8df7ec5f34d83bcfb1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0299": {
+      "file": "assets/audio/voices/published/eee79e42b23f881d8b22.wav",
+      "sourceFingerprint": "7be416c4609c84a6d859248fee430c53f103c0d88bea1989494abd75bbffcb5f",
+      "renderHash": "d1d41cf57de3449401b7cf958361d443a92f3ae9b17be5127636cab52799b6c9",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0327": {
+      "file": "assets/audio/voices/published/731fddb060fdc1abbc62.wav",
+      "sourceFingerprint": "414371e645949117b4009dc5c2deaadb6585b84ca66f28703328ca3faa9731a4",
+      "renderHash": "b4114fae5f8e57095bfcfbe0e39b5962f13e35e8909f11a34b01bb9b53e92119",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0361": {
+      "file": "assets/audio/voices/published/317b6a5ba7a72d7a2b95.wav",
+      "sourceFingerprint": "3047aa5c35c7ae357a1cea60e37a1ee6385473c6c1499c29e70414d3e82b5678",
+      "renderHash": "7f84573a1237488a27707027be6f122309259976cbcf1340fe406f0de82cfd8b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0384": {
+      "file": "assets/audio/voices/published/87020cd9fcaba8bfe94a.wav",
+      "sourceFingerprint": "a56b2115d87b02b9312e3484a3296b3fae9a2979b4484748a7af696f1fc5d454",
+      "renderHash": "8d907082b90514b9d003ecb1bddc7e64f9d086c078359da34c9a26e8b39fd8aa",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0385": {
+      "file": "assets/audio/voices/published/5b1cdb1fe3ec157039fb.wav",
+      "sourceFingerprint": "405442b1747b3bd67d7c380f21cf20105394e47bda37913c4351f852bbc6498a",
+      "renderHash": "8b1106a0fcb0b4432343cca7d87a4d3e9812974b1829d9317499450e3bd5b1df",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0386": {
+      "file": "assets/audio/voices/published/f058589ab5efe17cc7ec.wav",
+      "sourceFingerprint": "3c09096d1612f9c5447a22137f5031955c3b54ad8abf52283eabcf57e59289db",
+      "renderHash": "f3a9f00174c90a7ec96c8a0ee33fa98d4bf0c02c76252e21c3056bf84327436d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0387": {
+      "file": "assets/audio/voices/published/702fa7e73a8bb76cbf46.wav",
+      "sourceFingerprint": "3da8aee6680e54e34dc8609381485480a5b9b38b8e71e3a3e9d4cce0cfda4c30",
+      "renderHash": "b53d1b14042f4afee54e9c8c8d46b04e810dd93ed3376db89bf1aa4dd2829cbb",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0388": {
+      "file": "assets/audio/voices/published/9d273f0dd80e521fa4c4.wav",
+      "sourceFingerprint": "53efae832398253e7255bff6403008cd9ecaa5b5915dd0530cf7d50c7ace007e",
+      "renderHash": "8d47ec4fbc69a586c70d42de971fb576abba861d2a5df0a35e3f5755d939e034",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0389": {
+      "file": "assets/audio/voices/published/8482ffa38eee7d25aabf.wav",
+      "sourceFingerprint": "90fbbb9b4716af6bd06c9a82b59771e539f2babb2c6cdb9f81fe9625c1d14848",
+      "renderHash": "44f1ebfc26217d5a58560bb83194cfa74f9fd3267beca225731fcc52eec2a9db",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0390": {
+      "file": "assets/audio/voices/published/b336c536bafec24b04cb.wav",
+      "sourceFingerprint": "801dd0087e74d52b7696e2be119083bcb04b87091f63d8f53f7ab62f23aa7096",
+      "renderHash": "9e15aa96d0e438f7d63474e1806e4522b37e66a9db67b2cc729e31fee85fae35",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0391": {
+      "file": "assets/audio/voices/published/b5c61367ded6de72ebde.wav",
+      "sourceFingerprint": "1d60c8cb40064fe2a1f535821dab05f3ff26f0f11750df6b2a9c93c0e7f7d564",
+      "renderHash": "b6bf8a1053d613e59178c6574c7dbf38670e2bdc82874a677185d8739720e048",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0392": {
+      "file": "assets/audio/voices/published/2c14a037d92763c3a830.wav",
+      "sourceFingerprint": "48bb63eafcf08d164d1723081979f47ff01912c615f46991557d708b929e557c",
+      "renderHash": "713697cd297491f094c2db68c2e9aaaf5aafe80f01d5c4ecc998727d59db7496",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0393": {
+      "file": "assets/audio/voices/published/6246c322d75fd36dba1c.wav",
+      "sourceFingerprint": "02a432a4d6e096b9fe0b9644dd397bdf2f7d6a94c80afdf6aadeb02627a747b2",
+      "renderHash": "f82ce15a12f6aa7e5ec5fd10f8d31b3f10ba0c89a2a97d863d27d76ea24aabb5",
+      "styleId": 21,
+      "speaker": "主管",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0396": {
+      "file": "assets/audio/voices/published/219d6b5f0ecdcb662418.wav",
+      "sourceFingerprint": "791cbbba48b8299ea8634654ffcb5389de2d38e076ea05bc4f87ea0391a9f801",
+      "renderHash": "5c26115e62f73310411dc27acb9d6e6bcebd0676480b01156e264134e17cc78e",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0399": {
+      "file": "assets/audio/voices/published/6f4f908e271e4a8c6e87.wav",
+      "sourceFingerprint": "d6fa5693406e7651270fc468aabf9cc63225636eac204b5a9d106dd843d52e54",
+      "renderHash": "ee981b3a4b991b460ee56dbf838ea21aef315d4219bad11f7f0689f1a21f5197",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0400": {
+      "file": "assets/audio/voices/published/bea1fa8d424de33429a9.wav",
+      "sourceFingerprint": "19ab5a9e937a352391e76b590abb00b2d34603111a03947d6f1b0aca992a2b16",
+      "renderHash": "e0da0c54631aed721ec68ca3b9a9de3f683750f6e53609fdf667a68fe3166c88",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0401": {
+      "file": "assets/audio/voices/published/c9f920182d75521395b4.wav",
+      "sourceFingerprint": "3623d8af00cc794b5c7dde7476fec76a82be9402686187c5a6d215e80165c126",
+      "renderHash": "4490308ea907887036693cfe092100eb4fa781e2997c7d8af5facfe8b7924fa6",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0424": {
+      "file": "assets/audio/voices/published/b681790423ac83a04756.wav",
+      "sourceFingerprint": "0eebe50920016745e3d85fdc4e21a6f64c6f5897ae68713e8a2a0da481fb8111",
+      "renderHash": "3f133eb0c50e79837b5d8da1cec88510e292bce1d713dbec7710089b656064cd",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0427": {
+      "file": "assets/audio/voices/published/e62e89354ca8667b9e1c.wav",
+      "sourceFingerprint": "cc9975f51b7d7bb231d97295a38710cdf446bc1d5824fa3c4ae2efbd0a53ea05",
+      "renderHash": "74f2ea6d81a3c8543bbf9c3e461e54be98a50fc7ed505ee11f4bf5bd3946a749",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0428": {
+      "file": "assets/audio/voices/published/8ea1dee9a66dc262c7df.wav",
+      "sourceFingerprint": "ef71813c9d556db1f121298263f1789da2d1f84330e91cf3f91f3f8f78672f52",
+      "renderHash": "d10afefd47946bbe464694b5e0f28224dd9e4f91518fd528680a578d3ffa171d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0430": {
+      "file": "assets/audio/voices/published/3510779d81fcdba9b1ca.wav",
+      "sourceFingerprint": "1abba6a0177853708873717e087a9bb85d5f64c13e36ae71b5cca0f09e688cda",
+      "renderHash": "6aa321a5b32327b85414205dbabf34b2121348f438c821b3f38a3bdb305bd0e5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0431": {
+      "file": "assets/audio/voices/published/ab8e917e2d3a04d14ff1.wav",
+      "sourceFingerprint": "aeef47cec3437a3c2dee25b16e2514c6a54c822f05d4d2f44ce42a6f1ed9bd77",
+      "renderHash": "3a1addbd23229d4f7909650edca3a7637769ff22a9e00385a9738d6b9a971758",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0432": {
+      "file": "assets/audio/voices/published/b01ef5621bcc1e7ae9b7.wav",
+      "sourceFingerprint": "8196059e073ced7ac25d381221e63854c64d3e8afd62d934af4b08c1b01a0046",
+      "renderHash": "3cf31077e993c738bccb7ffae131977ee7f823ba5c503dcd90e0d639c6a1400b",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_026": {
+      "file": "assets/audio/voices/published/cd980018fb09694ed67f.wav",
+      "sourceFingerprint": "33cc94cdb6338e42ba98fa023cd0ba0f9934c6597a1bdf1c344b7064d1f89035",
+      "renderHash": "ee981b3a4b991b460ee56dbf838ea21aef315d4219bad11f7f0689f1a21f5197",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_037": {
+      "file": "assets/audio/voices/published/d59b48287f1b478be80d.wav",
+      "sourceFingerprint": "28394ec40bf5a8422f73d370300862606d5039caafbdc1c7c94ff950e6b45723",
+      "renderHash": "987614529946b28a0c6420d64ea11958538699a5bd898c88acce9eb4244184f1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_038": {
+      "file": "assets/audio/voices/published/61e19461750d1ef8c1f0.wav",
+      "sourceFingerprint": "42be23ae1e2597d3d23b8791c6ed1101307bd9ecaa040c06ef2d15767c6a003a",
+      "renderHash": "df88b82c55a83fd68749a03bf942e8dd2c508a1e1144c2e5c781420fc960bd44",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_039": {
+      "file": "assets/audio/voices/published/551cb28dc66353e8c7f8.wav",
+      "sourceFingerprint": "44b15b97acf0b11e5d6f552c1c5de593af8176cbf905294482dd64a842a8cbf9",
+      "renderHash": "f9b5dd3ca573a934ecbe921b0335fc2a74c98f09a16eb56f9d20700eb6967a76",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_040": {
+      "file": "assets/audio/voices/published/badd4082eb1e2acf87af.wav",
+      "sourceFingerprint": "6db466a3e7f63488a575f714a7432f7403a5ce57ddd5ebc9cfe30fdfc64d13d5",
+      "renderHash": "60856316787a9e48fabc4dff288830a559e867a11ba32c6b484c1189bce3bc00",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_041": {
+      "file": "assets/audio/voices/published/e6943a2e1596bd95149f.wav",
+      "sourceFingerprint": "ab92f10112c111dc3c6a47fae58b5e168146d44fec8341f16592fe61073c70d8",
+      "renderHash": "b985b0532242b8934fb62ecc666e58017da7ef830f9439bffd3194dd60ea663d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_042": {
+      "file": "assets/audio/voices/published/103673108244d7d96e6b.wav",
+      "sourceFingerprint": "c9993026ebfdf493097658634452707b1af6245c1bb6e9b00b0b8c849c202dd8",
+      "renderHash": "bfd459660b89afc8d4fcc688df08bcc3c68c116ab93f6df3a8afca1c8ebdad02",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_043": {
+      "file": "assets/audio/voices/published/b62ca73e076d0437d4ca.wav",
+      "sourceFingerprint": "6ffc33110198b390a966046db4d8f0b3fdccb96df50a4564464ff38ecf8e20eb",
+      "renderHash": "ca1a23d0816b44c630f695a4c02104dc5d8dadedfe77393aad4bd03cf1cc2bab",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_044": {
+      "file": "assets/audio/voices/published/824395171f48e64e0746.wav",
+      "sourceFingerprint": "fba316018e9d9a8cdc0f142bae03f04e1fc8faf3b00875d6cf1c9ae8187bab11",
+      "renderHash": "2ae6ef1ce6b4063a50420d290d60dfad106205ca20d24ab6d97af0a2102aef7d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_045": {
+      "file": "assets/audio/voices/published/62ec8959b4ee6baeb6a9.wav",
+      "sourceFingerprint": "28394ec40bf5a8422f73d370300862606d5039caafbdc1c7c94ff950e6b45723",
+      "renderHash": "987614529946b28a0c6420d64ea11958538699a5bd898c88acce9eb4244184f1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_046": {
+      "file": "assets/audio/voices/published/9c753f56274ebaf0d33d.wav",
+      "sourceFingerprint": "bfb18361d368668b46b854b9d54109c32b388a44e66adc40df7ebd5aafc32d6b",
+      "renderHash": "92e4d7b1962522701a388d27a127ff281cb2a56b05025b6e9dc611aec4b5f0c7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_047": {
+      "file": "assets/audio/voices/published/44622678f1cf92308471.wav",
+      "sourceFingerprint": "9a61e442e57351a5f0d9e7213fa3052579e4ed9d86da7e0013baac514b2e3ac0",
+      "renderHash": "4f3f048a02c35cbdbf49599729dd7140ed53d44208be2b0fdd67b300fe0113eb",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_051": {
+      "file": "assets/audio/voices/published/7f3ef6461f8623afe6a9.wav",
+      "sourceFingerprint": "6ea918317f965993e41d271841ba51fa15723cc25676ee46285151e5d94220ff",
+      "renderHash": "3c31d93b7ac26ebb48bc879507316e4b6d6547f93d3821f11ffc66acb3a83f0d",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_062": {
+      "file": "assets/audio/voices/published/c3478963e09086042884.wav",
+      "sourceFingerprint": "f449282ab896a8e2ec33156de68678d7109889279a3e01ee0eb48309a6df42ed",
+      "renderHash": "c775667969478592498b5653214513f91120cc47eec17ebb27f6cbeb40a80042",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_086": {
+      "file": "assets/audio/voices/published/6296ee7deee652bb7a24.wav",
+      "sourceFingerprint": "250f469624f2dea9d92696611fb748b41773cdcb5c93255c0f66027407f9bce6",
+      "renderHash": "923f7682fe625bd8103d44bd2be08ac0dcb8ea9ee91c9aec70e081a076acd600",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_098": {
+      "file": "assets/audio/voices/published/9a83ce1bbafad1d72ca1.wav",
+      "sourceFingerprint": "550247a5d412fe642c8c9edd2161373916af7915f1b1b648d75260128dec6b40",
+      "renderHash": "11b2018cb1303997c257235df44e4ad03c5677f9afb0cf9bdefcd675c4b129ab",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_103": {
+      "file": "assets/audio/voices/published/4da83113c8dd877d1a98.wav",
+      "sourceFingerprint": "d513365f48f240c86fbd62017e4dce4fbafc95b6f41350a333e863f4914a85c2",
+      "renderHash": "ee22fddd0e2ce1d999c6fa0ce01c7f0217c73889fd52d73adc1a04010b71ddfd",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_104": {
+      "file": "assets/audio/voices/published/3a51b1957fe403dde3ed.wav",
+      "sourceFingerprint": "ef915cb0ec68b7cd8c41d198636374a8dba9c0a058792b9dea842c842c10ea4b",
+      "renderHash": "785fadbc9926c588f829d3c56fb37c11517f9e2330272cdc03d58a417d0c5bf9",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_105": {
+      "file": "assets/audio/voices/published/1d011cadc88fd18dcffc.wav",
+      "sourceFingerprint": "06fd55d554a0e4f4ed6b7a2cdff5a76a2886eae770236fe1612aefc121e18c29",
+      "renderHash": "9b93cb6cb32de66557386c6d8f4f9847c8a332bcea63a3c7667f6d8f2497d3a8",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_106": {
+      "file": "assets/audio/voices/published/c1e784ce154a636b0f4e.wav",
+      "sourceFingerprint": "c3ea1654e4604ff03a51b575c11c20757e8c023468e676ab37a13dd928efe74a",
+      "renderHash": "1d6a4959a1c104956d0ab251e3decab9dc8894720c7aa5543411e6bab0205dd7",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_120": {
+      "file": "assets/audio/voices/published/64cacfb5c00a12bb405e.wav",
+      "sourceFingerprint": "999a532690f32d3591b02804180139ad332c1adb8c3f4dc7ffbeebbf88c04850",
+      "renderHash": "987614529946b28a0c6420d64ea11958538699a5bd898c88acce9eb4244184f1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_125": {
+      "file": "assets/audio/voices/published/5659d7b80739d4c94831.wav",
+      "sourceFingerprint": "de37ddf80849fa7adafa8ed2cda83434ea242e17efd5acdd0aca898cbedcf1a6",
+      "renderHash": "2ca84b31813a412abc2f13a83ae1c4e962d1725113892a933b053e19740fd52a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_126": {
+      "file": "assets/audio/voices/published/cb12f6e4d79d883ec528.wav",
+      "sourceFingerprint": "c2f1511c105f9e7a8102a1ea24036a0e5f9df5b6642215f3dd6090e1667b7af2",
+      "renderHash": "8ff913d5478ed86773b0eea64ba64541b8414e98d3278b8df7ec5f34d83bcfb1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_127": {
+      "file": "assets/audio/voices/published/9f2c35a6ec55348dd4f3.wav",
+      "sourceFingerprint": "b408facdcd4ff84356a576bd4697f24eb74f0cbdce0ccb3d22353b3a18c35d86",
+      "renderHash": "9c086570225e49cc47b1548c0f320cb5326c69a696e75d6c3136c61557c37d04",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_135": {
+      "file": "assets/audio/voices/published/609f6e486d1564f1d065.wav",
+      "sourceFingerprint": "12ece841cb8ee3db019bcefb15f462b811a4b2a0fd838f500d1d51b607ac40b4",
+      "renderHash": "ca1f2857441963d2c2290d6a6d9859085f29b5765f5a2064fa1d3fcd75705a4a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_136": {
+      "file": "assets/audio/voices/published/7039f372078327ec51d1.wav",
+      "sourceFingerprint": "8df5d4330d8230c1fc5400557f419b941c0e054403e6ea2d4bc69adc7ac9fc70",
+      "renderHash": "2aa47d9844819f3a6eea42b16fcaffed96753984097e28cd9136aca1e46feafc",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_137": {
+      "file": "assets/audio/voices/published/3a80a55b86e89d1ccc21.wav",
+      "sourceFingerprint": "ce21fbfec2eea625aa1894f6d490290f19803de7c7a8139a4b9cd6bddfed103f",
+      "renderHash": "3b9bcd0ce373dee16cabb4086b79f6d27a44e47ab50604fd1235405bde2dc798",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_139": {
+      "file": "assets/audio/voices/published/451fb0b7eea95bfd149f.wav",
+      "sourceFingerprint": "81a35d5e3f765449e55005fb58b5127d03f2cc8f31d8e88aa42fbe4b65a3f04c",
+      "renderHash": "6c9d2ea048902e784b22a1466d2839ae72cab5ca523abd3ff16eb84e54d27bd5",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_140": {
+      "file": "assets/audio/voices/published/07ff57ccc1c5bee8dcb0.wav",
+      "sourceFingerprint": "999a532690f32d3591b02804180139ad332c1adb8c3f4dc7ffbeebbf88c04850",
+      "renderHash": "987614529946b28a0c6420d64ea11958538699a5bd898c88acce9eb4244184f1",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "fin_158": {
+      "file": "assets/audio/voices/published/702c105dda2bbf6ad787.wav",
+      "sourceFingerprint": "22b7e3ca9c76e1606337cda6717f4f435639d1eb9edba8ea670f885ee4aae95a",
+      "renderHash": "9f85b1f83cba37ffacfaa7f607fc33ae2d68a62a20cc3c77d8a6f49e33185b9a",
+      "styleId": 41,
+      "speaker": "基生",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0065": {
+      "file": "assets/audio/voices/published/a46458c8bbb662eab914.wav",
+      "sourceFingerprint": "c31454d788c546956d7117b6951da37593fe0bfc695704c9a370aed2f5a5c968",
+      "renderHash": "2652d5c31b26e89395e1e3ba9add84d574e99be770a242f0c0e7f286115ecb28",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0066": {
+      "file": "assets/audio/voices/published/81f5260840ac3dd54c12.wav",
+      "sourceFingerprint": "ae9dcfa7dc3e7fbe4dc79a6589ea27e93fd178e927aa97f638764c29bf6b0b27",
+      "renderHash": "3f7ca197b88c01e7dbb31ec2bd899343132e5429a76f6db7f36e5638ebd27839",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0068": {
+      "file": "assets/audio/voices/published/daa9e6f7de293476a568.wav",
+      "sourceFingerprint": "4eda8b8e26788c03abd701dc577f6a54aa41b1ff89f95018a837a89ca2435e3f",
+      "renderHash": "15fcdedb87c0b29586485b4b9edc04598299b7bdd416d334a8c39f5bbabef78f",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0076": {
+      "file": "assets/audio/voices/published/cf12776ce4c1e80ce3c5.wav",
+      "sourceFingerprint": "26362aa85978241ba56c7ae5cf167a4bf0d8d0ccf52f6cb7ee335de49c2a730b",
+      "renderHash": "4078c28d51189420bd9ef40f30060ea8ba3b50297abba138f6b73dd011bb7455",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0077": {
+      "file": "assets/audio/voices/published/8783e5fd7cefc6522d9f.wav",
+      "sourceFingerprint": "fb27a9cf850982348aa4c1a5b93415ecc00fcf245820d713b526f2ee5769f86e",
+      "renderHash": "0ce3553d2db91c147b0b41a42453c4cb2a59b3e581b9de4541bf051f953f0b1d",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0078": {
+      "file": "assets/audio/voices/published/d22658725cb9df477c09.wav",
+      "sourceFingerprint": "9b0d5d5159a1ad8303fec10390c3ee9896fdc759b6d40ceb740dfafece51d2bb",
+      "renderHash": "1bac0da6ef30a35899d7019c63d6ae450f6e16150bb99408464e12bdf046c647",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0079": {
+      "file": "assets/audio/voices/published/794191cddcfba331e7f9.wav",
+      "sourceFingerprint": "9978812a863df2c195d0b4a164c7d4a59a20b9c959c27c41b8a038c8fada1dd4",
+      "renderHash": "e76a3fb7726de08c5c883f739636cf6c2a97ef70ab9eb90a304c78c5821524b9",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0090": {
+      "file": "assets/audio/voices/published/0b1a40d571506e3f69f3.wav",
+      "sourceFingerprint": "835b0f3e4e5010eb3df3680043008e324fb07781e31c9e06cc16490ee701c087",
+      "renderHash": "7b5640324f625ba041f645f8f32680fdabc7425cccdcecd89f8ff060a01b59bd",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0091": {
+      "file": "assets/audio/voices/published/61e53e58b97c969b514b.wav",
+      "sourceFingerprint": "2293e2137c100e24513c73499bf6b262ba9c44470b0536f482c76c486d4ca09d",
+      "renderHash": "de85cfe2aa639c40bb12a97d495edd9cc76af199b365119195af7aa16a58cee1",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0105": {
+      "file": "assets/audio/voices/published/276076a3667c96274dc0.wav",
+      "sourceFingerprint": "c74def1295a7cedf657581dce55c5629867660c2a7a0e707d0da1f601f71dfb8",
+      "renderHash": "6fc3f55302cfc53b6889aa75958a71b8ae9d9068af0e6ffefdb8da3ced82a576",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0106": {
+      "file": "assets/audio/voices/published/b974495702eb47b4c160.wav",
+      "sourceFingerprint": "6ed41962066475f86c6f9ecce8a513aa3de7f82e0ed5236595de7d3752008450",
+      "renderHash": "1400611282c737e74fe69a9636b28f5c58743c993af854a52e644244950b8a06",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0107": {
+      "file": "assets/audio/voices/published/ddac93fc648a649d01a5.wav",
+      "sourceFingerprint": "c2c4e171ebe989b8e5b24d20dbbbeb1faf7c215ade82de8bb2b6d4a44c48e74b",
+      "renderHash": "ea39a2dafb068fff81ac2a154fdf0e7dbfce303e33d79da7ead0028faf329030",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0108": {
+      "file": "assets/audio/voices/published/3a1e21beffbf63d74460.wav",
+      "sourceFingerprint": "a430c56aa24d6348ff9b54b37b3fbd0ff369958bca10cfcd7d43b45c563f5240",
+      "renderHash": "9a9adedc795855813abef1439d975ecbe89990bf419c0534b163c2402bfda33b",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0109": {
+      "file": "assets/audio/voices/published/d29ee450ed1d7264117a.wav",
+      "sourceFingerprint": "ebeb98a5dd39593d56313ad884b588d555470f989bc58bdf63c27928455148cf",
+      "renderHash": "f78a90d8fa7da55bd22ecc5829b59aca292939120f9587828fd4f8fd552457d2",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0110": {
+      "file": "assets/audio/voices/published/d15c8769df9d390c6a24.wav",
+      "sourceFingerprint": "58d449f083a4d2488424339fd497d7108a49174fabff2ead6399e242e0665276",
+      "renderHash": "fed213d3790525614abb41fa95bf6f028f8c5c782ffb7399631dc5a809e5a99f",
+      "styleId": 29,
+      "speaker": "若菜",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
+    "her_0111": {
+      "file": "assets/audio/voices/published/2e9db85aad3647f517af.wav",
+      "sourceFingerprint": "6d60d5ab09f107174c9129875d20c226060903bc19a71a49255a1663dedb7681",
+      "renderHash": "42fcb1933db9fc8b10c50e889cc6cc4d38f3cefd8664d6d1194ffca10c3883cd",
+      "styleId": 23,
+      "speaker": "八重",
+      "kind": "dialogue",
+      "engine": {
+        "uuid": "074fc39e-678b-4c13-8916-ffca8d505d1d",
+        "version": "0.25.2",
+        "manifestVersion": null
+      }
+    },
     "review_eced44bf-8dbf-4da8-aabc-c8b10d40d4b0": {
       "file": "assets/audio/voices/published/8a197152d953a6d16a32.wav",
       "sourceFingerprint": "795ed1fe307a002df6d47f366920eb3e31cd1ef6e0316ac281ecd063204c58fc",
-      "renderHash": "88dce651638671aa54195b7f9e70ae1d589030ea33873727de3000e539946629",
-      "styleId": 0,
+      "renderHash": "17b108792f0aa58e4a87594545384689be84ca1292df24365d2437fa0af50d92",
+      "styleId": 4,
       "speaker": "百合沢爱理",
       "kind": "dialogue",
       "engine": {
@@ -21,8 +5052,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_006": {
       "file": "assets/audio/voices/published/08190657d47e76af73f8.wav",
       "sourceFingerprint": "baabffb89114e0e049fadc4cfd9e5b8a55f179f65b1ea253d4a689dd8cb4bc44",
-      "renderHash": "3add5ce7cebce3834da33bc53c1dcd1b85c3146fd1b16835a668a2ba1fa8fb97",
-      "styleId": 2,
+      "renderHash": "abd836d2a160535d19b9306eee458aff712e4f9e5d7abc1d76c8304c41e25898",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -34,8 +5065,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_008": {
       "file": "assets/audio/voices/published/e00fd03bc97ab4d32664.wav",
       "sourceFingerprint": "e92c257c12d416297bde4769f41e2e12e44ecc7ddd65e37c10eebcaa6d2054d8",
-      "renderHash": "9adb6e48429fbc21bb74502f58b445a1abf6e05221cf6ed54a4d6e4b95588d50",
-      "styleId": 36,
+      "renderHash": "73b04ea5997d97f53a558993b0620baa3290f05e35598006b5e9173bc452a44e",
+      "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -47,8 +5078,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_013": {
       "file": "assets/audio/voices/published/aac6cf09749dd980c972.wav",
       "sourceFingerprint": "3dd637a3518cfc5ba87ed6c5c5d5359be03a1c2f71091dda80735b1e2edec557",
-      "renderHash": "e4e17605b9732da1e5d98178b6e3c3eb009591d735e7e6ba7fbf9228ffa6d620",
-      "styleId": 36,
+      "renderHash": "13c04de1b3f4385d046ac3f3f4cef0809fa493f06d46ccadd60cad2c63a89722",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -60,8 +5091,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_014": {
       "file": "assets/audio/voices/published/9ffa03e8187315430aa9.wav",
       "sourceFingerprint": "9cebb657fcb4df329e5fe03646e3445af84de366e5953fa5467cf8987f6ccc3b",
-      "renderHash": "f981de10ee5e4c6c6b6f1a066942ab277733bc12cb8549cae86a8e41c8378ce6",
-      "styleId": 0,
+      "renderHash": "85f41c9cc970ff2679e630edb7784bc684e4e1fbb3cb1106758c577e99ef9c60",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -73,8 +5104,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_017": {
       "file": "assets/audio/voices/published/d1111336fd737f714c70.wav",
       "sourceFingerprint": "c01716efdd8344c79261329653fc33d5d2fd9b54f1891eab2f3b124965b9225c",
-      "renderHash": "6dd3dda273faca8b5776ee3745ec21689432e12a0ff6c31cd7eb0b019e0b4fee",
-      "styleId": 0,
+      "renderHash": "3c8c00a622fbd4d3dd5d48e74dc1945cbc28cd2d98ef207f72d848f5de8a2035",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -86,8 +5117,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_028": {
       "file": "assets/audio/voices/published/84a1a96e5e3ab4070d71.wav",
       "sourceFingerprint": "8bbb9f40d834bb7a9bfd907586f5f5741f0d74c3411b09b299e11d630879a8f5",
-      "renderHash": "78c8f8801dbb525438a9c70fc39eddc67c27031b4aaa6d4839ec1dcca3c073de",
-      "styleId": 36,
+      "renderHash": "aab8ca071ef1e2e3ea0b3ff87fd0324505667219e462c664392986a92b986b3c",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -99,7 +5130,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_030": {
       "file": "assets/audio/voices/published/795abe74070a17b9b1ca.wav",
       "sourceFingerprint": "3afd1f9a3a5ece2c19618cfb7d986667ecccdd2a2cefd3f4b0042b6ad17e41b9",
-      "renderHash": "b45c3a1970b450659687804035f6838b19062bd02c6d19ac9d7bd07a9fb37828",
+      "renderHash": "1f68d96dbe25a5b32aa04e839227313bbb5c80a5f3bd80320df6f72b34f29b5a",
       "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -112,8 +5143,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_033": {
       "file": "assets/audio/voices/published/1db0828f35a518b97977.wav",
       "sourceFingerprint": "9b810859c8c9f8c7b6b712ae4f55298cabc531164c94affd843265bdf5811343",
-      "renderHash": "0ac3ffa1a0e1c1cfbbe5722540f71c0cdcfad04da194740adf4920d4704f839d",
-      "styleId": 36,
+      "renderHash": "7c536a904f7e2d906f0af35e131e98ea54cc216a0289c164b531a7b47b1ddc37",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -125,7 +5156,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_040": {
       "file": "assets/audio/voices/published/55d826e869c3d321beab.wav",
       "sourceFingerprint": "a1e7b7bc8f4b8d3b21885899e16d65d5de6c5316ccf242a1f65d34948acaf4ac",
-      "renderHash": "721cd97af41d70ad425d45f2c228c7f95df6f52d876cac38c49af1a74bf57c72",
+      "renderHash": "5be515f0a700dd1bc1b4067a8e96a189de3baa126287c4c04d5edb8d7e2c6c49",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -138,8 +5169,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_043": {
       "file": "assets/audio/voices/published/1ae7dd2d75551008b165.wav",
       "sourceFingerprint": "da07fab01d87385eb67e717de59305b67bb4f9304edd37bd918a69478d02fde4",
-      "renderHash": "51c291368125ca09169942a2909d8c1a17554dc55131a7831bf3a8faf4b9d6fa",
-      "styleId": 6,
+      "renderHash": "4ca94a38480e985ab969f3b9876627e5f1b608e46da90d990d8a62d79e2ff156",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -151,7 +5182,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_044": {
       "file": "assets/audio/voices/published/1bc4470555fd6f79f076.wav",
       "sourceFingerprint": "f70d0acffc2656244f6965e5ee7aa3965e71dcf09fd7d3d411f9d2bde1aa76f9",
-      "renderHash": "fef43612549d928d33c729ac1587437e7297186ce645c5cbdc86e74f4b590208",
+      "renderHash": "1346208a8c9042799a18483f0a8c6dfd7cb8c4d00fdf0d952f5d1a139fe16b4f",
       "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -164,7 +5195,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_046": {
       "file": "assets/audio/voices/published/a4225567bec2e5056598.wav",
       "sourceFingerprint": "7fc924f0f5051b543a5065c7f303901d563fd1bf1992b83e7683dd4bf6548782",
-      "renderHash": "dc79cd2a854fcf7c45b4720b1d2ad7ebcc535e0033a9b6aa5d13bedd5247c194",
+      "renderHash": "bd17309cf27dad00ac5308a494b65f57aeb4b61cac64ed7ff23470a218ff6101",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -177,8 +5208,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_050": {
       "file": "assets/audio/voices/published/77225a49e5a9463b9527.wav",
       "sourceFingerprint": "7fe422f394c15f6403d0e0d52931a1f5ac936ad5ee75fad53c07a517e1ebeb65",
-      "renderHash": "5262b725f2c41b0884fe7e4de5ceac8da980c50713a32d8a3edcd4d74440c736",
-      "styleId": 36,
+      "renderHash": "908471c7e2f0e2f8771e0f511af5cb77d5142845a898bd832fccd1b895ea776c",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -190,7 +5221,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_052": {
       "file": "assets/audio/voices/published/33aa4843eedb44fad9c2.wav",
       "sourceFingerprint": "a2a1ec4a5d928de3984b8b10a35f2a6b455b5091cef7b68b8095882d8adeb8b5",
-      "renderHash": "b90b135beb170eefd59f6e9ca05b683507fef1f38eb97af61a91b64f040177ce",
+      "renderHash": "39cd980ac5273616ed027a5bc49486d71e29445e06ad9947bb13692ae820dfb8",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -203,8 +5234,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_054": {
       "file": "assets/audio/voices/published/56175d6f02444416a583.wav",
       "sourceFingerprint": "8d0019bde2438a30d0c12e247cfb5f2b3ed7f6093dbe6b7a100c6a918ad8287d",
-      "renderHash": "06ae9513945719a6eb2eb0d8d733c7748d7d9e6322d0a22e5ac1895acafa9582",
-      "styleId": 2,
+      "renderHash": "18eb7b52b71fa2e293dc9cd4f39f052682b1fae1e2355dbf5966af223105bb75",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -216,8 +5247,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_056": {
       "file": "assets/audio/voices/published/07de9d5843fd8834cb2b.wav",
       "sourceFingerprint": "11fab1398e252c59e8b683ce6164c9be99006fd98b8ba6de26aa8d1672e74f3e",
-      "renderHash": "e7358d8fad0ab33c50195f6bbf7e37cbfdc94f14bbe9bcda155e9956d397e981",
-      "styleId": 0,
+      "renderHash": "45d42d317d30c7b5632174341438b139752e95af3801a8b945879123d7ecff0a",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -229,7 +5260,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_059": {
       "file": "assets/audio/voices/published/ddf65a9bc4d7e35fc158.wav",
       "sourceFingerprint": "3fd7d489b65902d14b8b56e90199c1b6ad7e8282c11a9fa31735e1875855a6ab",
-      "renderHash": "9f2ad8efdae0c64970aea864a3f2b4f796fd36eeb928911ab71542947536f527",
+      "renderHash": "a8242d0e13032afc650c712be715f4a11b2cdb0568b18270c2a482f1ea702181",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -242,7 +5273,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_064": {
       "file": "assets/audio/voices/published/df1afef5d6ebbe809ab9.wav",
       "sourceFingerprint": "f780b19847014cb1ce10f814e9b6775d8527597ee4f37fe6ce9b85a7a929a76b",
-      "renderHash": "ed9bd648a8d3c084138472fff8bdeac39c2206863b413782eb6d7b8e92ffb4bc",
+      "renderHash": "a27ad1b465f6e71a83f4c56284be5e47b7f35f82de5edc30600613e4ee4d945c",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -255,8 +5286,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_066": {
       "file": "assets/audio/voices/published/4eeeb324441bfb5d4377.wav",
       "sourceFingerprint": "382752df9bb59cc283a32b185b5718fd51d049bca3c2d32d09ed731f92e2f3fe",
-      "renderHash": "4d8d5a6a0cf60b94dad0f99f4dfe7ef4b89562a92d6a6c88e296d07c5a6d4338",
-      "styleId": 2,
+      "renderHash": "98209a361189928a4c2a1c80263db690dd2e15268715bd60e7b3609a5bccbae2",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -268,8 +5299,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_071": {
       "file": "assets/audio/voices/published/84a76ab5dfb127bee242.wav",
       "sourceFingerprint": "eb172f8f4ddcb285edceedb04c0433c30cd6ec2d8696a6ff6ad44b5a2383e9ac",
-      "renderHash": "92797165d78c6dabc4b3c09a70ac4472c008c42169e8ab54f841a0f5f4ee222e",
-      "styleId": 36,
+      "renderHash": "ec2980113e724b65a41530837fe2a8a04bb0bbe349a6190a7914b583a0f4ad19",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -281,8 +5312,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_081": {
       "file": "assets/audio/voices/published/b0a7e30897a10329d127.wav",
       "sourceFingerprint": "d2551a3a517a498120ef2deb6a20fd6dca6407620f6f3e00f67a04e755cfd8ce",
-      "renderHash": "b3aacc8482ecee2e13b7ed7e7e1891b9b57601592d9e505b77e3173320eca6d8",
-      "styleId": 36,
+      "renderHash": "9f03bdcf40b3f5537352b1640327a6e3c4e15adee00d0810fd38b8fe3a5c5f7b",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -294,8 +5325,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_083": {
       "file": "assets/audio/voices/published/58a10b231758199e9b1f.wav",
       "sourceFingerprint": "6171f062a0f5851023f2ce0047658a756457af5578c81deb5f36672d963a4d50",
-      "renderHash": "5b7c14b8a69559c967959e7346ea6759392dfe92a4af1f0e588e589740d8d03c",
-      "styleId": 6,
+      "renderHash": "cf4d6fbedfdae62a9637434e9fa407a086032ef3577d440c2caed98483efdc01",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -307,8 +5338,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_085": {
       "file": "assets/audio/voices/published/47a0333ce57388ca6923.wav",
       "sourceFingerprint": "05394f5421df0ab22241463cd0f43d4ccb97af7a9577987cb4ff68e816888acd",
-      "renderHash": "38151a8ffac81f24b63d50cb60f6952ef57c73410d3a66d2a44b3736d86bdfcb",
-      "styleId": 36,
+      "renderHash": "edfafed2a267a2e92293faedbcc20c9298e6df0442db241217eaf6fef075ff83",
+      "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -320,8 +5351,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_087": {
       "file": "assets/audio/voices/published/67c1f1da113817237eeb.wav",
       "sourceFingerprint": "eeb7f9fcd2425ee105847de1570d1949d7dbf784337c3b16f26162e30d0a3b2e",
-      "renderHash": "7635eedd89ac7b697aed024a71503c58de4db6fdba65a3191c300546d8090ed6",
-      "styleId": 36,
+      "renderHash": "7b03f369205228472a9db0f6418e9b7565b97944a1fbf131c40eb3d81a33e5e4",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -333,8 +5364,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_089": {
       "file": "assets/audio/voices/published/50a856fc4e08af7b57b1.wav",
       "sourceFingerprint": "640d92f37b0e731a1c3169869347c111f8c1a62878b9d5356dd9278b0be1981a",
-      "renderHash": "97ab34980f56418ed949bada8f6cfa146334872c9daa33c7e49266517c23d2d0",
-      "styleId": 36,
+      "renderHash": "5aeb36397658afa719b79709f2483dc72b0268255689791609032dae125d91ac",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -346,7 +5377,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_091": {
       "file": "assets/audio/voices/published/ce49cb7d8aa23b172ab2.wav",
       "sourceFingerprint": "e2cc19376063204f4f7d841459c4ad7c70cb5efe4429100e826a27296523c02a",
-      "renderHash": "fcf3e1a3ae795aac7cd4dcdb18b21a141479fb30e53317db49513ed9345c3058",
+      "renderHash": "bb80778681351e17c5ea5fffe2013d82e2b462ade5c3fd431c1193a79b82377e",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -359,8 +5390,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_093": {
       "file": "assets/audio/voices/published/50fe998584dc571b24f0.wav",
       "sourceFingerprint": "43df1d3dda8f7bfd0ac50d3e8d2b6d661f3b691667401ea0458636e392a2061f",
-      "renderHash": "74a5c7f9827d0739e835b6da0761ea8443e65e11f7942942480ff5734325584c",
-      "styleId": 36,
+      "renderHash": "a9fb3a0a06691d4ea08b439495c850536934c5e21bce021d93d6c7613882b396",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -372,7 +5403,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_095": {
       "file": "assets/audio/voices/published/966ac9cb6b16afcecc18.wav",
       "sourceFingerprint": "7028fca000eaae9b5d6f6264579a84b072187d73bd8e9c604c555997a17cb5ca",
-      "renderHash": "712abfb041d5c1eb681acd66b12dab4f04f2903d40549a00aee3d3df3d9875e1",
+      "renderHash": "4bc1708ea5e8412ad486ffeedbc02b9e0ccca21b673e26a9870295b2e78cb724",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -385,8 +5416,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_099": {
       "file": "assets/audio/voices/published/55e2d87c3facc1770c2f.wav",
       "sourceFingerprint": "a2b59fb4b08d7791b45921a6795aa40ada62b64f0086349b24944cedf52b4be6",
-      "renderHash": "8e843d5e93604d60ea16b19aa34b5109372f67a8be7f42dcd31361e314891953",
-      "styleId": 2,
+      "renderHash": "1d24d4bd0d54557b61e276fcb70327b5a254dbf18b1e4270d3c467acae5b7d06",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -398,7 +5429,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_101": {
       "file": "assets/audio/voices/published/1482813ff6f2e3987025.wav",
       "sourceFingerprint": "40673b93059afcacbbf1f50d1221d1916029734a63da0fc5a0235af0184d9df6",
-      "renderHash": "c7259be769e45563eda03a1774f6ee9868d8ab01fd10b32531a28bd4adea953c",
+      "renderHash": "85e88e7ed98e70c023f4be7f36838b4b52142b1d16c40f74b22aea59f6a0fd94",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -411,8 +5442,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_103": {
       "file": "assets/audio/voices/published/c7296894dbf3b32d8124.wav",
       "sourceFingerprint": "d29ed5416a05199048672774d7364046d2af2397dcbbdc7282876425d4e68e13",
-      "renderHash": "dd0b69f926c5155fab415627081800fa8a5f9ff4d075166ac96c6f1ddfffd4b1",
-      "styleId": 6,
+      "renderHash": "2ca19bf97c1bb1a1e4169e264cb4d15c79dc7e43c95ecbc3ba479febf83e21a5",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -424,7 +5455,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_105": {
       "file": "assets/audio/voices/published/ddb0ffc19394d1b714f9.wav",
       "sourceFingerprint": "997f7161b6a5ec85b872fd0713102999b9de585e1c409766bf8cd99b50e3beab",
-      "renderHash": "d3e2739b8288df03f18fcfb5d1a7762bdcdea405aedef2b2319dab93161efe65",
+      "renderHash": "0d564d86588bb956f568a657c7f8e8180d961e3ad2edac5f7056e394a082bb52",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -437,7 +5468,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_111": {
       "file": "assets/audio/voices/published/daa102536c2df5de044f.wav",
       "sourceFingerprint": "6b14b41c9e49041d0fedcd59ad16540b9dd92967e3187b5b0d6f4707e85f0a1d",
-      "renderHash": "90c629659087e6ca508a070394f5bca3c9435993423a6f710adac6f264c09ae9",
+      "renderHash": "97f8c68467077ef259dd9b08e97cbcfa2c821c2dfa565496ffed37ee2a51d2a3",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -450,8 +5481,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_113": {
       "file": "assets/audio/voices/published/e821c46ed9c0a3e24589.wav",
       "sourceFingerprint": "b6f3ffabfc0eb3a047d026f78fe5355c7e447b1d76f169a190305f7e0585d70d",
-      "renderHash": "009bb3769ce2439c118b5a9a359654f5262956db6e88b2e43ffc04738dbc97d3",
-      "styleId": 36,
+      "renderHash": "76fbb043c756f06710328b171cf187915e630d53300c02059fda743bd937657b",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -463,7 +5494,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_116": {
       "file": "assets/audio/voices/published/9158d878a5053a6bcdf7.wav",
       "sourceFingerprint": "9a59332caf8f614800bc6107c7162c9791cadca033bddc9b711ee00f533fc1a6",
-      "renderHash": "41ed53d334aa179d78ccc1f9302cad57abafd54dacf3f4f196eb558bfbea9c84",
+      "renderHash": "291798eff5e91ba55ae8436036cf0d8ac8cf7f9646859b21af796fa8d8cd2c71",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -476,8 +5507,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_118": {
       "file": "assets/audio/voices/published/251dc7aefd3ad6cb5da4.wav",
       "sourceFingerprint": "b91506bcb2e5056dc63e9f5ed8923d350bfd3b5953471e559445569898d575f6",
-      "renderHash": "9d515ed1d12a7ae1b3808451670acbf10a3fe9e3dc9a585bbadbbb456738f2e1",
-      "styleId": 2,
+      "renderHash": "093b240058f03e0c922f87b988a2e01fabaf95ef3a076ca9e923edc3a4b1ca02",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -489,8 +5520,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_121": {
       "file": "assets/audio/voices/published/b9e56ced37492f4891b3.wav",
       "sourceFingerprint": "a5b07df7c73805d27a00b27d247b6c08af45d08fdb55a0fcbfa12d0536035766",
-      "renderHash": "7a2983658e0e9adb324027ff5e20cd84669b73fd60abfbf98169fdad59892ef5",
-      "styleId": 2,
+      "renderHash": "fb4a5a69002887f22f0c00c79eb35ae8b1d5061425f19be432d4acb142bd367e",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -502,7 +5533,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_124": {
       "file": "assets/audio/voices/published/596e293db15cddb54278.wav",
       "sourceFingerprint": "072a12b3efedfb71af411fcac665dcae5fab7fbe1d05bc887786cc5154068fd3",
-      "renderHash": "621f5085043ac3b1dae3f79939eb31ecc6d01ecf41293ee0468b788f2544dc7e",
+      "renderHash": "b9f4925f45640b001bd93a06bacfe4119f11708abb69688f9ad90646f435f2c3",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -515,7 +5546,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_126": {
       "file": "assets/audio/voices/published/7b83907661562db84a15.wav",
       "sourceFingerprint": "3b9e3dcfd0cfec87c2e64c96f9647a61278c36a232bbd5eee3db3a9ff4008b6e",
-      "renderHash": "8b1b746686d9038a91af54237f3288c8172eae32ddc808ffadd61fb6ee249ad3",
+      "renderHash": "2572ba147b5b3fe32f2b1e2fd5ad5084f1460a63b065ea5be551c687db7ae803",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -528,7 +5559,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_129": {
       "file": "assets/audio/voices/published/2a47770ca484dbb31f13.wav",
       "sourceFingerprint": "f0c36bcc0b04635bb08c4f269dad45cd20df480f7664e88d4917cacbe026b2be",
-      "renderHash": "19e9fc0da06cd1c0fb98293609dc0950763c6b62fa62ad997640155ed6fa4b83",
+      "renderHash": "4ef78525dceb69bb35b957231ef3e7a355d89a0fcc9fb4bfd170cdfdd41fa689",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -541,8 +5572,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_131": {
       "file": "assets/audio/voices/published/8f5e34fa446692bb8270.wav",
       "sourceFingerprint": "d3a9e610fdadc303822149702a12b12dc18a912953b668333303a23c12eb95d4",
-      "renderHash": "6c693defd2bc43c63bed5c7352e1a8ea8789fa73498746491c3664f49b24de00",
-      "styleId": 0,
+      "renderHash": "0442ed4b5559243785e496439b05cce6b6ce3815d0897b64532dfe3b8ea769df",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -554,8 +5585,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_134": {
       "file": "assets/audio/voices/published/b433da4c2505cfb7ad67.wav",
       "sourceFingerprint": "aa91877999b0991dc72f1b119faaef2c60cde5aa3745a0341894246c53ce34f4",
-      "renderHash": "1d8dd380d033c3c6e2717625809312caf2c577cf6bb0ed0fccb78da3376050c6",
-      "styleId": 36,
+      "renderHash": "aeb593e12982fef3df1d74c442cea570547b9a6c1b6f6a7e38b2d4a31ebf5280",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -567,7 +5598,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_139": {
       "file": "assets/audio/voices/published/4f7f8ed89ede4834fb27.wav",
       "sourceFingerprint": "bc4aeec0147587d5208080261cda2bcb747e9a73b567f7f4527327220ce53c08",
-      "renderHash": "fe63d0e4ffbabc5f2bf24d2e49aeb86957101ff10cb1a2b6f9826be50fec8ada",
+      "renderHash": "0681a413274e702cc871e81e6dd2f1a278a0c8b451f746c8f74fc8b6cdf0636b",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -580,7 +5611,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_143": {
       "file": "assets/audio/voices/published/16dc20469cf56abc26b7.wav",
       "sourceFingerprint": "f0c36bcc0b04635bb08c4f269dad45cd20df480f7664e88d4917cacbe026b2be",
-      "renderHash": "19e9fc0da06cd1c0fb98293609dc0950763c6b62fa62ad997640155ed6fa4b83",
+      "renderHash": "4ef78525dceb69bb35b957231ef3e7a355d89a0fcc9fb4bfd170cdfdd41fa689",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -593,7 +5624,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_147": {
       "file": "assets/audio/voices/published/f19ce11bbcd2ff01e569.wav",
       "sourceFingerprint": "45bd6324939323feda635c2dc03de5a9063a3a40984806b6409c5fddeed4c1f7",
-      "renderHash": "756fac18fd29f2aad8e695b49882e0a7f3d65448f2700bf29e8876700e73f7d3",
+      "renderHash": "2a55746d46c118c5a0202405c8a5bcbebd91fabc4ba5ef6196d5fd9d0fb16883",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -606,8 +5637,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_152": {
       "file": "assets/audio/voices/published/cf47be390ea63e1a9797.wav",
       "sourceFingerprint": "aa6da5509956350c0b6cd98c116b08543c7e25bf121f1a2989139d1818df3b18",
-      "renderHash": "cda5ab4eb4ccab9b7762cd7a35ad4142d3ff0547f7779d0d7871ed39715bff2a",
-      "styleId": 36,
+      "renderHash": "da4ab714b4d374dab0bc6f582897d8f0168009dbb7431b3e10d4fc9a636d1089",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -619,8 +5650,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_154": {
       "file": "assets/audio/voices/published/046ca5b1ad38dc9574ee.wav",
       "sourceFingerprint": "29b58f88b9709d34960b930e586cf41c63aa2ee903455e832f36a3d64e59b94d",
-      "renderHash": "3485905bcf59cfb908a4b308db2a38b003b8d38178788fb4ba2d525ad6450e03",
-      "styleId": 36,
+      "renderHash": "aafefeef51b2095c87553c6ece690770ea293c17b530827d8132ff9397eacc0f",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -632,8 +5663,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_161": {
       "file": "assets/audio/voices/published/99a7220608eef8a5dad1.wav",
       "sourceFingerprint": "d6e16b651ebb36b3119aa865fcb7007399e6e0484fc55ce578ccec4a7b9fe7c9",
-      "renderHash": "4220d7d21e37b044cc52d7242fcd30ce73e734a370847b532d4ff4b7e57bfa6b",
-      "styleId": 36,
+      "renderHash": "56d678c5fde9b1c5cd12187fd68185618a7a55c59357c163d491589414e609d4",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -645,7 +5676,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_165": {
       "file": "assets/audio/voices/published/61805a502acf9baad514.wav",
       "sourceFingerprint": "4783c2bbec89a22031ae48a38a8483efb556a04de0732493208a2064e9c44a02",
-      "renderHash": "76680e2f336019990edcfc2815250a320a336dbf11b830de5e5f7aa52d781366",
+      "renderHash": "62a8cd890a8b814b1e6c1e5469e6e171e00c4f94b9b2d969bbe08d9769601ad7",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -658,7 +5689,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_168": {
       "file": "assets/audio/voices/published/f2532c8c04973aeb4c8c.wav",
       "sourceFingerprint": "62aed6a8270cd691956302937a986fc6fbb45b906ba828b598fbc4b4ef5c6e4f",
-      "renderHash": "a3382a5e7685b246daba79590d3b2d0ed22acd0ab6b39e726cee2e0ddf259419",
+      "renderHash": "b16dc0ee09716f31b48ae64f19eae76d8a22ca713e02e03b096c5bfae2e6b593",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -671,8 +5702,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_171": {
       "file": "assets/audio/voices/published/ec10525165883388aedf.wav",
       "sourceFingerprint": "059bef829614627eaa906cfa1d411c0348b5cd2d651608e6f425cf7f8c7ab739",
-      "renderHash": "23830198adea42d995eb6f31f339b286ded249caa19028d60f3b0ec71f47c040",
-      "styleId": 36,
+      "renderHash": "7df740a870d4d14a14545cbb2012e6f2a9bbec6e6ee2554a3bb4f17cd58efc4d",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -684,7 +5715,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_173": {
       "file": "assets/audio/voices/published/4989cce19661c59115ea.wav",
       "sourceFingerprint": "670ff232604daffeb052b55d4d06f8714abe12710225aeec9469402c3f33d47a",
-      "renderHash": "c402feb4c0cdec3a256797f0af077bf6df3dbd37fec7fd191e6841816e559942",
+      "renderHash": "65dcd011e3b30a29e3014c8a5e33c8c478200c7ac80697f797a914e5ca63bb4c",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -697,7 +5728,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_175": {
       "file": "assets/audio/voices/published/faf75f7b35271739e7cd.wav",
       "sourceFingerprint": "7cdbfe95eab9aa93ca9f4e935bf3e91bbbdc65afe1a228cbece1661ae95700ac",
-      "renderHash": "61a98fcb2bf0abf6cd86393fde45713f4cbaf49e8e205ab56a9dbe6e5d1e5823",
+      "renderHash": "f66f15365cdfe26d7e86679846f499ebeaf7d4d72ebcacb5107874c3c68e714a",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -710,8 +5741,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_177": {
       "file": "assets/audio/voices/published/835041350aded50fd95d.wav",
       "sourceFingerprint": "448a6b4cd7c8cb3ab81eb066faa7c58ba111e0390590f07b592c433e1f9fe581",
-      "renderHash": "14fd749e55b63d1d5be34bec1a87dffad99e540cdd7f268e7e901e13ce3d7e0f",
-      "styleId": 2,
+      "renderHash": "843d25bc075ad87d41e5acb29be3fdbddddb4a72426ebc5ca3925fac7afc692e",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -723,8 +5754,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_191": {
       "file": "assets/audio/voices/published/8ec74e3aac528a0c359b.wav",
       "sourceFingerprint": "1246bd80660af6cdfa37b0b4c2a618271ba72059067390c7ece0fbea847dcd6c",
-      "renderHash": "95cc1fb270be90539eafc42b696ab190d8690aef41a88ae6c1f2171da092bb66",
-      "styleId": 36,
+      "renderHash": "86e3bd598d789d63231c074303235b2e550c47e5c657203e0c5803677bed6de9",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -736,8 +5767,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_193": {
       "file": "assets/audio/voices/published/14eac3b6f163adf9909d.wav",
       "sourceFingerprint": "706a5422f169b953e764ea0f7a3a7544100377676b49d495f1f67894e2e25672",
-      "renderHash": "0fe0a7d135d512bddf58a69bfe3ba9cd961ae202e241084b67715fd44e19c896",
-      "styleId": 0,
+      "renderHash": "7bdfbddc0abcfc0b2b4c3521063154faf71c06d5c6ccc7237624aa2c3622fa1f",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -749,8 +5780,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_197": {
       "file": "assets/audio/voices/published/4d28fd5b42136d3edbc3.wav",
       "sourceFingerprint": "119f11402692a5e0a9cd3a87fe7c427a2c52365acbb36ad2ecdcdba90fe43829",
-      "renderHash": "35d36f01c363ff127b1f69100241d5dbc2bb6d477086a960dc430ac93838851b",
-      "styleId": 36,
+      "renderHash": "fc4b49cab581ea02b043386163389a2f9e7ceea3d3767561e003cd9496756f81",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -762,8 +5793,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_200": {
       "file": "assets/audio/voices/published/7f1391a85ac9d33f2615.wav",
       "sourceFingerprint": "bcdc45c73427b2e85ce185ac7bd07b5c8effeba5f29126c4b33684d1a88ddae9",
-      "renderHash": "ebf4fd8a07cbc3dbfedced650bae1e8d582cae04a891dca72db3c4433d29f9f0",
-      "styleId": 36,
+      "renderHash": "a71da80c2bef40fd6ac7d49f7cb93a4e81924845461654324679fd43e86f52bc",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -775,8 +5806,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_203": {
       "file": "assets/audio/voices/published/a7a5051d54c5506f3d88.wav",
       "sourceFingerprint": "4964ad4259853b465a8853dc21e863c37dedb5ffe1dbf2964ba2f1d45b84c36d",
-      "renderHash": "a1a190456e048bea9ee89d34e561d6806e01f40c6fe914048b40d6fcdf6812a8",
-      "styleId": 36,
+      "renderHash": "75bd2626d9c233780f704e7cfe632cbb7f0837e984c5a3bbff38f3b65226fc48",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -788,8 +5819,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_205": {
       "file": "assets/audio/voices/published/3891d197281587b551f1.wav",
       "sourceFingerprint": "6f044238fa43d9ab5b85f5641bcfb0df86a322755dd33ea1d6d9774fa2770b4d",
-      "renderHash": "634c7fed55a8bac9aa84223f4922329361ec98450c8214c473d5b97fa90480bb",
-      "styleId": 36,
+      "renderHash": "7010889c11c6faac96ce06030cc887768c43f38bb6a740ad729a51fac88bd672",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -801,8 +5832,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_217": {
       "file": "assets/audio/voices/published/3a0fcc7cc41ae04d71c9.wav",
       "sourceFingerprint": "2fb3a60b844ef5b5eb4919e4749994c0d8303ea728377fcac1680e8d0c092c0a",
-      "renderHash": "89741fc6fada4974d93576e1c2812108a07c88c82fb16b44dbef36dba7ef2c64",
-      "styleId": 36,
+      "renderHash": "b998a6dfafad07b94af82f389ff3b8b83906c7433ef04a71200fe23fd078dcce",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -814,8 +5845,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_219": {
       "file": "assets/audio/voices/published/b1b01f08112c9f12c931.wav",
       "sourceFingerprint": "5fb13074af166a1300b7ba72bb11589e43f6d660e9d02f48371e0d93ba359b57",
-      "renderHash": "8b24df028e2c88e809262c628d9de98c78c3c82c73afa133ca152d174f72a2aa",
-      "styleId": 36,
+      "renderHash": "5194d12393e06c31d614a0a607ce6bfaabd8ba2a21c3cb70c576ab5b285077e9",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -827,8 +5858,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_221": {
       "file": "assets/audio/voices/published/fcb703860bc06bab7b14.wav",
       "sourceFingerprint": "a9832c4d64cbb4afc4993af96ef6e2893e471c000096be3dc44ae99880e80b4b",
-      "renderHash": "3fac50bf2747799a37419791ebcbe47d6d8c43a9dcc336999ad0707a0a817200",
-      "styleId": 0,
+      "renderHash": "e03502e01bd000d0df9da1a37c17a84cd66709f94cf2886debf2f6a77bc39101",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -840,8 +5871,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_223": {
       "file": "assets/audio/voices/published/f13309f2457e97d7f809.wav",
       "sourceFingerprint": "aef215bf75a6ddc22c39f80c110707a628c5a5f49ef8fe600dc76eefa172702b",
-      "renderHash": "43c06b3e1e67f428ca62f67f8420b8db4e1e50d24374bc8210f8e81e330a85a5",
-      "styleId": 36,
+      "renderHash": "14be7d9d9fd5594db67143acf700f58dc2856c391c5eed71cba93cb4c2afaca2",
+      "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -853,7 +5884,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_225": {
       "file": "assets/audio/voices/published/a44c6351cb006a003abf.wav",
       "sourceFingerprint": "3fe493df8c7228e6a777061b3fa147ac6b86662b37b18d0900844206c1daa793",
-      "renderHash": "d25d3fd782466c8281e08d0ca04cdbad4da1c852061c622c450d1972d805bf33",
+      "renderHash": "f653659d2fe0a9c547919451209486e787f2abf39cf3ec582a2daee9e07d0803",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -866,7 +5897,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_227": {
       "file": "assets/audio/voices/published/823ec8122cdbe3e5b5bf.wav",
       "sourceFingerprint": "7e35b5e9915d5d58e00269b39617814457f866d120dcf024955598741a5f4421",
-      "renderHash": "5d5bfc3347cb965b0933271db2b01cca5560e6cf47a2353873d3cbc9d2c2132e",
+      "renderHash": "191135eff10b1f1495e1f0bc83b78161b0738a45193e0ac1230d539560d8d23c",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -879,7 +5910,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_229": {
       "file": "assets/audio/voices/published/79739c218e943e853ad2.wav",
       "sourceFingerprint": "1a2350aa272c8c6fcec034152d8eb776de96639939d4e868602b177ebaf25422",
-      "renderHash": "ae9829ba4b0ba676694624dac2c6982f775793c6cfaf1ffd465143a30c7f1ac6",
+      "renderHash": "7960e3c70f204272c68610c053a3e25ab113947c7decab49a789893ae8a8c468",
       "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -892,8 +5923,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_232": {
       "file": "assets/audio/voices/published/426a6455a3d4fc8740ba.wav",
       "sourceFingerprint": "ea134d430e04982d19dc35745e5a0510240c9f45bccdd557d54989f533bf9964",
-      "renderHash": "810b0eab6d9cec4da09b07525fcba43ec8a6f9c465405c29c05d9eec26a36585",
-      "styleId": 2,
+      "renderHash": "644fbef31a67c100c88819ee491ebe8d5510ad17de6f48e680ea2f869b1a42ca",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -905,7 +5936,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_235": {
       "file": "assets/audio/voices/published/55490fcbc695f6105fc7.wav",
       "sourceFingerprint": "129fa98c39e28bc2d18652f980861965d16ee27f1808a1a28590fefd931f5e3f",
-      "renderHash": "82181c9527ef52add37bc4ea92f9a73f9eb6d28e4929fc40615b7c7319a4896f",
+      "renderHash": "79e74a47a10ba6b30065706a279bf4a2bf377730ae3325d760f25070c1a9e151",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -918,8 +5949,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_237": {
       "file": "assets/audio/voices/published/e94da838912005b4d02b.wav",
       "sourceFingerprint": "58da2ba5fd013b7447a964efa742b2519d3ba9c67195be14c864212f2cc343ee",
-      "renderHash": "e0f594edfd740e60db5ea27927d2af19f3658e7c9c1f053420ecead00b13bc17",
-      "styleId": 2,
+      "renderHash": "1932f1852c976847fb235d786ed5e99a136e3dc0e51d36091373984913fda790",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -931,8 +5962,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_241": {
       "file": "assets/audio/voices/published/5307c0a14f7e9afc74bc.wav",
       "sourceFingerprint": "d964a3dbc61d87e5febce7ec2734dcb6947fc1689e8ea2de62cb7cee096450fb",
-      "renderHash": "4ff18c7da2b3a1add9e0790bcc911e894edb0234ae8db10e0fc07e8d23eb378a",
-      "styleId": 36,
+      "renderHash": "6269801b1b0d1efd2f47fafd0d9674e040c528c12fae4ef3d656858e67e9f4f5",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -944,8 +5975,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_243": {
       "file": "assets/audio/voices/published/6a7ae0fd42fa65aee352.wav",
       "sourceFingerprint": "de4457aea4def4ec0192d72e61da006fe41e676baeae114e1551e53417e5422c",
-      "renderHash": "cad18bc9e81d258e38c3989eb4d007cf58b52907d5c22b2054e31455a5c8621b",
-      "styleId": 36,
+      "renderHash": "12c32a67934c2baa0fc064e5d2be598d9e30ec18e4ffbd1b768cc8df5c2c023b",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -957,7 +5988,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_245": {
       "file": "assets/audio/voices/published/c9b1e0b63553956b89ed.wav",
       "sourceFingerprint": "61710537171db20b595f6a8a57985592eaf735d9bf98db30e03e53363b84dde8",
-      "renderHash": "d7e6c8b3edeed30b384611c702941971d73f5f990a84f6aab37b318c7d4e6c24",
+      "renderHash": "2678549957d6cb72646f02182fce6107aa625aab682e955858b4da9756b0c37c",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -970,8 +6001,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_257": {
       "file": "assets/audio/voices/published/64daa921a6d9bb6530bf.wav",
       "sourceFingerprint": "9bfec02b79cadcf073950836a00c9427fa6a44ce5e0ef32aa33fb10e6bc172f2",
-      "renderHash": "4f561446c740f771493ff5150e7653c5b41aeea95da62d26249cd3fd6b7ff6b8",
-      "styleId": 2,
+      "renderHash": "b7217a8bd67e65691f0e432ee421f9ab39d044fec09a5a3a8cc467a56de1797c",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -983,7 +6014,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_262": {
       "file": "assets/audio/voices/published/c4bf485bdf2998bcdae8.wav",
       "sourceFingerprint": "df2025359e35eedc384007c022360a831d76b62bd5b430803dc0ecd2e300a73a",
-      "renderHash": "36c5e94ffd7b4a81f989bb2dffe8ee9571bf47490195aa8748fb4cefd18f7a11",
+      "renderHash": "a8244002bf39db24860ba2554f7394cd0a09cf949484096439fac6d49e187a9e",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -996,7 +6027,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_263": {
       "file": "assets/audio/voices/published/2ab43ea19ca803651dc5.wav",
       "sourceFingerprint": "f1e8ee7ada378dd9f888dbf738e0f58e74dca451e566df21b31e3131724e789e",
-      "renderHash": "603a3b8c273cb1acfcca70aaa61c38d3ec9cc0334c3d83b9310b0b8bd98e4862",
+      "renderHash": "2083384e4a1f57e5302abe2a1800604b2d2d0669262124a9a034b73c7b301740",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1009,7 +6040,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_266": {
       "file": "assets/audio/voices/published/69b4329c988042be02e8.wav",
       "sourceFingerprint": "b91401cf90b19cc44f4079cd63bf9f04eb8d9fdc7050518753e0728f42c40848",
-      "renderHash": "e77c0a9577ad01c8bf7cd05c310fe2fbc713e3ee5c13f94f3ed042aa70e0a77e",
+      "renderHash": "eee6d6ae2b926a8bd6c23937b587e53e4468ea5bbcbe03b943d998725d485a85",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1022,7 +6053,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_269": {
       "file": "assets/audio/voices/published/e3f1c269643ad058a2ae.wav",
       "sourceFingerprint": "2517d7db9dea23d59a4457a7537264407a10006437681bde6714933ac8f4f869",
-      "renderHash": "d46e318c84804c6c731b307dec50b9e4397bd2b217106e5cab536fdd2b92f887",
+      "renderHash": "42b67f9a9be8f2f7cc1497051b4c7e2197d040ca107bcef4dee34c4d1efa0507",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1035,7 +6066,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_272": {
       "file": "assets/audio/voices/published/de4ec5ca132262ca9a1d.wav",
       "sourceFingerprint": "2327f2ad114721817e982e23f1fead40c596bf0ec9db2635ceac4af589b2e9fd",
-      "renderHash": "f0ca067c50c95a57dc47b22467434260b01a376c84f385ac22a7166cad095043",
+      "renderHash": "367f0fca0a0b6d3af87b1393164b3f04841a1279763e993f054697af773f0f04",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1048,7 +6079,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_275": {
       "file": "assets/audio/voices/published/7632389b0725704d0c0f.wav",
       "sourceFingerprint": "67a3560306ab1815d2004a497db97db31d28f63f3ccf0bccb6d7b78403dad46f",
-      "renderHash": "9ddc2b826ed212fe3750efb741cecf1a9d8782f03a500b5c7818d9692d9c44a0",
+      "renderHash": "7daed92039d9ff3baac12fcdc270d80a182c3421cf5cecfc793739220b417685",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1061,8 +6092,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_277": {
       "file": "assets/audio/voices/published/db8b1176f9b60924a903.wav",
       "sourceFingerprint": "9cfe57eb0fdbb5c2a281bb453c6a69c5f03e57c6a14aa2e05124b707e83b2994",
-      "renderHash": "04d296166bfad573c67c8b054a368ffd3a4e7a2876171a6d317bc71b0f498023",
-      "styleId": 36,
+      "renderHash": "a151dc453d2eb91139ca9cd6702b265d742387e68773aacf28b1e4f04049ed6b",
+      "styleId": 2,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1074,8 +6105,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_279": {
       "file": "assets/audio/voices/published/f4150753bf2fae6b7026.wav",
       "sourceFingerprint": "d005b9770d618151fa71ca05e1a037d039d48b8f4e33a9801d38c8802adc747c",
-      "renderHash": "d64a256cdec8fb687603b5cf4c39e9b13159f9134f910cb7c16a945927b71c36",
-      "styleId": 36,
+      "renderHash": "a9290748c683ecb062502de6684b4677987444b241d3fb245686f1413089dfdf",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1087,8 +6118,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_281": {
       "file": "assets/audio/voices/published/24447072521fd78c45a8.wav",
       "sourceFingerprint": "8741ab119659d525e167468c7b86fede7a975e1acefc67f7310a479a167eeb35",
-      "renderHash": "5545dedce22f61b2409dcc25c163f981396cd4a9a2a6c0f3b60b95cea69afa33",
-      "styleId": 6,
+      "renderHash": "52e1e8ab649c3652be8910e97dceeacb9453fa2e29809fe9f66500ed74a2be9e",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1100,7 +6131,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_285": {
       "file": "assets/audio/voices/published/8a81ec2919e2b84ed208.wav",
       "sourceFingerprint": "75c507f341c17e19cc5f045f7dd6ede841f255dab0c6b3888f62385255d24818",
-      "renderHash": "59a65791a540594b7e342c86f2484a6fab0801160870c01138aa89d2a4207d75",
+      "renderHash": "1b46e9e8cde9ff7cf4045ac9ffd274e7988a4118fd605c3e519f03e86e1a242d",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1113,7 +6144,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_287": {
       "file": "assets/audio/voices/published/3c05f7ff6e37213388b8.wav",
       "sourceFingerprint": "139ad618eb4b2dc4e031eb9fae9bad336db29b8a268c6757bcceb0897b0aaf6a",
-      "renderHash": "93843b13b9ea1e6bacd85859af9304905ee3f56d8ed01ab0946a3def43be5c15",
+      "renderHash": "f468ed37901e2e10509fefbe571aeb7fc6d45adf7168a4ececb1c722f422d118",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1126,7 +6157,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_289": {
       "file": "assets/audio/voices/published/299e1c17997f8a7d6136.wav",
       "sourceFingerprint": "213f5cb7540f6ea158d534e4839e8c62eb72a17ee350d0b9229dc1b3d30def40",
-      "renderHash": "20e62b63647ba30cb2e7c46332c1e5643094f3c2b34eff5ffcc8775a624dc5cb",
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1139,8 +6170,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_292": {
       "file": "assets/audio/voices/published/9b01fa57738938a3a665.wav",
       "sourceFingerprint": "3ac4d2f7acdf0b660cffb5080eda8ae0242c83f00d5521ed7521fa2291a246bf",
-      "renderHash": "4555d82d94e760602a7540b880ed9683dfc32056650d0b443814b07dd7fd7045",
-      "styleId": 36,
+      "renderHash": "20570cb51478deb899a9662b8b143fe11d2a23b70b3d208441396030377e13bc",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1152,8 +6183,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_295": {
       "file": "assets/audio/voices/published/cb948c6e1d54a1caaaec.wav",
       "sourceFingerprint": "88b16a3eca34028fc9a970e62c680a20397a89efb73b79e2de30d8160b08d138",
-      "renderHash": "5505c7582f3ad9355c6bb8514fbd8785a9905a3f26eeb6a917d0ea0445b390f9",
-      "styleId": 36,
+      "renderHash": "c80a7bc370e11a43d29d25c2f7afa4d541a88619a9aa49e083b0b92c743f482e",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1165,7 +6196,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_297": {
       "file": "assets/audio/voices/published/bdbe97393896d94c9b17.wav",
       "sourceFingerprint": "60dc456331c3727105c4b95134f6bb170fe4ebb83cc03e00632e68480bc074bb",
-      "renderHash": "5c6ad8da576e58d3342f5683ef68998a13cad1426607a06c77dc7c79fa6d081f",
+      "renderHash": "0ee85691e62c425b20768316b6170f70945bd9856929ccf95c146e3314373e99",
       "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1178,8 +6209,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_299": {
       "file": "assets/audio/voices/published/6ee7fa40d33e599ce172.wav",
       "sourceFingerprint": "a48075e42cad3aae2df3b4214a4ffceecc0327c0f73a19ddbe52ec0839252e77",
-      "renderHash": "2d28da6d32f4db74b049e4bc1a390efe7ca2003b8e4e1535fa9054d29d726070",
-      "styleId": 6,
+      "renderHash": "cdbd8f01cf742fe63899f083fa5d065e9e33ff2372303957eeeb61f7c5700b47",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1191,8 +6222,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_300": {
       "file": "assets/audio/voices/published/709e0d53a9f03348d536.wav",
       "sourceFingerprint": "0c4dddb7675dff46e00ed08d66231ce7d4dce78928bc1a3ae9c95b97bdbd8a03",
-      "renderHash": "8c84a50a34b8f77c0f45eeab72632e870518acaf318630941f6103db307b5dce",
-      "styleId": 36,
+      "renderHash": "035a7b601bf7dfe1a5a4f46d9083fce1e264efab0f61e1abf75c43aea8330fb7",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1204,8 +6235,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_346": {
       "file": "assets/audio/voices/published/7cd7441126b23717822a.wav",
       "sourceFingerprint": "0b9856e455e77c420992b1802bb3380330d1defb66c8a8773100cba94178fda5",
-      "renderHash": "2b5b551bee7bb612e43980b91c7b30deb6dc979ac8c3f6709c1e409821894069",
-      "styleId": 36,
+      "renderHash": "89c11a3374931a3640da7ac18eee97796e1f7cd0bc48632df0f76ff18c9a13c7",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1217,8 +6248,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_348": {
       "file": "assets/audio/voices/published/1e1e03b6210ce8627e65.wav",
       "sourceFingerprint": "f190c86043e0b1c973e580fe57bdf9244f57cfb95fecd7d99b072356696a22e7",
-      "renderHash": "daa2e0a967e844c1e9c43b16fcca0a48fde2e2cded4777b7280f129a73469da6",
-      "styleId": 2,
+      "renderHash": "9a311cb1c3b65e6a1ebf94af4c3fe8e7101b58a91e336f79b88683f72bed4488",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1230,8 +6261,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_352": {
       "file": "assets/audio/voices/published/0351966d610a2c5235f0.wav",
       "sourceFingerprint": "d162e2cfa4b3fd5eab4f3f7dd5f336d4d790920cfb1cddd2a4d95832cf514760",
-      "renderHash": "5909c356be9d8fe78bc13cb07c595be5e37e04f28116fd2ec76c1acff4d24f9d",
-      "styleId": 6,
+      "renderHash": "6d09c768ecade49a88912ab974420edc6093ff4d3271c05c81b057acf3e94993",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1243,8 +6274,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch1_357": {
       "file": "assets/audio/voices/published/38b2a21711543b9e1a9e.wav",
       "sourceFingerprint": "da50a0504038127e1f57fbec5571c6d6d02b5a74e0266f0062264418ce9eb1e2",
-      "renderHash": "66aabec18111b4b8da16f1618fd19eabb1cc1502bcc41c16bbc476aa196625be",
-      "styleId": 36,
+      "renderHash": "796a8c1bd41b064beddbdbd9fadd476aa6440098d4d6a6e47067e69bf922e02d",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1256,7 +6287,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_003": {
       "file": "assets/audio/voices/published/89fa02f461617cd47f27.wav",
       "sourceFingerprint": "f1a67bc3395c8f906a266d4588dadce09dee434b2bb71c8f6da5420394b776db",
-      "renderHash": "6e8850c45de4f7aa267718d0cded33848c49b39342916d34da8d3a425ac2c72d",
+      "renderHash": "c28afffc009d933d9502d045616d45ac2b3b7bfbdcab66590f01a6fc6dcc765c",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1269,8 +6300,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_010": {
       "file": "assets/audio/voices/published/201868114652b681003d.wav",
       "sourceFingerprint": "96513360036df37e9685e7c1cc69ef696cf9d654dc2e3cbb6c4af33944bc0563",
-      "renderHash": "086623fe601c4aa10552a3af055d56a645ab03d3b1477101fb5c8a2b109155ae",
-      "styleId": 36,
+      "renderHash": "3e12fdd69a1af99a2b66bd0e7ca7050be7509570dd95ea8e3947de4ff1bb5749",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1282,7 +6313,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_016": {
       "file": "assets/audio/voices/published/a5ca1957318bad751b48.wav",
       "sourceFingerprint": "1dc1b3bf4682308b5b0239c484242d9b831a7ca64045371e5249e2ea9cabacf9",
-      "renderHash": "2bfc0f6e44c86bb959728593471c39ae04be864184b5a8cc153da94583954cfb",
+      "renderHash": "472256226f949bccd7862b08012ae3c7a3d272037336b2e46389e91b12d5ce29",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1295,8 +6326,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_017": {
       "file": "assets/audio/voices/published/c09447a3a3f8ade9b586.wav",
       "sourceFingerprint": "0812d8fabc151077f815500a4c62fb2ec5eb1281b84eec6a8eed5a10b2af3b0c",
-      "renderHash": "fa5a6d4fa84ab2ab9053707a142908053101ad24f429421cf7ede4e32eab392d",
-      "styleId": 36,
+      "renderHash": "5a995f4570f58bd106419d038c96e54fd92cb9d1acaf22e91a3072a6d865366b",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1308,8 +6339,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_019": {
       "file": "assets/audio/voices/published/ec5d8d1fb416f451cb37.wav",
       "sourceFingerprint": "5746f3650dfd37a2e2ebf55f322ede9fc0f6b4b30933aea83e3a004ea9310442",
-      "renderHash": "40f357998c5bb9e5b7c8f3b5656b3a75707c71f6b3069ccf32ebcdae8c992d0c",
-      "styleId": 36,
+      "renderHash": "12ca9a5c22a60efe4beac4ec64a83c7aeca7218e4907836c9fbe03685437f947",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1321,8 +6352,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_031": {
       "file": "assets/audio/voices/published/6e39128d33e3c1cf5da8.wav",
       "sourceFingerprint": "790141ae3154e1a9ba554d4b94a771b102e4b5212426f8262b7c5450a1a562a8",
-      "renderHash": "78c8f8801dbb525438a9c70fc39eddc67c27031b4aaa6d4839ec1dcca3c073de",
-      "styleId": 36,
+      "renderHash": "aab8ca071ef1e2e3ea0b3ff87fd0324505667219e462c664392986a92b986b3c",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1334,8 +6365,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_032": {
       "file": "assets/audio/voices/published/f5e0f098699ad33e0ce7.wav",
       "sourceFingerprint": "4dfbb4948552d27df30af19c6b99b541b9490959293036d398fcd18c343ff229",
-      "renderHash": "2eb817aab95d649fae3f4a50b7e68bf3c79bd3a6347636ca96d6e16b94aa9b56",
-      "styleId": 2,
+      "renderHash": "a6ae9fb703a65b9c69ae50ec5e205cf94f6fb3170328d8a166c8bd9ea4273e59",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1347,8 +6378,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_038": {
       "file": "assets/audio/voices/published/fcb0a23bf383186d9e75.wav",
       "sourceFingerprint": "42967e524fb49e3fb9823944c0fd28c1039d4461b2431bba8fee2285655027b6",
-      "renderHash": "966271f8c55ac561e10c8b5eedfaf12a3e313bc8f4039a952df39b1ef0b8f97f",
-      "styleId": 36,
+      "renderHash": "4b91274d6ef8949cdd7791ccda418f913702eddb2bc1c8f4d0d56d72b63cbfe0",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1360,7 +6391,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_042": {
       "file": "assets/audio/voices/published/c057d74e226f6c40b9bf.wav",
       "sourceFingerprint": "8fd1b13cbd04df2dc64a5b827f2ce8a9083144f761e2f557fae15fe5009b7046",
-      "renderHash": "cfcb03f6aa49bcc7737dd2d6d6e474ea6bbc6670b33602c92da30442b5c93655",
+      "renderHash": "25a7bc31fa964fbce8ed8df354b0f914eba957b79f29036551cefa43773af9a5",
       "styleId": 6,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1373,7 +6404,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_043": {
       "file": "assets/audio/voices/published/4e519dcfc89f56da3050.wav",
       "sourceFingerprint": "f16520acd45c182cc77171c27e66d1b108c7c13dfd9d1ad2ccd28cc9c8027813",
-      "renderHash": "5dcba2a5e681e7c8b58e90959538a410cddd49e337a24d909612cd79fc4605d9",
+      "renderHash": "8762e0b85d03376c257d443d882f68a069f1e15958694fbb91ebdb2b82248a30",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1386,7 +6417,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_056": {
       "file": "assets/audio/voices/published/c988b80821e800a63af4.wav",
       "sourceFingerprint": "1de8e55255f3ad7cf95c213e87d5164e3a8d0482b9036d49918fe695cacd7ffc",
-      "renderHash": "8dc3d3080a555b314def1995833e658ded2cf78dc1945757d8b7f4d979b7c2bc",
+      "renderHash": "5b705a9b81c0d23669e5f6663da4a7263f15fe4b18654e2789566fdcfcc43751",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1399,8 +6430,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_058": {
       "file": "assets/audio/voices/published/856695a2037e9638b25e.wav",
       "sourceFingerprint": "9d58aa3f9b3ae2d7947f35626f5c79ba6ff42035fd7d25f5a0e9149af3b5f9b1",
-      "renderHash": "20fbe98850bb74badf84ba772f5e548a42a2cd55607185e8ae924f7ce06b52a3",
-      "styleId": 36,
+      "renderHash": "63abe9989ccc4e746d9f72b355b2431ce234f10a24be372113fb3e53e97c0854",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1412,8 +6443,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_063": {
       "file": "assets/audio/voices/published/d57393845506f5ef722f.wav",
       "sourceFingerprint": "3b34ad0c72b25b93a965599ee15116372d9e20ce98e9693f21de681d0ca8de4d",
-      "renderHash": "f14a0602181489fa2ba1b9f96f1998aa7d7c1ad319191754dab744862ee67297",
-      "styleId": 36,
+      "renderHash": "e2a22755c92398167a039a9a482b83502c0de41a4e7e02a67ceb3ddac29fec92",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1425,8 +6456,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_068": {
       "file": "assets/audio/voices/published/a59f7e4fc686172bad54.wav",
       "sourceFingerprint": "211a0c45f80f396ec5fbd7ad1b882c0bdfe502b50058f1f30d3d459eb0f6f1d8",
-      "renderHash": "b672a3c2f6adf3f64dee18c6e17f2586311f017dda5f54efdb7760192205f54c",
-      "styleId": 36,
+      "renderHash": "5b6314d3570d530fc7ccade8265d55ff2d3cb725eb8f4c7d4f836e987224e84a",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1438,8 +6469,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_069": {
       "file": "assets/audio/voices/published/498a968edfa05c7eccc5.wav",
       "sourceFingerprint": "a59f9c9f860cc6cb8e4ec9d33ed90df1a8598ef55c56793937138b63b7df51c2",
-      "renderHash": "ac9e83169cb77f051834740dc19874d06a3c9357e193ba223e18b95ff8462f48",
-      "styleId": 36,
+      "renderHash": "e892e1e4480d2a508d0d6a71cdf0eb6f2d62bbb7e78e4451cd26f9ecb1d42963",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1451,8 +6482,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_073": {
       "file": "assets/audio/voices/published/5305cd4cfe3d8a93145b.wav",
       "sourceFingerprint": "b7b14e181b952015308d1becf98d1493e2ac3ee12283226c869ca05ad70ff321",
-      "renderHash": "75cd8d2d1739df7ab4b8a1de11a6e68a60a77fe893a1813eb031fb7bf4a879c5",
-      "styleId": 36,
+      "renderHash": "d5cd48931326a947f3f3df2ec28aab8e57eb2b21e25b9efba4b74982546c98a7",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1464,7 +6495,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_074": {
       "file": "assets/audio/voices/published/458f5c8dbc88b890506f.wav",
       "sourceFingerprint": "a603435b3afd7a4ab46f4e7d78195b74955ec87cc21f19c051e425e847af4ea9",
-      "renderHash": "816b193711de03c79c06b2b3e5b10084cd59e0b6a2ef719b79770821a1eb5185",
+      "renderHash": "6fab7cf4e19c21a762340f57b78bcf31a7d9c6b9219d72c047255dbb92bf169a",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1477,7 +6508,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_078": {
       "file": "assets/audio/voices/published/b934e4e5b7e6fd3e8ee8.wav",
       "sourceFingerprint": "3f91babee6ba48da53018e1221654c207c7244b5f020ebf04f0bba96958805a4",
-      "renderHash": "15b7fce87308b9fb771c999c776657cd7af73ab918bcce98c0bb50beed00c8c8",
+      "renderHash": "5535fa83a691af23615e53a0a767db8dee8aa6661100eda54da78dc3409bc7d4",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1490,8 +6521,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_093": {
       "file": "assets/audio/voices/published/3d1172029cd7acf0f162.wav",
       "sourceFingerprint": "d75d4b91b4e12ac272fd1e45de45f2ac5b9fc299da30c574a11d17cfc8581b3c",
-      "renderHash": "373fd18d7686f47d3d18ecb9c2f3507bf83288c6c1ffeab0b2bc6a619e3bd8aa",
-      "styleId": 36,
+      "renderHash": "6d5bc15f3adecc5ab91e35582bd4464a54c23b1344891164d7b95d792068589c",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1503,8 +6534,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_hand": {
       "file": "assets/audio/voices/published/4417037a47835d960860.wav",
       "sourceFingerprint": "aa6d8ed3e28e7be31732ac73ccf769bf0ca52a9b96c66520478da8bd53d6b50a",
-      "renderHash": "9b7490c2286703997fd1f2dc47c5b1d7fd6c9eb4a84a7ea2ccadb0f0a99d5517",
-      "styleId": 36,
+      "renderHash": "f468ed37901e2e10509fefbe571aeb7fc6d45adf7168a4ececb1c722f422d118",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1516,8 +6547,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_hand_hesitate": {
       "file": "assets/audio/voices/published/2aed095233eaa93446f3.wav",
       "sourceFingerprint": "aa6d8ed3e28e7be31732ac73ccf769bf0ca52a9b96c66520478da8bd53d6b50a",
-      "renderHash": "9b7490c2286703997fd1f2dc47c5b1d7fd6c9eb4a84a7ea2ccadb0f0a99d5517",
-      "styleId": 36,
+      "renderHash": "f468ed37901e2e10509fefbe571aeb7fc6d45adf7168a4ececb1c722f422d118",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1529,7 +6560,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_102": {
       "file": "assets/audio/voices/published/7c3a9a57542cb11b996f.wav",
       "sourceFingerprint": "dc4271246b1930d805530f40d84019524c8de6e92749747e83e980137a12a941",
-      "renderHash": "20e62b63647ba30cb2e7c46332c1e5643094f3c2b34eff5ffcc8775a624dc5cb",
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1542,8 +6573,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_108": {
       "file": "assets/audio/voices/published/1f33717466264b98044e.wav",
       "sourceFingerprint": "f54dd220f2bb7d1994b992d4c3caadc1e394d86df469f05b435f995e888c0b81",
-      "renderHash": "4f9bae287be133fbc2234d4c66a39f9ae96f4846a642e3625b8cbd8ede8ff75c",
-      "styleId": 36,
+      "renderHash": "f2b453cb5f5d7deb78dac916d42ec1d9cb75b7afb2f4fa5bba6685070e3eeca3",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1555,8 +6586,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_119": {
       "file": "assets/audio/voices/published/5dc6d15c4d6390f776d4.wav",
       "sourceFingerprint": "beff82eb202e4254ad856455153792b05e06fca4bc86d963edf82f90aa7e85cf",
-      "renderHash": "517a9c9c64446e46692be2474f016107480537f3ea1c7219353c3dfd832ef4a9",
-      "styleId": 36,
+      "renderHash": "31d3b5c5512284adc5ed45e77e3a1290383e3a3a396411d066556b08457786cd",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1568,8 +6599,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_124": {
       "file": "assets/audio/voices/published/626241618b011c850415.wav",
       "sourceFingerprint": "a8acdc88da0d5953e8f1efaada512fca93f2d0460ca026a87aa3d11065d3ab24",
-      "renderHash": "f14a0602181489fa2ba1b9f96f1998aa7d7c1ad319191754dab744862ee67297",
-      "styleId": 36,
+      "renderHash": "71045d2c78cf4f6e2e3fa3deac55886afa907e47555c22b157770e0a5042dc2f",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1581,7 +6612,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_126": {
       "file": "assets/audio/voices/published/84f1b7ea3a470a007d7d.wav",
       "sourceFingerprint": "3e89334d2a06924754a866f9e23a75f01cf0a16b5a56465d54d1b9c4a0a9453b",
-      "renderHash": "20e62b63647ba30cb2e7c46332c1e5643094f3c2b34eff5ffcc8775a624dc5cb",
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1594,7 +6625,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_127": {
       "file": "assets/audio/voices/published/4a3f96c97ef6e1c35327.wav",
       "sourceFingerprint": "7460be2e178931ad68534ac51f5a47e01bdf9243dc75f1cd3942fcc99b23a0ad",
-      "renderHash": "ad4582fa1bbaec1538679ffd5bd7ef82c409b0607c73b5d049211f89c49aa875",
+      "renderHash": "a3000737b0f084787b604e70220786aeb953f7303d40b2e2a1a5caf57937b0f6",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1607,8 +6638,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_131": {
       "file": "assets/audio/voices/published/e25f7925260f29108e0e.wav",
       "sourceFingerprint": "4897941055103c87a6e718c0b63899a5ea7f39dbdfcf031203950910b6c32d94",
-      "renderHash": "f4084d370a372d22bdf68fc80a27c808f2a591945106f5df5731da891d2ad834",
-      "styleId": 2,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1620,8 +6651,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_132": {
       "file": "assets/audio/voices/published/6e040b64ea8318a87c66.wav",
       "sourceFingerprint": "c3f7900c5750d6ca73048313752e4e281859b099785dddd00e51558f7f8d2d7f",
-      "renderHash": "7221c7fac61f5dd338c49f2c06f3453bc07a42b7718182fb64805f3b7b71fa4e",
-      "styleId": 2,
+      "renderHash": "e449607e79aa23e1bef44859fe86ccece5fadfc2c1abb37cdbbe242253b129df",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1633,8 +6664,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_134": {
       "file": "assets/audio/voices/published/cb854ac3dd7b0a13c689.wav",
       "sourceFingerprint": "41c878c74c026220efb45723209f794a0416cd79f4ad09c3606de17e6cb0c907",
-      "renderHash": "13b8a10a6917038f824e63d26307bb9736d8f1552d7c2558cee15180ba8dc54f",
-      "styleId": 2,
+      "renderHash": "e852f50fe2b6148fb123d290fa36e2c7ebfa17522f691f49235b7b1bc7ac76b3",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1646,8 +6677,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_135": {
       "file": "assets/audio/voices/published/706a08d90e2a2951c66e.wav",
       "sourceFingerprint": "c3ea77a6c4ba6795fc3b53ddfe3556230745301456d758d6ea8129c82a2b036e",
-      "renderHash": "13b8a10a6917038f824e63d26307bb9736d8f1552d7c2558cee15180ba8dc54f",
-      "styleId": 2,
+      "renderHash": "e852f50fe2b6148fb123d290fa36e2c7ebfa17522f691f49235b7b1bc7ac76b3",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1659,8 +6690,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_136": {
       "file": "assets/audio/voices/published/96c70cc3ff432c5cb43d.wav",
       "sourceFingerprint": "06cd85a3aa4532cde062eb3403a70965d4bf718411f82edd143dc0be5da305a2",
-      "renderHash": "c42f1f928c5ef699dad2dc4bbaeff1988710a20d2ca50e24e0f8890b0c4a0ac3",
-      "styleId": 36,
+      "renderHash": "130fff1f4d5a3bf8557b85e2794c8fda905f4d120837814eb3569c320c4cd6ce",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1672,8 +6703,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_140": {
       "file": "assets/audio/voices/published/bc6b207f2018406597a1.wav",
       "sourceFingerprint": "d052217ae49770e565fb7804a01526048e7a8322910d75def4ab05d1049e3ae9",
-      "renderHash": "0dae7d8de73f19783571f69fd07d3822e71fb3a8dffd3ae94bacef41aff58b40",
-      "styleId": 2,
+      "renderHash": "e2a22755c92398167a039a9a482b83502c0de41a4e7e02a67ceb3ddac29fec92",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1685,8 +6716,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_148": {
       "file": "assets/audio/voices/published/1738b35b98df26c7a547.wav",
       "sourceFingerprint": "847c975f01b4b3362a35a0cd49912db3a1999d3d412d8e094d97c3a3f3b5a3a2",
-      "renderHash": "9155ef0f2ef59a1f4cc81774fffee9130ddc29b062f7eac7bc9dbea76db3237b",
-      "styleId": 36,
+      "renderHash": "d4593fc9f7fc5a4ccd759dacca515e113392ead63e9d3e696d1cd829d1b30268",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1698,8 +6729,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_149": {
       "file": "assets/audio/voices/published/ed6eb15e79f2ce528698.wav",
       "sourceFingerprint": "3b687bdf8d1f85d7e78c77648bb0fef2b0b22ed043e775ea9340a3972f4264d6",
-      "renderHash": "f14a0602181489fa2ba1b9f96f1998aa7d7c1ad319191754dab744862ee67297",
-      "styleId": 36,
+      "renderHash": "71045d2c78cf4f6e2e3fa3deac55886afa907e47555c22b157770e0a5042dc2f",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1711,7 +6742,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_158": {
       "file": "assets/audio/voices/published/50a42f3160c0771da3b4.wav",
       "sourceFingerprint": "98c885586414fb1febe34a5641fa502bfd7d2fa5bc5d4d4635143c924918737a",
-      "renderHash": "6e8850c45de4f7aa267718d0cded33848c49b39342916d34da8d3a425ac2c72d",
+      "renderHash": "c28afffc009d933d9502d045616d45ac2b3b7bfbdcab66590f01a6fc6dcc765c",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1724,7 +6755,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_159": {
       "file": "assets/audio/voices/published/dddbbde45f1d61e09bd6.wav",
       "sourceFingerprint": "7d0687056b22ea3903c8bee5b4f119a24eff3c1800abc031184e2bc2836ada68",
-      "renderHash": "07739880d0fbe0d7687689a85cea52483258b92a90b5ce811717a4f6541b6bc6",
+      "renderHash": "5989d3777b46ab2a75b035ae9c546e4451266a6aa5c488477f0512a1aff9d646",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1737,7 +6768,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_162": {
       "file": "assets/audio/voices/published/d5d8f16bec608ae8fa4d.wav",
       "sourceFingerprint": "00eeb4a35db8eb366c0a6fd0eb21ff865b91f4d54c74ee94e3066679c442a0e1",
-      "renderHash": "20e62b63647ba30cb2e7c46332c1e5643094f3c2b34eff5ffcc8775a624dc5cb",
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1750,7 +6781,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_168": {
       "file": "assets/audio/voices/published/3b106a9b549b5b4983d8.wav",
       "sourceFingerprint": "23adadb6be7759a524561247bfee5e9eaecb0c5534d1430aec600459d51169cb",
-      "renderHash": "5e789e1a3c6e7b73eaf5f024dc1c4004ace7f05b4f1102dd2bfdbc5414a5669d",
+      "renderHash": "0edbce7fd20e706cc7b80d99dfc1ca866a1077a31cdfd40943fcb0fc3cfdfdfb",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1763,8 +6794,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_173": {
       "file": "assets/audio/voices/published/bb774d94faa3bb05f898.wav",
       "sourceFingerprint": "abbb292b3803f41be99c610258c48409c5a1c7d3851991371fd80ef94f06bb06",
-      "renderHash": "f1485a1a619914024b4113092964995588844de7a21024dd22232fc6e7104774",
-      "styleId": 0,
+      "renderHash": "bbf620642e8c8c5c4103a0b0baca6162e1d169f03c82578f6303b488bbf89258",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1776,8 +6807,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_177": {
       "file": "assets/audio/voices/published/a450d869a77e5c4c6f59.wav",
       "sourceFingerprint": "05c5244d13cb510177455038a8bd912f66801da89440eab92f692f112f1f20a0",
-      "renderHash": "e78521e769012047fc03ec035de71aa57f2f11a2f03d369a0501581596d29895",
-      "styleId": 36,
+      "renderHash": "20ca917156f1bf03faea9ca32ea9be029c124333c04a5af2fe15120c4667ccb4",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1789,7 +6820,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_182": {
       "file": "assets/audio/voices/published/e3116d8b66c669b54161.wav",
       "sourceFingerprint": "1b1d9da3a64a3a7e9974d09b4274eff4ef866284736c909f9a66423f59db151b",
-      "renderHash": "be112748cca579736032c5afac7b6645532337dc78322e5abbfa0b3d624a0be0",
+      "renderHash": "54426ad3b0f1c74850e18e7ed366560cb8438328a3d496b851250f09684dff71",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1802,8 +6833,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_192": {
       "file": "assets/audio/voices/published/a1dadcc74b7936433b78.wav",
       "sourceFingerprint": "38f8cbabe0811a94c3a40814344d9e1bdf4695174e514a7b83f3115bc94d49d6",
-      "renderHash": "001620970e9272aa8e9e1555964df0ee889a23acfdfb0ffe86f111462c858eec",
-      "styleId": 2,
+      "renderHash": "5346c11ff918cf0ffdc8b73b056a4cb2a0d0ce120d0f76da2bb7ff4bc5016496",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1815,8 +6846,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_224": {
       "file": "assets/audio/voices/published/f4f1a50ef9852e6d8a81.wav",
       "sourceFingerprint": "430d20a37e3418032dafcfc240429df048e74290f63233b8304bed679f4e3457",
-      "renderHash": "251134dce684880410f9d2aebcdefb5a17804f27cb7583017a9fb04e1b32c99f",
-      "styleId": 36,
+      "renderHash": "69a8a2c2e326ca9c7e1f859b55d685b2599ede26674f11187f5a20ad1767a23a",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1828,7 +6859,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_226": {
       "file": "assets/audio/voices/published/aff41e325c7475294e10.wav",
       "sourceFingerprint": "bfb4267978d94f75cb23e6119d677ef9a02800f8c43e1cb2783f294daac7f08a",
-      "renderHash": "fe014e2644d9bd14f60223db85ce48bec90741f201700e77945f1530e87674cb",
+      "renderHash": "5214666101060c4ab1d45d32d8414d54bd9e8e921a4a658e381b4b738c92411d",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -1841,8 +6872,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_228": {
       "file": "assets/audio/voices/published/e67bd953cbdc838f552b.wav",
       "sourceFingerprint": "2fdad6c0634b03ae49c075817f43306b70cb6ac6d47a02ed2e59c0d4d7be6f2b",
-      "renderHash": "a36f0b94834adfd541c95532f077fef2be74acb57bf91ccfc4a1cbd886b14763",
-      "styleId": 36,
+      "renderHash": "0a4ccadd77bb03661247c6a6241024b4da9bacef73f8ae6c4836b102aac88a32",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1854,8 +6885,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_229": {
       "file": "assets/audio/voices/published/d28e2feaa46691ddca01.wav",
       "sourceFingerprint": "4bfc897b65a44f52fc3d29378f8efc12c5315828f0806cea11adcf6a54e1c55d",
-      "renderHash": "a250974714d3d4d6972d1e88b2f4effd5d155b150eef3edde257fa353d652802",
-      "styleId": 2,
+      "renderHash": "48e8bf7b73ab4965bdb35bda150e6f48aa3c7f8528202da4d087774a4abc10b2",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1867,8 +6898,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_231": {
       "file": "assets/audio/voices/published/c0e170058bf82b81b279.wav",
       "sourceFingerprint": "ef5f6f16cea733dd901963798d2b5eded0b3a39c92dcb4f7f86a4bb9aa5bb993",
-      "renderHash": "cbfb960e2c9ba3900aca5de5c1572293f04e5b5fbb03f5c99db17c2c7732f9d8",
-      "styleId": 36,
+      "renderHash": "ee10dcf349e48b1f113e01eea90357401269a3b823dca19d8ada4edee271f0be",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1880,8 +6911,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_233": {
       "file": "assets/audio/voices/published/8e9f44a886ac93fcf215.wav",
       "sourceFingerprint": "44be017c6653b628cde857eff9c51b387216cd9afc6d93f8c3e34cb448ab9286",
-      "renderHash": "6fedfa655e73c85b89b33392d27c29decdf493180b2742f11aba4d248ad444d1",
-      "styleId": 2,
+      "renderHash": "25aa12b86a82754437d4033a2794affd1d540e75f2c2ffdf2ab2e82067e88420",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1893,8 +6924,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_235": {
       "file": "assets/audio/voices/published/d56cf2c6ed5001b154ac.wav",
       "sourceFingerprint": "4e4cdc9f70d79e72e11c8db5c6277578569c3a518040e50b213639c7cb205d1a",
-      "renderHash": "f4084d370a372d22bdf68fc80a27c808f2a591945106f5df5731da891d2ad834",
-      "styleId": 2,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1906,8 +6937,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_236": {
       "file": "assets/audio/voices/published/b95dbe6339f4e671e7dc.wav",
       "sourceFingerprint": "918b3ec33771b530aff6aa9c124e5610668221ef33a4d2e5c6360c668b28428f",
-      "renderHash": "c19bbb20f22a139258859c7779720141c1be95f749b2212c698ea6061eb4b911",
-      "styleId": 2,
+      "renderHash": "8305818d62092d64b3b319218f61663bf8cf650db9b22af6138bc132b3537d31",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1919,8 +6950,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch2_237": {
       "file": "assets/audio/voices/published/98e22862832bb146a3d8.wav",
       "sourceFingerprint": "432d0d83614af924f764f15b7b66b9d40d37ec27f472fcfbe24f4f0cf63d5c3f",
-      "renderHash": "842ca635f6c0fb800b2cff49f474a2355b088b3957c86ee2ed5b728eeb85e358",
-      "styleId": 36,
+      "renderHash": "fbec00ffa6a596b50a60d2f08eb419036f9cc08645edbb74d65d5dd692eefad9",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -1932,8 +6963,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_002": {
       "file": "assets/audio/voices/published/409592a70b0baf2044ba.wav",
       "sourceFingerprint": "9111af94a6a7ccd6a5c56ef28455454abf9bb6c9df937afd24527fcd66b56580",
-      "renderHash": "05516c448a4cd79d0e567eab11767afa899aced2486b775c1be5a8860ac31f28",
-      "styleId": 36,
+      "renderHash": "54d0887d8e030ac575379ef9361e33946b6266ec96bdcc10f2ada11dbb7e713e",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -1945,8 +6976,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_003": {
       "file": "assets/audio/voices/published/0e650e150512289ee538.wav",
       "sourceFingerprint": "e2ccd57374a9fbbe62d381cbddb53b119ae187c40ae35fae2bfe08ade94ab579",
-      "renderHash": "42471340e487c01dcd57de4ad9abdedc7fe2ec0688bd312b03843e0da8c61850",
-      "styleId": 2,
+      "renderHash": "08bde971231622dd5e76e36f90f987c9f69445c91a3eb4f0db7b0b8213d00484",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -1958,8 +6989,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_005": {
       "file": "assets/audio/voices/published/e6c64632b55148c0453f.wav",
       "sourceFingerprint": "9c5f817f9dd01d94bfd1a1c8cd5525367d24b5e17c873b632b44d6e6716724cb",
-      "renderHash": "d1a10ec2bbd54b3e2714e68d86dcfeb5a68fd1ff56be81a80689a1629495e936",
-      "styleId": 36,
+      "renderHash": "1defd20d2b8382ed261c5dd117d67e3cb2c58be296053a36f1b315b27f59de82",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -1971,8 +7002,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_006": {
       "file": "assets/audio/voices/published/da3dc150276fc00f5162.wav",
       "sourceFingerprint": "98f721c540d4fbe6d43db7c19d229ea99669784124e98938cfa834bf8aaf8c71",
-      "renderHash": "b17b2ef7833525af6a2749491cda9320ad64749e8e5330ce55be9fa58ab8495d",
-      "styleId": 36,
+      "renderHash": "73b8f07fc6aac946e34f40b57ec8208f3e65076c7cf14fc2015f7f62f60b6441",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -1984,7 +7015,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_008": {
       "file": "assets/audio/voices/published/4639789051f5e291904b.wav",
       "sourceFingerprint": "acec03dcd0603e4a79c59a7a21a46796d97a57f26334691cb12c6d8d34c9ccf2",
-      "renderHash": "4f65bcddbdd0e63069663dd53c0212b54c5d008696954276943e78894cb3d3e8",
+      "renderHash": "b9a270297546de65cc6f23764a78b0a4298e057f991a2cb7d03a9d5c9cd259fb",
       "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -1997,8 +7028,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_009": {
       "file": "assets/audio/voices/published/7e324b23d7c3e27c760c.wav",
       "sourceFingerprint": "4bcf592628cb31aea872292065ff2c9cf76711ba9e16392694087139c77bd256",
-      "renderHash": "3d216ed3ff903065456a568691ba1b3a41df964debf292332fa0a5b00df78660",
-      "styleId": 36,
+      "renderHash": "d3d48a6e82d77ce3d3226f36f79ae38a878ea6403bce9bf97b1ba2293224c503",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2010,7 +7041,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_020": {
       "file": "assets/audio/voices/published/aa0a0eeb981d4dc64381.wav",
       "sourceFingerprint": "f59d6bc2875ca76245289a178ecde4785c0b1c29a6fec948b7145cd8e902e985",
-      "renderHash": "9183553429e7ff318e2250d7419797d2ce8018821deb1bb13d2ff41da54a8379",
+      "renderHash": "78e9e50e11ff81a4cc27b7eb705147539ea8cc2c2872f776127ab91c85cfe115",
       "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -2023,8 +7054,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_022": {
       "file": "assets/audio/voices/published/3ffad9f54a37f0a45296.wav",
       "sourceFingerprint": "3fe7b65a651a02e9b4e425ba8442841805e31456ad79fe5cccf165f02b82c311",
-      "renderHash": "8ba8ff9a4245b467948549799d9c300b826763c18de3b13f344c26e96ae45193",
-      "styleId": 36,
+      "renderHash": "5d18e3c81bf258a7a3b516863876aa495d0970c8946c016a000ce731173c1a70",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2036,8 +7067,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_023": {
       "file": "assets/audio/voices/published/85ec2d93dbfdbd65608a.wav",
       "sourceFingerprint": "33c3eefaee0b8ede9ced57b56ef93df1ce0fc2190898aa8b679c65b2953fdd0b",
-      "renderHash": "f4a95a7af90fede6b3fb963008a0c4adc5ab8d8f74a083042ea8f58f5d59f534",
-      "styleId": 0,
+      "renderHash": "eac9d2e1b518fa664a3e97a72dffd61f8798505b4d876d9b681ac287969cd4f4",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2049,7 +7080,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_033": {
       "file": "assets/audio/voices/published/92c8fc556b36227684f6.wav",
       "sourceFingerprint": "e09961650832e72d0124064219ea01746ab27bb5ab02ebe782f9b5ea7c6785f8",
-      "renderHash": "93843b13b9ea1e6bacd85859af9304905ee3f56d8ed01ab0946a3def43be5c15",
+      "renderHash": "f468ed37901e2e10509fefbe571aeb7fc6d45adf7168a4ececb1c722f422d118",
       "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -2062,8 +7093,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_038": {
       "file": "assets/audio/voices/published/ebbd85d7b7ac0767bbb5.wav",
       "sourceFingerprint": "a964086244e70065a26134ce9ecd5609e63d02d844ac53aa2f8c443fdcfee1b7",
-      "renderHash": "001cfc6ba5f9c2f16d3eeb91cc13dadc36ec5dfddeb4fda757d320791a76e1e3",
-      "styleId": 36,
+      "renderHash": "61ff2452b3865f9b12b23d0ddc2f1cea816e362ba81118cb46ddec5019f9381a",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2075,8 +7106,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_065": {
       "file": "assets/audio/voices/published/5eed20f471f416266d39.wav",
       "sourceFingerprint": "ee2f58e95650a8f48e7d6ad18837fbe0ebc864ca7d804af310c82abb76ea132f",
-      "renderHash": "d0a9505e0fbaa0fb294b54bd650f98c3fe5e22f8c29d66e39f6e13356acf8d10",
-      "styleId": 36,
+      "renderHash": "a202b4b6f6200c0e0ddce97587952b994f16ec814732ef0342f81cdf028da9f4",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2088,8 +7119,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_066": {
       "file": "assets/audio/voices/published/57a47ac66394ff7bc0c1.wav",
       "sourceFingerprint": "dcd5508cd88074d54dd74ca299b21331fde609aca78a6379986723cf035219a3",
-      "renderHash": "4b30869666ec9e1f7c143eba4a7dfa1960a2739e78bf6cbb616d35f74fb9994f",
-      "styleId": 36,
+      "renderHash": "de6d518dba7b87c8adb73254c6961c68c1d511ec43ccf5f91574b12af82e5f4c",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2101,8 +7132,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_069": {
       "file": "assets/audio/voices/published/1cf501364f1a20b952d9.wav",
       "sourceFingerprint": "d2fe6857edb63bad14308944e46250c0dad25c3412de859afe4bef028134315b",
-      "renderHash": "18be542beaa0938d3c77873067fbed6785a167d810b345ec3bb1019e0aa23c3b",
-      "styleId": 2,
+      "renderHash": "c674d3a8b1d600a922ad47e6d69305ad77c41938bb917e2d9c761821c6a000ff",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2114,8 +7145,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_070": {
       "file": "assets/audio/voices/published/c93dfb437205eb47c479.wav",
       "sourceFingerprint": "d339b43784d342f6023bacbf38e68922304a4baed9b45f736c30e58a0e4a4d0e",
-      "renderHash": "f60af1442361eed651612c3b862c1dc9db14c4d278804a6a4149950be1981fc9",
-      "styleId": 2,
+      "renderHash": "8046d830a948855851a760848b35e89ec0762da5c190a224f719d42d0e37886a",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2127,8 +7158,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_074": {
       "file": "assets/audio/voices/published/bd2a58b3cfe6d8159278.wav",
       "sourceFingerprint": "58293a5f017549a6d10ce91e525c2641c67f918cbcc096d8baa7b9c8871ed8ad",
-      "renderHash": "e8f07c5dfc6c0654bbe41ef97adffe3696a0d1b6fbe227aa020b5129f4715921",
-      "styleId": 2,
+      "renderHash": "f18a8db2b42f403bf05cf86c4d90f41e16ce96f28d8baf775a61860173003d1e",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2140,8 +7171,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_075": {
       "file": "assets/audio/voices/published/874ec615cd040a20d165.wav",
       "sourceFingerprint": "8fd5a9f9f7fc2e797818a1649d615be75b7dbbfa0ae6cd9d269b9cc2bde93ba1",
-      "renderHash": "93f6ae2b80fe7ad8af7bed5c691ef9e6f3397ec9b77548d850c16fbf86d2d914",
-      "styleId": 2,
+      "renderHash": "59a3fb8443a0609e5d394dfb950455e206a3d4bd35eb893854de52c13bb24144",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2153,8 +7184,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_077": {
       "file": "assets/audio/voices/published/d5fcc66f2874fcc8ecf6.wav",
       "sourceFingerprint": "152e45ccc6333d0bc291c9feeeddb25e96683ea3e9b8735fefc0f7f65a94cf1b",
-      "renderHash": "342287cb3ca8861337a68030d98d150eea00d94d8936d179259fbe68c7beb9d5",
-      "styleId": 36,
+      "renderHash": "fe4d60d3b763ca2679534790678d1eb60dc08645d7cf1e886f89a53ad4652410",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2166,8 +7197,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_081": {
       "file": "assets/audio/voices/published/e789ab28cf1c256b6d65.wav",
       "sourceFingerprint": "fca38d822a2c30e8998fd11198a34cec6ec2e0a2c8ed1aff68dfe98fee7c626a",
-      "renderHash": "5dadf9c4e8388d7dfde7e7fc4988a8cc0dd8a829de670447091f1a2bd68cd9b1",
-      "styleId": 36,
+      "renderHash": "620407bb594323512bb4110d3e02c42c299e0d5b30cff367390021b36f701b6c",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2179,8 +7210,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_084": {
       "file": "assets/audio/voices/published/d51ab53aae513d2c72d1.wav",
       "sourceFingerprint": "9230d62f8fa884e7b1a04750df0a59b4d65ceb0878734addda8113896163251f",
-      "renderHash": "19934cf6f52f4c73eb20cfb0cc664c1093c3a838bef0a107c757dd3df590f61c",
-      "styleId": 36,
+      "renderHash": "209a7e9ba2abc1e7bd295f4ca0371172a86c67ce29dc2d49a9cfda087658656a",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2192,8 +7223,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_085": {
       "file": "assets/audio/voices/published/356dce9128202eb2eb3c.wav",
       "sourceFingerprint": "e411f55d6b2fb50e7071443ed4bc727c8bb9d27485355475637241ea7c4b38b1",
-      "renderHash": "36789ab582ff5268f89a5840ef4fae556c5d3c17b2ccceb0e1b1620cf815e2f8",
-      "styleId": 2,
+      "renderHash": "ceb35283b44b559269916d7123594019f9df9c586054398c8e03a72b5a148507",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2205,8 +7236,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_086": {
       "file": "assets/audio/voices/published/2a1d18889ae693d659e2.wav",
       "sourceFingerprint": "3d4deb1e193fe09aa5849563dcf2eb02f0c10b776d66e9760b8728db2e9c1ec8",
-      "renderHash": "c01b23475b0d615cb50ae6d53c1b8e3923807a034ec6127d3a8d38ebced07eaa",
-      "styleId": 36,
+      "renderHash": "a81417b0272d395ba87655c7ae5eb0fd10374cefc3d89d74b59d398b2bff4946",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2218,8 +7249,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_087": {
       "file": "assets/audio/voices/published/d1dbb62c66656bc837bf.wav",
       "sourceFingerprint": "d655243bfb8d13c0f8408c6d4be7908274800b902b4a4518f6ab1184e500b3a6",
-      "renderHash": "d60b16d9e1961fe0909f3108d1f4d7203c717a520ad41c88c770cacd05af1116",
-      "styleId": 2,
+      "renderHash": "cd3046d3d5b11d28f509ea6465756b2ad4b4a9e9e60fac897d53be4e09254dc1",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2231,7 +7262,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_094": {
       "file": "assets/audio/voices/published/f7c87e2a010afc0a423d.wav",
       "sourceFingerprint": "93e7c5fe844817ca62ee3d76c33be1801aa3fb8452e432b61ab5af2a71f884e7",
-      "renderHash": "7332da8a16ba8ed43ed722f860eb5c8bae4a508334c037db16e7905708fd6d0b",
+      "renderHash": "d814461c8d02efee24b8f39f3886818ffa0ea456a56f9d4c9febd510da8e83a6",
       "styleId": 2,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -2244,8 +7275,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_095": {
       "file": "assets/audio/voices/published/4aff2d8b5e54d21ba507.wav",
       "sourceFingerprint": "5fac0581925fb85116f21391e8bc261713c935e8e7a73b1ca547e8ac217476ee",
-      "renderHash": "1995e9c80ada44d27f6ab81a4d9655bb9ee5af2e5575cf97814cd5ed7cee5ae7",
-      "styleId": 36,
+      "renderHash": "5d372d7022d8b0f405e37193f0c146590c95cb62c2f616ab448b8fe4c80dd98a",
+      "styleId": 2,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2257,8 +7288,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_096": {
       "file": "assets/audio/voices/published/73205e13649fa2fe7e21.wav",
       "sourceFingerprint": "08308ed71d5f2e0ca9ee946c9b58c5ebb969d6eb8d3dadcb3162c9502518a57b",
-      "renderHash": "e92f02873bb68e7cfc74075105371f5d410f8f5205a99e26e21de52524c33118",
-      "styleId": 36,
+      "renderHash": "d6e9b7ffad2b5fd340cb0c5ae9947a834d15262335c0e6c1fa52470aaef31a27",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2270,8 +7301,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_097": {
       "file": "assets/audio/voices/published/56a91a189c4acb4e52a9.wav",
       "sourceFingerprint": "a11cb6ef90ddd5b12c155d4716618f95e71d7609a3f03360ad6aceafdd330917",
-      "renderHash": "cc53845f375f9d6a0e68716720d5ae746c5131762af280befaa8145a35d986ab",
-      "styleId": 36,
+      "renderHash": "718a0dbd783c6b9f7d101a4a02574fd978c6cb9f407592b6e91453bc90095c9b",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2283,8 +7314,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_098": {
       "file": "assets/audio/voices/published/87a248b1d78027ec7ffc.wav",
       "sourceFingerprint": "58369b5a7b65346d0fe6293fb9f55fcc04c8c4aff0992ca3da750755ea870759",
-      "renderHash": "c81b11c61c7939910558f1655613a0a7d069089bc051c730274157d8e3367208",
-      "styleId": 2,
+      "renderHash": "ada8113252336f0d6ac30cfb30e4c9ad8acacbcae0bedfac7ebde5377d0d3644",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2296,8 +7327,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_099": {
       "file": "assets/audio/voices/published/2ba932a87cf508d63f50.wav",
       "sourceFingerprint": "9a9aa0a3abe188f6305487b3cd67680045e14171588dacc96abcff70f76dd5d8",
-      "renderHash": "fae015badfe41672e626a32ea5f70858abf7c2388847e71a2733e7f1a337a25b",
-      "styleId": 2,
+      "renderHash": "08c7ff87f1cec2da40216f910578100ae1202f36d5a31325706ee1a737cbdb2c",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2309,8 +7340,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_100": {
       "file": "assets/audio/voices/published/3b41d79dd4528226b5b1.wav",
       "sourceFingerprint": "e600eaad691bfd07ee25added961edb794bd4569a1e4dba024a25b7b6fba35c0",
-      "renderHash": "70a2d396e0ad438a69c99da4e612c371bcd380f3977642441ac2ba24b34b301b",
-      "styleId": 2,
+      "renderHash": "b3968c38af5120d476f06a486b0863550e2864430d14596dd47fe3196ae195dc",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2322,8 +7353,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_101": {
       "file": "assets/audio/voices/published/06801a72f027159dab1b.wav",
       "sourceFingerprint": "4e019221315083ad5732fd2ff2d59bb2eb3dcb8e5a289d4b66067be23d5e2538",
-      "renderHash": "f8ddc45822f40760802669d56a3bb6537447cc21b836200d7278787b2264c530",
-      "styleId": 2,
+      "renderHash": "f6de76851a0d5049d71faa972aa3ae5d61353911db5fcc409b6a2411c90db656",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2335,8 +7366,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_103": {
       "file": "assets/audio/voices/published/c945b93f4d5c96c7149f.wav",
       "sourceFingerprint": "2832b2260d8ebaa593793d289dc2dc64b48ea044ced298ffc464266de25248eb",
-      "renderHash": "00abfa2e7b0da1452ce312d9d10f13afc32fec1e1b561ea9a376f9957e9f7734",
-      "styleId": 36,
+      "renderHash": "0fa884ec70cea5aef96c20fd80a141fedce62907edaab7e525dea696dc600fbe",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2348,8 +7379,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_104": {
       "file": "assets/audio/voices/published/8383ba64a824bcccb774.wav",
       "sourceFingerprint": "5dc1e7eef53ab72aa5b67dd5ff64ace004ded51318ce94794fc68b99f652d3e8",
-      "renderHash": "3221c0fc90c10d363d8267b752c120fbe304068b35e9ce5e256449da2eca4a81",
-      "styleId": 2,
+      "renderHash": "c4c17b8a9b3c2f47b39f1175917b25e97cf136e8572fd8bbdc6eb9af90a33b85",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2361,8 +7392,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_105": {
       "file": "assets/audio/voices/published/04e8fa22dd146cd76775.wav",
       "sourceFingerprint": "ab530e85e23947967c8ec7a899ef571453c795c859aedd0fd34d06ba713826e5",
-      "renderHash": "c4e05081b01232efec60fde3ef4f811832346dbfd8e87ea081b81a44f569567d",
-      "styleId": 2,
+      "renderHash": "31ff7daace0b3967b611522b7dd39bfaadd058e5cfc250c5f8b2d8478d61f2c4",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2374,8 +7405,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_106": {
       "file": "assets/audio/voices/published/4ebe9db1e4fe702058eb.wav",
       "sourceFingerprint": "041d0866431e18b4a86d24ca54794c5ef86f601f5d8b3f4fe3b5bd0fdab62ca2",
-      "renderHash": "c1632e393597b256d70235d6c8f12460591175658207a37331cb62a3e2994f60",
-      "styleId": 36,
+      "renderHash": "88768fe14fa4dba5697cb0fb7a7aebf0641a68c404220fc39d28cf133cbe364f",
+      "styleId": 2,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2387,8 +7418,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_107": {
       "file": "assets/audio/voices/published/1db7466d2ee613e71636.wav",
       "sourceFingerprint": "41974ae58497855b983cb568efaadeda2a5a42338b57a05c45b8fd1a6f6ade64",
-      "renderHash": "f5f48ea9cc72462db8ac6a96f46f83c881f8eece11a406ce8377a35318dfd44a",
-      "styleId": 2,
+      "renderHash": "a9ec84aace961dcd6f5d95ede8b949c5bfb110e14fddbf77279423e1c7b4a787",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2400,8 +7431,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_109": {
       "file": "assets/audio/voices/published/eff7ea04afb091ae574c.wav",
       "sourceFingerprint": "283728d53bc41c3f40500b02d408ac46959ee3f3f4ab0c881029ddbba4f2f7f1",
-      "renderHash": "5ae529ee08c785e7335768faf981f6a486b9f893ab787948e826a1e99a6061f7",
-      "styleId": 2,
+      "renderHash": "4c1fde7131b9447f1ceb76da595211ce8c290dff88a617946850461ed69dedb6",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2413,8 +7444,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_110": {
       "file": "assets/audio/voices/published/c1c9af9183904f86025d.wav",
       "sourceFingerprint": "999f16ac4c658431e2977244c602a4259e0670362712e28face943a56d959db2",
-      "renderHash": "f642cbb95fba55a93fac197970fb7fbfc1cbe7fa81904cb1086f1f32ebe6e051",
-      "styleId": 2,
+      "renderHash": "5fe18322e05751d66b39078c2918fe20ab385222eefb666e8ed002aab247a153",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2426,8 +7457,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_111": {
       "file": "assets/audio/voices/published/173551503e1eb6ce90f3.wav",
       "sourceFingerprint": "76954c4bf4c912fafd93cb15584e2f2120be0b81e22763a86d6bca84a1bfaf36",
-      "renderHash": "013832a50529a2fc9ee33a96fefa17700bbf4ddeb5828bc23322138d734bd2cb",
-      "styleId": 2,
+      "renderHash": "dd59477681204d708ba8dde1bdc92ef800a9314c395a812738f6a2001abebcfb",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2439,8 +7470,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_112": {
       "file": "assets/audio/voices/published/c0e722e2f45a71cee9fb.wav",
       "sourceFingerprint": "0cc2f5ea6c9c3ba8f8a0ad973b4adf5f3b96e68425f6071b53cc1e3366d5734e",
-      "renderHash": "9f95e02652962db01788d9318a446e0c40880a3fd5a4353fa08e191028fa31d6",
-      "styleId": 2,
+      "renderHash": "4292456882368f472383bee920f9edd2ceb9a5db8d9954f3dab48945d302e974",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2452,8 +7483,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_113": {
       "file": "assets/audio/voices/published/a566a73587522779569f.wav",
       "sourceFingerprint": "be759d6bb54b043881a58793698abec900994af228b2a9432f008c1c79dad0b9",
-      "renderHash": "56905e9d30fcac7ab825e194fc2c4898b24aa4fb4d6b01f340e701313b97d967",
-      "styleId": 2,
+      "renderHash": "8972ad7ef412adb27a4e8ffafba60b079b91301ececb4d13b3ed658d34faf8c1",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2465,8 +7496,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_114": {
       "file": "assets/audio/voices/published/bb27921c0e9cc37f75da.wav",
       "sourceFingerprint": "69187504ea4ebf55de848569abeee41e410a813b34e433e05216d10ab1804bb3",
-      "renderHash": "2935f2ebfbc109f54501383a8a5b7a9afbd0b067637a1731dae5085a0e529ec7",
-      "styleId": 2,
+      "renderHash": "e7d9181f249def885dc5d3f53a2cee99854569a5bba5e150e3a51209a80fbe5a",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2478,8 +7509,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_115": {
       "file": "assets/audio/voices/published/c60150978cd4ed636906.wav",
       "sourceFingerprint": "fb41eaf9da49f77458643738031acb650c32a540e8866d48c719aa63e1cadcdd",
-      "renderHash": "5595477a4b071338b0943e1a1eb6ba7cb75b11b94960f57d3790739de9acf04c",
-      "styleId": 2,
+      "renderHash": "63d2a20b987441b94923d98b12e2b2fd7960efc6cec2663d823270a23fc5af42",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2491,8 +7522,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_116": {
       "file": "assets/audio/voices/published/c412bb22002cb0f1d79f.wav",
       "sourceFingerprint": "29807e832472800f0d7fd894d9225dfb35138dc876b120790dce178709763313",
-      "renderHash": "948e89e6507c4db26f64627f1b0ebc34993715d8b46b356232d58823306dedf0",
-      "styleId": 2,
+      "renderHash": "d269b9d3b4a5e7662d3e52a16beef2294b7faea964b02a5a64db84c274c821c2",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2504,8 +7535,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_117": {
       "file": "assets/audio/voices/published/38ef83022aa27ead5ec6.wav",
       "sourceFingerprint": "f33dc79eed1d616b2458cd858f879c5926d64ec25d1bb911ca2b14663256638d",
-      "renderHash": "3d81d45748c268107b02629081facd0ab28d2c1e67475ad6005e4958d9e9092d",
-      "styleId": 0,
+      "renderHash": "506c6a21234411d95d9aeff6a628e7113470142673eea4e28d37305cebd5924b",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2517,8 +7548,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_118": {
       "file": "assets/audio/voices/published/d453a81fc6b2b86d7079.wav",
       "sourceFingerprint": "7e20f14b71315d0199fa40abafc7da17da17a404223c8f74806b7b31877abb41",
-      "renderHash": "995837d5d0d861f0ea98217f42922abe241209af044f5365876f0a1aa5362e78",
-      "styleId": 36,
+      "renderHash": "2874df5a28a63b930b484edad77874cff4d35d034cfe1534fdc3f4d4e9b23d84",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2530,8 +7561,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_120": {
       "file": "assets/audio/voices/published/77dad769e144b2919c12.wav",
       "sourceFingerprint": "9e4e74930ffbc706c1bcf7e234019478695c9b59afeefdb9245152322644593f",
-      "renderHash": "07f86dd69b0e8fc4657b55333797545132d437bea2a1f40138a39ef96f51c1b6",
-      "styleId": 0,
+      "renderHash": "ef7e0cdedc9af4539a5b01833815bfcb738c7e4336427e550e919b5e53a8af45",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2543,8 +7574,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_121": {
       "file": "assets/audio/voices/published/c7b086fb430c8b96bcd1.wav",
       "sourceFingerprint": "88f2428117cd0025c9d20c24e5a8daaa56b8d276636eab63eab9a23fdb7621de",
-      "renderHash": "1352ef5b4ff05260b84da152dd49d6f4a548f48a75c317b5d704041a99d812af",
-      "styleId": 36,
+      "renderHash": "12b61ef46c0392bbeaf723ae615d5cf4f03eac094789be2f0547aee33a8c4049",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2556,8 +7587,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_122": {
       "file": "assets/audio/voices/published/e87d41d7e6b420eb9f6a.wav",
       "sourceFingerprint": "1f9645528fd00b4f81c7b9eee7ad186fc52d112b3a848abf2f7be0ecdb9f10d0",
-      "renderHash": "b2376535cebc6de10748208056c266d08454738507a7650c5a1e7e9fd9d03200",
-      "styleId": 36,
+      "renderHash": "4f2304eecc2ccd2780d13187f53f7bfdc388b3d527b1345beb640be9decb703e",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2569,8 +7600,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_125": {
       "file": "assets/audio/voices/published/a423e7f44a95cb274250.wav",
       "sourceFingerprint": "b1521712d221e1252859c982b9a9f2833c91a685f3767dd74b64c272d1a6226a",
-      "renderHash": "171f0ecdffe9d37632d7eac31e0d0abe54a31913c63c3304fb0a05a3a3f3a09b",
-      "styleId": 36,
+      "renderHash": "6e0d5a7c418c70e96e7be95f90b0b5a7809942ec555c0eba08dfeb9acf8e7151",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2582,8 +7613,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_126": {
       "file": "assets/audio/voices/published/a8754809d5e582121cd1.wav",
       "sourceFingerprint": "f20784b456c33edda061ff648c80502473f9c3caca6a811a96714f2d8033fe8f",
-      "renderHash": "d95222c5c9a5d1e2805ed15e77eaab068e344dc56f8ceceaccf98f9d76eb5303",
-      "styleId": 0,
+      "renderHash": "504b12586880b00487849883a9bc8814d5264a0bd472aa25285811ce19981e3b",
+      "styleId": 6,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2595,8 +7626,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_127": {
       "file": "assets/audio/voices/published/deb9d4e055b6d9eac7ea.wav",
       "sourceFingerprint": "0674edb8406826c2a02a2d3ff066fbf40be35302fdf659ff010d8583531b4e80",
-      "renderHash": "82230e31240a32be071af9e0536ddef081ae6f34d43a70ae8885099b4b1db334",
-      "styleId": 2,
+      "renderHash": "0da7b93975d46bd700a4fca5028f3d42cc83af754d0b6de92b6c2714c0669b41",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2608,8 +7639,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_132": {
       "file": "assets/audio/voices/published/0dd8d082421506c5f6da.wav",
       "sourceFingerprint": "f85cd8bbe36b68931036e5b2c67555129be4d4d0a018b73395417316321be4be",
-      "renderHash": "7b97a54bb9307edda7d536f5b36ca0e3ff20f7dd60ef552c3a917293471eaac9",
-      "styleId": 36,
+      "renderHash": "c4047ff7404ef5d5a694c866538497cf0493929fee4100cca39d51663ba490b7",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2621,8 +7652,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_133": {
       "file": "assets/audio/voices/published/a798f3c8808c76a962d3.wav",
       "sourceFingerprint": "ef78e4cfe3c511d320e2e9c82ce87c9668b926bebf02c0d25f30cc690688ef84",
-      "renderHash": "4d88cffe8585ce69ec3e04b4254694af822124203275ce12561897a54ff1b9f5",
-      "styleId": 2,
+      "renderHash": "1fa39b1f7f7b573f3fd70abce9dd315bb80adbb722685cac7e7f53355f4e1a0c",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2634,8 +7665,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_137": {
       "file": "assets/audio/voices/published/39f7153833e9764c8bb2.wav",
       "sourceFingerprint": "8995d2e75c5d47036cb9124249abc6d85499089acac22b61e13d1cb207170259",
-      "renderHash": "0ec55365ad1d5b65d5bfdebc262b31103116797096a470d3d8d287db419194a9",
-      "styleId": 36,
+      "renderHash": "b7d6c7457ca8c4d695e41def178c03a82f364e014509d1adb1854da7a7cad639",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2647,8 +7678,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_138": {
       "file": "assets/audio/voices/published/8df05b22a0f111cf73e6.wav",
       "sourceFingerprint": "f9f5c997377c5fd6ffcafbc2832f8a64188b803d983ca9addadc98aac6ad2d6e",
-      "renderHash": "951ec52a9739888579f05698a5f724ea5cdb46e40a7d5d59258e10cf7a0afc7f",
-      "styleId": 2,
+      "renderHash": "e8be30d4878dca857fdfcc263971be4f4f7600216111251a1d61273b1dc3228d",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2660,8 +7691,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_139": {
       "file": "assets/audio/voices/published/501e6778c8f823734dca.wav",
       "sourceFingerprint": "e84570c0ed6ee2f870e8d58e44975b2a17dc87919296c17910356a4cbeb3b3e6",
-      "renderHash": "b9e8e15e4874efac8af7e867f026b57f8861bf3ba785a7d46bcb4e817cb3456d",
-      "styleId": 36,
+      "renderHash": "82956bfc982d51bd586a93c97d2ab8ae52616158b4ca06d042c74f591c91dfef",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2673,7 +7704,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_141": {
       "file": "assets/audio/voices/published/d9284e6b09ee7c3d7f2f.wav",
       "sourceFingerprint": "6d62d7548ee77507e239f6a68b1e48ba5ba85ba07f7ef51ca55812bc7827008b",
-      "renderHash": "6e8850c45de4f7aa267718d0cded33848c49b39342916d34da8d3a425ac2c72d",
+      "renderHash": "c28afffc009d933d9502d045616d45ac2b3b7bfbdcab66590f01a6fc6dcc765c",
       "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -2686,7 +7717,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_142": {
       "file": "assets/audio/voices/published/3a768322b27cc1e0abf6.wav",
       "sourceFingerprint": "3cb5d2621963893f9d8993c57dc44a1d054dbaebd422a8543fd0b3c28b3d3902",
-      "renderHash": "9961e8bd8943e237eeb35041e48b991f228406679b52d652bac43efe6110edac",
+      "renderHash": "ad4ca183279b81d97b43505820fb20ebb181ae79a436bab80ca5ad2125c641dc",
       "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -2699,7 +7730,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_143": {
       "file": "assets/audio/voices/published/a3eaa82eec15dfc104ea.wav",
       "sourceFingerprint": "69144e52afd2911412b75be75cefeb96618ab8f6fabac3946a4e9f83c8363959",
-      "renderHash": "0de8aa9014528553d433fc03fea90e84ce2085c6a309e1831278f27b7a62e9f1",
+      "renderHash": "86ad4c60a51f82dae9eb00f3ee4c98dd7058c8bba2ce51faee325c5372ea6a0e",
       "styleId": 6,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -2712,8 +7743,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_146": {
       "file": "assets/audio/voices/published/e1cca5d32bd8cfecc30d.wav",
       "sourceFingerprint": "c3a14b4f3b378709db5083ac267d36329166a9fc6469df7eafc866ee2df66c48",
-      "renderHash": "c3108b2f58a3ba9d749f9ab513d35dd8d2e326229bbae3fcbf9cea5194e1f2bb",
-      "styleId": 36,
+      "renderHash": "79db134a0f8cb2e749367c5b6bcfaca374dc0daf9c8eed6f428b21dd98a9b1d9",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2725,8 +7756,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_147": {
       "file": "assets/audio/voices/published/000b52f0a58236e442d0.wav",
       "sourceFingerprint": "821d47f608f5451beca10d63744ba7132c347fe20d48ad07df18518fad42dec5",
-      "renderHash": "f30a50b02abcb7d9bb7bc103f2eafa0cadbe8a31563bd9130a9b5d651db16f0f",
-      "styleId": 2,
+      "renderHash": "c42b9f85be7109584e1d65309a6eae236d6f86daa3e63cf6857b849e1720b043",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2738,8 +7769,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_149": {
       "file": "assets/audio/voices/published/e48d0d378fbda6bd5c54.wav",
       "sourceFingerprint": "3da16adc4a4e1c567f9289326d00050cdb29e534bf778cb0c920d0b88dbc7574",
-      "renderHash": "4da12a38b2ec141a424a17319a3e246ccfbf73c6b1d116679c4e6e3caf4b1a29",
-      "styleId": 36,
+      "renderHash": "e65bb404706008be7959fd73e8c0d1f2d3af61ae57bfd257db6a76eea31369d1",
+      "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2751,8 +7782,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_150": {
       "file": "assets/audio/voices/published/2a4941e17a55fcdb27b4.wav",
       "sourceFingerprint": "d5f65b72d4b232ce72f35eabf2d44de335958dc521815b90646df9b83789375c",
-      "renderHash": "42b5a10776bb75322854222b816dbf686645fa0c781254bf94464a7fc826d64c",
-      "styleId": 2,
+      "renderHash": "1ca262da0f5d578c21250fba771e6a14275d95976f9d324fc1b438c896858285",
+      "styleId": 4,
       "speaker": "爱理",
       "kind": "dialogue",
       "engine": {
@@ -2764,8 +7795,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_425": {
       "file": "assets/audio/voices/published/3d526e57744b479a17fa.wav",
       "sourceFingerprint": "f102b47acfa45654456d6649c0bff9aab39894ad0b62d196955b7b72926d2744",
-      "renderHash": "f4084d370a372d22bdf68fc80a27c808f2a591945106f5df5731da891d2ad834",
-      "styleId": 2,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2777,8 +7808,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_427": {
       "file": "assets/audio/voices/published/7521a224f2e241ac1e9c.wav",
       "sourceFingerprint": "4117bb085ba5e4609ff36f87ee25f4d67ebf1ffc1de3a7149500a2f2383937a7",
-      "renderHash": "71d8b57a726a917a0bdfdad1a06abfa7141f11a472007bec645a157f6f18263b",
-      "styleId": 36,
+      "renderHash": "8f2ac4bb24ea8754247607607263632040b5ce235680332e4cca769b668db178",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2790,8 +7821,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_428": {
       "file": "assets/audio/voices/published/baea260064017e539718.wav",
       "sourceFingerprint": "d970cd1f095e96568c34a641f4c8a934cb294f572697144b002d8d8b47a93049",
-      "renderHash": "4c7fa051c1260bfcbefc2ff7c8c8dec140142f190ba9e49161bc045401bf5f1a",
-      "styleId": 2,
+      "renderHash": "ba02a4564fac9c5f42a45ae254928cb58372c14e465602db429cbbb6d8c99d0c",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2803,8 +7834,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_429": {
       "file": "assets/audio/voices/published/ad65eeaa4e751427567c.wav",
       "sourceFingerprint": "e49bdbf173520855bc3acb6a7bd55df3399ae4b60e0c84f55c240dc632794972",
-      "renderHash": "b9376600bcb8ef6ba77839a18d2995d21cd8843afad733b57da87935e231c7be",
-      "styleId": 36,
+      "renderHash": "674f247b352897469293ebb9efee0e4b5a4263f8140473f8e7bf50d4372cb433",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2816,8 +7847,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_435": {
       "file": "assets/audio/voices/published/1a2d2effd82ebf4872e8.wav",
       "sourceFingerprint": "f6c520e607199b5e5afaeb0d89fef84e65919c35d874df21b9db5e35f81c7c2a",
-      "renderHash": "69aaff2496c486cafd3523bd8a3b9cfc6aa34db7f2deb07bac85d1498f44133a",
-      "styleId": 36,
+      "renderHash": "a820f31b64d858191cdf14c5d758c7b344e4fcd7ef4647f0781c5cffcf9a066f",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2829,8 +7860,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_436": {
       "file": "assets/audio/voices/published/87f2c512ef5360dc58a8.wav",
       "sourceFingerprint": "88db9e72c2b21af6ba9f348fff7106d6b723500f085b5f855f8cab3b29ff0595",
-      "renderHash": "77bdd07dd4a0c1b627e370e2742b5de9a37d07a70fefca8a4bda405103eb8505",
-      "styleId": 36,
+      "renderHash": "01486abb0d72de769d0e871c25925c6a9561e1df1a75719be8b3c8d73e939723",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2842,8 +7873,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_437": {
       "file": "assets/audio/voices/published/5a2a5e951f1df88b381c.wav",
       "sourceFingerprint": "a063e1610f1eba3b504957f634e0b73ee478a8bbcf8249873aa87bd447a51d78",
-      "renderHash": "9b7ac377339eb7bcba8ab2da390be01e659413e68519aba65548a37e60c8afd7",
-      "styleId": 2,
+      "renderHash": "0fa884ec70cea5aef96c20fd80a141fedce62907edaab7e525dea696dc600fbe",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2855,8 +7886,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_438": {
       "file": "assets/audio/voices/published/0ed798f4366b7c645002.wav",
       "sourceFingerprint": "28bd17a11c62326fb9aa055afbf903a163bfa0a9ea5253e2775a673ff3b30190",
-      "renderHash": "00abfa2e7b0da1452ce312d9d10f13afc32fec1e1b561ea9a376f9957e9f7734",
-      "styleId": 36,
+      "renderHash": "0fa884ec70cea5aef96c20fd80a141fedce62907edaab7e525dea696dc600fbe",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2868,8 +7899,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_439": {
       "file": "assets/audio/voices/published/55eaf5cd1a75d3a0ca3c.wav",
       "sourceFingerprint": "43e7f366a04c1a8324fc5e5efcd8ab82952bec3fde10a92c42839959e28f8c6e",
-      "renderHash": "5e324bd467b1bee99af6267de501a7e592dda6093a3ea3e45b25ac9f90f4d91a",
-      "styleId": 36,
+      "renderHash": "f93fc03845e4503ad6c3daed10ae5edf3ce36521c9a517d9a5471f5b7b2adfa6",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2881,8 +7912,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_440": {
       "file": "assets/audio/voices/published/4247c93728063233765e.wav",
       "sourceFingerprint": "e634215d220861f7d99f0155eaee1d101e45f17e130c89c8e8f5e062f38f83d9",
-      "renderHash": "c483fd420b6c673027efd5aa49f5f9b92b01d14ee6b63c78107d84e1d0b68f14",
-      "styleId": 36,
+      "renderHash": "ee672480eb67f50e06608e9d0849f8331287d7cf160bdced20c318ff97ed5280",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2894,8 +7925,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_441": {
       "file": "assets/audio/voices/published/15c5bc2f423f940da3f8.wav",
       "sourceFingerprint": "d1c12074963a26dc398e72c1bdd887ec5128bb287abf0ab91dd49ac045284d14",
-      "renderHash": "a66d8558d2ef4225f28888af5c71c4dfbcc7cbfe43c48200669ebc7dd75876bb",
-      "styleId": 36,
+      "renderHash": "ecdf6593da6da330a5f08a4d27dbd8d8fa54b9c25ccc26ea5325c52716896850",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2907,8 +7938,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_442": {
       "file": "assets/audio/voices/published/c74647107b2ca5c52f66.wav",
       "sourceFingerprint": "be2654eb118c17b13a34e8d919ef2b9a1a36c7cd0eef20201b5cbc01c207b3a8",
-      "renderHash": "e22a1b1405639eb9a0281f859e70544b45a1f9a0f05b92362d85a985d71a03f9",
-      "styleId": 36,
+      "renderHash": "879121408105d9dc6aec7057082d0ee1f6ed61b0ea0ea607414c28f37613a370",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2920,8 +7951,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_443": {
       "file": "assets/audio/voices/published/62d0d31c1a401e57ede4.wav",
       "sourceFingerprint": "79b4ab0bbada0f2e378895ce78f083c2512caae647480c4b50ee876f4125b39a",
-      "renderHash": "91a67b1f6b5fa7b949a96d69a6f39f063dd8031297559b3a8048bf11d32c3312",
-      "styleId": 36,
+      "renderHash": "fbf83b3d8b571e91ba09faa4a403590e3478e1806e6e65a6793aa860a555a346",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2933,7 +7964,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_445": {
       "file": "assets/audio/voices/published/2417a6d9a342459981ae.wav",
       "sourceFingerprint": "e71461ee44cf3c17ad6e7dc42c5750fa6e123c574f5d1fddbed5533ca18156d6",
-      "renderHash": "54baae2373bacd4c97caf2ce404a7d2ec11a67c193477091c5e5036ea10ce7dd",
+      "renderHash": "8e87c6788181e6d71f46f15676e21a897eecab4e1dce3b0d4ac7b1b181232b14",
       "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -2946,8 +7977,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_449": {
       "file": "assets/audio/voices/published/f3a2abc5efa70fc36cbc.wav",
       "sourceFingerprint": "dfbf2870df626320680abb8b91ce59e7094f68eec09691dbcbcce25d43c48ce6",
-      "renderHash": "d559527c95daeef9bd9b9718937776b34a63e6819b579e38aae6b97e230070c6",
-      "styleId": 36,
+      "renderHash": "ff8ba9b68df9f934c911ddd0fd4459fdf41e3ac170c4a5cbefbba5c561f04469",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2959,8 +7990,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_450": {
       "file": "assets/audio/voices/published/866aa40bdb0ba02e6cff.wav",
       "sourceFingerprint": "acd4a128b24e9160b40066cbae1e3e757a14ee500a737fcddb178f4229b77554",
-      "renderHash": "66c5456f1b90f6ecabbc8589d30642e747167f3ff1403c0f917ef00545eb426f",
-      "styleId": 36,
+      "renderHash": "53634e6947367330058cf1cc2ecdf582d218222b80aebef367d77a07bc661af3",
+      "styleId": 2,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2972,8 +8003,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_451": {
       "file": "assets/audio/voices/published/b31dadbaa50352322f9a.wav",
       "sourceFingerprint": "3b2e7bfa57b20ecdf1517624688295a88e2ede35c4729f3c7e7814564dab14b1",
-      "renderHash": "2a4fb5366a7b3df7736f3603747e9948a3d969b8a8f40e3bbb0c265328571c86",
-      "styleId": 36,
+      "renderHash": "d5497215a9674f760130b52114a1cf3c7d04752b2f21c6834c3b11f03c6cd6be",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2985,8 +8016,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_452": {
       "file": "assets/audio/voices/published/59823674d8923a2c79dd.wav",
       "sourceFingerprint": "8b5cf50c947c9de8e9e9b23442dded99446265416d3da675debc060054285296",
-      "renderHash": "85c3a5cdf6849a29697ef786d6f6e30b9f2b70170fea12647b9b6937c46bac2a",
-      "styleId": 36,
+      "renderHash": "e7be3b09e46b702991517968a7b119311d4f791e66194d6550ea8726ddf08994",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -2998,8 +8029,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_453": {
       "file": "assets/audio/voices/published/dc584f90c556d9139ebf.wav",
       "sourceFingerprint": "3a526dfea2e0f4e1a98077c91490fc2182df559fd2491668adc5fefaab780a83",
-      "renderHash": "292347e12f2cd9f1db54d518166cf927002dabd32c72b64b359651b1668b7934",
-      "styleId": 36,
+      "renderHash": "208d92eec98b64a8e6f1be15e1525de361d658862294bbc88f05e4be3c26d8a2",
+      "styleId": 4,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -3011,8 +8042,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_455": {
       "file": "assets/audio/voices/published/a82670d4b483255c6454.wav",
       "sourceFingerprint": "4e33d89aff2c930f9e5c25af0f9f794ec97b6bdf42b0fe4e353354b0cbe03580",
-      "renderHash": "bed92ad91bcbb15a661afba42d653f0decf9207fe8499e12b7dfca9ef726890f",
-      "styleId": 36,
+      "renderHash": "3ea946f2f961f5c2e6e6d2f3729d8c108dceb784fcca795bf57775dfe607661a",
+      "styleId": 0,
       "speaker": "“爱理”",
       "kind": "dialogue",
       "engine": {
@@ -3024,7 +8055,7 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_456": {
       "file": "assets/audio/voices/published/b90469322a01e0b87dcb.wav",
       "sourceFingerprint": "6ab49098c60c73f237475f92e69a38710907865609c7215245f5358bffcf62f1",
-      "renderHash": "45704f6ee026f814c001a7fb4e96e1b71b42d23725e1e9ca1a4f658bafcd242f",
+      "renderHash": "ad294e3e62b0a3241c5e85f9e523c1cc33d5d2e1f8641a153402c32048e8a7f5",
       "styleId": 2,
       "speaker": "“爱理”",
       "kind": "dialogue",
@@ -3037,8 +8068,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_457": {
       "file": "assets/audio/voices/published/96f183bffc7bcca2779e.wav",
       "sourceFingerprint": "4cbce089612d020aba7f1ef87dc5cb9c38dc8fb2aef68f5980486cc0c5ca7d4c",
-      "renderHash": "65faf461fd2ca14f6c672002c164c70a0a6712ff4f9ce555145603ce3a0b4068",
-      "styleId": 68,
+      "renderHash": "a215f8ee251520d270ac5cc7a2ca3ebcebb3283a0f25d3a86ab3fd4750ebe169",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3050,8 +8081,8 @@ window.ILY_VOICE_MANIFEST = {
     "ch3_458": {
       "file": "assets/audio/voices/published/faf517130b69800c507f.wav",
       "sourceFingerprint": "8f5e4ed77886d0719224794307be51442bce4ec8768d7ba0f6865fdf3560ba8a",
-      "renderHash": "d562100c1e7d09073a7849d6c7bc97dc288a499d6ee7ba8e90ffa19f8198eebd",
-      "styleId": 68,
+      "renderHash": "c39f3a584c9d1be0307855a3fa3bf15ff367654c6b48af9ef6aa972c9c2db00d",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3063,8 +8094,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0033": {
       "file": "assets/audio/voices/published/9ef7eb88bdf616c80f8f.wav",
       "sourceFingerprint": "55197b2a3e535f6a35e0f8b5fdc2f0ac780867101c10620209ccda223c0160f3",
-      "renderHash": "d9b20a661462e8375b9dc0ed377cd6d4c752c4654fb5aa7442cb7643b216849d",
-      "styleId": 68,
+      "renderHash": "0227f2c2fa78bc3aa91e3d2079e0c0bd1d52bb3859cfcca334700bfdeaddc490",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3076,8 +8107,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0036": {
       "file": "assets/audio/voices/published/d9e6ca573e00759a736f.wav",
       "sourceFingerprint": "1526d7953a035fcc411796224790fe3f23e40ab93879dfa43f961a0af36e2b22",
-      "renderHash": "022da46ed20c69d56e1386de7d923f983f4c8abe0015067b1ac2c3914d5c1f60",
-      "styleId": 68,
+      "renderHash": "a79fac82873ac1301b41dca65ecd4c1d108eaad83d976bccb235565ce0d3aa37",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3089,8 +8120,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0048": {
       "file": "assets/audio/voices/published/2bc36b75a56e94fff279.wav",
       "sourceFingerprint": "9e9ed3bc23c1495d2a27d4dd06bdd2ec212affa5fac7576b9e22ad19d2c8c569",
-      "renderHash": "5dd86878a1a12c797e21dd58f8dce94adc845cb64c840604daffed3274edd99c",
-      "styleId": 68,
+      "renderHash": "206cb28f8cdcca2a4beb6fcb201ebe1ea303425f2f425e61383eed1f3d2ba2e0",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3102,8 +8133,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0050": {
       "file": "assets/audio/voices/published/4802365321823888db57.wav",
       "sourceFingerprint": "81eea115d90f8929e26ac150f9cd54757e1c77fd2833f5a5fb3417b8b1c2c58d",
-      "renderHash": "8423e59bb73248725f056e3a81406ef546a9f8af5baa7e10e64651bc31a590da",
-      "styleId": 68,
+      "renderHash": "6beea0ea4000e2dafc58870093cc5aa02afe32eea4e267dd2eceee2bebbe287e",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3115,8 +8146,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0054": {
       "file": "assets/audio/voices/published/f7c3adf2175c05240df0.wav",
       "sourceFingerprint": "b9344a6e965c24e479bc424d00ab340dd9f74244fbbf8b0645c1bca639fa6248",
-      "renderHash": "2e6f3f3114a098753ec5be086ebb2afd742d2e1bae2dcab1dc7a4d064f6fa9e9",
-      "styleId": 68,
+      "renderHash": "8af96cbf5f76a71b67b5bb655002a728d178db2213dc690aa64b9b31b7bc8dda",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3128,8 +8159,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0056": {
       "file": "assets/audio/voices/published/0a334a16140eb599698d.wav",
       "sourceFingerprint": "0869bab9830dfa0d4843c1e58913be2b5d66002256f0e7680826846c23269374",
-      "renderHash": "c97d5e9079b8bc9243df3591096d0075401c1bccedb0963edb9b9bbce580a2f2",
-      "styleId": 68,
+      "renderHash": "b9e51bc342072e643f7d2c0bf3a282c1b0217b57871c1bf8b34d1cfa352923ef",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3141,8 +8172,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0116": {
       "file": "assets/audio/voices/published/42e03a34d306e9be42d8.wav",
       "sourceFingerprint": "4601749a59424adf03e01a0e3c83d082688869016c41a719c6da6e947d33c5da",
-      "renderHash": "7cd683dfd0dd64a58b5dd9c659c06ae120e90a39b18e6cec270083711d0e7aa3",
-      "styleId": 68,
+      "renderHash": "4c652c49cdc32dda7d96dbb0789e044b9ac486277c3f7e7658e679099634fb72",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3154,8 +8185,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0150": {
       "file": "assets/audio/voices/published/3d731fe3eead9f8d81f9.wav",
       "sourceFingerprint": "e4e8c7ef711e19431720f6ea14c5c68e192b0923f6a5654f04c5633aa05ea6af",
-      "renderHash": "2b12882c1e61f697373f7be2ad90ce15bf8d3a2e0fe35429f350794bb64bcf2b",
-      "styleId": 68,
+      "renderHash": "1e41e5f7808247527e30f424aad523c617e85fa8ee14277518ee4942a23e6af4",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3167,8 +8198,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0151": {
       "file": "assets/audio/voices/published/17591aeb784f834f9824.wav",
       "sourceFingerprint": "38e2c1ffbd8ed42c57a1a972b02b567661f02733756d940d650831352c61f9de",
-      "renderHash": "0e706faf14779e527e8a0ec7ba9c97eb45dc2d21f40fa6e7887b0bfcef0ea23a",
-      "styleId": 68,
+      "renderHash": "d94a6ca89592df909f0f90bc6b572e4decfe12c4f4f83f5bd23006475e629736",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3180,8 +8211,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0158": {
       "file": "assets/audio/voices/published/71032e2d754428292d3c.wav",
       "sourceFingerprint": "58046148c44ea8cb3a27ed468099c5eccb853f469b0a65161e268b6e00b1ac6f",
-      "renderHash": "c34182a2632588766ee62ef34e846171d5bbb743d2d69ea1135fdfd07c907fce",
-      "styleId": 68,
+      "renderHash": "796a8c1bd41b064beddbdbd9fadd476aa6440098d4d6a6e47067e69bf922e02d",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3193,8 +8224,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0168": {
       "file": "assets/audio/voices/published/214bc25e0be9c385709c.wav",
       "sourceFingerprint": "6bf4ed1a040ac4c3febe57e22a0e4f8554ada990be1a1f9b9b1210f2e5c9c3c0",
-      "renderHash": "bd86aedf6a09c93c7693318b75015290c20258a42076d1caa5e85ef2917c5cd8",
-      "styleId": 68,
+      "renderHash": "17b108792f0aa58e4a87594545384689be84ca1292df24365d2437fa0af50d92",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3206,8 +8237,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0170": {
       "file": "assets/audio/voices/published/35dba83b77d3f71348e5.wav",
       "sourceFingerprint": "56e931d1e34cc5852bcb4e6123d8381f2a92fc29ed6e33d3f9f0f98f274b6fa5",
-      "renderHash": "fdd1c89cc3aba5eff3782d7a6040b07f4a01e0be077f9439692a1cd5ba179eb0",
-      "styleId": 68,
+      "renderHash": "7bb1dc0092a97bb3f1bea15efc8e30fc364911f6dbfb5829b5bff54a810668c1",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3219,8 +8250,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0181": {
       "file": "assets/audio/voices/published/d324e4697681c26e93f4.wav",
       "sourceFingerprint": "c7fee3a68e885e969ebcc2ee12c2d0e056970664734833588f6a41a38165f411",
-      "renderHash": "0dcf4c9cec33cb2f9a3b5520ce316ea6e7d08426bc57cc0da5859843ae6ad648",
-      "styleId": 68,
+      "renderHash": "6687b7a39b33e81d9e59e3d1bd41dbf96d186398329e50343e5f9b8f9f940bb9",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3232,8 +8263,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0185": {
       "file": "assets/audio/voices/published/a419b1799490570626b8.wav",
       "sourceFingerprint": "61586dae976e1b198092045a242f3a01958368f908ca96479b0b5b035551816a",
-      "renderHash": "13fd72a8fedb05cb9b4acd51e3785bd212cf092740ed3e773ae8bc7e1033ef54",
-      "styleId": 68,
+      "renderHash": "472256226f949bccd7862b08012ae3c7a3d272037336b2e46389e91b12d5ce29",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3245,8 +8276,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0186": {
       "file": "assets/audio/voices/published/910e9f1d5f19c803e024.wav",
       "sourceFingerprint": "10b7d5d33780930211493195d0e45d5fbcbc7fc8e89d5c227f6ccf1be796b454",
-      "renderHash": "aedb9bfc6e944f04e05579ca175dae2b1edd95fcd5162bff7276bd6534c35f47",
-      "styleId": 68,
+      "renderHash": "b8aac5e81cca44f653c0eb2d04f8b26f3a4ee6b78d59fb3021e678d0ee1c3f63",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3258,8 +8289,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0187": {
       "file": "assets/audio/voices/published/fc264dcf535ae8b76f69.wav",
       "sourceFingerprint": "6fce69187b5acb783437e498134d10c9016198926a6b3008e4fd44c1448f05dc",
-      "renderHash": "622f5aeddc11f6d1352c575b75ee100fefc4609715c96a3773828b20e42ba113",
-      "styleId": 68,
+      "renderHash": "16ade80ae1b15e693baeeb66527fc536c096ac755478f26d92a3a3bea0792422",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3271,8 +8302,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0198": {
       "file": "assets/audio/voices/published/460f805171e0f90f4b40.wav",
       "sourceFingerprint": "7d6ae607f1778064b1509d4b53e6ad6fffbf9806e61d6431abd949097ab11fbd",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "aab8ca071ef1e2e3ea0b3ff87fd0324505667219e462c664392986a92b986b3c",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3284,8 +8315,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0199": {
       "file": "assets/audio/voices/published/c0cb191d6600814a0150.wav",
       "sourceFingerprint": "644f1e56b7ec721a9fc9b0794bc2ea54922e1ed1feaabff163315f8be816da74",
-      "renderHash": "f4cc25b3dc72e2d9068defbcb96c94954dae99036777544f17da61dd8502b928",
-      "styleId": 68,
+      "renderHash": "cff17785bea792efd59b0f14a0957699205855c4e1c56155f82935ead5ade01d",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3297,8 +8328,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0202": {
       "file": "assets/audio/voices/published/e5be8c3e1d223a858100.wav",
       "sourceFingerprint": "35fbdfdca79cd588b03eab1a534777df2614178c9d8b97a0bfff11d924fca806",
-      "renderHash": "176cef80365439ea817b7951b7692132886a1d91c1875d74d11243cba347cbaf",
-      "styleId": 68,
+      "renderHash": "117a566fd5e70cc35ae6a78b7b8478401cab4e905b00e1afaefe2efffe0a1031",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3310,8 +8341,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0205": {
       "file": "assets/audio/voices/published/64178aed7d5275c73563.wav",
       "sourceFingerprint": "422d678503219c16d24ba725bea94674f2b4a5c949aef2cc34fc96551b3148b3",
-      "renderHash": "ecb208e73ae5b5eba265e07c5ed9d9223df3553e2e0dcccb8e0a60e84b5a7e75",
-      "styleId": 68,
+      "renderHash": "4bbaad2d38c9b300b79d05745b7921ae96c23ec5604f92b50d10c9db8d63c374",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3323,8 +8354,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0206": {
       "file": "assets/audio/voices/published/0d6399d8e6893014f25e.wav",
       "sourceFingerprint": "77b60985e715029b88363aed2f9b2ddde7793b3bcd613aaf8c2f84812317cb3a",
-      "renderHash": "f1f5ce0f1f959f5ddec9a6203ed47fc1708bd60ad0d5f5abe511c1dcea79b693",
-      "styleId": 68,
+      "renderHash": "5a9b622318f8063a1534c7e9933dd95dfd56362fe075530290532835f94de035",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3336,8 +8367,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0208": {
       "file": "assets/audio/voices/published/d1bdf41b1f8ef39029a9.wav",
       "sourceFingerprint": "1729d9f6cdf6fa0419859591c7bc70a87350f79fd141b452721eb03dcb165b99",
-      "renderHash": "0d03c3a3f1ceb0eb918feb8ec746e0a864ec78561cc4e15dcb4e9e008bfe3637",
-      "styleId": 68,
+      "renderHash": "3d75d9470e96e9306ed22becdc0beae6c65dec43321423477d1facb36dcf60a0",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3349,8 +8380,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0221": {
       "file": "assets/audio/voices/published/f5eb72402e09b5f45af2.wav",
       "sourceFingerprint": "a9bc5ca60c70fa9aefd0b134fdad240fef245be4dc24d655c570994da79b86a4",
-      "renderHash": "00540a6b59a54a38f07daee47aa821ff5c8e0837cc96b576e0c8ad4dc5d8133e",
-      "styleId": 68,
+      "renderHash": "5b705a9b81c0d23669e5f6663da4a7263f15fe4b18654e2789566fdcfcc43751",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3362,8 +8393,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0222": {
       "file": "assets/audio/voices/published/12a8051a049a9234a9bf.wav",
       "sourceFingerprint": "7ee183939dfd00f9a4137fee49ac9dd979574b2fbdc91349774baaa2a3298c26",
-      "renderHash": "260c0cac48df0d1cb5f44b250dc4addf9dec9d387fa206aa72857c4d594e8d22",
-      "styleId": 68,
+      "renderHash": "63abe9989ccc4e746d9f72b355b2431ce234f10a24be372113fb3e53e97c0854",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3375,8 +8406,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0223": {
       "file": "assets/audio/voices/published/2db61e1381137239f2dd.wav",
       "sourceFingerprint": "5b7d4852aabcc94eb12d8a085b2cf960c845102cf3098cd9861793e519f090c9",
-      "renderHash": "8d61bb64def61e3f22387425d06bd9b7b610b8434dd86032c9ac3964a696af52",
-      "styleId": 68,
+      "renderHash": "d5cd48931326a947f3f3df2ec28aab8e57eb2b21e25b9efba4b74982546c98a7",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3388,8 +8419,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0224": {
       "file": "assets/audio/voices/published/092b35e2360b18e0f55f.wav",
       "sourceFingerprint": "f558a5ba8819bc127cc8d67a1b8d5ed4a7bcaf0fc11c5cf31a3a5a21de764f1a",
-      "renderHash": "350fd3434876105e0f39cec4451cf8017491cd0e4a0e155888dcbcd11bde5a49",
-      "styleId": 68,
+      "renderHash": "365c5d7267e29b8569f27f7eac5f9750f267010a67050ecd226dd31caea8c460",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3401,8 +8432,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0226": {
       "file": "assets/audio/voices/published/22986ceeb04a2d3e6731.wav",
       "sourceFingerprint": "a1b15c7d8176a74bfd34e92ba068c07666dff9ed2d481a626d2a67f7d5732772",
-      "renderHash": "93ca7911d4ad064bea6955885790489d977731b6ea5070369b78adba7e39311e",
-      "styleId": 68,
+      "renderHash": "3094cfcc6e087163a4b0eb96dd4ca60795a05f0293128911f14e354f9d80d8de",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3414,8 +8445,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0229": {
       "file": "assets/audio/voices/published/23f707dcc2687786e0ab.wav",
       "sourceFingerprint": "1e48a9303e5073a9c0763a1cb24850b94b47807614f29afd7182d9460a0f3bc7",
-      "renderHash": "8170c4f4918edeacc536562b007fbb541cd257e86e80a04cc1211b3bbae54a2d",
-      "styleId": 68,
+      "renderHash": "d7d4d2db06841928bcb0861963e2d12c6a49ea1a782d35535db95420f2f388ea",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3427,8 +8458,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0239": {
       "file": "assets/audio/voices/published/e580d396c802184be638.wav",
       "sourceFingerprint": "095a2ae5a89ff79f7901f40489d86164936cb2454240ac466a526b7e6cdee97e",
-      "renderHash": "e320d6928109f97d3a643f2cc052680f640852c07efa6dd400e57656ab2f5d99",
-      "styleId": 68,
+      "renderHash": "b8acc280ec6cb5a63b2d78be2942043f1701c064924d5bf9632d3aa426787665",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3440,8 +8471,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0243": {
       "file": "assets/audio/voices/published/785c162762ed722eaf4e.wav",
       "sourceFingerprint": "7b02eea336e5b71c152baf5c74a70dcaf06c6b23a6519e0e4d6fd7f1e027da29",
-      "renderHash": "ec06c6035202e0c8749cd50cf9bccbf4a77170bd648bd653fcb550231c3abdd6",
-      "styleId": 68,
+      "renderHash": "6d5bc15f3adecc5ab91e35582bd4464a54c23b1344891164d7b95d792068589c",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3453,8 +8484,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0245": {
       "file": "assets/audio/voices/published/2c312c6f36bd77e3cf56.wav",
       "sourceFingerprint": "d551292c6c701f889324e75f99b05b3b8aaedf2874e4c2b3e9ad7b253032575d",
-      "renderHash": "4de16984f7569648e04d94f426f9fd7b83c1cb9c0b7a8ae85f38bc0efa4015a2",
-      "styleId": 68,
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3466,8 +8497,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0247": {
       "file": "assets/audio/voices/published/6f25c16674f7dbc420ce.wav",
       "sourceFingerprint": "2bfa09242eff26e4f13a64e5344bab2cb289ce0cdd20aff5a1152d6e7c9e6129",
-      "renderHash": "2f7f9d875c3ae545b063a9e3159ed5c892a50f17d82eee27dbc9db6b35cee35b",
-      "styleId": 68,
+      "renderHash": "398c2ddbf0b16eaaab5f94b0addea9a07ecd603f382b20adc4e65defefce1403",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3479,8 +8510,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0256": {
       "file": "assets/audio/voices/published/d95451fcea4fedd282fb.wav",
       "sourceFingerprint": "8b4343af396b51073cca3adf0c673889ec0fcfef82c8bf45d7ed4617d3a909cc",
-      "renderHash": "81c25c7d28b206cd90c3913d21dc974089852487a0b2f108ef3b09c2241f7ec1",
-      "styleId": 68,
+      "renderHash": "1e0ece069581819c893f6acf234c7ffb6b55c3f2e3bf900601401baef5412c18",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3492,8 +8523,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0259": {
       "file": "assets/audio/voices/published/99bb9f2aa0f0c66ffcd8.wav",
       "sourceFingerprint": "a345277ca0f15b0b625a94cd53671bc50a7b154efa1ef6b22960ae9fc4a1d375",
-      "renderHash": "b091729e99e46b791a14b1d228f26b3cd90035094648f7bff7a5ed38a9b61f6c",
-      "styleId": 68,
+      "renderHash": "71045d2c78cf4f6e2e3fa3deac55886afa907e47555c22b157770e0a5042dc2f",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3505,8 +8536,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0260": {
       "file": "assets/audio/voices/published/6ba5114265a8d383e9d0.wav",
       "sourceFingerprint": "e84bbef72dccee53895bb15e232c8d919865cca7ead732e74018b5f15c0d684b",
-      "renderHash": "4de16984f7569648e04d94f426f9fd7b83c1cb9c0b7a8ae85f38bc0efa4015a2",
-      "styleId": 68,
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3518,8 +8549,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0261": {
       "file": "assets/audio/voices/published/6ec42f45a3900832bfcb.wav",
       "sourceFingerprint": "37dbdcfe160aa15acff5b67880298af49930014216fd5a60991a2f2ba0fed23b",
-      "renderHash": "88bfcc24297eba5e9cbb211ae37164712d28c0f078288c975528092abdd535ee",
-      "styleId": 68,
+      "renderHash": "a3000737b0f084787b604e70220786aeb953f7303d40b2e2a1a5caf57937b0f6",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3531,8 +8562,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0268": {
       "file": "assets/audio/voices/published/5515b6f9a8d55a5176c3.wav",
       "sourceFingerprint": "7dc0f37509c766bccbe3c2a78fcaadedf324242dba29bf4e93f544f5f6b20b89",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3544,8 +8575,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0269": {
       "file": "assets/audio/voices/published/a5826dfa70da78b7fcaf.wav",
       "sourceFingerprint": "83f046b628a715dd1499563e4a44e8f35f35156598f09fccaebbd7587919c085",
-      "renderHash": "a3a37b49ff530e6709331092f6ea5bcf3a283418c6452abdcdb5b0889b464810",
-      "styleId": 68,
+      "renderHash": "ccb4aa96e5aac166bb63947e3c664d35433a95adcf63d2cd31e0ff160a60a50a",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3557,8 +8588,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0270": {
       "file": "assets/audio/voices/published/97bd875fd51765ff56f7.wav",
       "sourceFingerprint": "f485e5d040c1aa2fa26535199ac26b20bb55c1fd7614df04cb9dd266ceb6c6cf",
-      "renderHash": "12268315f7097be63bf42ea2b5363ac875ddd30ec55916865e94ed55fb6fa1d5",
-      "styleId": 68,
+      "renderHash": "5f0efcf31a412c28cf1764402e37202f65435cd90ba5a22883286148c967ceb8",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3570,8 +8601,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0271": {
       "file": "assets/audio/voices/published/8c6da35a26e771dcbb2d.wav",
       "sourceFingerprint": "24c6c4c1e74385c175c91f48ac5fe7b775f926e02a63d9c647fa0cdf12914b02",
-      "renderHash": "bbfac20a23bccac97076fc3a412c4a17c30c3241412f9dccb9dc7f6947830c01",
-      "styleId": 68,
+      "renderHash": "ef6dba4935a4961a6a3bc6a2175e1b7d32232ba03cc0e1cdd44343b8d090fcd1",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3583,8 +8614,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0272": {
       "file": "assets/audio/voices/published/27f31bf5d1f714366705.wav",
       "sourceFingerprint": "d3bdb325f43f806d82a07c8dc852e1633efb04c5b30dbbe2cd3e60da81eea36c",
-      "renderHash": "6fdeed3cafd93ff6a3e05349f419f20de977ca341e7713f004c5e27861bbfd00",
-      "styleId": 68,
+      "renderHash": "f03cb5a775a43d902b932d504ca2365d4b62b3aa089cbcdc9ddd6026531b71db",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3596,8 +8627,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0280": {
       "file": "assets/audio/voices/published/f2a3a46ab6599b1be39e.wav",
       "sourceFingerprint": "e9cabd0cbf0c49159688e1e766aad3e67b37c5cb106799dccb7bccd4fd0fac4e",
-      "renderHash": "ef928646e3f4fe0fe028333b5395711bddfc50e590fa52b7fd359c32fe4ffc62",
-      "styleId": 68,
+      "renderHash": "d4593fc9f7fc5a4ccd759dacca515e113392ead63e9d3e696d1cd829d1b30268",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3609,8 +8640,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0281": {
       "file": "assets/audio/voices/published/5aa63fc620432a892d6b.wav",
       "sourceFingerprint": "650bfe1217d16bec1cfecc1f609fa139c09a608de70ab2bd6085451f8c6cbe44",
-      "renderHash": "b091729e99e46b791a14b1d228f26b3cd90035094648f7bff7a5ed38a9b61f6c",
-      "styleId": 68,
+      "renderHash": "e2a22755c92398167a039a9a482b83502c0de41a4e7e02a67ceb3ddac29fec92",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3622,8 +8653,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0287": {
       "file": "assets/audio/voices/published/d3eac567de76cc8650c3.wav",
       "sourceFingerprint": "469519587fdbc230e3ba19d277c9dfc054bcee2b95bc4483f5eeff7a98019d79",
-      "renderHash": "ba938e6b448467a558e34bb23dec7bfa55e0b27723e6f47d9a9c5d669705ef0a",
-      "styleId": 68,
+      "renderHash": "8224203126bc6768e4b9d4f36d159e1e70e8883f972419a7a430f2abf9253711",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3635,8 +8666,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0288": {
       "file": "assets/audio/voices/published/925929225731de0ca7a7.wav",
       "sourceFingerprint": "f99e13c93dabdd4d462f3ad1236735a4efaf8475d1c4254563c0ed85014a1981",
-      "renderHash": "b2bc76759fa308cfb03bff08c8871732736eb5f55daece6c4379d9a864315b02",
-      "styleId": 68,
+      "renderHash": "5989d3777b46ab2a75b035ae9c546e4451266a6aa5c488477f0512a1aff9d646",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3648,8 +8679,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0290": {
       "file": "assets/audio/voices/published/610efbafcf6531d27ff5.wav",
       "sourceFingerprint": "426bc1e89048710fe1c748541393fd6b0a7ded58a02c83addb430682f172ab08",
-      "renderHash": "4de16984f7569648e04d94f426f9fd7b83c1cb9c0b7a8ae85f38bc0efa4015a2",
-      "styleId": 68,
+      "renderHash": "9b18430ab5e8af2b0e679c4cc348a3351682046cb0b40f2d9f691d2ac72ce54b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3661,8 +8692,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0293": {
       "file": "assets/audio/voices/published/38492995f3954136d670.wav",
       "sourceFingerprint": "197073ccb5d40c0be1e0b73ea722f73147da212552c3360dc5efc308128e1fb0",
-      "renderHash": "85f3c5ed898000beeb3e2b5869d28511658cba651e37da15b87817b6f4bbc3a3",
-      "styleId": 68,
+      "renderHash": "8f51492ce7bc66979e5b3e5e78d1ed6023d1c2cbdff030f2216cd3f50c5ee39f",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3674,8 +8705,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0295": {
       "file": "assets/audio/voices/published/ff32ba151a2145dd3942.wav",
       "sourceFingerprint": "977c57a339c3d752e3b16e80e1b1f6b1f5542c955ca76fbc14b7fbaf1dd498d6",
-      "renderHash": "4d109420a1af88f4a72e6e68a06be1ced1acac5658559b0327ea440db5f1a119",
-      "styleId": 68,
+      "renderHash": "bbf620642e8c8c5c4103a0b0baca6162e1d169f03c82578f6303b488bbf89258",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3687,8 +8718,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0297": {
       "file": "assets/audio/voices/published/3ebb9d9d1feb2c645f07.wav",
       "sourceFingerprint": "109b7d14beea494daef1f698b20ca0944caec66389adf58dc4647c843c0ead11",
-      "renderHash": "558cb81bd15baa43a4245d186e03d459dc64f6fe78053540de567916858bbb2f",
-      "styleId": 68,
+      "renderHash": "d136deafcdb6d5b43cf3b783549da9f898c1a8f009282f296c2852cb744845a4",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3700,8 +8731,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0300": {
       "file": "assets/audio/voices/published/6f05cc11dafcf1638084.wav",
       "sourceFingerprint": "0e1d22214065a7db7f687d7aa09a92462f5363157704e13a9123e873f31ce4fc",
-      "renderHash": "1e74a57879b622990dfe02e423216966b127761bc25efccd044c2ceec0d91349",
-      "styleId": 68,
+      "renderHash": "301b68fbc1f52cb72e0cf1d94c7e3d8fcfbbdabde35cc5e09b8112d007985f6e",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3713,8 +8744,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0301": {
       "file": "assets/audio/voices/published/33c33543bfc03de3f07d.wav",
       "sourceFingerprint": "47b04796f794a2a5f2e7ebd93b9b88e53278ca31e05432d1a3d2479d2f893b95",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3726,8 +8757,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0306": {
       "file": "assets/audio/voices/published/2fc1022ea3ec7956e041.wav",
       "sourceFingerprint": "72bc73e1e90da6f89820bfcf64442b60bb6a9bac4ab47f06d5b77f7824cf0159",
-      "renderHash": "0470f575343dcf1ade6a0bc0e3fd4237ea29c0fd39c994f418cb07fdbe942451",
-      "styleId": 68,
+      "renderHash": "44ff0d8b817a97f8f61211bbba0257589df3af18776ee1d0d1171dfd1ad32329",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3739,8 +8770,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0314": {
       "file": "assets/audio/voices/published/cc8f3f792bfa1a78fb5e.wav",
       "sourceFingerprint": "78dd76e92360a019605ba32833086fabd6a3ab8f6a12717275befbafbe36d4ad",
-      "renderHash": "e29789dcc4fb56594a01b1bdacc0f9e8ee3a70b2b0eec942658d7efcf2375637",
-      "styleId": 68,
+      "renderHash": "8fa1fd3cee850bafdabf0f033c35f9656eac38e76828c15599f93034d68c0c09",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3752,8 +8783,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0315": {
       "file": "assets/audio/voices/published/b3240e5f271fb57b176d.wav",
       "sourceFingerprint": "7fbee2a4a31d711d23413be429f6355b7952879b03aeb9e0db7a7246e5db8449",
-      "renderHash": "866bb637d8de06c106ebfec5332da16c4c4d6b0604d6c89944bc22f92f110b06",
-      "styleId": 68,
+      "renderHash": "aaa669106043e369a3290b40d5333fb1d152157f586bafb5c6677c6c6629b438",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3765,8 +8796,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0319": {
       "file": "assets/audio/voices/published/4a0b5c0ddfbde16e2d16.wav",
       "sourceFingerprint": "c7f9ea4bc1ff82be44c000abd9c5a5268381e5e82e1e0b82d2037e31f161fbab",
-      "renderHash": "b79b6c22735848b20c8462912106ff48ed799adb822bf442ac241560771122ed",
-      "styleId": 68,
+      "renderHash": "ad211bfa7bffbc24e5553a91f1069bea39698f7b4b2e238198e81b8de826c8cd",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3778,8 +8809,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0321": {
       "file": "assets/audio/voices/published/00df4f571f585188c874.wav",
       "sourceFingerprint": "2dcdc6d98419e7aa3774e200c90446966902da2cd7c3ad4fb1ee4ab9d4c43f0a",
-      "renderHash": "0a334354b5ba7f43a212b38573aa06125a6c9f8f4c88aeae97884ec9d08ff2b7",
-      "styleId": 68,
+      "renderHash": "e6ec26bd594f893292487d8d8f93882b2df52d8cc2fb8be874926dbb96ee8d0d",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3791,8 +8822,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0322": {
       "file": "assets/audio/voices/published/2c2a7f1af3a253a13b5b.wav",
       "sourceFingerprint": "fa06bcf520e467ded64812b07bad9414e9b0437491c8cb79c6aa16e4c78d7922",
-      "renderHash": "e8b427534a2268eaeb5f84bec17be6a24bdbc79b81b5bae40641cf30c40053bd",
-      "styleId": 68,
+      "renderHash": "28b54a327d46deb749b9ab18bb3b900e4522fda5d18a021aa6616e7a3552422a",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3804,8 +8835,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0323": {
       "file": "assets/audio/voices/published/15a0eb9c955e3cac848a.wav",
       "sourceFingerprint": "a3d7dcf84a6dd53851b7c505ca06948b7cf9ad77d6d236675a888c23a2fd5c63",
-      "renderHash": "0c831c5e6fbbcb673e6bde8fa9d866b9a437eca012da7c2228872355dc714d38",
-      "styleId": 68,
+      "renderHash": "d71ee8a200c42da1e031d45cc126672e51148aac347a54bcff2695f751643cd6",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3817,8 +8848,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0324": {
       "file": "assets/audio/voices/published/db919469ff177e05ee56.wav",
       "sourceFingerprint": "e5d15028e115d4f1f9ca1c62d73b04dbce014df82af3fe0991a1173d70da8dcd",
-      "renderHash": "2b3bb35f9868da0c23ac5e9849d2f5efdf764d672bb05f32e47b8a0e77185323",
-      "styleId": 68,
+      "renderHash": "9f899e014b8eb5deedac9a1ec153154897355f47508639eb751e1af0748e084b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3830,8 +8861,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0325": {
       "file": "assets/audio/voices/published/0cd81e298b80cccea0d5.wav",
       "sourceFingerprint": "5bc8f0e32019cda3536150162abf5f8407aea0d998691bb2b66fdd53217513da",
-      "renderHash": "573d38a787e999b76ace89deccdc722f1c963bf45571f5c9e3242031d8a934aa",
-      "styleId": 68,
+      "renderHash": "47f3da3e1783d7ddd4cd3c46a4c79b65af330e7a055ea98772efac2a4cff9b79",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3843,8 +8874,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0326": {
       "file": "assets/audio/voices/published/fb15b26f40e5ec111a6d.wav",
       "sourceFingerprint": "7aa8d04a42f13a3a8cad86b4882915fe72512cfc3773fe58bab0d07aec53e2c5",
-      "renderHash": "ef480198be5a3a5255a5e93b79c5b1d299ae55ae4d7df8e65bb740175beb8f8d",
-      "styleId": 68,
+      "renderHash": "cecdeeef50ec51c4c3def8a0ec2dea5fc1e3236f16247dbaa3c7e6e4aeab5b59",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3856,8 +8887,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0343": {
       "file": "assets/audio/voices/published/dcb8c55520f90d660d86.wav",
       "sourceFingerprint": "60cc11f95802966077666fd564a21af1ebd4c4def183a114a18d6ea2545bd902",
-      "renderHash": "e95312564f8f79c8a7c74828a780c84b9d8274e13a5636cfae630f4ae6cabcb2",
-      "styleId": 68,
+      "renderHash": "feba71564cb736dea10b22bafa6647b24bc08dac6331dcadf35070f1501e0327",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3869,8 +8900,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0346": {
       "file": "assets/audio/voices/published/a6fca952cdcea7e14e2f.wav",
       "sourceFingerprint": "6cff2bd1aa4ba53d0ef405992a7df2fd3c8370d8c0aa04b1c51cb9a5fe4456f1",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3882,8 +8913,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0348": {
       "file": "assets/audio/voices/published/1613e6cfad9db0d9ce18.wav",
       "sourceFingerprint": "3824b1d3ea6e294f090295d8d1b66ae605024961691fd620c47b84281095ac56",
-      "renderHash": "ba938e6b448467a558e34bb23dec7bfa55e0b27723e6f47d9a9c5d669705ef0a",
-      "styleId": 68,
+      "renderHash": "8224203126bc6768e4b9d4f36d159e1e70e8883f972419a7a430f2abf9253711",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3895,8 +8926,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0360": {
       "file": "assets/audio/voices/published/7d0fe70b9e4930df9a7e.wav",
       "sourceFingerprint": "2c355ec62d48d4ef2a586c7f3e51f68d94e85b5ea155592a46fd3f315763a0b6",
-      "renderHash": "0f018b62196b8670d990be93bf121ec84dcaf1c56719fd1e4ea6944c91705767",
-      "styleId": 68,
+      "renderHash": "5c0222412130e77d44f385a3f1819266ab80e3cfc200897f73b11769141f7176",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3908,8 +8939,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0362": {
       "file": "assets/audio/voices/published/1e9cded73fc369d3927f.wav",
       "sourceFingerprint": "fef9708f8c3e1d43d3cfb1dedb8dadf35edbd549314455a4e42c25be57e39329",
-      "renderHash": "75f258348377d6a4ed23b922281d7cbed60764c484b45e1ab771cbca1fb33ad7",
-      "styleId": 68,
+      "renderHash": "509652a8854894c79ea014e6bf749f3c1a6d6618156bc2822240924967ebe67b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3921,8 +8952,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0364": {
       "file": "assets/audio/voices/published/f2167000fe6da2593f65.wav",
       "sourceFingerprint": "9cc41fcf4ece4985caf5e7cbf1934943fe54294ce8125bb407fff325355a4687",
-      "renderHash": "0a334354b5ba7f43a212b38573aa06125a6c9f8f4c88aeae97884ec9d08ff2b7",
-      "styleId": 68,
+      "renderHash": "e6ec26bd594f893292487d8d8f93882b2df52d8cc2fb8be874926dbb96ee8d0d",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3934,8 +8965,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0366": {
       "file": "assets/audio/voices/published/7b0a715905a91e890871.wav",
       "sourceFingerprint": "a4f82fa884ff5f315665d598ca1326ec5bbd42bb4c7d354c809eedaf9480350c",
-      "renderHash": "0a334354b5ba7f43a212b38573aa06125a6c9f8f4c88aeae97884ec9d08ff2b7",
-      "styleId": 68,
+      "renderHash": "e6ec26bd594f893292487d8d8f93882b2df52d8cc2fb8be874926dbb96ee8d0d",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3947,8 +8978,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0370": {
       "file": "assets/audio/voices/published/17be1ad4471d6779cd9c.wav",
       "sourceFingerprint": "9856dcbba0a4bbc44216e4ece42836cf2c1e2fcb598f7be8a418e3984227fcd7",
-      "renderHash": "dc2500f5675248d8ad165f075ef9be3b608cbcc4ee3f2d604f7ddf272bc9dd05",
-      "styleId": 68,
+      "renderHash": "60aca26f95d86defe500169cf54fa43ca58827fbe4b65e0f0c82727cfdc7a84d",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3960,8 +8991,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0371": {
       "file": "assets/audio/voices/published/5a5a40458db4ecb0713e.wav",
       "sourceFingerprint": "c4a68fe7f5cc15a33f3bc518f52f7784151f49410aba56d5f2fdf0a7250016f7",
-      "renderHash": "966f23b5ee43a59012d8f6a0a5a004ab525b4e9b13fe05fdb040253d20ddf52d",
-      "styleId": 68,
+      "renderHash": "fe300573fe3e7608a341ed24b4307ba30807d508b625a998eade7d6036f9f162",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3973,8 +9004,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0373": {
       "file": "assets/audio/voices/published/ba2befa540a2e109d96f.wav",
       "sourceFingerprint": "793616b96dddb03875f93e0a72d629f9592e788a93235179eaa6e5c18cac1652",
-      "renderHash": "9499bcb45d7698b707e06f9f86eeb7fd2984bcf61ac89d001e2d2b2e710428ff",
-      "styleId": 68,
+      "renderHash": "ea938f9c610f4d04db9f411ab1736dbf51d43848f7918d3b168f1d8fa67d63f0",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3986,8 +9017,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0374": {
       "file": "assets/audio/voices/published/30bd1fb1a685d6e322d6.wav",
       "sourceFingerprint": "8ec3847a190f1ed4456494e56aafdf0353288aa1a495f13e0d75e6705667e75c",
-      "renderHash": "fc576ea8de0a172c22e18a23f7a7f7472a1ecf7ac8cb19f51b9c6ff2474df7bf",
-      "styleId": 68,
+      "renderHash": "43aeb98896459565e66c12c1c1c800d1b15d2f767bee7f45c1d4ae484e203594",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -3999,8 +9030,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0375": {
       "file": "assets/audio/voices/published/cd73d6bf2a5ee0ec3c3f.wav",
       "sourceFingerprint": "40d0ecd74213e5af1e9d2a474167701372e641e1229e065adab5c21cd5b776b5",
-      "renderHash": "9b96592705e08068bad7bef4e0a671aa2517a4137bf703bc863b467d84d1188c",
-      "styleId": 68,
+      "renderHash": "6f9ee9caf5c2a0f9ca9c7ca53dfd401156860e466e5ae157f0cff88558005eb0",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4012,8 +9043,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0377": {
       "file": "assets/audio/voices/published/5edde3b65ac161bee9e3.wav",
       "sourceFingerprint": "5dc6c4c0b6e01028ce1d02af4a1ec08dcd0c795f41062c22db9da602f55d1c1a",
-      "renderHash": "80a8cf8e58bd493710408b187c790aec7b3d13f31d32606df20ca4f49256de18",
-      "styleId": 68,
+      "renderHash": "97752fd1503e2d0c5fb18a66e8a499b63d62c50b3030ac60e151f209abd0a01b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4025,8 +9056,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0378": {
       "file": "assets/audio/voices/published/67ca9b066852a180cf81.wav",
       "sourceFingerprint": "5818a00f46e9fd38cd4bd7acf095486283e04fda416e21e233f0840ec64c55c8",
-      "renderHash": "0b8c50e5e112d42b417bd7afd6a5797e0e6e86598fb60e752696e8c6d3ec98d4",
-      "styleId": 68,
+      "renderHash": "3cb05b33a8831b16e89848cb0d0bbdc98570e288f01ed6bc76c6dcbdb6402cf3",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4038,8 +9069,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0381": {
       "file": "assets/audio/voices/published/af792bc9e8ded40b62cc.wav",
       "sourceFingerprint": "b6db11ebc2886085934f8c2540584d8b6df0be4ab3b65fa3c72c14529113842a",
-      "renderHash": "82e80c8e6ddb007b123ccbf229d4659168bebc53e1439327bd929339bef03b19",
-      "styleId": 68,
+      "renderHash": "b438ad03d16dc74f28f7dedbdf52a1268af1c330e655c559d2c286652e0bc3ef",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4051,8 +9082,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0382": {
       "file": "assets/audio/voices/published/b9fcc3c52569913bd704.wav",
       "sourceFingerprint": "106235ffc4289b4e879e14956d8e5845a4a02fdd0cfd6f5ac386dea87f24f969",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4064,8 +9095,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0402": {
       "file": "assets/audio/voices/published/e89c8ad179eb50fd872b.wav",
       "sourceFingerprint": "9d6dfe6e3aeba0f4c47096419d9d9a2da24f8a44a8d2f6ba8bcc4e3d27eb0229",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4077,8 +9108,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0403": {
       "file": "assets/audio/voices/published/2941e829d60cf405ed97.wav",
       "sourceFingerprint": "f77f446a3456520c44d86ee1b8b99a08ab2bebf8976a27c31f5dec1dd6c2cd03",
-      "renderHash": "ba938e6b448467a558e34bb23dec7bfa55e0b27723e6f47d9a9c5d669705ef0a",
-      "styleId": 68,
+      "renderHash": "8224203126bc6768e4b9d4f36d159e1e70e8883f972419a7a430f2abf9253711",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4090,8 +9121,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0404": {
       "file": "assets/audio/voices/published/681debe6403d5f63ee70.wav",
       "sourceFingerprint": "08296327627aae6a9244b53df5168a23e8cf19d86538c02873eae6125e31e0a4",
-      "renderHash": "cde9298dbe2a20573a5d67d1a2e53bfb26d8e6b85bd67288153c549edec01831",
-      "styleId": 68,
+      "renderHash": "d84df26bf1672421ae3983ef79d5dd5d4939fed228a7810eb0b10dd166880c46",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4103,8 +9134,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0405": {
       "file": "assets/audio/voices/published/bd316e484eec89e312ac.wav",
       "sourceFingerprint": "f517a51976f1341e7b84cf1b64e62c59ad8b00c6bbd8b26fde60c3b9be6a29b8",
-      "renderHash": "bd484cb41f53d6247838613e4c8e32be90a687014e5dccc12509a6a2338382b5",
-      "styleId": 68,
+      "renderHash": "13b9536aa6878299c006c4ad8d3f9e96bc402bac554679dd71b8a688e95b2561",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4116,8 +9147,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0406": {
       "file": "assets/audio/voices/published/123c9344243db0795343.wav",
       "sourceFingerprint": "9f0b0209c1a911c542edf5e4cff3de4773b55eca9841dff4d00f3eaa0289a08d",
-      "renderHash": "0324bd8cef4031e860cc443ae95753acf83bb5fd917fc348fd68b26c2731ac1f",
-      "styleId": 68,
+      "renderHash": "d04baff14750fa9c646e3fd8baea75eb5c45ba562de34205baf84cd97b5c8bb7",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4129,8 +9160,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0407": {
       "file": "assets/audio/voices/published/89233efc9fc542d9aae3.wav",
       "sourceFingerprint": "91c0bf2dda266740436364ce3251d4df224f4b5e6aa122df9092fa1549b295ee",
-      "renderHash": "e577b6f3211de5a7a2d35b343d231d3c75f784bdb4bfcbe06769370b73d41b2b",
-      "styleId": 68,
+      "renderHash": "faa67e40db690ab9d1f47c38cec3417971f17eabc985e413e973fe3797440238",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4142,8 +9173,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0408": {
       "file": "assets/audio/voices/published/0fd5f226104c62749e61.wav",
       "sourceFingerprint": "817ffa0e01c66a2bbbf2dbb38df73862679cf77f433d134d7d4b3179736adc77",
-      "renderHash": "96e04af0a927f71ca5848709e6bd33f428a9112177720f1f75a1b0be78bc699a",
-      "styleId": 68,
+      "renderHash": "c591066bb8561d9a122f5a76229bc13a3730f508f8ab54820f57d90bf8ea0158",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4155,8 +9186,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0409": {
       "file": "assets/audio/voices/published/24a300ec4f93e658ebe7.wav",
       "sourceFingerprint": "1979a7c355aa256e272a7c1e6417918c0edb3efb9ac321c810e7d520d862ad3e",
-      "renderHash": "6e194a4fe82467c7950e7d72f7a4e6d877078100a002490fbe54c43179b0d853",
-      "styleId": 68,
+      "renderHash": "93de9c9f03267173f4fe661451af773392bc1462637b2bc006ebd60b6f7bb211",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4168,8 +9199,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0410": {
       "file": "assets/audio/voices/published/3cb342fc1f678bfce3ad.wav",
       "sourceFingerprint": "a7c4431b518db4d433e0ae857be92b84403e1cc3b6882ca52d1387fe8b3ec672",
-      "renderHash": "ea29884fcac4b6dbe89cfafe1d931df1c8fa639f36d5a5440b948dc9d8836d5e",
-      "styleId": 68,
+      "renderHash": "6811d4eb86f10fc2bb54b092f1e357a8fe36e08beac26412ea59df4080ae26fd",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4181,8 +9212,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0411": {
       "file": "assets/audio/voices/published/9cc575493a6acdecf10e.wav",
       "sourceFingerprint": "060ade34ebaa76404ca2f03fb7491ef15ba04415b530c8fb119cb0fa214e83a6",
-      "renderHash": "ecd4b06dce9b57c06864c7f663575bb1ea03a997e9560d5327911b6994d2b1d5",
-      "styleId": 68,
+      "renderHash": "276e7a0279b2c8f544f5f85469022f5d74fd086a670bcc9e27584aad66f36757",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4194,8 +9225,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0412": {
       "file": "assets/audio/voices/published/df3d241ef427300e3388.wav",
       "sourceFingerprint": "7989125830f1f207bf65cefe0195dc3620f00ddae35522dd09d1bbe32457f2cc",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4207,8 +9238,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0413": {
       "file": "assets/audio/voices/published/c3acca53ce08de1f98ad.wav",
       "sourceFingerprint": "9a9b1bb383b89e96a584653a3d1fb7985d650bf119d04a67d66ae756f0e1c342",
-      "renderHash": "60825b0388ae2a67d47ed10f7ec4acea92f7f87b74ee0e33919b9b0cfb662a8c",
-      "styleId": 68,
+      "renderHash": "7254a771a4870852c561e717f53baa98681388925dbd64ac1c1eeef51afeb1a0",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4220,8 +9251,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0414": {
       "file": "assets/audio/voices/published/9d734377101cd8f37368.wav",
       "sourceFingerprint": "370bf4e694e332a90561391ca944344c18113614340da38de02b3e6a5ec4c2dd",
-      "renderHash": "d9c0f5b97a506d7b0d084900f0e64c1ce71b6b55621a68feab2f089944cfd1cf",
-      "styleId": 68,
+      "renderHash": "52062f374902e1439674635484467cf9c8f94837495c6e92a17967d3cfee1473",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4233,8 +9264,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0415": {
       "file": "assets/audio/voices/published/f65a82dcec7beec124d5.wav",
       "sourceFingerprint": "f8e5f6e03de09b6e84daed0bdc94362404042b913ead5acd18f14c040b72bfcb",
-      "renderHash": "b5cfffdaee502a1b34d2006d19eafe394fcd2ba847e228bbc4a9508fe0da4090",
-      "styleId": 68,
+      "renderHash": "2457eb51c5bd1e2ffeaedd8f66dc3ac9a20b90fb91e9e30bf02666a4cd596427",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4246,8 +9277,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0416": {
       "file": "assets/audio/voices/published/cd52fd74e209ecff13f0.wav",
       "sourceFingerprint": "b9b8e9c5cdfc94008e416e8de654fa83320e0ed358adcd3d4236c28d07015b6d",
-      "renderHash": "d286cc5f05180e16a6e0f317d2b311200ec9ee0f8f360ed474ac46cbb000a1c4",
-      "styleId": 68,
+      "renderHash": "7deb1867f3bec4f724bdd5fc6b827e512fa0b836d0e663bfd6614461f4ba9b54",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4259,8 +9290,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0417": {
       "file": "assets/audio/voices/published/433a155935e1a2540245.wav",
       "sourceFingerprint": "7989125830f1f207bf65cefe0195dc3620f00ddae35522dd09d1bbe32457f2cc",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4272,8 +9303,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0418": {
       "file": "assets/audio/voices/published/556128636ed79b5af745.wav",
       "sourceFingerprint": "14deb20875dcaa980dcf775cd8d2ea40b746de42a337ebbc1b4d5494b4f991fb",
-      "renderHash": "bb2b84a80d0d50fa31f38a171083a5458b98a25e1faab8baed1e0cc573135e9b",
-      "styleId": 68,
+      "renderHash": "8bd48cb4ade52b24947e5d578c30182ccf26179e08f4b5dbcaa11ce2b172e4eb",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4285,8 +9316,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0419": {
       "file": "assets/audio/voices/published/7fbd1d3df3e367941274.wav",
       "sourceFingerprint": "20fdcb8ee4d3ef9dfe34a2db10eb30c1fba61e91e9e4a6b51a25bef49083d932",
-      "renderHash": "950972cde7ff9398afea187d8376dc27a0ced9ebd2577d94a04ba15c4e615c22",
-      "styleId": 68,
+      "renderHash": "565ec91eb976799ade330090e9c1e0b00211edc0dbf6d3c67af7918e308609da",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4298,8 +9329,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0420": {
       "file": "assets/audio/voices/published/3d5246028abc420978e2.wav",
       "sourceFingerprint": "7989125830f1f207bf65cefe0195dc3620f00ddae35522dd09d1bbe32457f2cc",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4311,8 +9342,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0422": {
       "file": "assets/audio/voices/published/075a4154894399464e3b.wav",
       "sourceFingerprint": "41658b9cad975560ab23c55e28ae680b9c638752d0f291fd70360a4acd7e3dd6",
-      "renderHash": "6d983d49cab474b183f5664cfe8074ace19a85ee665785d569d5a163b4ccff85",
-      "styleId": 68,
+      "renderHash": "cc29e648a2bfd4c03ec8baf0a97c9988e513cc2bf4dfee95518cedf1cb0ca4e6",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4324,8 +9355,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0425": {
       "file": "assets/audio/voices/published/85803a9fe2c27d877f68.wav",
       "sourceFingerprint": "24f501299a4d2449656507823d923a17dc80222a0d5c36c3970636840ad1a1a9",
-      "renderHash": "ef928646e3f4fe0fe028333b5395711bddfc50e590fa52b7fd359c32fe4ffc62",
-      "styleId": 68,
+      "renderHash": "d4593fc9f7fc5a4ccd759dacca515e113392ead63e9d3e696d1cd829d1b30268",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4337,8 +9368,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0426": {
       "file": "assets/audio/voices/published/6d5827ad3d76d8364369.wav",
       "sourceFingerprint": "0311019f6dc8f7fc84884147289003ea492dfff6ef75abb550877a07eeef5f70",
-      "renderHash": "87983a957641936728705e0f17b0e7eccd2840d1961dc7a3f9f1d3ccb7441c22",
-      "styleId": 68,
+      "renderHash": "4f429aaad2b5f3751bcd14321c6ef049cbef93f7cea4cfdfe93b291447455d66",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4350,8 +9381,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0429": {
       "file": "assets/audio/voices/published/087d881e0eb66f9f5115.wav",
       "sourceFingerprint": "904d4d823e84965a9ebc9e2d2c59ca101afcb793e6eb11cc12961d4a9cb25b69",
-      "renderHash": "6d983d49cab474b183f5664cfe8074ace19a85ee665785d569d5a163b4ccff85",
-      "styleId": 68,
+      "renderHash": "cc29e648a2bfd4c03ec8baf0a97c9988e513cc2bf4dfee95518cedf1cb0ca4e6",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4363,8 +9394,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0433": {
       "file": "assets/audio/voices/published/df1ecd48c518819cd8bb.wav",
       "sourceFingerprint": "9c3784b479dbc38cf8756296f4f5af7ccf7fc8e75ce0a2b109ab7132cabffe6d",
-      "renderHash": "155e82cd218433148403c7e734fca8aeb78939b936509203be86ec0c975dac9f",
-      "styleId": 68,
+      "renderHash": "8224203126bc6768e4b9d4f36d159e1e70e8883f972419a7a430f2abf9253711",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4376,8 +9407,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0434": {
       "file": "assets/audio/voices/published/fb5e66e5ec06f0b779e5.wav",
       "sourceFingerprint": "34de4faed4b9aba9cc6adbe9ad497850b2d27f6a47f479c77afab20521648d42",
-      "renderHash": "5a18c5ef8474e5c2fdd8fd813d4af40bbbb2937635645171f549d000329641aa",
-      "styleId": 68,
+      "renderHash": "c03f941a9c160cc9d11915020d7e14cf8a7bd6071e3d283c9622c1feb4fb087f",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4389,8 +9420,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0447": {
       "file": "assets/audio/voices/published/80c21233d19e716ea12e.wav",
       "sourceFingerprint": "ee33cd0dc5ab3c5beda851ca849f3fed53d758e60882233f30777f63cf1ca287",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4402,8 +9433,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0448": {
       "file": "assets/audio/voices/published/2f3243cfab10ab236203.wav",
       "sourceFingerprint": "049bae695418ff346f88c63563e033ef768c56518bec8333e38fa6c957ef2ad1",
-      "renderHash": "5221fafe083f9bb730a09211a2f27636aada1917d465dafaa69cd9c1fad13e7a",
-      "styleId": 68,
+      "renderHash": "4786bf8b3637ba68bf63bc17466f333e9e2d2b55ef761b59a9da6187e133e837",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4415,8 +9446,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0449": {
       "file": "assets/audio/voices/published/bf97b38d1ca9407a7868.wav",
       "sourceFingerprint": "dc3b39a70f29c215dafcc6d9e6c106743fcbf47f3b38baa44d10f1bfc129e249",
-      "renderHash": "0bdfa571b2221f911af1cdeaab23e5082faa06a3827f33bd32ae5c6a4886f866",
-      "styleId": 68,
+      "renderHash": "a751b54e644c9614c615cfa9d3d319b89d10f7fd23881549ce1b2f9de04108ee",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4428,8 +9459,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0450": {
       "file": "assets/audio/voices/published/a1b37cd3b78f84f1a76a.wav",
       "sourceFingerprint": "2ee3beec0ddd9319f2857c3b30b4626feab78d33fba8bf3706639bf7568b247f",
-      "renderHash": "155e82cd218433148403c7e734fca8aeb78939b936509203be86ec0c975dac9f",
-      "styleId": 68,
+      "renderHash": "b14aa6532a5c22a100c16a71ef3e04dcf84b13965a6ea6138d2eb058c99f4931",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4441,8 +9472,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0451": {
       "file": "assets/audio/voices/published/a67087ed29b4108a2032.wav",
       "sourceFingerprint": "40770e439df1ebd86691b007d14ec9828b8ddba9c8a135e72d3153a0a4ff21c6",
-      "renderHash": "616c4d4aeb1f774844c6e119956770763a74126b751af19dda52cf5a3967f952",
-      "styleId": 68,
+      "renderHash": "1c7854889f520c6996c4b63a9bc7538d683515dfe875bfe95a1f1733b49432b0",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4454,8 +9485,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0452": {
       "file": "assets/audio/voices/published/f461dff56fb08394db60.wav",
       "sourceFingerprint": "9999c63645cd3ce6781d0ce74ab6b06b6c301307bc86b4fa357384680c371f37",
-      "renderHash": "21711d459827d4b28caa43950ada5a99f95b9402ca70faec7ffcd3cdf9ac4eb3",
-      "styleId": 68,
+      "renderHash": "8334acc0d3dfd9b0146a8fd7227dd776ee3a65f6cc05519b8c31f5ede73cd374",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4467,8 +9498,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0454": {
       "file": "assets/audio/voices/published/f0d487dbc69c7884a65a.wav",
       "sourceFingerprint": "1c2c2a0c1710f828ffd50cc4968230cf41cf5d3c01cb2e2147d797f7e1a1c84d",
-      "renderHash": "fb80df45f30b29017d49f310c7ee92daf75cc1ee606c60d9bcf93f736e384cf4",
-      "styleId": 68,
+      "renderHash": "b93e1803f0c5947fd69a63e98a8b42191052b007c93b6677213ee0527f4baf28",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4480,8 +9511,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0455": {
       "file": "assets/audio/voices/published/626c3f1ed9de6e638e26.wav",
       "sourceFingerprint": "9bd558ebcd62320913d8ecaa7890b52dd2d16847133e0e03d45c3218735fb042",
-      "renderHash": "437d8c3608399747a04d25f11a0e1fb3cb653b9a8d72f5fd44f75a06b21dcf83",
-      "styleId": 68,
+      "renderHash": "a98fabbafb2512788289d0ab7bff3ae58ba1650d7021b1562d620a83a3b7c2a9",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4493,8 +9524,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0456": {
       "file": "assets/audio/voices/published/e00d455853a742fb03b6.wav",
       "sourceFingerprint": "ee33cd0dc5ab3c5beda851ca849f3fed53d758e60882233f30777f63cf1ca287",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4506,8 +9537,8 @@ window.ILY_VOICE_MANIFEST = {
     "her_0460": {
       "file": "assets/audio/voices/published/e490660ad9235702dc23.wav",
       "sourceFingerprint": "a198e2f4d2dc9f4ac85f22e0164a117527713159a22271bd151c587baada8537",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4519,8 +9550,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_010": {
       "file": "assets/audio/voices/published/51e5525cc4af4f611d6c.wav",
       "sourceFingerprint": "652ee3bb41f2becbcddafae782b1bd20b65f707e3136f57102d7b0fa55cebfa6",
-      "renderHash": "6322b870ec95771777088faf63bedcf9d56f3ff6a8a2191486650f17e347dbd7",
-      "styleId": 68,
+      "renderHash": "3057349e854dda6d0f3d1a146df402c51e7e89bc3013eb353c5ee25ab8a287bd",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4532,8 +9563,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_011": {
       "file": "assets/audio/voices/published/453d90558f624e0e4c3c.wav",
       "sourceFingerprint": "02ac98161bddf67538bb890fb501e7cbfd0ea5448f95da259475d4d80b37adec",
-      "renderHash": "4da6e21ebfad9e3ec3aecf032cbbed000c1b1ce31069d8226910ff392857ced8",
-      "styleId": 68,
+      "renderHash": "6dc7cea085c1162617d61da28fcfcbe9d6cca76edcfba1d581f1800a0088649e",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4545,8 +9576,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_012": {
       "file": "assets/audio/voices/published/b90fe5c011bca73ae3b9.wav",
       "sourceFingerprint": "e5da831547925d33193cb37b12ae800aafbc5b6279c0f48899b78fdfdc4da7de",
-      "renderHash": "20ba729bf355654e0e76fcb1c71beb2e091d3ee833a2cbf993054fd30d6fd1e3",
-      "styleId": 68,
+      "renderHash": "9918a65fd36a903ff17c9a90f32868ca040121adbca803f86cab172a052dbe2c",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4558,8 +9589,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_013": {
       "file": "assets/audio/voices/published/c227c4ad631202d82a8b.wav",
       "sourceFingerprint": "3a5fbfe682f8fda1eb9efc11b1bb0dc04afba470f872802732a507f790d00c76",
-      "renderHash": "b35a048004ce3439d694f133e6e52ccecd8dbbb663d71c8cc6c7b3247719f995",
-      "styleId": 68,
+      "renderHash": "363e396837ae2a24320277126ffcc3c1169c8209fdf059f546084b3e7eabf417",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4571,8 +9602,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_014": {
       "file": "assets/audio/voices/published/c36a577988ff3b003c32.wav",
       "sourceFingerprint": "3eaacbe572783a97b84be818ea25da95140ead7ed708026993e6add97057adc6",
-      "renderHash": "ffa66c3c18d3f087079874dc1e460f67d623f59e6fe21c7516c054cdb62564c0",
-      "styleId": 68,
+      "renderHash": "14e6ce0d27ca8e88c3dcb9dcf5444cd18154092b8cfc826ef680c6c6c249e2fc",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4584,8 +9615,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_015": {
       "file": "assets/audio/voices/published/e721b3f4ea36211f6e9b.wav",
       "sourceFingerprint": "dccbd2ad77f4c3ac18ff9a37d301af82965a520b6d0eb335ea733d37ac4a8655",
-      "renderHash": "9e0a48a3eb81f9048083bc12fe36515983f00efa0e2bb5160e073bd2301c8f90",
-      "styleId": 68,
+      "renderHash": "2f8769641c7190ad48fe2ff3621ba64bd3e510f58c6b63abd29c73933ded4bca",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4597,8 +9628,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_016": {
       "file": "assets/audio/voices/published/dda86d9536208341648a.wav",
       "sourceFingerprint": "c2d378a8f08adf1476f9b6524c6cb338840a241c108ca03f21a4cf3cd40be19e",
-      "renderHash": "71681fbe7267f044c53b05429c920e83e5ce1a97720d042529ace106a9f7771f",
-      "styleId": 68,
+      "renderHash": "2271fd76db4df2f6c77a84c72832b9676a5411b03671056b68a3f91edc64e70f",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4610,8 +9641,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_017": {
       "file": "assets/audio/voices/published/ad7353b51f8da4d3eb0d.wav",
       "sourceFingerprint": "4eff13d4784332e8bf29821fac475a735e457d1f35a0f735e64388d54a36133c",
-      "renderHash": "155e82cd218433148403c7e734fca8aeb78939b936509203be86ec0c975dac9f",
-      "styleId": 68,
+      "renderHash": "b14aa6532a5c22a100c16a71ef3e04dcf84b13965a6ea6138d2eb058c99f4931",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4623,8 +9654,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_018": {
       "file": "assets/audio/voices/published/84988050215031c48634.wav",
       "sourceFingerprint": "d99c5523d2864c94f5c9f809b38f1633edd42baa493ca92f3771dcc82a792dca",
-      "renderHash": "cc2d16d7a63486c6a98a384142d8b189327cce2141bb5793f8078ec8a15a1dc3",
-      "styleId": 68,
+      "renderHash": "36bf1d9db15039f7cc057ad105d0491dd49f414a40c727637497592f0674ef7c",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4636,8 +9667,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_019": {
       "file": "assets/audio/voices/published/604e3d6f2f174d1fdfce.wav",
       "sourceFingerprint": "64070634973e06197444078fb2d118a238114512386cccf94b16f11a1f32f940",
-      "renderHash": "6b88f33700228df5bf2f70acc39fe485328d6405c76d123d7e73ad5f575f5d25",
-      "styleId": 68,
+      "renderHash": "c484271fad1dbe406d632a792fbb22e7976056c7af0f7d776449de8800a0773d",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4649,8 +9680,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_020": {
       "file": "assets/audio/voices/published/a666e885b26371cbdf60.wav",
       "sourceFingerprint": "10e859086eff0fc5693752af08084db825000c93ab685c18b9693e108915949f",
-      "renderHash": "577aae5b1cb47fba87fc08a4309eb03c31b5905d4c526b006cfb0983df395486",
-      "styleId": 68,
+      "renderHash": "dbd378cf3f6a4dd8bf2668ab30dc077499578d51b25b130640f6aaa5af4092f5",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4662,8 +9693,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_021": {
       "file": "assets/audio/voices/published/fcc4f5513299fdd696a6.wav",
       "sourceFingerprint": "70325e6f14532a8bf91b971fb500cedba6b2d229626672281551de107022d4d3",
-      "renderHash": "c5068e4b6097888479085943e9189a14c9c14620bc38df158bcb81f08ded9647",
-      "styleId": 68,
+      "renderHash": "7e0482c69f70b6312b127d2ca218e48cca6ff379f75cf6316af8ffe23298339b",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4675,8 +9706,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_022": {
       "file": "assets/audio/voices/published/57eb47e39b4940d67e93.wav",
       "sourceFingerprint": "ed941e5c13adf4c36331a099367fcce20a2221b7143e155ed17f0dd62fbad22c",
-      "renderHash": "d812fd90b9c506b70068c96f05840f1dc2f466771313b21f75d321cc2ceff6a3",
-      "styleId": 68,
+      "renderHash": "332f6c5066ed7d2ee1403f60e43af70081ee4f9fb952d3cf5f0b99ed80443948",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4688,8 +9719,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_023": {
       "file": "assets/audio/voices/published/f8a24724d628a8b40819.wav",
       "sourceFingerprint": "ee84139c99fc56b6eb57ba452331600776dd46a1e51f107df4a802cbef7b5483",
-      "renderHash": "bb5ecdd99f1314a5a05769f855427172a53da958a4de1fd82ecfd8f677f85e55",
-      "styleId": 68,
+      "renderHash": "dc6838ecc427593e5c0c232a34b93ccd708556e2d719baabbeaf11a9e58af110",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4701,8 +9732,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_024": {
       "file": "assets/audio/voices/published/bbbcd7164216cef72bf4.wav",
       "sourceFingerprint": "f6f1d214e103d1da0107230c779ca8b5d09a9d6b66078575bbe833351cd4e6be",
-      "renderHash": "e86173e02bfb0c3f3bfcf000998d8092a163da4685c088f665ea75b361d70471",
-      "styleId": 68,
+      "renderHash": "9c7ab06a43de4bcb42e5c963d656df7afc4cdb5e8af45cb267180ad0b61949e9",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4714,8 +9745,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_025": {
       "file": "assets/audio/voices/published/a0e0459697418449be18.wav",
       "sourceFingerprint": "ad4190b804606ba4116ba5085ba8f1fbdd3bc1fa34898ad0d45ebfcddd0d5221",
-      "renderHash": "a66781f5b7d98d1ce98aa90846388af4868f99490bbf74991d1cf49154efb796",
-      "styleId": 68,
+      "renderHash": "780e32628fdddb5b57e8b085e3c5310c8ea0c1e1054a1c214d19df947d2c7861",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4727,8 +9758,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_027": {
       "file": "assets/audio/voices/published/304ec709df9af0c17625.wav",
       "sourceFingerprint": "c304003b1496067a72bea5f1b735656d9d9d655824d10696d9b07bbe5fd0ae64",
-      "renderHash": "03eb54ddd923f2467601833eef77893f7dc654641df86ef76ee31e592158fbb8",
-      "styleId": 68,
+      "renderHash": "dc71f65c77261c41bcb1ba37d892204a8c616d2b1fde64d1f90c7800d0bbe3bf",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4740,8 +9771,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_028": {
       "file": "assets/audio/voices/published/2e7bc4d58feeaf49bb77.wav",
       "sourceFingerprint": "f4a684d741325b09aa11f99f959169bb08f3c49277e775e2d064634a31395c9a",
-      "renderHash": "336aa878a93076fea204a95d8cacde777b2d1e1846de100ec5ab84a291522092",
-      "styleId": 68,
+      "renderHash": "ee9c2c678cf20f1420899e4aaab6eb37f384f0f209c869b0040beaf3cd19e66e",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4753,8 +9784,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_029": {
       "file": "assets/audio/voices/published/fdea0ea0c5c8d62dc394.wav",
       "sourceFingerprint": "8bbd0875a15340a00f2e668468b50f430926ac3b0c5327ba067577dd1dad41b0",
-      "renderHash": "0dc5364c397c94a4b98e433c2508010c34bdd84068026bdb4d3d5fbbae394910",
-      "styleId": 68,
+      "renderHash": "368b4c697aa6df1abf6f7e20ecd27b545ed6e98a084a830126b20894940fc377",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4766,8 +9797,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_030": {
       "file": "assets/audio/voices/published/946faa8126d7575208e1.wav",
       "sourceFingerprint": "49f6117c5c448d0dcb263ebb650a5b56c09a96d2b0508acd84460c300e0615ef",
-      "renderHash": "ed013425f1ceee31804c00b74a8ba37fda33ffd6e0166cb674d9a2bb3ff99255",
-      "styleId": 68,
+      "renderHash": "aa3a6093d048cf6b9ca91f053db7fdcab155a583cbabe12e1bcbb01ce636044b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4779,8 +9810,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_031": {
       "file": "assets/audio/voices/published/fe7cae8a41f87a83e3a7.wav",
       "sourceFingerprint": "5ee94b3ceac7b64b01e93a3990d378d5251d9c9346b8a7e70758f8de95075eb6",
-      "renderHash": "b9688b6c7000e6f66bdeb17e7354a5cdcf4876de224db28b7bc6bf53f6f9fbce",
-      "styleId": 68,
+      "renderHash": "51503648020714fe6e16eb1c8b24bea530413565aa98e56402ebd4201fb20655",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4792,8 +9823,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_032": {
       "file": "assets/audio/voices/published/e6333d169fd97c1d4f36.wav",
       "sourceFingerprint": "4b918d2abe76fe4ea4af7ca27efea8ff3a6679679fee0b45936e1b1b49b7f5a2",
-      "renderHash": "0592a3c0c11b68e42a06357aa3ee360999a8122ef228ffc3b69e7550d6ba7cad",
-      "styleId": 68,
+      "renderHash": "99d49509b0f1eb18bb4499eb6a89bfd33de7bd09bdb2778f2737cf519de1ac5a",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4805,8 +9836,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_033": {
       "file": "assets/audio/voices/published/86b8189b0df2570b1b6f.wav",
       "sourceFingerprint": "8ed38cbe7e0659974edd7a61896976c10f9c6092e94c7d700077f971f7731a9f",
-      "renderHash": "ee42e8ce0063865509c0d2fc830255f199515232f8a724dc5ab2f6cab2c37db4",
-      "styleId": 68,
+      "renderHash": "fa38269728c171f4f8af87a02970f0feb74e29b4450f216a8cfa91d981766971",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4818,8 +9849,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_034": {
       "file": "assets/audio/voices/published/64f673dcdc770c5d5e92.wav",
       "sourceFingerprint": "0d75e89dc6a2ee5c12338e96244d152c949a5c7f1d1e5430f4ba807ae68c5ce3",
-      "renderHash": "00ecb0ba914c15d24f415b49c343d3c22c7ec0fbf13bff69f8e745c5269b72a9",
-      "styleId": 68,
+      "renderHash": "a72922c9de19a5c9b25025e0d675efb70f0fbb8b046524a2dbed6e6f166599fb",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4831,8 +9862,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_035": {
       "file": "assets/audio/voices/published/d77cd4475f9dab5c5e7d.wav",
       "sourceFingerprint": "d9cbbefb9fc94caa9400665736b707dba177372b8dd682ec39d57a108004b555",
-      "renderHash": "57c455371f26ce342d425ba54e63f6a77be2c9584672da15b01fdfceaecfce38",
-      "styleId": 68,
+      "renderHash": "38f390245cf0430090225615f13a48dc14f7358504c6f897c24d175ac1a51ea0",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4844,8 +9875,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_036": {
       "file": "assets/audio/voices/published/7ff84abb858d09509eb2.wav",
       "sourceFingerprint": "7fd091d14fbe1be20e99376371507ab8c6fb70c430cdd7648eb1ca6bd015d679",
-      "renderHash": "ee547715ae2f9b1a67247840e447b36cec308547f1623f9dc2dfc2b1e082515e",
-      "styleId": 68,
+      "renderHash": "801fdb6609e94932320baf421d6aa033f24bd98bc1b6dd71dfc84467a0ee6660",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4857,8 +9888,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_050": {
       "file": "assets/audio/voices/published/7442c0561a93df14e71b.wav",
       "sourceFingerprint": "fa284b7484079dd9dfd48ad4604086f4aaf571e457de70df4f514af8f21a41b7",
-      "renderHash": "89dbff01101fe834930d585eb4b03c34b04894b251defabc0c38c7eefbcad3b9",
-      "styleId": 68,
+      "renderHash": "cdb6eb9a0c93ed1ff0ec93ab73e10c642a311c401d3c6cc9c0306c5e2ce87b3b",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4870,8 +9901,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_052": {
       "file": "assets/audio/voices/published/d3d917cfca00ae2e9a31.wav",
       "sourceFingerprint": "89346c41f80fb7c29f0063b58f9bc62765fafc28fed7e8dc3a4eec9eae6c84a4",
-      "renderHash": "b96ac311967b1cc5f8074d059b64d392d6eb90e38cfa30b64e7546b4b4345063",
-      "styleId": 68,
+      "renderHash": "02ce1e31a278e30ec577725fd2fc9faeba7d3c4854468215a5e9c1245431cb4a",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4883,8 +9914,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_053": {
       "file": "assets/audio/voices/published/4265b97459af47e6543a.wav",
       "sourceFingerprint": "948e7c668efe4ddaee5ccafa2c1c6ff2ba217d82f31d49b1abdc313486aad8e2",
-      "renderHash": "cc1c6015d7a3ea8ca5a33a70e81173c37b5571f228ec7d3935930be0c1800ea5",
-      "styleId": 68,
+      "renderHash": "7d9acd98d89d92ef2d5afd9ca28e6905a0996345aa3fa6a4fcafe7bcfdd2bc9f",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4896,8 +9927,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_054": {
       "file": "assets/audio/voices/published/a847dbf01a47eeceb2ee.wav",
       "sourceFingerprint": "51a401a9e09d463e014a11594fab05d0f273780966f7e4c6512058219a924d23",
-      "renderHash": "02fbf606378236db3a8931906fbe578ee2a4e5141ff0be4da235fff8d6cd6697",
-      "styleId": 68,
+      "renderHash": "5dabbaebee281832d828500d1d1abf6e716549dbc64aab3fa54f8c74b4dcbcbd",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4909,8 +9940,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_055": {
       "file": "assets/audio/voices/published/579cc86fec3fe04e6cca.wav",
       "sourceFingerprint": "3403610188da8ab5c52166e162ee67dc34fee08b94d18a24be0ac11e528bd919",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4922,8 +9953,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_056": {
       "file": "assets/audio/voices/published/7d75abd2a42cdef67061.wav",
       "sourceFingerprint": "ceb9f8e5bde58f80ba69cb43c3558a4611b497b61ed203ebd61907757236b941",
-      "renderHash": "9d130f8bb3446129acd65a0a4978e7e06ab450b5ca0c2bc44b6e382383138565",
-      "styleId": 68,
+      "renderHash": "9b557307a0971e4f8ba7289a33653c607a3c4227f36f44fa76996a80d23a69a3",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4935,8 +9966,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_057": {
       "file": "assets/audio/voices/published/bb3e8d61b20922f94a3a.wav",
       "sourceFingerprint": "3403610188da8ab5c52166e162ee67dc34fee08b94d18a24be0ac11e528bd919",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4948,8 +9979,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_058": {
       "file": "assets/audio/voices/published/ce024077295a27b8db5f.wav",
       "sourceFingerprint": "5a2837657fefbe9df15bfff41a442951ab88dc0f4153c6a3db5c872f7feca858",
-      "renderHash": "ec8dbc7e616482ae2e45d6bc770222bd375ee7ad3a503fe6782650c76f5615f5",
-      "styleId": 68,
+      "renderHash": "fc0649de31f1f659eb16a7cc67f65ea155c0d743a6184265704793bec538ebad",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4961,8 +9992,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_061": {
       "file": "assets/audio/voices/published/70b68fdfd5a82378523d.wav",
       "sourceFingerprint": "d89d42160f7aff522f5ab5dd5b0bf20b0d0fd7ddb6f5f25dcd36951f49a2660c",
-      "renderHash": "062ed89d0f65ed04b35e91e4f548135f05f694339bee6510f62b5ec6880e296e",
-      "styleId": 68,
+      "renderHash": "9ef53c5e5afe62c2b27248d04a920c7795e810545e2cc8f5ec053cf90174fdd4",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4974,8 +10005,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_063": {
       "file": "assets/audio/voices/published/a98059b4baf1cdf40a61.wav",
       "sourceFingerprint": "f2f230b2a5eac04988da8f4c08b34bfedb06b60b3cb1507af85846874370328a",
-      "renderHash": "5106aa514fe9536edb4b0d8d11b0216f2ba179b33a8868b1ced98469409a2e78",
-      "styleId": 68,
+      "renderHash": "c68a9e22f97c5f3aebd4a0bef4e55395532eb91ea9f275a480a95877ce8bfb2b",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -4987,8 +10018,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_065": {
       "file": "assets/audio/voices/published/b3bcef87f60c21e5ea37.wav",
       "sourceFingerprint": "f2f230b2a5eac04988da8f4c08b34bfedb06b60b3cb1507af85846874370328a",
-      "renderHash": "5106aa514fe9536edb4b0d8d11b0216f2ba179b33a8868b1ced98469409a2e78",
-      "styleId": 68,
+      "renderHash": "c68a9e22f97c5f3aebd4a0bef4e55395532eb91ea9f275a480a95877ce8bfb2b",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5000,8 +10031,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_066": {
       "file": "assets/audio/voices/published/b5e670624dcfc779275f.wav",
       "sourceFingerprint": "b57be0baf5351043bb532caa06da7e84b07dfc969b83c1c052ffbc1c3d7f6c6e",
-      "renderHash": "721bbb95cf23634b703a615bbf60e97dca84d7b999a04ebe53bcb56eee9208d1",
-      "styleId": 68,
+      "renderHash": "6a15cb93bc3b461479499d1db8f1134cbf3c523e093ee0c3459bda88b70ac2ce",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5013,8 +10044,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_068": {
       "file": "assets/audio/voices/published/f3422f952ca13a269d1a.wav",
       "sourceFingerprint": "b57be0baf5351043bb532caa06da7e84b07dfc969b83c1c052ffbc1c3d7f6c6e",
-      "renderHash": "721bbb95cf23634b703a615bbf60e97dca84d7b999a04ebe53bcb56eee9208d1",
-      "styleId": 68,
+      "renderHash": "6a15cb93bc3b461479499d1db8f1134cbf3c523e093ee0c3459bda88b70ac2ce",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5026,8 +10057,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_069": {
       "file": "assets/audio/voices/published/54aa924e52e03ce3637d.wav",
       "sourceFingerprint": "387efb438c5b071177d4e6b172a17f2530ac0222daf7de4b9031c50ceb6bd573",
-      "renderHash": "c569d7773af3449986dd2fc6610232cacfbb8d873bbcd94ab5a3689a62e46541",
-      "styleId": 68,
+      "renderHash": "9c7a89388319f3863bec3ea90861879993d95c6d9831f215f1684d0658e7abce",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5039,8 +10070,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_071": {
       "file": "assets/audio/voices/published/5e62490cd25c40d06b46.wav",
       "sourceFingerprint": "1eb40b59391384ea68c093060daef1977d26aa749574d7371eaa18f406511426",
-      "renderHash": "8c3a8e966476f402c37d60155d4567d43eb0707eb2f457637dda9cbe292a6878",
-      "styleId": 68,
+      "renderHash": "b8c4c9dfa17cf38489b4d78df48b5aa8aa654b6a025a2d90c57f7f4d5d4e73aa",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5052,8 +10083,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_072": {
       "file": "assets/audio/voices/published/5457303eb8799a80b516.wav",
       "sourceFingerprint": "d453f3b3282ff1f52580227fb4f869e20bd8e02f64f3b9f43450dce569a86e72",
-      "renderHash": "f509f13bb260bed3df9c1850ab5d27fcad42fa68d4830efc9bc8607a29afc8a2",
-      "styleId": 68,
+      "renderHash": "f6cffa2e3b12261043bf6ca00c952a246a3b515b65c01a1fc40111065dc76668",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5065,8 +10096,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_073": {
       "file": "assets/audio/voices/published/86dccb6d7f1d989a3485.wav",
       "sourceFingerprint": "6363d34ba7dbd24ecc0cb22d925f42112d303d867d7f78e643982c965a391432",
-      "renderHash": "c708be155bbeb79c1e7240955cdd5b6884d518ffd9a707e4f7f7455e9afeb867",
-      "styleId": 68,
+      "renderHash": "0895ab0f5abfde17cbb808d1aae5e38fbf9f0ef693146c277823b29fd30b3d2c",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5078,8 +10109,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_075": {
       "file": "assets/audio/voices/published/ef184c93f0ae733cf688.wav",
       "sourceFingerprint": "b57be0baf5351043bb532caa06da7e84b07dfc969b83c1c052ffbc1c3d7f6c6e",
-      "renderHash": "721bbb95cf23634b703a615bbf60e97dca84d7b999a04ebe53bcb56eee9208d1",
-      "styleId": 68,
+      "renderHash": "6a15cb93bc3b461479499d1db8f1134cbf3c523e093ee0c3459bda88b70ac2ce",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5091,8 +10122,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_076": {
       "file": "assets/audio/voices/published/c9c2de1bb0142c1b8467.wav",
       "sourceFingerprint": "3ad0590b008d1d44aded291f4d6e4bfe6615b463c2614f4809e54f74ce678fad",
-      "renderHash": "2096075bbbcb73051172e543b15af9955fee32b2a0cc137e275ea90028906b23",
-      "styleId": 68,
+      "renderHash": "d10e7c5fb4ac0c13f3090856b7f80834fd03fe074f9e0d1f8d1b8c95bd104b57",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5104,8 +10135,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_078": {
       "file": "assets/audio/voices/published/9a812d3bcd6643c9d072.wav",
       "sourceFingerprint": "1ab2a6e5c96e99a0b53b200b029680a062174f4137018f81605751b31d75444c",
-      "renderHash": "a7e69b7bd28c6a927b7a49d55cdb6905dac17f833ecd9c26146014c79b28e3e2",
-      "styleId": 68,
+      "renderHash": "daf4bf62f7c9d3032d189c88425ec8a8d2c94f72d850c090ac28a773cc6da326",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5117,8 +10148,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_080": {
       "file": "assets/audio/voices/published/ba4e38a745ef875faae7.wav",
       "sourceFingerprint": "ba4403ca08351bbf447937c45eb895112abeec663cbd81f3bc386d9bb2746db8",
-      "renderHash": "7a53052bca8fd5d44071b20514bad2c6fd1e17693d720f4168e8048d52a5791e",
-      "styleId": 68,
+      "renderHash": "4ac55aede6a02648ec5802cce883ef4ea0cd2b58504ec0781c4219d54dbb1e9d",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5130,8 +10161,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_081": {
       "file": "assets/audio/voices/published/abd3120b22c60e08829d.wav",
       "sourceFingerprint": "1f56577106986b1d48c3d1895e8f6408cbe8908f8ff13a3918abe0cfdf6d80e1",
-      "renderHash": "b2f476027db92e2be6103def00c93a7ad2808ec8a10845695cb8f4c3bcc5da96",
-      "styleId": 68,
+      "renderHash": "f3d53724171c66af63399a43cea59bb687ff1de274f1af6bf7bf676b7fac8cb8",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5143,8 +10174,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_082": {
       "file": "assets/audio/voices/published/6f3cc9aa0b7c97a13ca8.wav",
       "sourceFingerprint": "526042dfaf87b667d0b8947f21aded0020fffb853ed5d6b45c245632f59b0715",
-      "renderHash": "60837e256073d34b597bebd6ef648510d2983a84ac7761f7c254944f47c64595",
-      "styleId": 68,
+      "renderHash": "a701fe4c0c041a5377338c1ff94369b91a9bb5700326906cda485cb84bf4e0bf",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5156,8 +10187,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_084": {
       "file": "assets/audio/voices/published/af16220468caea0ce758.wav",
       "sourceFingerprint": "a728a40ab8d4595d6fe26082fa639a217045b8d17543b8ed05d55dff34d77a7d",
-      "renderHash": "9654ee3e9f6740318ab71e2795a1ee3e6ec03faab3f07369da9d5c02beeb6eff",
-      "styleId": 68,
+      "renderHash": "9ef53c5e5afe62c2b27248d04a920c7795e810545e2cc8f5ec053cf90174fdd4",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5169,7 +10200,7 @@ window.ILY_VOICE_MANIFEST = {
     "fin_085": {
       "file": "assets/audio/voices/published/620bfcad84562931d4e3.wav",
       "sourceFingerprint": "ee39ccbdcfc5679a4f7473c609739cead9dc8656fe3193110bd0d61c208bf233",
-      "renderHash": "f0f19d6d3b7af18b99543bc7317312a2a036bc009de5a1e3ea062904dc0342bb",
+      "renderHash": "6a15cb93bc3b461479499d1db8f1134cbf3c523e093ee0c3459bda88b70ac2ce",
       "styleId": 0,
       "speaker": "爱理",
       "kind": "dialogue",
@@ -5182,8 +10213,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_087": {
       "file": "assets/audio/voices/published/2b85408268527d9b4613.wav",
       "sourceFingerprint": "134a4386661ede09d057e67a6887e877285ed86b3da296f78b5fed2fb2c54fb7",
-      "renderHash": "e6ba4f39653237903144ffd7ed0eb4b9312e2fac15e5cb5ff2ec47379294753d",
-      "styleId": 68,
+      "renderHash": "041900ed39445909d94816d995aace19653cc1edb8a4c4ba13da88199706a90c",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5195,8 +10226,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_089": {
       "file": "assets/audio/voices/published/8c1de1f39087c6d09357.wav",
       "sourceFingerprint": "d0c21c84a10ccebf2fb8d2a43872e3e273df60d69dba9d6e444f11f21f0ee3de",
-      "renderHash": "bb3e85c9b097f4d552318a2b2dd94d5bf712d12cb8547f5dbe18cb84ca2cedbc",
-      "styleId": 68,
+      "renderHash": "dc0a8b463e2d19d4f8c106d728879acc419a141185e976c8eaf735948840a6b1",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5208,8 +10239,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_091": {
       "file": "assets/audio/voices/published/d813c0992a2c8c20e7ae.wav",
       "sourceFingerprint": "f822831a0502aa93838b563126c4f782b03c9d7c4fd58ee0d90858c9e902e213",
-      "renderHash": "1280cd242adba5e343124fa2d3854bebb415ad683e1c697d0c85822411f7c8a1",
-      "styleId": 68,
+      "renderHash": "edd1d79f3d0ebd9f5e8523b1620476f6e05772dc5d75389057bf7749fa131bde",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5221,8 +10252,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_092": {
       "file": "assets/audio/voices/published/5707ea79a4b9f8b39c2b.wav",
       "sourceFingerprint": "e68797dc62242f792c8c6ccf27740e5a047779eb5037ea6432273f24d0413900",
-      "renderHash": "87d898a49a4e933220f5bdaa24ef48d7a0abf1592a86154d657d8ccaffc57bf2",
-      "styleId": 68,
+      "renderHash": "a7a0d310f54d32a72bc385c4f6edfd191e8ba8bcd4aba3b8a698690ab029d660",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5234,8 +10265,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_094": {
       "file": "assets/audio/voices/published/dfdd1703b24dc04f1b1f.wav",
       "sourceFingerprint": "2131d597c10bb964351446f7e15793fe7f764c7839bbfe018a11d15d0f8ead2e",
-      "renderHash": "1aefa130cbad59024e9a16f9d848d47593104b269a8103e721317dfdbd6bd7d0",
-      "styleId": 68,
+      "renderHash": "077886a12e902350a9b89acf1fc385d5c8d27f88947a413b0ecd8fdeaa7ee46f",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5247,8 +10278,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_095": {
       "file": "assets/audio/voices/published/a97b0babe9e83baa28e6.wav",
       "sourceFingerprint": "d005aa414d9ecda19d3e9a62e67e56cbf5b8770d129211c36d5dc5de09f7f9a6",
-      "renderHash": "a6e7cd3e03acac5b1e8efae583bf56399268b71a287e082726d889c908b16166",
-      "styleId": 68,
+      "renderHash": "9230dc7e1117d35a313d09d2f298761640dfbaa2e0cccd02844058c282ce2b78",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5260,8 +10291,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_096": {
       "file": "assets/audio/voices/published/f588c196a13741b48e74.wav",
       "sourceFingerprint": "f2926326efc2e34bbc4825b6d6a23369dd2db4a6d54f24cfd845f081b7bf889e",
-      "renderHash": "f67de75496022178a8dd076e63d08dcb46ab1b55fe4b7da5c34d0305b3d89f45",
-      "styleId": 68,
+      "renderHash": "ed137857a117d12a5e0ceb2f1a9ea285b7339414b6bc86b9b83e7e0e6475a297",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5273,8 +10304,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_097": {
       "file": "assets/audio/voices/published/299f4748790ece1609da.wav",
       "sourceFingerprint": "29b385ee892919e3e733447b8abb808a690c92ca0b765b60853e686ff2b1b5cb",
-      "renderHash": "6ea206343826e782582890652f10f7e19a8db4c7458314830854c72a89ff5a12",
-      "styleId": 68,
+      "renderHash": "20392533589b8503d8dc09db12f7000d88a886909b60533064b3893d57256eb3",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5286,8 +10317,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_099": {
       "file": "assets/audio/voices/published/a1805819403c196f4858.wav",
       "sourceFingerprint": "f1b8b8a408fffd804bec8579d3e72f355f212e54bc9323cada757b3750efc403",
-      "renderHash": "17ff2edee0bb84d8233174c15311591129a06732d09b76ac7d30938447893642",
-      "styleId": 68,
+      "renderHash": "3b75958819c5fa2ebdab0e5b68fc5f83f15493961e99ee086a5ee0909b334b08",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5299,8 +10330,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_100": {
       "file": "assets/audio/voices/published/d7bb413ca0727d069ac9.wav",
       "sourceFingerprint": "515c2311919716d880ce8988a7484ceafbf1466b06ad1ea14d676fef3f47c81f",
-      "renderHash": "7dea2ad70f0ddd705c4c58190427e532c40f480cd9b4492dafe71e7c10e5ae84",
-      "styleId": 68,
+      "renderHash": "8ead2866d580c158d671fb2db56f95c3c57a3e5eac0d9bad868637273319ab3e",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5312,8 +10343,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_101": {
       "file": "assets/audio/voices/published/1b4de07ce2aa38f13435.wav",
       "sourceFingerprint": "b2643a62acf88f46a961c519801b0f73d72c33260e8ed5f609b247402f732db4",
-      "renderHash": "00b2bd4b6693c649de2724b493fc8821c8cb46f73c9c494487bed29bbcb60f5b",
-      "styleId": 68,
+      "renderHash": "3368a176c1a10b64b476afe97aa5cee186f35da18a01410ed47f0dad786eff9d",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5325,8 +10356,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_102": {
       "file": "assets/audio/voices/published/3433c5ae14936192bda0.wav",
       "sourceFingerprint": "1181858bcc5866277a9f088d4a60a6e5f907f31255650822a7ffec40d32b1209",
-      "renderHash": "ff82d2ebf80a71d6bdc920405dd77e62859bf8748e54b8b8e00785505b38aa80",
-      "styleId": 68,
+      "renderHash": "e9994d85429bbb42bb94c0c5248426dc6dfdc2f6d616b2b8c3f112d558a67315",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5338,8 +10369,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_107": {
       "file": "assets/audio/voices/published/d7f559e8ca4cdc95f5eb.wav",
       "sourceFingerprint": "5a25406bd81f4ead4c7d3157a3f34cb4360d481bde240891d4baee7a01f86ea2",
-      "renderHash": "5c116bac57012f3b5987104990597d6a998c6f44630c84bf1c2846b7d123331f",
-      "styleId": 68,
+      "renderHash": "94afa2d9e12604f64a836b90ce07cce72bdf6745492c4d18f405384a4c878f4a",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5351,8 +10382,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_108": {
       "file": "assets/audio/voices/published/c22d21f81a15da3d2cad.wav",
       "sourceFingerprint": "12f3fbdc92f4a3aacf00ef8323afa1b7125fc127a28e12c7f5459f7e1680992a",
-      "renderHash": "26570c4c575669200995006f4d2bdd2e54396f58f9a355794e589d36db8f1f53",
-      "styleId": 68,
+      "renderHash": "6f520e0fab14b158765ae2fb7d6f32015025dbff23595882cf1751bbaf0458c2",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5364,8 +10395,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_109": {
       "file": "assets/audio/voices/published/bdc46336a8ed8d4df346.wav",
       "sourceFingerprint": "53ceabcc0ffdf199036f677971241f40922a8e84dbf8807aa1de197ccbdaaa99",
-      "renderHash": "595d320831936de23860ba1346961070d3d43ae3d73f7e8a0141799307543d9c",
-      "styleId": 68,
+      "renderHash": "49324de607b9ee8e2c5dfb6b6c18033e730aebccd18fcfb5d416e0d456f3f285",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5377,8 +10408,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_110": {
       "file": "assets/audio/voices/published/6297097c582633926f37.wav",
       "sourceFingerprint": "313ebea9303b0a77659e262419f8037f216a2301a0c8394dda3c21090f8ef008",
-      "renderHash": "1a200214ddf0409c6b3f60407802e8504a7d7076e741e39fcb73b198e8df42fd",
-      "styleId": 68,
+      "renderHash": "12d6e6490107a2c8f029ba6f072a16b57b8b784fc3beeb66aef00c19c9030051",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5390,8 +10421,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_111": {
       "file": "assets/audio/voices/published/4d7e0452affbb22823af.wav",
       "sourceFingerprint": "67f8a8988c92d6c10dd78cf466c030bfa1ae7d3537760b2a92db5c0caf8c5f20",
-      "renderHash": "4b2ed5114300c94f1b2921278002b10fdb441b5bb618a0a0ad61c20228818aa2",
-      "styleId": 68,
+      "renderHash": "9718a9da5f36716042a350587502254e9bd6451bea881ce5839e48e045f58bcb",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5403,8 +10434,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_112": {
       "file": "assets/audio/voices/published/baa623a7c59b7f91cc23.wav",
       "sourceFingerprint": "4c80a2c397cb08817e16dcf16ee97fab6aca458d1c5d050fad6f7d5a804441f2",
-      "renderHash": "51d97543f32c7c24e046c81de6c806e13079b67790df212cbdd6e37977ed137c",
-      "styleId": 68,
+      "renderHash": "a326edaafcd51d0a01d182d310b4d5cbde54f5b1b527062c7764d8f0b303071b",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5416,8 +10447,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_113": {
       "file": "assets/audio/voices/published/e4a6f1c04a455050dd08.wav",
       "sourceFingerprint": "2be4211dbb57a0df984ad70f1b9d51ea50748038f83d765cbb7f52062c413d0a",
-      "renderHash": "0d5b22ab74e3cbc17cfbeee564c312010c43bac23ffb416c1b5d5d84f3b5f35c",
-      "styleId": 68,
+      "renderHash": "c3094121cedba72f64bf94df92ef49d6eb5fe30004094104f58bac16e7c9489b",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5429,8 +10460,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_114": {
       "file": "assets/audio/voices/published/f541040fd6e89590bf9c.wav",
       "sourceFingerprint": "b0ed5114a8b10678427a5c976f5c3bcd0373685aba40882d79c8d23cbfe53c7e",
-      "renderHash": "86373fe0c0d5fc6e44231b127bb62ced49b301c6c42ec3714f1972676d2f052a",
-      "styleId": 68,
+      "renderHash": "2b88f5b2d16d7d40dc43e85611d1c1bb1a14a6a093183d33a70c3ff6c680c639",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5442,8 +10473,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_115": {
       "file": "assets/audio/voices/published/be925359cac2b5b13ecf.wav",
       "sourceFingerprint": "2f8a6c48318991bc9fd812ff3c3b2c32d9f6801c9cf40c337f001227ff507a66",
-      "renderHash": "5ae88954c6bd695c98d4fb5ac60ea6cd7375f70e4a2afc00c533d34e51c5e96c",
-      "styleId": 68,
+      "renderHash": "ce90b1dd1848e60ce948505bbdfbce7c9c5cc6a7868d0101cdc72dfc12181ccd",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5455,8 +10486,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_116": {
       "file": "assets/audio/voices/published/2b2d1134d9f9598b6fca.wav",
       "sourceFingerprint": "260db6edbb0ecee7c1fcdce4efca2c6a30e568aab0a29930a42862c9d680663e",
-      "renderHash": "29aeafdd5da320dffd3d9b1d2c7ec7c327fe28366775f994316224c07d599573",
-      "styleId": 68,
+      "renderHash": "eb490e804ded83840d39967212d9fe28fdbe141bd8bc73d1506c6ed8baebb04c",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5468,8 +10499,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_117": {
       "file": "assets/audio/voices/published/c3bad9265a9047c6b45c.wav",
       "sourceFingerprint": "82f5f74f9ab793b9dfc46f5c97d4ac949ec9e020f20b971d385f3ff3925980ec",
-      "renderHash": "c5068e4b6097888479085943e9189a14c9c14620bc38df158bcb81f08ded9647",
-      "styleId": 68,
+      "renderHash": "7e0482c69f70b6312b127d2ca218e48cca6ff379f75cf6316af8ffe23298339b",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5481,8 +10512,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_118": {
       "file": "assets/audio/voices/published/a65a03626c5793bf5619.wav",
       "sourceFingerprint": "664c60564ccaef1890ec8c7772dd761fc07939a87c61b74fd48606cd5f62a88f",
-      "renderHash": "1b51c51e9ec61140d80e4e43a9719518cba434a4dc181591ddee0eb52be7e58d",
-      "styleId": 68,
+      "renderHash": "0e5450d08d5683eca7e48cb55e3a7f1859e64f8c9b074c2b5d0de83cfe3fd504",
+      "styleId": 0,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5494,8 +10525,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_119": {
       "file": "assets/audio/voices/published/280440e31d42c004970c.wav",
       "sourceFingerprint": "38d17d51a814212081f7c228275aaef3ffc6ec8d2bf41d1470daa4d993d73b19",
-      "renderHash": "b2ccdbc0d34f73039f7ac626c3b57ab79a862205f21fac3e7d51c58bbdd5160d",
-      "styleId": 68,
+      "renderHash": "2f3c74deb72bc7553ac77d1403b8315551e77b185bccb9f20c518a07b5b2eb52",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5507,8 +10538,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_121": {
       "file": "assets/audio/voices/published/328ded0dca235955b380.wav",
       "sourceFingerprint": "91ba4e69fcdaadc549603a3d607ec2cfe3a898f6ef25ab5c1c57e42b9d94d165",
-      "renderHash": "8afa326ed17ca1c075f81f68811ed17653f410b8a6ea6c2e2d01667741c704b3",
-      "styleId": 68,
+      "renderHash": "fc4b49cab581ea02b043386163389a2f9e7ceea3d3767561e003cd9496756f81",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5520,8 +10551,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_122": {
       "file": "assets/audio/voices/published/4ee1f7438d31abadfd02.wav",
       "sourceFingerprint": "1e177a972ade21b21531133f8f5c6e0bda7c62c84002b5c9b5db7f313d7c19d1",
-      "renderHash": "0a599b05e008f1ea793a3c53720109133b5bddd55d054553ac8ef1f26bc145e9",
-      "styleId": 68,
+      "renderHash": "5ff255cc8076d334530807d9710887de701de20cf8e7091432b7e7c2161870cf",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5533,8 +10564,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_123": {
       "file": "assets/audio/voices/published/d6f04e1c0cd967d988da.wav",
       "sourceFingerprint": "908f1871895f2ba963fa06aa535cbe97baaec8ecc8b1d3927e28f457f269e367",
-      "renderHash": "f4f9ddf69890e750222932bdf0990e6c9ef4bae290de64f4e989ab296caea7af",
-      "styleId": 68,
+      "renderHash": "6ce073143ea0012917122e7f7e6ff330bf58b0295840e67141671b891a743f6c",
+      "styleId": 2,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5546,8 +10577,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_124": {
       "file": "assets/audio/voices/published/e714951df736f826f033.wav",
       "sourceFingerprint": "c8c5207f448624dc7bdbf44a4a4f7efdb3a00b287c5f2fc5a17f7b4b2fb4975c",
-      "renderHash": "a5eb2bb3842499569913b0a883410d576937df7e857f2708516b64c186678061",
-      "styleId": 68,
+      "renderHash": "9dbd3fe8e4b322b491b37c2d893287871a5a259a778ca81ac49c91dee0d8a48a",
+      "styleId": 6,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5559,8 +10590,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_128": {
       "file": "assets/audio/voices/published/c26999e21acbbc6d59c0.wav",
       "sourceFingerprint": "89c3d41b65ee17e81192f0ed213ef9f4197d9d129a03db1f5f423bf6c795b8c0",
-      "renderHash": "0a599b05e008f1ea793a3c53720109133b5bddd55d054553ac8ef1f26bc145e9",
-      "styleId": 68,
+      "renderHash": "5ff255cc8076d334530807d9710887de701de20cf8e7091432b7e7c2161870cf",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5572,8 +10603,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_129": {
       "file": "assets/audio/voices/published/c92133ee6cf24de86cd8.wav",
       "sourceFingerprint": "6a46b28fd2a971a9cd8a85b094ea4bc4c3aad9086567e880f5650cf2dae6ca76",
-      "renderHash": "ef7853d5474e31097c561100c2d5d9a9be7de3d648d7810612520bb93d1116d8",
-      "styleId": 68,
+      "renderHash": "8c148a87306587c162c3e3c27601bb4dcd7759cc9096696a3749059f233fc3a7",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5585,8 +10616,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_130": {
       "file": "assets/audio/voices/published/991a272f46982f5016d0.wav",
       "sourceFingerprint": "76c0879af3dd5093f85900f6d83ede812e755b1c9ec09f002de1092f2c139b80",
-      "renderHash": "7473d96f2c270060bdb0f65cbd8044afbf3a9c5920f270e64f82d376b31821c2",
-      "styleId": 68,
+      "renderHash": "67c9fd3322a99e7c3ba6b61b8eab80ce2f1156ae0c3514d2766aec198a48e668",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5598,8 +10629,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_131": {
       "file": "assets/audio/voices/published/e2478ee6a2d35ef65bef.wav",
       "sourceFingerprint": "4d43eb46d94880fdd50bedbf5d5553deefc4c05caadedfb4d8244f9fcd1d5c29",
-      "renderHash": "0e264074ffd40bc25344eaa6bb81b7199f883a7bdbc987a859218df46014885d",
-      "styleId": 68,
+      "renderHash": "8c289cda771475b1088018d37d81586fe13b8185eb68d94d3fb9ba8726c747b1",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5611,8 +10642,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_132": {
       "file": "assets/audio/voices/published/f5f235e242aefe3fb133.wav",
       "sourceFingerprint": "7b963a1b424d1aa3685419e1ea6bbba0086eedad9d8024c71eb94ba8edbdbeb4",
-      "renderHash": "fbb182f7167a2237f80b5ff8f4548da56cf8b7c648fb5c2ab48552cb8b725df1",
-      "styleId": 68,
+      "renderHash": "f28ac0ae025feae4487684e1af2b613e8e88bae5485483ae27ee6e9bb3d477ca",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5624,8 +10655,8 @@ window.ILY_VOICE_MANIFEST = {
     "fin_134": {
       "file": "assets/audio/voices/published/5bdea3897b2052d06ac9.wav",
       "sourceFingerprint": "2196a08d29554bc208982e2459f7fcc5f61765529797bc63109e7d5ff6896757",
-      "renderHash": "62bac94b66275609762b283b2a79030ebf1726aca4fac34e4ce148a52ad295ee",
-      "styleId": 68,
+      "renderHash": "cfd19c1584c214c00648bad5b6fea6b1d511801095d72494213e92a8d560ee4c",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {
@@ -5637,8 +10668,8 @@ window.ILY_VOICE_MANIFEST = {
     "review_af48eb7c-d3a4-4c3d-81ac-9b448eb33971": {
       "file": "assets/audio/voices/published/138e557689538721224e.wav",
       "sourceFingerprint": "8c55ba42cb8a08c7c2dfd973a6be286115e7151f1ce6dd74bfd90ac169b08475",
-      "renderHash": "155e82cd218433148403c7e734fca8aeb78939b936509203be86ec0c975dac9f",
-      "styleId": 68,
+      "renderHash": "b14aa6532a5c22a100c16a71ef3e04dcf84b13965a6ea6138d2eb058c99f4931",
+      "styleId": 4,
       "speaker": "ILY",
       "kind": "dialogue",
       "engine": {

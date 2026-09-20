@@ -141,6 +141,14 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('langBtn').addEventListener('click', () => {
     setLang(currentLang === 'chinese' ? 'english' : 'chinese');
   });
+
+  /* 表单提交（在用户名 / 密码任意框按 Enter 都会触发）：
+     阻止浏览器默认的整页刷新，改为调用 login() / signup() 直接登录 / 注册。
+     主按钮已是 type="submit"，点击也会走这里；次按钮是 type="button" 不会误触发。 */
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) loginForm.addEventListener('submit', e => { e.preventDefault(); login(); });
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) signupForm.addEventListener('submit', e => { e.preventDefault(); signup(); });
 });
 
 
@@ -375,6 +383,16 @@ function signup() {
 /* 跳转目标页：登录成功、视频播完后要去哪个页面，改这一行就行 */
 const NEXT_PAGE = './index.html';
 
+function nextPageUrl() {
+  const url = new URL(NEXT_PAGE, window.location.href);
+  url.searchParams.set('entry', 'root');
+  try {
+    const player = localStorage.getItem('mygame-token');
+    if (player) url.searchParams.set('player', player);
+  } catch {}
+  return url.href;
+}
+
 /* 守卫标记：防止"播完自动跳"和"点跳过跳"同时触发，导致跳两次 */
 let introJumped = false;
 
@@ -405,6 +423,6 @@ function goNextPage() {
 
   /* 等白屏完全盖上来之后再跳页，视觉上是"白色 → 白色"，没有跳变 */
   setTimeout(() => {
-    window.location.href = NEXT_PAGE;
+    window.location.href = nextPageUrl();
   }, 600);
 }

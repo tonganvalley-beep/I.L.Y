@@ -36,7 +36,7 @@ make('ch2-shop','石阶旁 · 冰淇淋店','sunset',[
  event('ice',17,8,'冰淇淋柜台',options=['香草','草莓'],text='店员：请拿好，欢迎下次光临。',flag='CH2_ICE')],
  [obj(1,1,4,16,'water'),obj(11,3,12,5,'ice'),obj(7,12,4,2,'bench'),obj(20,12,4,2,'bench')])
 make('ch2-return','夕阳海边 · 归来','sunset',[
- event('figure',23,10,'海风中的身影',text='长发在夕阳下随风飘动。那个人，转过了身。',touch=True)],
+ npc(event('figure',23,10,'海风中的身影',text='长发在夕阳下随风飘动。那个人，转过了身。',touch=True),'npc-airi-adult-back')],
  [obj(1,1,26,6,'water'),obj(4,9,5,2,'bench'),obj(15,13,6,2,'trees')])
 # NPC 按和主角精灵同样的锚点摆放：主角画在 (x*T-32, y*T-42, 64, 64)，
 # 换算成格单位即 visual = (x-1/6, y-3/8, 4/3, 4/3)，脚底与主角一致；
@@ -47,7 +47,7 @@ make('ch3-work','工作地点外 · 夜路','night',[
  npc(event('hibiya',22,10,'日日谷',text='成田先——生！等一下！'),'npc-hibiya')],
  [obj(2,2,9,6,'house'),obj(16,2,9,6,'house'),obj(4,12,3,2,'bench'),obj(15,13,6,2,'trees')])
 make('ch3-coast','夜海 · 呼唤','nightsea',[
- event('voice',23,10,'浪声的尽头',text='只有海浪。一遍又一遍。',touch=True)],
+ npc(event('voice',23,10,'浪声的尽头',text='只有海浪。一遍又一遍。',touch=True),'npc-airi-back')],
  [obj(1,1,26,7,'water'),obj(4,12,5,2,'rocks'),obj(17,14,5,2,'rocks')])
 
 def render(m):

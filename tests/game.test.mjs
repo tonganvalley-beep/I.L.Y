@@ -130,11 +130,25 @@ test('游戏页的所有脚本存在，普通脚本无需服务或模块加载',
   assert.ok(fresh.ILY.data.assets);
   assert.ok(fresh.ILY.data.stories.prologue);
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(entry, /sign&amp;log\/login.html/);
+  assert.match(entry, /sign&amp;log\/login.html\?entry=root/);
   assert.match(entry, /sessionStorage\.setItem\('ily-root-entry', '1'\)/);
   assert.doesNotMatch(entry, /href="game\/index\.html"/);
   assert.ok(html.indexOf("sessionStorage.getItem('ily-root-entry')") < html.indexOf('<link rel="stylesheet"'), '入口校验必须早于游戏资源加载');
+  assert.match(html, /\['root', 'chapters'\]\.includes/);
   assert.match(html, /location\.replace\(new URL\('\.\.\/index\.html'/);
+});
+
+test('章节试玩页可直接进入任意章节而不会返回登录入口', async () => {
+  const [html, game] = await Promise.all([
+    readFile(new URL('../game/chapters.html', import.meta.url), 'utf8'),
+    readFile(new URL('../game/index.html', import.meta.url), 'utf8')
+  ]);
+  assert.match(game, /\['root', 'chapters'\]\.includes/);
+  assert.match(html, /href="index\.html\?entry=chapters"/);
+  assert.match(html, /href="index\.html\?entry=chapters&chapter=1"/);
+  assert.match(html, /href="index\.html\?entry=chapters&chapter=final"/);
+  assert.match(html, /entry=chapters&player=scene-preview/);
+  assert.match(html, /player=scene-preview/);
 });
 
 
@@ -172,6 +186,63 @@ test('回滚历史保存完整状态快照并丢弃未来进度', () => {
   assert.equal(first.node, 's01_intro');
   assert.equal(first.flags.changedAfterRestore, undefined, '返回值不能修改历史内的快照');
   assert.equal(history.back(), null);
+});
+
+test('RPG 操作检查点恢复操作前位置和进度，回滚后可重新选择', () => {
+  const history = createRollbackHistory();
+  let state = createState('before-rpg');
+  history.record(state);
+  state.node = 'rpg'; history.record(state);
+  state.maps.room = { x: 1.5, y: 2 };
+  state.flags.rpg = { G1: { collected: [], visited: ['room'], elapsed: 3, done: false } };
+  history.checkpoint(state);
+  state.flags.rpg.G1.collected.push('desk');
+  state.maps.room.x = 4;
+  history.checkpoint(state);
+  state.flags.rpg.G1.done = true;
+  state.flags.G1_DONE = true;
+  state.flags.achievements.push('explorer');
+
+  state = history.back(state);
+  assert.equal(state.node, 'rpg');
+  assert.equal(state.maps.room.x, 4);
+  assert.deepEqual(Array.from(state.flags.rpg.G1.collected), ['desk']);
+  assert.equal(state.flags.rpg.G1.done, false);
+  assert.equal(state.flags.G1_DONE, undefined);
+  assert.deepEqual(Array.from(state.flags.achievements), ['explorer']);
+  state = history.back(state);
+  assert.equal(state.maps.room.x, 1.5);
+  assert.deepEqual(Array.from(state.flags.rpg.G1.collected), []);
+  history.checkpoint(state);
+  state.flags.rpg.G1.collected.push('shelf');
+  state = history.back(state);
+  assert.deepEqual(Array.from(state.flags.rpg.G1.collected), []);
+  assert.equal(history.back(state).node, 'before-rpg');
+  assert.equal(history.back(state), null);
+});
+
+test('离开 RPG 后回滚会撤销完成状态，检查点仍遵守历史容量和重置边界', () => {
+  const history = createRollbackHistory(3);
+  const state = createState('rpg');
+  history.record(state);
+  for (let step = 0; step < 5; step++) {
+    state.flags.step = step;
+    history.checkpoint(state);
+  }
+  state.flags.done = true;
+  state.node = 'after-rpg'; history.record(state);
+  assert.equal(history.length, 3);
+  const restored = history.back(state);
+  assert.equal(restored.node, 'rpg');
+  assert.equal(restored.flags.done, undefined);
+  assert.equal(restored.flags.step, 4);
+  assert.equal(history.back(restored).flags.step, 3, '跨节点返回后，下一次回滚不能停在重复检查点');
+  history.reset();
+  assert.equal(history.canRollback, false);
+  history.checkpoint(restored);
+  restored.flags.step = 99;
+  assert.equal(history.back(restored).flags.step, 4);
+  assert.equal(history.canRollback, false);
 });
 
 test('回滚保留已解锁成就，但仍恢复其他剧情状态', () => {
@@ -408,18 +479,24 @@ test('全游戏保留 Zpix 像素字体，手机和舞台不被新主题覆盖',
 });
 
 test('开始菜单接入游戏、OP 跳过与读取存档启动参数', async () => {
-  const [menuHtml, mainSource] = await Promise.all([
+  const [loginSource, introHtml, menuHtml, mainSource] = await Promise.all([
+    readFile(new URL('../sign&log/login.js', import.meta.url), 'utf8'),
+    readFile(new URL('../sign&log/index.html', import.meta.url), 'utf8'),
     readFile(new URL('../sign&log/game.html', import.meta.url), 'utf8'),
     readFile(new URL('../game/src/main.js', import.meta.url), 'utf8')
   ]);
+  assert.match(loginSource, /searchParams\.set\('entry', 'root'\)/);
+  assert.match(introHtml, /for \(const key of \['entry', 'player'\]\)/);
   assert.match(menuHtml, /src="\.\.\/game\/I\.L\.Y\.-OP\.mp4"/);
   assert.match(menuHtml, /event\.key === 'Escape'/);
   assert.match(menuHtml, /enterGame\('load'\)/);
   assert.match(menuHtml, /ily-save-v2:/);
   assert.match(menuHtml, /hasPlayerSave\(\)/);
   assert.match(menuHtml, /new URL\('\.\.\/game\/index\.html'/);
+  assert.match(menuHtml, /url\.searchParams\.set\('entry', 'root'\)/);
   assert.match(mainSource, /launchParams\.get\('mode'\) === 'load'/);
   assert.match(mainSource, /new URL\('\.\.\/sign&log\/game\.html'/);
+  assert.match(mainSource, /launchParams\.get\('entry'\) === 'root'/);
   const inlineScripts = [...menuHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);
   assert.ok(inlineScripts.length);
   for (const source of inlineScripts) new vm.Script(source);
@@ -432,6 +509,7 @@ test('开发服务器会自动打开入口、处理目录地址并在端口占�
     readFile(new URL('../tools/serve.mjs', import.meta.url), 'utf8')
   ]);
   assert.match(packageJson.scripts.start, /--open \/index\.html$/);
+  assert.match(packageJson.scripts.chapters, /--open \/game\/chapters\.html$/);
   assert.equal(packageJson.scripts.demo, undefined);
   assert.match(packageJson.scripts.game, /--open \/index\.html$/);
   assert.equal(packageJson.scripts.chapter1, undefined, '不应保留绕过根入口的章节直达命令');
@@ -441,4 +519,5 @@ test('开发服务器会自动打开入口、处理目录地址并在端口占�
   assert.match(server, /listen\(port \+ 1/, '端口占用时应尝试下一个端口');
   assert.match(server, /rundll32\.exe/, 'Windows 应通过系统默认浏览器打开地址');
   assert.match(server, /args\.includes\('--no-open'\)/, '应支持只启动而不打开浏览器');
+  assert.match(server, /打开地址：\$\{target\}/, '终端应打印实际打开的入口路径');
 });

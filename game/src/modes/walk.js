@@ -70,6 +70,14 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   const playerSource = assets.image(cfg.player || 'kio-walk');
   if (playerSource) playerImg.src = playerSource;
 
+  // 调查点标记复用 rpg 模式的图标素材，保持视觉语言一致。
+  const markerImages={};
+  function markerImage(id){
+    if(markerImages[id])return markerImages[id];
+    const src=assets.image(id);if(!src)return null;
+    const img=new Image();img.src=src;markerImages[id]=img;return img;
+  }
+
   // 隧道小人改用光标 UI 精灵（sign&log/photo&video）：站立正面 / 背身 + 左右各两帧走路动画
   const SPRITE_DIR = '../sign&log/photo&video/';
   const sprites = {
@@ -233,10 +241,26 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
         ctx.drawImage(art.img, sx - art.w / 2, ay, art.w, art.h);
         markerY = ay - 14;
       }
-      ctx.fillStyle = h.done ? '#5b7' : '#e7c479';
-      ctx.beginPath(); ctx.arc(sx, markerY, 9, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#cdd'; ctx.font = '13px Zpix, sans-serif'; ctx.textAlign = 'center';
-      ctx.fillText(h.done ? '✓' : '?', sx, markerY + 4);
+      // 八边形徽章 + 图标，与 rpg 模式同一套视觉语言
+      const msize = h.done ? 16 : 20, mh = msize / 2, mc = mh * 0.3;
+      ctx.translate(sx, markerY);
+      ctx.globalAlpha = h.done ? 0.5 : 0.95;
+      ctx.fillStyle = '#0b1622e8';ctx.strokeStyle = h.done ? '#5b7' : '#e7c479';ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-mh + mc, -mh);ctx.lineTo(mh - mc, -mh);ctx.lineTo(mh, -mh + mc);
+      ctx.lineTo(mh, mh - mc);ctx.lineTo(mh - mc, mh);ctx.lineTo(-mh + mc, mh);
+      ctx.lineTo(-mh, mh - mc);ctx.lineTo(-mh, -mh + mc);ctx.closePath();
+      ctx.fill();ctx.stroke();
+      const iconId = h.done ? 'marker-done' : 'marker-collect';
+      const isz = msize * 0.58;
+      ctx.imageSmoothingEnabled = false;
+      const img = markerImage(iconId);
+      if (img && img.complete && img.naturalWidth) {
+        ctx.drawImage(img, -isz / 2, -isz / 2, isz, isz);
+      } else {
+        ctx.fillStyle = '#cdd';ctx.font = '13px Zpix, sans-serif';ctx.textAlign = 'center';
+        ctx.fillText(h.done ? '✓' : '?', 0, 4);
+      }
       ctx.restore();
     }
     // 玩家：光标 UI 精灵，移动时播放两帧走路动画；交互弹窗打开时背身面向物件

@@ -33,6 +33,19 @@ ILY.data.assets = {
     "airi-broken":         "assets/images/characters/aili/崩坏.png",
     "kio-walk":            "assets/placeholders/character.svg", // 隧道横版步行精灵
 
+    // —— 女主视角篇：新立绘尚未提供，保留稳定 ID 便于后续替换 ——
+    "heroine-chou":       "assets/placeholders/character.svg",
+    "heroine-yuuna":      "assets/placeholders/character.svg",
+    "heroine-haru":       "assets/placeholders/character.svg",
+    "heroine-yae":        "assets/placeholders/character.svg",
+    "heroine-wakana":     "assets/placeholders/character.svg",
+    "heroine-takuma":     "assets/placeholders/character.svg",
+
+    // 女主篇缺失的场景美术先用分类占位；剧情只引用 ID。
+    "heroine-cafe":        "assets/placeholders/background.svg",
+    "heroine-phone-screen":"assets/images/backgrounds/10 白底.png",
+    "heroine-photo-screen":"assets/images/backgrounds/10 白底.png",
+
     // —— 道具 / 照片 / UI（images/ui） ——
     "photo-seaside":       "assets/images/ui/photo-seaside.png", // 2009 海边低像素合影（手机相册 / 序章单图）
     "bankbook":            "assets/images/ui/bankbook.png",      // 手机相册中的银行汇款记录

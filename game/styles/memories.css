@@ -1,33 +1,36 @@
-/* memories.css —— 游戏内「回忆」弹窗（成就 / 剧情 / 画廊）
-   配色沿用 stage.css 的存档菜单：深蓝底 #0b1725 + 青蓝描边 + 金色强调。 */
+/* memories.css —— 「回忆」弹窗（成就 / 剧情 / 画廊）
+   配色沿用 stage.css 的存档菜单：深蓝底 #0b1725 + 青蓝描边 + 金色强调。
+   游戏内 index.html 与主界面 sign&log/game.html 共用本文件，两边表现一致。 */
 
-/* ---------- 三个弹窗的通用外壳 ---------- */
-.mem-dialog,
-.story-dialog,
-.gal-dialog {
-  width: min(560px, calc(100vw - 48px));
-  max-height: 86dvh;
-  overflow: auto;
-  margin: auto;
-  padding: 24px;
+/* ---------- 弹窗外壳：铺满整个屏幕 ---------- */
+.mem-dialog {
+  position: fixed;                  /* 模态 dialog 相对视口定位，精确铺满 */
+  inset: 0;
+  width: auto;
+  max-width: none;                  /* 覆盖 UA 的 max-width:calc(100% - 6px - 2em) */
+  height: auto;
+  max-height: none;
+  margin: 0;                        /* 去掉 UA 的 margin:auto 居中 */
+  padding: 26px 30px 22px;
+  box-sizing: border-box;
+  overflow: hidden;                 /* 整体不滚，交给内部内容区 */
+  display: flex;
+  flex-direction: column;
   color: #e5edf2;
   background: #0b1725f8;
-  border: 1px solid #83b9ce59;
-  border-radius: 9px;
+  border: 0;
+  border-radius: 0;
   box-shadow: 0 24px 110px #000b;
 }
-.mem-dialog::backdrop,
-.story-dialog::backdrop,
-.gal-dialog::backdrop {
+.mem-dialog:not([open]) { display: none; }
+.mem-dialog::backdrop {
   background: #020812a6;
   backdrop-filter: blur(7px);
 }
-/* 剧情正文长、画廊卡片多，各自放宽一些 */
-.story-dialog { width: min(700px, calc(100vw - 48px)); }
-.gal-dialog   { width: min(900px, calc(100vw - 48px)); }
 
-.mem-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.mem-head h2 { margin: 0; font-weight: normal; font-size: 20px; }
+/* 头部 / 标签栏 / 底部按钮：固定不压缩 */
+.mem-head { flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.mem-head h2 { margin: 0; font-weight: normal; font-size: 22px; }
 .mem-head p { margin: 7px 0 0; }
 .mem-head > button {
   background: transparent;
@@ -39,10 +42,11 @@
 }
 .mem-head > button:hover { background: transparent; color: #fff; }
 
-.dialog-actions { display: flex; justify-content: flex-end; margin-top: 18px; }
+.dialog-actions { flex: 0 0 auto; display: flex; justify-content: flex-end; margin-top: 18px; }
 
 /* ---------- 标签页 ---------- */
 .mem-tabs {
+  flex: 0 0 auto;
   display: flex;
   gap: 8px;
   margin: 18px 0 16px;
@@ -52,46 +56,97 @@
 .mem-tabs button { flex: 1; background: #102638; border-color: #86b7ca33; }
 .mem-tabs button.active { background: #1d526c; color: #fff; border-color: #8ddfff99; }
 
-/* ---------- 成就列表 ---------- */
-.ach-list {
+/* ---------- 内容区：占满剩余高度并自行滚动 ---------- */
+.mem-content {
+  flex: 1 1 auto;
+  min-height: 0;                    /* 关键：允许在 flex 容器里被压缩，滚动才生效 */
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-top: 4px;
+  scrollbar-gutter: stable;
+}
+
+/* ---------- 成就：方格墙（一格 = 一个成就，底图 = 解锁时所在场景背景） ---------- */
+.ach-grid {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  /* 最小格宽调大 → 列数变少、格子变大，避免整屏时挤成一排小方块显得空 */
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  align-content: start;
 }
-.ach-list li {
+.ach-tile {
+  position: relative;
+  aspect-ratio: 3 / 2;              /* 比 16:10 更高，画面撑得更满 */
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 12px;
-  font-size: 13px;
-  color: #e5edf2;
-  background: #0e2232;
+  align-items: flex-end;            /* 名字贴底 */
   border: 1px solid #729cb033;
-  border-radius: 6px;
+  border-radius: 10px;
+  background: #0e2232;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
-.ach-list li.locked { opacity: .45; }
-.ach-list li.unlocked {
-  color: #fff;
-  background: linear-gradient(100deg, #12364a, #17465c);
+.ach-tile.unlocked:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px #00000073, 0 0 22px #4ecfff33;
+}
+.ach-tile.unlocked {
   border-color: #8ddfff99;
-  box-shadow: 0 0 16px #4ecfff24, inset 3px 0 #8ddfff;
+  box-shadow: 0 0 16px #4ecfff24;
 }
-.ach-list .ach-state { color: #8fe0b0; font-size: 12px; }
-.ach-list li.locked .ach-state { color: #9db4d4; }
+.ach-tile.locked {
+  opacity: .45;
+  filter: grayscale(1);
+}
+/* 背景图铺满整格 */
+.ach-tile .ach-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ach-tile .ach-missing {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: #9db4d4;
+}
+/* 名字：压在图上，底部加渐变保证可读 */
+.ach-tile .ach-name {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 30px 18px 15px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #fff;
+  background: linear-gradient(to top, rgba(4, 12, 22, .93), rgba(4, 12, 22, .5) 55%, transparent);
+}
+.ach-tile .ach-state {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  z-index: 1;
+  padding: 5px 11px;
+  font-size: 13px;
+  color: #8fe0b0;
+  background: #03101cdd;
+  border-radius: 4px;
+}
+.ach-tile.locked .ach-state { color: #9db4d4; }
 
 /* ---------- 剧情回忆 ---------- */
 .story-log {
-  max-height: 52vh;
-  overflow-y: auto;
-  margin-top: 14px;
-  padding-right: 6px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-height: none;                 /* 已统一交给 .mem-content 滚动 */
 }
 .story-chapter {
   margin: 8px 0 2px;
@@ -124,7 +179,7 @@
 /* ---------- 画廊：翻转卡片 ---------- */
 .flip-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
   margin: 16px 0 4px;
 }
@@ -178,16 +233,12 @@
   border-radius: 3px;
 }
 
-/* ---------- 游戏菜单里的「回忆」按钮：独占一整行，和上方 2 列按钮区分开 ---------- */
-#game-menu .toolbar #memories {
-  grid-column: 1 / -1;
-  background: #1d3a52;
-  border-color: #8ddfff66;
-}
+/* ---------- 游戏菜单里的「回忆」按钮沿用统一菜单样式 ---------- */
 
 @media (max-width: 600px) {
-  .mem-dialog, .story-dialog, .gal-dialog { padding: 16px; }
-  .story-log { max-height: 46vh; }
+  .mem-dialog { padding: 16px 14px; }
+  .ach-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+  .ach-tile .ach-name { font-size: 15px; padding: 22px 12px 11px; }
   .flip-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 

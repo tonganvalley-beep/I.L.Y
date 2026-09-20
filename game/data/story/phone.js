@@ -60,7 +60,8 @@ ILY.data.phone = {
   // ---- 通讯录 ----
   // 字段：name 显示名 / note 基生查看时的内心独白 / locked 是否剧情锁定
   contacts: {
-    work:   { name: "打工（便利店同事）", note: "……（这是十年里来回替换过无数次的工作联系人之一）", tutorial: true },
+    // 这是十年里来回替换过无数次的工作联系人之一；仅作制作说明。
+    work:   { name: "打工（便利店同事）", note: "……", tutorial: true },
     ando:   { name: "安藤", note: "安藤...是谁来着" },
     mother: { name: "妈妈", note: "自从他们离婚之后，我再也没有见过她" },
     father: { name: "爸爸", note: "他们离婚之后，我就搬去我的出租屋了。\n那个房子属于父亲和另一个女人。" },

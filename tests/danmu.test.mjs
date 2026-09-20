@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
-const source=await readFile(new URL('../danmutest/game.js',import.meta.url),'utf8');
+const source=await readFile(new URL('../game/src/engines/danmu.js',import.meta.url),'utf8');
 function setup(duration){
  const frames=new Map(),listeners=new Map(),fields=new Map();let now=0,id=0,seed=7;const results=[];
  const field=()=>({style:{},classList:{toggle(){},remove(){},add(){}},textContent:''});

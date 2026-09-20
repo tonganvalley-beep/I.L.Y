@@ -27,7 +27,8 @@
     <div class="panel" data-page-node-id="ccBihOlW3CSJ0AN1x7dciV">
 
       <!-- ====== 表单 1：登录（默认显示） ====== -->
-      <div id="loginForm" class="form" data-page-node-id="yJ2EQiQC4h8QctH07Curxy">
+      <!-- 改成真正的 <form>：在用户名 / 密码任意框按 Enter 都会触发 submit，从而直接登录（novalidate 关闭浏览器原生校验，改用页面自定义提示） -->
+      <form id="loginForm" class="form" novalidate data-page-node-id="yJ2EQiQC4h8QctH07Curxy">
         <h2 data-i18n="login.title" data-page-node-id="eQovC5wvXroSpadBgAWdGd">登录</h2>
 
         <!-- data-i18n-attr="placeholder:field.username" 意思是：
@@ -50,15 +51,16 @@
 
         <!-- 按钮行：用一个 div 把两个按钮包起来，CSS 里用 flex 保证它们始终同一行、严格对齐 -->
         <div class="btn-row">
-          <!-- 主按钮（实心蓝）：onclick 表示点击时调用 login.js 里的 login() 函数 -->
-          <button class="btn primary" onclick="login()" data-i18n="login.button" data-page-node-id="QD2VQNM2QCdQsZrRows4dC">登录</button>
-          <!-- 次按钮：切到注册表单 -->
-          <button class="btn" onclick="showSignup()" data-i18n="login.toSignup" data-page-node-id="YfQRMwPdbmd3MsXKipJjuS">注册</button>
+          <!-- 主按钮（实心蓝）：type="submit"，点击或按 Enter 都会提交表单、调用 login() 直接登录 -->
+          <button type="submit" class="btn primary" data-i18n="login.button" data-page-node-id="QD2VQNM2QCdQsZrRows4dC">登录</button>
+          <!-- 次按钮：切到注册表单（type="button"，避免误触发表单提交） -->
+          <button type="button" class="btn" onclick="showSignup()" data-i18n="login.toSignup" data-page-node-id="YfQRMwPdbmd3MsXKipJjuS">注册</button>
         </div>
-      </div>
+      </form>
 
       <!-- ====== 表单 2：注册（默认 hidden 隐藏，点"注册"按钮才显示） ====== -->
-      <div id="signupForm" class="form hidden" data-page-node-id="KL8QA5tr2KwlL0P0bcl1Pq">
+      <!-- 同样改成 <form>，按 Enter 直接注册 -->
+      <form id="signupForm" class="form hidden" novalidate data-page-node-id="KL8QA5tr2KwlL0P0bcl1Pq">
         <h2 data-i18n="signup.title" data-page-node-id="iAVFCo2IbAgE9vOuiBGx6g">注册</h2>
 
         <input id="signup-username" type="text"
@@ -76,10 +78,10 @@
 
         <!-- 按钮行：flex 布局保证两个按钮同一行、严格对齐 -->
         <div class="btn-row">
-          <button class="btn primary" onclick="signup()" data-i18n="signup.button" data-page-node-id="pKANCJtJUExk8lqBQ08Kou">注册</button>
-          <button class="btn" onclick="showLogin()" data-i18n="signup.toLogin" data-page-node-id="L5sdHTWFtODL7MEEAzZKck">登录</button>
+          <button type="submit" class="btn primary" data-i18n="signup.button" data-page-node-id="pKANCJtJUExk8lqBQ08Kou">注册</button>
+          <button type="button" class="btn" onclick="showLogin()" data-i18n="signup.toLogin" data-page-node-id="L5sdHTWFtODL7MEEAzZKck">登录</button>
         </div>
-      </div>
+      </form>
 
     </div>
 

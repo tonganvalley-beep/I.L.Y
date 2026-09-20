@@ -5,14 +5,18 @@ are deliberate adaptations, not executable instructions read from those files.
 """
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
+sys.path.insert(0, str(ROOT / 'tools'))
+from script_rules import parse_line, normalize_node
 TITLES = {'chapter2': '第二章 · 约定与夕阳', 'chapter3': '第三章 · 过去与现在', 'final': '最终章 · One Last Kiss'}
 ART = {
  'stone': ('076f7c38c5f582d5189445f3c3f5396c', '夕阳石阶空景；栏杆在左、挡土墙在右', 'background'),
- 'ice': ('0ba15042dc343443ebb56549acddf14b', '石阶上的冰淇淋特写；购买后使用', 'cg'),
+ 'ice': ('0ba15042dc343443ebb56549acddf14b', '石阶上的草莓冰淇淋特写；购买草莓后使用', 'cg'),
+ '香草': ('ch2-vanilla-flavor', '石阶上的香草冰棒特写；购买香草后使用', 'cg'),
  'vending': ('0c0b79deec7db838f757dc83bf08c1a7', '长楼梯右侧售货机；购买与十年独白', 'background'),
  'adult': ('17f5b5f773b5835caec419d2e42bfe47', '夕阳海边长发成年爱理；S08 揭晓及第三章重逢', 'cg'),
  'smile': ('1df1b6e44edb26dd497c17dafe91930d', '紫阳花前少女闭眼微笑；告白回应', 'cg'),
@@ -47,8 +51,8 @@ class Chapter:
         if self.cg: n['cg'] = self.cg; n['backgroundFit'] = 'contain'
         if self.condition: n['when'] = self.condition.copy()
         n.update(kw)
-        if n.get('cg'): n['backgroundFit'] = 'contain'
-        self.nodes[id] = n; self.seq.append(id)
+        if n.get('cg'): n.setdefault('backgroundFit', 'contain')
+        self.nodes[id] = normalize_node(n); self.seq.append(id)
         return id
 
     def choice(self, id, text, key, options, **kw):
@@ -80,11 +84,12 @@ class Chapter:
             if self.special(line): continue
             if self.key == 'final' and self.scene in ('S02-X','S03','S05'): continue
             if line.startswith(('时间：','策划注','制作注','◆','【','选项','（以下','——','男主线 ·','END ｜')) or line == '完': continue
-            speaker = '旁白'; text = line
-            if line.startswith(('〔内心〕','〔心声〕')):
-                speaker = 'ILY（内心）' if line.startswith('〔心声〕') and self.key == 'final' else '基生（内心）'; text = line[4:]
-            elif re.match(r'^[^：]{1,22}：', line): speaker, text = line.split('：', 1)
-            kw = {}
+            parsed = parse_line(line)
+            speaker = parsed['speaker'] if parsed else '旁白'
+            text = parsed['text'] if parsed else line
+            kw = {'type': parsed['type']} if parsed else {}
+            if self.key == 'chapter3' and self.scene == 'S02' and text.startswith('电量即将耗尽。'):
+                kw['phoneNotice'] = 'battery-low'
             if not self.cg and ('爱理' in speaker or speaker == 'ILY') and '声音' not in speaker and '回忆' not in speaker:
                 kw['portrait'] = 'airi-crying' if self.key == 'final' else 'airi-blush' if self.scene == 'S05' else 'portrait-airi'
             if self.key == 'final' and self.scene == 'S02' and line in ('说喜欢我','能说你喜欢我吗'):
@@ -102,6 +107,7 @@ class Chapter:
         return 'bg-apartment-dusk' if scene in ('S06','S07') else 'bg-coast-blue'
 
     def special(self, line):
+        line = re.sub(r'^(?:【[^】]+】)?\[(?:旁白|台词|内心|演出|画面|字幕)\]', '', line)
         if '疑点 P' in line and line.startswith(('【','〔')):
             m = re.search(r'P\d+',line)
             if m and self.seq:
@@ -124,8 +130,10 @@ class Chapter:
             if line.startswith('【Gameplay'):
                 if 'G1 续' in line: self.cg = None; self.rpg('G1','ch2-island','沿着海岸走到紫阳花小路入口。',follower=True)
                 elif 'G1' in line:
-                    self.choice('ch2_hand','他向她伸出手。','CH2_HAND', [('牵住她的手',True,'ch2_hand_after'),('稍稍迟疑',False,'ch2_hand_hesitate')],cg='ch2-hand')
-                    self.add('……基生？她轻轻握住了那只停在半空的手。','“爱理”',id='ch2_hand_hesitate',cg='ch2-hand')
+                    self.add('……基生？她轻轻握住了他的手。','“爱理”',id='ch2_hand',cg='ch2-hand')
+                    # Keep the former branch target loadable for existing saves, but out of the live route.
+                    self.add('……基生？她轻轻握住了他的手。','“爱理”',id='ch2_hand_hesitate',cg='ch2-hand',next='ch2_hand_after')
+                    self.seq.pop()
                     self.add('手心的温度，随着海风传了过来。',id='ch2_hand_after',cg='ch2-couple')
                 elif 'G2' in line:
                     self.cg = None; self.rpg('G2','ch2-flowers','调查三处花丛，找回六月的照片。',required=['memory1','memory2','memory3'],follower=True)
@@ -148,6 +156,14 @@ class Chapter:
             if '——毫无疑问，她，就是，爱理' in line: self.cg = 'ch2-adult'
             if self.scene == 'S04' and not self.cg: self.bg = 'ch2-path-summer'
         if self.key == 'chapter3':
+            if self.scene == 'S02' and line.startswith('2020 年 8 月 3 日 22:53'):
+                # Keep this single node's ID stable for existing saves/editor records.
+                self.add(line, '', type='battery-montage',
+                         frames=[dict(image='ch3-battery-'+level, label=label) for level,label in [
+                             ('full', '2020 年 8 月 3 日 22:53，电量三格'),
+                             ('medium', '2020 年 8 月 14 日 20:38，电量两格'),
+                             ('low', '2020 年 8 月 31 日 16:24，电量一格，红色')]])
+                return True
             if line.startswith('◆ 关键转折节点'):
                 self.choice('ch3_choice4','两部手机同时作响。','n4',[
                     ('去找“爱理”。','A','ch3_s07a'),('接通日日谷的电话。','B','ch3_s07b')]); return True
@@ -188,9 +204,19 @@ class Chapter:
             ending('ending_just2','Just two of us','ENDING_JUST2','ch2-sunset')
             # Branch A jumps over B, with a shared exit; node-local guards also support old saves.
             a=self.sections['S02']; self.nodes[a[a.index('ch2_n2_b')-1]]['next']='ch2_n2_merge'
+            # Ice-cream flavor CG (G4): strawberry shows ch2-ice, vanilla shows ch2-香草,
+            # both full-screen (cover). Splitting happens after wiring so every other
+            # node keeps its generated ID and existing saves stay valid.
+            base = self.nodes['ch2_216']
+            self.nodes['ch2_216_vanilla'] = {**base, 'cg': 'ch2-香草', 'backgroundFit': 'cover',
+                                             'when': {'key': 'CH2_ICE', 'value': '香草'}}
+            self.nodes['ch2_216'] = {**base, 'backgroundFit': 'cover',
+                                     'when': {'key': 'CH2_ICE', 'value': '草莓'},
+                                     'next': 'ch2_216_vanilla'}
         elif self.key=='chapter3':
             for a,b in [('S01','S02'),('S02','S03'),('S03','S04'),('S04','S05'),('S05','S06')]: link(a,'ch3_'+b.lower())
-            link('S07A','fin_s01'); link('S07B','ending_reality')
+            # The A route now reveals the heroine-view story before the existing finale.
+            link('S07A','her_chapter_prologue'); link('S07B','ending_reality')
             self.nodes[self.sections['S07A'][-1]]['setFlags']={'ENDING_ILY':True}
             ending('ending_reality','十年之后','ENDING_REALITY','ch2-beach')
         else:
@@ -208,6 +234,8 @@ for key,file in [('chapter2','第二章游戏剧情脚本.txt'),('chapter3','第
     c=Chapter(key,file);c.build();print(key,len(c.nodes))
 assets={'ch2-'+k:'assets/images/'+('backgrounds' if v[2] == 'background' else 'cg')+'/ch2-'+k+'.jpg' for k,v in ART.items()}
 assets.update({'ch2-path-summer':'assets/images/maps/ch2-flowers.png','ch3-work':'assets/images/maps/ch3-work.png','ch3-mall':'assets/images/maps/ch3-mall.png','ch2-follower':'assets/images/maps/airi-follower.svg','airi-rpg-sheet':'assets/images/maps/airi-rpg-sheet.png'})
+assets.update({'airi-sailor-rpg-sheet':'assets/images/maps/airi-sailor-rpg-sheet.png','npc-coworker':'assets/images/characters/npc-coworker.png','npc-hibiya':'assets/images/characters/npc-hibiya.png'})
+assets.update({'ch3-battery-'+level:'assets/images/cg/ch3-battery-'+level+'.png' for level in ('full','medium','low')})
 write(ROOT/'game/data/chapter-assets.js',assets,'Object.assign(ILY.data.assets.images, ')
 # Object.assign needs a closing parenthesis.
 p=ROOT/'game/data/chapter-assets.js';p.write_text(p.read_text(encoding='utf-8').replace('};\n','});\n'),encoding='utf-8')

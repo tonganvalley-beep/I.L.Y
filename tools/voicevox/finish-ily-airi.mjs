@@ -1,8 +1,7 @@
-import { readFile } from 'node:fs/promises';
+import { chooseShikokuStyle, tuneForContext } from './production-voice-policy.mjs';
 
 const base = process.env.ILY_VOICEVOX_BASE || 'http://127.0.0.1:8084';
 const today = '2026-09-20';
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function request(path, options = {}) {
@@ -20,63 +19,6 @@ const post = (path, value) => request(path, {
   body: JSON.stringify(value)
 });
 
-function contextFor(line) {
-  const text = String(line.speechText || '');
-  const dramatic = /……|…|――|どうして|なぜ|怖|恐|嫌|無理|嘘|違う|消え|さよなら|死/.test(text);
-  const excited = /！|!|？|\?|やった|嬉|大好き|好き|えへ|うん！|わあ|すごい/.test(text);
-  const quiet = /……|…|小声|そっと|お願い|ごめん|ごめんなさい/.test(text) && text.length <= 42;
-  const question = /？|\?/.test(text);
-  const sentenceLength = [...text].length;
-  return { text, dramatic, excited, quiet, question, sentenceLength };
-}
-
-function chooseStyle(line) {
-  if (line.voiceRole === 'ILY') return 68; // あいえるたん · ノーマル
-  const { dramatic, excited, quiet } = contextFor(line);
-  if (quiet) return 36; // 四国めたん · ささやき
-  if (dramatic && excited) return 6; // 四国めたん · ツンツン
-  if (dramatic) return 2; // 四国めたん · ノーマル
-  return excited ? 0 : 2; // あまあま / ノーマル
-}
-
-function tuneQuery(query, line) {
-  const { dramatic, excited, quiet, question, sentenceLength } = contextFor(line);
-  const role = line.voiceRole;
-  const speedScale = quiet ? 0.88 : dramatic ? 0.94 : excited ? 1.03 : 0.98;
-  const pitchScale = role === 'ILY'
-    ? (dramatic ? -0.08 : excited ? 0.06 : 0)
-    : (dramatic ? -0.04 : excited ? 0.08 : 0.03);
-  const intonationScale = quiet ? 0.88 : dramatic ? 1.05 : excited ? 1.12 : 1;
-  const lengthScale = quiet ? 1.16 : dramatic ? 1.08 : excited ? 0.93 : 1;
-  query.speedScale = speedScale;
-  query.pitchScale = pitchScale;
-  query.intonationScale = intonationScale;
-  query.volumeScale = 1;
-
-  for (const phrase of query.accent_phrases || []) {
-    const accentIndex = Math.max(0, Number(phrase.accent || 1) - 1);
-    for (const [index, mora] of (phrase.moras || []).entries()) {
-      const accentWeight = index === accentIndex ? 1.08 : 1;
-      const positionWeight = sentenceLength > 35 && index === 0 ? 1.04 : 1;
-      if (Number.isFinite(mora.vowel_length)) {
-        mora.vowel_length = clamp(mora.vowel_length * lengthScale * accentWeight * positionWeight, 0.035, 3);
-      }
-      if (mora.consonant != null && Number.isFinite(mora.consonant_length)) {
-        mora.consonant_length = clamp(mora.consonant_length * (quiet ? 1.08 : dramatic ? 1.03 : 0.98), 0.01, 3);
-      }
-      if (Number.isFinite(mora.pitch) && mora.pitch > 0) {
-        const contour = question && index >= accentIndex ? 0.06 : 0;
-        mora.pitch = clamp(mora.pitch + pitchScale + contour + (index === accentIndex ? 0.05 : 0), 3, 10);
-      }
-    }
-    if (phrase.pause_mora && Number.isFinite(phrase.pause_mora.vowel_length)) {
-      const pauseScale = quiet ? 1.35 : dramatic ? 1.25 : excited ? 0.9 : 1.08;
-      phrase.pause_mora.vowel_length = clamp(phrase.pause_mora.vowel_length * pauseScale, 0.08, 3);
-    }
-  }
-  return query;
-}
-
 function snapshot(line) {
   return {
     speechText: line.speechText || '',
@@ -89,7 +31,13 @@ function snapshot(line) {
 
 function checkpoint(line, label) {
   line.tuningHistory ||= [];
-  line.tuningHistory.push({ label, value: snapshot(line) });
+  // Re-synthesizing hundreds of lines can exceed the local API's 20 MB body
+  // limit if every old AudioQuery is duplicated. Keep the pre-run controls
+  // (style/text/tuning) for undo; the previous query remains in the .bak
+  // project created by project-store.
+  const value = snapshot(line);
+  if (label === `情境精调 ${today}`) value.audioQuery = null;
+  line.tuningHistory.push({ label, value });
   if (line.tuningHistory.length > 30) line.tuningHistory.shift();
   line.tuningRedo = [];
 }
@@ -121,18 +69,14 @@ async function worker() {
     const index = cursor++;
     if (index >= targets.length) return;
     const line = targets[index];
-    const styleId = chooseStyle(line);
+    const styleId = chooseShikokuStyle(line.speechText, line.voiceRole);
     const data = await withRetry(() => post('/api/voicevox/query', { text: line.speechText, styleId }));
     checkpoint(line, `情境精调 ${today}`);
-    const query = tuneQuery(data.query, line);
+    const tuned = tuneForContext(data.query, line.speechText, line.voiceRole);
+    const query = data.query;
     line.styleId = styleId;
     line.audioQuery = query;
-    line.tuning = {
-      speedScale: query.speedScale,
-      pitchScale: query.pitchScale,
-      intonationScale: query.intonationScale,
-      volumeScale: query.volumeScale
-    };
+    line.tuning = tuned.tuning;
     line.translationStatus = 'proofread';
     line.renderStale = false;
     complete += 1;
@@ -183,4 +127,3 @@ console.log(`已导出 ${exported.count} 个 WAV：${exported.manifestFile}`);
 const latestProject = await get('/api/voicevox/project');
 const published = await post('/api/voicevox/publish', { lineIds, revision: latestProject.projectRevision });
 console.log(`已发布 ${published.count} 条：${published.manifestFile}`);
-

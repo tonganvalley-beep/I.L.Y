@@ -213,7 +213,13 @@
      * ============================================================ */
 
     /* 跳转目标页：视频播完要去哪个页面，改这一行就行 */
-    const NEXT_PAGE = './game.html';
+    const nextPage = new URL('./game.html', window.location.href);
+    const launchParams = new URLSearchParams(window.location.search);
+    for (const key of ['entry', 'player']) {
+      const value = launchParams.get(key);
+      if (value) nextPage.searchParams.set(key, value);
+    }
+    const NEXT_PAGE = nextPage.href;
 
     /* 状态标记：
        introPlaying —— 视频是否正在播（区分"第一次点击"和"播放中点击跳过"）

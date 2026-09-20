@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "sourceMode": "effective-javascript",
+  "authoritativeSources": [
+    "game/data/story/prologue.js",
+    "game/data/story/chapter1.js",
+    "game/data/story/chapter2.js",
+    "game/data/story/chapter3.js",
+    "game/data/story/heroine.js",
+    "game/data/story/final.js",
+    "game/data/story/script-edits.js"
+  ],
+  "sourceRevision": "dad15973cb4a107a5e0591c24ce8b1488a49e45181b2bef0ea24295dade8e3dd",
+  "includeNarration": false,
+  "total": 1080,
+  "speakers": [
+    {
+      "speaker": "成田基生",
+      "voiceRole": "成田基生",
+      "sourceSpeakers": [
+        "成田基生",
+        "基生"
+      ],
+      "file": "speakers/成田基生.tsv",
+      "count": 446
+    },
+    {
+      "speaker": "主管",
+      "voiceRole": "主管",
+      "sourceSpeakers": [
+        "主管"
+      ],
+      "file": "speakers/主管.tsv",
+      "count": 14
+    },
+    {
+      "speaker": "快递员",
+      "voiceRole": "快递员",
+      "sourceSpeakers": [
+        "快递员"
+      ],
+      "file": "speakers/快递员.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "百合沢爱理",
+      "voiceRole": "百合沢爱理",
+      "sourceSpeakers": [
+        "百合沢爱理",
+        "“爱理”",
+        "爱理"
+      ],
+      "file": "speakers/百合沢爱理.tsv",
+      "count": 170
+    },
+    {
+      "speaker": "无",
+      "voiceRole": "无",
+      "sourceSpeakers": [
+        "无"
+      ],
+      "file": "speakers/无.tsv",
+      "count": 3
+    },
+    {
+      "speaker": "门口的感应门铃响起",
+      "voiceRole": "门口的感应门铃响起",
+      "sourceSpeakers": [
+        "门口的感应门铃响起"
+      ],
+      "file": "speakers/门口的感应门铃响起.tsv",
+      "count": 1
+    },
+    {
+      "speaker": "路人",
+      "voiceRole": "路人",
+      "sourceSpeakers": [
+        "路人"
+      ],
+      "file": "speakers/路人.tsv",
+      "count": 1
+    },
+    {
+      "speaker": "男",
+      "voiceRole": "男",
+      "sourceSpeakers": [
+        "男"
+      ],
+      "file": "speakers/男.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "十屋",
+      "voiceRole": "十屋",
+      "sourceSpeakers": [
+        "十屋"
+      ],
+      "file": "speakers/十屋.tsv",
+      "count": 11
+    },
+    {
+      "speaker": "小泪",
+      "voiceRole": "小泪",
+      "sourceSpeakers": [
+        "小泪"
+      ],
+      "file": "speakers/小泪.tsv",
+      "count": 10
+    },
+    {
+      "speaker": "收件时间",
+      "voiceRole": "收件时间",
+      "sourceSpeakers": [
+        "收件时间"
+      ],
+      "file": "speakers/收件时间.tsv",
+      "count": 1
+    },
+    {
+      "speaker": "店员",
+      "voiceRole": "店员",
+      "sourceSpeakers": [
+        "店员"
+      ],
+      "file": "speakers/店员.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "成年爱理",
+      "voiceRole": "成年爱理",
+      "sourceSpeakers": [
+        "成年“爱理”",
+        "爱理",
+        "成年爱理"
+      ],
+      "file": "speakers/成年爱理.tsv",
+      "count": 80
+    },
+    {
+      "speaker": "？",
+      "voiceRole": "？",
+      "sourceSpeakers": [
+        "？"
+      ],
+      "file": "speakers/？.tsv",
+      "count": 10
+    },
+    {
+      "speaker": "同事们",
+      "voiceRole": "同事们",
+      "sourceSpeakers": [
+        "同事们"
+      ],
+      "file": "speakers/同事们.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "日日谷",
+      "voiceRole": "日日谷",
+      "sourceSpeakers": [
+        "日日谷",
+        "日日谷 陽"
+      ],
+      "file": "speakers/日日谷.tsv",
+      "count": 63
+    },
+    {
+      "speaker": "ILY",
+      "voiceRole": "ILY",
+      "sourceSpeakers": [
+        "ILY"
+      ],
+      "file": "speakers/ILY.tsv",
+      "count": 200
+    },
+    {
+      "speaker": "基生的儿子",
+      "voiceRole": "基生的儿子",
+      "sourceSpeakers": [
+        "基生的儿子"
+      ],
+      "file": "speakers/基生的儿子.tsv",
+      "count": 12
+    },
+    {
+      "speaker": "另一个房间的小男孩",
+      "voiceRole": "另一个房间的小男孩",
+      "sourceSpeakers": [
+        "另一个房间的小男孩"
+      ],
+      "file": "speakers/另一个房间的小男孩.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "蝶",
+      "voiceRole": "蝶",
+      "sourceSpeakers": [
+        "蝶"
+      ],
+      "file": "speakers/蝶.tsv",
+      "count": 3
+    },
+    {
+      "speaker": "优那",
+      "voiceRole": "优那",
+      "sourceSpeakers": [
+        "优那"
+      ],
+      "file": "speakers/优那.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "春",
+      "voiceRole": "春",
+      "sourceSpeakers": [
+        "春"
+      ],
+      "file": "speakers/春.tsv",
+      "count": 12
+    },
+    {
+      "speaker": "八重",
+      "voiceRole": "八重",
+      "sourceSpeakers": [
+        "八重"
+      ],
+      "file": "speakers/八重.tsv",
+      "count": 10
+    },
+    {
+      "speaker": "若菜",
+      "voiceRole": "若菜",
+      "sourceSpeakers": [
+        "若菜"
+      ],
+      "file": "speakers/若菜.tsv",
+      "count": 9
+    },
+    {
+      "speaker": "“拓马”前辈",
+      "voiceRole": "“拓马”前辈",
+      "sourceSpeakers": [
+        "“拓马”前辈"
+      ],
+      "file": "speakers/“拓马”前辈.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "十屋后辈",
+      "voiceRole": "十屋后辈",
+      "sourceSpeakers": [
+        "十屋后辈"
+      ],
+      "file": "speakers/十屋后辈.tsv",
+      "count": 2
+    },
+    {
+      "speaker": "十屋君",
+      "voiceRole": "十屋君",
+      "sourceSpeakers": [
+        "十屋君"
+      ],
+      "file": "speakers/十屋君.tsv",
+      "count": 8
+    }
+  ]
+}

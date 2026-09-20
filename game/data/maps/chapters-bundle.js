@@ -383,7 +383,11 @@ ILY.data.chapterMaps = {
           "草莓"
         ],
         "text": "店员：请拿好，欢迎下次光临。",
-        "flag": "CH2_ICE"
+        "flag": "CH2_ICE",
+        "item": {
+          "香草": "冰棍",
+          "草莓": "冰淇淋"
+        }
       }
     ],
     "objects": [
@@ -479,8 +483,16 @@ ILY.data.chapterMaps = {
         "y": 10,
         "label": "海风中的身影",
         "kind": "collect",
+        "touch": true,
         "text": "长发在夕阳下随风飘动。那个人，转过了身。",
-        "touch": true
+        "image": "npc-airi-adult-back",
+        "npc": true,
+        "visual": {
+          "x": 22.8333,
+          "y": 9.625,
+          "w": 1.3333,
+          "h": 1.3333
+        }
       }
     ],
     "objects": [
@@ -687,8 +699,16 @@ ILY.data.chapterMaps = {
         "y": 10,
         "label": "浪声的尽头",
         "kind": "collect",
+        "touch": true,
         "text": "只有海浪。一遍又一遍。",
-        "touch": true
+        "image": "npc-airi-back",
+        "npc": true,
+        "visual": {
+          "x": 22.8333,
+          "y": 9.625,
+          "w": 1.3333,
+          "h": 1.3333
+        }
       }
     ],
     "objects": [

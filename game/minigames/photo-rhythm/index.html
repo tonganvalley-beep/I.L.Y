@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>I.L.Y.｜一瞬留影</title>
+  <style>
+    :root{--ink:#07152e;--blue:#8fe7ff;--white:#f7fbff;--pink:#ff9bb7;--gold:#ffe18e}
+    *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#05091a;color:var(--white);font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+    button{font:inherit;color:inherit}button:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    #game{position:relative;width:100%;height:100%;isolation:isolate;background:#10204c url("assets/sunset.jpg") center/cover no-repeat;user-select:none}
+    #game::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,16,50,.72),rgba(10,28,66,.06) 42%,rgba(24,12,42,.24)),linear-gradient(0deg,rgba(3,8,24,.88),transparent 48%)}
+    #game::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:20;opacity:.18;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.1) 4px);mix-blend-mode:soft-light}
+    .top{position:absolute;top:max(18px,env(safe-area-inset-top));left:clamp(18px,3vw,48px);right:clamp(18px,3vw,48px);z-index:8;display:flex;justify-content:space-between;align-items:flex-start;text-shadow:0 2px 8px #10204c}
+    .chapter{font-size:clamp(11px,1vw,14px);letter-spacing:.28em;opacity:.85}.title{margin-top:5px;font-family:Georgia,"Songti SC",serif;font-size:clamp(24px,3.4vw,48px);letter-spacing:.12em}
+    .scoreboard{display:flex;gap:20px;text-align:right}.metric small{display:block;font-size:10px;letter-spacing:.18em;opacity:.75}.metric b{font:700 clamp(18px,2.3vw,32px)/1.2 Consolas,monospace}
+    .speed-box{position:absolute;top:82px;right:clamp(18px,3vw,48px);z-index:31;font:11px Consolas;letter-spacing:.08em}.settings-toggle{border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:7px 14px;background:rgba(7,18,49,.66);backdrop-filter:blur(8px);color:#fff;cursor:pointer;box-shadow:0 5px 18px rgba(2,10,31,.24)}.settings-toggle:hover,.settings-toggle[aria-expanded="true"]{background:rgba(24,57,111,.86);border-color:rgba(143,231,255,.7)}.settings-panel{position:absolute;right:0;top:40px;width:min(430px,88vw);display:grid;grid-template-columns:1fr 1fr;gap:9px 14px;padding:14px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(7,18,49,.88);backdrop-filter:blur(12px);box-shadow:0 14px 36px rgba(2,8,28,.42);opacity:0;transform:translateY(-8px) scale(.98);transform-origin:100% 0;pointer-events:none;transition:.2s}.settings-panel.open{opacity:1;transform:none;pointer-events:auto}.settings-panel label{display:grid;grid-template-columns:42px 1fr 38px;align-items:center;gap:7px;min-height:28px}.settings-panel input{width:100%;accent-color:var(--blue);cursor:pointer}.settings-panel output{color:var(--gold);font-weight:800;text-align:right}.settings-panel select,.effect-toggle,.sound-preview{border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:5px 7px;background:#102650;color:#fff;font:inherit;cursor:pointer}.settings-panel .select-row{grid-template-columns:42px 1fr}.settings-panel .key-row{grid-template-columns:42px 1fr 38px auto}.sound-preview{padding:5px 9px;color:var(--blue)}.effect-toggle[aria-pressed="false"]{color:#b8bdd2;background:#141d38}.settings-panel .effect-toggle{grid-column:1/-1}
+    .progress{position:absolute;top:98px;left:50%;z-index:7;width:min(48vw,620px);height:3px;transform:translateX(-50%);background:rgba(255,255,255,.25)}.progress>i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--pink));box-shadow:0 0 12px var(--blue);transition:width .15s linear}
+    .viewfinder{position:absolute;inset:13% 18% 18%;z-index:5;pointer-events:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))}.corner{position:absolute;width:58px;height:58px;border-color:rgba(255,255,255,.72);border-style:solid}.tl{left:0;top:0;border-width:3px 0 0 3px}.tr{right:0;top:0;border-width:3px 3px 0 0}.bl{left:0;bottom:0;border-width:0 0 3px 3px}.br{right:0;bottom:0;border-width:0 3px 3px 0}
+    .focus{position:absolute;left:50%;top:45%;width:96px;height:70px;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.58);transition:.12s}.focus::before,.focus::after{content:"";position:absolute;background:rgba(255,255,255,.7)}.focus::before{left:50%;top:-9px;width:1px;height:86px}.focus::after{left:-9px;top:50%;width:112px;height:1px}
+    .focus.ready{border-color:var(--gold);box-shadow:0 0 22px rgba(255,225,142,.65);transform:translate(-50%,-50%) scale(.86)}
+    .airi-wrap{position:absolute;left:50%;bottom:-18%;z-index:3;width:min(46vw,560px);height:106%;transform:translateX(-50%);transform-origin:50% 86%;transition:transform .16s cubic-bezier(.2,.9,.3,1),filter .16s}
+    .airi-wrap img{position:absolute;left:50%;bottom:0;height:100%;max-width:100%;object-fit:contain;transform:translateX(-50%);filter:drop-shadow(0 10px 4px rgba(10,18,56,.34));transition:opacity .1s}
+    .airi-wrap.pose-left{transform:translateX(-53%) rotate(-1.5deg)}.airi-wrap.pose-right{transform:translateX(-47%) rotate(1.5deg)}.airi-wrap.pose-pop{transform:translateX(-50%) translateY(-2.2%) scale(1.018)}
+    .airi-wrap.best{filter:brightness(1.1) drop-shadow(0 0 20px rgba(255,230,172,.45))}
+    .beatline{position:absolute;left:9%;right:9%;bottom:134px;z-index:9;height:54px;display:flex;align-items:center;justify-content:center;gap:clamp(11px,3.2vw,48px)}
+    .beatline::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,.34)}
+    .beat{position:relative;width:24px;height:24px;border:2px solid rgba(255,255,255,.7);border-radius:50%;background:#203b74;display:grid;place-items:center;font:700 11px Consolas;transition:.12s;box-shadow:0 0 0 6px rgba(10,20,53,.22)}
+    .beat.on{transform:scale(1.45);background:var(--blue);color:var(--ink);box-shadow:0 0 24px var(--blue)}.beat.target{border-color:var(--gold)}.beat.target.on{background:var(--gold);box-shadow:0 0 30px var(--gold)}
+    .caption{position:absolute;left:5%;right:5%;bottom:8px;z-index:10;text-align:center;text-shadow:0 3px 9px #05091a,0 0 18px #05091a;min-height:70px}.speaker{font-size:12px;letter-spacing:.35em;color:var(--blue)}.line{margin-top:7px;font-family:Georgia,"Songti SC",serif;font-size:clamp(17px,2vw,27px);letter-spacing:.04em}.hint{margin-top:7px;font-size:12px;opacity:.72;letter-spacing:.08em}
+    .judgement{position:absolute;left:50%;top:27%;z-index:12;transform:translate(-50%,-50%) scale(.75);font:900 clamp(28px,4.2vw,58px)/1 "Microsoft YaHei","PingFang SC",sans-serif;letter-spacing:.08em;opacity:0;text-shadow:0 5px 0 #142150,0 0 28px currentColor;pointer-events:none}.judgement.show{animation:judge .65s ease-out}.judgement.perfect{color:var(--gold)}.judgement.good{color:var(--blue)}.judgement.miss{color:#b8bdd2}@keyframes judge{0%{opacity:0;transform:translate(-50%,-50%) scale(.55)}24%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}75%{opacity:1;transform:translate(-50%,-65%) scale(1)}100%{opacity:0;transform:translate(-50%,-80%) scale(.94)}}
+    .flash{position:absolute;inset:0;z-index:19;background:#fff;opacity:0;pointer-events:none}.flash.fire{animation:flash .28s ease-out}@keyframes flash{0%{opacity:.95}100%{opacity:0}}
+    .film{position:absolute;right:2.5%;top:22%;z-index:8;width:clamp(64px,8vw,112px);display:grid;gap:7px}.shot{position:relative;aspect-ratio:4/3;padding:4px;background:#f5f0df;transform:rotate(var(--r));box-shadow:0 6px 15px rgba(0,0,0,.3);animation:drop .38s ease-out}.shot img{width:100%;height:100%;object-fit:cover;object-position:50% 24%;filter:saturate(.82) contrast(1.05)}.shot span{position:absolute;right:6px;bottom:5px;font:800 8px Consolas;color:#182147;text-shadow:0 1px #fff}@keyframes drop{from{opacity:0;transform:translateY(-25px) rotate(var(--r)) scale(1.2)}}
+    .shutter{position:absolute;left:50%;bottom:88px;z-index:14;width:72px;height:72px;transform:translateX(-50%);border:3px solid rgba(255,255,255,.88);border-radius:50%;background:rgba(9,21,54,.66);box-shadow:0 0 0 7px rgba(255,255,255,.13),0 7px 20px rgba(0,0,0,.3);cursor:pointer}.shutter::after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--white);transition:.08s}.shutter:active::after{transform:scale(.72);background:var(--gold)}
+    .highway{position:absolute;inset:13% 8% 7%;z-index:7;overflow:visible;pointer-events:none;perspective:700px}.rails{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 7px rgba(95,207,255,.45));opacity:.55}.rails path{fill:none;stroke:rgba(190,234,255,.55);stroke-width:.22}.rails .edge{stroke:rgba(255,255,255,.8);stroke-width:.35}.horizon-glow{position:absolute;left:50%;top:10%;width:8%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fff 0 5%,#78dcff 16%,rgba(106,206,255,.18) 42%,transparent 70%);animation:breathe 1.78s ease-in-out infinite}@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.35);opacity:.65}}
+    #notes,#fx{position:absolute;inset:0}.note{--c:#8fe7ff;position:absolute;z-index:2;width:clamp(32px,4.2vw,62px);aspect-ratio:1;display:grid;place-items:center;border:3px solid #fff;background:radial-gradient(circle at 35% 28%,#fff 0 7%,var(--c) 9% 48%,#244477 72%,#101e43 100%);color:#fff;box-shadow:0 0 9px var(--c),0 8px 12px rgba(0,0,0,.32);will-change:left,top,transform,opacity}.note-icon{font:900 clamp(21px,2.5vw,38px)/1 Georgia,"Segoe UI Symbol",sans-serif;text-shadow:0 2px 0 rgba(12,28,66,.7),0 0 12px #fff;transform:translateY(-1px)}.note.photo{--c:#ffe18e!important;border-radius:50%!important;clip-path:none!important;background:radial-gradient(circle,#fff 0 8%,#ffe18e 10% 42%,#e89a3f 66%,#6b3151 100%);box-shadow:0 0 18px #ffe18e,0 0 38px rgba(255,202,91,.45)}.note.photo::after{content:"✦";position:absolute;right:-9px;top:-13px;color:#fff;font-size:18px;text-shadow:0 0 9px #ffe18e}.note.lane-0{--c:#76d7ff;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}.note.lane-1{--c:#a9f2db;border-radius:50%}.note.lane-2{--c:#ff9fc0;clip-path:polygon(50% 3%,61% 30%,94% 18%,77% 51%,97% 70%,63% 72%,50% 98%,37% 72%,3% 70%,23% 51%,6% 18%,39% 30%)}.note.lane-3{--c:#c8aeff;clip-path:polygon(25% 4%,75% 4%,100% 50%,75% 96%,25% 96%,0 50%)}.note.holding{animation:holdingGlow .55s ease-in-out infinite alternate}@keyframes holdingGlow{to{filter:brightness(1.5);box-shadow:0 0 28px var(--c)}}.note.hit{animation:noteHit .22s ease-out forwards}.note.missed{filter:grayscale(1);animation:noteMiss .25s ease-in forwards}@keyframes noteHit{to{opacity:0;filter:brightness(2.2);transform:translate(-50%,-50%) scale(2.1)}}@keyframes noteMiss{to{opacity:0;transform:translate(-50%,-50%) scale(.5)}}
+    .hold-tail{--c:#8fe7ff;position:absolute;z-index:0;border:2px solid rgba(255,255,255,.75);border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.86),var(--c) 24% 76%,rgba(255,255,255,.86));box-shadow:0 0 14px var(--c),inset 0 0 10px rgba(255,255,255,.55);transform-origin:50% 0;pointer-events:none;opacity:.88}.hold-tail::after{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:2px;transform:translateX(-50%);background:repeating-linear-gradient(180deg,rgba(255,255,255,.92) 0 8px,transparent 8px 15px)}.hold-tail.lane-0{--c:#76d7ff}.hold-tail.lane-1{--c:#a9f2db}.hold-tail.lane-2{--c:#ff9fc0}.hold-tail.lane-3{--c:#c8aeff}.hold-tail.tail-hit{animation:tailVanish .22s ease-out forwards}.note.long::before{content:"HEAD";position:absolute;top:-15px;font:700 8px Consolas;letter-spacing:.12em;color:#fff;text-shadow:0 1px 5px #07152e}@keyframes tailVanish{to{opacity:0;filter:brightness(2);width:3px}}
+    .hitline{position:absolute;left:7%;right:7%;bottom:0;height:82px;border-top:3px solid rgba(255,255,255,.9);box-shadow:0 -5px 20px rgba(118,215,255,.28);display:flex;justify-content:space-around;align-items:flex-start;padding-top:9px}.receptor{pointer-events:auto;position:relative;width:clamp(52px,7vw,92px);height:clamp(48px,5.4vw,70px);border:2px solid rgba(255,255,255,.8);border-radius:16px;background:linear-gradient(180deg,rgba(24,57,111,.88),rgba(7,20,54,.9));box-shadow:inset 0 0 15px var(--lane),0 0 10px rgba(0,0,0,.3);cursor:pointer;transition:.08s}.receptor span{display:block;font:900 clamp(22px,2.6vw,38px)/.95 Georgia,"Segoe UI Symbol",sans-serif;color:var(--lane);text-shadow:0 0 12px var(--lane)}.receptor small{position:absolute;right:7px;bottom:4px;font:700 10px Consolas;color:rgba(255,255,255,.76)}.receptor:nth-child(1){--lane:#76d7ff}.receptor:nth-child(2){--lane:#a9f2db}.receptor:nth-child(3){--lane:#ff9fc0}.receptor:nth-child(4){--lane:#c8aeff}.receptor.down{transform:translateY(5px) scale(.94);background:var(--lane);color:#07152e;box-shadow:0 0 30px var(--lane)}.receptor.down span{color:#07152e;text-shadow:none}.receptor.burst{animation:receptorBurst .32s ease-out}@keyframes receptorBurst{0%{box-shadow:0 0 0 0 var(--lane)}50%{box-shadow:0 0 0 28px transparent,0 0 36px var(--lane)}100%{box-shadow:0 0 0 45px transparent}}
+    .receptor{border:1px solid rgba(255,255,255,.28);background:rgba(7,20,54,.54);box-shadow:inset 0 0 13px rgba(255,255,255,.08)}.receptor-shape{position:absolute;left:50%;top:50%;width:clamp(32px,4.2vw,62px);aspect-ratio:1;display:grid!important;place-items:center;transform:translate(-50%,-50%);border:3px solid #fff;background:radial-gradient(circle at 35% 28%,#fff 0 7%,var(--lane) 9% 48%,#244477 72%,#101e43 100%);font:900 clamp(21px,2.5vw,38px)/1 Georgia,"Segoe UI Symbol",sans-serif!important;color:#fff!important;text-shadow:0 2px 0 rgba(12,28,66,.7),0 0 12px #fff!important}.receptor:nth-child(1) .receptor-shape{clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}.receptor:nth-child(2) .receptor-shape{border-radius:50%}.receptor:nth-child(3) .receptor-shape{clip-path:polygon(50% 3%,61% 30%,94% 18%,77% 51%,97% 70%,63% 72%,50% 98%,37% 72%,3% 70%,23% 51%,6% 18%,39% 30%)}.receptor:nth-child(4) .receptor-shape{clip-path:polygon(25% 4%,75% 4%,100% 50%,75% 96%,25% 96%,0 50%)}.receptor small{right:3px;bottom:1px;font-size:9px}.receptor.ready .receptor-shape{filter:brightness(1.35);box-shadow:0 0 22px var(--lane);animation:readyPulse .22s ease-out}.receptor.down{transform:translateY(3px) scale(.96);background:rgba(7,20,54,.72)}.receptor.down .receptor-shape{filter:brightness(1.7);box-shadow:0 0 30px var(--lane)}@keyframes readyPulse{50%{transform:translate(-50%,-50%) scale(1.1)}}
+    .receptor .lane-judge{position:absolute;left:50%;top:-34px;z-index:5;display:block;transform:translate(-50%,8px) scale(.8);white-space:nowrap;font:900 clamp(12px,1.35vw,19px)/1 Georgia,sans-serif;color:#fff;letter-spacing:.06em;opacity:0;pointer-events:none;text-shadow:0 2px 0 #13214d,0 0 13px currentColor}.receptor .lane-judge.perfect{color:var(--gold)}.receptor .lane-judge.good{color:var(--blue)}.receptor .lane-judge.miss{color:#d5d8e5}.receptor .lane-judge.show{animation:laneJudge .55s ease-out}@keyframes laneJudge{15%{opacity:1;transform:translate(-50%,0) scale(1.08)}70%{opacity:1;transform:translate(-50%,-7px) scale(1)}100%{opacity:0;transform:translate(-50%,-14px) scale(.92)}}
+    /* 清晰矩形音符：远处仍能辨认轨道颜色，抵达判定线时与下方卡片完整重合。 */
+    .note{width:clamp(46px,5.4vw,78px);height:clamp(32px,3.7vw,50px);aspect-ratio:auto!important;border-radius:8px!important;clip-path:none!important;background:linear-gradient(180deg,#fff 0 8%,var(--c) 10% 56%,#173465 58% 100%);border-width:3px;box-shadow:0 0 13px var(--c),0 7px 12px rgba(0,0,0,.38)}.note-icon{font-size:clamp(18px,2vw,29px)}.note.photo{border-radius:8px!important;background:linear-gradient(180deg,#fff 0 8%,#ffe18e 10% 56%,#7b4662 58% 100%)}
+    .receptor-shape,.receptor:nth-child(1) .receptor-shape,.receptor:nth-child(2) .receptor-shape,.receptor:nth-child(3) .receptor-shape,.receptor:nth-child(4) .receptor-shape{width:clamp(46px,5.4vw,78px);height:clamp(32px,3.7vw,50px);aspect-ratio:auto;border-radius:8px;clip-path:none;background:linear-gradient(180deg,#fff 0 8%,var(--lane) 10% 56%,#173465 58% 100%);font-size:clamp(18px,2vw,29px)!important}
+    #game.no-hit-flash .flash{display:none}#game.no-hit-flash.big-hit{animation:none}
+    .combo-fx{position:absolute;inset:10% 0 0;z-index:4;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .45s ease}.edge-light{position:absolute;top:0;bottom:5%;width:27%;opacity:0;transition:opacity .45s,transform .45s;filter:blur(5px);mix-blend-mode:screen;mask-image:linear-gradient(0deg,#000 0 58%,rgba(0,0,0,.7) 78%,transparent 100%)}.edge-light::before,.edge-light::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 12%,rgba(127,240,255,.3) 25%,rgba(165,255,220,.16) 43%,transparent 70%);transform:skewX(-7deg)}.edge-light::after{inset:8% 16%;background:linear-gradient(90deg,transparent,rgba(171,190,255,.32),transparent);filter:blur(10px);animation:curtainDrift 2.1s ease-in-out infinite alternate}.edge-light.left{left:-5%;transform:translateX(-26px)}.edge-light.right{right:-5%;transform:scaleX(-1) translateX(-26px)}.bottom-aura{position:absolute;left:-8%;right:-8%;bottom:-3%;height:34%;opacity:0;transform:scaleY(.76);transform-origin:50% 100%;transition:opacity .45s,transform .45s;background:radial-gradient(ellipse at 16% 105%,rgba(162,255,216,.72),rgba(93,218,255,.3) 24%,transparent 52%),radial-gradient(ellipse at 84% 105%,rgba(185,200,255,.66),rgba(100,225,255,.28) 25%,transparent 53%),radial-gradient(ellipse at 50% 115%,rgba(255,232,166,.55),rgba(110,222,255,.3) 27%,transparent 62%);filter:blur(8px);mix-blend-mode:screen;animation:auraFlow 1.55s ease-in-out infinite alternate}.bottom-sparks{position:absolute;left:5%;right:5%;bottom:-2%;height:28%;opacity:0;transition:opacity .4s;overflow:hidden;mask-image:linear-gradient(0deg,#000,rgba(0,0,0,.75) 58%,transparent)}.bottom-sparks::before,.bottom-sparks::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 7%,rgba(172,246,255,.2) 7.4% 7.8%,transparent 8.2% 14%);transform:perspective(300px) rotateX(58deg) scaleX(1.15);filter:blur(2px);animation:lightStream 1.8s linear infinite}.bottom-sparks::after{background:repeating-linear-gradient(90deg,transparent 0 11%,rgba(255,231,157,.18) 11.5% 12%,transparent 12.5% 20%);animation-duration:2.45s;animation-direction:reverse}.combo-tier{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);padding:4px 14px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(7,21,46,.48);font:700 10px Consolas;letter-spacing:.18em;color:#bfefff;opacity:0;transition:opacity .35s;text-shadow:0 0 10px currentColor}#game.combo-20 .combo-fx{opacity:1}#game.combo-20 .bottom-aura{opacity:.58;transform:scaleY(.92)}#game.combo-20 .combo-tier{opacity:.68}#game.combo-50 .edge-light{opacity:.6;transform:translateX(0)}#game.combo-50 .edge-light.right{transform:scaleX(-1) translateX(0)}#game.combo-50 .bottom-aura{opacity:.78;transform:scaleY(1.04)}#game.combo-50 .bottom-sparks{opacity:.48}#game.combo-100 .edge-light{opacity:.82;animation:edgePulse 1.25s ease-in-out infinite alternate}#game.combo-100 .bottom-aura{opacity:.9;transform:scaleY(1.16);filter:blur(7px) brightness(1.12)}#game.combo-100 .bottom-sparks{opacity:.72}#game.combo-100 .combo-tier{color:var(--gold);border-color:rgba(255,225,142,.48);box-shadow:0 0 16px rgba(255,225,142,.18)}@keyframes auraFlow{to{transform:scaleY(1.08) translateY(-3px);filter:blur(9px) brightness(1.08)}}@keyframes curtainDrift{to{transform:translateX(12%) skewX(4deg);opacity:.72}}@keyframes lightStream{to{transform:perspective(300px) rotateX(58deg) translateY(-24%) scaleX(1.18)}}@keyframes edgePulse{to{filter:blur(6px) brightness(1.15);opacity:.68}}
+    .particle{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--pc);box-shadow:0 0 12px var(--pc);animation:particle .48s ease-out forwards}@keyframes particle{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
+    #game.music-beat{animation:stageBeat .22s ease-out}#game.big-hit{animation:bigHit .28s ease-out}@keyframes stageBeat{0%{filter:brightness(1.13)}100%{filter:brightness(1)}}@keyframes bigHit{0%{transform:scale(1)}32%{transform:scale(1.014);filter:brightness(1.26) saturate(1.15)}100%{transform:scale(1)}}
+    .airi-wrap.dance-0{transform:translateX(-56%) rotate(-3deg) scale(1.04)}.airi-wrap.dance-1{transform:translateX(-48%) translateY(-4%) rotate(2deg) scale(1.07)}.airi-wrap.dance-2{transform:translateX(-44%) rotate(3deg) scale(1.04)}.airi-wrap.dance-3{transform:translateX(-50%) translateY(-7%) scale(1.1)}
+    .overlay{position:absolute;inset:0;z-index:40;display:grid;place-items:center;padding:24px;background:linear-gradient(110deg,rgba(5,11,31,.94),rgba(17,32,73,.82));transition:.5s}.overlay.hidden{opacity:0;pointer-events:none}.card{width:min(760px,94vw);text-align:center}.kicker{font:12px Consolas;letter-spacing:.34em;color:var(--blue)}h1{margin:16px 0 9px;font:400 clamp(38px,7vw,78px)/1 Georgia,"Songti SC",serif;letter-spacing:.15em}.lead{max-width:620px;margin:0 auto 22px;font-size:clamp(15px,1.5vw,19px);line-height:1.9;color:#dce8ff}.dialogue-preview{margin:20px 0 28px;padding:16px 0;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);line-height:1.8}.dialogue-preview b{color:var(--blue)}.pause-overlay{z-index:50;background:rgba(4,9,26,.74);backdrop-filter:blur(8px)}.pause-overlay h1{font-size:clamp(34px,6vw,68px)}
+    .menu-settings{width:min(680px,92vw);margin:12px auto 16px;padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(8,22,55,.58);backdrop-filter:blur(10px);text-align:left}.menu-settings-head{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.13)}.menu-settings-head b{font-size:14px;letter-spacing:.16em;color:var(--blue)}.menu-settings-head span{font-size:11px;opacity:.65}.menu-settings label{display:grid;grid-template-columns:76px 1fr 42px;align-items:center;gap:8px;font-size:12px}.menu-settings label:first-of-type{grid-template-columns:76px 1fr}.menu-settings select,.menu-settings button{border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:7px 9px;background:#102650;color:#fff;font:inherit;cursor:pointer}.menu-settings input{width:100%;accent-color:var(--blue)}.menu-settings output{text-align:right;color:var(--gold);font:700 11px Consolas}.mirror-preview,.mirror-flash{min-height:34px}.mirror-preview{color:var(--blue)!important}.mirror-flash.off{color:#aeb6cb;background:#151e38}.pause-setting-note{grid-column:1/-1;text-align:center;opacity:.58;font-size:10px}.compact-dialogue{margin:12px 0 16px;padding:10px 0}.pause-lead{margin-bottom:8px}.pause-overlay .menu-settings{margin-bottom:20px}@media(max-width:680px){.menu-settings{grid-template-columns:1fr;gap:8px;padding:10px}.menu-settings-head,.pause-setting-note{grid-column:1}.menu-settings label{grid-template-columns:72px 1fr 38px}.menu-settings label:first-of-type{grid-template-columns:72px 1fr}.compact-dialogue{display:none}.overlay{overflow:auto;align-items:start;padding-top:20px}.overlay h1{margin:8px 0}.overlay .lead{line-height:1.5;margin-bottom:8px}}
+    .primary{border:1px solid rgba(255,255,255,.72);padding:13px 34px;background:rgba(112,208,255,.14);letter-spacing:.18em;cursor:pointer;box-shadow:inset 0 0 20px rgba(119,218,255,.1)}.primary:hover{background:rgba(112,208,255,.28)}.rules{margin:18px auto 0;font-size:12px;line-height:1.8;opacity:.7}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.result-grid div{padding:12px;border:1px solid rgba(255,255,255,.16)}.result-grid b{display:block;font:700 28px Consolas;color:var(--gold)}
+    @media(max-width:680px){.scoreboard{gap:9px}.metric:nth-child(1){display:none}.progress{top:82px;width:62vw}.speed-box{top:69px;right:8px;transform:scale(.85);transform-origin:right top}.airi-wrap{width:84vw;height:90%;bottom:-18%}.viewfinder{inset:15% 5% 25%}.film{top:18%;right:1%}.highway{inset:13% 2% 8%}.hitline{left:0;right:0}.caption{bottom:4px}.line{font-size:14px}.hint{display:none}.title{font-size:22px}.top{top:12px}.chapter{font-size:9px}.receptor{width:20vw}}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}.judgement.show{animation-duration:.6s!important}.lane-judge.show{animation-duration:.5s!important}.flash.fire{animation-duration:.28s!important}.particle{animation-duration:.46s!important}}
+  </style>
+</head>
+<body>
+<main id="game" aria-label="一瞬留影节奏摄影试玩">
+  <div class="top">
+    <div><div class="chapter">CHAPTER 03 · BEFORE THE WALK</div><div class="title">一瞬留影</div></div>
+    <div class="scoreboard"><div class="metric"><small>SCORE</small><b id="score">000000</b></div><div class="metric"><small>COMBO</small><b id="combo">0</b></div><div class="metric"><small>FILM</small><b><span id="filmCount">--</span>/<span id="filmTotal">--</span></b></div></div>
+  </div>
+  <div class="speed-box"><button id="settingsToggle" class="settings-toggle" type="button" aria-expanded="false">⚙ 设置</button><div id="settingsPanel" class="settings-panel"><label>流速 <input id="noteSpeed" type="range" min="0.70" max="3.00" step="0.05" value="2.00"><output id="speedValue">2.00×</output></label><label class="select-row">谱面 <select id="difficulty"><option value="normal">标准</option><option value="hard" selected>高压</option><option value="expert">极限</option></select></label><label>音乐 <input id="musicVolume" type="range" min="0" max="100" step="1" value="84"><output id="musicVolumeValue">84%</output></label><label class="key-row">按键 <input id="keyVolume" type="range" min="0" max="100" step="1" value="70"><output id="keyVolumeValue">70%</output><button id="soundPreview" class="sound-preview" type="button">试听</button></label><button id="flashToggle" class="effect-toggle" type="button" aria-pressed="true">命中闪屏：开</button></div></div>
+  <div class="progress"><i id="progress"></i></div>
+  <div id="comboFx" class="combo-fx" aria-hidden="true"><i class="edge-light left"></i><i class="edge-light right"></i><i class="bottom-aura"></i><i class="bottom-sparks"></i></div>
+  <div class="viewfinder" aria-hidden="true"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><i id="focus" class="focus"></i></div>
+  <div id="airi" class="airi-wrap"><img id="airiImg" src="assets/airi-smile.png" alt="正在海边快速变换姿势的爱理"></div>
+  <div id="highway" class="highway" aria-label="四轨节奏摄影轨道">
+    <div class="horizon-glow"></div>
+    <svg class="rails" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="edge" d="M48 10 L7 89"/><path d="M49.2 10 L31 89"/><path d="M50 10 L50 89"/><path d="M50.8 10 L69 89"/><path class="edge" d="M52 10 L93 89"/></svg>
+    <div id="notes"></div><div id="fx"></div>
+    <div class="hitline"><button class="receptor" data-lane="0" aria-label="菱镜轨，D键"><span class="receptor-shape">◇</span><small>D</small></button><button class="receptor" data-lane="1" aria-label="光圈轨，F键"><span class="receptor-shape">◉</span><small>F</small></button><button class="receptor" data-lane="2" aria-label="星芒轨，J键"><span class="receptor-shape">✦</span><small>J</small></button><button class="receptor" data-lane="3" aria-label="六角轨，K键"><span class="receptor-shape">⬡</span><small>K</small></button></div>
+  </div>
+  <div id="judgement" class="judgement">0 连击</div><div id="flash" class="flash"></div><div id="film" class="film" aria-label="拍下的照片"></div>
+  <div class="caption"><div id="speaker" class="speaker">爱理</div><div id="line" class="line">“镜头要跟紧我哦。图案完全重合的时候，再按下来。”</div><div id="hint" class="hint">图案重合时按键 · 空格 / P 暂停 · 长条尾部无需松手判定</div></div>
+  <section id="intro" class="overlay"><div class="card"><div class="kicker">I.L.Y. · FOUR-LANE PHOTO RHYTHM</div><h1>一瞬留影</h1><p class="lead">在爱理变换动作的最佳瞬间，按下对应的 <b>D、F、J、K</b>。先选择适合自己的难度与速度，再开始跟拍。</p><div class="menu-settings"><div class="menu-settings-head"><b>游玩设置</b><span>游戏中可暂停调整</span></div><label><span>难度</span><select class="mirror-difficulty"><option value="normal">标准</option><option value="hard">高压</option><option value="expert">极限</option></select></label><label><span>音符流速</span><input class="mirror-speed" type="range" min="0.70" max="3.00" step="0.05"><output class="mirror-speed-value">2.00×</output></label><label><span>音乐音量</span><input class="mirror-music" type="range" min="0" max="100" step="1"><output class="mirror-music-value">84%</output></label><label><span>按键音量</span><input class="mirror-key" type="range" min="0" max="100" step="1"><output class="mirror-key-value">70%</output></label><button class="mirror-preview" type="button">试听按键音</button><button class="mirror-flash" type="button">命中闪屏：开</button><small class="pause-setting-note">暂停时更换难度将在下一局生效；其余设置立即生效。</small></div><div class="dialogue-preview compact-dialogue"><b>爱理：</b>“基生，镜头可要一直跟着我哦？”　<b>基生：</b>“你到底准备摆多少动作啊。”</div><button id="start" class="primary">按当前设置开始</button><div class="rules">空格 / P 暂停　·　失败音符会立即消失且不加分　·　长条尾部无需松手判定</div></div></section>
+  <section id="result" class="overlay hidden"><div class="card"><div class="kicker">CONTACT SHEET / 01</div><h1 id="rank">好照片</h1><p id="resultLine" class="lead"></p><div class="result-grid"><div><b id="rScore">0</b>总分</div><div><b id="rPerfect">0</b>绝佳</div><div><b id="rBest">0</b>最高连拍</div></div><div id="afterTalk" class="dialogue-preview"></div><button id="again" class="primary">再拍一卷</button><div class="rules">剧情衔接：结束后进入“给爱理拍照”的海边 RPG 探索段。</div></div></section>
+  <section id="pause" class="overlay pause-overlay hidden"><div class="card"><div class="kicker">CAMERA ON HOLD</div><h1>暂停</h1><p class="lead pause-lead">镜头停在这一瞬。可以调整设置，然后继续跟拍。</p><div class="menu-settings"><div class="menu-settings-head"><b>游玩设置</b><span>游戏中可暂停调整</span></div><label><span>难度</span><select class="mirror-difficulty"><option value="normal">标准</option><option value="hard">高压</option><option value="expert">极限</option></select></label><label><span>音符流速</span><input class="mirror-speed" type="range" min="0.70" max="3.00" step="0.05"><output class="mirror-speed-value">2.00×</output></label><label><span>音乐音量</span><input class="mirror-music" type="range" min="0" max="100" step="1"><output class="mirror-music-value">84%</output></label><label><span>按键音量</span><input class="mirror-key" type="range" min="0" max="100" step="1"><output class="mirror-key-value">70%</output></label><button class="mirror-preview" type="button">试听按键音</button><button class="mirror-flash" type="button">命中闪屏：开</button><small class="pause-setting-note">暂停时更换难度将在下一局生效；其余设置立即生效。</small></div><button id="resumeButton" class="primary">继续游戏</button><div class="rules">也可以按空格或 P 继续</div></div></section>
+</main>
+  <audio id="bgm" src="assets/恋愛裁判.mp3" preload="auto"></audio>
+<script type="text/plain" id="legacy-single-key">
+(() => {
+  'use strict';
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const poseImages=['assets/airi-smile.png','assets/airi-curious.png','assets/airi-wink.png','assets/airi-blush.png'];
+  const phaseLines=[
+    ['爱理','“先听清楚歌曲本身。金色亮起的时候，就是最好看的我。”'],
+    ['爱理','“这次不是四拍哦——猜猜我会在哪一拍停下来？”'],
+    ['基生','鼓点变密了。别追她的假动作……让快门跟着音乐走。']
+  ];
+  // 由当前 MP3 的 120 秒频谱通量实测：134.88 BPM，稳定拍相位 0.413 秒。
+  const BPM=134.88,BEAT=60/BPM,BEAT_OFFSET=.413,FALLBACK_DURATION=222.027;
+  let bars=[],totalTargets=0;
+  let ctx=null,state='idle',schedule=[],beatIndex=-1,measureIndex=0,score=0,combo=0,bestCombo=0,perfect=0,used=new Set(),raf=0,lastPose=-1;
+  const el={intro:$('#intro'),result:$('#result'),airi:$('#airi'),img:$('#airiImg'),focus:$('#focus'),flash:$('#flash'),judge:$('#judgement'),score:$('#score'),combo:$('#combo'),filmCount:$('#filmCount'),filmTotal:$('#filmTotal'),progress:$('#progress'),film:$('#film'),speaker:$('#speaker'),line:$('#line'),hint:$('#hint'),bgm:$('#bgm')};
+
+  function buildSchedule(duration){
+    const out=[];bars=[];let absoluteBeat=0,group=0;
+    const patterns=[[8,6,7,9,5],[6,3,5,8,4,7],[4,3,5,6,2,7,5]];
+    while(BEAT_OFFSET+absoluteBeat*BEAT<duration-.8){
+      const progress=(BEAT_OFFSET+absoluteBeat*BEAT)/duration,phase=progress<.31?0:progress<.67?1:2;
+      let beats=absoluteBeat<16?8:patterns[phase][group%patterns[phase].length];
+      if(BEAT_OFFSET+(absoluteBeat+beats)*BEAT>duration-.45)beats=Math.max(1,Math.floor((duration-.45-BEAT_OFFSET)/BEAT)-absoluteBeat);
+      if(beats<=0)break;
+      const targets=absoluteBeat<16?[]:[beats];bars.push({beats,targets,phase});const m=bars.length-1;
+      for(let b=1;b<=beats;b++){out.push({id:`${m}-${b}`,t:BEAT_OFFSET+(absoluteBeat+b-1)*BEAT,measure:m,beat:b,beats,phase,target:targets.includes(b)})}
+      absoluteBeat+=beats;group++;
+    }
+    totalTargets=out.filter(e=>e.target).length;return out;
+  }
+  function audio(){if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume()}
+  function cameraSound(){if(!ctx)return;const now=ctx.currentTime,b=ctx.createBuffer(1,ctx.sampleRate*.1,ctx.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/(ctx.sampleRate*.018));const s=ctx.createBufferSource(),g=ctx.createGain();s.buffer=b;g.gain.value=.13;s.connect(g).connect(ctx.destination);s.start(now)}
+  function renderBeats(ev){
+    const line=document.querySelector('.beatline'),targets=bars[ev.measure].targets;line.innerHTML='';
+    for(let i=1;i<=ev.beats;i++){const dot=document.createElement('i');dot.className='beat'+(targets.includes(i)?' target':'');dot.textContent=i;line.appendChild(dot)}
+    line.setAttribute('aria-label',targets.length?`${ev.beats}拍摄影句，快门点在第${targets.join('、')}拍`:`${ev.beats}拍前奏，先听音乐`)
+  }
+  function setPose(n,b,phase){
+    const idx=(n*3+b+phase)%poseImages.length;if(idx!==lastPose){el.img.src=poseImages[idx];lastPose=idx}
+    const target=bars[n].targets.includes(b);el.airi.className='airi-wrap '+(target?'best':(['pose-left','pose-right','pose-pop'][b%3]));
+    el.focus.classList.toggle('ready',target);
+  }
+  function onBeat(ev){
+    measureIndex=ev.measure;if(ev.beat===1)renderBeats(ev);$$('.beat').forEach((x,i)=>x.classList.toggle('on',i===ev.beat-1));
+    setPose(ev.measure,ev.beat,ev.phase);
+    if(ev.beat===1){const [s,l]=phaseLines[ev.phase];el.speaker.textContent=s;el.line.textContent=l}
+    if(!bars[ev.measure].targets.length)el.hint.textContent='前奏 · 先听歌曲的主拍';
+    else if(ev.phase===0)el.hint.textContent=`当前 ${ev.beats} 拍摄影句 · 金色拍按快门`;
+    else if(ev.phase===1)el.hint.textContent=`当前 ${ev.beats} 拍摄影句 · 句长会随音乐改变`;
+    else el.hint.textContent=`当前 ${ev.beats} 拍摄影句 · 爱理换动作更快了`;
+    document.querySelector('.beatline').style.opacity=ev.phase===0?'1':ev.phase===1?'.74':'.54';
+  }
+  function showJudge(text,kind){el.judge.textContent=text;el.judge.className='judgement '+kind;void el.judge.offsetWidth;el.judge.classList.add('show')}
+  function addPhoto(kind,ev){
+    const shot=document.createElement('div');shot.className='shot';shot.style.setProperty('--r',`${((ev.measure%3)-1)*2.2}deg`);shot.innerHTML=`<img src="${el.img.src}"><span>${kind==='perfect'?'BEST':kind==='good'?'GOOD':'BLUR'}</span>`;el.film.prepend(shot);while(el.film.children.length>5)el.film.lastElementChild.remove();
+  }
+  function shutter(){
+    if(state!=='playing')return;audio();const now=el.bgm.currentTime;
+    const candidates=schedule.filter(e=>e.target&&!used.has(e.id));if(!candidates.length)return;
+    const ev=candidates.reduce((a,b)=>Math.abs(a.t-now)<Math.abs(b.t-now)?a:b);const err=Math.abs(ev.t-now);
+    if(err>.42){showJudge(now<ev.t?'还没到':'再等等','miss');return}
+    used.add(ev.id);
+    el.flash.classList.remove('fire');void el.flash.offsetWidth;el.flash.classList.add('fire');cameraSound();
+    let kind,pts,label;if(err<=.09){kind='perfect';pts=1000;label='PERFECT';perfect++}else if(err<=.19){kind='good';pts=650;label=now<ev.t?'EARLY':'LATE'}else{kind='miss';pts=120;label=now<ev.t?'太早了':'糊掉了'}
+    if(kind==='miss')combo=0;else{combo++;bestCombo=Math.max(bestCombo,combo)}score+=pts+combo*25;showJudge(label,kind);addPhoto(kind,ev);updateHud();
+  }
+  function autoMiss(now){
+    schedule.filter(e=>e.target&&!used.has(e.id)&&now>e.t+.28).forEach(e=>{used.add(e.id);combo=0;showJudge('错过了','miss');updateHud()});
+  }
+  function updateHud(){el.score.textContent=String(score).padStart(6,'0');el.combo.textContent=combo;el.filmCount.textContent=Math.max(0,totalTargets-used.size);el.filmTotal.textContent=totalTargets||'--'}
+  function frame(){
+    if(state!=='playing')return;const now=el.bgm.currentTime;
+    while(beatIndex+1<schedule.length&&now>=schedule[beatIndex+1].t){beatIndex++;onBeat(schedule[beatIndex])}
+    autoMiss(now);const end=el.bgm.duration||FALLBACK_DURATION;el.progress.style.width=`${Math.min(100,now/end*100)}%`;
+    if(el.bgm.ended){finish();return}raf=requestAnimationFrame(frame)
+  }
+  async function start(){
+    audio();cancelAnimationFrame(raf);el.bgm.pause();el.bgm.currentTime=0;el.bgm.volume=.82;schedule=buildSchedule(el.bgm.duration||FALLBACK_DURATION);beatIndex=-1;measureIndex=0;score=combo=bestCombo=perfect=0;used.clear();lastPose=-1;el.film.innerHTML='';el.progress.style.width='0';updateHud();el.intro.classList.add('hidden');el.result.classList.add('hidden');el.speaker.textContent='基生';el.line.textContent='先听前奏……然后跟着金色节拍按下快门。';
+    try{await el.bgm.play();state='playing';raf=requestAnimationFrame(frame)}catch(err){state='idle';el.intro.classList.remove('hidden');el.line.textContent='音乐没有成功播放，请再点一次“举起相机”。'}
+  }
+  function finish(){
+    state='result';el.bgm.pause();$$('.beat').forEach(x=>x.classList.remove('on'));el.focus.classList.remove('ready');
+    const ratio=score/(totalTargets*1000+totalTargets*25);let rank,line,talk;
+    if(ratio>.76){rank='她最喜欢的一张';line='连海风掀起发梢的瞬间，也被你留住了。';talk='<b>爱理：</b>“……原来你一直有好好看着我啊。”<br><b>基生：</b>“因为你根本没给我移开视线的机会。”'}
+    else if(ratio>.46){rank='不错的合格照';line='有几张稍微糊了，不过爱理笑得很开心。';talk='<b>爱理：</b>“这张留下。那张也留下……糊掉的那张不许看！”<br><b>基生：</b>“到底哪张？”'}
+    else{rank='一卷模糊回忆';line='快门总慢半拍，但这反而很像此刻慌张的基生。';talk='<b>爱理：</b>“噗……基生，你该不会一直在看我、忘了按快门吧？”<br><b>基生：</b>“再、再来一次。”'}
+    $('#rank').textContent=rank;$('#resultLine').textContent=line;$('#rScore').textContent=score;$('#rPerfect').textContent=perfect;$('#rBest').textContent=bestCombo;$('#afterTalk').innerHTML=talk;el.result.classList.remove('hidden')
+  }
+  $('#start').addEventListener('click',start);$('#again').addEventListener('click',start);$('#shutter').addEventListener('pointerdown',e=>{e.preventDefault();shutter()});
+  el.bgm.addEventListener('ended',()=>{if(state==='playing')finish()});
+  addEventListener('keydown',e=>{if((e.code==='Space'||e.code==='KeyJ')&&!e.repeat){e.preventDefault();shutter()}});
+  poseImages.forEach(src=>{const im=new Image();im.src=src});
+})();
+</script>
+<script>
+(() => {
+  'use strict';
+  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+  const safeLS={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  const BPM=134.88,BEAT=60/BPM,OFFSET=.413,DURATION=222.027,BASE_APPROACH=1.72,TAIL_SILENCE=3.2;
+  // 从用户提供的 30fps 全谱面录像中，以判定圈黄色 PERFECT 爆光逐帧提取。
+  const REF_HITS=[11.766667,16.466667,24.3,25.2,26.033333,26.933333,29.4,29.666667,31.466667,32.366667,35,35.9,36.833333,37.266667,38.633333,39.5,44.433333,52.066667,52.5,54.733333,55.2,55.633333,56.5,58.233333,58.466667,58.766667,59.233333,60.1,65.566667,67.266667,69.2,69.466667,78.666667,78.9,79.766667,80.266667,80.666667,81.6,82.066667,82.5,84.866667,85.166667,85.833333,86.033333,90.633333,99.5,101.433333,107.333333,107.533333,108.933333,110.233333,110.666667,113.533333,113.8,114.5,114.7,119.166667,119.666667,120.066667,121.9,122.366667,123.366667,125.033333,129.966667,130.866667,132.2,133.633333,133.866667,134.066667,137.433333,138.966667];
+  const keys=['D','F','J','K'],icons=['◇','◉','✦','⬡'],keyMap={KeyD:0,KeyF:1,KeyJ:2,KeyK:3};
+  const colors=['#76d7ff','#a9f2db','#ff9fc0','#c8aeff'];
+  const poses=['assets/airi-smile.png','assets/airi-curious.png','assets/airi-wink.png','assets/airi-blush.png'];
+  const game=$('#game'),bgm=$('#bgm'),airi=$('#airi'),airiImg=$('#airiImg'),notesLayer=$('#notes'),fx=$('#fx'),flash=$('#flash'),focus=$('#focus'),judge=$('#judgement');
+  const scoreEl=$('#score'),comboEl=$('#combo'),filmCount=$('#filmCount'),filmTotal=$('#filmTotal'),progress=$('#progress'),film=$('#film'),speaker=$('#speaker'),line=$('#line'),hint=$('#hint'),speedInput=$('#noteSpeed'),speedValue=$('#speedValue'),difficultyInput=$('#difficulty'),pauseOverlay=$('#pause'),flashToggle=$('#flashToggle'),musicVolumeInput=$('#musicVolume'),musicVolumeValue=$('#musicVolumeValue'),keyVolumeInput=$('#keyVolume'),keyVolumeValue=$('#keyVolumeValue'),settingsToggle=$('#settingsToggle'),settingsPanel=$('#settingsPanel'),soundPreview=$('#soundPreview');
+  let audioCtx=null,state='idle',beats=[],chart=[],chartEnd=DURATION-TAIL_SILENCE,beatIndex=-1,spawnIndex=0,missIndex=0,raf=0,score=0,combo=0,bestCombo=0,perfect=0,great=0,good=0,quality=0,totalPhotos=0,judgedPhotos=0,flashEnabled=safeLS.get('ily-hit-flash')!=='off';
+  const visible=new Map(),activeHolds=new Map(),keysDown=new Set();
+
+  function audio(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume()}
+  function musicVolume(){return Number(musicVolumeInput.value)/100} function keyVolume(){return Number(keyVolumeInput.value)/100} function hitSound(lane=1,strong=false){audio();const vol=keyVolume();if(!audioCtx||vol<=0)return;const now=audioCtx.currentTime,freq=[523.25,587.33,659.25,783.99][lane]||659.25;const osc=audioCtx.createOscillator(),gain=audioCtx.createGain(),filter=audioCtx.createBiquadFilter();osc.type=strong?'triangle':'sine';osc.frequency.setValueAtTime(freq*(strong?1.5:1),now);osc.frequency.exponentialRampToValueAtTime(freq*.94,now+.11);filter.type='lowpass';filter.frequency.value=strong?4200:3200;gain.gain.setValueAtTime((strong?.18:.13)*vol,now);gain.gain.exponentialRampToValueAtTime(.0001,now+(strong?.18:.12));osc.connect(filter).connect(gain).connect(audioCtx.destination);osc.start(now);osc.stop(now+(strong?.19:.13));if(strong){const b=audioCtx.createBuffer(1,audioCtx.sampleRate*.07,audioCtx.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*.012));const src=audioCtx.createBufferSource(),ng=audioCtx.createGain();src.buffer=b;ng.gain.value=.055*vol;src.connect(ng).connect(audioCtx.destination);src.start(now)}}
+
+  function approachTime(){return BASE_APPROACH/Number(speedInput.value)}
+  function addNote(time,lane,photo=false,source='support',hold=0){
+    if(time<.6||time>chartEnd)return;
+    if(chart.some(n=>Math.abs(n.time-time)<.035&&n.lane===lane))return;
+    chart.push({id:chart.length,time,lane,photo,source,hold,judged:false})
+  }
+  function buildChart(duration){
+    chartEnd=Math.max(.6,duration-TAIL_SILENCE);beats=[];chart=[];const count=Math.floor((chartEnd-OFFSET)/BEAT),lanePattern=[0,2,1,3,1,2,0,3];
+    for(let i=0;i<count;i++){const time=OFFSET+i*BEAT,phase=time/duration<.31?0:time/duration<.67?1:2;beats.push({time,index:i,phase})}
+    const quant=t=>OFFSET+Math.round((t-OFFSET)/(BEAT/4))*(BEAT/4);
+    const mapVideoTime=t=>t<87.5?t-8.825:t<107.5?t+48.475:t+80.725;
+    const reference=REF_HITS.map(mapVideoTime).map(quant).filter(t=>t>.6&&t<=chartEnd);
+    reference.forEach((time,i)=>{
+      const lane=lanePattern[i%lanePattern.length],photo=i%4===0,hold=i%10===5?BEAT*(i%20===5?3:2):0;addNote(time,lane,photo,'reference',hold);
+      // 参考谱面的重点拍前补一枚准备音，形成“追焦 → 快门”的摄影动作。
+      if(i>0&&time-reference[i-1]>BEAT*1.55)addNote(quant(time-BEAT),(lane+3)%4,false,'lead-in');
+      // 保留原谱强拍，同时少量转为双押，让四轨玩法更有层次。
+      if(i>0&&i%15===0)addNote(time,(lane+2)%4,false,'chord');
+    });
+    // 录像使用短版歌曲，两个被剪掉的原曲段落用同一节奏语言补谱。
+    [[78.0,136.0],[157.0,189.0]].forEach(([start,end],section)=>{
+      let n=0;for(let time=quant(start);time<end;time+=BEAT){
+        if(n%3!==1)addNote(time,lanePattern[(n+section*3)%lanePattern.length],n%16===0,'filled-section',n%20===6?BEAT*2:0);
+        if(n%8===5)addNote(quant(time+BEAT/2),lanePattern[(n+5)%lanePattern.length],false,'filled-section');n++
+      }
+    });
+    // 高难度不会改变音乐速度，而是增加半拍、四分之一拍和双押密度。
+    const mode=difficultyInput.value;
+    if(mode==='hard'||mode==='expert'){
+      beats.forEach((b,i)=>{
+        if(i<36)return;
+        if(i%(mode==='expert'?2:4)===1)addNote(quant(b.time+BEAT/2),lanePattern[(i*3+1)%lanePattern.length],false,mode+'-eighth');
+        if(mode==='expert'&&i>96&&i%8===3)addNote(quant(b.time+BEAT/4),lanePattern[(i+5)%lanePattern.length],false,'expert-quarter');
+        if(i>72&&i%(mode==='expert'?10:18)===6)addNote(b.time,lanePattern[(i+4)%lanePattern.length],false,mode+'-chord');
+      });
+    }
+    chart.sort((a,b)=>a.time-b.time||a.lane-b.lane);chart.forEach((n,i)=>{const next=chart.slice(i+1).find(x=>x.lane===n.lane);if(n.hold&&next)n.hold=Math.max(0,Math.min(n.hold,next.time-n.time-BEAT*.35));if(n.hold)n.hold=Math.max(0,Math.min(n.hold,chartEnd-n.time));if(n.hold<BEAT*.7)n.hold=0;n.id=i});totalPhotos=chart.filter(n=>n.photo).length;
+  }
+  function pulseBeat(ev){
+    game.classList.remove('music-beat');void game.offsetWidth;game.classList.add('music-beat');
+    airi.className=`airi-wrap dance-${ev.index%4}`;
+    if(ev.index%8===0)airiImg.src=poses[(ev.index/8)%poses.length|0];
+    if(ev.index===16){speaker.textContent='爱理';line.textContent='“来了哦——先从慢一点的左右跟拍开始。”'}
+    else if(ev.phase===1&&beats[beatIndex-1]?.phase===0){speaker.textContent='基生';line.textContent='开始出现半拍……视线别离开判定线。'}
+    else if(ev.phase===2&&beats[beatIndex-1]?.phase===1){speaker.textContent='爱理';line.textContent='“跟得不错嘛。那最后就别眨眼啦！”'}
+  }
+  function targetGeometry(){const h=document.querySelector("#highway").getBoundingClientRect();return [...document.querySelectorAll(".receptor-shape")].map(r=>{const b=r.getBoundingClientRect();return{x:(b.left+b.width/2-h.left)/h.width*100,y:(b.top+b.height/2-h.top)/h.height*100}})}
+  function pointFor(time,lane,now,approach,targets){const far=[48.4,49.45,50.55,51.6],p=1-(time-now)/approach,e=Math.max(0,Math.min(1,p)),depth=e*e,t=targets[lane];return{x:far[lane]+(t.x-far[lane])*depth,y:10+(t.y-10)*depth,depth,e}}
+  function spawn(note){const el=document.createElement("div");el.className=`note lane-${note.lane}${note.photo?" photo":""}${note.hold?" long":""}`;el.innerHTML=`<span class="note-icon">${note.photo?"✦":icons[note.lane]}</span>`;el.dataset.id=note.id;if(note.hold){const tail=document.createElement("div");tail.className=`hold-tail lane-${note.lane}`;notesLayer.appendChild(tail);note.tailEl=tail}notesLayer.appendChild(el);visible.set(note.id,el)}
+  function positionNotes(now){const approach=approachTime(),targets=targetGeometry(),ready=[false,false,false,false],hw=document.querySelector("#highway").clientWidth,hh=document.querySelector("#highway").clientHeight;for(const note of chart){const el=visible.get(note.id);if(!el||note.judged&&!note.holding)continue;const head=note.holding?{...targets[note.lane],depth:1,e:1}:pointFor(note.time,note.lane,now,approach,targets);el.style.left=`${head.x}%`;el.style.top=`${head.y}%`;el.style.opacity=Math.min(1,.12+head.e*1.35);el.style.transform=`translate(-50%,-50%) scale(${.28+head.depth*.72}) rotate(${(note.lane-1.5)*(1-head.depth)*8}deg)`;if(!note.judged&&Math.abs(note.time-now)<=.09)ready[note.lane]=true;if(note.hold&&note.tailEl){const end=pointFor(note.time+note.hold,note.lane,now,approach,targets),dx=head.x-end.x,dy=head.y-end.y,length=Math.hypot(dx/100*hw,dy/100*hh),angle=Math.atan2(dx/100*hw,dy/100*hh)*180/Math.PI;note.tailEl.style.left=`${end.x}%`;note.tailEl.style.top=`${end.y}%`;note.tailEl.style.height=`${length}px`;note.tailEl.style.width=`${8+head.depth*12}px`;note.tailEl.style.transform=`translateX(-50%) rotate(${-angle}deg)`}}[...document.querySelectorAll(".receptor")].forEach((r,i)=>r.classList.toggle("ready",ready[i]))}
+  function showJudge(text,kind,lane=null){judge.textContent=`${combo} 连击`;judge.className=`judgement ${combo>0?kind:'miss'}`;void judge.offsetWidth;judge.classList.add('show');if(lane!==null){const receptor=$(`.receptor[data-lane="${lane}"]`);let local=receptor?.querySelector('.lane-judge');if(receptor&&!local){local=document.createElement('span');local.className='lane-judge';receptor.appendChild(local)}if(local){local.textContent=text;local.className=`lane-judge ${kind}`;void local.offsetWidth;local.classList.add('show')}}}
+  function particles(lane,strong=false){
+    const x=[18.5,39.5,60.5,81.5][lane];for(let i=0;i<(strong?20:10);i++){const p=document.createElement('i');p.className='particle';p.style.left=`${x}%`;p.style.top='89%';p.style.setProperty('--pc',strong?'#ffe18e':colors[lane]);p.style.setProperty('--dx',`${(Math.random()-.5)*(strong?210:120)}px`);p.style.setProperty('--dy',`${-25-Math.random()*(strong?150:85)}px`);fx.appendChild(p);setTimeout(()=>p.remove(),520)}
+    const r=$(`.receptor[data-lane="${lane}"]`);r.classList.remove('burst');void r.offsetWidth;r.classList.add('burst')
+  }
+  function addPhoto(note,kind){
+    const shot=document.createElement('div');shot.className='shot';shot.style.setProperty('--r',`${((note.id%3)-1)*2.2}deg`);shot.innerHTML=`<img src="${airiImg.src}"><span>${kind==='perfect'?'BEST':'GOOD'}</span>`;film.prepend(shot);while(film.children.length>5)film.lastElementChild.remove();if(flashEnabled){flash.classList.remove('fire');void flash.offsetWidth;flash.classList.add('fire')}focus.classList.add('ready');setTimeout(()=>focus.classList.remove('ready'),240)
+  }
+  function removeNote(note,klass){const el=visible.get(note.id);if(note.tailEl){note.tailEl.classList.add("tail-hit");setTimeout(()=>note.tailEl?.remove(),260)}if(!el)return;el.classList.remove("holding");el.classList.add(klass);setTimeout(()=>{el.remove();visible.delete(note.id)},260)}
+  function finishHold(note){if(!note?.holding)return;note.holding=false;activeHolds.delete(note.lane);showJudge("PERFECT","perfect",note.lane);particles(note.lane,note.photo);removeNote(note,"hit")}
+  function breakHold(note){if(!note?.holding)return;note.holding=false;activeHolds.delete(note.lane);combo=0;quality=Math.max(0,quality-.5);showJudge("HOLD BREAK","miss",note.lane);removeNote(note,"missed");updateHud()}
+  function releaseLane(lane){keysDown.delete(lane);const note=activeHolds.get(lane);if(note&&bgm.currentTime<note.time+note.hold-.035)breakHold(note)}
+  function hitLane(lane){
+    if(state!=="playing")return;audio();const now=bgm.currentTime;
+    // 时间轴四区间：空拍 | 提前失败 | 成功 | 过晚失败。
+    const EARLY_FAIL=-.40,SUCCESS_EARLY=-.13,SUCCESS_LATE=.13,LATE_FAIL=.22;
+    let best=null,delta=Infinity,nearest=Infinity;
+    for(const n of chart){
+      if(n.judged||n.lane!==lane)continue;
+      const d=now-n.time;if(d>LATE_FAIL)continue;if(d<EARLY_FAIL)break;
+      if(Math.abs(d)<nearest){nearest=Math.abs(d);delta=d;best=n}
+    }
+    // 真正的空拍不消耗音符，也不扣分；连续乱按会在音符进入失败区时将它提前打掉。
+    if(!best){showJudge("空拍","miss",lane);return}
+    if(delta<SUCCESS_EARLY||delta>SUCCESS_LATE){
+      best.judged=true;combo=0;showJudge(delta<0?"TOO EARLY":"TOO LATE","miss",lane);removeNote(best,"missed");updateHud();return
+    }
+    best.judged=true;const err=Math.abs(delta);let kind,pts,label;
+    if(err<=.055){kind="perfect";pts=1000;label="PERFECT";perfect++;quality+=1}
+    else if(err<=.095){kind="good";pts=720;label="GREAT";great++;quality+=.75}
+    else{kind="good";pts=420;label=delta<0?"EARLY":"LATE";good++;quality+=.45}
+    combo++;bestCombo=Math.max(bestCombo,combo);score+=pts+Math.min(combo,100)*8;showJudge(label,kind,lane);hitSound(lane,best.photo);
+    if(best.hold){best.holding=true;activeHolds.set(lane,best);visible.get(best.id)?.classList.add("holding")}else removeNote(best,"hit");
+    particles(lane,best.photo);if(best.photo)addPhoto(best,kind);if(flashEnabled){game.classList.remove("big-hit");void game.offsetWidth;game.classList.add("big-hit")}updateHud()
+  }
+  function miss(note){if(note.judged)return;note.judged=true;combo=0;if(note.photo)judgedPhotos++;removeNote(note,'missed');showJudge('MISS','miss',note.lane);updateHud()}
+  function updateComboFx(){game.classList.toggle('combo-20',combo>=20);game.classList.toggle('combo-50',combo>=50);game.classList.toggle('combo-100',combo>=100);const tier=$('#comboTier');if(tier)tier.textContent=combo>=100?'100 COMBO · CLIMAX':combo>=50?'50 COMBO · BRILLIANT':'20 COMBO · FLOW'}
+  function updateHud(){scoreEl.textContent=String(score).padStart(7,'0');comboEl.textContent=combo;judgedPhotos=chart.filter(n=>n.photo&&n.judged).length;filmCount.textContent=Math.max(0,totalPhotos-judgedPhotos);filmTotal.textContent=totalPhotos||'--';updateComboFx()}
+  function frame(){
+    if(state!=='playing')return;const now=bgm.currentTime;
+    while(beatIndex+1<beats.length&&now>=beats[beatIndex+1].time){beatIndex++;pulseBeat(beats[beatIndex])}
+    while(spawnIndex<chart.length&&chart[spawnIndex].time-now<=approachTime()){spawn(chart[spawnIndex]);spawnIndex++}
+    while(missIndex<chart.length&&chart[missIndex].time<now-.20){miss(chart[missIndex]);missIndex++}for(const note of [...activeHolds.values()])if(now>=note.time+note.hold)finishHold(note)
+    positionNotes(now);progress.style.width=`${Math.min(100,now/(bgm.duration||DURATION)*100)}%`;raf=requestAnimationFrame(frame)
+  }
+  async function togglePause(){
+    if(state==='playing'){state='paused';cancelAnimationFrame(raf);bgm.pause();syncMirrorSettings();pauseOverlay.classList.remove('hidden');return}
+    if(state==='paused'){state='playing';pauseOverlay.classList.add('hidden');try{await bgm.play();raf=requestAnimationFrame(frame)}catch(e){state='paused';pauseOverlay.classList.remove('hidden')}}
+  }
+  function syncMirrorSettings(){$$('.mirror-difficulty').forEach(x=>x.value=difficultyInput.value);$$('.mirror-speed').forEach(x=>x.value=speedInput.value);$$('.mirror-speed-value').forEach(x=>x.textContent=`${Number(speedInput.value).toFixed(2)}×`);$$('.mirror-music').forEach(x=>x.value=musicVolumeInput.value);$$('.mirror-music-value').forEach(x=>x.textContent=`${musicVolumeInput.value}%`);$$('.mirror-key').forEach(x=>x.value=keyVolumeInput.value);$$('.mirror-key-value').forEach(x=>x.textContent=`${keyVolumeInput.value}%`);$$('.mirror-flash').forEach(x=>{x.textContent=`命中闪屏：${flashEnabled?'开':'关'}`;x.classList.toggle('off',!flashEnabled)})}
+  function bindMirrorSettings(){$$('.mirror-difficulty').forEach(x=>x.addEventListener('change',()=>{difficultyInput.value=x.value;localStorage.setItem('ily-difficulty',x.value);syncMirrorSettings()}));$$('.mirror-speed').forEach(x=>x.addEventListener('input',()=>{speedInput.value=x.value;speedValue.textContent=`${Number(x.value).toFixed(2)}×`;localStorage.setItem('ily-note-speed',x.value);syncMirrorSettings()}));$$('.mirror-music').forEach(x=>x.addEventListener('input',()=>{musicVolumeInput.value=x.value;bgm.volume=musicVolume();musicVolumeValue.textContent=`${x.value}%`;localStorage.setItem('ily-music-volume',x.value);syncMirrorSettings()}));$$('.mirror-key').forEach(x=>x.addEventListener('input',()=>{keyVolumeInput.value=x.value;keyVolumeValue.textContent=`${x.value}%`;localStorage.setItem('ily-key-volume',x.value);syncMirrorSettings()}));$$('.mirror-preview').forEach(x=>x.addEventListener('click',()=>hitSound(2,true)));$$('.mirror-flash').forEach(x=>x.addEventListener('click',()=>{flashEnabled=!flashEnabled;localStorage.setItem('ily-hit-flash',flashEnabled?'on':'off');updateFlashToggle()}));$('#resumeButton')?.addEventListener('click',togglePause)}
+  function updateFlashToggle(){flashToggle.textContent=`闪屏：${flashEnabled?'开':'关'}`;flashToggle.setAttribute('aria-pressed',String(flashEnabled));game.classList.toggle('no-hit-flash',!flashEnabled);if(!flashEnabled){flash.classList.remove('fire');game.classList.remove('big-hit')}syncMirrorSettings()}
+  async function start(){
+    if(state==='starting')return;state='starting';audio();cancelAnimationFrame(raf);bgm.pause();bgm.currentTime=0;bgm.volume=musicVolume();notesLayer.innerHTML='';fx.innerHTML='';film.innerHTML='';visible.clear();activeHolds.clear();keysDown.clear();buildChart(bgm.duration||DURATION);beatIndex=-1;spawnIndex=missIndex=0;score=combo=bestCombo=perfect=great=good=quality=judgedPhotos=0;progress.style.width='0';updateHud();$('#intro').classList.add('hidden');$('#result').classList.add('hidden');pauseOverlay.classList.add('hidden');speaker.textContent='基生';line.textContent='先听前奏。音符落到四个按键上时再按。';hint.textContent='图案重合时按键 · 空格 / P 暂停 · 失败音符会立即消失且不加分';
+    try{await bgm.play();state='playing';raf=requestAnimationFrame(frame)}catch(e){state='idle';$('#intro').classList.remove('hidden');line.textContent='音乐没有成功播放，请再点一次“开始跟拍”。'}
+  }
+  function finish(){
+    if(state==='result')return;state='result';cancelAnimationFrame(raf);bgm.pause();const accuracy=chart.length?quality/chart.length:0;let rank,resultLine,talk;
+    if(accuracy>.82){rank='心跳与快门重合';resultLine='每一次追焦都紧紧咬住了她的动作。';talk='<b>爱理：</b>“这么多动作都跟上了……你到底看了我多久呀？”<br><b>基生：</b>“从你跑进镜头开始，就没办法移开了。”'}
+    else if(accuracy>.55){rank='被海风吹动的相册';resultLine='偶尔失焦，却留下了最自然的笑容。';talk='<b>爱理：</b>“这几张很好看。失误的那些……也有一点点可爱。”<br><b>基生：</b>“可爱的是照片，还是拍照的人？”'}
+    else{rank='追不上她的镜头';resultLine='爱理的动作比预想中更快，不过她似乎玩得很开心。';talk='<b>爱理：</b>“基生，再来一次吧？下一次我会稍微——只稍微慢一点。”<br><b>基生：</b>“你刚才也这么说。”'}
+    $('#rank').textContent=rank;$('#resultLine').textContent=resultLine;$('#rScore').textContent=score;$('#rPerfect').textContent=perfect;$('#rBest').textContent=bestCombo;$('#afterTalk').innerHTML=talk;$('#result').classList.remove('hidden')
+  }
+  addEventListener('keydown',e=>{if((e.code==='Space'||e.code==='KeyP')&&!e.repeat&&(state==='playing'||state==='paused')){e.preventDefault();togglePause();return}const lane=keyMap[e.code];if(lane===undefined||e.repeat)return;e.preventDefault();keysDown.add(lane);const r=$(`.receptor[data-lane="${lane}"]`);r.classList.add('down');hitLane(lane)});
+  addEventListener('keyup',e=>{const lane=keyMap[e.code];if(lane!==undefined){$(`.receptor[data-lane="${lane}"]`).classList.remove('down');releaseLane(lane)}});
+  $$('.receptor').forEach(r=>{r.addEventListener('pointerdown',e=>{e.preventDefault();r.setPointerCapture?.(e.pointerId);const lane=+r.dataset.lane;keysDown.add(lane);r.classList.add('down');hitLane(lane)});const release=()=>{r.classList.remove('down');releaseLane(+r.dataset.lane)};r.addEventListener('pointerup',release);r.addEventListener('pointercancel',release);r.addEventListener('pointerleave',e=>{if(e.buttons===0)release()})});
+  speedInput.addEventListener('input',()=>{speedValue.textContent=`${Number(speedInput.value).toFixed(2)}×`;localStorage.setItem('ily-note-speed',speedInput.value);syncMirrorSettings()});const savedSpeed=safeLS.get('ily-note-speed');if(savedSpeed){speedInput.value=Math.min(3,Number(savedSpeed));speedValue.textContent=`${Number(speedInput.value).toFixed(2)}×`}difficultyInput.addEventListener('change',()=>{localStorage.setItem('ily-difficulty',difficultyInput.value);syncMirrorSettings()});const savedDifficulty=safeLS.get('ily-difficulty');if(['normal','hard','expert'].includes(savedDifficulty))difficultyInput.value=savedDifficulty;settingsToggle.addEventListener('click',()=>{const open=settingsPanel.classList.toggle('open');settingsToggle.setAttribute('aria-expanded',String(open))});soundPreview.addEventListener('click',()=>hitSound(2,true));document.addEventListener('pointerdown',e=>{if(!e.target.closest('.speed-box')){settingsPanel.classList.remove('open');settingsToggle.setAttribute('aria-expanded','false')}});musicVolumeInput.addEventListener('input',()=>{bgm.volume=musicVolume();musicVolumeValue.textContent=`${musicVolumeInput.value}%`;localStorage.setItem('ily-music-volume',musicVolumeInput.value);syncMirrorSettings()});keyVolumeInput.addEventListener('input',()=>{keyVolumeValue.textContent=`${keyVolumeInput.value}%`;localStorage.setItem('ily-key-volume',keyVolumeInput.value);syncMirrorSettings()});const savedMusicVolume=safeLS.get('ily-music-volume'),savedKeyVolume=safeLS.get('ily-key-volume');if(savedMusicVolume!==null)musicVolumeInput.value=savedMusicVolume;if(savedKeyVolume!==null)keyVolumeInput.value=savedKeyVolume;musicVolumeValue.textContent=`${musicVolumeInput.value}%`;keyVolumeValue.textContent=`${keyVolumeInput.value}%`;bgm.volume=musicVolume();bindMirrorSettings();syncMirrorSettings();flashToggle.addEventListener('click',()=>{flashEnabled=!flashEnabled;localStorage.setItem('ily-hit-flash',flashEnabled?'on':'off');updateFlashToggle()});updateFlashToggle();$('#start').addEventListener('click',start);$('#again').addEventListener('click',start);bgm.addEventListener('ended',finish);poses.forEach(src=>{const im=new Image();im.src=src});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>I.L.Y 剧本校对器</title>
+  <link rel="stylesheet" href="styles/chapters.css">
+  <style>
+    body{margin:0;background:#081321;color:#f4f1e8;font-family:system-ui;padding:20px}
+    .review{max-width:1050px;margin:auto}.toolbar,.row-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .toolbar{position:sticky;bottom:0;background:#081321;padding:12px 0}
+    .row{border:1px solid #385a73;background:#0b1b2b;padding:10px;margin:9px 0}
+    .row.current{border-color:#f3ca62;background:#263d4c}.row.deleted{border-style:dashed;opacity:.65}
+    .head{display:flex;gap:10px;align-items:center;color:#a9c1d0;flex-wrap:wrap}.head small{flex:1;overflow-wrap:anywhere;min-width:150px}
+    .row select,.row textarea{background:#071422;color:#fff;border:1px solid #63809a;padding:7px}
+    .row textarea{display:block;width:100%;box-sizing:border-box;margin-top:8px;line-height:1.5;font:inherit;resize:vertical}
+    .visual-editor{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:12px;margin-top:10px;align-items:stretch}
+    .visual-controls{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:10px}.visual-controls label{display:grid;gap:5px;color:#a9c1d0;font-size:13px}.visual-controls select{width:100%;min-width:0}
+    .media-field{display:grid;gap:5px}.media-field .pick-file{background:#2b4d6b;border-color:#8ab4d0}
+    .character-editor{min-width:0;border-left:1px solid #385a73;padding-left:10px}.character-head,.character-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.character-head{justify-content:space-between;color:#a9c1d0;font-size:13px}.character-actions button{padding:5px 8px;font-size:12px}.character-list{display:grid;gap:8px;margin-top:8px}.character-row{display:grid;grid-template-columns:minmax(0,1fr) 95px auto;gap:7px;align-items:end}.character-row .pick-file{padding:5px 8px;font-size:12px}.character-row .remove-character{margin-bottom:0}.character-empty{margin:8px 0 0;color:#63809a;font-size:13px}
+    .visual-preview{position:relative;overflow:hidden;min-height:112px;background:#050b11;border:1px solid #385a73}.preview-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.preview-characters{position:absolute;inset:0}.preview-portrait{position:absolute;bottom:0;width:68%;height:100%;object-fit:contain;object-position:center bottom;transform:scale(var(--preview-scale,1));transform-origin:center bottom}.preview-portrait[data-position=left]{left:-10%}.preview-portrait[data-position=center]{left:16%}.preview-portrait[data-position=right]{right:-10%}.visual-preview span{position:absolute;inset:0;display:grid;place-items:center;color:#63809a;font-size:13px}
+    .visual-preview [hidden]{display:none}
+    .row-actions{margin-top:8px}button{background:#18344b;color:#f4f1e8;border:1px solid #63809a;padding:7px 10px;cursor:pointer;font:inherit}
+    button:hover:enabled{background:#294d68}button:disabled{opacity:.45;cursor:not-allowed}
+    .banner{margin:0 0 12px;padding:10px 12px;border:1px solid #63809a;border-left-width:5px;line-height:1.6}
+    .banner[hidden]{display:none}
+    .banner-error{background:#3a1620;border-color:#d0556f;color:#ffd9e1}
+    .banner-ok{background:#12301f;border-color:#4fae74;color:#d6f5e2}
+    .banner-info{background:#12283a;border-color:#4d7fa3;color:#d7e7f2}
+    .banner code{background:rgba(255,255,255,.12);padding:1px 4px;border-radius:3px}
+    #count{color:#a9c1d0}#status{min-height:1.5em}@media(max-width:720px){body{padding:10px}.visual-editor{grid-template-columns:1fr}.visual-controls{grid-template-columns:1fr}.character-editor{border-left:0;border-top:1px solid #385a73;padding:10px 0 0}.visual-preview{min-height:150px}}@media(max-width:480px){.character-row{grid-template-columns:1fr 90px}.character-row .remove-character{grid-column:1/-1}}
+  </style>
+</head>
+<body>
+  <main class="review">
+    <h1>剧本校对器</h1>
+    <p><a id="return-game" href="./chapters.html">返回游戏</a></p>
+    <p id="banner" class="banner" role="alert" hidden></p>
+    <p id="meta">等待游戏连接……</p>
+    <p>游戏推进时，本窗口会自动显示当前场景。可修改文本、类型、说话人、背景和人物立绘，也可在每段前后新增或删除文本段。修改后点击“保存修改”。</p>
+    <p><b>章节调试建议运行 <code>npm run chapters</code>，再使用终端打印的 <code>/game/chapters.html</code> 地址。</b><code>npm start</code> 会进入正式登录流程；不要从文件管理器双击 HTML（<code>file://</code>），否则只能查看，不能写入项目或上传本地图片。</p>
+    <p id="count"></p>
+    <label><input type="checkbox" id="show-deleted">显示已删除段落（可恢复）</label>
+    <section id="list"></section>
+    <div class="toolbar"><button id="save">保存修改</button><button id="reconnect">检查项目连接</button><button id="export">导出 JSON</button><button id="export-js">导出项目 JS</button><button id="clear">恢复项目已保存版本</button></div>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script src="data/uploaded-assets.js"></script>
+  <script src="data/story/script-edits.js"></script>
+  <script src="src/script-review-model.js"></script>
+  <script src="src/script-editor-window.js"></script>
+</body>
+</html>
