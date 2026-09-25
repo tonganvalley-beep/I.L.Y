@@ -79,7 +79,8 @@ function build() {
     if (stage) stage.focus({ preventScroll: true });
     refresh();
   });
-  document.body.append(dialog);
+  // 挂到 #game-frame 内（而非 body），这样手机弹窗随固定 16:9 画布一起缩放
+  (document.getElementById('game-frame') || document.body).append(dialog);
 
   btn = ILY.el('button', 'phone-quick');
   btn.type = 'button';
@@ -88,7 +89,8 @@ function build() {
   label = ILY.el('span', 'phone-quick-label', ILY.t('phone.free.title'));
   btn.append(label);
   btn.addEventListener('click', () => open());
-  document.body.append(btn);
+  // 角落的手机入口按钮同样挂进画布，保证位置/大小随画布缩放
+  (document.getElementById('game-frame') || document.body).append(btn);
 }
 
 function canOpen() {
@@ -100,7 +102,7 @@ function open() {
   const state = ctx.getState();
   if (!state) return;
   holder.replaceChildren();
-  dialog.showModal();
+  dialog.show();
   dialog.focus({ preventScroll: true });   // 把焦点从「合上手机」按钮挪回弹窗
   window.dispatchEvent(new Event('blur')); // 让步行 / 弹幕等玩法暂停
   cleanupPhone = ILY.mountPhone({

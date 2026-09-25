@@ -25,10 +25,15 @@ const notify = (message, duration = 0) => {
 
 try {
   const story = ILY.prepareChapter1();
-  const voiceBase = Object.fromEntries(Object.entries(story.nodes).map(([id, node]) => [id, { ...node }]));
+  // 2026-09-21：语音的源指纹校验已取消，VoicePlayer 不再需要 getSource / voiceBase
+  // （原先这里为它保存一份修订层应用前的节点快照）。
   ILY.initScriptEditor(story, (id, fallback) => {
     go(story.nodes[id] ? id : fallback, { autosave: false, recordRollback: false, refresh: true });
   });
+  /* 修订层改写的文本也要跟着语言走（在 initScriptEditor 之后覆盖）；
+     手机邮件 / 照片另外在 ILY.data.phone 上换一次。 */
+  ILY.applyStoryLang(story, ILY.getLang());
+  ILY.applyPhoneLang?.(ILY.data.phone, ILY.getLang());
   let chapterMaps = ILY.data.chapter1Maps;
   if (location.protocol !== 'file:') {
     const response = await fetch('data/maps/chapter1.json');
@@ -46,6 +51,8 @@ try {
   const manifest = ILY.data.assets;
   const { maps, levels } = ILY.data;
   const assets = new Assets(manifest);
+  // 音轨缺失 / 解码失败时给出可见提示，而不是静默无声。
+  assets.onError = message => notify(message, 4000);
   let state = createState(story.start), cleanup = () => {};
   let username = 'guest', storage = null;
   try {
@@ -73,14 +80,24 @@ try {
   const skipBtn = document.querySelector('#skip');
   const skipSegmentBtn = document.querySelector('#skip-segment');
   const rollbackBtn = document.querySelector('#rollback');
+  /* 顶栏第一颗：隐藏文字与整条顶栏，只看背景 / CG。按钮本身常驻（保证右上固定五颗），
+     具体收起谁由每一幕的 createHideChrome 控制器接管，不可用时保持 disabled。 */
+  const hideBtn = document.querySelector('#hide-ui');
   const rollbackHistory = createRollbackHistory();
   let saveMode = 'save';
   let savePage = '1';
   let skipMode = '';
+  /* mode=load 是玩家在主界面（sign&log/game.html）点「读取存档」进来的。
+     这时底下已经 go() 出了一局新进度的第一句，存档弹窗只是盖在上面；
+     如果玩家没读任何存档就把弹窗关掉，说明他放弃了读取，
+     应当退回主界面，而不是把底下那局新游戏当成"开始游戏"直接玩下去。
+     menuLoadNode 用来识别"剧情是否真的被推进过"：一旦推进到别的节点，
+     就说明玩家已经开玩了，之后关弹窗不再把人弹回主界面。 */
+  let awaitingMenuLoad = launchParams.get('mode') === 'load';
+  let menuLoadNode = null;
   const voice = new ILY.VoicePlayer({
     manifest: window.ILY_VOICE_MANIFEST,
     storage,
-    getSource: id => ILY.collectVoiceSources(story, voiceBase, ILY.data.stories).find(line => line.lineId === id),
     canPlay: () => !skipMode && !document.hidden && !document.querySelector('dialog[open]')
   });
   const voiceToggle = document.querySelector('#voice-toggle');
@@ -159,7 +176,7 @@ try {
 
   menuToggle.onclick = () => {
     setSkipMode('');
-    gameMenu.showModal();
+    gameMenu.show();
     window.dispatchEvent(new Event('blur'));
     menuToggle.setAttribute('aria-expanded', 'true');
   };
@@ -192,7 +209,7 @@ try {
   function openLangMenu() {
     updateLangControls();
     if (gameMenu.open) gameMenu.close();
-    langMenu.showModal();
+    langMenu.show();
     window.dispatchEvent(new Event('blur'));
   }
   document.querySelector('#lang').onclick = () => openLangMenu();
@@ -202,10 +219,19 @@ try {
     option.onclick = () => { ILY.setLang(option.dataset.lang); updateLangControls(); };
   }
   window.addEventListener('ily:langchange', () => {
+    /* 剧情文本整层换语言：中文 -> 英文 / 英文 -> 中文（中文原值在 __zh 里） */
+    ILY.applyStoryLang(story, ILY.getLang());
+    ILY.applyPhoneLang?.(ILY.data.phone, ILY.getLang());
+    /* 当前这段如果对白正在屏幕上，重挂一次让它立刻显示新语言 */
+    const current = story.nodes[state.node];
+    if (current && ['dialogue', 'monologue', 'heroine-card'].includes(current.type)) {
+      go(state.node, { refresh: true, autosave: false, recordRollback: false });
+    }
     document.querySelector('#chapter').textContent = story.nodes[state.node]?.chapterTitle || t('chapter.title');
     updateFullscreenLabel();
     updateSkipControl();
     rollbackBtn.title = t('menu.rollbackTitle');
+    hideBtn.title = t('dlg.hideTitle');
     refreshClues();
     updateLangControls();
     if (saveMenu.open) {
@@ -322,8 +348,10 @@ try {
           try {
             state = saves.load(savePage, inspected.slot);
             rollbackHistory.reset();
+            /* 真的读到存档了，之后关掉弹窗就留在游戏里（必须在 close() 之前清掉）。 */
+            awaitingMenuLoad = false;
             saveMenu.close();
-            go(state.node, { autosave: false });
+            go(state.node, { autosave: false, resyncMusic: true });
             notify(t('save.loaded', { label }));
           } catch (error) { saveStatus.textContent = t('save.loadFailed', { msg: error.message }); }
         });
@@ -354,7 +382,7 @@ try {
     saveTitle.textContent = t(mode === 'save' ? 'save.title.save' : 'save.title.load');
     if (gameMenu.open) gameMenu.close();
     renderSaveSlots();
-    saveMenu.showModal();
+    saveMenu.show();
     window.dispatchEvent(new Event('blur'));
   }
 
@@ -362,7 +390,18 @@ try {
     tab.onclick = () => { savePage = tab.dataset.page; renderSaveSlots(); };
   });
   document.querySelector('#save-menu-close').onclick = () => saveMenu.close();
-  saveMenu.addEventListener('close', () => stage.focus({ preventScroll: true }));
+  saveMenu.addEventListener('close', () => {
+    /* 从主界面「读取存档」进来、又没读任何存档就把弹窗关掉 = 放弃读取。
+       此时底下停着刚 go() 出来的新游戏第一句，留在那儿会被当成"点了读取存档却直接开始了新游戏"，
+       所以退回主界面。menu 就是游戏菜单里「返回开始菜单」用的那个地址（含 entry / player 参数）。
+       用 replace 而不是直接赋值 href，避免返回键又回到这个带 mode=load 的页面重新弹一次。 */
+    if (awaitingMenuLoad) {
+      awaitingMenuLoad = false;
+      window.location.replace(menu.href);
+      return;
+    }
+    stage.focus({ preventScroll: true });
+  });
   document.querySelector('#save').onclick = () => openSaveMenu('save');
   document.querySelector('#load').onclick = () => openSaveMenu('load');
   document.querySelector('#quick-save').onclick = () => {
@@ -411,11 +450,32 @@ try {
     catch { notify(t('notify.nodeMissing', { id: next })); return; }
     const node = story.nodes[next];
     if (!node) { notify(t('notify.nodeMissing', { id: next })); return; }
+    /* 仍在等玩家从「读取存档」弹窗里选存档时，只要剧情推进到了别的节点，
+       就说明玩家已经开始玩了，取消"关掉弹窗就退回主界面"的行为。 */
+    if (awaitingMenuLoad && menuLoadNode && next !== menuLoadNode) awaitingMenuLoad = false;
     ILY.updateScriptEditor(Object.assign(node, { id: next }));
     if (node.route && state.flags.route !== node.route) { go(node.next, options); return; }
     if(node.when&&state.flags[node.when.key]!==node.when.value){go(node.next,options);return;}
-    const musicCue = ILY.musicCueFor?.(next, node);
-    if (musicCue !== undefined) assets.setMusic(musicCue);
+    /* 音乐是"状态"，不是"节点属性"：一首曲子会沿剧情链一直延续到下一次显式切歌，
+       所以光看当前节点根本不知道此刻在放什么。state.music 记下每次 go() 之后
+       实际生效的那首（普通推进时不带 cue 就保持原值）。
+       读档 / 回滚时优先按剧情图反推（musicCueAt 与真实链路已由 check-music-cues
+       全节点校验一致）——这样坏图时代写进存档的脏值（例如当年 ch1_s02 被绕开、
+       整章 state.music 存成 null）会被自动纠正；存档里的 music 只在反推不出
+       任何结果时才作兜底。 */
+    let musicCue;
+    if (options.resyncMusic) {
+      musicCue = ILY.musicCueAt?.(story, next);
+      if (musicCue === undefined) {
+        const recorded = state.music;
+        musicCue = recorded === null ? null
+          : typeof recorded === 'string' && manifest.bgm[recorded] ? recorded
+          : undefined;
+      }
+    } else {
+      musicCue = ILY.musicCueFor?.(next, node);
+    }
+    if (musicCue !== undefined) { assets.setMusic(musicCue); state.music = musicCue; }
     if (skipMode && !isDialogueSkippable(node)) setSkipMode('');
     const refreshing = options.refresh && next === state.node;
     voice.stop();
@@ -425,6 +485,7 @@ try {
     if (!refreshing) ILY.enterChapterNode(state,node);
     document.querySelector('#chapter').textContent = node.chapterTitle || t('chapter.title');
     stage.replaceChildren(); stage.style.backgroundImage = ''; stage.dataset.mode = node.type;
+    stage.dataset.chapter = node.chapter || '';
     stage.dataset.palette = node.visualEffects?.includes('grayscale') ? 'grayscale' : '';
     notify(''); refreshClues();
     ILY.refreshFreePhone();
@@ -453,9 +514,18 @@ try {
       if (node.text) end.append(el('p', '', node.text));
       if (node.subtitle) end.append(el('p', 'hint', node.subtitle));
       if (node.next) end.append(button(node.nextLabel||'进入第一章', () => go(node.next)));
+      /* 真结局的片尾曲（ED）。ED 播放期间结束卡整块隐藏，收黑后才显形，
+         所以按钮顺序按「看完片尾之后玩家想做什么」来排：重温 → 读档 → 重开。 */
+      const ed = { node, state, endPanel: end, assets, notify };
+      if (ILY.EndingVideo.canPlay(node)) {
+        end.append(button(t('ed.replay'), () => { cleanup(); cleanup = ILY.EndingVideo.play(ed); }));
+      }
       if(node.ending)end.append(button('读取存档，探索另一种选择',()=>openSaveMenu('load')));
       end.append(button(t('end.restart'), () => { state = createState(story.start); rollbackHistory.reset(); go(story.start); }));
       stage.append(end);
+      if (ILY.EndingVideo.shouldPlay({ node, state, restoringRollback: options.restoringRollback === true })) {
+        cleanup = ILY.EndingVideo.play(ed);
+      }
     } else {
       const end = el('section', 'mode-panel');
       end.append(el('h1', '', t('end.tbc')), el('p', '', node.text), button(t('end.restart'), () => { state = createState(story.start); rollbackHistory.reset(); go(story.start); }));
@@ -473,7 +543,8 @@ try {
     if (!previous) return;
     const refresh = previous.node === state.node && story.nodes[previous.node]?.type === 'rpg';
     state = previous;
-    go(state.node, { autosave: false, recordRollback: false, refresh, restoringRollback: true });
+    /* 回溯可能跨回上一章，音乐同样要跟着回退到那一刻该放的曲子。 */
+    go(state.node, { autosave: false, recordRollback: false, refresh, restoringRollback: true, resyncMusic: true });
     notify(t('notify.rolledBack'), 1200);
   }
 
@@ -491,6 +562,25 @@ try {
       rollback();
     }
   });
+  /* ESC 开 / 关游戏菜单：已开就关闭（等同点 ×），没开就打开（等同点右上「菜单 ☰」）。
+     单独挂一条监听——上面那条快捷键在 dialog[open] 或焦点落在控件上时会直接 return，
+     ESC 恰恰需要在菜单打开时依然生效。别的弹窗（存档 / 音量 / 语言）打开时不抢它们的 ESC。 */
+  window.addEventListener('keydown', event => {
+    if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
+    if (event.code !== 'Escape') return;
+    /* index.html 里已有一条捕获阶段的「Esc 关闭当前弹窗」，它关完会 preventDefault。
+       这里必须让路，否则刚被关掉的菜单会被本函数立刻重新打开（表现为 ESC 关不掉）。 */
+    if (event.defaultPrevented) return;
+    if (event.target.closest?.('input, textarea, select')) return;
+    const otherDialog = Array.from(document.querySelectorAll('dialog[open]')).some(d => d !== gameMenu);
+    if (otherDialog) return;
+    event.preventDefault();
+    if (gameMenu.open) { gameMenu.close(); return; }
+    setSkipMode('');
+    gameMenu.show();
+    window.dispatchEvent(new Event('blur'));
+    menuToggle.setAttribute('aria-expanded', 'true');
+  });
   stage.addEventListener('wheel', event => {
     if (event.deltaY >= 0 || event.ctrlKey || event.altKey || event.metaKey ||
         document.querySelector('dialog[open]') || !['dialogue', 'choice', 'rpg'].includes(stage.dataset.mode)) return;
@@ -507,7 +597,7 @@ try {
     updateVoiceControls();
     updateMasterControl();
     if (gameMenu.open) gameMenu.close();
-    volumeMenu.showModal();
+    volumeMenu.show();
     window.dispatchEvent(new Event('blur'));
   }
   document.querySelector('#volume-settings').onclick = () => openVolumeMenu();
@@ -517,18 +607,27 @@ try {
   const chapterKey={'1':'chapter1','2':'chapter2','3':'chapter3','heroine':'heroine','final':'final'}[launchParams.get('chapter')];
   if(chapterKey&&!launchParams.get('slot')&&launchParams.get('mode')!=='load')state.node=ILY.data.stories[chapterKey].start;
   if(launchParams.get('player')==='scene-preview'&&Object.hasOwn(story.nodes,launchParams.get('scene')))state.node=launchParams.get('scene');
-  go(state.node, { autosave: false });
+  /* 从开始界面的存档弹窗选槽进来（?slot=1-3）时，要先读档、再走第一次 go()。
+     以前是先 go() 新游戏第一句再读档，于是序章 BGM 先响一声、再淡入这个存档
+     真正该放的曲子 —— 玩家听到的就是"读档后音乐没马上切过来"。 */
   const loadSlot = launchParams.get('slot');
-  if (loadSlot && /^([12]|auto|quick)-[1-6]$/.test(loadSlot)) {
-    // 开始界面存档弹窗选中的槽位：直接读取对应存档进入游戏
+  const slotLoaded = Boolean(loadSlot && /^([12]|auto|quick)-[1-6]$/.test(loadSlot));
+  if (slotLoaded) {
     const [page, number] = loadSlot.split('-');
     try {
       state = saves.load(page, Number(number));
       rollbackHistory.reset();
-      go(state.node, { autosave: false });
-      notify(t('notify.loaded'));
-    } catch (error) { notify(t('save.loadFailed', { msg: error.message })); }
-  } else if (launchParams.get('mode') === 'load') openSaveMenu('load');
+      awaitingMenuLoad = false;
+    } catch (error) {
+      // 读不出来就留在新游戏第一句（state 未被赋值，仍是上面的初始进度）。
+      notify(t('save.loadFailed', { msg: error.message }));
+    }
+  }
+  go(state.node, { autosave: false, resyncMusic: slotLoaded });
+  /* 记下进场时停在哪一句：之后 go() 到了别的节点，就说明玩家已经开始玩了。 */
+  menuLoadNode = state.node;
+  if (slotLoaded) notify(t('notify.loaded'));
+  else if (launchParams.get('mode') === 'load') openSaveMenu('load');
   else if (migratedLegacySave) notify(t('notify.migrated'));
 } catch (error) {
   stage.append(el('p', 'mode-panel', t('error.load')));

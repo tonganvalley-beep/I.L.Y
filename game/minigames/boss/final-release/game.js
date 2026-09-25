@@ -205,7 +205,8 @@
     if(['SELECT','INPUT','BUTTON'].includes(e.target.tagName))return;
     if(state!=='playing'&&state!=='paused')return;
     if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','Enter'].includes(e.code))e.preventDefault();
-    if(!e.repeat&&['KeyP','Escape'].includes(e.code)){state==='paused'?resume():pause();return;}
+    /* 2026-09-25：Esc 不再映射暂停（Esc 交给外层游戏主菜单），暂停只用 P。 */
+    if(!e.repeat&&e.code==='KeyP'){state==='paused'?resume():pause();return;}
     if(!e.repeat&&e.code==='KeyR'){begin();return;}
     if(state==='playing')keys.add(e.code);
   });
@@ -219,7 +220,7 @@
   audio.addEventListener('error',()=>{if(state==='playing')pause('音乐无法读取，请确认成品文件夹完整后重新打开。');});
   audio.addEventListener('ended',()=>{if(state==='playing'){session.advance(session.duration,input());render();finish(!session.dead);}});
   async function loadBackground(n){
-    const image=new Image();image.src=`background/p${n}.png`;await image.decode();
+    const image=new Image();image.src=`background/p${n}.webp`;await image.decode();
     const surface=document.createElement('canvas');surface.width=960;surface.height=540;
     const c=surface.getContext('2d'),scale=Math.max(960/image.width,540/image.height);
     c.drawImage(image,(960-image.width*scale)/2,(540-image.height*scale)/2,image.width*scale,image.height*scale);backgrounds[n-1]=surface;

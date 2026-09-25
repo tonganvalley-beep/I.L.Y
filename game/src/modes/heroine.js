@@ -45,10 +45,13 @@ function mountHeroineRewind(context) {
     mountScene(reel, { ...frame.node, visualEffects: [], transition: '' }, assets);
     if (frame.node.type === 'dialogue') {
       const box = el('section', 'dialogue');
-      box.append(el('div', 'speaker', frame.node.speaker || ''), el('p', 'dialogue-text', frame.node.text), el('div', 'actions'));
+      const speaker = el('div', 'speaker', frame.node.speaker || '');
+      if (frame.node.speaker) speaker.dataset.speaker = frame.node.speaker; // 与 dialogue.js 同一套按角色配色
+      box.append(speaker, el('p', 'dialogue-text', frame.node.text), el('div', 'actions'));
       reel.append(box);
     } else {
       const box = el('section', 'heroine-moment heroine-monologue');
+      if (frame.node.textPosition) box.dataset.textPosition = frame.node.textPosition;
       box.append(el('p', 'heroine-full-text', frame.node.text));
       reel.append(box);
     }
@@ -120,6 +123,8 @@ function mountHeroinePhoneConversation({ stage, node, assets, voice, go, isSkipp
   device.append(screen);
   panel.append(device, el('span', 'heroine-advance', '\u25b8'));
   stage.append(panel);
+  /* 同一颗「隐藏」：连短信面板一起收起（顶栏与章标题由控制器统一处理）。 */
+  const veil = ILY.createHideChrome([panel]);
 
   const keyed = [
     [status.querySelector('.heroine-sms-clock'), conversation.timeKey],
@@ -141,7 +146,11 @@ function mountHeroinePhoneConversation({ stage, node, assets, voice, go, isSkipp
 
   let disposed = false;
   let skipTimer = 0;
-  const advance = () => { if (!disposed && node.next) go(node.next); };
+  const advance = () => {
+    if (disposed) return;
+    if (veil.isHidden) { veil.restore(); stage.focus({ preventScroll: true }); return; }
+    if (node.next) go(node.next);
+  };
   const scheduleSkip = () => {
     clearTimeout(skipTimer);
     if (!isSkipping() || !node.next) return;
@@ -160,6 +169,7 @@ function mountHeroinePhoneConversation({ stage, node, assets, voice, go, isSkipp
   };
   const key = event => {
     if (document.querySelector('dialog[open]') || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target.closest('button, a, input, textarea, select')) return;
+    if (event.code === 'KeyH') { event.preventDefault(); veil.toggle(); return; }
     if (!['Space', 'Enter'].includes(event.code)) return;
     event.preventDefault();
     if (isSkipping()) setSkipping(false);
@@ -176,6 +186,7 @@ function mountHeroinePhoneConversation({ stage, node, assets, voice, go, isSkipp
     voice?.stop();
     disposed = true;
     clearTimeout(skipTimer);
+    veil.dispose();
     stage.removeEventListener('click', click, true);
     window.removeEventListener('keydown', key);
     window.removeEventListener('ily:langchange', localize);
@@ -191,25 +202,36 @@ function mountHeroineMoment(context) {
   void context.voice?.play(node);
   if (Object.hasOwn(node, 'bgm')) assets.setMusic(node.bgm);
   if (node.sceneEffect) stage.querySelector('.scene')?.classList.add('chapter-' + node.sceneEffect);
-  const card = node.type === 'heroine-card';
-  const phoneNotice = node.phoneNotice === 'battery-low';
-  const panel = el('section', phoneNotice ? 'phone phone-notice' : `heroine-moment ${card ? 'heroine-card' : 'heroine-monologue'}`);
-  if (phoneNotice) {
-    const phone = el('div', 'phone-screen');
-    const body = el('div', 'phone-body');
-    body.append(el('p', 'heroine-full-text'));
-    phone.append(body);
-    panel.append(phone);
-  } else if (card) {
-    panel.append(el('span', 'heroine-kicker', node.sectionLabel || '女主视角'), el('h1', '', node.text));
-  } else {
-    panel.append(el('p', 'heroine-full-text'));
+  /* 整图演出（node.imageOnly = true）：画面本身就是全部内容（台词直接烧在图里，
+     如 ch3_035 的妄想整图），所以不挂 .heroine-moment 面板 —— 那层自带
+     radial-gradient 暗幕与扫描线 ::before，会把图片压暗、遮住边角。
+     这里只铺场景 + 一个点击提示，图片按原始亮度呈现；node.text 不再渲染。 */
+  const imageOnly = node.imageOnly === true;
+  const card = !imageOnly && node.type === 'heroine-card';
+  const phoneNotice = !imageOnly && node.phoneNotice === 'battery-low';
+  const panel = imageOnly ? null : el('section', phoneNotice ? 'phone phone-notice' : `heroine-moment ${card ? 'heroine-card' : 'heroine-monologue'}`);
+  /* 2026-09-25：按用户要求去掉左下角「点击画面 / SPACE」前进提示（旁白与整图演出都不再显示）。 */
+  if (panel) {
+    /* 文字排布：默认整屏居中；textPosition:"top" 把文字排进画面顶部的黑带（见 chapters.css）。 */
+    if (node.textPosition) panel.dataset.textPosition = node.textPosition;
+    if (phoneNotice) {
+      const phone = el('div', 'phone-screen');
+      const body = el('div', 'phone-body');
+      body.append(el('p', 'heroine-full-text'));
+      phone.append(body);
+      panel.append(phone);
+    } else if (card) {
+      panel.append(el('span', 'heroine-kicker', node.sectionLabel || '女主视角'), el('h1', '', node.text));
+    } else {
+      panel.append(el('p', 'heroine-full-text'));
+    }
+    stage.append(panel);
   }
-  const hint = el('span', 'heroine-advance', '点击画面 / SPACE');
-  panel.append(hint);
-  stage.append(panel);
 
-  const text = panel.querySelector('.heroine-full-text');
+  /* 旁白的「隐藏」和对白同一套：收起文字面板、
+     左上章标题、右上整排按钮，只留背景 / CG，不做半透明。 */
+  const veil = ILY.createHideChrome([panel]);
+  const text = panel ? panel.querySelector('.heroine-full-text') : null;
   const chars = Array.from(node.text || '');
   let count = card ? chars.length : 0;
   let timer = 0;
@@ -221,6 +243,8 @@ function mountHeroineMoment(context) {
     clearInterval(timer);
   };
   const next = () => {
+    /* 隐藏状态下第一次推进只负责复原，不能顺手把这一幕也跳过去。 */
+    if (veil.isHidden) { veil.restore(); stage.focus({ preventScroll: true }); return; }
     if (count < chars.length) { complete(); return; }
     if (node.next) go(node.next);
   };
@@ -257,6 +281,7 @@ function mountHeroineMoment(context) {
   };
   const key = event => {
     if (document.querySelector('dialog[open]') || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target.closest('button, a, input, textarea, select')) return;
+    if (event.code === 'KeyH') { event.preventDefault(); veil.toggle(); return; }
     if (event.code === 'Space' || event.code === 'Enter') {
       event.preventDefault();
       if (isSkipping()) setSkipping(false);
@@ -274,6 +299,7 @@ function mountHeroineMoment(context) {
     disposed = true;
     clearInterval(timer);
     clearTimeout(skipTimer);
+    veil.dispose();
     stage.removeEventListener('click', click, true);
     window.removeEventListener('keydown', key);
     window.removeEventListener('ily:skipchange', scheduleSkip);

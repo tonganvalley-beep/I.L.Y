@@ -6,7 +6,7 @@ ILY.data.stories.final = {
   "nodes": {
     "fin_s01": {
       "type": "monologue",
-      "text": "月下的自白 —— “ILY 病毒”的真相",
+      "text": "最终章",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -76,8 +76,8 @@ ILY.data.stories.final = {
       "next": "fin_007"
     },
     "fin_007": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "可是，到目前为止，我所经历的一切……",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -86,8 +86,8 @@ ILY.data.stories.final = {
       "next": "fin_008"
     },
     "fin_008": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "也只有“ILY 病毒”这种解释，才能说通。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -96,8 +96,8 @@ ILY.data.stories.final = {
       "next": "fin_009"
     },
     "fin_009": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "所以我，只能去相信。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -107,7 +107,7 @@ ILY.data.stories.final = {
     },
     "fin_010": {
       "type": "dialogue",
-      "text": "“……其实”",
+      "text": "……其实",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -118,7 +118,7 @@ ILY.data.stories.final = {
     },
     "fin_011": {
       "type": "dialogue",
-      "text": "“在那天、”",
+      "text": "在那天、",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -129,7 +129,7 @@ ILY.data.stories.final = {
     },
     "fin_012": {
       "type": "dialogue",
-      "text": "“最开始，在海边遇到基生那天，我本来打算，立刻把基生吃掉的。一切本该就此结束。”",
+      "text": "最开始，在海边遇到基生那天，我本来打算，立刻把基生吃掉的。一切本该就此结束。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -140,7 +140,7 @@ ILY.data.stories.final = {
     },
     "fin_013": {
       "type": "dialogue",
-      "text": "“如果把基生，也就是人类吃掉的话，那个人就会变成所有‘ILY’的食粮。”",
+      "text": "如果把基生，也就是人类吃掉的话，那个人就会变成所有“ILY”的食粮。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -151,7 +151,7 @@ ILY.data.stories.final = {
     },
     "fin_014": {
       "type": "dialogue",
-      "text": "“然后我们就会去寻找下一个感染者，再将他吃掉……”",
+      "text": "然后我们就会去寻找下一个感染者，再将他吃掉……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -162,7 +162,7 @@ ILY.data.stories.final = {
     },
     "fin_015": {
       "type": "dialogue",
-      "text": "“我们就是这样生存下来的。”",
+      "text": "我们就是这样生存下来的。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -173,7 +173,7 @@ ILY.data.stories.final = {
     },
     "fin_016": {
       "type": "dialogue",
-      "text": "“一切本该只是这个过程的一次重复。”",
+      "text": "一切本该只是这个过程的一次重复。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -184,7 +184,7 @@ ILY.data.stories.final = {
     },
     "fin_017": {
       "type": "dialogue",
-      "text": "“……”",
+      "text": "……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -195,7 +195,7 @@ ILY.data.stories.final = {
     },
     "fin_018": {
       "type": "dialogue",
-      "text": "“可是，在基生问我‘喜欢’是什么的时候……”",
+      "text": "可是，在基生问我“喜欢”是什么的时候……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -206,7 +206,7 @@ ILY.data.stories.final = {
     },
     "fin_019": {
       "type": "dialogue",
-      "text": "“我自己，一句话都说不出来。”",
+      "text": "我自己，一句话都说不出来。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -217,7 +217,7 @@ ILY.data.stories.final = {
     },
     "fin_020": {
       "type": "dialogue",
-      "text": "“因为我对这种感情，一无所知。”",
+      "text": "因为我对这种感情，一无所知。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -228,7 +228,7 @@ ILY.data.stories.final = {
     },
     "fin_021": {
       "type": "dialogue",
-      "text": "“所以……”",
+      "text": "所以……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -239,7 +239,7 @@ ILY.data.stories.final = {
     },
     "fin_022": {
       "type": "dialogue",
-      "text": "“到那时为止，我想，我还只是‘作为 ILY 病毒’而存在着。”",
+      "text": "到那时为止，我想，我还只是“作为 ILY 病毒”而存在着。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -250,7 +250,7 @@ ILY.data.stories.final = {
     },
     "fin_023": {
       "type": "dialogue",
-      "text": "“但也只到那时为止……”",
+      "text": "但也只到那时为止……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -261,7 +261,7 @@ ILY.data.stories.final = {
     },
     "fin_024": {
       "type": "dialogue",
-      "text": "“因为，一旦明白了‘喜欢’……原来是那么温暖、又那么珍贵的心情……”",
+      "text": "因为，一旦明白了“喜欢”……原来是那么温暖、又那么珍贵的心情……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -272,7 +272,7 @@ ILY.data.stories.final = {
     },
     "fin_025": {
       "type": "dialogue",
-      "text": "“我怎么可能，去吃下抱着这种心情的人啊……！”",
+      "text": "我怎么可能，去吃下抱着这种心情的人啊……！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -283,8 +283,8 @@ ILY.data.stories.final = {
     },
     "fin_026": {
       "type": "dialogue",
-      "text": "“……！”",
-      "speaker": "基生",
+      "text": "……！",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -293,7 +293,7 @@ ILY.data.stories.final = {
     },
     "fin_027": {
       "type": "dialogue",
-      "text": "“我啊，从那之后，在和基生一起的生活中，完全理解了基生你对‘爱理’的那份思念。”",
+      "text": "我啊，从那之后，在和基生一起的生活中，完全理解了基生你对“爱理”的那份思念。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -304,7 +304,7 @@ ILY.data.stories.final = {
     },
     "fin_028": {
       "type": "dialogue",
-      "text": "“基生的言语……也是，那些无法用言语表达的东西也是，都传递到了我的心里。”",
+      "text": "基生的言语……也是，那些无法用言语表达的东西也是，都传递到了我的心里。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -315,7 +315,7 @@ ILY.data.stories.final = {
     },
     "fin_029": {
       "type": "dialogue",
-      "text": "“基生的眼神、声音，全部都是那么地温暖，好像要溢出来一样，让我十分舒服……”",
+      "text": "基生的眼神、声音，全部都是那么地温暖，好像要溢出来一样，让我十分舒服……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -326,7 +326,7 @@ ILY.data.stories.final = {
     },
     "fin_030": {
       "type": "dialogue",
-      "text": "“我非常地羡慕‘爱理’。”",
+      "text": "我非常地羡慕“爱理”。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -337,7 +337,7 @@ ILY.data.stories.final = {
     },
     "fin_031": {
       "type": "dialogue",
-      "text": "“她竟然被基生这样珍惜、这样思念，真好啊……”",
+      "text": "她竟然被基生这样珍惜、这样思念，真好啊……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -348,7 +348,7 @@ ILY.data.stories.final = {
     },
     "fin_032": {
       "type": "dialogue",
-      "text": "“要是能变成真正的‘爱理’就好了，我无数次地这么想……”",
+      "text": "“要是能变成真正的‘爱理’就好了”，我无数次地这么想……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -359,7 +359,7 @@ ILY.data.stories.final = {
     },
     "fin_033": {
       "type": "dialogue",
-      "text": "“但是这种事情，是不可能的……”",
+      "text": "但是这种事情，是不可能的……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -370,7 +370,7 @@ ILY.data.stories.final = {
     },
     "fin_034": {
       "type": "dialogue",
-      "text": "“因为我……就是这样的……”",
+      "text": "因为我……就是这样的……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -381,7 +381,7 @@ ILY.data.stories.final = {
     },
     "fin_035": {
       "type": "dialogue",
-      "text": "“这样的，让人害怕的生物……”",
+      "text": "这样的，让人害怕的生物……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -392,7 +392,7 @@ ILY.data.stories.final = {
     },
     "fin_036": {
       "type": "dialogue",
-      "text": "“我明明知道这件事，但我还……”",
+      "text": "我明明知道这件事，但我还……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -404,7 +404,7 @@ ILY.data.stories.final = {
     "fin_037": {
       "type": "dialogue",
       "text": "ILY……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -414,7 +414,7 @@ ILY.data.stories.final = {
     "fin_038": {
       "type": "dialogue",
       "text": "我啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -424,7 +424,7 @@ ILY.data.stories.final = {
     "fin_039": {
       "type": "dialogue",
       "text": "我的确是一直、一直在想着爱理的事情。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -434,7 +434,7 @@ ILY.data.stories.final = {
     "fin_040": {
       "type": "dialogue",
       "text": "这十年间，我无时无刻都只牵挂着爱理……我自以为是这样。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -444,7 +444,7 @@ ILY.data.stories.final = {
     "fin_041": {
       "type": "dialogue",
       "text": "但是，我所牵挂的，不过是那个存在于我手机中、存在于我记忆里、对我极尽顺遂之能事的爱理而已。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -454,7 +454,7 @@ ILY.data.stories.final = {
     "fin_042": {
       "type": "dialogue",
       "text": "而我对那个时候的爱理，所感受到的悲伤，和寂寞，一无所知。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -464,7 +464,7 @@ ILY.data.stories.final = {
     "fin_043": {
       "type": "dialogue",
       "text": "要是我真的对爱理那么想念的话，爱理也就不会从我的面前消失不见了……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -474,7 +474,7 @@ ILY.data.stories.final = {
     "fin_044": {
       "type": "dialogue",
       "text": "没错，所以……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -484,7 +484,7 @@ ILY.data.stories.final = {
     "fin_045": {
       "type": "dialogue",
       "text": "ILY……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -494,7 +494,7 @@ ILY.data.stories.final = {
     "fin_046": {
       "type": "dialogue",
       "text": "如果 ILY 你，在我度过的时光中，从我倾注于爱理的感情里，感受到了温暖，那么……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -503,8 +503,8 @@ ILY.data.stories.final = {
     },
     "fin_047": {
       "type": "dialogue",
-      "text": "我的那份感情，一定是倾注在了，找到了我、陪伴着我的‘ILY’身上。",
-      "speaker": "基生",
+      "text": "我的那份感情，一定是倾注在了，找到了我、陪伴着我的“ILY”身上。",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -512,8 +512,8 @@ ILY.data.stories.final = {
       "next": "fin_048"
     },
     "fin_048": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "基生温柔的声音。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -522,8 +522,8 @@ ILY.data.stories.final = {
       "next": "fin_049"
     },
     "fin_049": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我一直渴望听到的，这温暖的声音。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -533,7 +533,7 @@ ILY.data.stories.final = {
     },
     "fin_050": {
       "type": "dialogue",
-      "text": "“是……是这样吗……？”",
+      "text": "是……是这样吗……？",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -545,7 +545,7 @@ ILY.data.stories.final = {
     "fin_051": {
       "type": "dialogue",
       "text": "嗯……是的哦。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S01",
@@ -554,7 +554,7 @@ ILY.data.stories.final = {
     },
     "fin_052": {
       "type": "dialogue",
-      "text": "“呜呜、”",
+      "text": "呜呜、",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -565,7 +565,7 @@ ILY.data.stories.final = {
     },
     "fin_053": {
       "type": "dialogue",
-      "text": "“呜呜呜、呜呜、”",
+      "text": "呜呜呜、呜呜、",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -576,7 +576,7 @@ ILY.data.stories.final = {
     },
     "fin_054": {
       "type": "dialogue",
-      "text": "“呜呜呜、”",
+      "text": "呜呜呜、",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -587,7 +587,7 @@ ILY.data.stories.final = {
     },
     "fin_055": {
       "type": "dialogue",
-      "text": "“基生……”",
+      "text": "基生……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -598,7 +598,7 @@ ILY.data.stories.final = {
     },
     "fin_056": {
       "type": "dialogue",
-      "text": "“我真的好高兴，真的好高兴呢……”",
+      "text": "我真的好高兴，真的好高兴呢……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -609,7 +609,7 @@ ILY.data.stories.final = {
     },
     "fin_057": {
       "type": "dialogue",
-      "text": "“基生……”",
+      "text": "基生……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -620,7 +620,7 @@ ILY.data.stories.final = {
     },
     "fin_058": {
       "type": "dialogue",
-      "text": "“那个……”",
+      "text": "那个……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -631,7 +631,7 @@ ILY.data.stories.final = {
         "P29",
         "P30"
       ],
-      "next": "fin_s02"
+      "next": "fin_060"
     },
     "fin_s02": {
       "type": "monologue",
@@ -656,7 +656,7 @@ ILY.data.stories.final = {
     },
     "fin_061": {
       "type": "dialogue",
-      "text": "“不是……！”",
+      "text": "不是……！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -668,7 +668,7 @@ ILY.data.stories.final = {
     "fin_062": {
       "type": "dialogue",
       "text": "ILY！？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S02",
@@ -677,7 +677,7 @@ ILY.data.stories.final = {
     },
     "fin_063": {
       "type": "dialogue",
-      "text": "“不是这样！！”",
+      "text": "不是这样！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -698,7 +698,7 @@ ILY.data.stories.final = {
     },
     "fin_065": {
       "type": "dialogue",
-      "text": "“不是这样！！”",
+      "text": "不是这样！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -709,7 +709,7 @@ ILY.data.stories.final = {
     },
     "fin_066": {
       "type": "dialogue",
-      "text": "“不要！！”",
+      "text": "不要！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -730,7 +730,7 @@ ILY.data.stories.final = {
     },
     "fin_068": {
       "type": "dialogue",
-      "text": "“不要！！”",
+      "text": "不要！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -741,7 +741,7 @@ ILY.data.stories.final = {
     },
     "fin_069": {
       "type": "dialogue",
-      "text": "“我早就不希望那样了！！”",
+      "text": "我早就不希望那样了！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -762,7 +762,7 @@ ILY.data.stories.final = {
     },
     "fin_071": {
       "type": "dialogue",
-      "text": "“对不起，”",
+      "text": "对不起，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -773,7 +773,7 @@ ILY.data.stories.final = {
     },
     "fin_072": {
       "type": "dialogue",
-      "text": "“对不起，基生，”",
+      "text": "对不起，基生，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -784,7 +784,7 @@ ILY.data.stories.final = {
     },
     "fin_073": {
       "type": "dialogue",
-      "text": "“你什么都不要说，我不会吃掉你的。”",
+      "text": "你什么都不要说，我不会吃掉你的。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -805,7 +805,7 @@ ILY.data.stories.final = {
     },
     "fin_075": {
       "type": "dialogue",
-      "text": "“不要！！”",
+      "text": "不要！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -816,7 +816,7 @@ ILY.data.stories.final = {
     },
     "fin_076": {
       "type": "dialogue",
-      "text": "“不要这样！！”",
+      "text": "不要这样！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -837,7 +837,7 @@ ILY.data.stories.final = {
     },
     "fin_078": {
       "type": "dialogue",
-      "text": "“呜呜……为什么啊，”",
+      "text": "呜呜……为什么啊，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -858,7 +858,7 @@ ILY.data.stories.final = {
     },
     "fin_080": {
       "type": "dialogue",
-      "text": "“为什么会这样？”",
+      "text": "为什么会这样？",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -869,7 +869,7 @@ ILY.data.stories.final = {
     },
     "fin_081": {
       "type": "dialogue",
-      "text": "“我，讨厌这样。”",
+      "text": "我，讨厌这样。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -880,7 +880,7 @@ ILY.data.stories.final = {
     },
     "fin_082": {
       "type": "dialogue",
-      "text": "“我讨厌这样……”",
+      "text": "我讨厌这样……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -901,7 +901,7 @@ ILY.data.stories.final = {
     },
     "fin_084": {
       "type": "dialogue",
-      "text": "“不对！”",
+      "text": "不对！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -912,7 +912,7 @@ ILY.data.stories.final = {
     },
     "fin_085": {
       "type": "dialogue",
-      "text": "“不要！！”",
+      "text": "不要！！",
       "speaker": "爱理",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -924,7 +924,7 @@ ILY.data.stories.final = {
     "fin_086": {
       "type": "dialogue",
       "text": "ILY……你的身体……！！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S02",
@@ -933,7 +933,7 @@ ILY.data.stories.final = {
     },
     "fin_087": {
       "type": "dialogue",
-      "text": "“不是这样，基生，”",
+      "text": "不是这样，基生，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -954,7 +954,7 @@ ILY.data.stories.final = {
     },
     "fin_089": {
       "type": "dialogue",
-      "text": "“不要看我这副样子，”",
+      "text": "不要看我这副样子，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -975,7 +975,7 @@ ILY.data.stories.final = {
     },
     "fin_091": {
       "type": "dialogue",
-      "text": "“现在这样，不是的，这不是我！！”",
+      "text": "现在这样，不是的，这不是我！！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -986,7 +986,7 @@ ILY.data.stories.final = {
     },
     "fin_092": {
       "type": "dialogue",
-      "text": "“你什么都不要说！”",
+      "text": "你什么都不要说！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1012,7 +1012,7 @@ ILY.data.stories.final = {
     },
     "fin_094": {
       "type": "dialogue",
-      "text": "“哈啊……哈啊……哈啊……”",
+      "text": "哈啊……哈啊……哈啊……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1023,7 +1023,7 @@ ILY.data.stories.final = {
     },
     "fin_095": {
       "type": "dialogue",
-      "text": "“基生……”",
+      "text": "基生……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1034,7 +1034,7 @@ ILY.data.stories.final = {
     },
     "fin_096": {
       "type": "dialogue",
-      "text": "“对不起……非常对不起……”",
+      "text": "对不起……非常对不起……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1045,7 +1045,7 @@ ILY.data.stories.final = {
     },
     "fin_097": {
       "type": "dialogue",
-      "text": "“……我，已经快要，消失了。”",
+      "text": "……我，已经快要，消失了。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1057,7 +1057,7 @@ ILY.data.stories.final = {
     "fin_098": {
       "type": "dialogue",
       "text": "消失……怎么会这样……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1066,7 +1066,7 @@ ILY.data.stories.final = {
     },
     "fin_099": {
       "type": "dialogue",
-      "text": "“嗯……这种事，我能感觉到。”",
+      "text": "嗯……这种事，我能感觉到。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1077,7 +1077,7 @@ ILY.data.stories.final = {
     },
     "fin_100": {
       "type": "dialogue",
-      "text": "“如果我……”",
+      "text": "如果我……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1088,7 +1088,7 @@ ILY.data.stories.final = {
     },
     "fin_101": {
       "type": "dialogue",
-      "text": "“坚持不吃掉人类的话，就没办法变回‘ILY’。”",
+      "text": "坚持不吃掉人类的话，就没办法变回“ILY”。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1099,7 +1099,7 @@ ILY.data.stories.final = {
     },
     "fin_102": {
       "type": "dialogue",
-      "text": "“这样的话，‘ILY’的内部一定会发生故障……甚至还可能会使整个‘ILY’都发生崩坏。”",
+      "text": "这样的话，“ILY”的内部一定会发生故障……甚至还可能会使整个“ILY”都发生崩坏。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1111,7 +1111,7 @@ ILY.data.stories.final = {
     "fin_103": {
       "type": "dialogue",
       "text": "怎……怎么会这样啊……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1121,7 +1121,7 @@ ILY.data.stories.final = {
     "fin_104": {
       "type": "dialogue",
       "text": "ILY，你看起来这么痛苦……而且还变成这种样子……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1131,7 +1131,7 @@ ILY.data.stories.final = {
     "fin_105": {
       "type": "dialogue",
       "text": "要是 ILY 你把我吃掉的话……这样是不是就可以从这种痛苦中，脱离出来了！？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1141,7 +1141,7 @@ ILY.data.stories.final = {
     "fin_106": {
       "type": "dialogue",
       "text": "要是为了 ILY 的话，我怎样都好……！但我不能忍受 ILY 从这个世界上消失……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1150,7 +1150,7 @@ ILY.data.stories.final = {
     },
     "fin_107": {
       "type": "dialogue",
-      "text": "“不要这样，基生。”",
+      "text": "不要这样，基生。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1161,7 +1161,7 @@ ILY.data.stories.final = {
     },
     "fin_108": {
       "type": "dialogue",
-      "text": "“我自己，并不想做那种事情。”",
+      "text": "我自己，并不想做那种事情。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1172,7 +1172,7 @@ ILY.data.stories.final = {
     },
     "fin_109": {
       "type": "dialogue",
-      "text": "“如果‘ILY’令一个人从世上消失，那么下一个被感染而消失的，就会是牵挂着那个人的另一个人。”",
+      "text": "如果“ILY”令一个人从世上消失，那么下一个被感染而消失的，就会是牵挂着那个人的另一个人。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1183,7 +1183,7 @@ ILY.data.stories.final = {
     },
     "fin_110": {
       "type": "dialogue",
-      "text": "“而后，又再一次传染到下一个，牵挂着后者的人身上……”",
+      "text": "而后，又再一次传染到下一个，牵挂着后者的人身上……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1194,7 +1194,7 @@ ILY.data.stories.final = {
     },
     "fin_111": {
       "type": "dialogue",
-      "text": "“‘ILY’是不会停止下来的。”",
+      "text": "“ILY”是不会停止下来的。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1205,7 +1205,7 @@ ILY.data.stories.final = {
     },
     "fin_112": {
       "type": "dialogue",
-      "text": "“这样下去，迟早有一天，人类会从这个世界上消失掉。”",
+      "text": "这样下去，迟早有一天，人类会从这个世界上消失掉。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1216,7 +1216,7 @@ ILY.data.stories.final = {
     },
     "fin_113": {
       "type": "dialogue",
-      "text": "“但是呢，我不希望人类消失。”",
+      "text": "但是呢，我不希望人类消失。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1227,7 +1227,7 @@ ILY.data.stories.final = {
     },
     "fin_114": {
       "type": "dialogue",
-      "text": "“我不想失去，基生教会我的这种名为‘喜欢’的感情……不想失去，这份令我感到温暖的感觉。”",
+      "text": "我不想失去，基生教会我的这种名为“喜欢”的感情……不想失去，这份令我感到温暖的感觉。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1238,7 +1238,7 @@ ILY.data.stories.final = {
     },
     "fin_115": {
       "type": "dialogue",
-      "text": "“这种事情，无论谁都会这么想吧。”",
+      "text": "这种事情，无论谁都会这么想吧。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1249,7 +1249,7 @@ ILY.data.stories.final = {
     },
     "fin_116": {
       "type": "dialogue",
-      "text": "“人们对于他人的牵挂之情，不应当被我们这群，在人类的儿戏之下诞生的怪物，肆意抹去。”",
+      "text": "人们对于他人的牵挂之情，不应当被我们这群，在人类的儿戏之下诞生的怪物，肆意抹去。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1260,7 +1260,7 @@ ILY.data.stories.final = {
     },
     "fin_117": {
       "type": "dialogue",
-      "text": "“所以啊……”",
+      "text": "所以啊……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1271,7 +1271,7 @@ ILY.data.stories.final = {
     },
     "fin_118": {
       "type": "dialogue",
-      "text": "“请你什么都不要说。求求你。”",
+      "text": "请你什么都不要说。求求你。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1282,7 +1282,7 @@ ILY.data.stories.final = {
     },
     "fin_119": {
       "type": "dialogue",
-      "text": "“我直到最后，都想当基生所思念的那个‘ILY’。”",
+      "text": "我直到最后，都想当基生所思念的那个“ILY”。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1294,7 +1294,7 @@ ILY.data.stories.final = {
     "fin_120": {
       "type": "dialogue",
       "text": "ILY……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1303,7 +1303,7 @@ ILY.data.stories.final = {
     },
     "fin_121": {
       "type": "dialogue",
-      "text": "“那个，基生，”",
+      "text": "那个，基生，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1314,7 +1314,7 @@ ILY.data.stories.final = {
     },
     "fin_122": {
       "type": "dialogue",
-      "text": "“那个啊……”",
+      "text": "那个啊……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1325,7 +1325,7 @@ ILY.data.stories.final = {
     },
     "fin_123": {
       "type": "dialogue",
-      "text": "“我因为已经是这副样子了，即便你讨厌我也好，即便你害怕我也好……”",
+      "text": "我因为已经是这副样子了，即便你讨厌我也好，即便你害怕我也好……",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1336,7 +1336,7 @@ ILY.data.stories.final = {
     },
     "fin_124": {
       "type": "dialogue",
-      "text": "“直到最后……我消失掉为止，可以静静地，在我身旁听我讲一些话吗？”",
+      "text": "直到最后……我消失掉为止，可以静静地，在我身旁听我讲一些话吗？",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1347,8 +1347,8 @@ ILY.data.stories.final = {
     },
     "fin_125": {
       "type": "dialogue",
-      "text": "“呜呜、呜呜、”",
-      "speaker": "基生",
+      "text": "呜呜、呜呜、",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1357,8 +1357,8 @@ ILY.data.stories.final = {
     },
     "fin_126": {
       "type": "dialogue",
-      "text": "“嗯、”",
-      "speaker": "基生",
+      "text": "嗯、",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1368,7 +1368,7 @@ ILY.data.stories.final = {
     "fin_127": {
       "type": "dialogue",
       "text": "说吧，ILY。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1377,7 +1377,7 @@ ILY.data.stories.final = {
     },
     "fin_128": {
       "type": "dialogue",
-      "text": "“那个呢，”",
+      "text": "那个呢，",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1388,7 +1388,7 @@ ILY.data.stories.final = {
     },
     "fin_129": {
       "type": "dialogue",
-      "text": "“我，和基生呆在一起的时候，非常的开心。”",
+      "text": "我，和基生呆在一起的时候，非常的开心。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1399,7 +1399,7 @@ ILY.data.stories.final = {
     },
     "fin_130": {
       "type": "dialogue",
-      "text": "“能成为‘爱理’……我能够成为‘ILY’，真是太好了。”",
+      "text": "能成为“爱理”……我能够成为“ILY”，真是太好了。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1410,7 +1410,7 @@ ILY.data.stories.final = {
     },
     "fin_131": {
       "type": "dialogue",
-      "text": "“谢谢你一直注视着我，触摸我，还给予我你温柔的声音。”",
+      "text": "谢谢你一直注视着我，触摸我，还给予我你温柔的声音。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1421,7 +1421,7 @@ ILY.data.stories.final = {
     },
     "fin_132": {
       "type": "dialogue",
-      "text": "“谢谢你。”",
+      "text": "谢谢你。",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1443,7 +1443,7 @@ ILY.data.stories.final = {
     },
     "fin_134": {
       "type": "dialogue",
-      "text": "“基生，我会永远永远，喜欢着你哦！”",
+      "text": "基生，我会永远永远，喜欢着你哦！",
       "speaker": "ILY",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1455,7 +1455,7 @@ ILY.data.stories.final = {
     "fin_135": {
       "type": "dialogue",
       "text": "ILY……ILY……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1464,8 +1464,8 @@ ILY.data.stories.final = {
     },
     "fin_136": {
       "type": "dialogue",
-      "text": "“呜呜……呜……”",
-      "speaker": "基生",
+      "text": "呜呜……呜……",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1475,7 +1475,7 @@ ILY.data.stories.final = {
     "fin_137": {
       "type": "dialogue",
       "text": "我也是……我也永远都……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1497,7 +1497,7 @@ ILY.data.stories.final = {
     "fin_139": {
       "type": "dialogue",
       "text": "永远都……喜欢着你啊。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1507,7 +1507,7 @@ ILY.data.stories.final = {
     "fin_140": {
       "type": "dialogue",
       "text": "ILY……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S04",
@@ -1531,8 +1531,8 @@ ILY.data.stories.final = {
       "next": "fin_142"
     },
     "fin_142": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "至那之后，过了 10 年。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1541,8 +1541,8 @@ ILY.data.stories.final = {
       "next": "fin_143"
     },
     "fin_143": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "那天之后……“ILY”到底变成了什么样子，我也不清楚。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1551,8 +1551,8 @@ ILY.data.stories.final = {
       "next": "fin_144"
     },
     "fin_144": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "作为人类的我，从一开始，就没有知晓的方法。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1561,8 +1561,8 @@ ILY.data.stories.final = {
       "next": "fin_145"
     },
     "fin_145": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "不过，当时新闻上时不时就会出现的原因不明的失踪事件，突然地，就没有再听到过了。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1571,8 +1571,8 @@ ILY.data.stories.final = {
       "next": "fin_146"
     },
     "fin_146": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "对于那天发生的事情，我依稀觉得自己，是不是做了一场奇怪的梦。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1581,8 +1581,8 @@ ILY.data.stories.final = {
       "next": "fin_147"
     },
     "fin_147": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "如果那只是一场梦的话，那么这一切，或许都很容易地就能解释清楚了。",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1591,8 +1591,8 @@ ILY.data.stories.final = {
       "next": "fin_148"
     },
     "fin_148": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "尽管如此……",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1601,8 +1601,8 @@ ILY.data.stories.final = {
       "next": "fin_149"
     },
     "fin_149": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "10 年前的那部旧手机中，",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1611,8 +1611,8 @@ ILY.data.stories.final = {
       "next": "fin_150"
     },
     "fin_150": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "却的的确确地存在着，我与“ILY”、",
       "speaker": "",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1645,7 +1645,7 @@ ILY.data.stories.final = {
     },
     "fin_153": {
       "type": "dialogue",
-      "text": "“啊！！”",
+      "text": "啊！！",
       "speaker": "？",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1665,7 +1665,7 @@ ILY.data.stories.final = {
     },
     "fin_155": {
       "type": "dialogue",
-      "text": "“爸爸！你好像很闲！！”",
+      "text": "爸爸！你好像很闲！！",
       "speaker": "基生的儿子",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1675,7 +1675,7 @@ ILY.data.stories.final = {
     },
     "fin_156": {
       "type": "dialogue",
-      "text": "“闲的没事的话，带我去海边玩吧！海边海边海边！”",
+      "text": "闲的没事的话，带我去海边玩吧！海边海边海边！",
       "speaker": "基生的儿子",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1685,7 +1685,7 @@ ILY.data.stories.final = {
     },
     "fin_157": {
       "type": "dialogue",
-      "text": "“另外你要是不快点起床的话，妈妈又要骂你了哦？”",
+      "text": "另外你要是不快点起床的话，妈妈又要骂你了哦？",
       "speaker": "基生的儿子",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1696,7 +1696,7 @@ ILY.data.stories.final = {
     "fin_158": {
       "type": "dialogue",
       "text": "嗯——？嗯——。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
       "scene": "S07",
@@ -1705,7 +1705,7 @@ ILY.data.stories.final = {
     },
     "fin_159": {
       "type": "dialogue",
-      "text": "“你刚才说‘嗯’了吧！”",
+      "text": "你刚才说“嗯”了吧！",
       "speaker": "基生的儿子",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1715,7 +1715,7 @@ ILY.data.stories.final = {
     },
     "fin_160": {
       "type": "dialogue",
-      "text": "“太好了！”",
+      "text": "太好了！",
       "speaker": "基生的儿子",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1725,7 +1725,7 @@ ILY.data.stories.final = {
     },
     "fin_161": {
       "type": "dialogue",
-      "text": "“妈妈！爸爸说要带我们去海边玩！！”",
+      "text": "妈妈！爸爸说要带我们去海边玩！！",
       "speaker": "基生的儿子",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",
@@ -1735,7 +1735,7 @@ ILY.data.stories.final = {
     },
     "fin_162": {
       "type": "dialogue",
-      "text": "“我穿好泳衣了！出发吧——！！”",
+      "text": "我穿好泳衣了！出发吧——！！",
       "speaker": "另一个房间的小男孩",
       "chapter": "final",
       "chapterTitle": "最终章 · One Last Kiss",

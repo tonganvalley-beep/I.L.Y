@@ -3,7 +3,7 @@
      game.html —— 游戏主界面（开始界面点击"继续"后的落地页）
 
      内容：
-       · 全屏显示 游戏主界面.png（蓝色像素风：蓝发角色 + 标题 + 右侧手机）
+       · 全屏显示 游戏主界面.webp（蓝色像素风：蓝发角色 + 标题 + 右侧手机）
        · 手机屏幕里显示主菜单：开始新游戏 / 读取存档 / 选项 / 关于我们 / 退出
          （像素字体，悬停反色高亮，位置随背景图缩放实时计算）
        · 手机状态栏显示本机实时时间
@@ -26,26 +26,50 @@
     /* ---------- 像素字体：和登录页同一个字体文件 ---------- */
     @font-face {
       font-family: 'Zpix';
-      src: url('./fonts/zpix.ttf') format('truetype');
+      src: url('./fonts/zpix.woff2') format('woff2');
       font-display: swap;
     }
 
-    /* ---------- 页面主体：全屏背景图 ---------- */
+    /* ---------- 页面主体：固定 16:9 画布（画布外多余区域 = 黑边） ---------- */
+    html { background: #000; }        /* 黑边底色 */
     body {
       margin: 0;
-      height: 100vh;
+      height: 100dvh;                /* 至少一屏高，供画布绝对居中 */
       overflow: hidden;
       font-family: 'Zpix', 'Consolas', monospace;
-      /* 游戏主界面.png 在 login/photo&video/ 素材文件夹里 */
-      background-image: url('./photo&video/游戏主界面.png');
+      background: #000;              /* 画布外多余区域留黑边 */
+      user-select: none;
+      /* 男主正面像素立绘作为自定义光标，热点放在两脚中间（底部中心） */
+      cursor: url('./photo&video/cursor-hero-front.webp') 24 24, auto;
+    }
+
+    /* ---------- 固定 16:9 画布：1280×720 设计分辨率，等比缩放居中 ----------
+       背景图（游戏主界面）放在画布上；canvas #scene 也在画布内绘制同一张图。 */
+    #game-frame {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 1280px; height: 720px;
+      transform: translate(-50%, -50%) scale(var(--s, 1));
+      transform-origin: center center;
+      container-type: size;
+      overflow: hidden;
+      background-image: url('./photo&video/游戏主界面.webp');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-color: #000;        /* 边角露出处用黑色 */
-      user-select: none;
-      /* 男主正面像素立绘作为自定义光标，热点放在两脚中间（底部中心） */
-      cursor: url('./photo&video/cursor-hero-front.png') 24 24, auto;
+      cursor: url('./photo&video/cursor-hero-front.webp') 24 24, auto;
     }
+
+    /* ---------- 画布内的弹窗：不用 showModal（会进 top layer，脱离画布的 transform 与缩放） ----------
+       改用 show() + 画布内绝对定位居中；遮罩由 #game-frame::before 提供，只覆盖画布本体。 */
+    dialog { position: absolute; inset: 0; margin: auto; z-index: 60; }
+    #game-frame::before {
+      content: ""; position: absolute; inset: 0; z-index: 55;
+      background: rgba(2, 6, 14, 0.72); backdrop-filter: blur(5px);
+      opacity: 0; pointer-events: none; transition: opacity .18s;
+    }
+    #game-frame:has(>dialog[open])::before { opacity: 1; pointer-events: auto; }
 
     /* ---------- 右上角：中英文切换按钮（样式和其他页面一致） ---------- */
     .lang-btn {
@@ -59,7 +83,7 @@
       background: rgba(10, 25, 55, 0.55);
       border: 1px solid rgba(120, 180, 255, 0.5);
       border-radius: 4px;
-      cursor: url('./photo&video/cursor-hero-front.png') 24 24, auto;
+      cursor: url('./photo&video/cursor-hero-front.webp') 24 24, auto;
     }
     .lang-btn:hover {
       background: rgba(30, 70, 140, 0.7);
@@ -107,7 +131,7 @@
     }
     #phoneMenu li {
       padding: 0.08em 0.55em;
-      cursor: url('./photo&video/cursor-hero-front.png') 24 24, auto;
+      cursor: url('./photo&video/cursor-hero-front.webp') 24 24, auto;
       white-space: nowrap;           /* 选项文字不允许换行 */
       /* 参考日系翻盖机菜单：每个选项下面一条细横线 */
       border-bottom: 2px solid #1a1a2e;
@@ -131,7 +155,7 @@
 
     /* ---------- 可操作菜单与开场动画 ---------- */
     .menu-dialog {
-      width: min(460px, calc(100vw - 48px));
+      width: min(460px, calc(100cqw - 48px));
       box-sizing: border-box;
       color: #dbeaff;
       background: rgba(8, 22, 50, 0.96);
@@ -188,24 +212,48 @@
 
     /* ---------- 全屏画布：头发飘动动画的绘制层 ---------- */
     #scene {
-      position: fixed;
-      inset: 0;                    /* 铺满整个窗口 */
-      /* ★ 高分屏关键：必须显式锁死"显示尺寸"= 窗口大小！
-         JS 里会把画布的内部分辨率设为 窗口×devicePixelRatio（为了清晰），
+      position: absolute;
+      inset: 0;                    /* 铺满整个 16:9 画布 */
+      /* ★ 高分屏关键：必须显式锁死"显示尺寸"= 画布大小！
+         JS 里会把画布的内部分辨率设为 1280×720×devicePixelRatio（为了清晰），
          而 canvas 是"可替换元素"——如果只写 inset:0 不写宽高，
          浏览器会按内部分辨率来显示它，导致在系统缩放 125%/150% 的
          电脑上整个画面被放大 1.25~1.5 倍。 */
-      width: 100vw;
-      height: 100vh;
-      z-index: 1;                  /* 在 body 静态背景之上、时间(5)和语言按钮(10)之下 */
+      width: 100%;
+      height: 100%;
+      z-index: 1;                  /* 在画布背景之上、时间(5)和语言按钮(10)之下 */
     }
-  </style>
+  /* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }
+</style>
   <!-- 回忆弹窗样式：与游戏内 src/memories.js 保持一致（成就 / 剧情 / 画廊） -->
   <link rel="stylesheet" href="../game/styles/memories.css">
+  <script>
+    /* 固定 16:9 画布：缩放系数写到 :root，供 #game-frame 的 transform:scale() 使用 */
+    (function () {
+      function fit() {
+        document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1280, innerHeight / 720));
+      }
+      fit();
+      addEventListener('resize', fit);
+      addEventListener('orientationchange', fit);
+      addEventListener('load', fit);
+    })();
+  </script>
 </head>
 
 <body data-page-node-id="vwvFNgmV6SVBZ85465jZsN">
-  <!-- 全屏画布：每帧重画背景图 + 摆动的头发（不透明，盖住 body 的静态背景） -->
+  <!-- 固定 16:9 画布：所有可见内容都放里面，多余区域留黑边 -->
+  <div id="game-frame">
+  <!-- 全屏画布：每帧重画背景图 + 摆动的头发（不透明，盖住画布的静态背景） -->
   <canvas id="scene"></canvas>
 
   <!-- 右上角：中英文切换按钮 -->
@@ -250,6 +298,7 @@
     <video id="openingVideo" preload="auto" playsinline src="../game/I.L.Y.-OP.mp4"></video>
     <button id="skipOpening" class="skip-opening" data-i18n="opening.skip">按 Esc 跳过</button>
   </div>
+  </div><!-- /#game-frame -->
 
   <script>
     /* ============================================================
@@ -382,7 +431,7 @@
      * 这样无论窗口怎么拉，时间都牢牢贴在手机状态栏里。
      * ============================================================ */
 
-    /* 原图尺寸（游戏主界面.png 是 2732×1496） */
+    /* 原图尺寸（游戏主界面.webp 是 2732×1496） */
     const IMG_W = 2732;
     const IMG_H = 1496;
 
@@ -398,8 +447,9 @@
        都不小于窗口；图片居中，所以偏移 = (窗口尺寸 - 图片显示尺寸) / 2
        （可能是负数，表示图片超出窗口被裁掉） */
     function computeCover() {
-      const vw = window.innerWidth;    /* 窗口宽 */
-      const vh = window.innerHeight;   /* 窗口高 */
+      /* 画布固定为 1280×720 设计分辨率（由 #game-frame 整体缩放），按此复算 cover */
+      const vw = 1280;                 /* 画布宽 */
+      const vh = 720;                  /* 画布高 */
       const scale = Math.max(vw / IMG_W, vh / IMG_H);
       return {
         scale: scale,
@@ -595,7 +645,7 @@
             showPhoneOptions(true);
             break;
           case 'about':
-            document.getElementById('aboutDialog').showModal();
+            document.getElementById('aboutDialog').show();
             break;
           case 'memories':
             if (typeof window.openMemoriesMain === 'function') window.openMemoriesMain();
@@ -643,7 +693,7 @@
 
     /* 背景图加载完成才开始动画（万一加载失败，body 静态背景还在，页面照样能看） */
     const bgImg = new Image();
-    bgImg.src = './photo&video/游戏主界面.png';
+    bgImg.src = './photo&video/游戏主界面.webp';
     bgImg.onload = () => {
       layoutScene();
       requestAnimationFrame(drawFrame);   /* 启动动画循环 */
@@ -652,8 +702,9 @@
     /* 根据窗口大小调整画布分辨率（乘 devicePixelRatio，高分屏不糊） */
     function layoutScene() {
       const dpr = window.devicePixelRatio || 1;
-      scene.width  = window.innerWidth  * dpr;
-      scene.height = window.innerHeight * dpr;
+      /* 画布固定为 1280×720 设计分辨率（显示尺寸由 #game-frame 缩放） */
+      scene.width  = 1280 * dpr;
+      scene.height = 720 * dpr;
     }
 
     /* 每一帧：整张图打底 → 把头发薄片按正弦波错开重画 */
@@ -703,6 +754,18 @@
   <script src="../game/src/script-review-model.js"></script>
   <script src="./gallery-data.js"></script>
   <script src="./memories-interface.js"></script>
+
+  <script>
+    /* 画布内的弹窗改用 dialog.show()（不用 showModal：top layer 会脱离画布缩放），
+       浏览器原生「Esc 关闭模态框」随之失效，这里统一补回来。 */
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || event.defaultPrevented) return;
+      var open = document.querySelector('dialog[open]');
+      if (!open) return;
+      event.preventDefault();
+      open.close();
+    }, true);
+  </script>
 </body>
 
 </html>

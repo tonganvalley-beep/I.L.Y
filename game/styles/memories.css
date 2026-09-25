@@ -235,7 +235,7 @@
 
 /* ---------- 游戏菜单里的「回忆」按钮沿用统一菜单样式 ---------- */
 
-@media (max-width: 600px) {
+@container frame (max-width: 600px){
   .mem-dialog { padding: 16px 14px; }
   .ach-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
   .ach-tile .ach-name { font-size: 15px; padding: 22px 12px 11px; }

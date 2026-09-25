@@ -21,15 +21,15 @@
   const BASE = 'assets/images/ui/cursor/';
   const HOT  = '24 24, auto';   /* 热点 = 画布中心 = 人物中心 */
 
-  const CURSOR_IDLE = "url('" + BASE + "cursor-hero-front.png') " + HOT;
-  const CURSOR_BACK = "url('" + BASE + "cursor-hero-back.png') " + HOT;
+  const CURSOR_IDLE = "url('" + BASE + "cursor-hero-front.webp') " + HOT;
+  const CURSOR_BACK = "url('" + BASE + "cursor-hero-back.webp') " + HOT;
   const CURSOR_WALK_RIGHT = [
-    "url('" + BASE + "cursor-walk-right-1.png') " + HOT,
-    "url('" + BASE + "cursor-walk-right-2.png') " + HOT
+    "url('" + BASE + "cursor-walk-right-1.webp') " + HOT,
+    "url('" + BASE + "cursor-walk-right-2.webp') " + HOT
   ];
   const CURSOR_WALK_LEFT = [
-    "url('" + BASE + "cursor-walk-left-1.png') " + HOT,
-    "url('" + BASE + "cursor-walk-left-2.png') " + HOT
+    "url('" + BASE + "cursor-walk-left-1.webp') " + HOT,
+    "url('" + BASE + "cursor-walk-left-2.webp') " + HOT
   ];
 
   const WALK_INTERVAL = 80;   /* 走路帧切换间隔（ms） */

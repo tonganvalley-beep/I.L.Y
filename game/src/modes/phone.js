@@ -113,6 +113,8 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   // speaker 省略时按内心独白处理；传了就用指定说话人（如基生本人开口打断）
   function showThought(text, speaker) {
     thoughtSpeaker.textContent = speaker || ILY.t('phone.thoughtSelf');
+    if (speaker) thoughtSpeaker.dataset.speaker = speaker; // 与 dialogue.js 同一套按角色配色
+    else delete thoughtSpeaker.dataset.speaker;
     thoughtText.textContent = text || '';
     thought.hidden = !text;
   }
@@ -169,7 +171,9 @@ function mountPhone({ stage, node, state, assets, go, notify }) {
   // 子界面顶栏：「◂ 主页 + 栏目名」。写信/发送失败都属于邮件，所以顶栏要跟着切到「邮件」
   function renderTabs() {
     tabs.replaceChildren();
-    const homeBtn = button(ILY.t('phone.home'), () => goHome());
+    // 退信（view==='bounce'）是一次性的瞬态界面，不会被 render() 重建，
+    // 此时「主页」临时兼作「返回」：否则玩家在这里点主页会销毁唯一出口 → 剧情永久卡住。
+    const homeBtn = button(ILY.t('phone.home'), () => (view === 'bounce' ? continueAfterBounce() : goHome()));
     homeBtn.classList.add('tab-home');
     tabs.append(homeBtn, el('span', 'tab-title', tabLabel()));
   }

@@ -5,20 +5,22 @@ const allowedTypes = new Set(['dialogue', 'monologue', 'heroine-card']);
 const volumeValue = value => typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.min(1, value)) : 0.8;
 
 // One owner per game. Invalidated hashes and late play promises cannot revive an old line.
+// 2026-09-21：移除了「源指纹校验」。原先每条语音都要拿 SHA-256(JSON.stringify(sourceValues))
+// 与 manifest 的 sourceFingerprint 比对，不等就静默跳过播放（只在控制台留 warn）。问题在于
+// 改动剧本里任何参与指纹的字段（speaker / text / scene / chapter / route / type）都会把配音
+// 静默打掉，玩家和开发者都收不到任何界面提示——一次 speaker 归一就曾让 419 条配音消失。
+// 现在语音只按 lineId 取 manifest 条目直接播放，不再做内容一致性拦截。
+// 如需恢复护栏：voice-source.js 仍导出 ILY.collectVoiceSources，按原样重新接上 getSource 与
+// fingerprint 两个注入项即可。
 class VoicePlayer {
-  constructor({ manifest, getSource, canPlay = () => true, storage = null,
-    createAudio = path => new Audio(path), fingerprint = async values => {
-      const bytes = new TextEncoder().encode(JSON.stringify(values));
-      const digest = await crypto.subtle.digest('SHA-256', bytes);
-      return Array.from(new Uint8Array(digest), value => value.toString(16).padStart(2, '0')).join('');
-    }, warn = message => console.warn(message) } = {}) {
-    Object.assign(this, { manifest, getSource, canPlay, storage, createAudio, fingerprint, warn });
+  constructor({ manifest, canPlay = () => true, storage = null,
+    createAudio = path => new Audio(path) } = {}) {
+    Object.assign(this, { manifest, canPlay, storage, createAudio });
     this.enabled = true;
     this.volume = 0.8;
     this.masterVolume = (ILY.AudioSettings && ILY.AudioSettings.getMaster()) || 1;
     this.generation = 0;
     this.audio = null;
-    this.warned = new Set();
     try {
       const saved = JSON.parse(storage?.getItem(SETTINGS_KEY) || 'null');
       if (typeof saved?.enabled === 'boolean') this.enabled = saved.enabled;
@@ -59,16 +61,8 @@ class VoicePlayer {
     if (!this.enabled || !this.volume || !this.canPlay() || !allowedTypes.has(node?.type)) return false;
     const lineId = node.reviewId || node.id;
     const entry = this.manifest?.schemaVersion === 1 && this.manifest.entries?.[lineId];
-    if (!entry || !/^assets\/audio\/voices\/published\/[a-f0-9]{20}\.wav$/.test(entry.file || '')) return false;
+    if (!entry || !/^assets\/audio\/voices\/published\/v\d{2,5}\.(wav|mp3)$/.test(entry.file || '')) return false;
     try {
-      const source = this.getSource(lineId);
-      if (!source || await this.fingerprint(source.sourceValues) !== entry.sourceFingerprint) {
-        if (!this.warned.has(lineId)) {
-          this.warned.add(lineId);
-          this.warn(`VOICEVOX: stale source for ${lineId}; skipped.`);
-        }
-        return false;
-      }
       if (generation !== this.generation || !this.canPlay()) return false;
       const audio = this.createAudio(`${entry.file}?v=${encodeURIComponent(entry.renderHash || entry.sourceFingerprint)}`);
       this.audio = audio;

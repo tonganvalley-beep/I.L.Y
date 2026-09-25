@@ -10,6 +10,9 @@
     const fallback=el('div','boss-intro');
     fallback.append(el('p','','正在准备七幕回响…'),button('跳过战斗 · 继续剧情（skip）',storyMode));
     panel.append(frame,fallback);stage.append(panel);
+    // 顶栏是 fixed 定位，会压住小游戏自带的工具栏（动态 / 暂停 / 返回开始 / 跳过战斗 / 全屏）。
+    // 与 RPG 一致：进入 boss 关时隐藏顶栏，菜单改由小游戏内的「游戏菜单」按钮唤起。
+    document.body.classList.add('boss-active');
     let disposed=false,finished=false,ready=false,guard=0;
     // file: messages serialize their origin as null, even when location.origin is file://.
     const expected=location.protocol==='file:'?'null':location.origin;
@@ -68,6 +71,7 @@
     guard=setTimeout(loadError,20000);
     return ()=>{
       if(disposed)return;disposed=true;clearTimeout(guard);send({type:'boss:dispose'});
+      document.body.classList.remove('boss-active');
       observer.disconnect();window.removeEventListener('message',message);document.removeEventListener('visibilitychange',suspend);
       document.removeEventListener('input',settingsChanged);document.removeEventListener('click',settingsChanged);
       storyAudio?.removeEventListener?.('play',silence);frame.src='about:blank';frame.remove();panel.remove();assets?.play?.();

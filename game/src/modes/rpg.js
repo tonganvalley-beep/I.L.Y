@@ -179,12 +179,12 @@ function mountRpg({stage,node,state,assets,go,rollback=()=>{},canRollback=()=>fa
       for(const value of e.options)inspect.append(button(value,()=>{
         if(disposed)return;checkpointRollback();inspect.close();say(interactRpg(state,node.task,{...e,options:null,value,text:`${e.text} 基生接过了${value}${(e.item&&e.item[value])||'冰淇淋'}。`},node));refresh();canvas.focus();
       }));
-      inspect.showModal();return;
+      inspect.show();return;
     }
     checkpointRollback();say(interactRpg(state,node.task,e,node));
     if(e.preview){
       const photo=el('img');photo.src=assets.image(e.preview);photo.alt=e.label;
-      inspect.replaceChildren(photo,el('p','',e.text),button('收起照片',()=>{inspect.close();canvas.focus();}));inspect.showModal();
+      inspect.replaceChildren(photo,el('p','',e.text),button('收起照片',()=>{inspect.close();canvas.focus();}));inspect.show();
     }
     if(p.done&&node.task==='G5'&&!state.flags.G5_SCREAM){state.flags.G5_SCREAM=true;say('远处，十屋的惨叫骤然中断。空水槽前，终于出现了熟悉的身影。');}
     refresh();canvas.focus();

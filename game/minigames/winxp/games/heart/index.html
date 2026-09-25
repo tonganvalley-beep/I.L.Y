@@ -1,7 +1,36 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>红心与蓝心教学</title>
 <link rel="stylesheet" href="../../../../styles/game.css"><link rel="stylesheet" href="../../../../styles/chapter1.css">
-<style>html,body{margin:0;background:#08080f;height:100%;overflow:auto}.danmu-panel{padding:8px}.danmu-panel>h1{font-size:14px}.danmu-arena{width:min(100%,calc((100dvh - 96px)*1.3333));margin-bottom:4px}.danmu-panel>button{padding:5px 8px;font-size:12px}.danmu-overlay{padding:8px}.danmu-overlay p{font-size:11px;line-height:1.5;margin:4px}.danmu-overlay h2{font-size:16px;margin:4px}.danmu-panel[data-lesson=blue]{padding:8px}.danmu-panel[data-lesson=blue] .danmu-arena{width:min(100%,calc((100dvh - 214px)*1.3333))}.danmu-lesson{font-size:12px;line-height:1.5}.danmu-feedback{font-size:11px;margin-bottom:4px}</style></head>
+<style>/* ==== 游戏窗口内的画面适配 ====
+   思路与主线一致（主线用 #game-frame + container-name:frame，恒 1280×720 再整体 scale）。
+   这里的窗口尺寸是可变的，所以改成「满高弹性布局 + 容器查询」：
+   面板撑满窗口 vertically，.danmu-stage 吃掉标题/提示/按钮之外的全部剩余高度，
+   并作为查询容器（frame）——于是 cqh 就等于「游戏区可用的高度」，
+   canvas 是 4:3，宽度 = 高度 ×4/3，高度自然刚好铺满，**不需要再猜任何常数**。 */
+html,body{margin:0;background:#08080f;height:100%;overflow:auto}
+#arena{height:100%}
+.danmu-panel{height:100%;box-sizing:border-box;display:flex;flex-direction:column;min-height:0;padding:8px}
+.danmu-panel>h1{font-size:14px;margin:0 0 4px}
+.danmu-actions>button{padding:5px 8px;font-size:12px}
+.danmu-overlay{padding:8px}
+.danmu-overlay p{font-size:11px;line-height:1.5;margin:4px}
+.danmu-overlay h2{font-size:16px;margin:4px}
+.danmu-lesson{font-size:12px;line-height:1.5}
+.danmu-feedback{font-size:11px;margin-bottom:4px}
+/* 查询容器 .danmu-stage 与游戏区/手柄的尺寸规则，统一放在 chapter1.css —— 那里是唯一真源，
+   主线和小游戏窗口共用同一套（主线里游戏区在 #game-frame 缩放画布之内，规则一样成立）。
+   本页只负责「窗口特有」的部分：满高弹性布局、更小的字号、更紧的内边距。 */
+/* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }
+</style></head>
 <body><div id="arena"></div>
 <script src="../../../../src/bootstrap.js"></script><script src="../../../../src/core/dom.js"></script>
 <script src="../../../../data/battles/first-trial.js"></script><script src="../../../../src/engines/danmu.js"></script>

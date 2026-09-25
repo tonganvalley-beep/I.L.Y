@@ -8,7 +8,7 @@
     :root{--ink:#07152e;--blue:#8fe7ff;--white:#f7fbff;--pink:#ff9bb7;--gold:#ffe18e}
     *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#05091a;color:var(--white);font-family:"Microsoft YaHei","PingFang SC",sans-serif}
     button{font:inherit;color:inherit}button:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
-    #game{position:relative;width:100%;height:100%;isolation:isolate;background:#10204c url("assets/sunset.jpg") center/cover no-repeat;user-select:none}
+    #game{position:relative;width:100%;height:100%;isolation:isolate;background:#10204c url("assets/sunset.webp") center/cover no-repeat;user-select:none}
     #game::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,16,50,.72),rgba(10,28,66,.06) 42%,rgba(24,12,42,.24)),linear-gradient(0deg,rgba(3,8,24,.88),transparent 48%)}
     #game::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:20;opacity:.18;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.1) 4px);mix-blend-mode:soft-light}
     .top{position:absolute;top:max(18px,env(safe-area-inset-top));left:clamp(18px,3vw,48px);right:clamp(18px,3vw,48px);z-index:8;display:flex;justify-content:space-between;align-items:flex-start;text-shadow:0 2px 8px #10204c}
@@ -52,7 +52,17 @@
     .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.result-grid div{padding:12px;border:1px solid rgba(255,255,255,.16)}.result-grid b{display:block;font:700 28px Consolas;color:var(--gold)}
     @media(max-width:680px){.scoreboard{gap:9px}.metric:nth-child(1){display:none}.progress{top:82px;width:62vw}.speed-box{top:69px;right:8px;transform:scale(.85);transform-origin:right top}.airi-wrap{width:84vw;height:90%;bottom:-18%}.viewfinder{inset:15% 5% 25%}.film{top:18%;right:1%}.highway{inset:13% 2% 8%}.hitline{left:0;right:0}.caption{bottom:4px}.line{font-size:14px}.hint{display:none}.title{font-size:22px}.top{top:12px}.chapter{font-size:9px}.receptor{width:20vw}}
     @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}.judgement.show{animation-duration:.6s!important}.lane-judge.show{animation-duration:.5s!important}.flash.fire{animation-duration:.28s!important}.particle{animation-duration:.46s!important}}
-  </style>
+  /* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }
+</style>
 </head>
 <body>
 <main id="game" aria-label="一瞬留影节奏摄影试玩">
@@ -64,7 +74,7 @@
   <div class="progress"><i id="progress"></i></div>
   <div id="comboFx" class="combo-fx" aria-hidden="true"><i class="edge-light left"></i><i class="edge-light right"></i><i class="bottom-aura"></i><i class="bottom-sparks"></i></div>
   <div class="viewfinder" aria-hidden="true"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><i id="focus" class="focus"></i></div>
-  <div id="airi" class="airi-wrap"><img id="airiImg" src="assets/airi-smile.png" alt="正在海边快速变换姿势的爱理"></div>
+  <div id="airi" class="airi-wrap"><img id="airiImg" src="assets/airi-smile.webp" alt="正在海边快速变换姿势的爱理"></div>
   <div id="highway" class="highway" aria-label="四轨节奏摄影轨道">
     <div class="horizon-glow"></div>
     <svg class="rails" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="edge" d="M48 10 L7 89"/><path d="M49.2 10 L31 89"/><path d="M50 10 L50 89"/><path d="M50.8 10 L69 89"/><path class="edge" d="M52 10 L93 89"/></svg>
@@ -82,7 +92,7 @@
 (() => {
   'use strict';
   const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-  const poseImages=['assets/airi-smile.png','assets/airi-curious.png','assets/airi-wink.png','assets/airi-blush.png'];
+  const poseImages=['assets/airi-smile.webp','assets/airi-curious.webp','assets/airi-wink.webp','assets/airi-blush.webp'];
   const phaseLines=[
     ['爱理','“先听清楚歌曲本身。金色亮起的时候，就是最好看的我。”'],
     ['爱理','“这次不是四拍哦——猜猜我会在哪一拍停下来？”'],
@@ -182,7 +192,7 @@
   const REF_HITS=[11.766667,16.466667,24.3,25.2,26.033333,26.933333,29.4,29.666667,31.466667,32.366667,35,35.9,36.833333,37.266667,38.633333,39.5,44.433333,52.066667,52.5,54.733333,55.2,55.633333,56.5,58.233333,58.466667,58.766667,59.233333,60.1,65.566667,67.266667,69.2,69.466667,78.666667,78.9,79.766667,80.266667,80.666667,81.6,82.066667,82.5,84.866667,85.166667,85.833333,86.033333,90.633333,99.5,101.433333,107.333333,107.533333,108.933333,110.233333,110.666667,113.533333,113.8,114.5,114.7,119.166667,119.666667,120.066667,121.9,122.366667,123.366667,125.033333,129.966667,130.866667,132.2,133.633333,133.866667,134.066667,137.433333,138.966667];
   const keys=['D','F','J','K'],icons=['◇','◉','✦','⬡'],keyMap={KeyD:0,KeyF:1,KeyJ:2,KeyK:3};
   const colors=['#76d7ff','#a9f2db','#ff9fc0','#c8aeff'];
-  const poses=['assets/airi-smile.png','assets/airi-curious.png','assets/airi-wink.png','assets/airi-blush.png'];
+  const poses=['assets/airi-smile.webp','assets/airi-curious.webp','assets/airi-wink.webp','assets/airi-blush.webp'];
   const game=$('#game'),bgm=$('#bgm'),airi=$('#airi'),airiImg=$('#airiImg'),notesLayer=$('#notes'),fx=$('#fx'),flash=$('#flash'),focus=$('#focus'),judge=$('#judgement');
   const scoreEl=$('#score'),comboEl=$('#combo'),filmCount=$('#filmCount'),filmTotal=$('#filmTotal'),progress=$('#progress'),film=$('#film'),speaker=$('#speaker'),line=$('#line'),hint=$('#hint'),speedInput=$('#noteSpeed'),speedValue=$('#speedValue'),difficultyInput=$('#difficulty'),pauseOverlay=$('#pause'),flashToggle=$('#flashToggle'),musicVolumeInput=$('#musicVolume'),musicVolumeValue=$('#musicVolumeValue'),keyVolumeInput=$('#keyVolume'),keyVolumeValue=$('#keyVolumeValue'),settingsToggle=$('#settingsToggle'),settingsPanel=$('#settingsPanel'),soundPreview=$('#soundPreview');
   let audioCtx=null,state='idle',beats=[],chart=[],chartEnd=DURATION-TAIL_SILENCE,beatIndex=-1,spawnIndex=0,missIndex=0,raf=0,score=0,combo=0,bestCombo=0,perfect=0,great=0,good=0,quality=0,totalPhotos=0,judgedPhotos=0,flashEnabled=safeLS.get('ily-hit-flash')!=='off';

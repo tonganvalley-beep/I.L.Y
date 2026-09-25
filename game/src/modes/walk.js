@@ -81,10 +81,10 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
   // 隧道小人改用光标 UI 精灵（sign&log/photo&video）：站立正面 / 背身 + 左右各两帧走路动画
   const SPRITE_DIR = '../sign&log/photo&video/';
   const sprites = {
-    idle: [SPRITE_DIR + 'cursor-hero-front.png'],
-    back: [SPRITE_DIR + 'cursor-hero-back.png'],
-    left: [SPRITE_DIR + 'cursor-walk-left-1.png', SPRITE_DIR + 'cursor-walk-left-2.png'],
-    right: [SPRITE_DIR + 'cursor-walk-right-1.png', SPRITE_DIR + 'cursor-walk-right-2.png']
+    idle: [SPRITE_DIR + 'cursor-hero-front.webp'],
+    back: [SPRITE_DIR + 'cursor-hero-back.webp'],
+    left: [SPRITE_DIR + 'cursor-walk-left-1.webp', SPRITE_DIR + 'cursor-walk-left-2.webp'],
+    right: [SPRITE_DIR + 'cursor-walk-right-1.webp', SPRITE_DIR + 'cursor-walk-right-2.webp']
   };
   const spriteImgs = { idle: [], back: [], left: [], right: [] };
   for (const key of Object.keys(sprites)) {

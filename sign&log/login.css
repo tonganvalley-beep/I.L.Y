@@ -2,7 +2,7 @@
  * login.css —— 登录 / 注册页样式（像素风版）
  *
  * 设计思路：
- *   1. 整页用「登录页面-人物居左.png」做全屏背景（人物在左，表单在右）
+ *   1. 整页用「登录页面-人物居左.webp」做全屏背景（人物在左，表单在右）
  *   2. 全站文字使用「Zpix 最像素」像素字体 → 复古游戏感
  *   3. 控件去掉大圆角，改用硬阴影、方块造型 → 像素 UI 风格统一
  * ============================================================ */
@@ -18,7 +18,7 @@
  */
 @font-face {
   font-family: "Zpix";                    /* 给字体起的名字，下面引用它 */
-  src: url("fonts/zpix.ttf") format("truetype");  /* 字体文件位置（相对本 css 文件） */
+  src: url("fonts/zpix.woff2") format("woff2");  /* 字体文件位置（相对本 css 文件） */
   font-weight: normal;
   font-style: normal;
   font-display: swap;                     /* 字体加载完成前先用备用字体顶上，避免文字空白 */
@@ -33,16 +33,13 @@
 }
 
 
-/* ---------- 页面主体：全屏背景图 + 像素字体 ---------- */
+/* ---------- 页面主体：固定 16:9 画布（画布外多余区域 = 黑边） ---------- */
+html { background: #000; }         /* 黑边底色 */
+
 body {
-  /* 背景图片就在本 css 同目录（login/ 文件夹）里，直接写文件名 */
-  /* 背景图在 login/photo&video/ 素材文件夹里 */
-  background-image: url('photo&video/登录页面-人物居左.png');
-  background-size: cover;          /* 等比缩放到刚好盖满整个窗口（超出的部分裁掉） */
-  background-position: 35% center; /* 横向定位 35%：让人物落在屏幕左侧、右侧面板区背景干净 */
-  background-repeat: no-repeat;    /* 不要平铺重复 */
-  background-attachment: fixed;    /* 页面滚动时背景固定不动 */
-  min-height: 100vh;               /* 最小高度 = 一整个浏览器窗口高度（vh = 视口高度） */
+  background: #000;                /* 画布外多余区域留黑边 */
+  min-height: 100dvh;              /* 至少一屏高，供画布绝对居中 */
+  overflow: hidden;                /* 画布缩放后不出现滚动条 */
 
   /* 字体链：优先用我们引入的像素字体 Zpix；
      万一字体文件加载失败，依次退回 monospace（等宽字体）和系统默认，
@@ -51,7 +48,23 @@ body {
   font-size: 15px;                 /* 全站基准字号（像素字体偏小，比常规网页略大一点） */
 
   color: #ffffff;                  /* 默认文字白色（因为背景是深色的） */
-  overflow-x: hidden;              /* 禁止出现横向滚动条 */
+}
+
+/* ---------- 固定 16:9 画布：1280×720 设计分辨率，等比缩放居中 ---------- */
+/* 背景图（人物居左）放在画布上而不是 body：这样黑边不会被背景图盖住 */
+#game-frame {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 1280px; height: 720px;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center center;
+  container-type: size;
+  container-name: frame;
+  overflow: hidden;
+  background-image: url('photo&video/登录页面-人物居左.webp');
+  background-size: cover;          /* 等比缩放到刚好盖满画布（超出的部分裁掉） */
+  background-position: 35% center; /* 横向定位 35%：人物落在画布左侧、右侧面板区背景干净 */
+  background-repeat: no-repeat;    /* 不要平铺重复 */
 }
 
 
@@ -87,7 +100,8 @@ body {
 /* ---------- 主体容器：左留白 + 右面板，横向排列 ---------- */
 .container {
   display: flex;                   /* 弹性布局：让子元素横排 */
-  min-height: 100vh;               /* 至少撑满一屏 */
+  height: 100%;                    /* 撑满 16:9 画布高度 */
+  min-height: 100%;                /* 至少撑满画布，保证面板竖直居中 */
   align-items: center;             /* 子元素在竖直方向居中 */
 }
 
@@ -318,7 +332,7 @@ body {
 
 
 /* ---------- 小屏适配：窗口宽度小于 720px（手机/窄窗口）时 ---------- */
-@media (max-width: 720px) {
+@container frame (max-width: 720px){
   .panel {
     width: 92%;                    /* 面板几乎占满整屏 */
     margin: 0 auto;                /* 水平居中 */
@@ -373,3 +387,14 @@ body {
 .white-fade.show {
   opacity: 1;
 }
+
+/* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }

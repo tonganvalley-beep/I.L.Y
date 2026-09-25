@@ -27,16 +27,16 @@
 
 
   // 游戏注册表：每个游戏是 games/<游戏名>/ 下的子文件夹，固定含 4 个文件
-  //   index.html(主入口) / app.js(逻辑) / styles.css(样式) / ico.png(图标)
+  //   index.html(主入口) / app.js(逻辑) / styles.css(样式) / ico.webp(图标)
   // 新增游戏：在 games/ 下新建同名子文件夹并放入这 4 个文件，再到此处添加一条记录即可。
   // 也可在 games/manifest.json（{"games":[...]}）集中登记，加载时优先读取、失败时回退到下方内置列表。
   let GAMES = [
     { name: '红心弹幕', dir: 'games/heart', icon: 'games/heart/ico.svg', launch: 'games/heart/index.html', w: 720, h: 540 },
-    { name: '三维弹球', dir: 'games/space_pinball', icon: 'games/space_pinball/ico.png', launch: 'games/space_pinball/index.html' },
-    { name: '扫雷', dir: 'games/xp_minesweeper', icon: 'games/xp_minesweeper/ico.png', launch: 'games/xp_minesweeper/index.html', w: 516, h: 380 },
-    { name: '纸牌', dir: 'games/xp_solitaire', icon: 'games/xp_solitaire/ico.png', launch: 'games/xp_solitaire/index.html', w: 656, h: 500 },
-    { name: '空当接龙', dir: 'games/xp_freecell', icon: 'games/xp_freecell/ico.png', launch: 'games/xp_freecell/index.html', w: 716, h: 500 },
-    { name: '红心大战', dir: 'games/xp_hearts', icon: 'games/xp_hearts/ico.png', launch: 'games/xp_hearts/index.html', w: 656, h: 540 },
+    { name: '三维弹球', dir: 'games/space_pinball', icon: 'games/space_pinball/ico.webp', launch: 'games/space_pinball/index.html' },
+    { name: '扫雷', dir: 'games/xp_minesweeper', icon: 'games/xp_minesweeper/ico.webp', launch: 'games/xp_minesweeper/index.html', w: 516, h: 380 },
+    { name: '纸牌', dir: 'games/xp_solitaire', icon: 'games/xp_solitaire/ico.webp', launch: 'games/xp_solitaire/index.html', w: 656, h: 500 },
+    { name: '空当接龙', dir: 'games/xp_freecell', icon: 'games/xp_freecell/ico.webp', launch: 'games/xp_freecell/index.html', w: 716, h: 500 },
+    { name: '红心大战', dir: 'games/xp_hearts', icon: 'games/xp_hearts/ico.webp', launch: 'games/xp_hearts/index.html', w: 656, h: 540 },
   ];
 
   // 桌面根级默认图标（不含「我的电脑」）

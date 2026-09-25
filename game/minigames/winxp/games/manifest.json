@@ -11,13 +11,13 @@
     {
       "name": "三维弹球",
       "dir": "games/space_pinball",
-      "icon": "games/space_pinball/ico.png",
+      "icon": "games/space_pinball/ico.webp",
       "launch": "games/space_pinball/index.html"
     },
     {
       "name": "扫雷",
       "dir": "games/xp_minesweeper",
-      "icon": "games/xp_minesweeper/ico.png",
+      "icon": "games/xp_minesweeper/ico.webp",
       "launch": "games/xp_minesweeper/index.html",
       "w": 516,
       "h": 380
@@ -25,7 +25,7 @@
     {
       "name": "纸牌",
       "dir": "games/xp_solitaire",
-      "icon": "games/xp_solitaire/ico.png",
+      "icon": "games/xp_solitaire/ico.webp",
       "launch": "games/xp_solitaire/index.html",
       "w": 656,
       "h": 500
@@ -33,7 +33,7 @@
     {
       "name": "空当接龙",
       "dir": "games/xp_freecell",
-      "icon": "games/xp_freecell/ico.png",
+      "icon": "games/xp_freecell/ico.webp",
       "launch": "games/xp_freecell/index.html",
       "w": 716,
       "h": 500
@@ -41,7 +41,7 @@
     {
       "name": "红心大战",
       "dir": "games/xp_hearts",
-      "icon": "games/xp_hearts/ico.png",
+      "icon": "games/xp_hearts/ico.webp",
       "launch": "games/xp_hearts/index.html",
       "w": 656,
       "h": 540

@@ -467,7 +467,8 @@ function build() {
   content = el('div', 'mem-content');
   memDialog.append(head, memSub, memTabs, content, actions(() => memDialog.close()));
 
-  document.body.append(memDialog);
+  // 挂到 #game-frame 内（而非 body），使回忆弹窗随固定 16:9 画布一起缩放
+  (document.getElementById('game-frame') || document.body).append(memDialog);
 
   memTabs.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => { activeTab = btn.dataset.tab; renderContent(); });
@@ -499,7 +500,7 @@ function openMemories() {
   build();
   activeTab = 'achievements';
   renderContent();
-  memDialog.showModal();
+  memDialog.show();
 }
 
 /* main.js 启动时调用一次，注入存档管理器 / 当前进度 / 资源解析器 */

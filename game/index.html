@@ -18,6 +18,19 @@
       }
     })();
   </script>
+  <script>
+    /* 固定 16:9 画布：把缩放系数写到 :root，供 #game-frame 的 transform:scale() 使用。
+       放在 head 里，解析即执行，首帧前就已设定，不会闪也不会溢出。 */
+    (function () {
+      function fit() {
+        document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1280, innerHeight / 720));
+      }
+      fit();
+      addEventListener('resize', fit);
+      addEventListener('orientationchange', fit);
+      addEventListener('load', fit);
+    })();
+  </script>
   <link rel="stylesheet" href="styles/game.css" data-page-node-id="EwJ9umIJsyZMB5ZuTiWDiR">
   <link rel="stylesheet" href="styles/prologue.css" data-page-node-id="BYyRMzFoePHCw317AiHahG">
   <link rel="stylesheet" href="styles/stage.css" data-page-node-id="Xh5GpyiJR39wMP5lrZQi8F">
@@ -26,7 +39,8 @@
   <link rel="stylesheet" href="styles/chapters.css">
 </head>
 <body data-page-node-id="SwCaPY9TmlKoERAvQKeMRs">
-  <header class="game-header" data-page-node-id="FbyVXPwoOde4o0iQOKKvH4"><span id="chapter" data-page-node-id="ztM65z8AsWkEendIXzGaA6">序章 · 蓝色来电</span><div class="game-header-actions"><button id="skip" type="button" data-i18n="menu.fastForward" aria-pressed="false" aria-keyshortcuts="S" disabled title="快速连续播放对白，遇到选项或玩法自动停止（S）">快进</button><button id="skip-segment" type="button" data-i18n="menu.skipSegment" aria-pressed="false" disabled title="立即跳过当前连续对白，停在下一个选项或玩法">整段跳过</button><button id="rollback" type="button" data-i18n="menu.rollback" disabled title="回到上一段（PageUp / 鼠标滚轮向上）">↶ 回滚</button><a id="script-editor-toggle" href="script-editor.html" target="ily-script-editor" role="button" title="查看并编辑当前剧本文本">剧本编辑</a><button id="menu-toggle" aria-controls="game-menu" aria-expanded="false" data-i18n="menu.toggle" data-page-node-id="DEpwUyHJuSxaJAauhQmZAh">菜单 ☰</button></div></header>
+  <div id="game-frame">
+  <header class="game-header" data-page-node-id="FbyVXPwoOde4o0iQOKKvH4"><span id="chapter" data-page-node-id="ztM65z8AsWkEendIXzGaA6">序章 · 蓝色来电</span><div class="game-header-actions"><button id="hide-ui" type="button" data-i18n="dlg.hide" aria-pressed="false" disabled title="隐藏文字与顶栏，只看背景 / CG（H）">隐藏</button><button id="skip" type="button" data-i18n="menu.fastForward" aria-pressed="false" aria-keyshortcuts="S" disabled title="快速连续播放对白，遇到选项或玩法自动停止（S）">快进</button><button id="skip-segment" type="button" data-i18n="menu.skipSegment" aria-pressed="false" disabled title="立即跳过当前连续对白，停在下一个选项或玩法">整段跳过</button><button id="rollback" type="button" data-i18n="menu.rollback" disabled title="回到上一段（PageUp / 鼠标滚轮向上）">↶ 回滚</button><button id="menu-toggle" aria-controls="game-menu" aria-expanded="false" data-i18n="menu.toggle" title="打开 / 关闭菜单（ESC）" data-page-node-id="DEpwUyHJuSxaJAauhQmZAh">菜单 ☰</button></div></header>
   <main data-page-node-id="tvBn9bWSDFiDTtKlyLoxXb">
     <section id="stage" aria-label="游戏场景" data-page-node-id="ogB9YE97ZVRGsDjZfkEGwH"></section>
   </main>
@@ -59,7 +73,7 @@
     </div>
   </dialog>
   <p id="status" role="status" data-page-node-id="gLeaTS6NCJtTigYbe6aEz8"></p>
-  <dialog id="script-editor" class="script-editor"><div class="menu-heading"><div><h2>剧本校对</h2><p id="script-editor-meta" class="hint"></p></div><button id="script-editor-close">×</button></div><p class="hint">当前句会高亮显示。文本只读；下拉框用于修正“台词 / 旁白 / 内心 / 演出”等归类。</p><div id="script-editor-list" class="script-editor-list"></div><div class="toolbar"><button id="script-editor-save">保存归类</button><button id="script-editor-export">导出归类记录</button><button id="script-editor-clear">清除本地归类</button></div><p id="script-editor-status" class="hint"></p></dialog>
+  </div><!-- /#game-frame -->
   <!-- 普通脚本按顺序加载：命名空间 → 数据 → 工具 → 玩法 → 入口。 -->
   <script>
     /* ---------- 全屏状态跨页面保持 ----------
@@ -98,6 +112,19 @@
       document.addEventListener('keydown', onGesture);
     })();
   </script>
+  <script>
+    /* ---------- Esc 关闭当前弹窗 ----------
+       画布内的弹窗统一改用 dialog.show()（不再用 showModal，避免进 top layer 脱离画布缩放），
+       浏览器原生「Esc 关闭模态框」的行为随之失效，这里统一补回来。
+       自由手机（.free-phone-dialog）的 Esc 由手机模式自己处理（先回主页、再合上），故跳过。 */
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || event.defaultPrevented) return;
+      var open = document.querySelector('dialog[open]');
+      if (!open || open.classList.contains('free-phone-dialog')) return;
+      event.preventDefault();
+      open.close();
+    }, true);
+  </script>
   <script src="src/cursor.js"></script>
   <script src="src/bootstrap.js"></script>
   <script src="src/i18n.js"></script>
@@ -115,6 +142,8 @@
   <script src="data/maps/chapter1-bundle.js"></script>
   <script src="data/maps/chapters-bundle.js"></script>
   <script src="data/story/phone.js"></script>
+  <script src="data/story/translations.js"></script>
+  <script src="src/core/story-lang.js"></script>
   <script src="data/maps/classroom.js"></script>
   <script src="data/battles/first-trial.js"></script>
   <script src="src/core/state.js"></script>
@@ -141,6 +170,8 @@
   <script src="src/modes/rpg.js"></script>
   <script src="src/modes/boss.js"></script>
   <script src="src/modes/chapter-moments.js"></script>
+  <!-- 真结局片尾曲（ED）：game/I.L.Y.-ED.mp4，由 ending_true 节点触发 -->
+  <script src="src/modes/ending-video.js"></script>
   <!-- 回忆（成就 / 剧情 / 画廊）：画廊插图清单来自 sign&log/gallery-data.js -->
   <script src="../sign&log/gallery-data.js"></script>
   <script src="src/memories.js"></script>

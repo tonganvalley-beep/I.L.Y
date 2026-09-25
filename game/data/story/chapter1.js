@@ -7,7 +7,7 @@ ILY.data.stories.chapter1 = {
     "ch1_s01": {
       "type": "monologue",
       "speaker": "",
-      "text": "序章·梦 —— 海边的重逢",
+      "text": "第一章",
       "checkpoint": true,
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -18,7 +18,7 @@ ILY.data.stories.chapter1 = {
     "ch1_002": {
       "type": "monologue",
       "speaker": "",
-      "text": "7/23 夜（梦境·不确定） · 海边",
+      "text": "7/23 夜 · 海边",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S01",
@@ -36,9 +36,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_004"
     },
     "ch1_004": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "她真的、真的是爱理吗？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S01",
@@ -47,7 +47,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_005": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱……爱……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -99,7 +99,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_010": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "怎么可能忘记……我从来没有、忘记过爱理，从来没有啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -109,7 +109,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_011": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "我说啊，爱理在这之前，到底都在干什么？到底去哪儿了？为什么还穿着校服……我一直、想要联系上爱理啊。这十年来……一直……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -119,7 +119,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_012": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理，为什么、为什么现在才……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -151,13 +151,13 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_015": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯……嗯、我也是……但是……爱理，你怎么了？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S01",
       "background": "ch1-coast-night",
-      "next": "ch1_016"
+      "next": "ch1_017"
     },
     "ch1_016": {
       "type": "monologue",
@@ -167,23 +167,23 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S01",
       "background": "ch1-coast-night",
-      "next": "ch1_017"
+      "next": "ch1_018"
     },
     "ch1_017": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "基生啊——告诉我，你最喜欢我了。",
+      "text": "基生啊——",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S01",
       "background": "ch1-coast-night",
-      "next": "ch1_018"
+      "next": "ch1_016"
     },
     "ch1_018": {
       "type": "monologue",
       "speaker": "",
-      "text": "蓝色吞没了视野。她的眼中，电线般的细丝交错蠕动。",
+      "text": "告诉我，你最喜欢我了。",
       "cg": "ch1-cg-blue",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -193,13 +193,13 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_019": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "呜哇啊————！！！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S01",
       "background": "ch1-coast-night",
-      "next": "ch1_s02"
+      "next": "ch1_021"
     },
     "ch1_s02": {
       "type": "monologue",
@@ -233,9 +233,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_023"
     },
     "ch1_023": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "是梦……！？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -243,9 +243,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_024"
     },
     "ch1_024": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "不，但是……我确实是……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -254,7 +254,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_choice": {
       "type": "choice",
-      "speaker": "选择",
+      "speaker": "",
       "text": "海边那一夜，究竟是梦，还是现实？",
       "choices": [
         {
@@ -262,14 +262,6 @@ ILY.data.stories.chapter1 = {
           "flag": {
             "key": "route",
             "value": "A"
-          },
-          "next": "ch1_reunion"
-        },
-        {
-          "text": "是真实的，但……",
-          "flag": {
-            "key": "route",
-            "value": "B"
           },
           "next": "ch1_reunion"
         },
@@ -351,7 +343,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_032": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "还、还活着呢！没死呢！我没事！！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -391,9 +383,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_036"
     },
     "ch1_036": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "24 号……如果是现实的话，那“那个”究竟是……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -402,8 +394,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_037": {
       "type": "dialogue",
-      "speaker": "眼前又浮现出昨晚的画面",
-      "text": "那双熟悉的眼突然泛起微微蓝光，蠕虫般的电线在瞳孔中交织……",
+      "speaker": "",
+      "text": "基生眼前又浮现出昨晚的画面，那双熟悉的眼突然泛起微微蓝光，蠕虫般的电线在瞳孔中交织……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -422,7 +414,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_039": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱、爱理……昨天……我们两个，是在海边对吧？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -443,7 +435,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_041": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……在海边重逢，然后，后来怎么了？我们是怎么……回到家的。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -486,14 +478,15 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_045"
     },
     "ch1_045": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "怎么会这样……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
       "background": "bg-apartment-dusk",
-      "next": "ch1_046"
+      "next": "ch1_046",
+      "portrait": "portrait-airi"
     },
     "ch1_046": {
       "type": "dialogue",
@@ -517,9 +510,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_048"
     },
     "ch1_048": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "……出租……地址……一直没醒……一整晚……都在……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -528,7 +521,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_049": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……不是，这种情况下一般应该……叫救护车吧？虽然很感谢你……但我一直在昏迷中？对吧？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -570,7 +563,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_053": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯？啊，有点。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -590,14 +583,15 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_055"
     },
     "ch1_055": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "巧克力螺——那是自己十年前很喜欢吃的东西。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
       "background": "bg-apartment-dusk",
-      "next": "ch1_056"
+      "next": "ch1_056",
+      "portrait": "portrait-airi"
     },
     "ch1_056": {
       "type": "dialogue",
@@ -612,7 +606,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_057": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "确实，高中的时候像个傻子一样，天天都在吃……青春啊——啊，那个，现在就不用巧克力螺了……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -623,7 +617,7 @@ ILY.data.stories.chapter1 = {
     "ch1_058": {
       "type": "monologue",
       "speaker": "",
-      "text": "[旁白]她居然还记得我高中爱吃巧克力螺。十年不见的人，为什么能如此笃定地说出“你每天都要吃”？",
+      "text": "她居然还记得我高中爱吃巧克力螺。十年不见的人，为什么能如此笃定地说出“你每天都要吃”？",
       "route": "B",
       "clue": "P2",
       "chapter": "chapter1",
@@ -654,9 +648,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_061"
     },
     "ch1_061": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "那么、“那个”果然是、只有“那个”是我的梦……吗？话虽如此——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -674,9 +668,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_063"
     },
     "ch1_063": {
-      "type": "cue",
-      "speaker": "",
-      "text": "",
+      "type": "dialogue",
+      "speaker": "成田基生",
+      "text": "爱理，你……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -696,7 +690,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_065": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "不……什么事都没有。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -716,39 +710,42 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_067"
     },
     "ch1_067": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "想向爱理确认的事简直堆积如山，可是——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
       "background": "bg-apartment-dusk",
-      "next": "ch1_068"
+      "next": "ch1_068",
+      "portrait": "portrait-airi"
     },
     "ch1_068": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "如果现在这场景，全都只是我一厢情愿的梦……那我现在、在这里逼问爱理的话——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
       "background": "bg-apartment-dusk",
-      "next": "ch1_069"
+      "next": "ch1_069",
+      "portrait": "portrait-airi"
     },
     "ch1_069": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "如果这样做了……然后从这个梦里清醒过来，然后——会怎么样？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
       "background": "bg-apartment-dusk",
-      "next": "ch1_070"
+      "next": "ch1_071",
+      "portrait": "portrait-airi"
     },
     "ch1_070": {
       "type": "monologue",
       "speaker": "",
-      "text": "——太好了。基生心想。此刻他不再需要答案，只需要眼前这个人。",
+      "text": "太好了。基生心想。此刻他不再需要答案，只需要眼前这个人。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -770,7 +767,7 @@ ILY.data.stories.chapter1 = {
     "ch1_072": {
       "type": "monologue",
       "speaker": "",
-      "text": "——但现在。现在，是梦还是妄想都无所谓了。现在，什么都无所谓了。",
+      "text": "但现在。现在，是梦还是妄想都无所谓了。现在，什么都无所谓了。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
@@ -816,7 +813,7 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S02",
       "background": "bg-apartment-dusk",
-      "next": "ch1_s03"
+      "next": "ch1_078"
     },
     "ch1_s03": {
       "type": "monologue",
@@ -832,7 +829,7 @@ ILY.data.stories.chapter1 = {
     "ch1_078": {
       "type": "monologue",
       "speaker": "",
-      "text": "2020/7/24 午后 15:21 起 · 出租屋",
+      "text": "2020/7/24 午后 15:21 · 出租屋",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
@@ -842,7 +839,7 @@ ILY.data.stories.chapter1 = {
     "ch1_079": {
       "type": "monologue",
       "speaker": "",
-      "text": "“2020/7/24 15:21”。基生把家里收拾了一下，一看手机，已经过去一个小时了。",
+      "text": "基生把家里收拾了一下，一看手机，已经过去一个小时了。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
@@ -874,7 +871,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_082": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -895,7 +892,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_084": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "诶？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -916,7 +913,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_086": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "不，没有！倒也不是不愿意……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -937,7 +934,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_088": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "但、但是……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -958,7 +955,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_090": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "我、我也是这么想的！但我家很小，也没什么有趣的东西……倒是有一些很老的游戏……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -979,7 +976,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_092": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1000,7 +997,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_094": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊……嗯、好吧。只要爱理不介意……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1020,14 +1017,15 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_096"
     },
     "ch1_096": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "暑假……？上次听到这个词，是什么时候来着？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
       "background": "bg-apartment-dusk",
-      "next": "ch1_097"
+      "next": "ch1_097",
+      "portrait": "portrait-airi"
     },
     "ch1_097": {
       "type": "monologue",
@@ -1054,7 +1052,7 @@ ILY.data.stories.chapter1 = {
     "ch1_099": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "“我还是第一次在基生家留宿呢。”",
+      "text": "我还是第一次在基生家留宿呢。",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1064,8 +1062,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_100": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“嗯……”",
+      "speaker": "成田基生",
+      "text": "嗯……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
@@ -1075,7 +1073,7 @@ ILY.data.stories.chapter1 = {
     "ch1_101": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "“今天做点什么好呢！”",
+      "text": "今天做点什么好呢！",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1085,8 +1083,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_102": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“嗯……”",
+      "speaker": "成田基生",
+      "text": "嗯……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
@@ -1096,7 +1094,7 @@ ILY.data.stories.chapter1 = {
     "ch1_103": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "“啊对了，那个，能不能先借用一下浴室呢……？昨天在海边弄得身上黏黏的……”",
+      "text": "啊对了，那个，能不能先借用一下浴室呢……？昨天在海边弄得身上黏黏的……",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1106,8 +1104,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_104": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“嗯……”",
+      "speaker": "成田基生",
+      "text": "嗯……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
@@ -1127,7 +1125,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_106": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……等下，怎么突然就答应了……我家的……浴室……最后一次，是什么时候打扫的来着？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1137,7 +1135,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_107": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理！！对不起！！我家的浴室很脏，你等一下——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1169,7 +1167,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_110": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1190,7 +1188,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_112": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱……爱理……对不……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1221,7 +1219,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_115": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "真的非常对不起……我不是故意想偷看……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1242,7 +1240,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_117": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "我只是在想，不能让爱理进那么脏的浴室……我把这里打扫一下，你稍微等一下……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1304,7 +1302,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_123": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "我也去洗个澡……你在这里看看漫画等一会儿吧。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1325,7 +1323,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_125": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯？是啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1355,9 +1353,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_128"
     },
     "ch1_128": {
-      "type": "cue",
-      "speaker": "",
-      "text": "",
+      "type": "dialogue",
+      "speaker": "成田基生",
+      "text": "爱理，很喜欢那个啊。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
@@ -1462,7 +1460,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_138": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊，都已经这个点了……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1483,7 +1481,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_140": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "对了。我们去买点吃的吧——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1503,7 +1501,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_142": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……“爱理”？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1520,7 +1518,7 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S03",
       "background": "bg-apartment-dusk",
-      "next": "ch1_s04"
+      "next": "ch1_145"
     },
     "ch1_s04": {
       "type": "monologue",
@@ -1566,7 +1564,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_148": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊……冰淇淋等下再拿……会化掉的……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1605,7 +1603,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_151": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理，想吃哪个？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1626,7 +1624,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_153": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "你还是那么选择困难症啊。这个怎么样？感觉你会喜欢。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1666,9 +1664,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_157"
     },
     "ch1_157": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "怎么回事，怎么感觉大家都在看我……是说我吗？变态是说什么啊……小姑娘好可怕——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1697,9 +1695,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_160"
     },
     "ch1_160": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "这……这幅场景……!!",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1719,7 +1717,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_162": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊，不是，就感觉……有点，怎么说呢……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1728,9 +1726,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_163"
     },
     "ch1_163": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "休息日与身着制服的女孩子一起的、年龄不详的可疑男子……在旁人眼里，完全就是离家出走的高中女生和可疑男子……啊，而且爱理看上去比较小——搞不好别人会以为我们是离家出走的初中生和可疑大叔……！？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1739,7 +1737,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_164": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "快点回家吧，老妹。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1760,8 +1758,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_166": {
       "type": "dialogue",
-      "speaker": "门口的感应门铃响起",
-      "text": "“多谢惠顾——”",
+      "speaker": "门口的感应门铃",
+      "text": "多谢惠顾——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1770,7 +1768,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_167": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "别管了！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1800,9 +1798,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_170"
     },
     "ch1_170": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "走到家只需要三分钟。可今天怎么感觉特别漫长啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1822,7 +1820,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_172": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "不，我没事……就吃杯面就行了吗？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1843,7 +1841,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_174": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "好的好的……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1864,7 +1862,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_176": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯嗯，好啊。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1885,7 +1883,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_178": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "野乃？啊～是爱理的表妹吗……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -1914,9 +1912,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_181"
     },
     "ch1_181": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "一般来说，这种事是不可能的。但是，从爱理的那副模样来看——那天在房间里醒来，“爱理”靠在我肩膀上说着“我一直都好想见你”……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1924,9 +1922,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_182"
     },
     "ch1_182": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "……只能认为爱理她——维持着十年前的身体和思想，经历了漫长的空白时间……然后现在，确实存在于我的眼前。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1934,9 +1932,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_183"
     },
     "ch1_183": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "这不是梦，也不是妄想……她也不是幽灵……那么——似乎还是认为“有人假扮成爱理，出现在我面前”比较合适。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1944,9 +1942,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_184"
     },
     "ch1_184": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "但是如果是这样的话，就有种“图什么”的感觉了……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1954,9 +1952,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_185"
     },
     "ch1_185": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "爱理还是十年前的样子。那么为什么，她会非常自然地接受了“长成大人的我”？接受了十年前的她根本不了解的“现在的我”呢？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1964,9 +1962,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_186"
     },
     "ch1_186": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "难道说，在爱理眼中，我还是高中生……之类的吗？如果是爱理的话……感觉好像也不是不可能啊——不不，这实在太扯淡了。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -1974,9 +1972,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_187"
     },
     "ch1_187": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "唔——有可能的情况都有……可能性实在太多，搞不懂啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -2028,7 +2026,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_192": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2055,12 +2053,12 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
       "background": "bg-apartment-night",
-      "next": "ch1_195"
+      "next": "ch1_196"
     },
     "ch1_195": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "“在外留宿”啊……确实，高中的时候我和爱理都是住在自己家里的……完全没想到事到如今，还能和爱理一起吃杯面、一起看电影、一起做各种各样的事。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S04",
@@ -2090,7 +2088,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_198": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2131,7 +2129,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_202": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "做……做些……什么……？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2152,7 +2150,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_204": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2174,7 +2172,7 @@ ILY.data.stories.chapter1 = {
     "ch1_s05": {
       "type": "monologue",
       "speaker": "",
-      "text": "一周之后·改变",
+      "text": "一周之后",
       "checkpoint": true,
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2204,7 +2202,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_209": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "哈啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2223,9 +2221,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_211"
     },
     "ch1_211": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "总感觉这样下去不行啊……各种事情都是久违了……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2273,9 +2271,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_216"
     },
     "ch1_216": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "我记得，爱理是很喜欢出去玩的……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2295,7 +2293,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_218": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊、早安。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2316,7 +2314,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_220": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊、没关系的哦。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2337,7 +2335,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_222": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯、这个嘛……该怎么说呢……今天，要不要出去玩呢。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2358,7 +2356,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_224": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯、那个啊……我是在想，每天都在家里玩游戏看电影什么的，会不会太无聊了。所以……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2379,7 +2377,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_226": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "可是……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2400,7 +2398,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_228": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……但是，爱理、你是喜欢出门的吧……？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2421,7 +2419,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_230": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "！！爱理……一直都在意着那件事吗……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2431,7 +2429,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_231": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……不用在意我的。让你担心真对不起……那么就去爱理你想去的地方吧。毕竟是难得的“暑假”呢。去哪里比较好呢，其实我也不是很清楚……游乐园或者电影院之类……不对，就不去看电影了吧。啊，这个时候的话，还有——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2452,7 +2450,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_233": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……!!衣服……去买衣服吧！！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2462,7 +2460,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_234": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "一个人去，真的没问题吗？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2483,7 +2481,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_236": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "好吧……那么要是有什么事情，马上给我打电话。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2504,7 +2502,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_238": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯，一路走好。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2524,8 +2522,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_240": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“要一个人去？我也会跟着去的。”",
+      "speaker": "成田基生",
+      "text": "要一个人去？我也会跟着去的。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2535,7 +2533,7 @@ ILY.data.stories.chapter1 = {
     "ch1_241": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "“不用了！！因为会花很多时间……”",
+      "text": "不用了！！因为会花很多时间……",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2545,8 +2543,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_242": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“没关系。我可以等的。”",
+      "speaker": "成田基生",
+      "text": "没关系。我可以等的。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2556,7 +2554,7 @@ ILY.data.stories.chapter1 = {
     "ch1_243": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "“真、真的不用！！因为我也不是只去看衣服啦……”",
+      "text": "真、真的不用！！因为我也不是只去看衣服啦……",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2566,8 +2564,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_244": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“我真的不介意哦？”",
+      "speaker": "成田基生",
+      "text": "我真的不介意哦？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2577,7 +2575,7 @@ ILY.data.stories.chapter1 = {
     "ch1_245": {
       "type": "dialogue",
       "speaker": "“爱理”",
-      "text": "“～！！”",
+      "text": "～！！",
       "portrait": "portrait-airi",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2587,8 +2585,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_246": {
       "type": "dialogue",
-      "speaker": "基生",
-      "text": "“不是那样了啦！！……也有穿在里面的衣服……所以说！！我想要一个人看啦！！真是的——！！”",
+      "speaker": "“爱理”",
+      "text": "不是那样了啦！！……也有穿在里面的衣服……所以说！！我想要一个人看啦！！真是的——！！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2606,9 +2604,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_248"
     },
     "ch1_248": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "话说回来，在我们重逢之前，她是怎么过来的呢？这种事……对不起呢，爱理……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2616,9 +2614,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_249"
     },
     "ch1_249": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "爱理她……因为顾虑着我的事情，所以想要待在家里……为了让爱理不再露出那样的表情，我在各方面都得更加努力振作起来才行呢……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2636,9 +2634,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_251"
     },
     "ch1_251": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "再去找找哪儿可以打工吧。但首先得去上次打工的地方好好道歉呢。还得剃个胡子啊……头发也得剪……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2646,9 +2644,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_252"
     },
     "ch1_252": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "为了爱理、我得改变。得改变我自己。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
@@ -2687,7 +2685,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_256": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊，爱理，欢迎回来。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2704,7 +2702,7 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S05",
       "background": "bg-apartment-dusk",
-      "next": "ch1_s06"
+      "next": "ch1_259"
     },
     "ch1_s06": {
       "type": "monologue",
@@ -2720,7 +2718,7 @@ ILY.data.stories.chapter1 = {
     "ch1_259": {
       "type": "monologue",
       "speaker": "",
-      "text": "8 月初（暑期） · 老水族馆",
+      "text": "8 月初 · 老水族馆",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -2739,7 +2737,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_261": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "再稍微往远走一些的话，有最近刚建成的大水族馆……果然是去那边……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2771,7 +2769,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_264": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯，好吧……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2801,24 +2799,26 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_267"
     },
     "ch1_267": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "好可爱啊……",
+      "portrait": "",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-aquarium",
-      "next": "ch1_268"
+      "next": "ch1_268",
     },
     "ch1_268": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "portrait": "",
+      "text": "爱理是在照顾我的心情吗？所以才想来这种人不多的地方……不过——爱理喜欢这里的话就好，爱理可以绽放出笑容便好，而我仅仅是在想着这些。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-aquarium",
-      "next": "ch1_269"
+      "next": "ch1_269",
     },
     "ch1_269": {
       "type": "dialogue",
@@ -2833,7 +2833,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_270": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "好啊好啊。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2874,7 +2874,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_274": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "唔……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -2890,17 +2890,17 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_276"
     },
     "ch1_276": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "哎？这个水槽里……什么都没有呢。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_277"
     },
     "ch1_277": {
@@ -2911,17 +2911,17 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_278"
     },
     "ch1_278": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……但仔细看的话，感觉又好像有着什么东西呢。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_279"
     },
     "ch1_279": {
@@ -2932,17 +2932,17 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_280"
     },
     "ch1_280": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "也是……不过，虽然这样——但正因为什么都没有写，所以才可能有著什么……不是会叫人这样想吗？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_281"
     },
     "ch1_281": {
@@ -2953,7 +2953,7 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_282"
     },
     "ch1_282": {
@@ -2971,6 +2971,7 @@ ILY.data.stories.chapter1 = {
       "type": "monologue",
       "speaker": "",
       "text": "看着这么说的“爱理”，基生甚至怀疑——她会不会就这样融化在那苍白的光里，消失不见。她好美。",
+      "cg": "ch1-cg-reflection",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -2981,6 +2982,7 @@ ILY.data.stories.chapter1 = {
       "type": "monologue",
       "speaker": "",
       "text": "基生想着，手不自觉地握住了“爱理”的手。",
+      "cg": "ch1-cg-reflection",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -2995,18 +2997,19 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_286"
     },
     "ch1_286": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "……真的很美，美到不知为何，眼泪都快流出来了。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
-      "next": "ch1_287"
+      "background": "ch1-empty-tank",
+      "next": "ch1_287",
+      "portrait": "ch1-airi-casual"
     },
     "ch1_287": {
       "type": "dialogue",
@@ -3016,17 +3019,17 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_288"
     },
     "ch1_288": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……到下一个地方看看吧。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_289"
     },
     "ch1_289": {
@@ -3037,7 +3040,7 @@ ILY.data.stories.chapter1 = {
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
-      "background": "ch1-aquarium",
+      "background": "ch1-empty-tank",
       "next": "ch1_290"
     },
     "ch1_290": {
@@ -3048,17 +3051,17 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-panorama",
-      "next": "ch1_291"
+      "next": "ch1_292"
     },
     "ch1_291": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "是啊，好漂亮。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-panorama",
-      "next": "ch1_292"
+      "next": "ch1_293"
     },
     "ch1_292": {
       "type": "dialogue",
@@ -3069,7 +3072,7 @@ ILY.data.stories.chapter1 = {
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-panorama",
-      "next": "ch1_293"
+      "next": "ch1_291"
     },
     "ch1_293": {
       "type": "monologue",
@@ -3083,7 +3086,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_294": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理，那个，我呢，从下周又要开始打工了。虽然没有和爱理你说过，其实我前不久被上个打工的地方——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3104,7 +3107,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_296": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "诶？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3125,7 +3128,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_298": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "我不是想要……我不是想要……离开你啊……我只是……认为我这样子下去，是不行的……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3166,9 +3169,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_302"
     },
     "ch1_302": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "“如果没有任何的语言说明的话，那不是和什么都没有是一样的吗。”——是啊……爱理她，从最开始就——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -3177,7 +3180,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_303": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "最喜欢了哦……我……我也，对爱理，最……最喜欢……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3197,7 +3200,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_305": {
       "type": "dialogue",
-      "speaker": "路人",
+      "speaker": "？",
       "text": "哇、对不起！你没事儿吧！？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3207,13 +3210,13 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_306": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "嗯，没……对不起，我这边也没有注意到。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-panorama",
-      "next": "ch1_s06b"
+      "next": "ch1_308"
     },
     "ch1_s06b": {
       "type": "monologue",
@@ -3230,6 +3233,7 @@ ILY.data.stories.chapter1 = {
       "type": "dialogue",
       "speaker": "男",
       "text": "说来，这不是……成田前辈吗？",
+      "portrait": "ch1-toya",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -3238,7 +3242,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_309": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "诶？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3248,8 +3252,9 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_310": {
       "type": "dialogue",
-      "speaker": "男",
+      "speaker": "十屋后辈",
       "text": "我是十屋啊！去年夏天的时候，不是在一起打过工吗！可能对成田前辈来说，不是什么重要的事情，所以忘记了吧。不过，为什么成田前辈会在这里呢？最近还好吗！？",
+      "portrait": "ch1-toya",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -3258,7 +3263,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_311": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊、十屋……君……好久不见……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3268,7 +3273,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_312": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "前辈也好久不见！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3279,7 +3284,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_313": {
       "type": "dialogue",
-      "speaker": "小泪",
+      "speaker": "？",
       "text": "成田前辈？",
       "portrait": "ch1-rui",
       "chapter": "chapter1",
@@ -3290,7 +3295,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_314": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "对、没错——没错——小泪你之前不是来过我打工的那个居酒屋吗！他是在那里工作过的前辈！成田前辈超级——好——我超喜欢他的——！因为和成田前辈一起的时候，他不仅绝对不会对我生气，而且工作也很愉快！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3312,7 +3317,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_316": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊……这样……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3322,7 +3327,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_317": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "成田前辈，我们来交换 LIME 吧！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3333,7 +3338,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_318": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "LIME，是什么？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3343,7 +3348,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_319": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "诶！？居然不知道？？是通讯 app 哦！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3354,7 +3359,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_320": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "啊……因为我不是智能手机……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3364,7 +3369,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_321": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "居然是翻盖手机！？前辈你是老爷爷吗！不过随便了，邮箱地址也可以哦。",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3375,7 +3380,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_322": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "喂、别自作主——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3385,7 +3390,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_323": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "谢谢前辈！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3396,7 +3401,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_324": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "说来，成田前辈是一个人来这里玩的吗？感觉很帅气呢！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3407,7 +3412,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_325": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "诶？不是啊。——我和女朋友一起……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3427,7 +3432,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_327": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "诶……？爱理……？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3437,8 +3442,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_328": {
       "type": "dialogue",
-      "speaker": "十屋",
-      "text": "真的吗！！成田前辈居然有女朋友吗！？诶——！！想见一面呢！！总感觉很意外呢，但真不愧是前辈呢！！是叫小爱理对吧！是去洗手间了吗？",
+      "speaker": "十屋后辈",
+      "text": "真的吗！！成田前辈居然有女朋友吗！？诶——！！想见一面呢！！总感觉很意外呢，但真不愧是前辈呢！！是叫小aili对吧！是去洗手间了吗？",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3448,7 +3453,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_329": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "不是……刚才她还在这里的……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3458,8 +3463,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_330": {
       "type": "dialogue",
-      "speaker": "十屋",
-      "text": "真的吗！这里太暗了，完全没有注意到……小爱理可爱吗？要在这里等她回来吗？",
+      "speaker": "十屋后辈",
+      "text": "真的吗！这里太暗了，完全没有注意到……小aili可爱吗？要在这里等她回来吗？",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3468,18 +3473,19 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_331"
     },
     "ch1_331": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "爱理怎么会什么都没说就离开……这不可能啊……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-panorama",
-      "next": "ch1_332"
+      "next": "ch1_332",
+      "portrait": "ch1-toya"
     },
     "ch1_332": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……对不起我失陪了！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3489,7 +3495,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_333": {
       "type": "dialogue",
-      "speaker": "十屋",
+      "speaker": "十屋后辈",
       "text": "诶——",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
@@ -3500,8 +3506,8 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_334": {
       "type": "dialogue",
-      "speaker": "十屋",
-      "text": "那么、请之后把小爱理的照片发过来让我看一下哦——！",
+      "speaker": "十屋后辈",
+      "text": "那么、请之后把小aili的照片发过来让我看一下哦——！",
       "portrait": "ch1-toya",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3511,7 +3517,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_335": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "才不会给你发啦！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3532,9 +3538,9 @@ ILY.data.stories.chapter1 = {
       "next": "ch1_337"
     },
     "ch1_337": {
-      "type": "cue",
+      "type": "dialogue",
       "speaker": "",
-      "text": "",
+      "text": "（他怎么这么大惊小怪。……不对，发生什么事情了？为什么“爱理”这么着急地离开了？是十屋太烦人了吗？）",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
@@ -3553,7 +3559,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_339": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3573,7 +3579,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_341": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "爱理！！太好了……为什么忽然就不见了啊……而且手机也突然没信号了……我一直在找你哦。",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3593,7 +3599,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_343": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……爱理？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3613,7 +3619,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_345": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "诶……为……为什么你生气了呢？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3634,7 +3640,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_347": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "！？为什么这么说啊？刚才我都说了，直到现在都在找你吧？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3655,7 +3661,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_349": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "哪有聊得很开心……只是十屋他在自说自话……只是那家伙太吵了，导致我走神了，所以没注意到你……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3675,7 +3681,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_351": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……对不——",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3696,7 +3702,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_353": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "什么啊……这算……",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3706,7 +3712,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_354": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "说出来、说出来……就非得全都说出来吗？什么都不说的话，爱理就真的不明白吗！？为什么爱理你这么拘泥于说出来呢？’我的“想”就是丢下你独自一个人待著……’——这算什么啊？一直一直、一直、独自一人的，不是我吗……！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3716,7 +3722,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_355": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "忽然从我面前消失、又忽然出现、还说着“最喜欢你了”、“最喜欢你了”……我才搞不懂，爱理所说的“最喜欢了”到底算什么啊！爱理说的“最喜欢你了”算什么啊？？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3747,7 +3753,7 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_358": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……爱理？爱理？没事吧……？",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
@@ -3768,13 +3774,13 @@ ILY.data.stories.chapter1 = {
     },
     "ch1_360": {
       "type": "dialogue",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "text": "……诶？爱理——！",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
       "scene": "S06",
       "background": "ch1-empty-tank",
-      "next": "ch1_end"
+      "next": "ch2_s01"
     },
     "ch1_end": {
       "type": "end",
@@ -3789,10 +3795,12 @@ ILY.data.stories.chapter1 = {
       "type": "end",
       "chapter": "chapter1",
       "chapterTitle": "第一章 · 失而复得的日常",
-      "title": "第三章 · 基生视角",
-      "text": "基生一遍遍告诉自己，那只是一个噩梦。自那之后，“爱理”再也没有出现在他的世界里。第三章内容待续。",
+      "scene": "END",
+      "title": "海边一梦",
+      "text": "基生一遍遍告诉自己，那只是一个噩梦。自那之后，“爱理”再也没有出现在他的世界里。",
       "background": "bg-empty-apartment",
-      "continuation": "chapter3"
+      "ending": "ENDING_DREAM",
+      "checkpoint": true
     }
   }
 };

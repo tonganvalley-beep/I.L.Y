@@ -18,7 +18,7 @@ body.rpg-active .game-header{display:none}
 .rpg-rollback:disabled{opacity:.45}
 .rpg-menu-info p{font-size:13px;line-height:1.8;color:#c3d0d4}
 @media(pointer:coarse){.rpg-menu-toggle{opacity:.45}}
-@media(max-width:600px){.rpg-message{font-size:12px;bottom:11%}.rpg-interact{font-size:13px}}
+@container frame (max-width:600px){.rpg-message{font-size:12px;bottom:11%}.rpg-interact{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.rpg-menu-toggle{transition:none}}
 /* 左上角小地图：同一移动区段的全部相连地图 + 人物定位 */
 .rpg-minimap{position:absolute;top:12px;left:12px;z-index:6;display:flex;flex-direction:column;gap:5px;padding:8px 9px;background:#0b1622cc;border:1px solid #eac98355;border-radius:6px;pointer-events:none;font-family:Zpix,monospace}
@@ -36,13 +36,67 @@ body.rpg-active .game-header{display:none}
 .rpg-minimap-cell.is-current .rpg-minimap-dot{display:block}
 .rpg-minimap-name{font-size:9px;line-height:1;color:#cfe;max-width:48px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rpg-minimap-cell.is-current .rpg-minimap-name{color:#ffd27a}
-@media(max-width:600px){.rpg-minimap{padding:6px 7px;top:8px;left:8px}.rpg-minimap-thumb{width:34px;height:23px}.rpg-minimap-name{font-size:8px}.rpg-minimap-title{font-size:9px}}
-.danmu-panel{text-align:center;background:#08080f}.danmu-arena{position:relative;width:min(800px,100%);margin:0 auto 12px}.danmu-arena canvas{display:block;background:#05050a;width:100%;height:auto;max-height:none;border:0}.danmu-hud{position:absolute;top:3%;left:3%;display:flex;gap:14px;font-size:13px;color:#ffe14d}.danmu-overlay{position:absolute;inset:0;background:#06060ce8;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}.danmu-overlay.show{display:flex}.danmu-overlay p{font-size:14px;line-height:1.9;max-width:520px}.danmu-panel>button{margin:4px 8px}.danmu-overlay h2{font-size:22px}
-@media(max-height:600px){.danmu-arena{width:min(560px,72vh)}.danmu-panel{padding-top:48px}.danmu-panel>h1{font-size:16px;margin:4px}.danmu-overlay p{font-size:11px;margin:4px}.danmu-overlay h2{font-size:16px}.danmu-hud{font-size:10px;gap:7px}}
-.danmu-panel{padding:70px 3vw 12px}.danmu-panel>h1{font-size:20px;margin:0 0 12px}.danmu-arena{width:min(800px,100%,calc((100dvh - 170px)*1.3333))}.danmu-arena canvas{touch-action:none}
+@container frame (max-width:600px){.rpg-minimap{padding:6px 7px;top:8px;left:8px}.rpg-minimap-thumb{width:34px;height:23px}.rpg-minimap-name{font-size:8px}.rpg-minimap-title{font-size:9px}}
+.danmu-panel{text-align:center;background:#08080f}.danmu-arena{position:relative;width:min(800px,100%);margin:0 auto 12px}.danmu-arena canvas{display:block;background:#05050a;width:100%;height:auto;max-height:none;border:0}.danmu-hud{position:absolute;top:3%;left:3%;display:flex;gap:14px;font-size:13px;color:#ffe14d}.danmu-overlay{position:absolute;inset:0;background:#06060ce8;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;overflow:auto}.danmu-overlay.show{display:flex}.danmu-overlay p{font-size:14px;line-height:1.9;max-width:520px}.danmu-panel>button{margin:4px 8px}.danmu-overlay h2{font-size:22px}
+@container frame (max-height:600px){.danmu-arena{width:min(560px,72cqh)}.danmu-panel{padding-top:48px}.danmu-panel>h1{font-size:16px;margin:4px}.danmu-overlay p{font-size:11px;margin:4px}.danmu-overlay h2{font-size:16px}.danmu-hud{font-size:10px;gap:7px}}
+/* 弹幕面板：在画面内撑满设计高度，flex 纵向排布。
+   游戏区（.danmu-stage）吃掉「标题 / 提示 / 反馈 / 按钮」之后剩下的全部高度，按钮永远留在画面内。
+   原先写死「100cqh - 170px」是在猜被吃掉的高度，而且没有给按钮行留位置 —— 在主线里
+   #game-frame 恒 720px 高、#stage 又是 overflow:hidden，按钮落到 720 之外后会被整行裁掉、
+   点都点不到（实测 787px 内容塞进 720px，三个按钮位于 y 724~771）。 */
+.danmu-panel{display:flex;flex-direction:column;height:100%;min-height:0;padding:70px 3cqw 12px}
+.danmu-panel>h1{font-size:20px;margin:0 0 12px;flex:0 0 auto}
+.danmu-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:4px;flex:0 0 auto}
+.danmu-actions>button{margin:0}
+.danmu-lesson,.danmu-feedback{flex:0 0 auto}
+/* 查询容器：它的高度就是「留给游戏区的高度」，于是 cqh 直接可用，不需要任何常数 */
+.danmu-stage{flex:1 1 auto;min-height:0;container-type:size;container-name:frame}
+.danmu-arena{width:min(800px,100%,calc(100cqh*1.3333))}.danmu-arena canvas{touch-action:none}
 .danmu-lesson{max-width:740px;margin:0 auto 5px;color:#b7d3ff;font-size:13px;line-height:1.7}
 .danmu-feedback{min-height:1.6em;margin:0 auto 8px;color:#9ce5b7;font-size:12px;line-height:1.6}
 .danmu-jump{touch-action:none;user-select:none;min-height:44px;border-color:#689ef9;color:#d7e8ff}
 .danmu-panel[data-lesson=blue] .danmu-hud{color:#b7d3ff}
-@media(max-width:600px){.danmu-panel[data-lesson=blue]{padding-top:100px}.danmu-lesson{font-size:12px}.danmu-panel[data-lesson=blue] .danmu-arena{width:min(100%,calc((100dvh - 330px)*1.3333))}.danmu-panel>button{font-size:12px;margin:4px;padding:9px 12px}}
-@media(max-height:600px){.danmu-panel[data-lesson=blue]{padding-top:54px}.danmu-lesson{font-size:11px;line-height:1.45}.danmu-feedback{margin-bottom:2px;font-size:11px}.danmu-panel[data-lesson=blue] .danmu-arena{width:min(100%,calc((100dvh - 200px)*1.3333))}}
+/* 提示 / 反馈固定占「两行 / 一行」：文案长短不再改变它们占用的高度，
+   .danmu-stage 拿到的剩余高度恒定 —— 游戏区尺寸在关与关之间不再来回变。 */
+.danmu-lesson{max-width:740px;margin:0 auto 5px;color:#b7d3ff;font-size:13px;line-height:1.7;height:3.4em;overflow:hidden}
+.danmu-feedback{max-width:740px;margin:0 auto 8px;color:#9ce5b7;font-size:12px;line-height:1.6;height:1.6em;overflow:hidden}
+/* 红心 / 蓝心共用同一套游戏区尺寸：上面通用的 .danmu-arena 规则已按容器高度算宽度，
+   不再给蓝心单独缩小（旧版蓝心专属的「cqh-330 / cqh-200」覆盖会让蓝心画面骤缩成红心的一半）。 */
+@container frame (max-width:600px){.danmu-lesson{font-size:12px}.danmu-panel>button{font-size:12px;margin:4px;padding:9px 12px}}
+@container frame (max-height:600px){.danmu-lesson{font-size:11px;line-height:1.45}.danmu-feedback{margin-bottom:2px;font-size:11px}}
+
+/* ── 红心 / 蓝心虚拟手柄（只在手机、平板上出现；适配层用 ILY.device.phone() 打开 data-pad=on）──
+   跳跃不单设按钮（▲ 兼任）。两种课程的按键布局、位置、颜色完全一致，不做任何显隐或换色切换；
+   蓝心不能向下移动，只把 ▼ 置灰禁用（适配层设 disabled），按钮仍在原位。
+   断点沿用本项目的容器查询体系（查「画面容器」，不查屏幕）：主线是 #game-frame，
+   小游戏窗口是 .danmu-stage（见 winxp/games/heart/index.html）。 */
+.danmu-stage{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;min-width:0}
+.danmu-pad{display:none;align-items:center;justify-content:space-between;gap:14px;padding:8px 6px 2px;touch-action:none}
+.danmu-panel[data-pad=on] .danmu-pad{display:flex;flex:0 0 100%;width:100%}
+.pad-grid{display:grid;grid-template-columns:repeat(3,46px);grid-template-rows:repeat(2,46px);gap:6px}
+.pad-act{display:flex;align-items:center;gap:10px}
+.pad-btn{padding:0;font-size:17px;line-height:1;border-radius:13px;border:1px solid #6b8c9c;background:#243b4e;color:#e5edf2;
+  touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.pad-btn.is-down{background:#3f6b8a;border-color:#a8d4ff;color:#fff}
+.pad-btn:disabled{opacity:.28;color:#7b8698;border-color:#3d4854}
+.pad-up{grid-area:1/2}.pad-left{grid-area:2/1}.pad-down{grid-area:2/2}.pad-right{grid-area:2/3}
+.pad-slow{width:74px;height:74px;border-radius:50%;font-size:15px}
+/* 手柄在下方占一行（竖长画面）时，游戏区高度要扣掉它：方向键两行 98 + 间距 6 + 内边距 10 */
+.danmu-panel[data-pad=on] .danmu-arena{width:min(800px,100%,calc((100cqh - 114px)*1.3333))}
+@container frame (max-width:420px){
+  .pad-grid{grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px)}
+  .pad-slow{width:66px;height:66px}
+}
+/* 偏「宽而矮」的画面（手机横屏、小窗口）：手柄拆成 方向键 | 游戏区 | 慢速 三列，把稀缺的高度让给游戏区。
+   display:contents 让 .pad-grid / .pad-act 直接成为 .danmu-stage 的 flex item，再用 order 夹住游戏区；
+   宽度里减掉 240px（两侧手柄占位）以保证同一行放得下、不会换行。 */
+@container frame (orientation:landscape){
+  .danmu-panel[data-pad=on] .danmu-pad{display:contents}
+  .danmu-stage .pad-grid{order:1;flex:0 0 auto}
+  .danmu-stage .pad-act{order:3;flex:0 0 auto}
+  .danmu-stage .danmu-arena{order:2;flex:0 1 auto;min-width:0;margin:0 auto}
+  .danmu-panel[data-pad=on] .danmu-arena{width:min(800px,calc(100% - 240px),calc(100cqh*1.3333))}
+}
+/* 说明：上面这套尺寸规则对「主线」和「小游戏窗口」都适用 —— 两边的 .danmu-stage
+   都是查询容器（主线里是 #game-frame 缩放画布内的一块，小游戏里是窗口内的一块），
+   所以 cqh 在两边都等于「留给游戏区的高度」，不需要各自维护常数。 */

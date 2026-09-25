@@ -1,6 +1,6 @@
 @charset "utf-8";
-@font-face{font-family:Zpix;src:url('fonts/zpix.ttf') format('truetype');font-display:block}
-@font-face{font-family:ILYBulletPixel;src:url('fonts/zpix.ttf') format('truetype');font-display:block}
+@font-face{font-family:Zpix;src:url('fonts/zpix.woff2') format('woff2');font-display:block}
+@font-face{font-family:ILYBulletPixel;src:url('fonts/zpix.woff2') format('woff2');font-display:block}
 :root{color-scheme:dark;font-family:Zpix,monospace;color:#efedf7;background:#000}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -86,3 +86,14 @@ body[data-embedded="true"]{padding-top:80px}
   #toolbar .controls{gap:5px}
   #toolbar .controls button{min-height:32px;padding:6px 4px}
 }
+
+/* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }

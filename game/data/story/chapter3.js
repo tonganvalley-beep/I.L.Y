@@ -6,7 +6,7 @@ ILY.data.stories.chapter3 = {
   "nodes": {
     "ch3_s01": {
       "type": "monologue",
-      "text": "海边的重逢 —— “虚构的爱理”",
+      "text": "第三章",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -51,7 +51,7 @@ ILY.data.stories.chapter3 = {
       "background": "ch2-sunset",
       "cg": "ch2-adult",
       "backgroundFit": "contain",
-      "next": "ch3_004"
+      "next": "ch3_005"
     },
     "ch3_004": {
       "type": "monologue",
@@ -91,7 +91,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_007": {
       "type": "monologue",
-      "text": "她的语气自然得仿佛两人只是久别重逢，还继续说起了小野乃的近况。",
+      "text": "她的语气，自然得仿佛两人只是久别重逢",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -138,8 +138,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_011"
     },
     "ch3_011": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "这是……？什么情况……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -150,8 +150,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_012"
     },
     "ch3_012": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "到底是怎么回事啊……？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -162,8 +162,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_013"
     },
     "ch3_013": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "爱理她……诶……？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -186,8 +186,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_015"
     },
     "ch3_015": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我今天不是和爱理一起来到了这里，然后还……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -198,8 +198,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_016"
     },
     "ch3_016": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "在附近参观了好些地方，之后又，说好了，一起去看夕阳，然后就……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -210,8 +210,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_017"
     },
     "ch3_017": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "然后就……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -222,8 +222,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_018"
     },
     "ch3_018": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "……然后就？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -308,7 +308,7 @@ ILY.data.stories.chapter3 = {
     "ch3_025": {
       "type": "dialogue",
       "text": "我……和……？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -318,8 +318,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_026"
     },
     "ch3_026": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我是……和爱理……和十年前那个模样的爱理一起来这里的吧？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -330,8 +330,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_027"
     },
     "ch3_027": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "而且还说好了，我们会永远在一起的吧？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -342,8 +342,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_028"
     },
     "ch3_028": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "咦？可爱理她，我眼前的这个女性她是？我又是……？诶……？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -354,8 +354,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_029"
     },
     "ch3_029": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "这个人是爱理，是我不知道的爱理。是和我在同一个年级、和我一样长大成人的爱理。既然这样，我身边那个爱理又是？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -366,8 +366,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_030"
     },
     "ch3_030": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我身边那个爱理，我曾深信就在我身边的爱理，以及那些今日之前的生活，",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -378,8 +378,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_031"
     },
     "ch3_031": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "全部，都是我——",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -426,8 +426,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_035"
     },
     "ch3_035": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "全部都是我妄想出来的？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -488,7 +488,7 @@ ILY.data.stories.chapter3 = {
     "ch3_040": {
       "type": "dialogue",
       "text": "啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -500,7 +500,7 @@ ILY.data.stories.chapter3 = {
     "ch3_041": {
       "type": "dialogue",
       "text": "啊，哦哦。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -512,7 +512,7 @@ ILY.data.stories.chapter3 = {
     "ch3_042": {
       "type": "dialogue",
       "text": "没关系……哈哈……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -534,8 +534,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_044"
     },
     "ch3_044": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "全部都是我的妄想。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -546,8 +546,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_045"
     },
     "ch3_045": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "都是妄想。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -558,8 +558,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_046"
     },
     "ch3_046": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "全都是妄想。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -567,7 +567,7 @@ ILY.data.stories.chapter3 = {
       "background": "ch2-sunset",
       "cg": "ch2-adult",
       "backgroundFit": "contain",
-      "next": "ch3_047"
+      "next": "ch3_048"
     },
     "ch3_047": {
       "type": "monologue",
@@ -582,8 +582,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_048"
     },
     "ch3_048": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我的脑子可能早就出问题了。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -594,8 +594,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_049"
     },
     "ch3_049": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "十年间一直杳无音讯的爱理，忽然就以十年前的模样出现在我的面前这种事，",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -606,8 +606,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_050"
     },
     "ch3_050": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "一般来说的话，这种事情怎么都是不可能的。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -618,8 +618,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_051"
     },
     "ch3_051": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "而明明是完全不可能发生的事情，我却……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -692,7 +692,7 @@ ILY.data.stories.chapter3 = {
     "ch3_057": {
       "type": "dialogue",
       "text": "啊。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -704,7 +704,7 @@ ILY.data.stories.chapter3 = {
     "ch3_058": {
       "type": "dialogue",
       "text": "嗯。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -716,7 +716,7 @@ ILY.data.stories.chapter3 = {
     "ch3_059": {
       "type": "dialogue",
       "text": "啊……嗯嗯。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -726,8 +726,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_060"
     },
     "ch3_060": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "脑袋完全转不过弯来。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -738,8 +738,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_061"
     },
     "ch3_061": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "空白一片，什么都想不出来。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -750,8 +750,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_062"
     },
     "ch3_062": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "自己，自己，已经，完全……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -763,7 +763,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_063": {
       "type": "monologue",
-      "text": "两人来到海边的石阶坐下。基生把背包放在一旁，与爱理隔着一小段距离，共同望向被晚霞染红的海面。海风吹过，周围安静下来，气氛却比刚才更加沉重。",
+      "text": "两人来到海边的石阶坐下。基生把背包放在一旁，与爱理隔着一小段距离，共同望向被晚霞染红的海面。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -771,11 +771,11 @@ ILY.data.stories.chapter3 = {
       "background": "ch2-sunset",
       "cg": "ch2-adult",
       "backgroundFit": "contain",
-      "next": "ch3_064"
+      "next": "ch3_065"
     },
     "ch3_064": {
       "type": "monologue",
-      "text": "爱理低着头，双手拘谨地交握在膝前。她沉默片刻，终于准备说出压在心中多年的事情。",
+      "text": "爱理低着头，双手拘谨地交握在膝前。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -822,8 +822,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_068"
     },
     "ch3_068": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "……什么？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -858,8 +858,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_071"
     },
     "ch3_071": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "爱理她在说什么？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -882,8 +882,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_073"
     },
     "ch3_073": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "爱理她到底……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -918,8 +918,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_076"
     },
     "ch3_076": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "在说什么……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -943,7 +943,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_078": {
       "type": "monologue",
-      "text": "晚霞铺满海面，基生与爱理并排坐在岸边。听见爱理将十年前陪伴自己的少女称为“虚构的爱理”，基生满脸冷汗，震惊地转头看她，无法理解这句话。",
+      "text": "基生满脸冷汗，震惊地转头看她。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -956,7 +956,7 @@ ILY.data.stories.chapter3 = {
     "ch3_079": {
       "type": "dialogue",
       "text": "虚……虚构的爱理……到底是什么意思……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -992,7 +992,7 @@ ILY.data.stories.chapter3 = {
     "ch3_082": {
       "type": "dialogue",
       "text": "……诶？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1003,7 +1003,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_083": {
       "type": "monologue",
-      "text": "爱理目光略微低垂，将手轻轻攥在下巴前，开始解释自己高中毕业后突然消失的原因。",
+      "text": "爱理目光略微低垂，将手轻轻攥在下巴前。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -1076,14 +1076,14 @@ ILY.data.stories.chapter3 = {
     "ch3_089": {
       "type": "dialogue",
       "text": "愁眉苦脸……究竟是怎么一回事？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
       "background": "ch2-sunset",
       "cg": "ch2-adult",
       "backgroundFit": "contain",
-      "next": "ch3_090"
+      "next": "ch3_091"
     },
     "ch3_090": {
       "type": "monologue",
@@ -1098,8 +1098,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_091"
     },
     "ch3_091": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我知道的爱理，总是面带着笑容。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -1110,8 +1110,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_092"
     },
     "ch3_092": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "并且在我的脑海中，也只有她那副开朗活泼、惹人喜爱的模样……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -1119,7 +1119,7 @@ ILY.data.stories.chapter3 = {
       "background": "ch2-sunset",
       "cg": "ch2-adult",
       "backgroundFit": "contain",
-      "next": "ch3_093"
+      "next": "ch3_094"
     },
     "ch3_093": {
       "type": "monologue",
@@ -1556,7 +1556,7 @@ ILY.data.stories.chapter3 = {
     "ch3_129": {
       "type": "dialogue",
       "text": "爱理……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1568,7 +1568,7 @@ ILY.data.stories.chapter3 = {
     "ch3_130": {
       "type": "dialogue",
       "text": "我……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1628,7 +1628,7 @@ ILY.data.stories.chapter3 = {
     "ch3_135": {
       "type": "dialogue",
       "text": "！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1788,7 +1788,7 @@ ILY.data.stories.chapter3 = {
     "ch3_148": {
       "type": "dialogue",
       "text": "啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S01",
@@ -1819,7 +1819,7 @@ ILY.data.stories.chapter3 = {
       "background": "ch2-sunset",
       "cg": "ch2-adult",
       "backgroundFit": "contain",
-      "next": "ch3_s02"
+      "next": "ch3_152"
     },
     "ch3_s02": {
       "type": "monologue",
@@ -1919,7 +1919,7 @@ ILY.data.stories.chapter3 = {
     "ch3_159": {
       "type": "dialogue",
       "text": "你好，我是成田。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1939,7 +1939,7 @@ ILY.data.stories.chapter3 = {
     "ch3_161": {
       "type": "dialogue",
       "text": "不……没关系的。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1969,7 +1969,7 @@ ILY.data.stories.chapter3 = {
     "ch3_164": {
       "type": "dialogue",
       "text": "啊……可以啊。我去。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1989,7 +1989,7 @@ ILY.data.stories.chapter3 = {
     "ch3_166": {
       "type": "dialogue",
       "text": "没什么……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -1999,7 +1999,7 @@ ILY.data.stories.chapter3 = {
     "ch3_167": {
       "type": "dialogue",
       "text": "那个……我该什么时候去呢？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2048,8 +2048,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_172"
     },
     "ch3_172": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "距离那件事已经过去一个月了。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -2070,7 +2070,7 @@ ILY.data.stories.chapter3 = {
     "ch3_174": {
       "type": "dialogue",
       "text": "……算了，不充了……差不多也该把它丢掉了……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2103,7 +2103,7 @@ ILY.data.stories.chapter3 = {
     "ch3_177": {
       "type": "dialogue",
       "text": "!!",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2113,7 +2113,7 @@ ILY.data.stories.chapter3 = {
     "ch3_178": {
       "type": "dialogue",
       "text": "……所以说……那个只是幻想而已……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2133,7 +2133,7 @@ ILY.data.stories.chapter3 = {
     "ch3_180": {
       "type": "dialogue",
       "text": "那种事情还是快点忘了吧……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S02",
@@ -2142,7 +2142,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_s03": {
       "type": "monologue",
-      "text": "深夜的邀约 —— “没有手机的成田先生”",
+      "text": "下班后",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -2171,7 +2171,7 @@ ILY.data.stories.chapter3 = {
     "ch3_183": {
       "type": "dialogue",
       "text": "大家今天都辛苦了！",
-      "speaker": "同事们",
+      "speaker": "主管",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2181,7 +2181,7 @@ ILY.data.stories.chapter3 = {
     "ch3_184": {
       "type": "dialogue",
       "text": "成田先——生，明天晚上打工结束之后，大家要一起去喝酒，你要一起来吗？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2191,7 +2191,7 @@ ILY.data.stories.chapter3 = {
     "ch3_185": {
       "type": "dialogue",
       "text": "啊……我……就算了吧……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2201,7 +2201,7 @@ ILY.data.stories.chapter3 = {
     "ch3_186": {
       "type": "dialogue",
       "text": "诶——！一起来嘛！也顺便欢迎成田先生回归工作嘛！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2211,7 +2211,7 @@ ILY.data.stories.chapter3 = {
     "ch3_187": {
       "type": "dialogue",
       "text": "……真的对不起……我喝不了酒……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2220,8 +2220,8 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_188": {
       "type": "dialogue",
-      "text": "哦对了，把你的 LINE 账号告诉我吧！一直想要加你，都没有机会。",
-      "speaker": "日日谷",
+      "text": "哦对了，把你的 LIME 账号告诉我吧！一直想要加你，都没有机会。",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2241,7 +2241,7 @@ ILY.data.stories.chapter3 = {
     "ch3_190": {
       "type": "dialogue",
       "text": "啊……那个，我的手机……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2251,7 +2251,7 @@ ILY.data.stories.chapter3 = {
     "ch3_191": {
       "type": "dialogue",
       "text": "诶！难道你没有手机吗！？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2261,7 +2261,7 @@ ILY.data.stories.chapter3 = {
     "ch3_192": {
       "type": "dialogue",
       "text": "也不是没有……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2279,9 +2279,9 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_194"
     },
     "ch3_194": {
-      "type": "cue",
-      "text": "",
-      "speaker": "",
+      "type": "dialogue",
+      "text": "啊，不对……因为没有，所以想要买台智能机。",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2301,7 +2301,7 @@ ILY.data.stories.chapter3 = {
     "ch3_196": {
       "type": "dialogue",
       "text": "诶！你才开始买智能机！？那你果然没有智能机吗！？居然能活在这个社会中呢！？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2311,7 +2311,7 @@ ILY.data.stories.chapter3 = {
     "ch3_197": {
       "type": "dialogue",
       "text": "你是在体会归隐的那种感觉吗！？你是归隐派吗！？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2321,7 +2321,7 @@ ILY.data.stories.chapter3 = {
     "ch3_198": {
       "type": "dialogue",
       "text": "才不是——了。为什么会这么想……？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2331,7 +2331,7 @@ ILY.data.stories.chapter3 = {
     "ch3_199": {
       "type": "dialogue",
       "text": "那你决定要买什么样的了吗？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2341,7 +2341,7 @@ ILY.data.stories.chapter3 = {
     "ch3_200": {
       "type": "dialogue",
       "text": "没、还没决定……不如说我对手机根本一窍不通……有什么样的型号我也不知道……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2361,7 +2361,7 @@ ILY.data.stories.chapter3 = {
     "ch3_202": {
       "type": "dialogue",
       "text": "……那么，那么……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2371,7 +2371,7 @@ ILY.data.stories.chapter3 = {
     "ch3_203": {
       "type": "dialogue",
       "text": "既然成田君对手机一窍不通……那我就陪你一起去买手机吧！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2381,7 +2381,7 @@ ILY.data.stories.chapter3 = {
     "ch3_204": {
       "type": "dialogue",
       "text": "啊……那真是感谢。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2401,7 +2401,7 @@ ILY.data.stories.chapter3 = {
     "ch3_206": {
       "type": "dialogue",
       "text": "诶！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2421,7 +2421,7 @@ ILY.data.stories.chapter3 = {
     "ch3_208": {
       "type": "dialogue",
       "text": "对不起，我刚才是不是说了什么奇怪的话……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2431,7 +2431,7 @@ ILY.data.stories.chapter3 = {
     "ch3_209": {
       "type": "dialogue",
       "text": "啊，你真的同意了？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2451,7 +2451,7 @@ ILY.data.stories.chapter3 = {
     "ch3_211": {
       "type": "dialogue",
       "text": "那，那么就，明天，酒会开始之前……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2461,7 +2461,7 @@ ILY.data.stories.chapter3 = {
     "ch3_212": {
       "type": "dialogue",
       "text": "我们一起去买手机吧！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
@@ -2471,12 +2471,12 @@ ILY.data.stories.chapter3 = {
     "ch3_213": {
       "type": "dialogue",
       "text": "碰头的地方就选在——",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S03",
       "background": "ch3-work",
-      "next": "ch3_s04"
+      "next": "ch3_215"
     },
     "ch3_s04": {
       "type": "monologue",
@@ -2522,7 +2522,7 @@ ILY.data.stories.chapter3 = {
     "ch3_218": {
       "type": "dialogue",
       "text": "哇啊！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2542,7 +2542,7 @@ ILY.data.stories.chapter3 = {
     "ch3_220": {
       "type": "dialogue",
       "text": "虫子吗……!?",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2552,7 +2552,7 @@ ILY.data.stories.chapter3 = {
     "ch3_221": {
       "type": "dialogue",
       "text": "刚才是怎么回事……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2572,7 +2572,7 @@ ILY.data.stories.chapter3 = {
     "ch3_223": {
       "type": "dialogue",
       "text": "哈……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2582,7 +2582,7 @@ ILY.data.stories.chapter3 = {
     "ch3_224": {
       "type": "dialogue",
       "text": "什么东西啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2592,7 +2592,7 @@ ILY.data.stories.chapter3 = {
     "ch3_225": {
       "type": "dialogue",
       "text": "真是不舒服……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S04",
@@ -2610,7 +2610,7 @@ ILY.data.stories.chapter3 = {
       "clues": [
         "P24"
       ],
-      "next": "ch3_s05"
+      "next": "ch3_228"
     },
     "ch3_s05": {
       "type": "monologue",
@@ -2636,7 +2636,7 @@ ILY.data.stories.chapter3 = {
     "ch3_229": {
       "type": "dialogue",
       "text": "成田先——生！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2646,7 +2646,7 @@ ILY.data.stories.chapter3 = {
     "ch3_230": {
       "type": "dialogue",
       "text": "我还想着先来等你，没想到你已经到了呢。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2656,7 +2656,7 @@ ILY.data.stories.chapter3 = {
     "ch3_231": {
       "type": "dialogue",
       "text": "啊……因为我在家里闲着没什么事情……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2676,7 +2676,7 @@ ILY.data.stories.chapter3 = {
     "ch3_233": {
       "type": "dialogue",
       "text": "成田先生你还真是个不谙俗事的人呢……或者应该说，让人捉摸不透……？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2696,7 +2696,7 @@ ILY.data.stories.chapter3 = {
     "ch3_235": {
       "type": "dialogue",
       "text": "啊，对了！我给你选了好几个样式的……你觉得哪个好呢！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2716,7 +2716,7 @@ ILY.data.stories.chapter3 = {
     "ch3_model": {
       "type": "choice",
       "text": "挑选第一台智能手机。",
-      "speaker": "选择",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2744,7 +2744,7 @@ ILY.data.stories.chapter3 = {
     "ch3_model_after": {
       "type": "dialogue",
       "text": "这一台……以后也请多指教。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2754,7 +2754,7 @@ ILY.data.stories.chapter3 = {
     "ch3_239": {
       "type": "dialogue",
       "text": "恭喜你！拿到第一台智能手机！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2764,7 +2764,7 @@ ILY.data.stories.chapter3 = {
     "ch3_240": {
       "type": "dialogue",
       "text": "好大……好不习惯……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2774,7 +2774,7 @@ ILY.data.stories.chapter3 = {
     "ch3_241": {
       "type": "dialogue",
       "text": "你很快就会习惯的！而且一旦习惯了，可就再也离不开了哦——",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2784,7 +2784,7 @@ ILY.data.stories.chapter3 = {
     "ch3_242": {
       "type": "dialogue",
       "text": "日日谷小姐，谢谢你各方面都这么照顾我。帮了我的大忙了。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2804,7 +2804,7 @@ ILY.data.stories.chapter3 = {
     "ch3_244": {
       "type": "dialogue",
       "text": "哪，哪里哪里！没有的事！我心里其实也盼着今天的到来呢……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2814,7 +2814,7 @@ ILY.data.stories.chapter3 = {
     "ch3_245": {
       "type": "dialogue",
       "text": "嗯？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2834,7 +2834,7 @@ ILY.data.stories.chapter3 = {
     "ch3_247": {
       "type": "dialogue",
       "text": "啊，不是！没什么！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2844,7 +2844,7 @@ ILY.data.stories.chapter3 = {
     "ch3_248": {
       "type": "dialogue",
       "text": "对，对了，成田先生咱们加个好友吧！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2864,7 +2864,7 @@ ILY.data.stories.chapter3 = {
     "ch3_250": {
       "type": "dialogue",
       "text": "这样吗？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2874,7 +2874,7 @@ ILY.data.stories.chapter3 = {
     "ch3_251": {
       "type": "dialogue",
       "text": "没错没错！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2884,7 +2884,7 @@ ILY.data.stories.chapter3 = {
     "ch3_252": {
       "type": "dialogue",
       "text": "哦——……好厉害……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2894,7 +2894,7 @@ ILY.data.stories.chapter3 = {
     "ch3_253": {
       "type": "dialogue",
       "text": "这样就加上了吗？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2904,7 +2904,7 @@ ILY.data.stories.chapter3 = {
     "ch3_254": {
       "type": "dialogue",
       "text": "是的。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2924,7 +2924,7 @@ ILY.data.stories.chapter3 = {
     "ch3_256": {
       "type": "dialogue",
       "text": "太好了！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2934,7 +2934,7 @@ ILY.data.stories.chapter3 = {
     "ch3_257": {
       "type": "dialogue",
       "text": "这样我就是成田先生加的第一个好友了！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -2942,18 +2942,18 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_258"
     },
     "ch3_258": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "为什么……眼前浮现出了那时爱理的笑容……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
       "background": "ch3-mall",
-      "next": "ch3_259"
+      "next": "ch3_260"
     },
     "ch3_259": {
       "type": "monologue",
-      "text": "眼前浮现出那天在海边的“爱理”的笑容。",
+      "text": "那天在海边的“爱理”的笑容。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -2962,8 +2962,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_260"
     },
     "ch3_260": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "那不过是我自己的幻想而已，那天我不就已经明白了吗……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -2982,8 +2982,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_262"
     },
     "ch3_262": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "好想忘掉。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3002,8 +3002,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_264"
     },
     "ch3_264": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "已经不想再回忆起来了。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3012,8 +3012,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_265"
     },
     "ch3_265": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "全从我的大脑里消失吧……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3034,7 +3034,7 @@ ILY.data.stories.chapter3 = {
     "ch3_267": {
       "type": "dialogue",
       "text": "成田先生？你怎么了？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3054,7 +3054,7 @@ ILY.data.stories.chapter3 = {
     "ch3_269": {
       "type": "dialogue",
       "text": "啊，抱歉……没什么……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3064,7 +3064,7 @@ ILY.data.stories.chapter3 = {
     "ch3_270": {
       "type": "dialogue",
       "text": "……没事，就好……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3074,12 +3074,12 @@ ILY.data.stories.chapter3 = {
     "ch3_271": {
       "type": "dialogue",
       "text": "对了……真的不用保留号码吗？",
-      "speaker": "基生",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
       "background": "ch3-mall",
-      "next": "ch3_272"
+      "next": "ch3_273"
     },
     "ch3_272": {
       "type": "monologue",
@@ -3094,7 +3094,7 @@ ILY.data.stories.chapter3 = {
     "ch3_273": {
       "type": "dialogue",
       "text": "成田先生之前说自己没有手机，但我回头仔细一想，你平时跟店长联络，不就是正常用手机的嘛……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3104,7 +3104,7 @@ ILY.data.stories.chapter3 = {
     "ch3_274": {
       "type": "dialogue",
       "text": "就算没有智能机，功能机应该还是有一个的吧？成田先生。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3114,7 +3114,7 @@ ILY.data.stories.chapter3 = {
     "ch3_275": {
       "type": "dialogue",
       "text": "如果想把联系人呀照片之类的数据都继承到新手机上，现在也是可以轻松做到的哦？时代每天都在进步呢！！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3124,7 +3124,7 @@ ILY.data.stories.chapter3 = {
     "ch3_276": {
       "type": "dialogue",
       "text": "……不用了。已经用了 10 多年了……我本来就准备扔掉的。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3134,7 +3134,7 @@ ILY.data.stories.chapter3 = {
     "ch3_277": {
       "type": "dialogue",
       "text": "而且，我没有任何想要继承的……想要保留下来的东西。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3144,7 +3144,7 @@ ILY.data.stories.chapter3 = {
     "ch3_278": {
       "type": "dialogue",
       "text": "诶……但是都用了 10 年，应该会留下很多照片吧……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3154,7 +3154,7 @@ ILY.data.stories.chapter3 = {
     "ch3_279": {
       "type": "dialogue",
       "text": "是……不过已经无所谓了。任它消失吧。统统消失。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3164,7 +3164,7 @@ ILY.data.stories.chapter3 = {
     "ch3_280": {
       "type": "dialogue",
       "text": "也、也不用这么说吧……这些不都是珍贵的回忆吗……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3174,7 +3174,7 @@ ILY.data.stories.chapter3 = {
     "ch3_281": {
       "type": "dialogue",
       "text": "空有回忆又怎么样……抓着过去不放也无济于事。没有任何好处。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3184,7 +3184,7 @@ ILY.data.stories.chapter3 = {
     "ch3_282": {
       "type": "dialogue",
       "text": "但是……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3194,7 +3194,7 @@ ILY.data.stories.chapter3 = {
     "ch3_283": {
       "type": "dialogue",
       "text": "我说不用了！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3214,7 +3214,7 @@ ILY.data.stories.chapter3 = {
     "ch3_285": {
       "type": "dialogue",
       "text": "啊……！对、对不起……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3224,7 +3224,7 @@ ILY.data.stories.chapter3 = {
     "ch3_286": {
       "type": "dialogue",
       "text": "……没事……我也是，不好意思……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3234,7 +3234,7 @@ ILY.data.stories.chapter3 = {
     "ch3_287": {
       "type": "dialogue",
       "text": "……只是，你真的这么想吗……？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3244,7 +3244,7 @@ ILY.data.stories.chapter3 = {
     "ch3_288": {
       "type": "dialogue",
       "text": "虽然我对成田先生的过去，对成田先生以前经历过什么，都一无所知……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3254,7 +3254,7 @@ ILY.data.stories.chapter3 = {
     "ch3_289": {
       "type": "dialogue",
       "text": "但不正是因为有了过去，才有了我们的现在吗。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3264,7 +3264,7 @@ ILY.data.stories.chapter3 = {
     "ch3_290": {
       "type": "dialogue",
       "text": "就算过去不总是美好的，就算过去不总是幸福的，这一切也不能当作从未发生过呀。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3274,7 +3274,7 @@ ILY.data.stories.chapter3 = {
     "ch3_291": {
       "type": "dialogue",
       "text": "……一年前，我第一次跟成田先生一起工作……那时我觉得你让人弄不清在想什么，是个很可怕的人。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3284,7 +3284,7 @@ ILY.data.stories.chapter3 = {
     "ch3_292": {
       "type": "dialogue",
       "text": "明明在工作中很正常，但偶尔……会露出一种仿佛随时都可以去死的表情，跟你搭话，你也一副魂不守舍的样子……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3294,7 +3294,7 @@ ILY.data.stories.chapter3 = {
     "ch3_293": {
       "type": "dialogue",
       "text": "所以当我听说成田先生突然不干了的时候，我感到毫不意外。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3304,7 +3304,7 @@ ILY.data.stories.chapter3 = {
     "ch3_294": {
       "type": "dialogue",
       "text": "但是……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3314,7 +3314,7 @@ ILY.data.stories.chapter3 = {
     "ch3_295": {
       "type": "dialogue",
       "text": "成田先生又回来了，为之前一走了之、给很多人添了麻烦的事道了歉，还低头恳求给自己一个继续在这里工作的机会……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3324,7 +3324,7 @@ ILY.data.stories.chapter3 = {
     "ch3_296": {
       "type": "dialogue",
       "text": "我觉得这真的不是一件轻巧的事。当然，说走就走的确是不好的行为……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3334,7 +3334,7 @@ ILY.data.stories.chapter3 = {
     "ch3_297": {
       "type": "dialogue",
       "text": "因为，就算不特地跑回来道歉，也大可以选择到其他地方若无其事地找份工作继续打工……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3344,7 +3344,7 @@ ILY.data.stories.chapter3 = {
     "ch3_298": {
       "type": "dialogue",
       "text": "成田先生你，却没有那么做呢。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3354,7 +3354,7 @@ ILY.data.stories.chapter3 = {
     "ch3_299": {
       "type": "dialogue",
       "text": "促使成田先生这么选择的……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3364,12 +3364,12 @@ ILY.data.stories.chapter3 = {
     "ch3_300": {
       "type": "dialogue",
       "text": "促使成田先生改变的重要缘由，难道不就在过去之中吗？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
       "background": "ch3-mall",
-      "next": "ch3_301"
+      "next": "ch3_302"
     },
     "ch3_301": {
       "type": "monologue",
@@ -3382,8 +3382,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_302"
     },
     "ch3_302": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "改变了我的，重要缘由……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3394,7 +3394,7 @@ ILY.data.stories.chapter3 = {
     "ch3_303": {
       "type": "dialogue",
       "text": "我觉得……现在的成田先生，非常地、有……有魅力……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3414,7 +3414,7 @@ ILY.data.stories.chapter3 = {
     "ch3_305": {
       "type": "dialogue",
       "text": "就是这些珍贵的过去造就了现在的成田先生，所以……请不要说可以让它们消失也无所谓。",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3424,7 +3424,7 @@ ILY.data.stories.chapter3 = {
     "ch3_306": {
       "type": "dialogue",
       "text": "日日谷小姐……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3444,7 +3444,7 @@ ILY.data.stories.chapter3 = {
     "ch3_308": {
       "type": "dialogue",
       "text": "啊！对、对不起！突然就说了这么多！我这人，在说些什么呢……！请全部忘掉吧！对不起，是我多嘴了……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3454,7 +3454,7 @@ ILY.data.stories.chapter3 = {
     "ch3_309": {
       "type": "dialogue",
       "text": "不，没关系。日日谷小姐说得没错。谢谢你。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3464,7 +3464,7 @@ ILY.data.stories.chapter3 = {
     "ch3_310": {
       "type": "dialogue",
       "text": "哪里……？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3504,7 +3504,7 @@ ILY.data.stories.chapter3 = {
     "ch3_314": {
       "type": "dialogue",
       "text": "哇，已经到集合时间了！你们先进去吧！我、我们走吧，成田先生！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3514,12 +3514,12 @@ ILY.data.stories.chapter3 = {
     "ch3_315": {
       "type": "dialogue",
       "text": "我今天，还是不去了。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
       "background": "ch3-mall",
-      "next": "ch3_316"
+      "next": "ch3_317"
     },
     "ch3_316": {
       "type": "monologue",
@@ -3534,7 +3534,7 @@ ILY.data.stories.chapter3 = {
     "ch3_317": {
       "type": "dialogue",
       "text": "诶？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3544,7 +3544,7 @@ ILY.data.stories.chapter3 = {
     "ch3_318": {
       "type": "dialogue",
       "text": "……手机里的数据，我想先迁到新手机来。趁着它们还没消失……毕竟是很珍贵的东西嘛。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3554,7 +3554,7 @@ ILY.data.stories.chapter3 = {
     "ch3_319": {
       "type": "dialogue",
       "text": "成田先生……",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3564,7 +3564,7 @@ ILY.data.stories.chapter3 = {
     "ch3_320": {
       "type": "dialogue",
       "text": "今天真的谢谢你了。不好意思，连点像样的谢礼都拿不出来。要不下次我请你——",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3574,7 +3574,7 @@ ILY.data.stories.chapter3 = {
     "ch3_321": {
       "type": "dialogue",
       "text": "哎，没有啦！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3584,7 +3584,7 @@ ILY.data.stories.chapter3 = {
     "ch3_322": {
       "type": "dialogue",
       "text": "那……那个！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3594,7 +3594,7 @@ ILY.data.stories.chapter3 = {
     "ch3_323": {
       "type": "dialogue",
       "text": "今天晚上 12 点，我可以打电话给成田先生吗！？",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3604,7 +3604,7 @@ ILY.data.stories.chapter3 = {
     "ch3_324": {
       "type": "dialogue",
       "text": "诶……电话？为，为什么……？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3614,7 +3614,7 @@ ILY.data.stories.chapter3 = {
     "ch3_325": {
       "type": "dialogue",
       "text": "就是，那个，作为职场前辈，我觉得自己必须要好好确认成田先生能不能正常使用手机，就是这样……！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3624,7 +3624,7 @@ ILY.data.stories.chapter3 = {
     "ch3_326": {
       "type": "dialogue",
       "text": "哈哈……那好吧。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3634,7 +3634,7 @@ ILY.data.stories.chapter3 = {
     "ch3_327": {
       "type": "dialogue",
       "text": "一定要接哦！千万不许睡着啊！",
-      "speaker": "日日谷",
+      "speaker": "日日谷小姐",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3643,8 +3643,8 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_328": {
       "type": "dialogue",
-      "text": "嗯，我会醒着的。",
-      "speaker": "基生",
+      "text": "嗯，我不会醒着的。",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3654,7 +3654,7 @@ ILY.data.stories.chapter3 = {
     "ch3_329": {
       "type": "dialogue",
       "text": "……那我走了，替我向大家问个好。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S05",
@@ -3662,7 +3662,7 @@ ILY.data.stories.chapter3 = {
       "clues": [
         "P25"
       ],
-      "next": "ch3_s06"
+      "next": "ch3_331"
     },
     "ch3_s06": {
       "type": "monologue",
@@ -3686,8 +3686,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_332"
     },
     "ch3_332": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "没错……随时都可以去死。在那个昏暗的房间里，我的确，总是这么想着。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3696,8 +3696,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_333"
     },
     "ch3_333": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "一边想着随时都可以去死，却又没有真的赴死的勇气，只能打点工勉强维生，日复一日地消磨光阴。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3736,8 +3736,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_337"
     },
     "ch3_337": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我曾看见的爱理的身影，即便那只是一场幻梦，即便那只是我的妄想，",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3746,8 +3746,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_338"
     },
     "ch3_338": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "但在彼时彼刻，如果爱理没有在我面前出现，我的人生，一定会永远停滞在那里。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3756,8 +3756,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_339"
     },
     "ch3_339": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "说不定爱理是为了拯救我，从过去而来的呢……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3766,8 +3766,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_340"
     },
     "ch3_340": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "说笑的……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3776,8 +3776,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_341"
     },
     "ch3_341": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "这都什么跟什么……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3788,7 +3788,7 @@ ILY.data.stories.chapter3 = {
     "ch3_342": {
       "type": "dialogue",
       "text": "已经这个点了……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3798,7 +3798,7 @@ ILY.data.stories.chapter3 = {
     "ch3_343": {
       "type": "dialogue",
       "text": "在日日谷小姐打电话过来之前，先把数据转到这边来吧。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3808,7 +3808,7 @@ ILY.data.stories.chapter3 = {
     "ch3_344": {
       "type": "dialogue",
       "text": "电也充上好了。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3826,8 +3826,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_346"
     },
     "ch3_346": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "不过……她真的会打电话过来吗……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3838,7 +3838,7 @@ ILY.data.stories.chapter3 = {
     "ch3_347": {
       "type": "dialogue",
       "text": "说不定只是开了个小玩笑呢……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3848,7 +3848,7 @@ ILY.data.stories.chapter3 = {
     "ch3_348": {
       "type": "dialogue",
       "text": "说到底，为什么会想跟我打电话啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3857,7 +3857,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_349": {
       "type": "monologue",
-      "text": "旧手机始终没有反应。基生连续按下按键，伴随着“按下……按下……”的拟声，屏幕却无法打开。",
+      "text": "旧手机始终没有反应。基生连续按下按键，屏幕却无法打开。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3868,7 +3868,7 @@ ILY.data.stories.chapter3 = {
     "ch3_350": {
       "type": "dialogue",
       "text": "……嗯？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3878,7 +3878,7 @@ ILY.data.stories.chapter3 = {
     "ch3_351": {
       "type": "dialogue",
       "text": "诶？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3888,7 +3888,7 @@ ILY.data.stories.chapter3 = {
     "ch3_352": {
       "type": "dialogue",
       "text": "打不开……？为什么？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3908,7 +3908,7 @@ ILY.data.stories.chapter3 = {
     "ch3_354": {
       "type": "dialogue",
       "text": "怎么突然就……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3918,7 +3918,7 @@ ILY.data.stories.chapter3 = {
     "ch3_355": {
       "type": "dialogue",
       "text": "不会是，坏了吧……！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3928,7 +3928,7 @@ ILY.data.stories.chapter3 = {
     "ch3_356": {
       "type": "dialogue",
       "text": "不是……骗人的吧……？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3938,7 +3938,7 @@ ILY.data.stories.chapter3 = {
     "ch3_357": {
       "type": "dialogue",
       "text": "消失……了吗……？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3948,7 +3948,7 @@ ILY.data.stories.chapter3 = {
     "ch3_358": {
       "type": "dialogue",
       "text": "全部……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3956,8 +3956,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_359"
     },
     "ch3_359": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "就因为我说了，让它消失也无所谓？",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -3968,7 +3968,7 @@ ILY.data.stories.chapter3 = {
     "ch3_360": {
       "type": "dialogue",
       "text": "怎么能有……这种事情……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -3988,7 +3988,7 @@ ILY.data.stories.chapter3 = {
     "ch3_362": {
       "type": "dialogue",
       "text": "爱理……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4018,7 +4018,7 @@ ILY.data.stories.chapter3 = {
     "ch3_365": {
       "type": "dialogue",
       "text": "爱理！！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4028,7 +4028,7 @@ ILY.data.stories.chapter3 = {
     "ch3_366": {
       "type": "dialogue",
       "text": "爱……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4036,8 +4036,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_367"
     },
     "ch3_367": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "这都什么啊……刚才那到底是什么情况……为什么……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4046,8 +4046,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_368"
     },
     "ch3_368": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "是爱理。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4056,8 +4056,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_369"
     },
     "ch3_369": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "刚才屏幕上的确显示出了爱理的身影。笼罩着蓝色的光芒，在那片充满回忆的海边，",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4068,7 +4068,7 @@ ILY.data.stories.chapter3 = {
     "ch3_370": {
       "type": "dialogue",
       "text": "爱理……她在哭泣……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4078,7 +4078,7 @@ ILY.data.stories.chapter3 = {
     "ch3_371": {
       "type": "dialogue",
       "text": "她在呼唤我……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4088,7 +4088,7 @@ ILY.data.stories.chapter3 = {
     "ch3_372": {
       "type": "dialogue",
       "text": "我……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4098,7 +4098,7 @@ ILY.data.stories.chapter3 = {
     "ch3_373": {
       "type": "dialogue",
       "text": "我得去见她……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4131,7 +4131,7 @@ ILY.data.stories.chapter3 = {
     "ch3_376": {
       "type": "dialogue",
       "text": "日日谷小姐……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4139,8 +4139,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_377"
     },
     "ch3_377": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "对了……电话……日日谷小姐说了要给我打电话的……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4149,8 +4149,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_378"
     },
     "ch3_378": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "就是啊……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4159,8 +4159,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_379"
     },
     "ch3_379": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我在干什么呢……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4169,8 +4169,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_380"
     },
     "ch3_380": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "爱理在哭泣？爱理在呼唤我？那根本……不可能。不可能的。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4179,8 +4179,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_381"
     },
     "ch3_381": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "因为爱理她，早已经成为大人了……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4199,8 +4199,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_383"
     },
     "ch3_383": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "从我和爱理重逢的那一天起，那个时候（十年前）的爱理就从我眼前消失了。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4209,8 +4209,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_384"
     },
     "ch3_384": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "这不就是，证明一切都是我的妄想的，最有力的证据吗。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4219,8 +4219,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_385"
     },
     "ch3_385": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "所以……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4231,6 +4231,26 @@ ILY.data.stories.chapter3 = {
     "ch3_386": {
       "type": "monologue",
       "text": "基生的脑海里，又浮现出刚才手机里显示的“爱理”坐在海边的画面。他告诫自己。",
+      "speaker": "",
+      "chapter": "chapter3",
+      "chapterTitle": "第三章 · 过去与现在",
+      "scene": "S06",
+      "background": "bg-apartment-night",
+      "next": "ch3_386_add1"
+    },
+    "ch3_386_add1": {
+      "type": "monologue",
+      "text": "不要思考",
+      "speaker": "",
+      "chapter": "chapter3",
+      "chapterTitle": "第三章 · 过去与现在",
+      "scene": "S06",
+      "background": "bg-apartment-night",
+      "next": "ch3_386_add2"
+    },
+    "ch3_386_add2": {
+      "type": "monologue",
+      "text": "不要回忆",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4259,8 +4279,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_389"
     },
     "ch3_389": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "不可能的。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4269,8 +4289,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_390"
     },
     "ch3_390": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4279,8 +4299,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_391"
     },
     "ch3_391": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "我要……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4300,8 +4320,8 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_choice4": {
       "type": "choice",
-      "text": "两部手机同时作响。",
-      "speaker": "选择",
+      "text": "两部手机...",
+      "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S06",
@@ -4314,10 +4334,10 @@ ILY.data.stories.chapter3 = {
             "key": "n4",
             "value": "A"
           },
-          "next": "ch3_s07a"
+          "next": "ch3_395"
         },
         {
-          "text": "接通日日谷的电话。",
+          "text": "接通日日谷小姐的电话。",
           "flag": {
             "key": "n4",
             "value": "B"
@@ -4340,7 +4360,7 @@ ILY.data.stories.chapter3 = {
     "ch3_395": {
       "type": "dialogue",
       "text": "哈啊……哈啊……哈啊……哈啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4360,7 +4380,7 @@ ILY.data.stories.chapter3 = {
     "ch3_397": {
       "type": "dialogue",
       "text": "哈啊……哈啊……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4437,7 +4457,7 @@ ILY.data.stories.chapter3 = {
     "ch3_404": {
       "type": "dialogue",
       "text": "爱理……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4467,7 +4487,7 @@ ILY.data.stories.chapter3 = {
     "ch3_407": {
       "type": "dialogue",
       "text": "爱理，听我说……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4477,7 +4497,7 @@ ILY.data.stories.chapter3 = {
     "ch3_408": {
       "type": "dialogue",
       "text": "我无论怎样说服自己，都没有办法把你和我一起生活的日子，仅仅当成是我脑中的妄想。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4487,7 +4507,7 @@ ILY.data.stories.chapter3 = {
     "ch3_409": {
       "type": "dialogue",
       "text": "我在这里与你相遇、一起在家和你看电影、假日和你一起去水族馆、还有一起去江之岛约会……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4497,7 +4517,7 @@ ILY.data.stories.chapter3 = {
     "ch3_410": {
       "type": "dialogue",
       "text": "我怎么样也不相信，这些全都是我的妄想……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4507,7 +4527,7 @@ ILY.data.stories.chapter3 = {
     "ch3_411": {
       "type": "dialogue",
       "text": "因为在我的心里，你的样子是那么的真实。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4517,7 +4537,7 @@ ILY.data.stories.chapter3 = {
     "ch3_412": {
       "type": "dialogue",
       "text": "爱理，你为什么会以十年前的样子，出现在我的面前……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4527,7 +4547,7 @@ ILY.data.stories.chapter3 = {
     "ch3_413": {
       "type": "dialogue",
       "text": "这到底是为什么……又是怎么做到的……虽然还有很多这类令我疑虑的问题……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4537,7 +4557,7 @@ ILY.data.stories.chapter3 = {
     "ch3_414": {
       "type": "dialogue",
       "text": "……但即便如此……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4547,7 +4567,7 @@ ILY.data.stories.chapter3 = {
     "ch3_415": {
       "type": "dialogue",
       "text": "我还想再见你一面啊。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4557,7 +4577,7 @@ ILY.data.stories.chapter3 = {
     "ch3_416": {
       "type": "dialogue",
       "text": "那一天，把我从那间阴暗的房间中带出来的……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4567,7 +4587,7 @@ ILY.data.stories.chapter3 = {
     "ch3_417": {
       "type": "dialogue",
       "text": "爱理，你。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4577,7 +4597,7 @@ ILY.data.stories.chapter3 = {
     "ch3_418": {
       "type": "dialogue",
       "text": "……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4587,7 +4607,7 @@ ILY.data.stories.chapter3 = {
     "ch3_419": {
       "type": "dialogue",
       "text": "……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4597,7 +4617,7 @@ ILY.data.stories.chapter3 = {
     "ch3_420": {
       "type": "dialogue",
       "text": "……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4627,7 +4647,7 @@ ILY.data.stories.chapter3 = {
     "ch3_423": {
       "type": "dialogue",
       "text": "是啊……怎么可能……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4658,7 +4678,7 @@ ILY.data.stories.chapter3 = {
     "ch3_426": {
       "type": "dialogue",
       "text": "爱……！！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4699,54 +4719,59 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_430"
     },
     "ch3_430": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "环抱着我的纤细手臂，冰冷得完全不像人类……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
       "background": "bg-coast-night",
-      "next": "ch3_431"
+      "next": "ch3_431",
+      "portrait": "portrait-airi"
     },
     "ch3_431": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "被她触碰的位置，传来了似曾体会过的、被虫子爬过的恶心感。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
       "background": "bg-coast-night",
-      "next": "ch3_432"
+      "next": "ch3_432",
+      "portrait": "portrait-airi"
     },
     "ch3_432": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "尽管这样，我也能肯定。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
       "background": "bg-coast-night",
-      "next": "ch3_433"
+      "next": "ch3_433",
+      "portrait": "portrait-airi"
     },
     "ch3_433": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "她是……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
       "background": "bg-coast-night",
-      "next": "ch3_434"
+      "next": "ch3_434",
+      "portrait": "portrait-airi"
     },
     "ch3_434": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "爱理。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
       "background": "bg-coast-night",
-      "next": "ch3_435"
+      "next": "ch3_435",
+      "portrait": "portrait-airi"
     },
     "ch3_435": {
       "type": "dialogue",
@@ -4850,7 +4875,7 @@ ILY.data.stories.chapter3 = {
     "ch3_444": {
       "type": "dialogue",
       "text": "爱理……",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4871,7 +4896,7 @@ ILY.data.stories.chapter3 = {
     "ch3_446": {
       "type": "dialogue",
       "text": "！？",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4891,7 +4916,7 @@ ILY.data.stories.chapter3 = {
     "ch3_448": {
       "type": "dialogue",
       "text": "—什！！",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
@@ -4944,7 +4969,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_453": {
       "type": "dialogue",
-      "text": "没办法维持‘爱理’的身体了……",
+      "text": "没办法维持“爱理”的身体了……",
       "speaker": "“爱理”",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4954,14 +4979,15 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_454"
     },
     "ch3_454": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "爱理的……身体……",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07A",
       "background": "bg-coast-night",
-      "next": "ch3_455"
+      "next": "ch3_455",
+      "portrait": "portrait-airi"
     },
     "ch3_455": {
       "type": "dialogue",
@@ -4987,7 +5013,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_457": {
       "type": "dialogue",
-      "text": "我是被人制造出来的‘ILY 病毒’……",
+      "text": "我是被人制造出来的“ILY 病毒”……",
       "speaker": "ILY",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -4998,7 +5024,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_458": {
       "type": "dialogue",
-      "text": "‘ILY’。",
+      "text": "“ILY”。",
       "speaker": "ILY",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -5046,7 +5072,7 @@ ILY.data.stories.chapter3 = {
     },
     "ch3_462": {
       "type": "monologue",
-      "text": "十年前那个荒唐的“暑假”早已成为记忆。翻盖手机里也只剩下一封奇怪的、来自 ILY 的信，但印象里出现的蓝色链接早已不见踪影——可能是某个诈骗短信吧。",
+      "text": "十年前那个荒唐的“暑假”早已成为记忆。翻盖手机里也只剩下一封奇怪的、来自爱理的信，但印象里出现的蓝色链接早已不见踪影——可能是某个诈骗短信吧。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -5110,7 +5136,7 @@ ILY.data.stories.chapter3 = {
     "ch3_468": {
       "type": "dialogue",
       "text": "嗯——？嗯——。",
-      "speaker": "基生",
+      "speaker": "成田基生",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "S07B",
@@ -5168,8 +5194,8 @@ ILY.data.stories.chapter3 = {
       "next": "ch3_474"
     },
     "ch3_474": {
-      "type": "cue",
-      "text": "",
+      "type": "dialogue",
+      "text": "现在不必再去想过去的往事了，我已经有一个全新的生活和我爱的人了。",
       "speaker": "",
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
@@ -5192,8 +5218,8 @@ ILY.data.stories.chapter3 = {
       "chapter": "chapter3",
       "chapterTitle": "第三章 · 过去与现在",
       "scene": "END",
-      "title": "十年之后",
-      "text": "这一段故事，留在了这里。",
+      "title": "现实结局：十年之后",
+      "text": "十年之后，你忘掉了过去，收获了现实",
       "background": "ch2-beach",
       "ending": "ENDING_REALITY",
       "achievement": "十年之后",

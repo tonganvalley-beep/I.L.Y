@@ -17,24 +17,24 @@
  *     停止 150ms 后恢复正面
  *
  * 素材（都在 ./photo&video/ 里，和三个页面同目录，相对路径通用）：
- *   cursor-hero-front.png      正面（静止）
- *   cursor-hero-back.png       背面（按住鼠标）
- *   cursor-walk-right-1/2.png  朝右走路两帧
- *   cursor-walk-left-1/2.png   朝左走路两帧（右帧水平镜像）
+ *   cursor-hero-front.webp      正面（静止）
+ *   cursor-hero-back.webp       背面（按住鼠标）
+ *   cursor-walk-right-1/2.webp  朝右走路两帧
+ *   cursor-walk-left-1/2.webp   朝左走路两帧（右帧水平镜像）
  * ============================================================ */
 (function () {
   const BASE = './photo&video/';
   const HOT  = '24 24, auto';   /* 热点 = 画布中心 = 人物中心 */
 
-  const CURSOR_IDLE = "url('" + BASE + "cursor-hero-front.png') " + HOT;
-  const CURSOR_BACK = "url('" + BASE + "cursor-hero-back.png') " + HOT;
+  const CURSOR_IDLE = "url('" + BASE + "cursor-hero-front.webp') " + HOT;
+  const CURSOR_BACK = "url('" + BASE + "cursor-hero-back.webp') " + HOT;
   const CURSOR_WALK_RIGHT = [
-    "url('" + BASE + "cursor-walk-right-1.png') " + HOT,
-    "url('" + BASE + "cursor-walk-right-2.png') " + HOT
+    "url('" + BASE + "cursor-walk-right-1.webp') " + HOT,
+    "url('" + BASE + "cursor-walk-right-2.webp') " + HOT
   ];
   const CURSOR_WALK_LEFT = [
-    "url('" + BASE + "cursor-walk-left-1.png') " + HOT,
-    "url('" + BASE + "cursor-walk-left-2.png') " + HOT
+    "url('" + BASE + "cursor-walk-left-1.webp') " + HOT,
+    "url('" + BASE + "cursor-walk-left-2.webp') " + HOT
   ];
 
   const WALK_INTERVAL = 80;   /* 走路帧切换间隔（ms） */

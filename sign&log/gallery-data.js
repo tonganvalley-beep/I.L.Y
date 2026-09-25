@@ -7,7 +7,7 @@
  * 本文件只用于登记上面两类之外的“自定义插图”（例如尚未接入剧情的 CG 原画）。
  *
  * 登记格式（图片路径相对 sign&log/；也可只填 unlock，src 缺省时按资源 id 反查）：
- *   { src: 'photo&video/example.png', unlock: 'ch1-cg-blue', title: '标题', note: '说明' }
+ *   { src: 'photo&video/example.webp', unlock: 'ch1-cg-blue', title: '标题', note: '说明' }
  * unlock 填对应剧情节点实际展示的 cg / overlay / gallery 资源 ID；玩家触发该图片后才会在画廊出现。
  */
 window.ILY_GALLERY = window.ILY_GALLERY || [];

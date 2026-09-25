@@ -1,1 +1,0 @@
-P6 browser PASS: native WAV playback, Chinese subtitles, next/rollback/load/skip/modes/menu/pagehide, stale source, persistent settings, mobile layout.

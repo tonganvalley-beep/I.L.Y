@@ -3,7 +3,7 @@
      index.html —— 游戏开始界面（登录成功后的第一个页面）
 
      内容：
-       · 全屏显示 游戏开始界面.png（暗色 + 中央翻盖手机）
+       · 全屏显示 游戏开始界面.webp（暗色 + 中央翻盖手机）
        · 打开时从全白淡入（接住登录页 intro.mp4 结尾的全白）
        · 底部灰色小字"轻点屏幕以继续"（中英双语，缓慢闪烁）
        · 右上角中英文切换按钮（和登录页同一套方案、同一份记忆）
@@ -23,28 +23,42 @@
   <title data-i18n="page.title">开始界面</title>
   <style>
     /* ---------- 像素字体：和登录页同一个字体文件 ---------- */
-    /* @font-face 的作用：把 fonts/zpix.ttf 注册成名叫 "Zpix" 的字体，
+    /* @font-face 的作用：把 fonts/zpix.woff2 注册成名叫 "Zpix" 的字体，
        之后 font-family: "Zpix" 就能用它。fonts/ 和本文件同目录 */
     @font-face {
       font-family: 'Zpix';
-      src: url('./fonts/zpix.ttf') format('truetype');
+      src: url('./fonts/zpix.woff2') format('woff2');
       font-display: swap;      /* 字体加载期间先用后备字体显示，避免文字空白 */
     }
 
-    /* ---------- 页面主体：全屏背景图 ---------- */
+    /* ---------- 页面主体：固定 16:9 画布（画布外多余区域 = 黑边） ---------- */
+    html { background: #000; }        /* 黑边底色 */
     body {
       margin: 0;
-      height: 100vh;                 /* 高度撑满整个窗口 */
+      height: 100dvh;                /* 至少一屏高，供画布绝对居中 */
       overflow: hidden;              /* 不出现滚动条 */
+      background: #000;              /* 画布外多余区域留黑边 */
       font-family: 'Zpix', 'Consolas', monospace;  /* 全页像素字体 */
-      /* 游戏开始界面.png 在 login/photo&video/ 素材文件夹里 */
-      background-image: url('./photo&video/游戏开始界面.png');
-      background-size: cover;        /* 等比缩放到刚好盖满窗口 */
+      cursor: pointer;               /* 鼠标变成小手，暗示"整个屏幕都能点" */
+      user-select: none;             /* 点击时不会意外选中文字 */
+    }
+
+    /* ---------- 固定 16:9 画布：1280×720 设计分辨率，等比缩放居中 ---------- */
+    #game-frame {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 1280px; height: 720px;
+      transform: translate(-50%, -50%) scale(var(--s, 1));
+      transform-origin: center center;
+      container-type: size;
+      overflow: hidden;
+      /* 游戏开始界面.webp 在 login/photo&video/ 素材文件夹里 */
+      background-image: url('./photo&video/游戏开始界面.webp');
+      background-size: cover;        /* 等比缩放到刚好盖满画布 */
       background-position: center;
       background-repeat: no-repeat;
       background-color: #000;        /* 图是暗色的，边角露出处也用黑色 */
-      cursor: pointer;               /* 鼠标变成小手，暗示"整个屏幕都能点" */
-      user-select: none;             /* 点击时不会意外选中文字 */
+      cursor: pointer;
     }
 
     /* ---------- 白屏淡入层 ---------- */
@@ -117,10 +131,34 @@
     .hidden {
       display: none !important;
     }
-  </style>
+  /* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }
+</style>
+  <script>
+    /* 固定 16:9 画布：缩放系数写到 :root，供 #game-frame 的 transform:scale() 使用 */
+    (function () {
+      function fit() {
+        document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1280, innerHeight / 720));
+      }
+      fit();
+      addEventListener('resize', fit);
+      addEventListener('orientationchange', fit);
+      addEventListener('load', fit);
+    })();
+  </script>
 </head>
 
 <body data-page-node-id="c8kfRVYfc3CHh4QVReqezh">
+  <!-- 固定 16:9 画布：所有可见内容都放里面，多余区域留黑边 -->
+  <div id="game-frame">
   <!-- 白屏淡入层：只负责转场，没有任何交互 -->
   <div class="white-flash" data-page-node-id="9a8UULYNxX6DHDzTvJwnzk"></div>
 
@@ -137,6 +175,7 @@
   <div id="videoOverlay" class="video-overlay hidden" data-page-node-id="HO5FHeRZR6NENh7UlctdT3">
     <video id="introVideo" src="./photo&video/intro-flip3.mp4" preload="auto" playsinline data-page-node-id="za9AtmkhknUZmAB4A48hkv"></video>
   </div>
+  </div><!-- /#game-frame -->
 
   <script>
     /* ============================================================
@@ -209,7 +248,7 @@
      *         屏幕亮起 → 镜头推近渐变到游戏主界面）
      *     → 视频播完自动跳转 game.html
      *   视频播放中再点一次屏幕 = 跳过视频，直接跳转。
-     * 视频最后一帧就是 游戏主界面.png，game.html 背景也是它 → 无缝衔接。
+     * 视频最后一帧就是 游戏主界面.webp，game.html 背景也是它 → 无缝衔接。
      * ============================================================ */
 
     /* 跳转目标页：视频播完要去哪个页面，改这一行就行 */
@@ -256,7 +295,7 @@
       if (introJumped) return;
       introJumped = true;
       document.getElementById('introVideo').pause();  /* 跳过时视频可能还在播，先停掉 */
-      /* 视频最后一帧 = 游戏主界面.png = 下一页背景，画面一致，直接跳就是无缝的 */
+      /* 视频最后一帧 = 游戏主界面.webp = 下一页背景，画面一致，直接跳就是无缝的 */
       window.location.href = NEXT_PAGE;
     }
   </script>

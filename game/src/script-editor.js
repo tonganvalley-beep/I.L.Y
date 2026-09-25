@@ -67,7 +67,11 @@
     media = mediaCatalog();
     state.records = read();
     model.apply(state.records);
-    document.getElementById('script-editor-toggle').onclick = event => {
+    // 正式发布版已从页面移除编辑入口（game/index.html 里没有这个按钮）。
+    // 这里仍然保留初始化，因为已发布的剧本修订要靠 model.apply 生效。
+    const toggle = document.getElementById?.('script-editor-toggle');
+    if (!toggle) return;
+    toggle.onclick = event => {
       // The native target opens a second tab when popup APIs are unavailable or blocked.
       send();
       const editorUrl = new URL('script-editor.html', location.href);

@@ -9,7 +9,6 @@ function prepareChapter1() {
     if(extra){story.chapters.push(id);Object.assign(story.nodes,extra.nodes);}
   }
   if(ILY.data.stories.chapter2) story.nodes.ch1_end={...story.nodes.ch1_end,next:'ch2_s01',nextLabel:'进入第二章',text:'“爱理”倒下了。那一晚之后，天光再次照进出租屋。'};
-  if(ILY.data.stories.chapter3) story.nodes.ch1_c_end={...story.nodes.ch1_c_end,next:'ch3_s02',nextLabel:'进入第三章',text:'基生一遍遍告诉自己，那只是一个噩梦。自那之后，“爱理”再也没有出现。日子又回到了空荡荡的房间。'};
   // 保留生成剧本及工作区文本覆盖，仅在组装时接入电脑玩法。
   story.nodes.ch1_battle={...story.nodes.ch1_battle,type:'computer'};
   // 紫阳花小径在现行剧本属于第二章 S04；摄影接在六月照片回忆之后。
@@ -18,6 +17,8 @@ function prepareChapter1() {
       scene:'S04',background:'ch2-flowers',checkpoint:true,next:story.nodes.ch2_g2.next};
     story.nodes.ch2_g2={...story.nodes.ch2_g2,next:'ch2_photo'};
   }
+  /* 英文模式下把剧情文本替换成英文（中文原数据不动，切换可逆） */
+  ILY.applyStoryLang?.(story, ILY.getLang?.() || 'chinese');
   return story;
 }
 function enterChapterNode(state,node) {

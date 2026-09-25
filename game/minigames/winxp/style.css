@@ -91,6 +91,17 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 /* 游戏窗口：iframe 填满窗口内容区（无内边距） */
 .game-win .win-body { padding: 0; background: #fff; overflow: hidden; }
 .game-frame { width: 100%; height: 100%; border: 0; display: block; background: #fff; }
-/* 游戏图标用图片（ico.png）；无图时回退到 emoji */
+/* 游戏图标用图片（ico.webp）；无图时回退到 emoji */
 .icon .glyph-img { width: 34px; height: 34px; object-fit: contain; filter: drop-shadow(1px 2px 2px rgba(0,0,0,.45)); }
 .icon.small .glyph-img { width: 34px; height: 34px; }
+
+/* ==== 全局禁止选中文字 / 拖拽图片（演出用） ==== */
+/* 按住拖动、双击选词、iOS 长按气泡、把立绘拖出去都会破坏演出效果。
+   user-select 在现行标准里可继承，挂在 html/body 即可覆盖后续 JS 动态创建的节点
+   （弹窗 / 手机 / 回忆界面）；输入控件必须豁免，否则没法用鼠标在框内选词。
+   注意：不拦 dblclick（winxp 桌面图标靠双击打开）。 */
+html, body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select, [contenteditable] { -webkit-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; }
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection, [contenteditable]::selection { background: rgba(90,160,255,.45); color: inherit; }

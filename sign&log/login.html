@@ -12,9 +12,24 @@
   <title data-i18n="page.title">登录 / 注册</title>
   <!-- 引入本页面的样式表（和本 html 同目录） -->
   <link rel="stylesheet" href="./login.css" data-page-node-id="wsxuTpSHULPJcCuA8krKXs">
+  <script>
+    /* 固定 16:9 画布：缩放系数写到 :root，供 #game-frame 的 transform:scale() 使用 */
+    (function () {
+      function fit() {
+        document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1280, innerHeight / 720));
+      }
+      fit();
+      addEventListener('resize', fit);
+      addEventListener('orientationchange', fit);
+      addEventListener('load', fit);
+    })();
+  </script>
 </head>
 
 <body data-page-node-id="3G2HlLrklfX6fc5QkthLF3">
+
+  <!-- ============ 固定 16:9 画布：所有可见内容都放里面，多余区域留黑边 ============ -->
+  <div id="game-frame">
 
   <!-- ============ 右上角：中英文切换按钮 ============ -->
   <!-- 当前是中文时按钮显示 "EN"（点它切到英文）；当前是英文时显示 "中文" -->
@@ -105,6 +120,7 @@
   <!-- 视频结尾是全白画面；跳转前先把这层白色慢慢盖上来（0.6秒），
        这样"视频白 → 网页白 → 下一页从白色淡入"整条链路没有跳变感 -->
   <div id="whiteFade" class="white-fade"></div>
+  </div><!-- /#game-frame -->
 
   <!-- 脚本放 body 最后：让浏览器先把页面渲染出来，再执行 JS，打开更快 -->
   <script src="./login.js"></script>

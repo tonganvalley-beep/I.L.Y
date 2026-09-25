@@ -314,7 +314,8 @@ function build() {
   });
   content = el('div', 'mem-content');
   dialog.append(head, subEl, tabs, content, actionsBar(() => dialog.close()));
-  document.body.append(dialog);
+  // 挂到 #game-frame 内（而非 body），使回忆弹窗随固定 16:9 画布一起缩放
+  (document.getElementById('game-frame') || document.body).append(dialog);
 
   tabs.querySelectorAll('button').forEach(b => {
     b.addEventListener('click', () => { activeTab = b.dataset.tab; renderContent(); });
@@ -331,7 +332,7 @@ function open() {
   build();
   activeTab = 'achievements';
   renderContent();
-  dialog.showModal();
+  dialog.show();
 }
 
 function injectStyles() {

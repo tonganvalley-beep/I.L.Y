@@ -16,9 +16,17 @@ const listeners=[];
 const on=(type,handler)=>{window.addEventListener(type,handler);listeners.push([type,handler]);};
 let disposed=false, frameId=0, elapsed=0, pointerTarget=null;
 const blueTraining=options.tutorial==='blue';
-const duration=blueTraining?Infinity:(options.duration || Infinity);
+const redTraining=options.tutorial==='red';
+// ★ 教学模式由「脚本 + 目标」推进，不再按秒数到点硬切，所以时长直接放开；
+//   非教学模式仍然用关卡数据里的 duration 计时（Boss 战 / 生存关保持原样）。
+const duration=(blueTraining||redTraining)?Infinity:(options.duration || Infinity);
 let jumpPressed=false;
-const lesson={step:0,jumps:0,cleared:0,wait:1.2,obstacle:null,feedback:''};
+const lesson={
+  step:0, jumps:0, cleared:0, wait:1.2, obstacle:null, queue:[], feedback:'',
+  collected:0,   // 红心①：已碰到的教学光点
+  heals:0,       // 红心④：已接住的绿色回血弹
+  stageT:1.2     // 当前关内的收尾计时
+};
 let grounded=false,jumpReleased=true;
 
 // ───────────────────────── ① 固定步长 ─────────────────────────
@@ -90,6 +98,7 @@ const DEFAULT = {
   inflated: false,       // 是否已膨胀
   ttl: 300,              // 全局寿命上限（60Hz 帧）：任意子弹存在 5s 即删除
   heal: 0,               // >0 则是回血弹（绿色）
+  collect: 0,            // >0 则是教学光点：碰到即收集，不造成伤害
   type: 'bone',
   active: false
 };
@@ -193,16 +202,234 @@ function moveHeart() {
   heart.vy = (heart.y - py) / SCALE;
 }
 
-// A small, non-lethal blue-heart lesson. Gravity and jump height match the Boss defaults.
-const blueSteps=[
-  ['① 重力与跳跃','蓝心会落到地面。← / → 或 A / D 移动；按 ↑ / W 跳起，再落地。'],
-  ['② 越过低骨条','白骨条从右侧扫来。等它靠近，按 ↑ / W 跳过去；碰到只重试，不扣血。'],
-  ['③ 按住跳得更高','这次骨条更高。靠近时按住 ↑ / W，越过后松开；松开会提早落下。']
+// ═══════════════════════════════════════════════════════════════════════
+//  教学关卡 · 红心 8 关 / 蓝心 5 关
+//
+//  元素全部取自 Boss 战里出现过的基础机制：
+//    红心 —— 判定点与慢速、环形弹幕、骨头墙、追踪弹、绿色回血弹、
+//            区域预警（Boss 的 tentacle / caption 方块）、激光预警、花型旋转弹幕
+//    蓝心 —— 重力、跳跃、按住跳更高、骨条扫过、空隙屏障（Boss 的 wireGap）、连续骨条
+//
+//  每一关是一段「脚本」，做完本关的目标才会进入下一关，不再按秒数硬切。
+//  脚本用生成器写：yield N 等 N 帧，yield 0 表示「下一帧继续判断」，
+//  生成器 return 即表示本关完成。
+// ═══════════════════════════════════════════════════════════════════════
+const TAU = Math.PI * 2;
+const CX = () => (box.x1 + box.x2) / 2;
+const CY = () => (box.y1 + box.y2) / 2;
+
+// ───────── 区域预警（对应 Boss 的 tentacle / caption 方块） ─────────
+// 三段状态机：闪烁预警 → 亮起伤害 → 淡出。只有中间那段会判定伤害，
+// 预警期只画红框和「!」，把「待会儿这里会打」讲清楚。
+const areas = [];
+function spawnArea(o) {
+  areas.push({ x: 0, y: 0, w: 120, h: 60, warn: 54, hold: 44, fade: 16, t: 0, dmg: 6, label: '!', ...o });
+}
+function updateAreas() {
+  for (let i = areas.length - 1; i >= 0; i--) {
+    const a = areas[i];
+    a.t += SCALE;
+    if (a.t >= a.warn + a.hold + a.fade) { areas.splice(i, 1); continue; }
+    if (a.t < a.warn || a.t >= a.warn + a.hold) continue;       // 预警 / 淡出：不判定
+    const nx = clamp(heart.x, a.x, a.x + a.w), ny = clamp(heart.y, a.y, a.y + a.h);
+    if (Math.hypot(heart.x - nx, heart.y - ny) < heart.r) damage(a.dmg);
+  }
+}
+function drawAreas() {
+  for (const a of areas) {
+    const warning = a.t < a.warn, fading = a.t >= a.warn + a.hold;
+    ctx.save();
+    ctx.globalAlpha = fading ? Math.max(0, 1 - (a.t - a.warn - a.hold) / a.fade) : 1;
+    if (warning) {
+      if (Math.floor(a.t / 5) % 2 === 0) {                      // 闪烁：红框 + 感叹号
+        ctx.strokeStyle = '#ff3756'; ctx.lineWidth = 3;
+        ctx.strokeRect(a.x + 1.5, a.y + 1.5, a.w - 3, a.h - 3);
+        ctx.fillStyle = '#ff3756';
+        ctx.font = '900 30px monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(a.label, a.x + a.w / 2, a.y + a.h / 2);
+      } else {
+        ctx.strokeStyle = '#572333'; ctx.lineWidth = 1;
+        ctx.strokeRect(a.x + .5, a.y + .5, a.w - 1, a.h - 1);
+      }
+    } else {                                                    // 亮起：整块变红伤人
+      ctx.fillStyle = 'rgba(255,58,105,.16)'; ctx.fillRect(a.x, a.y, a.w, a.h);
+      ctx.strokeStyle = '#ef4b78'; ctx.lineWidth = 2;
+      ctx.strokeRect(a.x + 1, a.y + 1, a.w - 2, a.h - 2);
+    }
+    ctx.restore();
+  }
+}
+
+// ───── 骨头墙：一整列骨头中间留一个缺口，从一侧横扫（Boss 的 wireSingle 简化版） ─────
+function boneWall(fromLeft, gapY, gapH, speed) {
+  const dir = fromLeft ? 1 : -1, x = fromLeft ? box.x1 - 22 : box.x2 + 22;
+  for (let y = box.y1 + 10; y < box.y2; y += 10) {
+    if (y > gapY && y < gapY + gapH) continue;
+    spawn({ x, y, vx: dir * speed, vy: 0, r: 5, dmg: 4, type: 'bone', ttl: 900 });
+  }
+}
+
+// ─────────────────────────── 红心 8 关 ───────────────────────────
+const redStages = [
+  {
+    title: '① 移动与判定',
+    hint: '方向键 / WASD 移动，Shift 慢速微调；白色小点才是真正的判定中心。目标：碰到 3 个金色光点。',
+    run: function* () {
+      for (let i = 0; i < 3; i++)
+        spawn({ x: box.x1 + 50 + Math.random() * (box.x2 - box.x1 - 100),
+                y: box.y1 + 50 + Math.random() * (box.y2 - box.y1 - 100),
+                r: 13, dmg: 0, collect: 1, type: 'star', ttl: 100000 });
+      while (lesson.collected < 3) yield 0;
+      yield 30;
+    }
+  },
+  {
+    title: '② 环形弹幕',
+    hint: '红点预警后炸出一圈子弹并向外扩散，圆环会扫过你。站到子弹之间，需要微调时按住 Shift。目标：躲过 2 波。',
+    run: function* () {
+      yield 30;
+      for (let w = 0; w < 2; w++) {
+        const a0 = Math.random() * TAU, R = 92;
+        const sx = clamp(heart.x + Math.cos(a0) * R, box.x1 + 16, box.x2 - 16);
+        const sy = clamp(heart.y + Math.sin(a0) * R, box.y1 + 16, box.y2 - 16);
+        spawnWarn(sx, sy, 48); yield 48;
+        for (let i = 0; i < 12; i++) {
+          const a = i * TAU / 12 + w * 0.26;
+          spawn({ x: sx, y: sy, vx: Math.cos(a) * BASE_V * .9, vy: Math.sin(a) * BASE_V * .9,
+                  r: 4, dmg: 4, type: 'ring', ttl: 600 });
+        }
+        yield 100;
+      }
+    }
+  },
+  {
+    title: '③ 骨头与追踪弹',
+    hint: '白色骨墙横扫过来，只在缺口处才能穿过；紫色火弹会预判你的移动方向。目标：穿过两次骨墙缺口，再躲开 3 发追踪弹。',
+    run: function* () {
+      yield 24;
+      for (let k = 0; k < 2; k++) {
+        const gapH = 78;
+        const gapY = box.y1 + 24 + Math.random() * (box.y2 - box.y1 - gapH - 48);
+        boneWall(k % 2 === 0, gapY, gapH, 2.1);
+        yield 130;
+      }
+      for (let i = 0; i < 3; i++) {
+        spawn({ x: box.x1 + 40 + i * 150, y: box.y1 + 8, vx: 0, vy: .6,
+                homing: HOMING_A0 * .8, homingKind: 'predict', maxSpeed: Vm, lead: LEAD,
+                r: 5, dmg: 4, type: 'fire', ttl: 600 });
+        yield 34;
+      }
+      yield 90;
+    }
+  },
+  {
+    title: '④ 绿色回血弹',
+    hint: '绿色弹命中会回血，可以主动去接；同一波里还混着普通弹。目标：接住 2 个绿色回血弹。',
+    run: function* () {
+      yield 26;
+      lesson.heals = 0;
+      for (let i = 0; i < 18 && lesson.heals < 2; i++) {
+        const green = i % 2 === 1;
+        spawn({ x: box.x1 + 30 + Math.random() * (box.x2 - box.x1 - 60), y: box.y1 - 8,
+                vx: (Math.random() - .5) * 1.2, vy: -1 - Math.random(), gravity: .2,
+                r: 5, dmg: green ? 0 : 4, heal: green ? 2 : 0,
+                type: green ? 'veggie' : 'bone', ttl: 600 });
+        yield green ? 40 : 30;
+      }
+      yield 30;
+    }
+  },
+  {
+    title: '⑤ 区域预警',
+    hint: '红色方块先闪烁并显示「!」，亮起那一刻整块都会伤人。目标：在亮起前离开方块。',
+    run: function* () {
+      yield 26;
+      spawnArea({ x: CX() - 90, y: CY() - 46, w: 180, h: 92, warn: 58, hold: 46 });
+      yield 118;
+      spawnArea({ x: box.x1 + 8, y: box.y1 + 26, w: box.x2 - box.x1 - 16, h: 56, warn: 54, hold: 42 });
+      yield 108;
+      spawnArea({ x: CX() - 58, y: box.y1 + 10, w: 116, h: box.y2 - box.y1 - 20, warn: 52, hold: 44 });
+      yield 108;
+      spawnArea({ x: box.x1 + 60, y: CY() - 30, w: 96, h: 60, warn: 54, hold: 44 });
+      spawnArea({ x: box.x2 - 156, y: CY() - 30, w: 96, h: 60, warn: 54, hold: 44 });
+      yield 112;
+    }
+  },
+  {
+    title: '⑥ 激光预警',
+    hint: '激光先显示红色虚线，亮起的那一瞬才伤人，而且会追踪、会旋转。目标：虚线出现时就先离开那条线。',
+    run: function* () {
+      yield 24;
+      spawnLaser({ x: box.x1, y: box.y1 + 58, angle: 0, len: box.x2 - box.x1, warn: 60, fire: 52, dmg: 5 });
+      yield 132;
+      spawnLaser({ x: CX(), y: box.y1, angle: Math.PI / 2, len: box.y2 - box.y1,
+                   track: .010, warn: 56, fire: 52, dmg: 5 });
+      yield 134;
+      spawnLaser({ x: CX(), y: CY(), angle: 0, len: 420, spin: .006, warn: 54, fire: 54, dmg: 5 });
+      yield 130;
+    }
+  },
+  {
+    title: '⑦ 花型旋转弹幕',
+    hint: '从中心绽开的多层弹幕，每一层都比上一层转一个角度，缝隙会跟着旋转。目标：躲过 4 层。',
+    run: function* () {
+      yield 26;
+      for (let g = 0; g < 4; g++) {
+        for (let i = 0; i < 8; i++) {
+          const a = i * TAU / 8 + g * TAU / 16;
+          spawn({ x: CX(), y: CY(), vx: Math.cos(a) * BASE_V * .85, vy: Math.sin(a) * BASE_V * .85,
+                  r: 4, dmg: 4, type: 'ring', ttl: 700 });
+        }
+        yield 46;
+      }
+      yield 70;
+    }
+  },
+  {
+    title: '⑧ 综合演练',
+    hint: '把所有元素混在一起。目标：活到最后——撑完这一波就毕业，进入蓝心教学。',
+    run: function* () {
+      yield 26;
+      yield* wave_ring();
+      spawnArea({ x: CX() - 100, y: CY() - 48, w: 200, h: 96, warn: 54, hold: 44 });
+      yield 112;
+      spawnLaser({ x: box.x1, y: box.y1 + 58, angle: 0, len: box.x2 - box.x1, warn: 54, fire: 50, dmg: 5 });
+      yield 124;
+      yield* wave_chase();
+      yield 40;
+    }
+  }
 ];
+
+// ─────────────────────────── 蓝心 5 关 ───────────────────────────
+const blueStages = [
+  { title: '① 重力与跳跃', hint: '蓝心会落向地面。← / → 或 A / D 左右移动；按 ↑ / W 跳起，再落地。目标：完成 2 次跳跃。' },
+  { title: '② 跳过矮骨条', hint: '白骨条从右侧扫来。等它靠近，按 ↑ / W 跳过去。碰到不扣血，只会重来。目标：越过 1 根矮骨条。' },
+  { title: '③ 按住跳更高', hint: '这次骨条高得多，只点一下是跳不过去的。靠近时一直按住 ↑ / W，越过后再松开——松开就会提早落下。目标：越过高骨条。' },
+  { title: '④ 空隙屏障', hint: '整面骨墙，只有中间一条缝。先跳到缝的高度，再让墙从身上扫过去。目标：从缝隙中穿过。' },
+  { title: '⑤ 连续骨条', hint: '矮、高、矮三根接连扫来，用「点一下」和「按住」交替越过去。目标：连过 3 根。' }
+];
+// 第 ② 关起对应的障碍配置；key 为 step-1。
+// 高度：点一下跳约 12px，按住最多 63px —— 所以 20px 是「跳一下」，
+// 42px 必须「按住」，而 42px 同时留出了足够宽的容错窗口（再高就只剩几帧容错）。
+const bluePlan = [
+  [{ kind: 'bone', height: 20 }],
+  [{ kind: 'bone', height: 42, width: 12, speed: 100 }],
+  [{ kind: 'gap', gapH: 74 }],
+  [{ kind: 'bone', height: 20 }, { kind: 'bone', height: 42, width: 12, speed: 100 }, { kind: 'bone', height: 20 }]
+];
+
 function notifyLesson(message=''){
   lesson.feedback=message;
-  const [title,hint]=blueSteps[Math.min(lesson.step,2)];
-  options.onLesson?.({step:lesson.step,title,hint,feedback:message,cleared:lesson.cleared});
+  const step=Math.min(lesson.step,blueStages.length-1);
+  const s=blueStages[step];
+  options.onLesson?.({step,total:blueStages.length,title:s.title,hint:s.hint,feedback:message,cleared:lesson.cleared});
+}
+function notifyRedLesson(message=''){
+  lesson.feedback=message;
+  const step=Math.min(lesson.step,redStages.length-1);
+  const s=redStages[step];
+  options.onLesson?.({step,total:redStages.length,title:s.title,hint:s.hint,feedback:message,cleared:lesson.cleared});
 }
 function moveBlueHeart(){
   const dt=SCALE/60,h=heart.size/2,floor=box.y2-h;
@@ -222,34 +449,81 @@ function moveBlueHeart(){
     const gravity=up&&heart.vy<0&&!jumpReleased?690:1120;
     heart.y+=heart.vy*step+.5*gravity*step*step;
     heart.vy=Math.min(520,heart.vy+gravity*step);
-    if(heart.y>=floor){
-      heart.y=floor;heart.vy=0;grounded=true;jumpReleased=true;
-      if(lesson.step===0&&lesson.jumps>0){lesson.step=1;lesson.wait=1.6;notifyLesson('跳得很好！接下来试着越过低骨条。');}
-    }
+    if(heart.y>=floor){heart.y=floor;heart.vy=0;grounded=true;jumpReleased=true;}
   }
 }
+// ───────── 蓝心课程的推进（多关 + 空隙屏障） ─────────
+const BLUE_FLOOR=()=>box.y2-heart.size/2;
+
+function makeBlueObstacle(spec){
+  return Object.assign({
+    x:box.x2+24, width:16, kind:'bone', height:20,
+    gapH:74, gapCenter:BLUE_FLOOR()-52,        // 缝隙中心：站地面够不到，必须跳
+    speed:104, warn:1.3, failed:false, passed:false
+  },spec);
+}
+// 判定：bone = 一根从地面立起的骨条；gap = 上下两段，中间那条缝可以穿过去
+function blueObstacleHit(o){
+  const hitRect=(y1,y2)=>{
+    if(y2-y1<=0)return false;
+    const nx=clamp(heart.x,o.x,o.x+o.width),ny=clamp(heart.y,y1,y2);
+    return Math.hypot(heart.x-nx,heart.y-ny)<heart.r;
+  };
+  if(o.kind==='gap'){
+    const gTop=o.gapCenter-o.gapH/2,gBot=o.gapCenter+o.gapH/2;
+    return hitRect(box.y1,gTop)||hitRect(gBot,box.y2);
+  }
+  return hitRect(box.y2-o.height,box.y2);
+}
+function goBlueStage(i){
+  lesson.step=i;lesson.jumps=0;lesson.cleared=0;lesson.obstacle=null;
+  lesson.queue=[];lesson.wait=1.5;lesson.stageT=1.2;
+  if(i>0)lesson.queue=(bluePlan[i-1]||[]).map(s=>({...s}));
+  notifyLesson();
+}
+function advanceBlueStage(){
+  if(lesson.step>=blueStages.length-1){notifyLesson('蓝心教学全部完成！');endGame(true);return;}
+  goBlueStage(lesson.step+1);
+  notifyLesson('很好，进入下一步。');
+}
 function updateBlueLesson(){
-  if(lesson.step===0)return;
   const dt=SCALE/60;
+  if(lesson.step===0){                                  // 第①关：跳够 2 次即可
+    if(lesson.jumps>=2){lesson.stageT-=dt;if(lesson.stageT<=0)advanceBlueStage();}
+    return;
+  }
   if(!lesson.obstacle){
     lesson.wait-=dt;if(lesson.wait>0)return;
-    lesson.obstacle={x:box.x2-12,width:16,height:lesson.step===1?20:42,warn:1.2,failed:false,crossed:false};
+    if(lesson.queue.length===0){advanceBlueStage();return;}
+    lesson.current={...lesson.queue[0]};
+    lesson.obstacle=makeBlueObstacle(lesson.queue.shift());
     notifyLesson();return;
   }
   const o=lesson.obstacle;
   if(o.warn>0){o.warn-=dt;return;}
-  o.x-=110*dt;
-  const nearestX=clamp(heart.x,o.x,o.x+o.width),nearestY=clamp(heart.y,box.y2-o.height,box.y2);
-  if(!o.failed&&Math.hypot(heart.x-nearestX,heart.y-nearestY)<heart.r){
-    o.failed=true;invc=30;notifyLesson('没关系，不扣血。等下一根靠近时再跳。');
+  o.x-=o.speed*dt;
+  if(!o.failed&&!o.passed&&blueObstacleHit(o)){
+    o.failed=true;invc=30;
+    notifyLesson(o.kind==='gap'
+      ?'没关系，不扣血。先跳到缝的高度，再让墙从身上扫过去。'
+      :'没关系，不扣血。等下一根靠近时再跳。');
   }
-  if(!o.failed&&heart.x>=o.x-heart.r&&heart.x<=o.x+o.width+heart.r&&heart.y+heart.r<box.y2-o.height)o.crossed=true;
-  if(!o.failed&&o.crossed&&o.x+o.width+heart.r<heart.x){
-    lesson.cleared++;lesson.obstacle=null;
-    if(lesson.step===2){lesson.step=3;notifyLesson('蓝心练习完成！');endGame(true);return;}
-    lesson.step=2;lesson.wait=2;notifyLesson('低骨条通过！下一根需要按住跳跃键。');return;
+  if(!o.failed&&!o.passed&&o.x+o.width+heart.r<heart.x){
+    o.passed=true;lesson.cleared++;
+    notifyLesson(o.kind==='gap'?'漂亮，从缝里穿过去了！':'跳得漂亮！');
   }
-  if(o.x+o.width<box.x1){lesson.obstacle=null;lesson.wait=1.2;}
+  if(o.passed){lesson.obstacle=null;lesson.wait=1.3;return;}
+  if(o.x+o.width<box.x1){                                // 扫出框：没过的重来，过了的进下一根
+    lesson.obstacle=null;
+    if(o.failed){lesson.queue.unshift(lesson.current||{});lesson.wait=.6;}
+    else lesson.wait=1.3;
+  }
+}
+function drawBoneSeg(x,y,w,h){
+  if(h<=1||w<=1)return;
+  ctx.fillRect(x+5,y,6,h);
+  ctx.fillRect(x,y,w,Math.min(5,h));
+  if(h>5)ctx.fillRect(x,y+h-5,w,5);
 }
 function drawBlueLesson(){
   ctx.save();ctx.strokeStyle='#679fff';ctx.lineWidth=3;
@@ -257,10 +531,46 @@ function drawBlueLesson(){
   const o=lesson.obstacle;
   if(o){
     ctx.fillStyle=o.failed?'#ff8b91':'#f3f5ff';
-    if(o.warn>0){ctx.strokeStyle='#9bbcff';ctx.setLineDash([4,4]);ctx.strokeRect(o.x,box.y2-o.height,o.width,o.height);}
-    else{ctx.fillRect(o.x+5,box.y2-o.height,6,o.height);ctx.fillRect(o.x,box.y2-o.height,o.width,5);ctx.fillRect(o.x,box.y2-5,o.width,5);}
+    if(o.kind==='gap'){
+      const gTop=o.gapCenter-o.gapH/2,gBot=o.gapCenter+o.gapH/2;
+      drawBoneSeg(o.x,box.y1,o.width,gTop-box.y1);
+      drawBoneSeg(o.x,gBot,o.width,box.y2-gBot);
+      if(o.warn>0){                                     // 预警期标出那条缝
+        ctx.strokeStyle='#9bbcff';ctx.lineWidth=1.5;ctx.setLineDash([5,5]);
+        ctx.strokeRect(o.x-2,gTop,o.width+4,o.gapH);ctx.setLineDash([]);
+      }
+    }else{
+      if(o.warn>0){
+        ctx.strokeStyle='#9bbcff';ctx.lineWidth=1.5;ctx.setLineDash([4,4]);
+        ctx.strokeRect(o.x,box.y2-o.height,o.width,o.height);ctx.setLineDash([]);
+      }else drawBoneSeg(o.x,box.y2-o.height,o.width,o.height);
+    }
   }
   ctx.restore();
+}
+
+// ───────── 红心课程的推进（脚本驱动，每关一个生成器） ─────────
+let redRoutine=null;
+function goRedStage(i){
+  lesson.step=i;lesson.collected=0;lesson.heals=0;lesson.stageT=0;
+  redRoutine={it:redStages[i].run(),wait:0};
+  notifyRedLesson();
+}
+function advanceRedStage(){
+  if(lesson.step>=redStages.length-1){notifyRedLesson('红心教学全部完成！');endGame(true);return;}
+  // 换关时清场：给玩家一个干净的起点，也避免上一关残留弹幕误伤
+  for(const b of bullets)b.active=false;
+  lasers.length=0;areas.length=0;warnings.length=0;
+  goRedStage(lesson.step+1);
+  notifyRedLesson('很好，进入下一步。');
+}
+function updateRedLesson(){
+  const g=redRoutine;if(!g)return;
+  lesson.stageT+=SCALE/60;
+  if(g.wait>0){g.wait-=SCALE;return;}
+  const res=g.it.next();
+  if(res.done){advanceRedStage();return;}
+  g.wait=res.value||0;
 }
 
 // ─────────── ⑤ 波次编排：生成器函数替代 alarm[] 链 ───────────
@@ -537,10 +847,16 @@ function damage(dmg) {
 }
 
 function hurt(b) {
+  if (b.collect) {                                        // 教学光点：只收集，不造成伤害
+    lesson.collected++;
+    b.active = false;
+    return;
+  }
   if (invc > 0) return;                                   // 无敌帧内：子弹穿过去，不消失
 
   if (b.heal) {                                           // 绿弹：回血
     G.hp = Math.min(G.maxhp, G.hp + b.heal);
+    lesson.heals++;
     b.active = false;
     syncHUD();
     return;
@@ -671,6 +987,7 @@ function draw() {
   ctx.clip();
   if(blueTraining)drawBlueLesson();
   drawLasers();                                          // 激光垫在弹幕下面
+  drawAreas();                                           // 区域预警（Boss 的方块预警）
   for (const b of bullets) if (b.active && b.telegraph <= 0) drawBullet(b);
   ctx.restore();
 
@@ -713,6 +1030,14 @@ function drawBullet(b) {
     ctx.shadowBlur = 10;
     ctx.fillStyle = '#7bd88f';
     ctx.beginPath(); ctx.ellipse(0, 0, b.r * 0.8, b.r * 1.3, 0, 0, Math.PI * 2); ctx.fill();
+  } else if (b.type === 'star') {          // 教学光点：金色，靠近即收集
+    ctx.shadowColor = '#ffd76a';
+    ctx.shadowBlur = 14;
+    ctx.fillStyle = '#ffd76a';
+    ctx.beginPath(); ctx.arc(0, 0, b.r * .5, 0, Math.PI * 2); ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(255,238,180,.9)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(0, 0, b.r, 0, Math.PI * 2); ctx.stroke();
   } else if (b.type === 'ambush') {       // 周围伏击弹：紫色
     ctx.fillStyle = '#b478ff';
     ctx.beginPath(); ctx.arc(0, 0, b.r, 0, Math.PI * 2); ctx.fill();
@@ -789,9 +1114,11 @@ function syncHUD() {
   fill.style.width = pct + '%';
   fill.classList.toggle('low', G.hp <= G.maxhp * 0.3);
   $('hpText').textContent = `${G.hp} / ${G.maxhp}`;
-  $('wave').textContent = blueTraining?Math.min(3,lesson.step+1)+'/3':waveNo;
+  $('wave').textContent = blueTraining?Math.min(blueStages.length,lesson.step+1)+'/'+blueStages.length
+    :redTraining?Math.min(redStages.length,lesson.step+1)+'/'+redStages.length
+    :waveNo;
   $('count').textContent = aliveCount();
-  if($('time'))$('time').textContent=blueTraining?'—':Math.max(0,duration-elapsed).toFixed(1);
+  if($('time'))$('time').textContent=(blueTraining||redTraining)?'—':Math.max(0,duration-elapsed).toFixed(1);
 }
 
 function syncFpsLock() {
@@ -809,11 +1136,12 @@ function update() {
   moveHeart();
   if(blueTraining){updateBlueLesson();if(invc>0)invc-=SCALE;return;}
   updateClones();                        // 分身跟随玩家输入移动
-  updateRoutines();
   updateWarnings();
   updateBullets();
   updateLasers();
-  updateWaves();
+  updateAreas();
+  if(redTraining)updateRedLesson();       // 红心教学：按脚本一关一关推进
+  else{updateRoutines();updateWaves();}   // 正式关卡：随机波次调度
   if (invc > 0) invc -= SCALE;         // 无敌时长按 60Hz 帧计，同样要折算
 }
 
@@ -858,16 +1186,18 @@ function reset() {
   heart.y = box.y2 - 40;
   heart.vx = 0; heart.vy = 0;
   grounded=false;jumpReleased=true;jumpPressed=false;
-  if(blueTraining){
-    heart.y=box.y2-80;
-    Object.assign(lesson,{step:0,jumps:0,cleared:0,wait:1.2,obstacle:null,feedback:''});
-    notifyLesson();
-  }
+  if(blueTraining)heart.y=box.y2-80;
+  Object.assign(lesson,{step:0,jumps:0,cleared:0,wait:1.2,obstacle:null,queue:[],
+    feedback:'',collected:0,heals:0,stageT:1.2});
+  redRoutine=null;
   for (const b of bullets) b.active = false;
   lasers.length = 0;
+  areas.length = 0;
   routines.length = 0;
   clones.length = 0;
   clonePrev.x = heart.x; clonePrev.y = heart.y;
+  if(blueTraining)goBlueStage(0);
+  else if(redTraining)goRedStage(0);
   syncHUD();
   options.onState?.({paused,gameOver});
 }
@@ -909,6 +1239,11 @@ drawBox();
 drawHeart();
 syncHUD();
 syncFpsLock();
-return {start,reset,setPaused,setJump:value=>{jumpPressed=!!value&&!paused&&!gameOver&&!options.blocked?.();},setTarget:value=>{pointerTarget=value;},getSnapshot:()=>({hp:G.hp,elapsed,wave:waveNo,paused,gameOver,bullets:aliveCount(),lasers:lasers.length,heart:{...heart,grounded,mode:blueTraining?'blue':'red'},lesson:blueTraining?{...lesson,obstacle:lesson.obstacle?{...lesson.obstacle}:null}:null}),
-destroy(){disposed=true;running=false;cancelAnimationFrame(frameId);keys.clear();for(const [type,handler]of listeners)window.removeEventListener(type,handler);document.removeEventListener('visibilitychange',visibility);routines.length=0;lasers.length=0;warnings.length=0;clones.length=0;}};
+return {start,reset,setPaused,setJump:value=>{jumpPressed=!!value&&!paused&&!gameOver&&!options.blocked?.();},setTarget:value=>{pointerTarget=value;},
+  // 虚拟手柄用：直接把键码写进同一个 keys 集合，键鼠与手柄共用一套移动/慢速/跳跃逻辑。
+  setVirtual:(code,down)=>{if(down)keys.add(code);else keys.delete(code);},
+  getSnapshot:()=>({hp:G.hp,elapsed,wave:waveNo,paused,gameOver,bullets:aliveCount(),lasers:lasers.length,areas:areas.length,heart:{...heart,grounded,mode:blueTraining?'blue':'red'},training:blueTraining?'blue':redTraining?'red':null,lesson:(blueTraining||redTraining)?{...lesson,obstacle:lesson.obstacle?{...lesson.obstacle}:null,total:blueTraining?blueStages.length:redStages.length}:null}),
+destroy(){disposed=true;running=false;cancelAnimationFrame(frameId);keys.clear();for(const [type,handler]of listeners)window.removeEventListener(type,handler);document.removeEventListener('visibilitychange',visibility);routines.length=0;lasers.length=0;areas.length=0;warnings.length=0;clones.length=0;redRoutine=null;}};
 }};
+
+
