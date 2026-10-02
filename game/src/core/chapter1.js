@@ -28,7 +28,7 @@ function enterChapterNode(state,node) {
     for(const value of values)state.flags[key.toUpperCase()+'_'+value.toUpperCase()+'_FLAG']=state.flags[key]===value;
   }
   if(node.ending)state.flags[node.ending]=true;
-  if(node.achievement&&!state.flags.achievements.includes(node.achievement))state.flags.achievements.push(node.achievement);
+  if(node.achievement) ILY.unlockAchievement(state,node.achievement);
   if(node.achievement==='One Last Kiss')state.flags.ACH_ONE_LAST_KISS=true;
   for(const clue of node.clues||[])ILY.addClue(state,clue);
   if (state.chapter!=='chapter1') return;

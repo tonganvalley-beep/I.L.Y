@@ -22,7 +22,7 @@
       panel.append(device);
       return screen;
     }
-    function unlock(id) { if (!state.flags.achievements.includes(id)) { state.flags.achievements.push(id); ILY.persistAchievements?.(state); } }
+    function unlock(id) { ILY.unlockAchievement(state, id); }
     if (node.type === 'letter') {
       // 短信弹窗：ILY 的回信以短信气泡呈现在新款手机屏幕上
       const screen = buildPhone((node.date || '').split(' ').pop());

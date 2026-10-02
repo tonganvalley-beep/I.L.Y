@@ -29,8 +29,8 @@ function getFlags(state) {
 }
 
 function unlock(state, id, label, notify) {
-  const f = getFlags(state);
-  if (!f.achievements.includes(id)) { f.achievements.push(id); ILY.persistAchievements?.(state); notify(ILY.t('achieve.unlocked', { label })); }
+  getFlags(state);
+  ILY.unlockAchievement(state, id, label, notify);
 }
 
 function mountPhone({ stage, node, state, assets, go, notify }) {

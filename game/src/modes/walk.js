@@ -151,7 +151,7 @@ function mountWalk({ stage, node, state, assets, go, notify }) {
     if (!F.tunnel.includes(h.id)) { F.tunnel.push(h.id); F.TUNNEL_CHECK_COUNT++; }
     openDialog(h.label, h.text || h.label);
     if (F.TUNNEL_CHECK_COUNT >= 3) {
-      if (!F.achievements.includes('tunnel-end')) { F.achievements.push('tunnel-end'); ILY.persistAchievements?.(state); notify(ILY.t('achieve.unlocked', { label: ILY.t('achieve.tunnelEnd') })); }
+      ILY.unlockAchievement(state, 'tunnel-end', ILY.t('achieve.tunnelEnd'), notify);
     }
   }
 

@@ -325,18 +325,14 @@ ILY.data.stories.prologue = {
       text: "序章主线结束。主线存档名：蓝色来电。",
       enter: (state, notify) => {
         state.flags.FLAG_BLUE_CALL = "unlocked";
-        if (!state.flags.achievements.includes("last-beach")) {
-          state.flags.achievements.push("last-beach"); notify(ILY.t('achieve.unlocked', { label: ILY.t('ach.last-beach') }));
-        }
+        ILY.unlockAchievement(state, "last-beach", ILY.t('ach.last-beach'), notify);
       }
     },
     ne_ending: {
       type: "branch", background: "bg-apartment-night", title: "无人问津", subtitle: "",
       text: "回房后，那封邮件再也没有出现过，海浪铃声也再没有响起。",
       enter: (state, notify) => {
-        if (!state.flags.achievements.includes("door-letter")) {
-          state.flags.achievements.push("door-letter"); notify(ILY.t('achieve.unlocked', { label: ILY.t('ach.door-letter') }));
-        }
+        ILY.unlockAchievement(state, "door-letter", ILY.t('ach.door-letter'), notify);
       }
     }
   }

@@ -67,6 +67,14 @@ try {
   const migratedLegacySave = saves.migrateLegacy();
   saves.persistAchievements(state, { migrate: true });
   ILY.persistAchievements = current => saves.persistAchievements(current);
+  const unlockStateAchievement = ILY.unlockAchievement;
+  ILY.unlockAchievement = (current, id, label, announce = notify) => {
+    if (!unlockStateAchievement(current, id)) return false;
+    saves.persistAchievements(current);
+    assets.playAchievement();
+    if (label && announce) announce(t('achieve.unlocked', { label }));
+    return true;
+  };
   const menu = new URL('../sign&log/game.html', location.href);
   if (launchParams.get('entry') === 'root') menu.searchParams.set('entry', 'root');
   menu.searchParams.set('player', username);

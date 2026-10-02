@@ -11,6 +11,12 @@ function createState(node = 'arrival') {
   };
 }
 
+function unlockAchievement(state, id) {
+  if (!Array.isArray(state?.flags?.achievements) || state.flags.achievements.includes(id)) return false;
+  state.flags.achievements.push(id);
+  return true;
+}
+
 // 回滚记录的是完整游戏状态，而不只是节点 ID。这样退回选项前时，
 // 分支标记、线索、地图位置和玩法进度也会一起回到当时的值；
 // 账号级的永久成就在恢复时另行合并，不会被旧快照撤销。
@@ -157,5 +163,5 @@ function validateSave(value, story, maps) {
   return value;
 }
 
-Object.assign(ILY, { createState, createRollbackHistory, preserveAchievements, ensureMemoryProgress, activateMemory, recordGallery, addClue, canDeduce, canWalk, canStandRpg, moveRpg, validateSave });
+Object.assign(ILY, { createState, unlockAchievement, createRollbackHistory, preserveAchievements, ensureMemoryProgress, activateMemory, recordGallery, addClue, canDeduce, canWalk, canStandRpg, moveRpg, validateSave });
 })();

@@ -98,6 +98,12 @@ class Assets {
   play() {
     if (!this.suspended && this.enabled && this.audio && this.audio.paused) this.audio.play().catch(() => {});
   }
+  playAchievement() {
+    if (this.masterVolume <= 0) return;
+    const sound = new Audio('assets/audio/sfx/steam-achievement.mp3');
+    sound.volume = this.masterVolume;
+    sound.play().catch(() => {});
+  }
   suspend() {
     this.suspended = true;
     ++this.fadeToken;
