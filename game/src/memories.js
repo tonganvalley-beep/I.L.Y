@@ -30,8 +30,10 @@ const el = (tag, className, text) => {
 
 /* 剧情回忆收录的章节 */
 const STORY_IDS = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'heroine', 'final'];
-/* 已知成就 ID（与发放处一致：walk.js / phone.js / prologue.js；与主界面一致） */
-const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter', 'father-reply', 'Just two of us', '十年之后', 'One Last Kiss', 'ILY = I LOVE YOU', 'There Is No Game!!'];
+/* 非结局成就按最早可解锁的剧情节点排列；结局成就统一排在最后。与主界面一致。 */
+const ACH_STORY_IDS = ['father-reply', 'delete-key', 'daily', 'tunnel-end', 'There Is No Game!!', 'ILY = I LOVE YOU'];
+const ACH_ENDING_IDS = ['door-letter', 'last-beach', 'Just two of us', '十年之后', 'One Last Kiss'];
+const ACH_IDS = [...ACH_STORY_IDS, ...ACH_ENDING_IDS];
 /* 每个成就解锁时所在的那一幕：填该成就实际发放节点 / 玩法所处的 background 资源 ID，
    作为成就方格的底图，等价于“获取时的游戏背景”。 */
 const ACH_BG = {
@@ -137,7 +139,7 @@ function renderAchievements(list) {
   const known = new Set(ACH_IDS);
   const extras = [...unlocked].filter(id => !known.has(id));   /* 存档里有但清单外的 ID 兜底显示 */
   list.replaceChildren();
-  [...ACH_IDS, ...extras].forEach(id => {
+  [...ACH_STORY_IDS, ...extras, ...ACH_ENDING_IDS].forEach(id => {
     const got = unlocked.has(id);
     const li = el('li', 'ach-tile ' + (got ? 'unlocked' : 'locked'));
 
