@@ -32,6 +32,11 @@
   }
   addEventListener('message',event=>{
     if(event.source!==parent||event.origin!==expectedHostOrigin||event.data?.type!=='ily-embed-control')return;
+    if(event.data.action==='open-tutorial'){
+      const tutorial=GAMES.find(game=>game.launch==='games/heart/index.html');
+      if(tutorial)openGame({...tutorial,iconSrc:tutorial.icon});
+      return;
+    }
     if(!['pause','resume'].includes(event.data.action))return;
     hostPaused=event.data.action==='pause';
     for(const win of windowsEl.querySelectorAll('.game-win'))syncGame(win);

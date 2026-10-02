@@ -46,7 +46,7 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 .start-footer button { min-height:34px; color:white; padding:3px 7px; }
 .start-footer-icon { width:25px; height:25px; display:grid; place-items:center; border:1px solid #fff8; border-radius:4px; color:white; font:bold 18px Tahoma,sans-serif; }
 .start-footer-icon.logoff { background:linear-gradient(#6fb5f1,#2363c5); }.start-footer-icon.shutdown { background:linear-gradient(#f6a36f,#d44a21); }
-.all-programs-list { position:absolute; left:calc(100% - 2px); bottom:0; width:210px; max-height:340px; overflow:auto; display:flex; flex-direction:column; background:#fff; border:1px solid #6889bb; box-shadow:2px 3px 8px #0005; padding:3px; border-radius:4px; }
+.all-programs-list { position:absolute; left:calc(100% - 2px); bottom:47px; width:210px; max-height:340px; overflow:auto; display:flex; flex-direction:column; background:#fff; border:1px solid #6889bb; box-shadow:2px 3px 8px #0005; padding:3px; border-radius:4px; }
 .all-programs-list.hidden { display:none; }
 .program-heading { padding:6px 10px; color:#2151a1; font-size:12px; font-weight:bold; border-bottom:1px solid #ddd; }
 .all-programs-list button { min-height:31px; padding:3px 7px; font-size:12px; }
