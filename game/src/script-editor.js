@@ -51,6 +51,10 @@
     const refreshable = ['dialogue', 'monologue', 'heroine-card', 'choice'].includes(mounted?.type);
     state.records = withPublished(event.data.records);
     model.apply(state.records);
+    /* 修订层（重新）套用后必须再走一次语言层：model.apply 会把节点文字还原成
+       修订层的中文原值，当前是英文时若不补这一步，画面会退回中文（且 __zh 快照错位）。
+       顺序说明见 core/chapter1.js。 */
+    ILY.applyStoryLang?.(story, ILY.getLang?.());
     try { localStorage.setItem(KEY, JSON.stringify(state.records)); } catch {}
     if (refreshable && before !== snapshot(story.nodes[state.nodeId])) onChange(state.nodeId, mounted.next);
     send();
@@ -67,6 +71,8 @@
     media = mediaCatalog();
     state.records = read();
     model.apply(state.records);
+    /* 同上：修订层先落地，语言层再覆盖（main.js 紧接着还会再调一次，幂等）。 */
+    ILY.applyStoryLang?.(story, ILY.getLang?.());
     // 正式发布版已从页面移除编辑入口（game/index.html 里没有这个按钮）。
     // 这里仍然保留初始化，因为已发布的剧本修订要靠 model.apply 生效。
     const toggle = document.getElementById?.('script-editor-toggle');

@@ -17,8 +17,12 @@ function prepareChapter1() {
       scene:'S04',background:'ch2-flowers',checkpoint:true,next:story.nodes.ch2_g2.next};
     story.nodes.ch2_g2={...story.nodes.ch2_g2,next:'ch2_photo'};
   }
-  /* 英文模式下把剧情文本替换成英文（中文原数据不动，切换可逆） */
-  ILY.applyStoryLang?.(story, ILY.getLang?.() || 'chinese');
+  /* ★ 这里【不能】应用语言层（曾经有过 ILY.applyStoryLang 调用，是个 bug）：
+     修订层（script-edits.js / script-review-model.js）必须在「中文原数据」上套用，
+     之后才轮到语言层。若先换语言，story-lang 会把「修订前的原文」快照进 node.__zh，
+     修订层随后改写的文本会在 restore()（切回中文 / 再应用一次语言）时被原文顶掉
+     —— 表现就是之前删掉的括号注释（演出提示）突然全部复现。
+     正确顺序见 src/main.js：ILY.initScriptEditor() → ILY.applyStoryLang()。 */
   return story;
 }
 function enterChapterNode(state,node) {

@@ -30,8 +30,8 @@ try {
   ILY.initScriptEditor(story, (id, fallback) => {
     go(story.nodes[id] ? id : fallback, { autosave: false, recordRollback: false, refresh: true });
   });
-  /* 修订层改写的文本也要跟着语言走（在 initScriptEditor 之后覆盖）；
-     手机邮件 / 照片另外在 ILY.data.phone 上换一次。 */
+  /* ★ 顺序不可颠倒：initScriptEditor() 先在中文原数据上套用 script-edits.js 修订层，
+     这里再应用语言层（修订层改写的文本也要跟着语言走）。手机邮件 / 照片另外在 ILY.data.phone 上换一次。 */
   ILY.applyStoryLang(story, ILY.getLang());
   ILY.applyPhoneLang?.(ILY.data.phone, ILY.getLang());
   let chapterMaps = ILY.data.chapter1Maps;
