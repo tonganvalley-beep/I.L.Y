@@ -276,7 +276,7 @@ try {
 
   function saveSlotLabel(page, slot) {
     if (page === 'auto') return t('slot.auto', { n: slot });
-    if (page === 'quick') return t('slot.quick');
+    if (page === 'quick') return t('slot.quick', { n: slot });
     return t('slot.manual', { p: page, n: slot });
   }
 
@@ -288,8 +288,7 @@ try {
       tab.classList.toggle('active', active);
       tab.setAttribute('aria-current', active ? 'page' : 'false');
     });
-    const manualPage = savePage === '1' || savePage === '2';
-    saveSubtitle.textContent = t(saveMode === 'save' && manualPage ? 'save.subtitle.save' : 'save.subtitle.load');
+    saveSubtitle.textContent = t(saveMode === 'save' && savePage !== 'auto' ? 'save.subtitle.save' : 'save.subtitle.load');
 
     for (const inspected of saves.list(savePage)) {
       const card = el('article', `save-slot ${inspected.status}`);
@@ -325,23 +324,9 @@ try {
       }
 
       const actions = el('div', 'save-actions');
-      const canWrite = saveMode === 'save' && manualPage;
-      if (saveMode === 'save' && !manualPage) {
-        /* 存档模式下自动/快速页原本只有一个灰掉的“读取”按钮，容易误解为“点了没反应”：
-           自动页改为提示文字说明不可手存；快速页提供真正的一键快速存档。 */
-        if (savePage === 'quick') {
-          const quickBtn = button(t('save.quickSaveHere'), () => {
-            if (occupied && !window.confirm(t('save.confirmOverwrite', { label }))) return;
-            try {
-              saves.quicksave(state);
-              renderSaveSlots();
-              saveStatus.textContent = t('save.quickSavedHere');
-            } catch (error) { saveStatus.textContent = t('save.saveFailed', { msg: error.message }); }
-          });
-          actions.append(quickBtn);
-        } else {
-          actions.append(el('span', 'save-readonly-hint', t('save.autoReadonlyHint')));
-        }
+      const canWrite = saveMode === 'save' && savePage !== 'auto';
+      if (saveMode === 'save' && savePage === 'auto') {
+        actions.append(el('span', 'save-readonly-hint', t('save.autoReadonlyHint')));
       } else {
         const primaryLabel = canWrite ? (occupied ? t('save.overwrite') : t('save.save')) : t('save.load');
         const primary = button(primaryLabel, () => {

@@ -10,17 +10,51 @@
   <div id="desktop" data-page-node-id="Z8HEzcZ4S483BlMkqN2ZA8">
     <div id="icons" data-page-node-id="Dpj5VgrYtbcpR6fpgGJdnr"></div>
     <div id="windows" data-page-node-id="RmbsEaRvzR1zXSjb04GaaF"></div>
+    <div id="startMenu" class="start-menu hidden" role="menu" aria-label="开始菜单">
+      <div class="start-user">用户</div>
+      <div class="start-columns">
+        <div class="start-programs">
+          <button data-start="games">🎮　游戏</button>
+          <button data-start="notepad">📝　记事本</button>
+          <button data-start="all-programs">所有程序　▸</button>
+          <div id="allPrograms" class="all-programs-list hidden"></div>
+        </div>
+        <div class="start-places">
+          <button data-start="docs">📁　我的文档</button>
+          <button data-start="computer">💻　我的电脑</button>
+          <button data-start="recycle">🗑　回收站</button>
+          <button data-start="control">⚙　控制面板</button>
+          <button data-start="search">🔎　搜索</button>
+          <button data-start="run">▣　运行...</button>
+        </div>
+      </div>
+      <div class="start-footer"><button data-start="logoff">注销</button><button data-start="shutdown">关闭计算机</button></div>
+    </div>
+    <div id="taskbar"><button id="startButton" aria-expanded="false">开始</button><div id="taskButtons"></div><div id="taskTray"><span id="trayClock"></span></div></div>
+    <ul id="taskbarMenu" class="ctxmenu hidden"><li data-task="cascade">层叠窗口</li><li data-task="tile-h">横向平铺窗口</li><li data-task="tile-v">纵向平铺窗口</li><li data-task="desktop">显示桌面</li><li class="sep"></li><li data-task="manager">任务管理器</li><li data-task="properties">属性</li></ul>
 
     <ul id="ctxmenu" class="ctxmenu hidden" data-page-node-id="Dxf9iCyftbjJvUH8uMBoEB">
-      <li data-action="newfolder" data-page-node-id="OPsM85B1SUFTb0Do6ozFYX">新建文件夹(N)</li>
-      <li data-action="refresh" data-page-node-id="6V4QxXKfeLukZdRJVjSzdP">刷新</li>
+      <li data-action="sortname">排列图标 → 名称</li>
+      <li data-action="refresh" data-page-node-id="6V4QxXKfeLukZdRJVjSzdP">刷新(E)</li>
+      <li class="sep"></li>
+      <li data-action="paste">粘贴(P)</li>
+      <li class="submenu-parent">新建(W) ▸<ul class="ctxmenu submenu"><li data-action="newfolder" data-page-node-id="OPsM85B1SUFTb0Do6ozFYX">文件夹</li><li data-action="newfile">文本文档</li></ul></li>
     </ul>
     <ul id="winMenu" class="ctxmenu hidden" data-page-node-id="nDRTgAbtlMbiJisdH20FXf">
-      <li data-action="newfolder" data-page-node-id="BZZasKMJruxu4ytimklTJt">新建文件夹(N)</li>
+      <li data-action="paste">粘贴(P)</li>
+      <li class="submenu-parent">新建(W) ▸<ul class="ctxmenu submenu"><li data-action="newfolder" data-page-node-id="BZZasKMJruxu4ytimklTJt">文件夹</li><li data-action="newfile">文本文档</li></ul></li>
+      <li data-action="empty">清空回收站</li>
     </ul>
     <ul id="itemMenu" class="ctxmenu hidden" data-page-node-id="8Ux5qnuqJFl0J5WK9z22wQ">
+      <li data-action="open">打开(O)</li>
       <li data-action="rename" data-page-node-id="CdtLTNsReCw3v3SnIKAWNY">重命名(M)</li>
+      <li data-action="cut">剪切(T)</li>
+      <li data-action="copy">复制(C)</li>
+      <li data-action="paste">粘贴(P)</li>
       <li data-action="delete" data-page-node-id="oeVXJBhu8QAqGPepJZ4vSq">删除(D)</li>
+      <li data-action="restore">还原(R)</li>
+      <li data-action="permanentDelete">彻底删除(D)</li>
+      <li data-action="empty">清空回收站</li>
     </ul>
   </div>
 

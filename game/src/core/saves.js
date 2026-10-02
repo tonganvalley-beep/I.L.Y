@@ -1,5 +1,5 @@
 // 《I.L.Y.》多存档管理。
-// 借鉴 Ren'Py：手动档使用“页-槽”命名，自动档/快速档独立；自动档按新到旧循环后移。
+// 借鉴 Ren'Py：手动档使用“页-槽”命名，自动档/快速档独立并各自循环后移。
 (() => {
 'use strict';
 
@@ -8,6 +8,7 @@ const SAVE_FORMAT_VERSION = 2;
 const MANUAL_PAGES = 2;
 const SLOTS_PER_PAGE = 6;
 const AUTOSAVE_SLOTS = 6;
+const QUICKSAVE_SLOTS = 6;
 
 const clone = value => JSON.parse(JSON.stringify(value));
 
@@ -28,7 +29,7 @@ class SaveManager {
   slotName(page, slot) {
     const normalizedPage = String(page);
     const number = Number(slot);
-    const max = normalizedPage === 'auto' ? AUTOSAVE_SLOTS : normalizedPage === 'quick' ? 1 : SLOTS_PER_PAGE;
+    const max = normalizedPage === 'auto' ? AUTOSAVE_SLOTS : normalizedPage === 'quick' ? QUICKSAVE_SLOTS : SLOTS_PER_PAGE;
     if (!['1', '2', 'auto', 'quick'].includes(normalizedPage) || !Number.isInteger(number) || number < 1 || number > max) {
       throw new Error('存档槽位无效。');
     }
@@ -83,7 +84,7 @@ class SaveManager {
   }
 
   list(page) {
-    const count = String(page) === 'auto' ? AUTOSAVE_SLOTS : String(page) === 'quick' ? 1 : SLOTS_PER_PAGE;
+    const count = String(page) === 'auto' ? AUTOSAVE_SLOTS : String(page) === 'quick' ? QUICKSAVE_SLOTS : SLOTS_PER_PAGE;
     return Array.from({ length: count }, (_, index) => this.inspect(page, index + 1));
   }
 
@@ -109,7 +110,16 @@ class SaveManager {
   }
 
   quicksave(state) {
-    return this.save('quick', 1, state);
+    if (!this.storage) throw new Error('浏览器存储不可用。');
+    this.persistAchievements(state);
+    const record = this.createRecord('quick', 1, state);
+    for (let slot = QUICKSAVE_SLOTS; slot >= 2; slot--) {
+      const previous = this.storage.getItem(this.key('quick', slot - 1));
+      if (previous) this.storage.setItem(this.key('quick', slot), previous);
+      else this.storage.removeItem(this.key('quick', slot));
+    }
+    this.storage.setItem(this.key('quick', 1), JSON.stringify(record));
+    return record;
   }
 
   autosave(state) {
@@ -188,6 +198,6 @@ class SaveManager {
 Object.assign(ILY, {
   SaveManager,
   SAVE_FORMAT_VERSION,
-  SAVE_LAYOUT: { manualPages: MANUAL_PAGES, slotsPerPage: SLOTS_PER_PAGE, autosaveSlots: AUTOSAVE_SLOTS }
+  SAVE_LAYOUT: { manualPages: MANUAL_PAGES, slotsPerPage: SLOTS_PER_PAGE, autosaveSlots: AUTOSAVE_SLOTS, quicksaveSlots: QUICKSAVE_SLOTS }
 });
 })();

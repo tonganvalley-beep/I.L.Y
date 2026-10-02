@@ -538,7 +538,7 @@ input::selection, textarea::selection, [contenteditable]::selection { background
         if (browserStorage.getItem(legacySaveKey)) return true;
         for (let index = 0; index < browserStorage.length; index++) {
           const key = browserStorage.key(index) || '';
-          if (key.startsWith(savePrefix) && /^(?:[12]-[1-6]|auto-[1-6]|quick-1)$/.test(key.slice(savePrefix.length))) return true;
+          if (key.startsWith(savePrefix) && /^(?:[12]-[1-6]|auto-[1-6]|quick-[1-6])$/.test(key.slice(savePrefix.length))) return true;
         }
       } catch {
         return false;

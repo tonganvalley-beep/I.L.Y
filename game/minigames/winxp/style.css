@@ -10,6 +10,49 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
     radial-gradient(120% 78% at 50% 118%, #57a82e 0%, #3f7d22 44%, rgba(63,125,34,0) 72%),
     linear-gradient(180deg, #143a82 0%, #1f4ea6 30%, #2f6fc9 50%, #76b6ef 58%, #bfe3fb 62%, #76b6ef 63%);
 }
+#icons, #windows { bottom: 38px; }
+#taskbar { position:absolute; z-index:1000; bottom:0; left:0; right:0; height:38px; display:flex; align-items:stretch; color:white; background:linear-gradient(#438cf0 0%,#245edb 15%,#1947bb 85%,#143aa0); border-top:1px solid #679bff; box-shadow:0 -2px 4px #153b85; }
+#taskbar.autohide { transform:translateY(32px); transition:transform .18s; }
+#taskbar.autohide:hover,#taskbar.autohide:focus-within { transform:translateY(0); }
+#startButton { flex:0 0 100px; border:1px solid #7ee072; border-radius:0 12px 12px 0; color:white; text-align:left; padding-left:20px; font:bold italic 20px Tahoma,sans-serif; text-shadow:1px 1px 2px #145c0e; background:linear-gradient(#69bc59,#288d35 55%,#14651e); cursor:pointer; }
+#startButton:hover, #startButton[aria-expanded="true"] { filter:brightness(1.14); }
+#taskButtons { flex:1; display:flex; align-items:center; gap:3px; padding:2px 5px; overflow:hidden; }
+.task-button { width:150px; max-width:25vw; height:30px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; text-align:left; border:1px solid #16469e; border-radius:3px; color:white; background:linear-gradient(#5b9af3,#2967c9); cursor:pointer; padding:0 8px; }
+.task-button.active { background:linear-gradient(#184da6,#3c78dd); box-shadow:inset 1px 1px 3px #123c8a; }
+#taskTray { min-width:80px; display:flex; align-items:center; justify-content:center; background:linear-gradient(#21b9eb,#0d8dc6); border-left:1px solid #71d9f1; font:12px Tahoma,sans-serif; }
+.start-menu { position:absolute; z-index:1001; left:0; bottom:38px; width:390px; max-width:95vw; height:385px; display:flex; flex-direction:column; border:2px solid #1b55b7; border-radius:8px 8px 0 0; background:#fff; box-shadow:3px -3px 10px #1735608a; }
+.start-menu.hidden { display:none; }
+.start-user { height:46px; padding:10px 16px; background:linear-gradient(#2469d4,#559cf5); color:white; font:bold 17px Tahoma,sans-serif; }
+.start-columns { flex:1; display:flex; min-height:0; }
+.start-programs,.start-places { width:50%; padding:8px 3px; display:flex; flex-direction:column; }
+.start-places { background:#d9e7fb; border-left:1px solid #87aee1; }
+.start-menu button { min-height:35px; border:0; background:transparent; text-align:left; font:13px Tahoma,"Microsoft YaHei",sans-serif; padding:5px 10px; cursor:pointer; }
+.start-menu button:hover { background:#316ac5; color:#fff; }
+.start-footer { display:flex; justify-content:flex-end; gap:8px; height:47px; padding:5px 12px; background:#2b6bd1; }
+.start-footer button { color:white; }
+.all-programs-list { position:absolute; left:190px; bottom:46px; width:200px; max-height:300px; overflow:auto; display:flex; flex-direction:column; background:white; border:1px solid #6889bb; box-shadow:2px 3px 8px #0005; padding:3px; }
+.all-programs-list.hidden { display:none; }
+.program-heading { padding:5px 10px; color:#2151a1; font-size:12px; font-weight:bold; border-bottom:1px solid #ddd; }
+.power-overlay { position:absolute; z-index:20000; inset:0; display:flex; align-items:center; justify-content:center; background:#163a8ad9; }
+.power-overlay.power-off { background:#000; }
+.power-overlay.power-off .power-panel { background:#000; box-shadow:none; border:0; }
+.power-overlay.power-off button { color:white; background:#222; border:1px solid #666; }
+.power-panel { min-width:300px; padding:20px; background:#ece9d8; border:2px solid #194fc0; border-radius:8px; box-shadow:0 5px 20px #0008; text-align:center; }
+.power-actions { display:flex; justify-content:center; gap:10px; }
+.power-actions button,.power-panel button { padding:6px 12px; cursor:pointer; }
+.xp-dialog-cover { position:absolute; z-index:20001; inset:0; display:flex; align-items:center; justify-content:center; background:#0004; }
+.xp-dialog { width:370px; max-width:90vw; padding:0 0 12px; background:#ece9d8; border:1px solid #0849cc; border-radius:8px 8px 3px 3px; box-shadow:3px 6px 18px #0007; font:13px Tahoma,"Microsoft YaHei",sans-serif; }
+.xp-dialog-title { display:flex; align-items:center; justify-content:space-between; height:27px; padding:0 5px 0 10px; color:white; font-weight:bold; background:linear-gradient(#3291f5,#0754cf); border-radius:7px 7px 0 0; }
+.xp-dialog-title button { color:white; background:#d44; border:1px solid white; border-radius:3px; cursor:pointer; }
+.xp-dialog p { margin:24px 20px; }
+.xp-dialog-buttons { display:flex; justify-content:flex-end; gap:8px; padding:0 18px; }
+.xp-dialog-buttons button { min-width:72px; padding:4px; }
+.settings-option { display:block; margin:7px 20px; font:13px Tahoma,"Microsoft YaHei",sans-serif; }
+#desktop[data-theme="olive"] #taskbar,#desktop[data-theme="olive"] .win-title,#desktop[data-theme="olive"] .xp-dialog-title { background:linear-gradient(#97b272,#638d42 45%,#476c31); }
+#desktop[data-theme="silver"] #taskbar,#desktop[data-theme="silver"] .win-title,#desktop[data-theme="silver"] .xp-dialog-title { background:linear-gradient(#b8bed9,#828eaf 45%,#666f91); }
+.control-grid { display:flex; gap:15px; align-items:flex-start; padding:20px; background:white; }
+.control-grid button { width:110px; height:85px; border:1px solid transparent; background:transparent; cursor:pointer; font:13px Tahoma,"Microsoft YaHei",sans-serif; }
+.control-grid button:hover { border-color:#8aaad7; background:#dceafa; }
 
 /* 桌面图标 */
 #icons { position: absolute; inset: 0; }
@@ -29,8 +72,22 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
   box-shadow: 0 0 0 1px #0831d9; padding: 1px 2px; margin: 0;
 }
 .icon.selected { background: rgba(49,106,197,.55); border-color: rgba(255,255,255,.7); }
+.icon.cut { opacity: .45; }
+.icon.dragging { opacity: .6; cursor: grabbing; }
 .icon.small { position: static; width: 78px; display: inline-block; vertical-align: top; }
 .icon.small .glyph { font-size: 34px; }
+.icon.drag-preview {
+  position: fixed; z-index: 10001; pointer-events: none; opacity: .92;
+  background: rgba(49,106,197,.65); border: 1px dotted #fff;
+  box-shadow: 0 5px 14px rgba(0,0,0,.4);
+}
+.icon.drop-target { background: rgba(255,210,85,.42); border-color: #ffe58c; }
+.drag-hint {
+  position: fixed; z-index: 10002; pointer-events: none; white-space: nowrap;
+  padding: 5px 9px; border: 1px solid #334f82; border-radius: 3px;
+  background: #fffde7; color: #172949; font-size: 12px;
+  box-shadow: 1px 3px 7px rgba(0,0,0,.35);
+}
 
 /* 窗口（Luna 风格） */
 .win {
@@ -38,6 +95,7 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
   background: #ece9d8; border: 1px solid #0831d9; border-top-left-radius: 8px; border-top-right-radius: 8px;
   box-shadow: 2px 2px 12px rgba(0,0,0,.45); display: flex; flex-direction: column;
 }
+.win.drop-target { box-shadow: 0 0 0 3px #ffd564, 2px 2px 12px rgba(0,0,0,.45); }
 /* 窗口缩放手柄：鼠标移到边上光标变箭头，按住拖拽改变大小 */
 .resize-handle { position: absolute; z-index: 3; }
 .resize-handle.n  { top: 24px; left: 0; right: 0; height: 5px; cursor: ns-resize; }
@@ -67,6 +125,41 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 /* 最大化按钮与最小化一致（默认 .win-btns button 已着色） */
 .win-btns .win-max { background: linear-gradient(180deg, #4f9bf5, #0a4bd4); }
 .win-body { flex: 1; padding: 10px; overflow: auto; background: #ece9d8; }
+.explorer-chrome { flex:none; background:#ece9d8; border-bottom:1px solid #b5b0a0; }
+.explorer-menu,.explorer-toolbar,.explorer-address { display:flex; align-items:center; min-height:25px; gap:3px; padding:2px 5px; border-bottom:1px solid #c7c2b3; }
+.explorer-chrome button,.notepad-menu button { border:1px solid transparent; background:transparent; padding:3px 7px; font:12px Tahoma,"Microsoft YaHei",sans-serif; cursor:pointer; }
+.explorer-chrome button:hover,.notepad-menu button:hover { border-color:#8caad7; background:#d9e8fb; }
+.explorer-chrome button:disabled { color:#999; cursor:default; }
+.explorer-address label { color:#555; font-size:12px; }
+.explorer-address input { flex:1; min-width:0; height:21px; border:1px solid #8d8d8d; background:white; padding:1px 5px; font:12px Tahoma,sans-serif; }
+.folder-win .win-body { display:flex; position:relative; padding:0 0 22px; background:white; }
+.folder-grid { flex:1; overflow:auto; padding:10px; }
+.folder-grid.details { display:block; }
+.folder-grid.details .icon.small { display:flex; width:100%; height:28px; align-items:center; text-align:left; gap:8px; }
+.folder-grid.details .glyph,.folder-grid.details .glyph-img { font-size:20px; width:22px; height:22px; }
+.folder-grid.details .label { color:#111; text-shadow:none; margin:0; }
+.details-header { display:grid; grid-template-columns:minmax(140px,1fr) 130px 150px; height:25px; align-items:center; border-bottom:1px solid #aaa; margin-bottom:3px; color:#444; font:12px Tahoma,sans-serif; }
+.folder-grid.details .icon.small .label { flex:1; }
+.details-type { width:130px; flex:none; color:#333; font:12px Tahoma,sans-serif; }
+.details-date { width:150px; flex:none; color:#333; font:12px Tahoma,sans-serif; }
+.folder-sidebar { width:130px; flex:none; background:#d6e6fd; display:flex; flex-direction:column; padding:10px 3px; overflow:auto; }
+.folder-sidebar button { border:0; background:transparent; text-align:left; padding:6px; cursor:pointer; }
+.folder-sidebar button:hover { background:#acc9f0; }
+.explorer-status { position:absolute; bottom:0; left:0; right:0; height:21px; padding:2px 6px; border-top:1px solid #b9b9b9; background:#ece9d8; font:12px Tahoma,sans-serif; }
+.notepad-win .win-body { display:flex; flex-direction:column; padding:0; background:white; }
+.notepad-menu { height:26px; background:#ece9d8; }
+.notepad-win textarea { flex:1; width:100%; min-height:0; border:0; resize:none; outline:none; padding:5px; font:13px Consolas,monospace; white-space:pre; overflow-wrap:normal; }
+.notepad-win textarea.wrap { white-space:pre-wrap; overflow-wrap:anywhere; }
+.notepad-status { height:22px; padding:3px 8px; border-top:1px solid #aaa; background:#ece9d8; color:#444; font:12px Tahoma,sans-serif; }
+.search-win .win-body { display:flex; padding:0; background:white; }
+.search-panel { width:220px; flex:none; padding:18px 12px; background:#dce9fb; border-right:1px solid #8babda; font-size:13px; }
+.search-panel input { display:block; width:100%; margin:7px 0; border:1px solid #7d9abd; padding:4px; }
+.search-panel button { padding:4px 15px; }
+.search-results { flex:1; padding:12px; overflow:auto; display:flex; flex-direction:column; align-items:stretch; font-size:13px; }
+.search-results button { border:0; background:transparent; padding:5px; text-align:left; cursor:pointer; }
+.search-results button:hover { background:#c7daf8; }
+.manager-row { display:flex; justify-content:space-between; align-items:center; padding:5px; border-bottom:1px solid #bbb; font-size:12px; }
+.manager-row button { padding:3px 8px; }
 .win-toolbar { margin-bottom: 8px; }
 .win-toolbar button {
   font: inherit; font-size: 12px; background: #ece9d8; color: #222;
@@ -83,9 +176,13 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
   font-size: 13px; color: #111;
 }
 .ctxmenu li { padding: 5px 22px; cursor: pointer; }
+.ctxmenu li[hidden] { display: none; }
 .ctxmenu li:hover { background: #316ac5; color: #fff; }
 .ctxmenu li.sep { height: 1px; padding: 0; margin: 4px 0; background: #d8d8d8; cursor: default; }
 .ctxmenu li.sep:hover { background: #d8d8d8; }
+.ctxmenu .submenu-parent { position:relative; }
+.ctxmenu .submenu { display:none; position:absolute; left:100%; top:-5px; min-width:130px; }
+.ctxmenu .submenu-parent:hover > .submenu,.ctxmenu .submenu-parent:focus-within > .submenu { display:block; }
 .hidden { display: none; }
 
 /* 游戏窗口：iframe 填满窗口内容区（无内边距） */

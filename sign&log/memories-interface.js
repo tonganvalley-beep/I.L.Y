@@ -36,7 +36,7 @@ const ACH_BG = {
   'ILY = I LOVE YOU': 'bg-coast-blue'        // 终章 搜索演出 S05
 };
 /* v2 存档槽 key 的合法格式（与 game/src/core/saves.js 一致） */
-const SAVE_KEY_RE = /^(?:[12]-[1-6]|auto-[1-6]|quick-1)$/;
+const SAVE_KEY_RE = /^(?:[12]-[1-6]|auto-[1-6]|quick-[1-6])$/;
 
 /* ---------- 多语言 ---------- */
 const LANG = {
