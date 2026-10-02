@@ -931,20 +931,9 @@
         body.appendChild(sidebar);
       }
       body.appendChild(grid);
-      if (!explorerChildren(item).length) {
-        const msg = document.createElement('div');
-        msg.className = 'win-msg';
-        msg.textContent = item === recycle ? '（回收站是空的）' : '（空）';
-        grid.appendChild(msg);
-      }
       const status = document.createElement('div'); status.className = 'explorer-status';
       status.textContent = `${explorerChildren(item).length} 个对象`;
       body.appendChild(status);
-    } else {
-      const msg = document.createElement('div');
-      msg.className = 'win-msg';
-      msg.textContent = item.type === 'file' ? '（空白文本文档）' : '（空）';
-      body.appendChild(msg);
     }
   }
 

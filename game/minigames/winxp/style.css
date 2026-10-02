@@ -167,7 +167,6 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 }
 .win-toolbar button:hover { background: #fff; }
 .folder-grid { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
-.win-msg { color: #555; font-size: 13px; padding: 8px; }
 
 /* 右键菜单 */
 .ctxmenu {
