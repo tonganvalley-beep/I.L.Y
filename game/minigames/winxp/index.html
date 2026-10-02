@@ -11,27 +11,32 @@
     <div id="icons" data-page-node-id="Dpj5VgrYtbcpR6fpgGJdnr"></div>
     <div id="windows" data-page-node-id="RmbsEaRvzR1zXSjb04GaaF"></div>
     <div id="startMenu" class="start-menu hidden" role="menu" aria-label="开始菜单">
-      <div class="start-user">用户</div>
+      <div class="start-user"><span class="start-avatar" aria-hidden="true"></span><strong>用户</strong></div>
       <div class="start-columns">
         <div class="start-programs">
-          <button data-start="games">🎮　游戏</button>
-          <button data-start="notepad">📝　记事本</button>
-          <button data-start="all-programs">所有程序　▸</button>
+          <button class="start-program-item" data-start="games"><span class="start-icon folder" aria-hidden="true"></span><span>游戏</span></button>
+          <button class="start-program-item" data-start="notepad"><span class="start-icon notepad" aria-hidden="true"></span><span>记事本</span></button>
+          <div class="start-divider"></div>
+          <div class="start-grow"></div>
+          <button class="start-all" data-start="all-programs"><span>所有程序</span><span class="start-arrow" aria-hidden="true">▶</span></button>
           <div id="allPrograms" class="all-programs-list hidden"></div>
         </div>
         <div class="start-places">
-          <button data-start="docs">📁　我的文档</button>
-          <button data-start="computer">💻　我的电脑</button>
-          <button data-start="recycle">🗑　回收站</button>
-          <button data-start="control">⚙　控制面板</button>
-          <button data-start="search">🔎　搜索</button>
-          <button data-start="run">▣　运行...</button>
+          <button data-start="docs"><span class="start-icon folder" aria-hidden="true"></span>我的文档</button>
+          <button data-start="computer"><span class="start-icon computer" aria-hidden="true"></span>我的电脑</button>
+          <div class="start-divider"></div>
+          <button data-start="recycle"><span class="start-icon recycle" aria-hidden="true"></span>回收站</button>
+          <button data-start="control"><span class="start-icon control" aria-hidden="true"></span>控制面板</button>
+          <div class="start-divider"></div>
+          <button data-start="search"><span class="start-icon search" aria-hidden="true"></span>搜索</button>
+          <button data-start="run"><span class="start-icon run" aria-hidden="true"></span>运行...</button>
         </div>
       </div>
-      <div class="start-footer"><button data-start="logoff">注销</button><button data-start="shutdown">关闭计算机</button></div>
+      <div class="start-footer"><button data-start="logoff"><span class="start-footer-icon logoff" aria-hidden="true">↪</span>注销</button><button data-start="shutdown"><span class="start-footer-icon shutdown" aria-hidden="true">⏻</span>关闭计算机</button></div>
     </div>
-    <div id="taskbar"><button id="startButton" aria-expanded="false">开始</button><div id="taskButtons"></div><div id="taskTray"><span id="trayClock"></span></div></div>
+    <div id="taskbar"><button id="startButton" aria-expanded="false"><span class="xp-flag" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>开始</span></button><div id="taskButtons"></div><div id="taskTray"><span id="trayClock"></span></div></div>
     <ul id="taskbarMenu" class="ctxmenu hidden"><li data-task="cascade">层叠窗口</li><li data-task="tile-h">横向平铺窗口</li><li data-task="tile-v">纵向平铺窗口</li><li data-task="desktop">显示桌面</li><li class="sep"></li><li data-task="manager">任务管理器</li><li data-task="properties">属性</li></ul>
+    <ul id="taskWindowMenu" class="ctxmenu hidden"><li data-window-action="restore">还原(R)</li><li data-window-action="move">移动(M)</li><li data-window-action="size">大小(S)</li><li data-window-action="minimize">最小化(N)</li><li data-window-action="maximize">最大化(X)</li><li class="sep"></li><li data-window-action="close">关闭(C)</li></ul>
 
     <ul id="ctxmenu" class="ctxmenu hidden" data-page-node-id="Dxf9iCyftbjJvUH8uMBoEB">
       <li data-action="sortname">排列图标 → 名称</li>

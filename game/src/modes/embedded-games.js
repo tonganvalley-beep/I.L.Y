@@ -33,6 +33,8 @@
           result[key]=data[key];
         }
         state.flags.PHOTO_RESULT=result;state.flags.PHOTO_COMPLETED=true;
+      }else if(data?.type==='ily-winxp-achievement'&&!photo&&data.id==='There Is No Game!!'){
+        ILY.unlockAchievement(state, 'There Is No Game!!', 'There Is No Game!!');
       }else if(data?.type==='ily-photo-continue'&&photo)done();
     }
     const suspend=()=>{

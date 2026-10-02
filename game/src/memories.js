@@ -31,7 +31,7 @@ const el = (tag, className, text) => {
 /* 剧情回忆收录的章节 */
 const STORY_IDS = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'heroine', 'final'];
 /* 已知成就 ID（与发放处一致：walk.js / phone.js / prologue.js；与主界面一致） */
-const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter', 'father-reply', 'Just two of us', '十年之后', 'One Last Kiss', 'ILY = I LOVE YOU'];
+const ACH_IDS = ['tunnel-end', 'delete-key', 'daily', 'last-beach', 'door-letter', 'father-reply', 'Just two of us', '十年之后', 'One Last Kiss', 'ILY = I LOVE YOU', 'There Is No Game!!'];
 /* 每个成就解锁时所在的那一幕：填该成就实际发放节点 / 玩法所处的 background 资源 ID，
    作为成就方格的底图，等价于“获取时的游戏背景”。 */
 const ACH_BG = {
@@ -44,7 +44,8 @@ const ACH_BG = {
   'Just two of us':   'ch2-sunset',          // 第二章 END 夕阳
   '十年之后':           'ch2-beach',           // 第三章 END 海边
   'One Last Kiss':    'bg-coast-blue',       // 终章 S04 蓝光海岸
-  'ILY = I LOVE YOU': 'bg-coast-blue'        // 终章 搜索演出 S05
+  'ILY = I LOVE YOU': 'bg-coast-blue',       // 终章 搜索演出 S05
+  'There Is No Game!!': 'bg-apartment-dusk' // 第一章 电脑场景
 };
 /* v2 存档槽 key 的合法格式（与 src/core/saves.js 一致） */
 const SAVE_KEY_RE = /^(?:[12]-[1-6]|auto-[1-6]|quick-[1-6])$/;

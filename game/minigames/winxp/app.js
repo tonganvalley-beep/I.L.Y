@@ -12,7 +12,9 @@
   const taskButtons = document.getElementById('taskButtons');
   const trayClock = document.getElementById('trayClock');
   const taskbarMenu = document.getElementById('taskbarMenu');
+  const taskWindowMenu = document.getElementById('taskWindowMenu');
   const taskbar = document.getElementById('taskbar');
+  try { document.querySelector('.start-user strong').textContent = localStorage.getItem('mygame-token') || '用户'; } catch (_) {}
   let shellSettings = { theme: 'blue', separateFolders: false, showClock: true, autoHide: false };
   try { shellSettings = { ...shellSettings, ...JSON.parse(localStorage.getItem('ily-winxp-settings-v1') || '{}') }; } catch (_) {}
   desktop.dataset.theme = shellSettings.theme;
@@ -49,6 +51,8 @@
     { name: '空当接龙', dir: 'games/xp_freecell', icon: 'games/xp_freecell/ico.webp', launch: 'games/xp_freecell/index.html', w: 716, h: 500 },
     { name: '红心大战', dir: 'games/xp_hearts', icon: 'games/xp_hearts/ico.webp', launch: 'games/xp_hearts/index.html', w: 656, h: 540 },
   ];
+  const ORIGINAL_GAME_LAUNCHES = new Set(GAMES.map(game => game.launch));
+  let noGameAchievementSent = false;
 
   // 桌面默认图标与游戏入口
   let rootItems = [
@@ -62,7 +66,7 @@
   try {
     const saved = JSON.parse(localStorage.getItem('ily-winxp-desktop-v1') || 'null');
     if (saved?.version === 1 && Array.isArray(saved.items) &&
-        ['computer', 'docs', 'recycle', 'games'].every(id => saved.items.some(item => item?.id === id))) {
+        ['computer', 'docs', 'recycle'].every(id => saved.items.some(item => item?.id === id))) {
       rootItems = saved.items;
       knownGames = Array.isArray(saved.knownGames) ? saved.knownGames : knownGames;
     }
@@ -91,18 +95,37 @@
     }
     saveDesktop();
     renderPrograms();
+    checkNoGamesAchievement();
+  }
+  function checkNoGamesAchievement() {
+    if (noGameAchievementSent) return;
+    const active = (items, inRecycle = false) => items.some(item => {
+      if (item === recycle) return false;
+      if (!inRecycle && item.type === 'game' && ORIGINAL_GAME_LAUNCHES.has(item.launch)) return true;
+      return item.children ? active(item.children, inRecycle || item === recycle) : false;
+    });
+    if (active(rootItems)) return;
+    noGameAchievementSent = true;
+    if (parent !== window) parent.postMessage({ type: 'ily-winxp-achievement', id: 'There Is No Game!!' }, targetHostOrigin);
   }
   function renderPrograms() {
     const list = document.getElementById('allPrograms');
     list.replaceChildren();
-    const label = document.createElement('div'); label.textContent = '游戏'; label.className = 'program-heading'; list.appendChild(label);
+    let gamesHeading = null;
     for (const game of GAMES) {
-      const button = document.createElement('button'); button.textContent = game.name;
-      button.addEventListener('click', event => { event.stopPropagation(); toggleStart(false); openGame(game); });
+      const entry = findById('game-' + game.name);
+      if (!entry || locate(entry)?.inRecycle) continue;
+      if (!gamesHeading) { gamesHeading = document.createElement('div'); gamesHeading.textContent = '游戏'; gamesHeading.className = 'program-heading'; list.appendChild(gamesHeading); }
+      const button = document.createElement('button');
+      const icon = document.createElement('img'); icon.className = 'start-program-glyph'; icon.src = entry.iconSrc || game.icon; icon.alt = '';
+      const name = document.createElement('span'); name.textContent = entry.name; button.append(icon, name);
+      button.addEventListener('click', event => { event.stopPropagation(); toggleStart(false); openGame(entry); });
       list.appendChild(button);
     }
     const accessory = document.createElement('div'); accessory.className = 'program-heading'; accessory.textContent = '附件'; list.appendChild(accessory);
-    const notepad = document.createElement('button'); notepad.textContent = '记事本';
+    const notepad = document.createElement('button');
+    const notepadIcon = document.createElement('span'); notepadIcon.className = 'start-icon notepad'; notepadIcon.setAttribute('aria-hidden', 'true');
+    const notepadName = document.createElement('span'); notepadName.textContent = '记事本'; notepad.append(notepadIcon, notepadName);
     notepad.addEventListener('click', event => { event.stopPropagation(); toggleStart(false); openNotepad(); }); list.appendChild(notepad);
   }
 
@@ -192,12 +215,14 @@
   function refreshFolders() {
     saveDesktop();
     renderDesktop();
+    renderPrograms();
     for (const win of [...windowsEl.querySelectorAll('.folder-win')]) {
       const location = win._item === drive ? { inRecycle: false } : locate(win._item);
-      if (!location || (win._item !== recycle && location.inRecycle)) { win._task?.remove(); win.remove(); continue; }
-      win.querySelector('.win-title-text').textContent = win._item.name;
+      if (!location || (win._item !== recycle && location.inRecycle)) { win._task?.remove(); win.remove(); refreshTaskManagers(); continue; }
+      setWindowTitle(win, win._item.name);
       renderWindowBody(win, win._item);
     }
+    checkNoGamesAchievement();
   }
   function canMove(item, target) {
     const source = locate(item);
@@ -500,7 +525,7 @@
   }
 
   // ── 创建窗口通用外壳：标题栏 + 最小化/最大化/关闭 + 八向缩放手柄 ──
-  function createWindow({ cls = '', title, width = '300px', height = '200px', left, top }) {
+  function createWindow({ cls = '', title, width = '300px', height = '200px', left, top, iconType = 'run', iconSrc = null }) {
     const win = document.createElement('div');
     win.className = 'win' + (cls ? ' ' + cls : '');
     win.style.zIndex = ++zCounter;
@@ -528,16 +553,30 @@
     windowsEl.appendChild(win);
     const task = document.createElement('button');
     task.className = 'task-button active';
-    task.textContent = title;
-    task.title = title;
+    if (iconSrc) {
+      const icon = document.createElement('img'); icon.src = iconSrc; icon.alt = ''; task.appendChild(icon);
+    } else {
+      const icon = document.createElement('span'); icon.className = 'start-icon ' + iconType; icon.setAttribute('aria-hidden', 'true'); task.appendChild(icon);
+    }
+    task.title = title; task.setAttribute('aria-label', title);
     taskButtons.appendChild(task);
     win._task = task;
+    task.addEventListener('contextmenu', event => { event.preventDefault(); event.stopPropagation(); showTaskWindowMenu(event, win); });
     task.addEventListener('click', () => {
       if (win.style.display === 'none') { win.style.display = ''; activateWindow(win); syncGame(win); }
       else if (win.style.zIndex === String(zCounter)) { win.style.display = 'none'; task.classList.remove('active'); syncGame(win); }
       else activateWindow(win);
+      refreshTaskManagers();
     });
+    refreshTaskManagers();
     return win;
+  }
+
+  function setWindowTitle(win, title) {
+    win.querySelector('.win-title-text').textContent = title;
+    win._task.title = title;
+    win._task.setAttribute('aria-label', title);
+    refreshTaskManagers();
   }
 
   function activateWindow(win) {
@@ -551,8 +590,8 @@
     const title = win.querySelector('.win-title');
     enableDrag(win, title);
     win.addEventListener('mousedown', () => activateWindow(win));
-    win.querySelector('.win-close').addEventListener('click', () => { win._task?.remove(); win.remove(); });
-    win.querySelector('.win-min').addEventListener('click', () => { win.style.display = 'none'; win._task?.classList.remove('active'); syncGame(win); });
+    win.querySelector('.win-close').addEventListener('click', () => { win._task?.remove(); win.remove(); refreshTaskManagers(); });
+    win.querySelector('.win-min').addEventListener('click', () => { win.style.display = 'none'; win._task?.classList.remove('active'); syncGame(win); refreshTaskManagers(); });
     const maxBtn = win.querySelector('.win-max');
     enableMaximize(win, maxBtn);
     win._maxBtn = maxBtn;
@@ -695,7 +734,7 @@
     cover.querySelector('[data-answer="cancel"]').addEventListener('click', () => cover.remove());
   }
   function openControlPanel() {
-    const win = createWindow({ cls: 'control-win', title: '控制面板', width: '480px', height: '330px' }); wireChrome(win);
+    const win = createWindow({ cls: 'control-win', title: '控制面板', width: '480px', height: '330px', iconType: 'control' }); wireChrome(win);
     const body = win.querySelector('.win-body'); body.classList.add('control-grid');
     for (const [name, action] of [['显示', openDisplayProperties], ['文件夹选项', showFolderOptions]]) {
       const button = document.createElement('button'); button.textContent = name;
@@ -707,9 +746,7 @@
     if (!isFolder(item)) { if (item.type === 'game') openGame(item); else openItem(item); return; }
     win._item = item;
     if (record) { win._history.splice(win._historyIndex + 1); win._history.push(item); win._historyIndex++; }
-    win.querySelector('.win-title-text').textContent = item.name;
-    win._task.textContent = item.name;
-    win._task.title = item.name;
+    setWindowTitle(win, item.name);
     renderWindowBody(win, item);
   }
 
@@ -718,7 +755,8 @@
     if (item?.type === 'link') item = findById(item.targetId);
     if (item.type === 'game') { openGame(item); return; }
     if (item.type === 'file') { openNotepad(item); return; }
-    const win = createWindow({ cls: 'folder-win', title: item.name, width: '580px', height: '420px' });
+    const iconType = item === computer || item === drive ? 'computer' : item === recycle ? 'recycle' : 'folder';
+    const win = createWindow({ cls: 'folder-win', title: item.name, width: '580px', height: '420px', iconType });
     win._item = item;
     wireChrome(win);
     // 窗口空白处右键；回收站只提供清空操作。
@@ -733,7 +771,7 @@
 
   function openNotepad(item = null) {
     const title = item ? `${item.name} - 记事本` : '无标题 - 记事本';
-    const win = createWindow({ cls: 'notepad-win', title, width: '520px', height: '360px' });
+    const win = createWindow({ cls: 'notepad-win', title, width: '520px', height: '360px', iconType: 'notepad' });
     win._item = item; wireChrome(win);
     const body = win.querySelector('.win-body');
     body.innerHTML = '<div class="notepad-menu"><button data-notepad="file">文件(F)</button><button data-notepad="edit">编辑(E)</button><button data-notepad="format">格式(O)</button><button data-notepad="view">查看(V)</button><button data-notepad="help">帮助(H)</button></div><textarea spellcheck="false" aria-label="文本文档内容"></textarea><div class="notepad-status">第 1 行，第 1 列</div>';
@@ -753,8 +791,7 @@
           item = { id: 'f' + Date.now(), type: 'file', name, glyph: '📄', content: area.value, x, y };
           rootItems.push(item);
         } else { item.name = name; item.content = area.value; }
-        win._item = item; win.querySelector('.win-title-text').textContent = `${name} - 记事本`;
-        win._task.textContent = `${name} - 记事本`; saveDesktop(); refreshFolders();
+        win._item = item; setWindowTitle(win, `${name} - 记事本`); saveDesktop(); refreshFolders();
       });
     }
     body.querySelectorAll('[data-notepad]').forEach(button => button.addEventListener('click', event => {
@@ -797,7 +834,7 @@
     input.addEventListener('keydown', event => { if (event.key === 'Enter') close(true); if (event.key === 'Escape') close(false); });
   }
   function openSearch() {
-    const win = createWindow({ cls: 'search-win', title: '搜索结果', width: '620px', height: '420px' }); wireChrome(win);
+    const win = createWindow({ cls: 'search-win', title: '搜索结果', width: '620px', height: '420px', iconType: 'search' }); wireChrome(win);
     const body = win.querySelector('.win-body');
     body.innerHTML = '<div class="search-panel"><label>全部或部分文件名：<input aria-label="搜索文件名"></label><button>搜索</button></div><div class="search-results"></div>';
     const input = body.querySelector('input'), results = body.querySelector('.search-results');
@@ -853,7 +890,7 @@
     // 支持在 manifest 里为单个游戏指定窗口尺寸（entry.w / entry.h，单位 px），默认 480×360
     const gw = (entry && entry.w ? entry.w : 480) + 'px';
     const gh = (entry && entry.h ? entry.h : 360) + 'px';
-    const win = createWindow({ cls: 'game-win', title: entry.name, width: gw, height: gh });
+    const win = createWindow({ cls: 'game-win', title: entry.name, width: gw, height: gh, iconSrc: entry.iconSrc });
     win.dataset.game=entry.launch;
     const body = win.querySelector('.win-body');
     body.innerHTML =
@@ -1046,7 +1083,7 @@
     ctx.style.top  = e.clientY + 'px';
     ctx.classList.remove('hidden');
   });
-  document.addEventListener('click', () => { ctx.classList.add('hidden'); winMenu.classList.add('hidden'); itemMenu.classList.add('hidden'); shellMenu.classList.add('hidden'); taskbarMenu.classList.add('hidden'); });
+  document.addEventListener('click', () => { ctx.classList.add('hidden'); winMenu.classList.add('hidden'); itemMenu.classList.add('hidden'); shellMenu.classList.add('hidden'); taskbarMenu.classList.add('hidden'); taskWindowMenu.classList.add('hidden'); });
 
   ctx.addEventListener('click', e => {
     const li = e.target.closest('li[data-action]');
@@ -1103,6 +1140,57 @@
     trayClock.title = now.toLocaleDateString('zh-CN');
   }
   updateClock(); setInterval(updateClock, 30000);
+  function showTaskWindowMenu(event, win) {
+    taskWindowMenu._win = win;
+    taskWindowMenu.querySelectorAll('[data-window-action]').forEach(entry => {
+      const action = entry.dataset.windowAction;
+      const disabled = action === 'restore' ? win.style.display !== 'none' && !win._max
+        : action === 'minimize' ? win.style.display === 'none'
+        : action === 'maximize' ? !!win._max
+        : action === 'move' || action === 'size' ? !!win._max : false;
+      entry.classList.toggle('disabled', disabled); entry.setAttribute('aria-disabled', String(disabled));
+    });
+    taskbarMenu.classList.add('hidden');
+    taskWindowMenu.classList.remove('hidden');
+    taskWindowMenu.style.left = Math.min(event.clientX, innerWidth - taskWindowMenu.offsetWidth - 4) + 'px';
+    taskWindowMenu.style.top = Math.max(0, event.clientY - taskWindowMenu.offsetHeight - 3) + 'px';
+  }
+  function keyboardWindowCommand(win, mode) {
+    if (win.style.display === 'none') win.style.display = '';
+    activateWindow(win);
+    const original = { left: win.offsetLeft, top: win.offsetTop, width: win.offsetWidth, height: win.offsetHeight };
+    win.classList.add('keyboard-command');
+    const handle = event => {
+      if (event.key === 'Enter' || event.key === 'Escape') {
+        event.preventDefault(); event.stopImmediatePropagation(); document.removeEventListener('keydown', handle, true);
+        win.classList.remove('keyboard-command');
+        if (event.key === 'Escape') Object.assign(win.style, { left: original.left + 'px', top: original.top + 'px', width: original.width + 'px', height: original.height + 'px' });
+        return;
+      }
+      if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+      event.preventDefault(); event.stopImmediatePropagation();
+      const step = event.shiftKey ? 10 : 1;
+      const dx = event.key === 'ArrowLeft' ? -step : event.key === 'ArrowRight' ? step : 0;
+      const dy = event.key === 'ArrowUp' ? -step : event.key === 'ArrowDown' ? step : 0;
+      if (mode === 'move') { win.style.left = win.offsetLeft + dx + 'px'; win.style.top = win.offsetTop + dy + 'px'; }
+      else { win.style.width = Math.max(220, win.offsetWidth + dx) + 'px'; win.style.height = Math.max(140, win.offsetHeight + dy) + 'px'; }
+    };
+    document.addEventListener('keydown', handle, true);
+  }
+  taskWindowMenu.addEventListener('click', event => {
+    const entry = event.target.closest('[data-window-action]');
+    if (!entry || entry.classList.contains('disabled')) return;
+    event.stopPropagation(); taskWindowMenu.classList.add('hidden');
+    const win = taskWindowMenu._win;
+    if (!win?.isConnected) return;
+    const action = entry.dataset.windowAction;
+    if (action === 'close') win.querySelector('.win-close').click();
+    else if (action === 'minimize') win.querySelector('.win-min').click();
+    else if (action === 'maximize') { if (win.style.display === 'none') win.style.display = ''; setMaximized(win, win._maxBtn, true); activateWindow(win); syncGame(win); }
+    else if (action === 'restore') { if (win._max) setMaximized(win, win._maxBtn, false); win.style.display = ''; activateWindow(win); syncGame(win); }
+    else if (action === 'move' || action === 'size') keyboardWindowCommand(win, action);
+    refreshTaskManagers();
+  });
   taskbar.addEventListener('contextmenu', event => {
     event.preventDefault(); event.stopPropagation();
     taskbarMenu.style.left = Math.min(event.clientX, innerWidth - 175) + 'px';
@@ -1127,19 +1215,63 @@
     else if (action === 'manager') openTaskManager();
     else if (action === 'properties') showTaskbarProperties();
   });
+  function refreshTaskManagers() {
+    for (const win of windowsEl.querySelectorAll('.manager-win')) win._refreshManager?.();
+  }
+  function processName(win) {
+    if (win.classList.contains('manager-win')) return 'taskmgr.exe';
+    if (win.classList.contains('notepad-win')) return 'notepad.exe';
+    if (win.classList.contains('game-win')) return 'game.exe';
+    return 'explorer.exe';
+  }
   function openTaskManager() {
-    const win = createWindow({ cls: 'manager-win', title: 'Windows 任务管理器', width: '420px', height: '320px' }); wireChrome(win);
+    const existing = windowsEl.querySelector('.manager-win');
+    if (existing) { existing.style.display = ''; activateWindow(existing); existing._refreshManager?.(); return; }
+    const win = createWindow({ cls: 'manager-win', title: 'Windows 任务管理器', width: '470px', height: '350px', iconType: 'taskmgr' }); wireChrome(win);
     const body = win.querySelector('.win-body');
+    body.innerHTML = '<div class="manager-tabs"><button data-manager-tab="applications">应用程序</button><button data-manager-tab="processes">进程</button></div><div class="manager-header"></div><div class="manager-list"></div><div class="manager-footer"><span class="manager-status"></span><button data-manager-action="switch">切换至</button><button data-manager-action="end">结束任务</button><button data-manager-action="new">新建任务...</button></div>';
+    let tab = 'applications', selected = null;
+    const list = body.querySelector('.manager-list');
+    const header = body.querySelector('.manager-header');
+    const status = body.querySelector('.manager-status');
     const render = () => {
-      body.replaceChildren();
-      for (const running of [...windowsEl.children].filter(other => other !== win)) {
-        const row = document.createElement('div'); row.className = 'manager-row';
-        const label = document.createElement('span'); label.textContent = running.querySelector('.win-title-text')?.textContent || '';
-        const end = document.createElement('button'); end.textContent = '结束任务';
-        end.addEventListener('click', () => { running.querySelector('.win-close').click(); render(); });
-        row.append(label, end); body.appendChild(row);
+      if (!win.isConnected) return;
+      const windows = [...windowsEl.children].filter(other => other.classList.contains('win'));
+      body.querySelectorAll('[data-manager-tab]').forEach(button => button.classList.toggle('active', button.dataset.managerTab === tab));
+      header.innerHTML = tab === 'applications' ? '<span>任务</span><span>状态</span>' : '<span>映像名称</span><span>用户名</span>';
+      list.replaceChildren();
+      const entries = tab === 'applications'
+        ? windows.map(other => ({ name: other.querySelector('.win-title-text')?.textContent || '', win: other, status: other.style.display === 'none' ? '已最小化' : '正在运行' }))
+        : [{ name: 'explorer.exe', win: null, status: '用户' }, ...windows.filter(other => !other.classList.contains('folder-win')).map(other => ({ name: processName(other), win: other, status: '用户' }))];
+      for (const entry of entries) {
+        const row = document.createElement('button'); row.className = 'manager-row';
+        row.innerHTML = `<span>${escapeHtml(entry.name)}</span><span>${escapeHtml(entry.status)}</span>`;
+        if (entry.win && entry.win === selected) row.classList.add('selected');
+        row.addEventListener('click', () => { selected = entry.win; render(); });
+        row.addEventListener('dblclick', () => {
+          if (!entry.win) return;
+          entry.win.style.display = ''; activateWindow(entry.win); syncGame(entry.win); render();
+        });
+        list.appendChild(row);
       }
-    }; render();
+      status.textContent = tab === 'applications' ? `${entries.length} 个任务` : `${entries.length} 个进程`;
+      body.querySelector('[data-manager-action="switch"]').hidden = tab !== 'applications';
+      const end = body.querySelector('[data-manager-action="end"]');
+      end.textContent = tab === 'applications' ? '结束任务' : '结束进程';
+      end.disabled = !selected || selected === win;
+    };
+    win._refreshManager = render;
+    body.querySelectorAll('[data-manager-tab]').forEach(button => button.addEventListener('click', () => { tab = button.dataset.managerTab; selected = null; render(); }));
+    body.querySelector('[data-manager-action="switch"]').addEventListener('click', () => {
+      if (!selected || !selected.isConnected) return;
+      selected.style.display = ''; activateWindow(selected); syncGame(selected); render();
+    });
+    body.querySelector('[data-manager-action="end"]').addEventListener('click', () => {
+      if (!selected || selected === win || !selected.isConnected) return;
+      selected.querySelector('.win-close').click(); selected = null; render();
+    });
+    body.querySelector('[data-manager-action="new"]').addEventListener('click', openRun);
+    render();
   }
   function showTaskbarProperties() {
     const cover = document.createElement('div'); cover.className = 'xp-dialog-cover';
@@ -1161,6 +1293,8 @@
     if (!show) document.getElementById('allPrograms').classList.add('hidden');
   }
   startButton.addEventListener('click', event => { event.stopPropagation(); toggleStart(); });
+  startMenu.querySelector('[data-start="all-programs"]').addEventListener('mouseenter', () => document.getElementById('allPrograms').classList.remove('hidden'));
+  startMenu.addEventListener('mouseleave', () => document.getElementById('allPrograms').classList.add('hidden'));
   startMenu.addEventListener('click', event => {
     const action = event.target.closest('[data-start]')?.dataset.start;
     if (!action) return;
@@ -1201,7 +1335,7 @@
     if (!event.target.closest('#startMenu, #startButton')) toggleStart(false);
   });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { toggleStart(false); ctx.classList.add('hidden'); winMenu.classList.add('hidden'); itemMenu.classList.add('hidden'); shellMenu.classList.add('hidden'); return; }
+    if (event.key === 'Escape') { toggleStart(false); ctx.classList.add('hidden'); winMenu.classList.add('hidden'); itemMenu.classList.add('hidden'); shellMenu.classList.add('hidden'); taskWindowMenu.classList.add('hidden'); return; }
     if ((event.key === 'Meta' || event.ctrlKey && event.key === 'Escape') && !event.repeat) { event.preventDefault(); toggleStart(); return; }
     if (event.target instanceof Element && (event.target.matches('input, textarea, [contenteditable]') || event.target.closest('iframe'))) return;
     const selected = document.querySelector('.icon.selected');

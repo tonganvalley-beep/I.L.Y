@@ -14,25 +14,60 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 #taskbar { position:absolute; z-index:1000; bottom:0; left:0; right:0; height:38px; display:flex; align-items:stretch; color:white; background:linear-gradient(#438cf0 0%,#245edb 15%,#1947bb 85%,#143aa0); border-top:1px solid #679bff; box-shadow:0 -2px 4px #153b85; }
 #taskbar.autohide { transform:translateY(32px); transition:transform .18s; }
 #taskbar.autohide:hover,#taskbar.autohide:focus-within { transform:translateY(0); }
-#startButton { flex:0 0 100px; border:1px solid #7ee072; border-radius:0 12px 12px 0; color:white; text-align:left; padding-left:20px; font:bold italic 20px Tahoma,sans-serif; text-shadow:1px 1px 2px #145c0e; background:linear-gradient(#69bc59,#288d35 55%,#14651e); cursor:pointer; }
+#startButton { flex:0 0 103px; display:flex; align-items:center; gap:7px; border:1px solid #7ee072; border-left:0; border-radius:0 12px 12px 0; color:white; padding-left:14px; font:bold italic 20px Tahoma,sans-serif; text-shadow:1px 1px 2px #145c0e; background:linear-gradient(#69bc59,#288d35 55%,#14651e); cursor:pointer; }
 #startButton:hover, #startButton[aria-expanded="true"] { filter:brightness(1.14); }
+.xp-flag { width:22px; height:20px; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:2px; transform:skewY(-8deg); filter:drop-shadow(1px 1px 1px #174c1b); }
+.xp-flag i:nth-child(1) { background:#f04436; }.xp-flag i:nth-child(2) { background:#4cb0fa; }.xp-flag i:nth-child(3) { background:#52bc46; }.xp-flag i:nth-child(4) { background:#f7c943; }
 #taskButtons { flex:1; display:flex; align-items:center; gap:3px; padding:2px 5px; overflow:hidden; }
-.task-button { width:150px; max-width:25vw; height:30px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; text-align:left; border:1px solid #16469e; border-radius:3px; color:white; background:linear-gradient(#5b9af3,#2967c9); cursor:pointer; padding:0 8px; }
+.task-button { flex:0 0 42px; height:30px; display:flex; align-items:center; justify-content:center; border:1px solid #16469e; border-radius:3px; color:white; background:linear-gradient(#5b9af3,#2967c9); cursor:pointer; padding:2px; }
+.task-button img { width:22px; height:22px; object-fit:contain; }
+.task-button .start-icon { transform:scale(.78); }
 .task-button.active { background:linear-gradient(#184da6,#3c78dd); box-shadow:inset 1px 1px 3px #123c8a; }
 #taskTray { min-width:80px; display:flex; align-items:center; justify-content:center; background:linear-gradient(#21b9eb,#0d8dc6); border-left:1px solid #71d9f1; font:12px Tahoma,sans-serif; }
-.start-menu { position:absolute; z-index:1001; left:0; bottom:38px; width:390px; max-width:95vw; height:385px; display:flex; flex-direction:column; border:2px solid #1b55b7; border-radius:8px 8px 0 0; background:#fff; box-shadow:3px -3px 10px #1735608a; }
+.start-menu { position:absolute; z-index:1001; left:0; bottom:38px; width:426px; max-width:96vw; height:448px; max-height:calc(100vh - 42px); display:flex; flex-direction:column; border:2px solid #1653b4; border-bottom:0; border-radius:9px 9px 0 0; background:#fff; box-shadow:3px -3px 12px #102a5a99; }
 .start-menu.hidden { display:none; }
-.start-user { height:46px; padding:10px 16px; background:linear-gradient(#2469d4,#559cf5); color:white; font:bold 17px Tahoma,sans-serif; }
+.start-user { flex:0 0 58px; display:flex; align-items:center; gap:10px; padding:5px 11px; background:linear-gradient(#0b4bb9 0%,#347ede 48%,#438fee 82%,#2867ca 100%); color:white; font:17px Tahoma,sans-serif; text-shadow:1px 1px #1b438d; border-bottom:2px solid #f4a64c; border-radius:7px 7px 0 0; }
+.start-avatar { position:relative; width:41px; height:41px; flex:none; border:2px solid #fff; border-radius:4px; background:linear-gradient(#dcecff,#9dbfdf); box-shadow:1px 1px 3px #083d8b; overflow:hidden; }
+.start-avatar::before { content:""; position:absolute; width:13px; height:13px; border-radius:50%; background:#e2a76c; top:7px; left:12px; }
+.start-avatar::after { content:""; position:absolute; width:28px; height:18px; border-radius:50% 50% 0 0; background:#365c89; bottom:-3px; left:5px; }
 .start-columns { flex:1; display:flex; min-height:0; }
-.start-programs,.start-places { width:50%; padding:8px 3px; display:flex; flex-direction:column; }
-.start-places { background:#d9e7fb; border-left:1px solid #87aee1; }
-.start-menu button { min-height:35px; border:0; background:transparent; text-align:left; font:13px Tahoma,"Microsoft YaHei",sans-serif; padding:5px 10px; cursor:pointer; }
+.start-programs,.start-places { display:flex; flex-direction:column; min-height:0; padding:7px 4px 6px; }
+.start-programs { width:51%; background:#fff; }
+.start-places { width:49%; background:#d9e6f8; border-left:1px solid #a8c4eb; }
+.start-menu button { min-height:34px; border:0; background:transparent; color:#172b48; display:flex; align-items:center; gap:9px; text-align:left; font:13px Tahoma,"Microsoft YaHei",sans-serif; padding:5px 9px; cursor:pointer; white-space:nowrap; }
+.start-menu .start-program-item { min-height:42px; font-weight:bold; color:#15315d; }
+.start-menu .start-places button { min-height:35px; }
 .start-menu button:hover { background:#316ac5; color:#fff; }
-.start-footer { display:flex; justify-content:flex-end; gap:8px; height:47px; padding:5px 12px; background:#2b6bd1; }
-.start-footer button { color:white; }
-.all-programs-list { position:absolute; left:190px; bottom:46px; width:200px; max-height:300px; overflow:auto; display:flex; flex-direction:column; background:white; border:1px solid #6889bb; box-shadow:2px 3px 8px #0005; padding:3px; }
+.start-divider { flex:0 0 1px; height:1px; margin:5px 8px; background:linear-gradient(90deg,transparent,#92a8c5,transparent); }
+.start-grow { flex:1; }
+.start-menu .start-all { justify-content:center; min-height:32px; border-top:1px solid #d0d6e1; color:#1e2e4b; font-weight:bold; }
+.start-arrow { width:18px; height:18px; display:grid; place-items:center; border-radius:50%; color:white; background:linear-gradient(#91d377,#27952e); font-size:9px; box-shadow:0 0 0 1px #4b9f48; }
+.start-footer { flex:0 0 47px; display:flex; align-items:center; justify-content:flex-end; gap:5px; padding:4px 9px; background:linear-gradient(#3784e0,#1953ba); border-top:1px solid #a9cbf6; }
+.start-footer button { min-height:34px; color:white; padding:3px 7px; }
+.start-footer-icon { width:25px; height:25px; display:grid; place-items:center; border:1px solid #fff8; border-radius:4px; color:white; font:bold 18px Tahoma,sans-serif; }
+.start-footer-icon.logoff { background:linear-gradient(#6fb5f1,#2363c5); }.start-footer-icon.shutdown { background:linear-gradient(#f6a36f,#d44a21); }
+.all-programs-list { position:absolute; left:calc(100% - 2px); bottom:0; width:210px; max-height:340px; overflow:auto; display:flex; flex-direction:column; background:#fff; border:1px solid #6889bb; box-shadow:2px 3px 8px #0005; padding:3px; border-radius:4px; }
 .all-programs-list.hidden { display:none; }
-.program-heading { padding:5px 10px; color:#2151a1; font-size:12px; font-weight:bold; border-bottom:1px solid #ddd; }
+.program-heading { padding:6px 10px; color:#2151a1; font-size:12px; font-weight:bold; border-bottom:1px solid #ddd; }
+.all-programs-list button { min-height:31px; padding:3px 7px; font-size:12px; }
+.start-program-glyph { width:24px; height:24px; object-fit:contain; flex:none; }
+.start-icon { position:relative; display:inline-block; width:25px; height:25px; flex:0 0 25px; }
+.start-icon.folder::before { content:""; position:absolute; left:2px; top:6px; width:21px; height:16px; border:1px solid #ac751b; border-radius:2px; background:linear-gradient(#ffe47c,#eab247); box-shadow:1px 2px 2px #0003; }
+.start-icon.folder::after { content:""; position:absolute; left:3px; top:3px; width:10px; height:5px; background:#f5c457; border:1px solid #ac751b; border-bottom:0; border-radius:2px 2px 0 0; }
+.start-icon.notepad::before { content:""; position:absolute; left:5px; top:1px; width:17px; height:22px; border:1px solid #486b91; background:repeating-linear-gradient(#fff 0 4px,#bdd4e9 5px 6px); box-shadow:1px 2px 2px #0004; }
+.start-icon.notepad::after { content:""; position:absolute; left:3px; top:2px; width:4px; height:22px; background:#487bc5; border:1px solid #244b83; }
+.start-icon.computer::before { content:""; position:absolute; left:2px; top:2px; width:21px; height:16px; border:2px solid #4f6677; border-radius:2px; background:linear-gradient(#88d9f8,#348abf); box-shadow:1px 2px 2px #0004; }
+.start-icon.computer::after { content:""; position:absolute; left:8px; bottom:1px; width:11px; height:5px; border-bottom:3px solid #68798a; background:#a8b8c9; }
+.start-icon.recycle::before { content:""; position:absolute; left:6px; top:6px; width:15px; height:17px; border:2px solid #697f9a; background:repeating-linear-gradient(90deg,#dfe7f0 0 3px,#94a8c2 3px 4px); transform:perspective(30px) rotateX(-8deg); }
+.start-icon.recycle::after { content:""; position:absolute; left:5px; top:3px; width:17px; height:3px; border:1px solid #667b96; background:#e4edf4; }
+.start-icon.control::before { content:"⚙"; position:absolute; left:0; top:-3px; color:#657e9f; font:26px Tahoma,sans-serif; text-shadow:1px 1px #fff; }
+.start-icon.search::before { content:""; position:absolute; left:2px; top:1px; width:14px; height:14px; border:3px solid #5a83ac; border-radius:50%; background:#d3eafb; }
+.start-icon.search::after { content:""; position:absolute; left:17px; top:15px; width:4px; height:10px; background:#7a5f38; transform:rotate(-43deg); border-radius:2px; }
+.start-icon.run::before { content:""; position:absolute; left:2px; top:3px; width:21px; height:17px; border:2px solid #7890ab; background:linear-gradient(#eaf4fb 0 30%,#b7d2ef 31%); box-shadow:1px 2px 2px #0003; }
+.start-icon.run::after { content:"▶"; position:absolute; left:9px; top:8px; color:#2d6fb1; font:10px Tahoma,sans-serif; }
+.start-icon.taskmgr::before { content:""; position:absolute; inset:2px 2px 3px; border:2px solid #526a89; background:linear-gradient(#a6d4ef 0 28%,#f3f7f8 29%); box-shadow:1px 2px 2px #0004; }
+.start-icon.taskmgr::after { content:"▮▮▮"; position:absolute; left:5px; top:8px; color:#3aa068; font:12px Tahoma,sans-serif; letter-spacing:1px; }
+@media (max-width:650px) { .all-programs-list { left:auto; right:0; } }
 .power-overlay { position:absolute; z-index:20000; inset:0; display:flex; align-items:center; justify-content:center; background:#163a8ad9; }
 .power-overlay.power-off { background:#000; }
 .power-overlay.power-off .power-panel { background:#000; box-shadow:none; border:0; }
@@ -158,8 +193,17 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 .search-results { flex:1; padding:12px; overflow:auto; display:flex; flex-direction:column; align-items:stretch; font-size:13px; }
 .search-results button { border:0; background:transparent; padding:5px; text-align:left; cursor:pointer; }
 .search-results button:hover { background:#c7daf8; }
-.manager-row { display:flex; justify-content:space-between; align-items:center; padding:5px; border-bottom:1px solid #bbb; font-size:12px; }
-.manager-row button { padding:3px 8px; }
+.manager-win .win-body { display:flex; flex-direction:column; padding:6px; background:#ece9d8; }
+.manager-tabs { display:flex; gap:2px; flex:none; }
+.manager-tabs button { padding:5px 12px; border:1px solid #989889; border-radius:4px 4px 0 0; background:#d8d5c7; cursor:pointer; }
+.manager-tabs button.active { background:white; border-bottom-color:white; font-weight:bold; }
+.manager-header { display:grid; grid-template-columns:minmax(120px,1fr) 95px; padding:5px 8px; border:1px solid #a3a3a3; border-bottom:0; background:#f5f5f5; font:12px Tahoma,sans-serif; }
+.manager-list { flex:1; min-height:0; overflow:auto; background:white; border:1px solid #a3a3a3; }
+.manager-row { display:grid; grid-template-columns:minmax(120px,1fr) 95px; width:100%; min-height:24px; border:0; background:white; padding:4px 8px; text-align:left; cursor:pointer; font:12px Tahoma,"Microsoft YaHei",sans-serif; }
+.manager-row:hover { background:#e4efff; }.manager-row.selected { background:#316ac5; color:white; }
+.manager-footer { display:flex; align-items:center; gap:6px; flex:none; padding-top:6px; font:12px Tahoma,sans-serif; }
+.manager-footer .manager-status { flex:1; }.manager-footer button { padding:4px 7px; font:12px Tahoma,"Microsoft YaHei",sans-serif; }
+.win.keyboard-command { outline:2px dotted #fbe083; }
 .win-toolbar { margin-bottom: 8px; }
 .win-toolbar button {
   font: inherit; font-size: 12px; background: #ece9d8; color: #222;
@@ -177,6 +221,7 @@ html, body { margin: 0; height: 100%; font-family: Tahoma, "Microsoft YaHei", "S
 .ctxmenu li { padding: 5px 22px; cursor: pointer; }
 .ctxmenu li[hidden] { display: none; }
 .ctxmenu li:hover { background: #316ac5; color: #fff; }
+.ctxmenu li.disabled,.ctxmenu li.disabled:hover { color:#999; background:#fff; cursor:default; }
 .ctxmenu li.sep { height: 1px; padding: 0; margin: 4px 0; background: #d8d8d8; cursor: default; }
 .ctxmenu li.sep:hover { background: #d8d8d8; }
 .ctxmenu .submenu-parent { position:relative; }
